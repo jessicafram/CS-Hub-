@@ -1,0 +1,84 @@
+{
+    "curso": "Ciência da Computação",
+    "grade_curricular": [
+        {
+            "periodo": 1,
+            "materias": [
+                {
+                    "nome": "Algoritmos e Lógica",
+                    "status": "Concluído",
+                    "horas": 80,
+                    "descricao": "Fundamentos de programação estruturada.",
+                    "grade_conteudo": [
+                        "Variáveis",
+                        "Estruturas Condicionais",
+                        "Loops"
+                    ]
+                },
+                {
+                    "nome": "Matemática Discreta",
+                    "status": "Concluído",
+                    "horas": 80,
+                    "descricao": "Bases lógicas da computação.",
+                    "grade_conteudo": [
+                        "Conjuntos",
+                        "Lógica Proposicional"
+                    ]
+                }
+            ]
+        },
+        {
+            "periodo": 2,
+            "materias": [
+                {
+                    "nome": "Estrutura de Dados I",
+                    "status": "Concluído",
+                    "horas": 80,
+                    "descricao": "Organização eficiente de dados.",
+                    "grade_conteudo": [
+                        "Listas",
+                        "Pilhas",
+                        "Filas"
+                    ]
+                },
+                {
+                    "nome": "POO (Java)",
+                    "status": "Concluído",
+                    "horas": 80,
+                    "descricao": "Orientação a Objetos.",
+                    "grade_conteudo": [
+                        "Classes",
+                        "Herança",
+                        "Polimorfismo"
+                    ]
+                }
+            ]
+        },
+        {
+            "periodo": 3,
+            "materias": [
+                {
+                    "nome": "Arquitetura de Computadores",
+                    "status": "Em andamento",
+                    "horas": 80,
+                    "descricao": "Dominando RISC vs CISC e Memória.",
+                    "grade_conteudo": [
+                        "Pipeline",
+                        "Conjunto de Instruções",
+                        "Cache"
+                    ]
+                },
+                {
+                    "nome": "Cálculo Diferencial",
+                    "status": "Em andamento",
+                    "horas": 80,
+                    "descricao": "Limites e Derivadas.",
+                    "grade_conteudo": [
+                        "Regra da Cadeia",
+                        "Teorema Fundamental"
+                    ]
+                }
+            ]
+        }
+    ]
+}

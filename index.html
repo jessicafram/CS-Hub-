@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Hub: Jessica França</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="notion-theme">
+    <nav class="top-navbar">
+        <div class="nav-logo">
+            <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
+            <div class="logo-text-wrapper">
+                <span class="hub-title">CS Hub &lt;/&gt;</span>
+                <span class="jessica-signature">Jessica França</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Trilha Acadêmica</a></li>
+            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
+            <li><a href="livros/livros.html">Meus Livros</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="btn-notion">Estude por aqui (Crie seu Espaço)</button>
+    </nav>
+
+    <div class="hero-academic-wrapper">
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge-tech">PLENO HEAVER</span>
+                    <h1>Sua Jornada em Ciência da Computação</h1>
+                    <p>Explore as matérias, acesse os cadernos do Goodnotes e gerencie seu progresso com foco total em
+                        tecnologia.</p>
+                    <button class="btn-primary">VER MATÉRIAS</button>
+                </div>
+                <div class="hero-graphics">
+    <div class="floating-card-glass">
+        <div class="card-tag">CS Hub</div>
+        <h3>Arquitetura de Computadores</h3>
+        <p>Dominando RISC vs CISC e Hierarquia de Memória.</p>
+    </div>
+
+    <div class="neon-badge-7">
+        <div class="badge-ring">
+            <span class="score-label">APPROVED</span>
+            <div class="score-row">
+                <span class="score-num">7.0</span>
+                <span class="check-mark">✓</span>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </header>
+
+        <div class="side-notebook">
+            <div class="notebook-page pautada">
+                <div class="notebook-header">PAUTADA</div>
+                <pre class="code-snippet" id="typing-code"></pre>
+            </div>
+        </div>
+
+        <section class="academic-grid-section">
+            <h2 class="section-title">MATÉRIAS</h2>
+            <div class="filter-container">
+                <button class="filter-btn active" data-periodo="1">1º Período</button>
+                <button class="filter-btn" data-periodo="2">2º Período</button>
+                <button class="filter-btn" data-periodo="3">3º Período</button>
+            </div>
+            <div id="subjects-container" class="mat-grid"></div>
+        </section>
+    </div>
+
+    <div id="course-modal" class="modal-overlay">
+        <div class="modal-content glass-effect">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
