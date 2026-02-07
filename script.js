@@ -51,16 +51,42 @@ async function loadSubjects(periodoSelecionado = 1) {
 function openModal(materia) {
     const modal = document.getElementById('course-modal');
     const body = document.getElementById('modal-body');
+
     body.innerHTML = `
-        <h2 style="color:var(--accent); margin-bottom:10px;">${materia.nome}</h2>
-        <p style="opacity:0.8; margin-bottom:15px;">${materia.descricao || 'Detalhes em breve.'}</p>
-        <ul style="list-style:none; padding:0;">
-            ${materia.grade_conteudo ? materia.grade_conteudo.map(i => `<li style="margin-bottom:8px;">▹ ${i}</li>`).join('') : '<li>Em breve...</li>'}
-        </ul>
+        <div class="modal-details">
+            <h2 style="color: var(--accent); margin-top:0;">${materia.nome}</h2>
+            <p style="color:#fff; margin-bottom:20px; opacity:0.8;">${materia.descricao}</p>
+
+            <h4 style="color: var(--accent); font-size: 0.9rem; margin-bottom:10px;">TRILHA DE APRENDIZADO</h4>
+            <ul class="syllabus-list">
+                ${materia.grade_conteudo.map((item, index) => {
+                    // Se for um dos 4 primeiros tópicos (index 0, 1, 2 ou 3)
+                    if (index < 4) {
+                        return `
+                            <li onclick="window.location.href='./materiais/ihc-topico-0${index + 1}.html'" 
+                                style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; transition: 0.3s; padding: 10px; list-style: none;"
+                                onmouseover="this.style.background='rgba(46, 204, 113, 0.1)'"
+                                onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                                📖 ${item} (Apostila Disponível)
+                            </li>
+                        `;
+                    }
+                    // Restante da trilha bloqueado
+                    return `<li style="opacity: 0.6; cursor: default; margin-top: 5px; padding: 10px; list-style: none;">${item}</li>`;
+                }).join('')}
+            </ul>
+
+            <div style="margin-top:25px; padding-top:15px; border-top: 1px solid var(--border);">
+                <h4 style="color: #fff; font-size: 0.8rem; margin-bottom:10px;">MATERIAL COMPLEMENTAR</h4>
+                <a href="${materia.material_complementar}" target="_blank" class="btn-primary-small" style="display:inline-block; text-decoration: none;">
+                    📂 BAIXAR MEU RESUMO (PDF)
+                </a>
+            </div>
+        </div>
     `;
+
     modal.style.display = 'flex';
 }
-
 document.addEventListener("DOMContentLoaded", () => {
     typeCode();
     loadSubjects(1);

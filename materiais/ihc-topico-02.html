@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tópico 2 — Fundamentos de IHC e UX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.85;
+        }
+
+        /* BARRA DE NAVEGAÇÃO SUPERIOR */
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        header {
+            margin-bottom: 70px;
+            border-left: 4px solid var(--accent);
+            padding-left: 25px;
+        }
+
+        header h1 {
+            color: var(--accent);
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            text-align: justify;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        .highlight,
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / IHC_TOPICO_02</div>
+    </nav>
+
+    <main>
+
+        <header>
+            <span>Caderno de Estudos Avançados — Tópico 2</span>
+            <h1>Fundamentos de IHC e UX: Conceitos, História e Escopo</h1>
+
+            <p>
+                Após compreender os fundamentos cognitivos da interação humano–computador, este tópico investiga como a
+                IHC
+                se consolidou como campo científico e como a Experiência do Usuário (UX) amplia seus limites teóricos,
+                metodológicos e éticos.
+            </p>
+
+            <p>
+                Aqui, o foco deixa de ser como o humano percebe e passa a ser como o campo científico organiza,
+                interpreta
+                e projeta essa interação ao longo do tempo.
+            </p>
+        </header>
+
+        <section>
+            <h2>1. O Surgimento da IHC como Campo Científico</h2>
+
+            <p>
+                A Interação Humano–Computador não surge como uma área planejada, mas como resposta a um problema
+                estrutural
+                da computação clássica: sistemas eram projetados para maximizar eficiência computacional, ignorando
+                completamente as limitações cognitivas, perceptivas e motoras humanas.
+            </p>
+
+            <p>
+                Nos primórdios da computação, especialmente até as décadas de 1960 e 1970, o ônus da interação recaía
+                quase
+                integralmente sobre o usuário. Esperava-se que ele:
+            </p>
+
+            <ul>
+                <li>memorizasse comandos;</li>
+                <li>compreendesse a lógica interna do sistema;</li>
+                <li>antecipasse estados futuros;</li>
+                <li>tolerasse erros pouco informativos.</li>
+            </ul>
+
+            <p>
+                O erro era interpretado como falha humana, e não como falha de projeto.
+            </p>
+
+            <div class="highlight">
+                <strong>Tese central da IHC</strong><br><br>
+                A interação só se torna aceitável — e cientificamente tratável — quando o sistema passa a se adaptar às
+                capacidades cognitivas humanas, e não o contrário.
+            </div>
+
+            <p>
+                Essa mudança representa uma virada epistemológica: o problema deixa de ser “como ensinar o humano a usar
+                a máquina” e passa a ser “como projetar máquinas que respeitem o funcionamento humano”.
+            </p>
+
+            <p>
+                A partir da década de 1980, a convergência entre Ciência da Computação, Psicologia Cognitiva, Ergonomia,
+                Design e Fatores Humanos consolida a IHC como um campo científico interdisciplinar, com métodos
+                próprios,
+                teorias fundacionais e critérios de avaliação específicos.
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Evolução Histórica dos Paradigmas de Interação</h2>
+
+            <p>
+                A história da IHC pode ser compreendida como uma progressiva redistribuição do esforço cognitivo entre
+                humano e sistema. Cada paradigma de interação materializa uma concepção distinta de quem “faz o
+                trabalho”
+                na interação.
+            </p>
+
+            <h3>2.1 Processamento em Lote (Batch Processing)</h3>
+
+            <p>
+                No paradigma de processamento em lote, não havia interação propriamente dita. O usuário submetia um
+                conjunto de instruções e aguardava o resultado final, frequentemente horas ou dias depois.
+            </p>
+
+            <p>Do ponto de vista cognitivo:</p>
+
+            <ul>
+                <li>não havia feedback intermediário;</li>
+                <li>erros só eram percebidos ao final;</li>
+                <li>o planejamento precisava ser perfeito.</li>
+            </ul>
+
+            <p>
+                Esse modelo exigia memória, antecipação e abstração extrema, tornando a interação inviável para qualquer
+                usuário fora de contextos altamente especializados.
+            </p>
+
+            <h3>2.2 Interfaces de Linha de Comando (CLI)</h3>
+
+            <p>
+                As interfaces de linha de comando introduzem um avanço fundamental: o diálogo incremental. O usuário
+                passa a interagir em ciclos curtos de ação e resposta.
+            </p>
+
+            <p>
+                Entretanto, esse avanço vem acompanhado de custos cognitivos elevados, como memorização intensa de
+                comandos, sensibilidade a erros sintáticos e necessidade de um modelo mental alinhado à lógica interna
+                do sistema.
+            </p>
+
+            <h3>2.3 Interfaces Gráficas (GUI)</h3>
+
+            <p>
+                As interfaces gráficas representam uma ruptura histórica na IHC. Elas deslocam o esforço cognitivo da
+                recordação para o reconhecimento e da abstração simbólica para a manipulação direta.
+            </p>
+
+            <p>
+                A GUI materializa princípios cognitivos fundamentais, como percepção visual, metáforas do mundo real,
+                affordances visuais e feedback imediato e contínuo.
+            </p>
+
+            <h3>2.4 Paradigmas Contemporâneos de Interação</h3>
+
+            <ul>
+                <li>Computação Ubíqua e Pervasiva</li>
+                <li>Interação Natural</li>
+                <li>Sistemas Inteligentes e Adaptativos</li>
+                <li>Interação mediada por Inteligência Artificial</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Escopo Científico da Interação Humano–Computador</h2>
+
+            <p>
+                Em nível avançado, a IHC não se limita à interface gráfica nem ao design visual. Seu objeto de estudo é
+                o
+                sistema sociotécnico completo no qual a interação ocorre.
+            </p>
+
+            <ul>
+                <li>usuários, tarefas e objetivos;</li>
+                <li>contextos físicos, sociais, culturais e organizacionais;</li>
+                <li>artefatos computacionais e suas restrições técnicas;</li>
+                <li>impactos cognitivos, emocionais, sociais e éticos.</li>
+            </ul>
+
+            <p>
+                Cada decisão de design molda comportamento, direciona atenção, influencia a tomada de decisão e pode
+                reforçar ou mitigar desigualdades.
+            </p>
+        </section>
+
+        <section>
+            <h2>4. UX como Expansão do Paradigma de IHC</h2>
+
+            <p>
+                A Experiência do Usuário emerge como resposta às limitações de uma visão puramente funcional da
+                interação.
+                Sistemas podem ser utilizáveis e ainda assim gerar frustração, rejeição ou desengajamento.
+            </p>
+
+            <ul>
+                <li><strong>Usabilidade:</strong> eficácia, eficiência e satisfação imediata.</li>
+                <li><strong>UX:</strong> como o usuário se sente antes, durante e depois da interação.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Limites, Tensões e Fronteiras do Campo</h2>
+
+            <ul>
+                <li>algoritmos opacos e falta de explicabilidade;</li>
+                <li>automação excessiva e perda de agência humana;</li>
+                <li>sobrecarga atencional e fadiga cognitiva;</li>
+                <li>vieses algorítmicos amplificados por decisões de design.</li>
+            </ul>
+
+            <p>
+                Esses problemas evidenciam que design não é neutro. Projetar interação é projetar relações de poder,
+                autonomia e responsabilidade.
+            </p>
+        </section>
+
+        <div class="scientific-box" style="text-align: center; margin-top: 80px;">
+            <strong>Resumo Acadêmico:</strong> Entender os fundamentos cognitivos diferencia um "criador de telas" de um
+            Especialista em IHC. Com a base científica, o design torna-se engenharia aplicada ao comportamento humano.
+        </div>
+
+        <section id="bibliografia">
+            <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px;">Referências Bibliográficas</h2>
+
+            <p style="font-size: 0.95rem; opacity: 0.7; margin-bottom: 30px;">
+                Este material foi fundamentado nas obras clássicas e contemporâneas que definem o estado da arte em IHC:
+            </p>
+
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 25px;">
+                    <strong>CARD, S. K.; MORAN, T. P.; NEWELL, A.</strong>
+                    <em>The Psychology of Human-Computer Interaction.</em> Erlbaum, 1983.<br>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600;">(Obra base para o Modelo
+                        do Processador Humano)</span>
+                </li>
+
+                <li style="margin-bottom: 25px;">
+                    <strong>NORMAN, D. A.</strong>
+                    <em>The Design of Everyday Things: Revised and Expanded Edition.</em> Basic Books, 2013.<br>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600;">(Referência para os 7
+                        Estágios da Ação e Golfos de Interação)</span>
+                </li>
+
+                <li style="margin-bottom: 25px;">
+                    <strong>SOUZA, C. S.</strong>
+                    <em>The Semiotic Engineering of Human-Computer Interaction.</em> MIT Press, 2005.<br>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600;">(Base para a Teoria da
+                        Engenharia Semiótica brasileira)</span>
+                </li>
+
+                <li style="margin-bottom: 25px;">
+                    <strong>SWELLER, J.</strong>
+                    <em>Cognitive Load Theory.</em> Psychology of Learning and Motivation, 2011.<br>
+                    <span style="color: var(--accent); font-size: 0.85rem; font-weight: 600;">(Fundamentação para Carga
+                        Intrínseca, Extrínseca e Germânica)</span>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p class="signature">Jessica França — Ciência da Computação</p>
+        </footer>
+
+    </main>
+</body>
+
+</html>

@@ -58,25 +58,34 @@
             "periodo": 3,
             "materias": [
                 {
-                    "nome": "Arquitetura de Computadores",
+                    "nome": "Interação Humano Computador e UX",
                     "status": "Em andamento",
                     "horas": 80,
-                    "descricao": "Dominando RISC vs CISC e Memória.",
+                    "descricao": "Estudo da interface e experiência do usuário focada em usabilidade e design centrado no humano.",
                     "grade_conteudo": [
-                        "Pipeline",
-                        "Conjunto de Instruções",
-                        "Cache"
-                    ]
+                        "Fundamentos Cognitivos de IHC (Mente, Modelos e Leis)",
+                        "Fundamentos de IHC e UX (Conceitos, História e Escopo)",
+                        "Engenharia Semiótica e Comunicação (Interface como Linguagem)",
+                        "Heurísticas de Nielsen (Com Base Teórica Avançada)",
+                        "Design Centrado no Usuário (DCU)",
+                        "Prototipação de Baixa e Alta Fidelidade",
+                        "Avaliação em IHC e Usabilidade (Analítica e Empírica)"
+                    ],
+                    "material_complementar": "assets/resumos/resumo-ihc-jessica.pdf"
                 },
                 {
-                    "nome": "Cálculo Diferencial",
+                    "nome": "Matemática Computacional Aplicada",
                     "status": "Em andamento",
                     "horas": 80,
-                    "descricao": "Limites e Derivadas.",
+                    "descricao": "Aplicação de conceitos matemáticos avançados para a resolução de problemas computacionais e algoritmos.",
                     "grade_conteudo": [
-                        "Regra da Cadeia",
-                        "Teorema Fundamental"
-                    ]
+                        "Sistemas de Numeração e Erros",
+                        "Zeros de Funções Reais",
+                        "Sistemas de Equações Lineares",
+                        "Interpolação Numérica",
+                        "Integração Numérica"
+                    ],
+                    "material_complementar": "assets/resumos/matematica-aplicada-jessica.pdf"
                 }
             ]
         }

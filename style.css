@@ -251,3 +251,97 @@ body {
     background: var(--accent);
     color: #000;
 }
+
+/* --- ADICIONE ESTE BLOCO AO FINAL DO SEU ARQUIVO --- */
+
+/* --- MODAL CENTRALIZADO E ELEGANTE --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+.modal-content.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 650px;
+    /* Card maior para leitura confortável */
+    width: 90%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo da Trilha dentro do Modal */
+.syllabus-list {
+    list-style: none;
+    padding: 0;
+}
+
+.syllabus-list li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    /* Trilha visual verde */
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* --- BOTÃO DE MATERIAL COMPLEMENTAR (BRANCO COM TEXTO PRETO) --- */
+.btn-complementar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    /* Fundo branco para destaque total */
+    color: #000000 !important;
+    /* Texto preto para legibilidade */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-complementar:hover {
+    background: var(--accent);
+    /* Fica verde ao passar o mouse */
+    transform: scale(1.05);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--accent);
+    cursor: pointer;
+}
+

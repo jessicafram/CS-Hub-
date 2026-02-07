@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 5 — Design Centrado no Usuário | CS Hub</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-top: 30px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">
+            CS_HUB / IHC_MESTRADO_T05
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados — Tópico 5</span>
+            <h1>Design Centrado no Usuário (DCU)</h1>
+            <p>Fundamentos Cognitivos, Epistemológicos e Metodológicos da IHC Contemporânea</p>
+        </header>
+
+        <section>
+            <h2>0. O que é Design Centrado no Usuário (antes do método)</h2>
+
+            <p>O Design Centrado no Usuário (DCU) não é uma técnica, uma metodologia fechada ou um conjunto de etapas
+                rígidas.</p>
+
+            <p>Ele é, antes de tudo, uma postura epistemológica sobre como o conhecimento de design é produzido.</p>
+
+            <p>Diferentemente de abordagens tradicionais orientadas à tecnologia ou à funcionalidade, o DCU parte da
+                premissa de que:</p>
+
+            <ul>
+                <li>sistemas interativos são artefatos cognitivos;</li>
+                <li>interação é uma atividade situada, contextual e social;</li>
+                <li>o sucesso de um sistema não pode ser avaliado apenas por critérios técnicos.</li>
+            </ul>
+
+            <p>Nesse sentido, o DCU não responde à pergunta “como implementar?”, mas à pergunta mais fundamental:</p>
+
+            <p>“para quem este sistema existe e sob quais pressupostos humanos ele foi concebido?”</p>
+        </section>
+
+        <section>
+            <h2>1. Fundamentos Epistemológicos do DCU</h2>
+            <h3>Do Design como Solução ao Design como Investigação</h3>
+
+            <p>O DCU se alinha a uma epistemologia não positivista, reconhecendo que:</p>
+
+            <ul>
+                <li>requisitos não são dados objetivos, mas construções interpretativas;</li>
+                <li>necessidades humanas não são plenamente articuláveis a priori;</li>
+                <li>o conhecimento emerge da interação entre projetistas, usuários e contexto.</li>
+            </ul>
+
+            <p>Projetar deixa de ser um ato puramente dedutivo e passa a ser um processo investigativo e iterativo, no
+                qual hipóteses sobre o usuário são constantemente testadas, refutadas e refinadas.</p>
+
+            <p>Essa visão aproxima o DCU de:</p>
+
+            <ul>
+                <li>epistemologias construtivistas;</li>
+                <li>pesquisa qualitativa interpretativa;</li>
+                <li>ciência do design (Design Science).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Usuário no DCU: de “ator abstrato” a agente situado</h2>
+
+            <p>No DCU, o usuário não é uma entidade genérica nem um “operador médio”. Ele é compreendido como:</p>
+
+            <ul>
+                <li>cognitivamente limitado;</li>
+                <li>emocionalmente influenciado;</li>
+                <li>socialmente situado;</li>
+                <li>historicamente moldado.</li>
+            </ul>
+
+            <p>Isso rompe com a noção de usuário universal e introduz a ideia de pluralidade de usuários, com diferentes
+                objetivos, capacidades, repertórios culturais e níveis de expertise.</p>
+
+            <p>Projetar para o usuário significa projetar para contextos de uso, não apenas para funcionalidades.</p>
+        </section>
+
+        <section>
+            <h2>3. Fundamentos Cognitivos do DCU</h2>
+            <h3>Cognição Situada, Distribuída e Corporificada</h3>
+
+            <p>O DCU se apoia fortemente em modelos contemporâneos de cognição, especialmente:</p>
+
+            <ul>
+                <li>Cognição situada: o pensamento não ocorre isoladamente na mente, mas em interação com o ambiente;
+                </li>
+                <li>Cognição distribuída: artefatos, interfaces e outras pessoas participam do processo cognitivo;</li>
+                <li>Cognição corporificada: percepção, ação e corpo influenciam o raciocínio.</li>
+            </ul>
+
+            <p>Interfaces, portanto, não apenas “apresentam informação”, mas estruturam o pensamento e a ação.</p>
+
+            <p>Projetar é intervir diretamente na arquitetura cognitiva da atividade humana.</p>
+        </section>
+
+        <section>
+            <h2>4. DCU como Processo Iterativo</h2>
+            <h3>Do Ciclo Linear ao Ciclo Reflexivo</h3>
+
+            <p>O DCU rejeita modelos lineares de desenvolvimento. Em seu lugar, propõe ciclos iterativos que envolvem:
+            </p>
+
+            <ul>
+                <li>compreensão do contexto de uso;</li>
+                <li>concepção de soluções;</li>
+                <li>prototipação;</li>
+                <li>avaliação com usuários reais;</li>
+                <li>reformulação contínua.</li>
+            </ul>
+
+            <p>Cada iteração não é apenas um refinamento técnico, mas uma revisão conceitual das suposições feitas sobre
+                o usuário.</p>
+
+            <p>O erro, nesse contexto, não é falha — é fonte de conhecimento.</p>
+        </section>
+
+        <section>
+            <h2>5. Técnicas no DCU: meios, não fins</h2>
+
+            <p>Entrevistas, personas, jornadas do usuário, testes de usabilidade, protótipos de baixa fidelidade — todas
+                essas técnicas não definem o DCU.</p>
+
+            <p>Elas são instrumentos contingentes que só fazem sentido quando subordinados a uma postura centrada no
+                humano.</p>
+
+            <p>Sem esse fundamento, técnicas de DCU degeneram em rituais vazios ou checklists metodológicos.</p>
+        </section>
+
+        <section>
+            <h2>6. DCU e Engenharia Semiótica</h2>
+            <h3>Projeto como Ato Comunicacional</h3>
+
+            <p>Sob a lente da Engenharia Semiótica, o DCU pode ser entendido como um esforço sistemático para alinhar:
+            </p>
+
+            <ul>
+                <li>o que o designer pretende comunicar;</li>
+                <li>o que o sistema efetivamente comunica;</li>
+                <li>o que o usuário interpreta.</li>
+            </ul>
+
+            <p>Projetar centrado no usuário é projetar mensagens compreensíveis, honestas e alinhadas ao modelo mental
+                do usuário.</p>
+
+            <p>Falhas de DCU são, em última instância, falhas de comunicação.</p>
+        </section>
+
+        <section>
+            <h2>7. DCU, Poder e Ética</h2>
+
+            <p>O DCU não é neutro. Escolher centrar o design no usuário é uma decisão política e ética.</p>
+
+            <p>Questões inevitáveis emergem:</p>
+
+            <ul>
+                <li>quais usuários são ouvidos?</li>
+                <li>quais são ignorados?</li>
+                <li>quem define necessidades legítimas?</li>
+                <li>onde termina apoio e começa manipulação?</li>
+            </ul>
+
+            <p>Dark patterns, nudges abusivos e interfaces persuasivas exploratórias são exemplos de projetos que
+                simulam DCU, mas violam seus princípios fundamentais.</p>
+
+            <p>O DCU ético preserva autonomia, agência e dignidade do usuário.</p>
+        </section>
+
+        <section>
+            <h2>8. Limites do Design Centrado no Usuário</h2>
+
+            <p>Apesar de sua força, o DCU não resolve tudo.</p>
+
+            <p>Limitações incluem:</p>
+
+            <ul>
+                <li>dificuldade de escalar pesquisa qualitativa;</li>
+                <li>conflitos entre grupos de usuários;</li>
+                <li>restrições organizacionais e econômicas;</li>
+                <li>impossibilidade de antecipar usos emergentes.</li>
+            </ul>
+
+            <p>Reconhecer esses limites é parte de uma postura científica madura, evitando o DCU como dogma.</p>
+        </section>
+
+        <section>
+            <h2>9. DCU na IHC Contemporânea</h2>
+
+            <p>Na IHC atual, o DCU expande-se para além do indivíduo, considerando:</p>
+
+            <ul>
+                <li>ecossistemas sociotécnicos;</li>
+                <li>interações mediadas por IA;</li>
+                <li>sistemas adaptativos e autônomos;</li>
+                <li>impactos de longo prazo na prática social.</li>
+            </ul>
+
+            <p>Projetar centrado no usuário passa a significar projetar centrado em experiências, consequências e
+                relações.</p>
+        </section>
+
+        <section>
+            <h2>Síntese Avançada do Tópico 5</h2>
+
+            <p>O Design Centrado no Usuário não é um conjunto de técnicas, mas uma epistemologia do projeto interativo.
+            </p>
+
+            <p>Ele redefine o papel do designer, transforma o erro em conhecimento, integra cognição, comunicação e
+                ética, e posiciona o humano não como variável de ajuste, mas como fundamento do sistema.</p>
+
+            <p>Projetar com DCU é perguntar continuamente:</p>
+
+            <ul>
+                <li>quem é o usuário pressuposto?</li>
+                <li>quais modelos cognitivos estão sendo impostos?</li>
+                <li>que tipo de relação humano-tecnologia está sendo construída?</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Quadro Comparativo — DCU × Heurísticas de Nielsen</h2>
+
+            <div class="scientific-box">
+                <p><strong>Design Centrado no Usuário (DCU)</strong></p>
+                <ul>
+                    <li>Epistemologia de projeto;</li>
+                    <li>Atua antes, durante e após o desenvolvimento;</li>
+                    <li>Produz conhecimento sobre usuários e contextos;</li>
+                    <li>Define pressupostos humanos do sistema;</li>
+                    <li>Integra cognição, ética e comunicação.</li>
+                </ul>
+
+                <p><strong>Heurísticas de Nielsen</strong></p>
+                <ul>
+                    <li>Instrumentos diagnósticos;</li>
+                    <li>Atuam principalmente na avaliação;</li>
+                    <li>Identificam violações de princípios de usabilidade;</li>
+                    <li>Operam sobre interfaces já existentes;</li>
+                    <li>Não produzem, por si só, modelos de usuário.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            Jessica França — Ciência da Computação
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 1: Fundamentos Cognitivos de IHC - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-top: 30px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .formula {
+            background: #000;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin: 30px 0;
+            border: 1px solid var(--border);
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / IHC_MESTRADO_T01
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados: Tópico 1</span>
+            <h1>Fundamentos Cognitivos da IHC</h1>
+            <p>A IHC, em nível de pós-graduação, deixa de ser o estudo de "telas" e passa a ser o estudo da acoplagem
+                estrutural entre o sistema biológico (humano) e o sistema artificial (computador).</p>
+        </header>
+
+        <section id="unidade1">
+            <h2>1. A Ontologia da Cognição em IHC</h2>
+            <p>A cognição humana não é apenas um "usuário usando um sistema"; é o núcleo onde a interação ganha
+                significado.</p>
+
+            <div class="scientific-box">
+                <strong>A Interface como Filtro Cognitivo:</strong> Todo artefato tecnológico impõe uma carga de
+                processamento. Projetar IHC é, na verdade, projetar a forma como o usuário irá perceber, interpretar e
+                agir.
+            </div>
+
+            <p><strong>O Erro como Sintoma:</strong> No mestrado, abandonamos o conceito de "erro do usuário". O erro é
+                interpretado como um descompasso cognitivo onde o sistema exigiu do humano algo que sua biologia não
+                está preparada para entregar (ex: memorização excessiva ou atenção dividida).</p>
+        </section>
+
+        <section id="unidade2">
+            <h2>2. Modelo do Processador Humano (MPH): A Engenharia da Mente</h2>
+            <p>Proposto por Card, Moran e Newell, este modelo quantifica o desempenho humano através de três
+                subsistemas:</p>
+
+
+
+            <h3>2.1 O Sistema Perceptual (O Gargalo do Input)</h3>
+            <p>A percepção não é uma fotografia da tela, mas uma construção ativa.</p>
+            <ul>
+                <li><strong>Processamento Bottom-up vs. Top-down:</strong> O usuário percebe o que está na tela
+                    (estímulo), mas sua interpretação é guiada por expectativas e conhecimentos prévios (contexto).</li>
+                <li><strong>Atenção Seletiva e Cegueira por Inatencionalidade:</strong> O sistema perceptual filtra
+                    estímulos. Se a hierarquia visual falha, o usuário pode "não ver" um botão que está bem na sua
+                    frente porque sua atenção está focada em outra tarefa.</li>
+            </ul>
+
+            <h3>2.2 O Sistema Cognitivo (O Processamento Central)</h3>
+            <ul>
+                <li><strong>Memória de Trabalho (Working Memory):</strong> É o recurso mais escasso. Sua capacidade é
+                    limitada a cerca de 7 ± 2 unidades de informação (chunks). Em IHC avançada, lutamos contra a
+                    volatilidade dessa memória, garantindo que o sistema suporte o estado da tarefa.</li>
+                <li><strong>Memória de Longo Prazo (MLP):</strong> Armazena o conhecimento procedimental (como fazer) e
+                    semântico (o que é). O design utiliza metáforas para conectar o sistema a esquemas mentais
+                    existentes na MLP.</li>
+            </ul>
+
+            <h3>2.3 O Sistema Motor e a Lei de Fitts (O Output)</h3>
+            <p>O movimento humano é previsível através de modelos matemáticos.</p>
+            <div class="formula">T = a + b · log₂(1 + D/W)</div>
+            <p><strong>Análise de Custo-Benefício:</strong> No mestrado, calculamos o "custo de interação". Isso
+                justifica por que menus de contexto (perto do mouse) são cognitivamente mais eficientes que barras fixas
+                no topo da tela.</p>
+        </section>
+
+        <section id="unidade3">
+            <h2>3. Teoria da Carga Cognitiva (John Sweller)</h2>
+            <p>Fundamental para entender o esgotamento mental do usuário.</p>
+            <ul>
+                <li><strong>Carga Intrínseca:</strong> Dificuldade "natural" da tarefa. Pode ser apresentada
+                    progressivamente através do Andaimento (Scaffolding).</li>
+                <li><strong>Carga Extrínseca (O Inimigo):</strong> Esforço desperdiçado tentando entender uma interface
+                    mal projetada. O objetivo é reduzi-la a zero.</li>
+                <li><strong>Carga Germânica:</strong> Esforço "bom", que leva à criação de novos modelos mentais e
+                    automação de tarefas.</li>
+            </ul>
+        </section>
+
+        <section id="unidade4">
+            <h2>4. Ciclo de Ação de Norman: A Anatomia da Interação</h2>
+            <p>Donald Norman divide a experiência em sete estágios:</p>
+
+
+
+            <div class="scientific-box">
+                <strong>Golfo da Execução:</strong> Distância entre o que eu quero e como o sistema me deixa fazer.
+                Interfaces com baixas affordances (pistas visuais) aumentam este golfo.<br>
+                <strong>Golfo da Avaliação:</strong> Dificuldade de saber se a ação deu certo. A falta de feedback
+                imediato é a causa principal deste golfo.
+            </div>
+        </section>
+
+        <section id="unidade5">
+            <h2>5. Modelos Mentais: A Psicologia da Inferência</h2>
+            <p>O usuário nunca interage com o sistema real; ele interage com o modelo mental que ele construiu do
+                sistema.</p>
+            <ul>
+                <li><strong>Inconsistência:</strong> Gera frustração e erro persistente quando o sistema se comporta
+                    diferente do esperado.</li>
+                <li><strong>Padrões de Design:</strong> Ferramentas para alinhar o modelo mental do usuário com o
+                    funcionamento técnico do software.</li>
+            </ul>
+        </section>
+
+        <div class="scientific-box" style="text-align: center;">
+            <strong>Resumo Acadêmico:</strong> Entender os fundamentos cognitivos diferencia um "criador de telas" de um
+            Especialista em IHC. Com a base científica, o design torna-se engenharia aplicada ao comportamento humano.
+        </div>
+
+        <section id="bibliografia">
+            <h2>Referências Bibliográficas</h2>
+            <p style="font-size: 0.95rem; opacity: 0.7;">
+                Este material foi fundamentado nas obras clássicas e contemporâneas que definem o estado da arte em IHC:
+            </p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem; opacity: 0.8;">
+                <li style="margin-bottom: 20px;">
+                    <strong>CARD, S. K.; MORAN, T. P.; NEWELL, A.</strong>
+                    <em>The Psychology of Human-Computer Interaction.</em>
+                    Erlbaum, 1983. <br>
+                    <span style="color: var(--accent); font-size: 0.8rem;">(Obra base para o Modelo do Processador
+                        Humano)</span>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>NORMAN, D. A.</strong>
+                    <em>The Design of Everyday Things: Revised and Expanded Edition.</em>
+                    Basic Books, 2013. <br>
+                    <span style="color: var(--accent); font-size: 0.8rem;">(Referência para os 7 Estágios da Ação e
+                        Golfos de Interação)</span>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>SOUZA, C. S.</strong>
+                    <em>The Semiotic Engineering of Human-Computer Interaction.</em>
+                    MIT Press, 2005. <br>
+                    <span style="color: var(--accent); font-size: 0.8rem;">(Base para a Teoria da Engenharia Semiótica
+                        brasileira)</span>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>SWELLER, J.</strong>
+                    <em>Cognitive Load Theory.</em>
+                    Psychology of Learning and Motivation, 2011. <br>
+                    <span style="color: var(--accent); font-size: 0.8rem;">(Fundamentação para Carga Intrínseca,
+                        Extrínseca e Germânica)</span>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            Jessica França - Ciência da Computação
+        </footer>
+    </main>
+</body>
+
+</html>

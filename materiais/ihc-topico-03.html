@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 3: Engenharia Semiótica e Comunicação - CS Hub</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-top: 30px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">
+            CS_HUB / IHC_MESTRADO_T03
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados — Tópico 3</span>
+            <h1>Engenharia Semiótica e Comunicação</h1>
+            <p>
+                Este tópico investiga a interação humano–computador como um fenômeno comunicacional,
+                no qual a interface atua como linguagem e o design como um ato explícito de comunicação
+                entre o projetista e o usuário.
+            </p>
+        </header>
+
+        <section id="unidade1">
+            <h2>1. A Interação como Comunicação Mediata</h2>
+
+            <p>
+                Diferentemente das abordagens puramente cognitivas ou funcionais, a Engenharia Semiótica
+                propõe que toda interação humano–computador é, essencialmente, um processo de comunicação
+                mediado por software.
+            </p>
+
+            <p>
+                O usuário não interage diretamente com o sistema computacional real, mas com uma
+                mensagem encapsulada na interface, construída previamente pelo designer.
+            </p>
+
+            <div class="scientific-box">
+                <strong>Princípio fundamental:</strong><br>
+                Usar um sistema é interpretar uma mensagem deixada pelo seu projetista.
+            </div>
+        </section>
+
+        <section id="unidade2">
+            <h2>2. Fundamentos da Engenharia Semiótica</h2>
+
+            <p>
+                Proposta por Clarisse Sieckenius de Souza, a Engenharia Semiótica fundamenta-se na
+                semiótica peirceana e interpreta sistemas interativos como artefatos comunicacionais.
+            </p>
+
+            <p>
+                Nesse modelo:
+            </p>
+
+            <ul>
+                <li><strong>Designer:</strong> atua como emissor da mensagem.</li>
+                <li><strong>Interface:</strong> materializa a mensagem do designer.</li>
+                <li><strong>Usuário:</strong> atua como intérprete.</li>
+            </ul>
+
+            <p>
+                A interação é, portanto, um processo interpretativo contínuo, no qual o usuário tenta
+                compreender:
+            </p>
+
+            <ul>
+                <li>o que o sistema faz;</li>
+                <li>como ele deve ser utilizado;</li>
+                <li>por que foi projetado daquela maneira.</li>
+            </ul>
+        </section>
+
+        <section id="unidade3">
+            <h2>3. Interface como Linguagem</h2>
+
+            <p>
+                Na Engenharia Semiótica, a interface é entendida como uma linguagem artificial,
+                composta por signos visuais, textuais, sonoros e comportamentais.
+            </p>
+
+            <p>
+                Botões, menus, mensagens de erro, animações e fluxos de navegação são elementos
+                linguísticos que carregam significado.
+            </p>
+
+            <div class="scientific-box">
+                <strong>Metamensagem da Interface:</strong><br>
+                “Este é o sistema que eu, designer, concebi para você. Aqui está o que ele faz,
+                como você deve usá-lo e quais pressupostos fiz sobre você.”
+            </div>
+        </section>
+
+        <section id="unidade4">
+            <h2>4. Rupturas de Comunicação (Breakdowns)</h2>
+
+            <p>
+                Uma ruptura de comunicação ocorre quando o usuário não consegue interpretar
+                corretamente a mensagem da interface.
+            </p>
+
+            <p>
+                Na Engenharia Semiótica, o erro deixa de ser atribuído ao usuário e passa a ser
+                interpretado como falha comunicacional do sistema.
+            </p>
+
+            <ul>
+                <li>Ambiguidade semântica;</li>
+                <li>Feedback insuficiente;</li>
+                <li>Contradições entre telas;</li>
+                <li>Pressupostos incorretos sobre o usuário.</li>
+            </ul>
+        </section>
+
+        <section id="unidade5">
+            <h2>5. Inspeção Semiótica</h2>
+
+            <p>
+                A Inspeção Semiótica é um método analítico de avaliação que busca reconstruir a
+                metamensagem transmitida pela interface.
+            </p>
+
+            <p>
+                O avaliador investiga:
+            </p>
+
+            <ul>
+                <li>Que tipo de usuário o sistema pressupõe;</li>
+                <li>Quais valores e prioridades estão embutidos no design;</li>
+                <li>Quais interpretações são facilitadas ou bloqueadas.</li>
+            </ul>
+
+            <p>
+                Trata-se de um método especialmente poderoso para revelar problemas conceituais,
+                éticos e comunicacionais que não emergem em testes tradicionais de usabilidade.
+            </p>
+        </section>
+
+        <section id="unidade6">
+            <h2>6. Engenharia Semiótica, UX e Ética</h2>
+
+            <p>
+                Ao explicitar que toda interface comunica valores, a Engenharia Semiótica conecta-se
+                diretamente às discussões contemporâneas de UX, ética e responsabilidade algorítmica.
+            </p>
+
+            <p>
+                Dark patterns, manipulação comportamental e opacidade algorítmica são, sob essa
+                ótica, falhas graves de comunicação deliberada.
+            </p>
+        </section>
+
+        <div class="scientific-box" style="text-align:center;">
+            <strong>Síntese do Tópico 3:</strong><br>
+            A Engenharia Semiótica revela que projetar interfaces é projetar discursos.
+            A qualidade da interação depende diretamente da clareza, honestidade e coerência
+            da comunicação entre designer e usuário.
+        </div>
+
+        <section id="bibliografia">
+            <h2>Referências Bibliográficas</h2>
+            <ul style="list-style:none; padding:0; font-size:0.9rem; opacity:0.8;">
+                <li><strong>SOUZA, C. S.</strong> The Semiotic Engineering of Human-Computer Interaction.</li>
+                <li><strong>PEIRCE, C. S.</strong> Collected Papers of Charles Sanders Peirce.</li>
+                <li><strong>NORMAN, D. A.</strong> The Design of Everyday Things.</li>
+                <li><strong>ROGERS, Y.; SHARP, H.; PREECE, J.</strong> Interaction Design.</li>
+            </ul>
+        </section>
+
+        <footer>
+            Jessica França — Ciência da Computação
+        </footer>
+
+    </main>
+</body>
+
+</html>
