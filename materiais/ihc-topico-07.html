@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 7 — Prototipação | CS Hub</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-top: 30px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">
+            CS_HUB / IHC_MESTRADO_T07
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados — Tópico 7</span>
+            <h1>Prototipação de Baixa e Alta Fidelidade</h1>
+            <p>A Materialização de Hipóteses e o Papel dos Artefatos de Design</p>
+        </header>
+
+        <section>
+            <h2>0. O Protótipo como Ferramenta de Investigação</h2>
+
+            <p>
+                Na IHC avançada, o protótipo não é uma “versão preliminar do produto”, mas um
+                <strong>artefato epistemológico</strong>. Ele materializa hipóteses sobre usuários,
+                tarefas, contextos e modelos cognitivos, permitindo que suposições implícitas
+                sejam externalizadas, confrontadas e refutadas.
+            </p>
+
+            <p>
+                Prototipar é um ato de investigação: o designer não testa apenas interfaces,
+                mas testa sua própria compreensão sobre o humano.
+            </p>
+        </section>
+
+        <section>
+            <h2>1. Fundamentos Cognitivos e Epistemológicos da Prototipação</h2>
+
+            <p>
+                Sob a ótica da cognição distribuída e da cognição situada, o protótipo atua como
+                um elemento externo que participa do raciocínio humano. Ele reduz a carga da
+                memória de trabalho, explicita decisões e torna visíveis relações que, de outra
+                forma, permaneceriam apenas no pensamento do projetista.
+            </p>
+
+            <p>
+                Do ponto de vista epistemológico, protótipos funcionam como
+                <strong>hipóteses materializadas</strong>. Eles permitem que o conhecimento de design
+                avance por refutação empírica, e não por convicção subjetiva ou autoridade técnica.
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Protótipos de Baixa Fidelidade</h2>
+
+            <p>
+                Protótipos de baixa fidelidade concentram-se na estrutura conceitual da interação:
+                fluxos, hierarquias, decisões e metáforas. Seu objetivo principal é testar
+                <strong>modelos mentais</strong>, não detalhes visuais.
+            </p>
+
+            <p>
+                Ao reduzir o investimento estético, eles favorecem críticas honestas e revelam
+                falhas profundas antes que decisões erradas se cristalizem.
+            </p>
+
+            <div class="scientific-box">
+                A baixa fidelidade remove o ruído estético, permitindo avaliar a arquitetura
+                cognitiva da interação e identificar erros conceituais de alto impacto.
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Protótipos de Alta Fidelidade</h2>
+
+            <p>
+                Protótipos de alta fidelidade simulam a experiência final de uso, incluindo
+                tipografia, cores, microinterações e tempos de resposta. Eles são essenciais
+                para avaliar precisão motora, percepção visual e integração sensório-motora.
+            </p>
+
+            <p>
+                No entanto, seu uso prematuro pode induzir ao <strong>efeito de polimento</strong>:
+                usuários tendem a evitar críticas profundas quando percebem o artefato como
+                “quase pronto”, mascarando problemas conceituais graves.
+            </p>
+        </section>
+
+        <section>
+            <h2>4. Prototipação, DCU e Erro Humano</h2>
+
+            <p>
+                No Design Centrado no Usuário, a prototipação é o principal mecanismo para
+                incorporar o erro humano como dado empírico. Em vez de tratar o erro como falha
+                do usuário, o protótipo permite identificar falhas de projeto antes da
+                implementação definitiva.
+            </p>
+
+            <p>
+                Não prototipar adequadamente equivale a assumir, sem evidência, que o designer
+                compreende o usuário — uma postura epistemologicamente frágil e eticamente
+                problemática.
+            </p>
+        </section>
+
+        <section>
+            <h2>5. Prototipação como Ato Comunicacional</h2>
+
+            <p>
+                Sob a lente da Engenharia Semiótica, o protótipo é uma mensagem provisória do
+                designer para o usuário. Ele comunica intenções, prioridades e pressupostos
+                sobre quem é o usuário e como ele deve agir.
+            </p>
+
+            <p>
+                Testar um protótipo é, portanto, testar se essa mensagem está sendo compreendida,
+                aceita ou rejeitada.
+            </p>
+        </section>
+
+        <section>
+            <h2>6. Limites e Riscos da Prototipação</h2>
+
+            <p>
+                Prototipar não garante bons sistemas. Protótipos podem ser usados de forma
+                performática, apenas para validar decisões já tomadas, simulando participação
+                do usuário sem incorporá-la de fato.
+            </p>
+
+            <p>
+                A maturidade metodológica está em saber
+                <strong>o que prototipar, quando prototipar e para quem prototipar</strong>.
+            </p>
+        </section>
+
+        <section>
+            <h2>7. Prototipação e Falhas em Sistemas Críticos</h2>
+
+            <p>
+                Em sistemas críticos — como aviação, saúde, usinas nucleares ou controle de tráfego —
+                a ausência ou o uso inadequado de prototipação não resulta apenas em má experiência
+                de uso, mas em <strong>falhas catastróficas de compreensão situacional</strong>.
+            </p>
+
+            <p>
+                Muitos acidentes clássicos em engenharia não decorrem de falhas técnicas isoladas,
+                mas de interfaces que nunca foram suficientemente prototipadas sob condições reais
+                de uso, estresse e carga cognitiva.
+            </p>
+
+            <p>
+                A prototipação, nesses contextos, deveria funcionar como um
+                <strong>ensaio cognitivo de cenários extremos</strong>, permitindo observar:
+            </p>
+
+            <ul>
+                <li>como operadores constroem sentido sob pressão;</li>
+                <li>como múltiplos sinais competem pela atenção;</li>
+                <li>como decisões são tomadas com informação incompleta;</li>
+                <li>como o erro emerge da interação, e não do indivíduo.</li>
+            </ul>
+
+            <p>
+                A inexistência desses ensaios transforma o usuário em sujeito experimental
+                do sistema em produção — uma postura eticamente indefensável no DCU.
+            </p>
+        </section>
+
+        <section>
+            <h2>8. Baixa vs. Alta Fidelidade: O Que Cada Protótipo Valida Cognitivamente</h2>
+
+            <p>
+                A distinção entre protótipos de baixa e alta fidelidade não é apenas uma questão
+                de acabamento visual, mas de <strong>nível cognitivo de validação</strong>.
+                Cada tipo de protótipo responde a perguntas distintas sobre o humano.
+            </p>
+
+            <div class="scientific-box">
+                <p><strong>Protótipos de Baixa Fidelidade validam:</strong></p>
+                <ul>
+                    <li>modelos mentais esperados vs. reais;</li>
+                    <li>compreensão da estrutura da tarefa;</li>
+                    <li>adequação da arquitetura da informação;</li>
+                    <li>coerência conceitual da interação;</li>
+                    <li>assunções implícitas do designer sobre o usuário.</li>
+                </ul>
+
+                <p><strong>Protótipos de Alta Fidelidade validam:</strong></p>
+                <ul>
+                    <li>coordenação percepção–ação;</li>
+                    <li>precisão motora e feedback temporal;</li>
+                    <li>legibilidade visual e hierarquia perceptiva;</li>
+                    <li>respostas emocionais e estéticas;</li>
+                    <li>confiança subjetiva no sistema.</li>
+                </ul>
+            </div>
+
+            <p>
+                Utilizar alta fidelidade para responder perguntas conceituais é um erro metodológico.
+                Utilizar baixa fidelidade para validar desempenho fino é igualmente inadequado.
+            </p>
+
+            <p>
+                A maturidade em IHC está em alinhar o <strong>nível do protótipo</strong>
+                ao <strong>nível cognitivo da hipótese</strong> que se deseja testar.
+            </p>
+        </section>
+
+
+
+        <div class="scientific-box" style="text-align:center;">
+            <strong>Síntese Avançada do Tópico 7</strong><br><br>
+            Prototipar é investigar falhas antes que elas se tornem sistêmicas.<br>
+            É escolher o nível correto de abstração para testar hipóteses cognitivas.<br>
+            No DCU, o protótipo não antecipa o produto —<br>
+            ele antecipa o erro.
+        </div>
+
+
+        <footer style="margin-top: 100px; padding: 60px 0; border-top: 1px solid var(--border); text-align: center;">
+            <p class="signature" style="color: var(--text);">Jessica França — Ciência da Computação</p>
+        </footer>
+    </main>
+
+</body>
+
+</html>

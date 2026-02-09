@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 6: Design Centrado no Usuário - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: #eee;
+            margin-top: 35px;
+            border-left: 2px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-top: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / IHC_TOPICO_06</div>
+    </nav>
+
+    <main class="content-wrapper">
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados — Tópico 6</span>
+            <h1>Design Centrado no Usuário (DCU)</h1>
+            <p>Fundamentos Teóricos, Cognitivos e Éticos do Projeto Interativo</p>
+        </header>
+
+        <section id="unidade0">
+            <h2>0. DCU como Postura Epistemológica (antes do método)</h2>
+            <p>O Design Centrado no Usuário (DCU) não é uma técnica, um conjunto de ferramentas ou uma sequência fixa de
+                etapas. Ele é, antes de tudo, uma postura epistemológica sobre como o conhecimento de design é
+                produzido.</p>
+            <p>O DCU parte da recusa de três pressupostos implícitos em abordagens tecnocêntricas:</p>
+            <ul>
+                <li>De que requisitos são dados objetivos e completos;</li>
+                <li>De que o projetista compreende o usuário por introspecção;</li>
+                <li>De que o sucesso técnico equivale ao sucesso humano.</li>
+            </ul>
+            <p>Ao contrário, o DCU assume que sistemas interativos são artefatos cognitivos, a interação é uma atividade
+                situada, contextual e social, e o sucesso de um sistema só pode ser avaliado a partir da experiência
+                humana concreta.</p>
+            <p>Projetar, portanto, não é responder “como implementar?”, mas à pergunta epistemologicamente anterior:
+                <strong>“para quem este sistema existe e sob quais pressupostos humanos ele foi concebido?”</strong>
+            </p>
+        </section>
+
+        <section id="unidade1">
+            <h2>1. Fundamentos Epistemológicos do DCU</h2>
+            <p>Do Design como Solução ao Design como Investigação. O DCU se alinha a uma epistemologia não
+                positivista, na qual requisitos não são fatos brutos, mas construções interpretativas; necessidades
+                humanas não são totalmente articuláveis a priori; e o conhecimento emerge da interação entre
+                projetistas, usuários e contexto.</p>
+            <p>Nesse enquadramento, projetar deixa de ser um ato dedutivo e passa a ser um processo investigativo e
+                iterativo, no qual hipóteses sobre o usuário são formuladas, testadas empiricamente, refutadas ou
+                refinadas.</p>
+            <p>Essa visão aproxima o DCU de epistemologias construtivistas, pesquisa qualitativa interpretativa e Design
+                Science. O projeto torna-se uma forma legítima de produção de conhecimento.</p>
+        </section>
+
+        <section id="unidade2">
+            <h2>2. O Usuário no DCU</h2>
+            <p>De “ator abstrato” a agente situado. No DCU, o usuário não é um “operador médio” nem um ator
+                genérico. Ele é compreendido como:</p>
+            <ul>
+                <li>Cognitivamente limitado;</li>
+                <li>Emocionalmente influenciado;</li>
+                <li>Socialmente situado;</li>
+                <li>Historicamente moldado.</li>
+            </ul>
+            <p>Isso rompe com a noção de usuário universal e introduz a ideia de pluralidade de usuários, com diferentes
+                objetivos, repertórios culturais, capacidades e níveis de expertise. Projetar
+                para o usuário significa projetar para contextos reais de uso, não apenas para funcionalidades
+                ideais.</p>
+        </section>
+
+        <section id="unidade3">
+            <h2>3. Fundamentos Cognitivos do DCU</h2>
+            <p>Cognição Situada, Distribuída e Corporificada. O DCU se ancora em modelos contemporâneos de
+                cognição:</p>
+            <ul>
+                <li><strong>Cognição situada:</strong> O pensamento emerge da interação com o ambiente;</li>
+                <li><strong>Cognição distribuída:</strong> Artefatos e outras pessoas participam do processo
+                    cognitivo;</li>
+                <li><strong>Cognição corporificada:</strong> Percepção, ação e corpo moldam o raciocínio.</li>
+            </ul>
+            <p>Interfaces não apenas apresentam informação: elas estruturam o pensamento, a decisão e a ação.
+                Projetar é intervir diretamente na arquitetura cognitiva da atividade humana.</p>
+        </section>
+
+        <section id="unidade4">
+            <h2>4. Autores Fundamentais do DCU</h2>
+            <p>Definições Canônicas e Consolidação Teórica.</p>
+
+            <h3>Donald A. Norman</h3>
+            <p>DCU como adaptação da tecnologia ao humano. Norman estabelece que erros humanos são sintomas de
+                falhas de projeto, não defeitos individuais. Seu trabalho desloca o foco do sistema para
+                modelos mentais reais, limitações cognitivas estruturais e previsibilidade. O erro
+                passa a ser condição de projeto, não exceção.</p>
+
+            <h3>Gould & Lewis</h3>
+            <p>DCU como processo empírico e iterativo. Eles formalizam o DCU baseado em foco precoce e
+                contínuo no usuário, avaliação empírica com usuários reais e design iterativo.
+                Requisitos são descobertos por investigação empírica, convergindo por refutação.</p>
+
+            <h3>ISO 9241-210</h3>
+            <p>DCU como norma internacional. Consolida o DCU como prática técnica, exigência organizacional e
+                critério de qualidade. Institucionaliza quatro princípios: compreensão explícita
+                de usuários e contextos, envolvimento contínuo, avaliação orientada ao uso e iteração sistemática.</p>
+
+            <h3>Ben Shneiderman</h3>
+            <p>DCU como ampliação das capacidades humanas. Enfatiza controle explícito pelo usuário,
+                previsibilidade e responsabilidade do projetista. A tecnologia deve ampliar
+                habilidades humanas, não substituir autonomia ou agência.</p>
+        </section>
+
+        <section id="unidade5">
+            <h2>5. DCU como Processo Iterativo</h2>
+            <p>Do Ciclo Linear ao Ciclo Reflexivo. O DCU rejeita modelos lineares e propõe ciclos que envolvem
+                compreensão do contexto, concepção, prototipação, avaliação com usuários reais e reformulação
+                contínua. Cada iteração é uma revisão conceitual das suposições feitas
+                sobre o humano[cite: 96].</p>
+        </section>
+
+        <section id="unidade6">
+            <h2>6. Técnicas no DCU</h2>
+            <p>Meios, não fins. Entrevistas, personas, jornadas, testes e protótipos não definem o DCU. Sem uma postura
+                centrada no humano, técnicas degeneram em rituais vazios, checklists ou simulações
+                de empatia.</p>
+        </section>
+
+        <section id="unidade7">
+            <h2>7. DCU, Comunicação e Engenharia Semiótica</h2>
+            <p>Sob a lente da Engenharia Semiótica, projetar com DCU é alinhar o que o designer pretende comunicar, o
+                que o sistema comunica e o que o usuário interpreta. Falhas de DCU são falhas de comunicação.</p>
+        </section>
+
+        <section id="unidade8">
+            <h2>8. DCU, Poder e Ética</h2>
+            <p>Pensar no outro não é opcional. O DCU não é neutro. Escolher centrar o design no usuário é uma decisão
+                ética e política sobre quem é ouvido, quem é ignorado e onde termina o apoio e
+                começa a manipulação. Dark patterns violam os princípios fundamentais do DCU.</p>
+        </section>
+
+        <section id="unidade9">
+            <h2>9. Limites do DCU</h2>
+            <p>Contra o dogmatismo metodológico. O DCU não resolve tudo[cite: 120]. Limitações incluem dificuldade de
+                escala na pesquisa qualitativa, conflitos entre grupos de usuários, restrições
+                organizacionais e usos emergentes imprevisíveis.</p>
+        </section>
+
+        <div class="scientific-box">
+            <strong>Síntese Avançada do Tópico 6:</strong> O DCU redefine o papel do designer, transforma o erro em
+            conhecimento e posiciona o humano como fundamento do sistema. Projetar com DCU é questionar continuamente
+            quem é o usuário pressuposto e que tipo de relação humano-tecnologia está sendo
+            construída.
+        </div>
+
+        <section id="unidade6y">
+            <h2>6.y DCU e Heurísticas de Nielsen: Convergências e Limites à Luz de um Caso Crítico</h2>
+            <p>O acidente de Three Mile Island evidencia a complementaridade e as limitações das heurísticas de Nielsen
+                quando comparadas ao DCU enquanto epistemologia de projeto. Problemas na usina relacionam-se diretamente
+                à violação de heurísticas clássicas:</p>
+            <ul>
+                <li><strong>Visibilidade do estado do sistema:</strong> Operadores não tinham representações claras do
+                    estado real do reator. Indicadores locais não comunicavam o comportamento global,levando a decisões
+                    baseadas em estados aparentes.</li>
+                <li><strong>Correspondência com o mundo real:</strong> A semântica não estava alinhada ao pensamento
+                    humano sobre processos físicos. O sistema falava a "linguagem da máquina".</li>
+                <li><strong>Reconhecimento em vez de memorização:</strong> Múltiplos alarmes exigiam esforço excessivo
+                    de memória de trabalho, tornando o erro inevitável sob estresse.</li>
+                <li><strong>Prevenção de erros:</strong> O sistema permitia estados perigosos sem feedback claro ou
+                    mecanismos de contenção cognitiva.</li>
+            </ul>
+            <p>As heurísticas são ferramentas de diagnóstico local para identificar falhas de interface. No entanto,
+                operam no nível da interface e são reativas. O DCU atua em nível mais
+                profundo, questionando os pressupostos e riscos antecipados na concepção.</p>
+            <div class="scientific-box" style="text-align: center;">
+                "Enquanto as heurísticas apontam que a visibilidade é inadequada, o DCU pergunta por que o sistema foi
+                concebido sem validar como operadores reais constroem compreensão em situações críticas".
+            </div>
+            <p>As Heurísticas de Nielsen são compatíveis com o DCU, mas não o substituem. O projeto maduro em IHC emerge
+                da articulação entre ambos.</p>
+        </section>
+
+        <footer>
+            <p class="signature">Jessica França — Ciência da Computação</p>
+        </footer>
+    </main>
+</body>
+
+</html>

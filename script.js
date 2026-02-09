@@ -52,39 +52,36 @@ function openModal(materia) {
     const modal = document.getElementById('course-modal');
     const body = document.getElementById('modal-body');
 
+    // Verifica se o aluno passou no exame final salvo no localStorage
+    const aprovado = localStorage.getItem('ihc_concluido') === 'true';
+    const statusExibicao = aprovado ? "Concluído ✓" : materia.status;
+    const corStatus = aprovado ? "var(--accent)" : "#fff";
+
     body.innerHTML = `
         <div class="modal-details">
             <h2 style="color: var(--accent); margin-top:0;">${materia.nome}</h2>
-            <p style="color:#fff; margin-bottom:20px; opacity:0.8;">${materia.descricao}</p>
+            <p style="color:${corStatus}; font-weight:bold; margin-bottom:20px;">Status: ${statusExibicao}</p>
+            <p style="color:#fff; opacity:0.8;">${materia.descricao}</p>
 
-            <h4 style="color: var(--accent); font-size: 0.9rem; margin-bottom:10px;">TRILHA DE APRENDIZADO</h4>
+            <h4 style="color: var(--accent); font-size: 0.9rem; margin-top:20px;">TRILHA DE APRENDIZADO</h4>
             <ul class="syllabus-list">
                 ${materia.grade_conteudo.map((item, index) => {
-                    // Se for um dos 4 primeiros tópicos (index 0, 1, 2 ou 3)
-                    if (index < 4) {
-                        return `
-                            <li onclick="window.location.href='./materiais/ihc-topico-0${index + 1}.html'" 
-                                style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; transition: 0.3s; padding: 10px; list-style: none;"
-                                onmouseover="this.style.background='rgba(46, 204, 113, 0.1)'"
-                                onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-                                📖 ${item} (Apostila Disponível)
+        const num = String(index + 1).padStart(2, '0');
+
+        // Libera o link se for a matéria de IHC
+        if (materia.nome.includes("Interação")) {
+            return `
+                            <li onclick="window.location.href='./materiais/ihc-topico-${num}.html'" 
+                                style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
+                                📖 ${item}
                             </li>
                         `;
-                    }
-                    // Restante da trilha bloqueado
-                    return `<li style="opacity: 0.6; cursor: default; margin-top: 5px; padding: 10px; list-style: none;">${item}</li>`;
-                }).join('')}
+        }
+        return `<li style="opacity: 0.5; padding: 10px; list-style: none;">🔒 ${item}</li>`;
+    }).join('')}
             </ul>
-
-            <div style="margin-top:25px; padding-top:15px; border-top: 1px solid var(--border);">
-                <h4 style="color: #fff; font-size: 0.8rem; margin-bottom:10px;">MATERIAL COMPLEMENTAR</h4>
-                <a href="${materia.material_complementar}" target="_blank" class="btn-primary-small" style="display:inline-block; text-decoration: none;">
-                    📂 BAIXAR MEU RESUMO (PDF)
-                </a>
-            </div>
         </div>
     `;
-
     modal.style.display = 'flex';
 }
 document.addEventListener("DOMContentLoaded", () => {

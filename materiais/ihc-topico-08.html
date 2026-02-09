@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 8 — Avaliação em IHC | CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b0f14;
+            --accent: #2ecc71;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .reader-nav {
+            padding: 20px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .chapter-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-top: 30px;
+        }
+
+        p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .scientific-box {
+            background: var(--glass);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="reader-nav">
+        <a href="../index.html" class="back-link">← Voltar ao Hub</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / IHC_MESTRADO_T08
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+        <header class="chapter-header">
+            <span>Caderno de Estudos Avançados — Tópico 8</span>
+            <h1>Avaliação em IHC e Usabilidade</h1>
+            <p>Abordagens Analíticas e Empíricas: O Rigor Científico na Validação da Experiência</p>
+        </header>
+
+        <section id="unidade0">
+            <h2>0. A Epistemologia da Avaliação em IHC</h2>
+            <p>Avaliar em IHC não é um ato de “testar software”, mas um processo de <strong>produção de
+                    evidências</strong> sobre a qualidade da interação. É o momento em que as hipóteses materializadas
+                no protótipo são confrontadas com modelos teóricos ou com a realidade do uso.</p>
+        </section>
+
+        <section id="unidade1">
+            <h2>1. Avaliação Analítica: O Olhar do Especialista</h2>
+            <p>Realizada sem a participação direta de usuários, baseia-se em modelos conceituais e princípios teóricos
+                consolidados[cite: 156, 160]. Seu objetivo é identificar problemas estruturais e violações evidentes de
+                usabilidade de forma precoce[cite: 154].</p>
+            <ul>
+                <li><strong>Avaliação Heurística:</strong> Confronto da interface com as Heurísticas de Nielsen[cite:
+                    139, 140].</li>
+                <li><strong>Percurso Cognitivo:</strong> Simulação passo a passo da ação do usuário para identificar
+                    rupturas na lógica da tarefa.</li>
+            </ul>
+        </section>
+
+        <section id="unidade2">
+            <h2>2. Avaliação como Escolha Epistemológica</h2>
+            <p>Avaliar não é escolher uma técnica, mas assumir uma posição sobre <em>que tipo de conhecimento</em> se
+                deseja produzir[cite: 171]. Métodos analíticos respondem se o sistema viola princípios conhecidos,
+                enquanto métodos empíricos revelam como usuários reais constroem sentido e resistem ao sistema[cite:
+                167, 175].</p>
+        </section>
+
+        <section id="unidade3">
+            <h2>3. Limites e Vieses da Avaliação Analítica</h2>
+            <p>A avaliação analítica antecipa problemas prováveis, mas não prevê o uso real em contextos situados[cite:
+                157, 158]. Avaliadores especialistas projetam seus próprios modelos mentais, assumindo usuários
+                racionais — uma suposição frequentemente violada na realidade[cite: 159].</p>
+            <div class="scientific-box">
+                A avaliação analítica detecta falhas conceituais prováveis, não erros reais. Ela reduz riscos iniciais,
+                mas não substitui a observação do uso situado.
+            </div>
+        </section>
+
+        <section id="unidade4">
+            <h2>4. Avaliação Empírica: A Realidade Situada</h2>
+            <p>A avaliação empírica observa usuários reais executando tarefas reais em contextos próximos ao uso
+                efetivo[cite: 161, 165]. No Design Centrado no Usuário, o erro do usuário não é ruído experimental, mas
+                o principal dado de interesse[cite: 162].</p>
+        </section>
+
+        <section id="unidade5">
+            <h2>5. Avaliação no Ciclo Iterativo do DCU</h2>
+            <p>No DCU, avaliar não encerra o processo — ela o reabre. Cada avaliação produz evidências que colocam em
+                xeque as hipóteses feitas sobre o usuário e o contexto[cite: 167]. O ciclo é reflexivo: avaliar implica
+                reformular hipóteses e reprojetar continuamente.</p>
+        </section>
+
+        <div class="scientific-box" style="text-align: center; margin-top: 80px;">
+            <strong>Síntese Avançada:</strong> Avaliação converte opinião em evidência, erro em conhecimento e interface
+            em objeto de investigação científica.
+        </div>
+
+        <footer>
+            <p class="signature">Jessica França — Ciência da Computação</p>
+        </footer>
+    </main>
+</body>
+
+</html>

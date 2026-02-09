@@ -63,13 +63,15 @@
                     "horas": 80,
                     "descricao": "Estudo da interface e experiência do usuário focada em usabilidade e design centrado no humano.",
                     "grade_conteudo": [
-                        "Fundamentos Cognitivos de IHC (Mente, Modelos e Leis)",
-                        "Fundamentos de IHC e UX (Conceitos, História e Escopo)",
-                        "Engenharia Semiótica e Comunicação (Interface como Linguagem)",
-                        "Heurísticas de Nielsen (Com Base Teórica Avançada)",
+                        "Fundamentos Cognitivos de IHC",
+                        "Fundamentos de IHC e UX",
+                        "Engenharia Semiótica e Comunicação",
+                        "Heurísticas de Nielsen",
                         "Design Centrado no Usuário (DCU)",
                         "Prototipação de Baixa e Alta Fidelidade",
-                        "Avaliação em IHC e Usabilidade (Analítica e Empírica)"
+                        "Avaliação em IHC e Usabilidade",
+                        "CONTEÚDO EXTRA: TÓPICO 08",
+                        "EXAME FINAL DE CERTIFICAÇÃO"
                     ],
                     "material_complementar": "assets/resumos/resumo-ihc-jessica.pdf"
                 },
