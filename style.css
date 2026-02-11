@@ -345,3 +345,112 @@ body {
     cursor: pointer;
 }
 
+
+/* --- DASHBOARD DE ÍCONES (PASTINHAS) --- */
+.flashcards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.folder-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.folder-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: rgba(46, 204, 113, 0.05);
+}
+
+/* --- JANELA POPUP ESTILO GLASS (MODAL) --- */
+.card-modal {
+    display: none;
+    /* Começa escondido */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    /* Efeito de desfoque de fundo */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 700px;
+    /* Limita a largura do popup */
+    height: 500px;
+    /* Limita a altura do popup */
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    perspective: 2000px;
+    /* Profundidade para o giro 3D */
+}
+
+.modal-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Classe aplicada via JS para virar o card */
+.modal-content.is-flipped .modal-card-inner {
+    transform: rotateY(180deg);
+}
+
+.modal-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    /* Fundo branco para destacar o seu manuscrito */
+    overflow: hidden;
+}
+
+/* 🔄 CORREÇÃO: Inverte a face de trás para a sua letra não aparecer espelhada */
+.modal-face.back {
+    transform: rotateY(180deg);
+}
+
+/* --- CONTROLE DAS IMAGENS DO IPAD --- */
+.modal-face img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Garante que a imagem gigante caiba no popup sem distorcer */
+    padding: 15px;
+}
+
+/* Botão de Fechar (X) */
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: var(--accent);
+    cursor: pointer;
+    z-index: 10000;
+}

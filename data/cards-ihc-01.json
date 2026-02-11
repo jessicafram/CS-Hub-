@@ -1,0 +1,56 @@
+{
+    "topico": "Fundamentos Cognitivos da Interação Humano-Computador",
+    "nivel": "Pós-graduação / Mestrado",
+    "cards": [
+        {
+            "id": 1,
+            "frente": "O que significa estudar IHC em nível avançado?",
+            "verso": "Em nível avançado, a IHC deixa de ser o estudo de telas e passa a ser o estudo da acoplagem estrutural entre o sistema biológico humano e o sistema artificial computacional, com foco nos limites cognitivos, perceptivos e motores."
+        },
+        {
+            "id": 2,
+            "frente": "O que é o Modelo do Processador Humano (MPH)?",
+            "verso": "O MPH, proposto por Card, Moran e Newell, modela o comportamento humano como um sistema composto por três subsistemas: perceptivo, cognitivo e motor, permitindo prever desempenho, tempo de resposta e erros na interação."
+        },
+        {
+            "id": 3,
+            "frente": "Qual é o papel do sistema perceptivo na IHC?",
+            "verso": "O sistema perceptivo atua como o gargalo de entrada da informação, filtrando estímulos visuais e auditivos. Ele não registra a interface de forma objetiva, mas constrói ativamente a percepção com base em atenção seletiva e expectativas prévias."
+        },
+        {
+            "id": 4,
+            "frente": "O que é atenção seletiva e como ela afeta a usabilidade?",
+            "verso": "A atenção seletiva limita o número de estímulos processados conscientemente. Interfaces mal hierarquizadas podem fazer com que elementos importantes não sejam percebidos, mesmo estando visivelmente presentes na tela."
+        },
+        {
+            "id": 5,
+            "frente": "Por que a memória de trabalho é crítica no design de interfaces?",
+            "verso": "A memória de trabalho possui capacidade limitada (cerca de 7 ± 2 unidades). Interfaces que exigem memorização excessiva sobrecarregam o sistema cognitivo, aumentando erros e fadiga mental."
+        },
+        {
+            "id": 6,
+            "frente": "Qual a diferença entre memória de trabalho e memória de longo prazo?",
+            "verso": "A memória de trabalho armazena informações temporárias para execução de tarefas, enquanto a memória de longo prazo armazena conhecimentos semânticos e procedimentais. O bom design explora modelos mentais consolidados na memória de longo prazo."
+        },
+        {
+            "id": 7,
+            "frente": "O que é a Lei de Fitts e qual sua importância para a IHC?",
+            "verso": "A Lei de Fitts modela matematicamente o tempo necessário para atingir um alvo, considerando distância e tamanho. Ela permite prever o custo de interação e otimizar o posicionamento e o tamanho de elementos na interface."
+        },
+        {
+            "id": 8,
+            "frente": "O que representa o Índice de Dificuldade (ID) na Lei de Fitts?",
+            "verso": "O Índice de Dificuldade quantifica, em bits, o custo informacional de uma ação motora. Quanto maior a distância e menor o alvo, maior o ID e maior o tempo de movimento esperado."
+        },
+        {
+            "id": 9,
+            "frente": "O que é a Teoria da Carga Cognitiva?",
+            "verso": "Proposta por John Sweller, a teoria distingue entre carga intrínseca (da tarefa), extrínseca (da interface) e germânica (do aprendizado). O design eficiente minimiza a carga extrínseca para preservar recursos cognitivos."
+        },
+        {
+            "id": 10,
+            "frente": "O que são modelos mentais em IHC?",
+            "verso": "Modelos mentais são representações internas que o usuário cria para entender e prever o comportamento do sistema. Interfaces consistentes ajudam a alinhar o modelo mental do usuário ao modelo conceitual do designer."
+        }
+    ]
+}

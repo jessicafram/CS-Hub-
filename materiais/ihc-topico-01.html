@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
     <style>
         :root {
             --bg-main: #0b0f14;
@@ -169,22 +170,95 @@
                     frente porque sua atenção está focada em outra tarefa.</li>
             </ul>
 
-            <h3>2.2 O Sistema Cognitivo (O Processamento Central)</h3>
-            <ul>
-                <li><strong>Memória de Trabalho (Working Memory):</strong> É o recurso mais escasso. Sua capacidade é
-                    limitada a cerca de 7 ± 2 unidades de informação (chunks). Em IHC avançada, lutamos contra a
-                    volatilidade dessa memória, garantindo que o sistema suporte o estado da tarefa.</li>
-                <li><strong>Memória de Longo Prazo (MLP):</strong> Armazena o conhecimento procedimental (como fazer) e
-                    semântico (o que é). O design utiliza metáforas para conectar o sistema a esquemas mentais
-                    existentes na MLP.</li>
-            </ul>
+            <section>
+                <h2>2.2 O Sistema Cognitivo (O Processamento Central)</h2>
+                <p>
+                    Inspirado no <em>Model Human Processor</em> (MHP) de Card, Moran e Newell, o sistema cognitivo atua
+                    como a CPU e a memória de curto prazo do usuário. Ele é o mediador entre a percepção e a execução
+                    motora.
+                </p>
 
-            <h3>2.3 O Sistema Motor e a Lei de Fitts (O Output)</h3>
-            <p>O movimento humano é previsível através de modelos matemáticos.</p>
-            <div class="formula">T = a + b · log₂(1 + D/W)</div>
-            <p><strong>Análise de Custo-Benefício:</strong> No mestrado, calculamos o "custo de interação". Isso
-                justifica por que menus de contexto (perto do mouse) são cognitivamente mais eficientes que barras fixas
-                no topo da tela.</p>
+                <ul>
+                    <li>
+                        <strong>Memória de Trabalho (Working Memory):</strong> É o recurso mais escasso do sistema.
+                        Possui capacidade limitada a cerca de <strong>7 ± 2 unidades</strong> de informação (chunks). Em
+                        IHC avançada, projetamos para reduzir a carga cognitiva, minimizando a necessidade de
+                        memorização temporária de estados do sistema.
+                    </li>
+                    <li>
+                        <strong>Memória de Longo Prazo (MLP):</strong> Armazena conhecimento semântico (fatos e
+                        conceitos) e procedimental (habilidades e processos). O design eficiente utiliza
+                        <strong>metáforas e modelos mentais</strong> consolidados na MLP para facilitar o aprendizado e
+                        a retenção.
+                    </li>
+                    <li>
+                        <strong>Ciclo de Processamento:</strong> A cognição não é isolada; ela ocorre em um ciclo onde o
+                        sistema perceptivo extrai estímulos, o cognitivo toma decisões com base na memória, e o sistema
+                        motor dispara o comando de execução.
+                    </li>
+                </ul>
+
+                <div class="scientific-box">
+                    <p><strong>Insight Acadêmico:</strong> A cognição em IHC é tratada como um processo distribuído. O
+                        artefato (interface) não é apenas um alvo, mas uma extensão da memória de trabalho do usuário,
+                        permitindo que ele "pense" através da interação.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>2.3 O Sistema Motor e a Lei de Fitts (O Output)</h2>
+                <p>
+                    O sistema motor é o barramento de saída que converte decisões cognitivas em ações físicas. O
+                    movimento humano é altamente previsível através de modelos matemáticos que evoluíram de simples
+                    medições biomecânicas para a <strong>Teoria da Informação</strong>.
+                </p>
+
+                <h3>A Evolução: De Fitts para Shannon (ISO 9241-9)</h3>
+                <p>
+                    Embora Paul Fitts tenha proposto a fórmula original em 1954, a IHC moderna e o mestrado utilizam a
+                    <strong>Formulação de Shannon</strong>. Essa evolução trata o movimento não apenas como um
+                    deslocamento físico, mas como uma transmissão de bits através de um canal com ruído.
+                </p>
+
+                <div class="formula">
+                    T = a + b · log₂(D/W + 1)
+                </div>
+
+                <div class="scientific-box">
+                    <ul>
+                        <li><strong>T (Tempo de Movimento):</strong> O tempo total para atingir o alvo.</li>
+                        <li><strong>D (Distância):</strong> Distância do ponto inicial ao centro do alvo.</li>
+                        <li><strong>W (Largura):</strong> A tolerância ou precisão exigida pelo alvo.</li>
+                        <li><strong>O "+ 1" (Fator de Shannon):</strong> Garante que o Índice de Dificuldade (ID) seja
+                            sempre ≥ 0, garantindo a estabilidade matemática do modelo e prevenindo resultados de
+                            entropia negativa.</li>
+                    </ul>
+                </div>
+
+                <h3>Implicações Epistemológicas e Práticas</h3>
+                <p>
+                    A Lei de Fitts quantifica o <strong>Índice de Dificuldade (ID)</strong> em bits. Isso permite que o
+                    designer calcule o "custo de interação" antes mesmo de codificar a interface.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Menus de Contexto:</strong> São matematicamente superiores a barras fixas, pois reduzem
+                        a <strong>Distância (D)</strong> a quase zero. Como log₂(0+1) = 0, o tempo de movimento se
+                        aproxima apenas do tempo de reação biológica.
+                    </li>
+                    <li>
+                        <strong>Alvos Infinitos:</strong> As bordas da tela e os cantos (ex: botão "Iniciar" ou relógio)
+                        possuem <strong>Largura (W)</strong> virtualmente infinita, pois o cursor é impedido de passar
+                        deles. Isso torna o clique extremamente rápido e imune a erros motores.
+                    </li>
+                    <li>
+                        <strong>Trade-off de Precisão:</strong> Para ganhar velocidade, o sistema motor humano sacrifica
+                        a precisão (o "ruído" no canal de Shannon). Métodos numéricos na matemática computacional
+                        espelham esse comportamento ao buscar convergência sob limites de erro aceitáveis.
+                    </li>
+                </ul>
+            </section>
         </section>
 
         <section id="unidade3">
@@ -202,28 +276,85 @@
 
         <section id="unidade4">
             <h2>4. Ciclo de Ação de Norman: A Anatomia da Interação</h2>
-            <p>Donald Norman divide a experiência em sete estágios:</p>
-
-
+            <p>
+                Donald Norman postula que a interação não é um evento atômico, mas um ciclo iterativo composto por
+                <strong>sete estágios</strong> fundamentais. Entender essa anatomia permite ao designer identificar
+                exatamente em qual ponto a <strong>Carga Cognitiva</strong> está sendo sobrecarregada.
+            </p>
 
             <div class="scientific-box">
-                <strong>Golfo da Execução:</strong> Distância entre o que eu quero e como o sistema me deixa fazer.
-                Interfaces com baixas affordances (pistas visuais) aumentam este golfo.<br>
-                <strong>Golfo da Avaliação:</strong> Dificuldade de saber se a ação deu certo. A falta de feedback
-                imediato é a causa principal deste golfo.
+                <h3>4.1 Os Sete Estágios da Ação</h3>
+                <ol>
+                    <li><strong>Estabelecer a Meta:</strong> O estado final desejado (ex: "Enviar este e-mail").</li>
+                    <li style="color: #2ecc71;"><strong>Formar a Intenção:</strong> A decisão específica de agir sobre o
+                        artefato.</li>
+                    <li style="color: #2ecc71;"><strong>Especificar a Ação:</strong> Traduzir a intenção em comandos
+                        (ex: "Localizar o botão azul").</li>
+                    <li style="color: #2ecc71;"><strong>Executar a Ação:</strong> O componente motor físico sobre a
+                        interface.</li>
+                    <li><strong>Perceber o Estado:</strong> Captar visualmente/auditivamente as mudanças no sistema.
+                    </li>
+                    <li><strong>Interpretar o Estado:</strong> Atribuir significado às percepções (ex: "O ícone de
+                        carregando parou").</li>
+                    <li><strong>Avaliar o Resultado:</strong> Comparar o estado alcançado com a meta inicial.</li>
+                </ol>
+            </div>
+
+
+
+            <h3>4.2 A Teoria dos Golfos</h3>
+            <p>Os Golfos representam as barreiras psicológicas onde o usuário perde o controle da tarefa.</p>
+
+            <div class="scientific-box" style="border-left-color: #e74c3c;">
+                <h4>🚩 Golfo da Execução (Estágios 2, 3 e 4)</h4>
+                <p>
+                    A distância entre as metas do usuário e o que o sistema permite fazer. Interfaces com baixas
+                    <em>Affordances</em> e mapeamento pobre aumentam este golfo, exigindo mais <strong>Carga
+                        Extrínseca</strong>
+                    do usuário para descobrir como operar o software.
+                </p>
+            </div>
+
+            <div class="scientific-box" style="border-left-color: #f1c40f;">
+                <h4>🚩 Golfo da Avaliação (Estágios 5, 6 e 7)</h4>
+                <p>
+                    O esforço necessário para interpretar o estado físico do sistema. A ausência de <em>Feedback</em>
+                    imediato impede o encerramento do ciclo de ação, gerando ansiedade e insegurança cognitiva.
+                </p>
             </div>
         </section>
 
         <section id="unidade5">
             <h2>5. Modelos Mentais: A Psicologia da Inferência</h2>
-            <p>O usuário nunca interage com o sistema real; ele interage com o modelo mental que ele construiu do
-                sistema.</p>
-            <ul>
-                <li><strong>Inconsistência:</strong> Gera frustração e erro persistente quando o sistema se comporta
-                    diferente do esperado.</li>
-                <li><strong>Padrões de Design:</strong> Ferramentas para alinhar o modelo mental do usuário com o
-                    funcionamento técnico do software.</li>
-            </ul>
+            <p>
+                O usuário nunca interage diretamente com o sistema real; ele interage com o <strong>Modelo
+                    Mental</strong>
+                que ele construiu. Este modelo é uma estrutura de conhecimento armazenada na <strong>Memória de Longo
+                    Prazo</strong>
+                que permite ao usuário prever o comportamento do sistema.
+            </p>
+
+            <div class="scientific-box">
+                <ul>
+                    <li>
+                        <strong>Inconsistência e Conflito:</strong> Quando o comportamento do software viola o modelo
+                        mental
+                        previsto, ocorre uma quebra de expectativa, resultando em erros persistentes e fadiga cognitiva.
+                    </li>
+                    <li>
+                        <strong>Padrões de Design como Scaffolding:</strong> O uso de botões, ícones e fluxos padrão
+                        atua como
+                        um <strong>Andaime</strong>, permitindo que o usuário aplique esquemas mentais de outros
+                        sistemas
+                        ao seu software, reduzindo a carga de aprendizado.
+                    </li>
+                    <li>
+                        <strong>Visibilidade do Sistema:</strong> Um bom design torna o modelo conceitual do designer
+                        visível
+                        para o usuário, facilitando a criação de um modelo mental correto e estável.
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <div class="scientific-box" style="text-align: center;">
@@ -267,11 +398,76 @@
                 </li>
             </ul>
         </section>
+        <section id="revisao-flashcards" class="quiz-container">
+            <h2>🗂️ Flashcards de Revisão</h2>
+            <p>Clique ou passe o mouse para revelar a resposta manuscrita.</p>
+            <div id="container-cards" class="flashcards-container">
+            </div>
+        </section>
+
+        <script>
+            async function carregarDashboard() {
+                const container = document.getElementById('container-cards');
+                const response = await fetch('../data/cards-ihc-01.json');
+                const data = await response.json();
+
+                container.innerHTML = '';
+                data.cards.forEach(card => {
+                    container.innerHTML += `
+                <div class="folder-card" onclick="abrirPopup(${card.id})">
+                    <div class="card-icon">🗂️</div>
+                    <div class="folder-name" style="color:var(--accent); font-family:'Fira Code'; font-size:0.8rem;">
+                        CARD ${String(card.id).padStart(2, '0')}
+                    </div>
+                </div>
+            `;
+                });
+            }
+
+            function abrirPopup(id) {
+                const modal = document.getElementById('card-modal');
+                document.getElementById('img-frente').src = `../assets/card${id}-frente.jpeg`;
+                document.getElementById('img-verso').src = `../assets/card${id}-verso.jpeg`;
+
+                modal.style.display = 'flex';
+                // Garante que o card comece pela frente
+                document.getElementById('modal-target').classList.remove('is-flipped');
+            }
+
+            function virarCard(e) {
+                e.stopPropagation(); // Impede de fechar o modal ao clicar no card
+                document.getElementById('modal-target').classList.toggle('is-flipped');
+            }
+
+            function fecharModal() {
+                const modal = document.getElementById('card-modal');
+                const target = document.getElementById('modal-target');
+                modal.style.display = 'none';
+                target.classList.remove('is-flipped'); // Reseta a virada para a próxima vez
+            }
+
+            carregarDashboard();
+        </script>
 
         <footer>
             Jessica França - Ciência da Computação
         </footer>
     </main>
+    <div id="card-modal" class="card-modal">
+        <div class="modal-content" id="modal-target">
+            <span class="close-popup" onclick="fecharModal()">&times;</span>
+
+            <div class="modal-card-inner" onclick="virarCard(event)">
+                <div class="modal-face front">
+                    <img id="img-frente" src="" alt="Frente do Card">
+                </div>
+
+                <div class="modal-face back">
+                    <img id="img-verso" src="" alt="Verso do Card">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
