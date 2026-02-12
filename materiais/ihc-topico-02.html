@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         :root {
@@ -356,6 +357,80 @@
         </footer>
 
     </main>
+    <section style="max-width: 900px; margin: 0 auto; padding: 0 30px;">
+        <h2 style="color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+            📚 Flashcards de Revisão — Tópico 02
+        </h2>
+        <div id="container-cards" class="flashcards-container">
+        </div>
+    </section>
+
+    <div id="card-modal" class="card-modal">
+        <div class="modal-content" id="modal-target">
+            <span class="close-popup" onclick="fecharModal()">&times;</span>
+
+            <div class="modal-card-inner" onclick="virarCard(event)">
+                <div class="modal-face front">
+                    <img id="img-frente" src="" alt="Pergunta">
+                </div>
+                <div class="modal-face back">
+                    <img id="img-verso" src="" alt="Resposta">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Carrega as pastinhas dinamicamente do JSON
+        async function carregarDashboard() {
+            const container = document.getElementById('container-cards');
+            try {
+                // Certifique-se de que o arquivo JSON existe nesta pasta
+                const response = await fetch('../data/cards-ihc-02.json');
+                const data = await response.json();
+
+                container.innerHTML = '';
+                data.cards.forEach(card => {
+                    container.innerHTML += `
+                        <div class="folder-card" onclick="abrirPopup('${card.id}')">
+                            <div class="card-icon">🗂️</div>
+                            <div class="folder-name" style="color:var(--accent); font-family:'Fira Code'; font-size:0.8rem; font-weight:bold;">
+                                CARD ${card.id}
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error('Erro ao carregar JSON:', error);
+            }
+        }
+
+        function abrirPopup(id) {
+            // Ajustado para o padrão card2.1, card2.2 que você criou
+            document.getElementById('img-frente').src = `../assets/card${id}-frente.jpeg`;
+            document.getElementById('img-verso').src = `../assets/card${id}-verso.jpeg`;
+
+            document.getElementById('card-modal').style.display = 'flex';
+            document.getElementById('modal-target').classList.remove('is-flipped');
+        }
+
+        function virarCard(e) {
+            e.stopPropagation();
+            document.getElementById('modal-target').classList.toggle('is-flipped');
+        }
+
+        function fecharModal() {
+            document.getElementById('card-modal').style.display = 'none';
+        }
+
+        // Fecha ao clicar no fundo
+        window.onclick = function (event) {
+            const modal = document.getElementById('card-modal');
+            if (event.target == modal) fecharModal();
+        }
+
+        carregarDashboard();
+    </script>
 </body>
 
 </html>

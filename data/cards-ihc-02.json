@@ -1,0 +1,55 @@
+{
+    "topico": "Fundamentos de IHC e UX",
+    "cards": [
+        {
+            "id": "2.1",
+            "frente": "Quando surgiu a IHC moderna?",
+            "verso": "Década de 1980 (1983), com o foco no processamento cognitivo humano."
+        },
+        {
+            "id": "2.2",
+            "frente": "O que define a UX?",
+            "verso": "Percepções e respostas emocionais antes, durante e após o uso."
+        },
+        {
+            "id": "2.3",
+            "frente": "Premissa da Eng. Semiótica?",
+            "verso": "A interface é uma mensagem do designer para o usuário."
+        },
+        {
+            "id": "2.4",
+            "frente": "O que é Metacomunicação?",
+            "verso": "O designer explicando sua visão e lógica através do sistema."
+        },
+        {
+            "id": "2.5",
+            "frente": "Quais as 4 perspectivas da Interação?",
+            "verso": "Sistema, Ferramenta, Parceiro de Discurso e Mídia."
+        },
+        {
+            "id": "2.6",
+            "frente": "O que define a Comunicabilidade?",
+            "verso": "A eficácia da transmissão da lógica de design ao usuário."
+        },
+        {
+            "id": "2.7",
+            "frente": "O que é o DCU?",
+            "verso": "Processo iterativo com foco total nas necessidades do usuário."
+        },
+        {
+            "id": "2.8",
+            "frente": "Teoria da Atividade (Sociocultural)?",
+            "verso": "Interação mediada por ferramentas em contextos históricos e culturais."
+        },
+        {
+            "id": "2.9",
+            "frente": "O que são Andaimes (Scaffolding)?",
+            "verso": "Suportes temporários para ajudar na evolução do usuário."
+        },
+        {
+            "id": "2.10",
+            "frente": "Contexto Sociocultural em IHC?",
+            "verso": "Garantir equidade através de andaimes para diferentes camadas sociais."
+        }
+    ]
+}
