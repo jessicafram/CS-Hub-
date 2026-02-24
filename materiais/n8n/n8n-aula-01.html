@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01: n8n Expert - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Estilos específicos para manter o isomorfismo com o PDF */
+        .mentor-card {
+            background: rgba(46, 204, 113, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .img-label {
+            display: block;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 10px;
+        }
+
+        .ontologia-box {
+            border: 1px solid var(--accent);
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+        }
+
+        .code-block {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+    <nav class="top-navbar">
+        <a href="../../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO
+            HUB</a>
+        <span class="jessica-signature">Mentoria Individual: n8n Expert</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">MÓDULO 1: FUNDAMENTOS E ESTRUTURA</span>
+            <h1 style="font-size: 2.5rem; color: var(--accent);">Aula 01: Instalação Profissional e a Lógica de
+                Automação</h1>
+            [cite_start]<p>Mentora: Jessica França — Especialista com mais de 15 anos de mercado [cite: 37, 39]</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <h2>1. Bem-vindo à sua Transição de Carreira</h2>
+            [cite_start]<p>Este plano foi desenhado para unir experiência técnica com as necessidades práticas que o
+                mercado de IA exige hoje[cite: 41]. [cite_start]Nosso objetivo é preparar o seu "laboratório" de
+                trabalho[cite: 42].</p>
+
+            <h2>2. O Coração da Operação: Terminal</h2>
+            [cite_start]<p>Como especialista, você aprenderá a via profissional, que garante mais controle e
+                estabilidade[cite: 44].</p>
+
+            <h3>A. O Motor (Node.js)</h3>
+            [cite_start]<p>O software que permite que nosso computador execute instruções complexas[cite: 46].</p>
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="../../assets/cursos/n8n/aula-01/terminal.jpg" alt="Versão Node"
+                    style="max-width: 100%; border-radius: 12px; border: 1px solid var(--border);">
+                [cite_start]<span class="img-label">Comando: node -v [cite: 52]</span>
+            </div>
+
+            <h3>B. Instalação via NPM</h3>
+            [cite_start]<p>Utilizaremos o gerenciador de pacotes para baixar o n8n e deixá-lo disponível globalmente
+                (-g)[cite: 57, 58].</p>
+            <div class="code-block">npm install n8n -g</div>
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="../../assets/cursos/n8n/aula-01/install-n8n.jpg" alt="Instalação n8n"
+                    style="max-width: 100%; border-radius: 12px; border: 1px solid var(--border);">
+            </div>
+
+            <div class="mentor-card">
+                <strong>Regra de Ouro:</strong> O terminal deve permanecer aberto enquanto você trabalha.
+                [cite_start]Ele é o "servidor" que mantém sua automação viva[cite: 106, 107].
+            </div>
+
+            <div class="ontologia-box">
+                <h3 style="margin-top: 0; color: var(--accent);">Box: Fundamento Epistemológico - A Ontologia do Nó</h3>
+                <p>Na filosofia, a Ontologia estuda o ser das coisas. [cite_start]No n8n, a ontologia completa-se apenas
+                    no <strong>Valor</strong>[cite: 226].</p>
+                <ul>
+                    [cite_start]<li><strong>O Nome:</strong> É o "Parecer" (etiqueta no Canvas)[cite: 227].</li>
+                    [cite_start]<li><strong>O Valor:</strong> É o "Ser" (o que o nó realmente entrega à realidade)[cite:
+                        228].</li>
+                </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="../../assets/cursos/n8n/aula-01/edit-fields.jpg" alt="Anatomia do Nó"
+                        style="max-width: 100%; border-radius: 12px;">
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+            <p>Deseja o backup deste conteúdo?</p>
+            <a href="../../assets/cursos/n8n/aula-01.pdf" download class="btn-primary"
+                style="padding: 15px 30px; background: var(--accent); color: #000; border-radius: 8px; font-weight: bold; text-decoration: none;">
+                📥 BAIXAR MATERIAL EM PDF
+            </a>
+            <p class="signature" style="margin-top: 30px; font-size: 1.8rem;">Jessica França</p>
+        </footer>
+    </main>
+</body>
+
+</html>

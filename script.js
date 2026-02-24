@@ -8,6 +8,7 @@ const codeToType = `class ComputerScience {
 }`;
 
 let charIndex = 0;
+let materiasData = null; // Cache para não precisar ler o arquivo JSON toda hora
 
 function typeCode() {
     const element = document.getElementById("typing-code");
@@ -18,31 +19,41 @@ function typeCode() {
     }
 }
 
-async function loadSubjects(periodoSelecionado = 1) {
+// Função atualizada para aceitar o tipo (graduacao ou extensao)
+async function loadContent(tipo, valor) {
     try {
-        const response = await fetch('data/materias.json');
-        if (!response.ok) throw new Error('Falha ao carregar JSON');
+        if (!materiasData) {
+            const response = await fetch('data/materias.json');
+            if (!response.ok) throw new Error('Falha ao carregar JSON');
+            materiasData = await response.json();
+        }
 
-        const data = await response.json();
         const container = document.getElementById('subjects-container');
         container.innerHTML = "";
+        let listaExibicao = [];
 
-        const periodoEncontrado = data.grade_curricular.find(p => p.periodo === periodoSelecionado);
-
-        if (periodoEncontrado) {
-            periodoEncontrado.materias.forEach(m => {
-                const card = document.createElement('div');
-                card.className = 'mat-card-modern';
-                card.innerHTML = `
-                    <div class="card-status">${m.status}</div>
-                    <h3>${m.nome}</h3>
-                    <p>${m.horas} Horas</p>
-                    <button class="btn-primary-small" style="background:var(--accent); color:#000; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-weight:bold; margin-top:10px;">VER CONTEÚDO</button>
-                `;
-                card.querySelector('button').addEventListener('click', () => openModal(m));
-                container.appendChild(card);
-            });
+        if (tipo === 'graduacao') {
+            const periodoNum = parseInt(valor);
+            const periodoEncontrado = materiasData.grade_curricular.find(p => p.periodo === periodoNum);
+            if (periodoEncontrado) listaExibicao = periodoEncontrado.materias;
+        } else if (tipo === 'extensao') {
+            // Busca nos cursos de extensão (você deve adicionar esta chave no seu JSON)
+            const cursoEncontrado = materiasData.cursos_extensao.find(c => c.id === valor);
+            if (cursoEncontrado) listaExibicao = [cursoEncontrado];
         }
+
+        listaExibicao.forEach(m => {
+            const card = document.createElement('div');
+            card.className = 'mat-card-modern';
+            card.innerHTML = `
+                <div class="card-status">${m.status}</div>
+                <h3>${m.nome}</h3>
+                <p>${m.horas} Horas</p>
+                <button class="btn-primary-small" style="background:var(--accent); color:#000; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-weight:bold; margin-top:10px;">VER CONTEÚDO</button>
+            `;
+            card.querySelector('button').addEventListener('click', () => openModal(m));
+            container.appendChild(card);
+        });
     } catch (error) {
         console.error("Erro no carregamento:", error);
     }
@@ -52,8 +63,7 @@ function openModal(materia) {
     const modal = document.getElementById('course-modal');
     const body = document.getElementById('modal-body');
 
-    // Verifica se o aluno passou no exame final salvo no localStorage
-    const aprovado = localStorage.getItem('ihc_concluido') === 'true';
+    const aprovado = localStorage.getItem(`${materia.id}_concluido`) === 'true';
     const statusExibicao = aprovado ? "Concluído ✓" : materia.status;
     const corStatus = aprovado ? "var(--accent)" : "#fff";
 
@@ -68,7 +78,21 @@ function openModal(materia) {
                 ${materia.grade_conteudo.map((item, index) => {
         const num = String(index + 1).padStart(2, '0');
 
-        // Libera o link se for a matéria de IHC
+        // Lógica para Extensão (n8n, Java): Libera HTML na subpasta e botão de PDF
+        if (materia.links_ativos) {
+            return `
+                            <li style="display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
+                                <div onclick="window.location.href='./materiais/${materia.id}/${materia.id}-aula-${num}.html'" style="cursor:pointer; flex-grow: 1;">
+                                    📖 ${item}
+                                </div>
+                                <a href="assets/cursos/${materia.id}/aula-${num}.pdf" download class="btn-download" title="Baixar PDF" style="text-decoration: none; margin-left: 10px;">
+                                    📥
+                                </a>
+                            </li>
+                        `;
+        }
+
+        // Lógica para IHC (Graduação)
         if (materia.nome.includes("Interação")) {
             return `
                             <li onclick="window.location.href='./materiais/ihc-topico-${num}.html'" 
@@ -84,15 +108,20 @@ function openModal(materia) {
     `;
     modal.style.display = 'flex';
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     typeCode();
-    loadSubjects(1);
+    loadContent('graduacao', 1); // Carrega o 1º período por padrão
 
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', function () {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            loadSubjects(parseInt(this.dataset.periodo));
+
+            const tipo = this.dataset.type; // graduacao ou extensao
+            const valor = tipo === 'graduacao' ? this.dataset.periodo : this.dataset.curso;
+
+            loadContent(tipo, valor);
         });
     });
 

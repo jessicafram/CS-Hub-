@@ -454,3 +454,54 @@ body {
     cursor: pointer;
     z-index: 10000;
 }
+
+.glass-container-main {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 50px;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.category-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.periods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 15px;
+}
+
+.extensions-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.divider-glass {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 40px 0;
+}
+
+/* Estilo para períodos não criados */
+.filter-btn.locked {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+.filter-btn.locked:hover {
+    background: transparent;
+    transform: none;
+}
