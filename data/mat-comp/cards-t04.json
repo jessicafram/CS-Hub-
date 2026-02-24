@@ -1,0 +1,54 @@
+{
+    "cards": [
+        {
+            "id": "4-1",
+            "frente": "Heurística 1: Visibilidade do Status do Sistema",
+            "verso": "Fundamental para manter o modelo mental sincronizado. Sem feedback, o ciclo percepção-ação é quebrado, gerando ansiedade e incerteza."
+        },
+        {
+            "id": "4-2",
+            "frente": "Heurística 2: Correspondência entre o Sistema e o Mundo Real",
+            "verso": "O uso de metáforas familiares evita a 'tradução cognitiva' constante, economizando memória de trabalho e reduzindo erros interpretativos."
+        },
+        {
+            "id": "4-3",
+            "frente": "Heurística 3: Controle e Liberdade do Usuário",
+            "verso": "Garante a agência humana através de 'saídas de emergência'. A falta de reversibilidade inibe a exploração e torna o usuário um executor passivo."
+        },
+        {
+            "id": "4-4",
+            "frente": "Heurística 4: Consistência e Padrões",
+            "verso": "Permite a reutilização de esquemas mentais. Cada padrão é um contrato semântico; quebrá-lo rompe a confiança comunicacional da interface."
+        },
+        {
+            "id": "4-5",
+            "frente": "Heurística 5: Prevenção de Erros",
+            "verso": "Baseada na finitude da atenção humana. O design defensivo deve tornar estados inválidos inalcançáveis, protegendo o usuário de falhas por fadiga."
+        },
+        {
+            "id": "4-6",
+            "frente": "Heurística 6: Reconhecimento em vez de Memorização",
+            "verso": "A memória de trabalho é volátil. Pistas perceptivas externas reduzem a carga cognitiva necessária para recuperar informações da memória de longo prazo."
+        },
+        {
+            "id": "4-7",
+            "frente": "Heurística 7: Flexibilidade e Eficiência de Uso",
+            "verso": "Reconhece diferentes níveis de expertise. Atalhos e aceleradores permitem que o usuário evolua e automatize tarefas através da aprendizagem progressiva."
+        },
+        {
+            "id": "4-8",
+            "frente": "Heurística 8: Design Estético e Minimalista",
+            "verso": "Focada na carga cognitiva extrínseca. Cada elemento irrelevante é um ruído que compete por atenção e interfere no foco atencional do usuário."
+        },
+        {
+            "id": "4-9",
+            "frente": "Heurística 9: Diagnóstico e Recuperação de Erros",
+            "verso": "Mensagens de erro revelam como o sistema 'enxerga' o usuário. Devem ser claras, indicar a causa e sugerir uma solução para reduzir o estresse."
+        },
+        {
+            "id": "4-10",
+            "frente": "Heurística 10: Ajuda e Documentação",
+            "verso": "Suporte cognitivo complementar. Deve ser contextual, orientada à tarefa e fornecer andaimagem (scaffolding) para lidar com a complexidade do sistema."
+        }
+    ]
+}

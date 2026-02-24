@@ -79,13 +79,13 @@
                     "nome": "Matemática Computacional Aplicada",
                     "status": "Em andamento",
                     "horas": 80,
-                    "descricao": "Aplicação de conceitos matemáticos avançados para a resolução de problemas computacionais e algoritmos.",
+                    "descricao": "Análise numérica avançada, estabilidade de algoritmos e computação científica de alto desempenho.",
                     "grade_conteudo": [
-                        "Sistemas de Numeração e Erros",
-                        "Zeros de Funções Reais",
-                        "Sistemas de Equações Lineares",
-                        "Interpolação Numérica",
-                        "Integração Numérica"
+                        "Módulo 1: Fundamentos e Análise de Erro Estrita (κ(A) e IEEE 754)",
+                        "Módulo 2: Álgebra Linear Computacional e Teoria Espectral (SVD e QR)",
+                        "Módulo 3: Aproximação, Interpolação e Regularização de Tikhonov",
+                        "Módulo 4: Cálculo Numérico e Equações Diferenciais (EDOs e PDEs)",
+                        "Módulo 5: Otimização e Métodos de Larga Escala (BFGS e KKT)"
                     ],
                     "material_complementar": "assets/resumos/matematica-aplicada-jessica.pdf"
                 }

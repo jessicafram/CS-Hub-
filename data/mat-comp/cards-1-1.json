@@ -1,0 +1,55 @@
+{
+    "topico": "Representação Numérica e IEEE 754",
+    "cards": [
+        {
+            "id": "1.1",
+            "frente": "Como é a estrutura de um número no padrão IEEE 754?",
+            "verso": "Composto por 3 campos: Sinal (s), Expoente (e) e Mantissa ou Significando (m)."
+        },
+        {
+            "id": "1.2",
+            "frente": "O que é o 'Epsilon da Máquina' (ε)?",
+            "verso": "É o menor número positivo que, somado a 1, resulta num valor diferente de 1. Define o limite do erro de arredondamento."
+        },
+        {
+            "id": "1.3",
+            "frente": "O que caracteriza um número 'Subnormal'?",
+            "verso": "Números muito próximos de zero onde o expoente é todo nulo, permitindo representar valores menores que o menor normalizado, mas com perda de precisão."
+        },
+        {
+            "id": "1.4",
+            "frente": "Qual a diferença de precisão entre Float (32 bits) e Double (64 bits)?",
+            "verso": "Float tem ~7 dígitos decimais (8 bits exp/23 mantissa); Double tem ~15-17 dígitos decimais (11 bits exp/52 mantissa)."
+        },
+        {
+            "id": "1.5",
+            "frente": "O que é o erro de 'Overflow' e 'Underflow'?",
+            "verso": "Overflow: valor excede o limite máximo representável (vira Inf). Underflow: valor é menor que o menor representável (vira 0 ou subnormal)."
+        },
+        {
+            "id": "1.6",
+            "frente": "Por que o número 0.1 não pode ser representado exatamente em binário?",
+            "verso": "Porque 0.1 gera uma dízima periódica em base 2 (0.000110011...), resultando sempre num erro de truncamento na mantissa."
+        },
+        {
+            "id": "1.7",
+            "frente": "O que é Arredondamento para o Par mais próximo (Round to Even)?",
+            "verso": "É o padrão do IEEE 754 para reduzir o viés estatístico em cálculos longos ao arredondar números que estão exatamente no meio."
+        },
+        {
+            "id": "1.8",
+            "frente": "Como a precisão finita afeta a Propriedade Associativa?",
+            "verso": "A soma em ponto flutuante NÃO é associativa. (a + b) + c pode ser diferente de a + (b + c) devido a arredondamentos intermediários."
+        },
+        {
+            "id": "1.9",
+            "frente": "O que representam as constantes NaN e Inf?",
+            "verso": "NaN (Not a Number): resultados indefinidos (ex: 0/0). Inf: resultados que excedem o limite (ex: 1/0)."
+        },
+        {
+            "id": "1.10",
+            "frente": "Qual o impacto da Normalização na mantissa?",
+            "verso": "Garante que o primeiro bit da mantissa seja sempre 1 (implícito), maximizando a precisão para um número fixo de bits."
+        }
+    ]
+}
