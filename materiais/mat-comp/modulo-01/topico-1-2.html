@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tópico 1.2 — Normas e Condicionamento</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        .math-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .alert-box {
+            border-left: 4px solid #e74c3c;
+            background: rgba(231, 76, 60, 0.05);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
+            01</a>
+        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.2</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Normas Vetoriais, Matriciais e o Número de Condição
+                $\kappa(A)$</h1>
+            <p>Como medir a magnitude do erro em múltiplas dimensões e por que algumas matrizes destroem a precisão do
+                seu algoritmo, não importa quão bom ele seja.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+
+            <h2>0. A Necessidade de Medir o "Tamanho"</h2>
+            <p>No Tópico 1.1, vimos que o computador sempre comete erros de arredondamento. Em uma dimensão
+                ($\mathbb{R}$), medir o erro é fácil: basta calcular o valor absoluto da diferença $|x - \tilde{x}|$.
+            </p>
+            <p>Mas, em Machine Learning, Visão Computacional ou Simulações Físicas, não lidamos com números isolados.
+                Lidamos com vetores com milhões de dimensões e matrizes gigantescas. Como você diz que um vetor de erro
+                é "maior" que outro? Para isso, a matemática fornece uma ferramenta rigorosa: as
+                <strong>Normas</strong>.</p>
+
+            <h2>1. Normas Vetoriais ($\|x\|$)</h2>
+            <p>Uma norma é uma função matemática que atribui um comprimento ou tamanho estritamente positivo a um vetor.
+                A família mais comum é a das normas $p$ (ou normas de Hölder):</p>
+
+            <div class="math-box">
+                $$ \|x\|_p = \left( \sum_{i=1}^n |x_i|^p \right)^{1/p} $$
+            </div>
+
+            <p>As três normas mais utilizadas na computação científica são:</p>
+            <ul>
+                <li><span class="highlight-text">Norma $\ell_1$ (Manhattan):</span> A soma dos valores absolutos. Usada
+                    em regularização (Lasso) na Inteligência Artificial porque induz esparsidade (zera atributos
+                    inúteis).
+                    <div class="math-box">$$ \|x\|_1 = \sum_{i=1}^n |x_i| $$</div>
+                </li>
+                <li><span class="highlight-text">Norma $\ell_2$ (Euclidiana):</span> A distância em linha reta clássica.
+                    Penaliza erros grandes de forma quadrática.
+                    <div class="math-box">$$ \|x\|_2 = \sqrt{\sum_{i=1}^n |x_i|^2} $$</div>
+                </li>
+                <li><span class="highlight-text">Norma $\ell_\infty$ (Chebyshev ou do Máximo):</span> Olha apenas para o
+                    pior cenário. É o maior valor absoluto do vetor. Excelente para garantir limites rígidos de
+                    segurança em algoritmos.
+                    <div class="math-box">$$ \|x\|_\infty = \max_{1 \le i \le n} |x_i| $$</div>
+                </li>
+            </ul>
+
+
+
+            <h2>2. Normas Matriciais Induzidas ($\|A\|$)</h2>
+            <p>Se as normas vetoriais medem o tamanho de um ponto, as normas matriciais medem o "poder de estiramento"
+                de uma transformação linear. A norma induzida de uma matriz $A$ é o fator máximo pelo qual ela consegue
+                alongar um vetor $x$:</p>
+
+            <div class="math-box">
+                $$ \|A\| = \max_{x \ne 0} \frac{\|Ax\|}{\|x\|} $$
+            </div>
+
+            <div class="concept-box">
+                <p><strong>A Intuição Física:</strong></p>
+                <p>Imagine que $A$ é uma força aplicada a um objeto $x$. A norma $\|A\|$ te diz exatamente qual é a
+                    força máxima de deformação que essa matriz consegue exercer no pior cenário possível. Essa métrica é
+                    crucial para prever o quão agressivamente uma matriz pode amplificar um erro computacional.</p>
+            </div>
+
+            <h2>3. O Número de Condição ($\kappa$)</h2>
+            <p>Quando resolvemos um sistema linear $Ax = b$ no computador, o vetor $b$ muitas vezes vem de medições no
+                mundo real (sensores) ou de cálculos flutuantes prévios, ou seja, ele já contém um erro $\Delta b$.</p>
+            <p>A pergunta de ouro é: <strong>O quão sensível é a resposta $x$ em relação a esse erro na entrada
+                    $b$?</strong> Quem responde isso é o Número de Condição da matriz $A$, denotado por $\kappa(A)$.</p>
+
+            <div class="math-box">
+                $$ \kappa(A) = \|A\| \cdot \|A^{-1}\| $$
+            </div>
+
+            <p>O Teorema Fundamental da Perturbação nos dá a fronteira do desastre:</p>
+
+            <div class="math-box">
+                $$ \frac{\|\Delta x\|}{\|x\|} \le \kappa(A) \frac{\|\Delta b\|}{\|b\|} $$
+            </div>
+
+            <div class="alert-box">
+                <h4 style="margin-top:0; color: #e74c3c;">O Significado Assustador de $\kappa(A)$</h4>
+                <p>O $\kappa(A)$ é um <strong>Fator de Amplificação de Erro</strong>.</p>
+                <ul>
+                    <li>Se $\kappa(A) \approx 1$: A matriz é <strong>Bem Condicionada</strong>. Se houver $1\%$ de erro
+                        nos dados, haverá no máximo $1\%$ de erro na resposta. O sistema é seguro.</li>
+                    <li>Se $\kappa(A) = 10^6$: A matriz é <strong>Mal Condicionada</strong>. Um erro minúsculo de
+                        $\varepsilon_{mach} \approx 10^{-16}$ na entrada será multiplicado por $10^6$, destruindo 6
+                        casas decimais de precisão instantaneamente.</li>
+                </ul>
+                <p><em>Nota para o Bacharelado:</em> Não adianta usar o melhor algoritmo de estabilidade do mundo se a
+                    matriz for mal condicionada. O mau condicionamento é uma doença inerente ao problema matemático, não
+                    do algoritmo.</p>
+            </div>
+
+            <h2>4. Implementação Computacional Prática</h2>
+            <p>Na vida real, não calculamos a norma ou o $\kappa$ na mão. Usamos bibliotecas de Álgebra Linear. Abaixo,
+                um código em Python demonstrando o condicionamento terrível de uma Matriz de Hilbert, famosa por
+                explodir simulações numéricas:</p>
+
+            <pre
+                style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
+import numpy as np
+from scipy.linalg import hilbert
+
+# Criando uma Matriz de Hilbert de dimensão 10x10
+n = 10
+H = hilbert(n)
+
+# Calculando o número de condição com a norma 2
+kappa = np.linalg.cond(H, p=2)
+
+print(f"Número de Condição k(H): {kappa:.2e}")
+# Saída esperada: ~ 1.60e+13
+
+# Interpretação:
+# Como k(H) é da ordem de 10^13, se tentarmos resolver Hx = b com floats
+# de 64 bits (que têm 16 casas de precisão), perderemos 13 casas decimais 
+# apenas resolvendo a equação. Só nos sobrarão 3 casas decimais confiáveis!
+</pre>
+
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
+        </footer>
+    </main>
+
+</body>
+
+</html>

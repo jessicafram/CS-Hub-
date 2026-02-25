@@ -1,331 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tópico 1.1 — Representação Numérica e Estabilidade</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&display=swap"
-        rel="stylesheet">
+    <title>Tópico 1.1 — Representação Numérica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../style.css">
-
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
-        :root {
-            --bg-main: #0b0f14;
-            --accent: #2ecc71;
-            --text: #ffffff;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        body {
-            background: var(--bg-main);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .reader-nav {
-            padding: 20px 60px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 15, 20, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .back-link {
-            color: var(--accent) !important;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .content-wrapper {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 30px;
-        }
-
-        .chapter-header {
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
-            margin-bottom: 60px;
-        }
-
-        .formula {
-            background: #000;
-            padding: 25px;
-            border-radius: 8px;
+        .math-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
             text-align: center;
-            font-family: 'Fira Code', monospace;
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin: 30px 0;
-            border: 1px solid var(--border);
+            overflow-x: auto;
         }
-
-        .box {
-            background: var(--glass);
+        .concept-box {
             border-left: 4px solid var(--accent);
-            padding: 25px;
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
         }
-
-        canvas {
-            background: #000;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            display: block;
-            width: 100%;
-        }
-
-        pre {
-            background: #000;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            border: 1px solid var(--border);
-            color: #dcdcaa;
-            font-family: 'Fira Code', monospace;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
-        }
-
-        .lema-container {
-            padding: 40px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, rgba(11, 15, 20, 0) 100%);
-            border-radius: 15px;
-            margin: 40px 0;
-            border: 1px solid rgba(46, 204, 113, 0.2);
-        }
-
-        .lema-texto {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.8rem;
-            color: var(--accent);
-            text-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
-            letter-spacing: 2px;
-        }
+        h2 { color: var(--accent); margin-top: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        h3 { color: #fff; margin-top: 30px; }
     </style>
 </head>
-
 <body class="notion-theme">
 
-    <nav class="reader-nav">
-        <a href="index.html" class="back-link">← Voltar ao Módulo 01</a>
-        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / MAT_COMP / T1.1
-        </div>
+    <nav class="top-navbar">
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO 01</a>
+        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.1</span>
     </nav>
 
-    <main class="content-wrapper">
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span>Matemática Computacional Aplicada (Stricto Sensu)</span>
-            <h1>Representação Numérica, Modelo de Máquina e Estabilidade Algorítmica</h1>
-            <p>A computação científica não opera sobre ℝ, mas sobre um subconjunto finito F ⊂ ℝ determinado pela
-                arquitetura de máquina.</p>
+            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Representação Numérica, Modelo de Máquina e Estabilidade</h1>
+            <p>A computação científica não opera sobre $ \mathbb{R} $, mas sobre um subconjunto finito $ \mathbb{F} \subset \mathbb{R} $ determinado pela arquitetura de máquina.</p>
         </header>
-        <section id="introducao-historica">
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
             <h2>0. Por que uma Matemática da "Imperfeição"?</h2>
+            <p>Para um matemático puro, a reta real $ \mathbb{R} $ é contínua, infinita e densa. Contudo, para um computador, a memória é finita e a representação é binária. Essa colisão entre o <strong>contínuo ideal</strong> e o <strong>discreto físico</strong> criou a necessidade de uma nova arquitetura.</p>
 
-            <p>
-                Para um matemático puro, a reta real $\mathbb{R}$ é contínua, infinita e densa. Contudo, para um
-                computador, a memória é finita e a representação é binária. Essa colisão entre o <strong>contínuo
-                    ideal</strong> e o <strong>discreto físico</strong> criou a necessidade de uma nova arquitetura.
-            </p>
-
-            <div class="box">
-                <strong>O Caos Pré-1985:</strong> Antes da padronização, cada fabricante (IBM, Cray, DEC) tinha sua
-                própria forma de tratar o ponto flutuante. Um código científico que rodava em uma máquina dava
-                resultados diferentes em outra. O padrão <strong>IEEE 754</strong> nasceu para unificar essa linguagem e
-                dar previsibilidade ao erro.
+            <div class="concept-box">
+                <p><strong>A Epistemologia do Erro:</strong></p>
+                <div class="math-box">
+                    $$ \mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha} $$
+                </div>
+                <p>O erro não é um "bug" que deve ser removido, mas uma propriedade do sistema que deve ser gerenciada. Dominar a Matemática Computacional é aprender a caminhar sobre a "reta furada" de $ \mathbb{F} $ sem cair no abismo das falhas numéricas.</p>
             </div>
 
-            <h3>O Tripé da Disciplina: Sentido e Significado</h3>
-
+            <h2>1. Sistema de Ponto Flutuante</h2>
+            <h3>1.1 Definição Formal</h3>
+            <div class="math-box">
+                $$ \mathbb{F}(\beta, p, e_{min}, e_{max}) = \{ \pm (1.d_1d_2...d_{p-1})_\beta \times \beta^e \} $$
+            </div>
             <ul>
-                <li>
-                    <strong>Representação Numérica:</strong> É a tentativa de mapear o infinito em 64 bits. Como não
-                    podemos ter todos os números, escolhemos ter mais precisão perto do zero e menos precisão em valores
-                    imensos.
-                </li>
-                <li>
-                    <strong>Modelo de Máquina:</strong> É o "contrato" entre o hardware e o software. Ele nos diz que
-                    $fl(x) = x(1 + \delta)$. Aqui, aceitamos que o número na memória é uma <em>perturbação</em> do
-                    número real.
-                </li>
-                <li>
-                    <strong>Estabilidade Algorítmica:</strong> É a arte de programar. Se o erro é inevitável, a
-                    estabilidade garante que esse erro não cresça descontroladamente durante as iterações.
-                </li>
+                <li><strong>$ \beta $ (Base):</strong> Determina o sistema de numeração (geralmente 2).</li>
+                <li><strong>$ p $ (Precisão):</strong> Quantidade de dígitos significativos na mantissa. Define o <em>poder de resolução</em>.</li>
+                <li><strong>$ [e_{min}, e_{max}] $ (Expoente):</strong> Define a escala ou magnitude (Overflow vs Underflow).</li>
             </ul>
 
-            <div class="formula">
-                \mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha}
+            <h3>1.2 Espaçamento Absoluto ($ \Delta $)</h3>
+            <div class="math-box">
+                $$ \Delta = \beta^{e-(p-1)} $$
+            </div>
+            
+            <div class="concept-box" style="text-align: center;">
+                <h4>Visualização do Sistema Didático $ \mathbb{F}(2,4,e) $</h4>
+                <label>Expoente $ e $: <span id="expValue" style="color:var(--accent); font-weight: bold;">0</span></label>
+                <input type="range" min="-5" max="5" value="0" id="expoente" style="width:100%; margin: 15px 0; accent-color: var(--accent);">
+                <canvas id="canvasDiscreto" width="800" height="150" style="background: #000; border-radius: 8px; border: 1px solid var(--border); width: 100%;"></canvas>
             </div>
 
-            <p>
-                Entender que operamos em um subconjunto finito $\mathbb{F}$ é o que separa o programador comum do
-                especialista em computação científica. Não resolvemos problemas no mundo real, mas aproximações
-                controladas no mundo binário.
-            </p>
-        </section>
-        <section class="box">
-            <h2>A Epistemologia do Erro</h2>
-            <p>
-                A expressão <strong>$\mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha}$</strong>
-                resume a nossa disciplina.
-                Ela nos ensina que o erro não é um "bug" que deve ser removido, mas uma propriedade do sistema que deve
-                ser gerenciada.
-            </p>
-            <ul>
-                <li><strong>Erro:</strong> É a distância inevitável entre o pensamento matemático e a memória física.
-                </li>
-                <li><strong>Falha:</strong> É o desconhecimento dessa distância, resultando em algoritmos instáveis.
-                </li>
-            </ul>
-            <div class="formula">
-                Dominar a Matemática Computacional é aprender a caminhar sobre a "reta furada" de $\mathbb{F}$ sem cair
-                no abismo das falhas numéricas.
+            <h2>2. Padrão IEEE 754 (Double Precision)</h2>
+            <div class="math-box">
+                $$ V = (-1)^s \times (1.m) \times 2^{e - \text{bias}} $$
             </div>
-        </section>
-
-        <h2>PARTE 1 — Sistema de Ponto Flutuante</h2>
-        <h3>1.1 Definição Formal</h3>
-        <div class="formula">
-            F(β, p, e<sub>min</sub>, e<sub>max</sub>) = { ± (1.d₁d₂...d<sub>p-1</sub>)<sub>β</sub> β<sup>e</sup> }
-        </div>
-        <div class="box">
-            Onde: β = base | p = precisão | e ∈ [e<sub>min</sub>, e<sub>max</sub>]. <br>
-            Os dígitos satisfazem d₁ ∈ {1,...,β−1}. Logo, F é finito.
-        </div>
-        <div class="box">
-            <h3>Entendendo os Parâmetros da Máquina</h3>
-            <p>
-                A função <strong>F(β, p, e<sub>min</sub>, e<sub>max</sub>)</strong> define o DNA de uma arquitetura.
-                Cada componente determina um limite físico da representação:
-            </p>
-
-            <ul>
-                <li>
-                    <strong>β (Base):</strong> Determina o sistema de numeração. Na computação moderna, usamos
-                    $\beta = 2$ (binário). Isso dita a "geometria" da distribuição dos números na reta.
-                </li>
-                <li>
-                    <strong>p (Precisão):</strong> É a quantidade de dígitos significativos na mantissa.
-                    Ela define o <em>poder de resolução</em> do sistema. Quanto maior o $p$, menor o "buraco"
-                    entre um número e seu sucessor.
-                </li>
-                <li>
-                    <strong>[e<sub>min</sub>, e<sub>max</sub>] (Intervalo do Expoente):</strong> Define a
-                    <em>escala</em> ou magnitude. O $e_{max}$ determina o teto (Overflow) e o $e_{min}$
-                    determina o limite da normalização antes do Underflow.
-                </li>
+            <ul style="list-style: none; padding: 0;">
+                <li>🟢 <strong>1 bit</strong> de sinal ($s$)</li>
+                <li>🟡 <strong>11 bits</strong> de expoente ($e$) | Bias = 1023</li>
+                <li>🔵 <strong>52 bits</strong> de fração/mantissa ($m$)</li>
             </ul>
 
-            <p><strong>A Importância do d₁ ∈ {1,...,β−1}:</strong></p>
-            <p>
-                Esta restrição garante que a representação seja <strong>normalizada</strong>.
-                Ao forçar que o primeiro dígito não seja zero, garantimos que cada número tenha uma
-                representação única no sistema, otimizando o armazenamento de bits (o famoso "bit implícito" do IEEE
-                754).
-            </p>
-        </div>
+            <h3>Derivação da Precisão da Máquina ($ \varepsilon_{mach} $)</h3>
+            <p>O menor incremento representável acima de 1 é limitado pelos 52 bits da mantissa. Como o arredondamento é para o par mais próximo:</p>
+            <div class="math-box">
+                $$ \varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16} $$
+            </div>
 
-        <div class="scientific-box">
-            <strong>Por que isso importa no Mestrado?</strong><br>
-            Ao alterar qualquer um desses parâmetros, mudamos a densidade de $\mathbb{F}$.
-            Um problema que é estável em uma máquina com $p=53$ (double) pode tornar-se
-            completamente caótico em um sistema embarcado com $p=24$ (float).
-            A análise numérica estuda justamente como o algoritmo sobrevive à mudança desses parâmetros.
-        </div>
+            <h2>3. Modelo Matemático do Erro</h2>
+            <p>A relação fundamental entre um número real $ x $ e sua representação na máquina $ fl(x) $ é dada pelo Axioma do Ponto Flutuante:</p>
+            <div class="math-box">
+                $$ fl(x) = x(1 + \delta), \quad |\delta| \le \varepsilon_{mach} $$
+            </div>
 
-        <h3>1.2 Cardinalidade</h3>
-        <div class="box">
-            Número de mantissas possíveis: β<sup>(p−1)</sup>. <br>
-            Logo: |F| = 2 × β<sup>(p−1)</sup> × (e<sub>max</sub> − e<sub>min</sub> + 1). <br>
-            Mostra-se explicitamente que F é discreto.
-        </div>
+            <h2>4. Condicionamento e Estabilidade</h2>
+            <p>O número de condição $ \kappa $ mede a sensibilidade de uma função $ f(x) $ a pequenas perturbações na entrada:</p>
+            <div class="math-box">
+                $$ \kappa(f,x) = \left| \frac{x f'(x)}{f(x)} \right| $$
+            </div>
 
-        <h3>1.3 Espaçamento</h3>
-        <div class="formula">Δ = β<sup>e-(p-1)</sup></div>
-        <div class="box">
-            Para β=2: Δ = 2<sup>e-(p-1)</sup>. <br>
-            Demonstração: Se x = (1 + k/2<sup>p-1</sup>) 2<sup>e</sup>, então o próximo número é: x +
-            2<sup>e-(p-1)</sup>.
-        </div>
-
-        <h3>Visualização do Sistema Didático F(2,4,e)</h3>
-        <div class="box">
-            <label>Expoente e: <span id="expValue" style="color:var(--accent)">0</span></label>
-            <input type="range" min="-5" max="5" value="0" id="expoente"
-                style="width:100%; accent-color:var(--accent);">
-            <canvas id="canvasDiscreto" width="900" height="200"></canvas>
-        </div>
-
-        <h2>PARTE 2 — IEEE 754</h2>
-        <div class="formula">V = (-1)<sup>s</sup> (1.m) 2<sup>e-bias</sup></div>
-        <div class="box">
-            Double precision: 1 bit sinal | 11 bits expoente | 52 bits fração | bias = 1023. <br>
-            Subnormais: expoente armazenado = 0. <br>
-            Inf: expoente = 2047, fração=0. <br>
-            NaN: expoente = 2047, fração ≠ 0.
-        </div>
-
-        <h3>Derivação de ε<sub>mach</sub></h3>
-        <div class="box">
-            O menor incremento acima de 1 é: 1.000...001₂. Diferença: 2<sup>-52</sup>. <br>
-            Como arredondamento é para o mais próximo: |δ| ≤ 2<sup>-53</sup>. <br>
-            Logo: ε<sub>mach</sub> = 2<sup>-53</sup>.
-        </div>
-
-        <h2>PARTE 3 — Modelo Matemático do Erro</h2>
-        <div class="formula">fl(x) = x(1 + δ), |δ| ≤ ε<sub>mach</sub></div>
-        <div class="box">
-            Prova: x está entre dois representáveis consecutivos x_ e x+. |x+ − x_| = Δ. Erro máximo ≤ Δ/2. <br>
-            Dividindo por |x|: |δ| ≤ ½ β<sup>−p+1</sup>.
-        </div>
-
-        <h2>PARTE 4 — Propagação de Erro</h2>
-        <div class="formula">γ<sub>n</sub> = nε / (1 − nε)</div>
-        <h3>Prova Completa do Teorema Fundamental da Soma</h3>
-        <div class="box">
-            s<sub>k</sub> = fl(s<sub>k-1</sub> + x<sub>k</sub>) = (s<sub>k-1</sub> + x<sub>k</sub>)(1+δ<sub>k</sub>).
-            <br>
-            Expandindo recursivamente: s<sub>n</sub> = (Σ x<sub>i</sub>) ∏(1+δ<sub>i</sub>). <br>
-            Logo: fl(Σ x<sub>i</sub>) = (Σ x<sub>i</sub>)(1+θ<sub>n</sub>), onde |θ<sub>n</sub>| ≤ γ<sub>n</sub>.
-        </div>
-
-        <h2>PARTE 5 — Condicionamento e Estabilidade</h2>
-        <div class="formula">κ(f,x) = |x f'(x) / f(x)|</div>
-        <div class="box">
-            Relação fundamental: Forward ≈ κ × Backward. <br>
-            Exemplo f(x)=1/x: κ = 1 (Bem condicionado). <br>
-            Cancelamento: Para f(x,y)=x−y com x≈y, κ → grande (Mal condicionado).
-        </div>
-
-        <h2>PARTE 6 — Aplicações Computacionais</h2>
-        <pre>
-def naive_sum(n):
-    s = 0.0
-    for _ in range(n):
-        s += 0.1
-    return s
-
+            <div class="concept-box">
+                <h4 style="margin-top:0; color: var(--accent);">Implementação Computacional Prática</h4>
+                <p>O Teorema da Soma mostra que o erro cresce com as iterações. Abaixo, a solução de estabilidade <em>backward</em> (Algoritmo de Kahan):</p>
+<pre style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
 def kahan_sum(n):
     s, c = 0.0, 0.0
     for _ in range(n):
@@ -333,34 +119,19 @@ def kahan_sum(n):
         t = s + y
         c = (t - s) - y
         s = t
-    return s</pre>
+    return s
+</pre>
+            </div>
 
-        <h2>PARTE 7 — Arquitetura Didática</h2>
-        <div class="box">
-            <strong>Aula 1:</strong> Construção formal de F, Derivação de Δ, Exercícios de representação. <br>
-            <strong>Aula 2:</strong> Derivação de ε<sub>mach</sub>, Experimento computacional. <br>
-            <strong>Aula 3:</strong> Prova do Teorema da Soma, Introdução a κ, Estabilidade backward.
-        </div>
-
-        <section id="revisao-flashcards">
-            <h2>🗂️ Flashcards de Revisão</h2>
-            <div id="container-cards" class="flashcards-container"></div>
         </section>
 
-        <footer>Jessica França - Matemática Computacional Aplicada</footer>
+        <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
+        </footer>
     </main>
 
-    <div id="card-modal" class="card-modal">
-        <div class="modal-content" id="modal-target">
-            <span class="close-popup" onclick="fecharModal()">&times;</span>
-            <div class="modal-card-inner" onclick="virarCard(event)">
-                <div class="modal-face front"><img id="img-frente" src=""></div>
-                <div class="modal-face back"><img id="img-verso" src=""></div>
-            </div>
-        </div>
-    </div>
-
     <script>
+        // Lógica do Canvas Interativo preservada
         const canvas = document.getElementById("canvasDiscreto");
         const ctx = canvas.getContext("2d");
         const slider = document.getElementById("expoente");
@@ -370,15 +141,19 @@ def kahan_sum(n):
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             let nums = [];
             for (let i = 0; i < 8; i++) { nums.push((1 + i / 8) * Math.pow(2, e)); }
-            let min = nums[0], max = nums[nums.length - 1], scale = 700 / (max - min);
-            ctx.beginPath(); ctx.moveTo(100, 100); ctx.lineTo(800, 100);
+            let min = nums[0], max = nums[nums.length - 1], scale = (canvas.width - 100) / (max - min);
+            
+            ctx.beginPath(); ctx.moveTo(50, 75); ctx.lineTo(canvas.width - 50, 75);
             ctx.strokeStyle = "#2ecc71"; ctx.stroke();
+            
             nums.forEach(v => {
-                let x = 100 + (v - min) * scale;
-                ctx.beginPath(); ctx.arc(x, 100, 4, 0, 2 * Math.PI);
+                let x = 50 + (v - min) * scale;
+                ctx.beginPath(); ctx.arc(x, 75, 5, 0, 2 * Math.PI);
                 ctx.fillStyle = "#2ecc71"; ctx.fill();
             });
-            ctx.fillStyle = "#2ecc71"; ctx.fillText("Δ = 2^(" + (e - 3) + ")", 100, 150);
+            ctx.fillStyle = "#2ecc71"; 
+            ctx.font = "14px Fira Code";
+            ctx.fillText("Δ = 2^(" + (e - 3) + ")", 50, 120);
         }
 
         slider.addEventListener("input", function () {
@@ -386,25 +161,8 @@ def kahan_sum(n):
             draw(parseInt(this.value));
         });
 
-        async function carregarDashboard() {
-            const container = document.getElementById('container-cards');
-            const response = await fetch('../../../data/mat-comp/cards-1-1.json');
-            const data = await response.json();
-            container.innerHTML = '';
-            data.cards.forEach(card => {
-                container.innerHTML += `<div class="folder-card" onclick="abrirPopup('${card.id}')"><div class="card-icon">🗂️</div><div class="folder-name">CARD ${card.id}</div></div>`;
-            });
-        }
-        function abrirPopup(id) {
-            document.getElementById('img-frente').src = `../../../assets/card${id}-frente.jpeg`;
-            document.getElementById('img-verso').src = `../../../assets/card${id}-verso.jpeg`;
-            document.getElementById('card-modal').style.display = 'flex';
-        }
-        function fecharModal() { document.getElementById('card-modal').style.display = 'none'; }
-        function virarCard(e) { e.stopPropagation(); document.getElementById('modal-target').classList.toggle('is-flipped'); }
-
-        draw(0); carregarDashboard();
+        // Inicializa o Canvas
+        setTimeout(() => draw(0), 500); // Timeout leve para garantir renderização do width
     </script>
 </body>
-
 </html>
