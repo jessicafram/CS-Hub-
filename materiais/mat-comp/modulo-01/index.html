@@ -4,246 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tópico 1.1 — Representação Numérica</title>
+    <title>Módulo 1 — Mat. Comp - CS Hub</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../../style.css">
-
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <style>
-        .math-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            text-align: center;
-            overflow-x: auto;
-        }
-
-        .concept-box {
-            border-left: 4px solid var(--accent);
-            background: rgba(46, 204, 113, 0.05);
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 12px 12px 0;
-        }
-
-        h2 {
-            color: var(--accent);
-            margin-top: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #fff;
-            margin-top: 40px;
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .highlight-text {
-            color: var(--accent);
-            font-weight: 600;
-        }
-    </style>
 </head>
 
 <body class="notion-theme">
-
     <nav class="top-navbar">
-        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
-            01</a>
-        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.1</span>
+        <a href="../../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO
+            HUB</a>
+        <span class="jessica-signature">CS_HUB / MAT_COMP / MOD_01</span>
     </nav>
 
-    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
-        <header class="chapter-header">
+    <main class="content-wrapper" style="max-width: 1000px; margin: 60px auto;">
+        <header class="chapter-header" style="text-align: center; margin-bottom: 60px;">
             <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Representação Numérica, Modelo de Máquina e
-                Estabilidade</h1>
-            <p>A computação científica não opera sobre $\mathbb{R}$, mas sobre um subconjunto finito $\mathbb{F} \subset
-                \mathbb{R}$ determinado pela arquitetura de máquina.</p>
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;">Módulo 1: Fundamentos e Análise de
+                Erro</h1>
+            <p style="opacity: 0.8;">Estudo rigoroso da representação numérica, limites de erro e estabilidade
+                algorítmica.</p>
         </header>
 
-        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+        <div class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
 
-            <h2>0. Por que uma Matemática da "Imperfeição"?</h2>
-            <p>Para um matemático puro, a reta real $\mathbb{R}$ é contínua, infinita e densa. Isso significa que entre
-                o número 1 e o número 2, existe uma infinidade de outros números. Não importa o quão perto você dê o
-                "zoom", a reta não tem buracos.</p>
-
-            <p>Contudo, para um computador, a memória é estritamente finita e a representação é binária. Quando
-                declaramos uma variável <code>double</code>, alocamos exatamente 64 bits na memória RAM. Com 64 bits, o
-                hardware só consegue representar $2^{64}$ combinações únicas. É fisicamente impossível mapear um
-                conjunto infinito (os reais) dentro de um espaço finito.</p>
-
-            <p>Portanto, o computador é forçado a escolher um "clube VIP" de números que ele vai conseguir representar
-                com exatidão. Esse subconjunto é o $\mathbb{F}$ (Floating-point numbers). Todo o resto do universo
-                matemático fica de fora, criando "buracos" na nossa reta numérica computacional.</p>
-
-            <div class="concept-box">
-                <p><strong>A Epistemologia do Erro:</strong></p>
-                <div class="math-box">
-                    $$\mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha}$$
+                <div class="mat-card-modern" onclick="location.href='topico-1-1.html'"
+                    style="cursor: pointer; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🔢</div>
+                    <h3 style="color: var(--accent);">Tópico 1.1</h3>
+                    <p style="font-size: 0.9rem;">Representação Numérica e IEEE 754</p>
                 </div>
-                <p>Se um cálculo gera um número real que não pertence a $\mathbb{F}$, o computador é obrigado a
-                    <strong>arredondar</strong> esse valor para o vizinho representável mais próximo. É aqui que nasce o
-                    Erro de Arredondamento.</p>
-                <p>O erro não é um "bug" que deve ser removido, mas uma consequência das leis da física que limitam a
-                    memória. Dominar a Matemática Computacional é aprender a caminhar sobre a "reta furada" de
-                    $\mathbb{F}$ sem deixar que esses arredondamentos se acumulem e causem falhas catastróficas.</p>
+
+                <div class="mat-card-modern" onclick="location.href='topico-1-2.html'"
+                    style="cursor: pointer; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">📉</div>
+                    <h3 style="color: var(--accent);">Tópico 1.2</h3>
+                    <p style="font-size: 0.9rem;">Normas e Condicionamento κ(A)</p>
+                </div>
+
+                <div class="mat-card-modern" onclick="location.href='topico-1-3.html'"
+                    style="cursor: pointer; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">⚠️</div>
+                    <h3 style="color: var(--accent);">Tópico 1.3</h3>
+                    <p style="font-size: 0.9rem;">Estabilidade e Erro</p>
+                </div>
+
+                <div class="mat-card-modern" onclick="location.href='topico-1-4.html'"
+                    style="cursor: pointer; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">📏</div>
+                    <h3 style="color: var(--accent);">Tópico 1.4</h3>
+                    <p style="font-size: 0.9rem;">Aritmética Intervalar</p>
+                </div>
+
             </div>
-
-            <h2>1. Sistema de Ponto Flutuante</h2>
-            <p>Como o computador escolhe quem entra no subconjunto $\mathbb{F}$? Ele obedece a uma estrutura formal
-                parametrizada pela arquitetura do processador.</p>
-
-            <h3>1.1 Definição Formal</h3>
-            <div class="math-box">
-                $$\mathbb{F}(\beta, p, e_{min}, e_{max}) = \{ \pm (1.d_1d_2...d_{p-1})_\beta \times \beta^e \}$$
-            </div>
-            <ul>
-                <li><span class="highlight-text">$\beta$ (Base):</span> Determina o sistema de numeração (geralmente
-                    $\beta=2$ para binário). Define a "geometria" da distribuição na reta.</li>
-                <li><span class="highlight-text">$p$ (Precisão):</span> Quantidade de dígitos significativos na
-                    mantissa. Define o <em>poder de resolução</em>. Quanto maior o $p$, menores são os buracos entre os
-                    números.</li>
-                <li><span class="highlight-text">$[e_{min}, e_{max}]$ (Expoente):</span> Define a escala ou magnitude. O
-                    limite superior causa <em>Overflow</em>, e o limite inferior causa <em>Underflow</em>.</li>
-            </ul>
-
-            <h3>1.2 Espaçamento Absoluto ($\Delta$)</h3>
-            <p>Ao contrário dos números inteiros, a distância entre dois números de ponto flutuante consecutivos não é
-                constante. Perto do zero, os números de $\mathbb{F}$ são densos. Conforme vamos para números maiores, a
-                distância entre eles aumenta.</p>
-            <div class="math-box">
-                $$\Delta = \beta^{e-(p-1)}$$
-            </div>
-
-
-
-            <div class="concept-box" style="text-align: center;">
-                <h4>Visualização do Sistema Didático $\mathbb{F}(2,4,e)$</h4>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Mova o controle deslizante para ver como o espaçamento
-                    ($\Delta$) cresce junto com o expoente.</p>
-                <label>Expoente $e$: <span id="expValue"
-                        style="color:var(--accent); font-weight: bold;">0</span></label>
-                <input type="range" min="-5" max="5" value="0" id="expoente"
-                    style="width:100%; margin: 15px 0; accent-color: var(--accent);">
-                <canvas id="canvasDiscreto" width="800" height="150"
-                    style="background: #000; border-radius: 8px; border: 1px solid var(--border); width: 100%;"></canvas>
-            </div>
-
-            <h2>2. Padrão IEEE 754 (Double Precision)</h2>
-            <p>Antes de 1985, cada fabricante de hardware tratava o arredondamento de forma diferente, gerando caos na
-                portabilidade de códigos científicos. O IEEE 754 padronizou essa arquitetura, mapeando os 64 bits de
-                forma estratégica:</p>
-            <div class="math-box">
-                $$V = (-1)^s \times (1.m) \times 2^{e - \text{bias}}$$
-            </div>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;">🟢 <strong>1 bit de sinal ($s$):</strong> Define se é positivo ou
-                    negativo.</li>
-                <li style="margin-bottom: 10px;">🟡 <strong>11 bits de expoente ($e$):</strong> Controla a escala.
-                    Utiliza um viés (Bias = 1023) para lidar com expoentes negativos sem precisar de um bit de sinal
-                    extra.</li>
-                <li style="margin-bottom: 10px;">🔵 <strong>52 bits de fração/mantissa ($m$):</strong> Onde reside a
-                    precisão da máquina.</li>
-            </ul>
-
-            <h3>Derivação da Precisão da Máquina ($\varepsilon_{mach}$)</h3>
-            <p>O "Épsilon de Máquina" ($\varepsilon_{mach}$) é o limite máximo de erro relativo que o arredondamento
-                pode causar. O menor incremento representável acima do número 1 é ditado pelos 52 bits da mantissa. Como
-                o padrão exige arredondamento para o par mais próximo, o erro máximo é a metade desse incremento:</p>
-            <div class="math-box">
-                $$\varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16}$$
-            </div>
-
-            <h2>3. Modelo Matemático do Erro</h2>
-            <p>Com o Épsilon definido, podemos formular o <strong>Axioma do Ponto Flutuante</strong>. Ele garante que
-                qualquer operação real mapeada para a máquina sofrerá uma perturbação $\delta$ estritamente controlada:
-            </p>
-            <div class="math-box">
-                $$fl(x) = x(1 + \delta), \quad |\delta| \le \varepsilon_{mach}$$
-            </div>
-            <p>Isso significa que o valor gravado na memória $fl(x)$ é o valor exato $x$ vezes uma taxa de erro
-                imperceptível, mas que matematicamente existe e precisa ser considerada em loops infinitos ou matrizes
-                gigantes.</p>
-
-            <h2>4. Condicionamento e Estabilidade</h2>
-            <p>O número de condição $\kappa$ mede o quão sensível um problema matemático é a pequenas perturbações na
-                entrada (independentemente do computador). Se um problema é mal condicionado (ex: $\kappa \gg 1$), até
-                um erro de tamanho $\varepsilon_{mach}$ pode explodir o resultado final.</p>
-            <div class="math-box">
-                $$\kappa(f,x) = \left| \frac{x f'(x)}{f(x)} \right|$$
-            </div>
-
-            <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">Implementação Computacional Prática</h4>
-                <p>O Teorema da Soma nos ensina que, em loops muito grandes, o erro de arredondamento se acumula
-                    linearmente. Para somar milhares de pontos flutuantes em Python/Java sem perder precisão, usamos
-                    algoritmos de <strong>estabilidade backward</strong>, como o famoso <em>Algoritmo de Kahan</em>, que
-                    guarda o erro de arredondamento em uma variável separada (<code>c</code>) e o compensa na iteração
-                    seguinte:</p>
-                <pre
-                    style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
-def kahan_sum(n):
-    s, c = 0.0, 0.0  # s = soma, c = compensação de erro
-    for _ in range(n):
-        y = 0.1 - c  # Subtrai o erro da iteração anterior
-        t = s + y    # t é a soma real (mas perde bits de precisão aqui)
-        c = (t - s) - y # Recupera matematicamente o que o hardware arredondou!
-        s = t
-    return s
-</pre>
-            </div>
-
-        </section>
-
-        <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
-            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
-        </footer>
+        </div>
     </main>
-
-    <script>
-        const canvas = document.getElementById("canvasDiscreto");
-        const ctx = canvas.getContext("2d");
-        const slider = document.getElementById("expoente");
-        const expValue = document.getElementById("expValue");
-
-        function draw(e) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            let nums = [];
-            for (let i = 0; i < 8; i++) { nums.push((1 + i / 8) * Math.pow(2, e)); }
-            let min = nums[0], max = nums[nums.length - 1], scale = (canvas.width - 100) / (max - min);
-
-            ctx.beginPath(); ctx.moveTo(50, 75); ctx.lineTo(canvas.width - 50, 75);
-            ctx.strokeStyle = "#2ecc71"; ctx.stroke();
-
-            nums.forEach(v => {
-                let x = 50 + (v - min) * scale;
-                ctx.beginPath(); ctx.arc(x, 75, 5, 0, 2 * Math.PI);
-                ctx.fillStyle = "#2ecc71"; ctx.fill();
-            });
-            ctx.fillStyle = "#2ecc71";
-            ctx.font = "14px Fira Code";
-            ctx.fillText("Δ = 2^(" + (e - 3) + ")", 50, 120);
-        }
-
-        slider.addEventListener("input", function () {
-            expValue.textContent = this.value;
-            draw(parseInt(this.value));
-        });
-
-        setTimeout(() => draw(0), 500);
-    </script>
 </body>
 
 </html>

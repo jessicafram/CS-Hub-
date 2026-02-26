@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tópico 1.1 — Representação Numérica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../../style.css">
-    
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
     <style>
         .math-box {
             background: rgba(0, 0, 0, 0.4);
@@ -20,6 +23,7 @@
             text-align: center;
             overflow-x: auto;
         }
+
         .concept-box {
             border-left: 4px solid var(--accent);
             background: rgba(46, 204, 113, 0.05);
@@ -27,34 +31,72 @@
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
         }
-        h2 { color: var(--accent); margin-top: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        h3 { color: #fff; margin-top: 30px; }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
     </style>
 </head>
+
 <body class="notion-theme">
 
     <nav class="top-navbar">
-        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO 01</a>
+        <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
+            01</a>
         <span class="jessica-signature">CS_HUB / MAT_COMP / T1.1</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
             <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Representação Numérica, Modelo de Máquina e Estabilidade</h1>
-            <p>A computação científica não opera sobre $ \mathbb{R} $, mas sobre um subconjunto finito $ \mathbb{F} \subset \mathbb{R} $ determinado pela arquitetura de máquina.</p>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Representação Numérica, Modelo de Máquina e
+                Estabilidade</h1>
+            <p>A computação científica não opera sobre $ \mathbb{R} $, mas sobre um subconjunto finito $ \mathbb{F}
+                \subset \mathbb{R} $ determinado pela arquitetura de máquina.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
             <h2>0. Por que uma Matemática da "Imperfeição"?</h2>
-            <p>Para um matemático puro, a reta real $ \mathbb{R} $ é contínua, infinita e densa. Contudo, para um computador, a memória é finita e a representação é binária. Essa colisão entre o <strong>contínuo ideal</strong> e o <strong>discreto físico</strong> criou a necessidade de uma nova arquitetura.</p>
+            <p>Para um matemático puro, a reta real $ \mathbb{R} $ é contínua, infinita e densa. Contudo, para um
+                computador, a memória é finita e a representação é binária. Essa colisão entre o <strong>contínuo
+                    ideal</strong> e o <strong>discreto físico</strong> criou a necessidade de uma nova arquitetura.</p>
 
             <div class="concept-box">
                 <p><strong>A Epistemologia do Erro:</strong></p>
                 <div class="math-box">
-                    $$ \mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha} $$
+                    $$\mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha}$$
                 </div>
-                <p>O erro não é um "bug" que deve ser removido, mas uma propriedade do sistema que deve ser gerenciada. Dominar a Matemática Computacional é aprender a caminhar sobre a "reta furada" de $ \mathbb{F} $ sem cair no abismo das falhas numéricas.</p>
+
+                <p><strong>Lendo a notação completa:</strong> $\mathbb{F} \subset \mathbb{R}$</p>
+                <p>Quando escrevemos $\mathbb{F} \subset \mathbb{R}$, estamos escrevendo a seguinte frase
+                    matemática:<br>
+                    <em>"O conjunto dos números de ponto flutuante do computador ($\mathbb{F}$) é um subconjunto dos
+                        números reais ($\mathbb{R}$)."</em>
+                </p>
+
+                <p><span class="highlight-text">O que isso significa na prática para o seu código?</span><br>
+                    Significa que <strong>todo</strong> número que o seu computador consegue processar ($\mathbb{F}$) é
+                    um número real. Mas existem infinitos números reais ($\mathbb{R}$) que o seu computador não conhece.
+                    E é exatamente porque o computador não conhece a reta inteira que ocorrem os arredondamentos e os
+                    erros que estudamos neste módulo!</p>
+
+                <p>O erro, portanto, não é um "bug" que deve ser corrigido, mas uma consequência das leis da física que
+                    limitam a memória da máquina. Dominar a Matemática Computacional é aprender a caminhar sobre a "reta
+                    furada" de $\mathbb{F}$ sem deixar que esses arredondamentos se acumulem e causem falhas
+                    catastróficas.</p>
             </div>
 
             <h2>1. Sistema de Ponto Flutuante</h2>
@@ -64,22 +106,79 @@
             </div>
             <ul>
                 <li><strong>$ \beta $ (Base):</strong> Determina o sistema de numeração (geralmente 2).</li>
-                <li><strong>$ p $ (Precisão):</strong> Quantidade de dígitos significativos na mantissa. Define o <em>poder de resolução</em>.</li>
-                <li><strong>$ [e_{min}, e_{max}] $ (Expoente):</strong> Define a escala ou magnitude (Overflow vs Underflow).</li>
+                <li><strong>$ p $ (Precisão):</strong> Quantidade de dígitos significativos na mantissa. Define o
+                    <em>poder de resolução</em>.
+                </li>
+                <li><strong>$ [e_{min}, e_{max}] $ (Expoente):</strong> Define a escala ou magnitude (Overflow vs
+                    Underflow).</li>
             </ul>
 
             <h3>1.2 Espaçamento Absoluto ($ \Delta $)</h3>
+
+            <p>O que é o Espaçamento Absoluto ($\Delta$)? Pense nos números inteiros normais: a distância entre o 1 e o
+                2 é de exatamente 1. A distância entre 1000 e 1001 também é 1. O espaçamento é sempre constante.</p>
+
+            <p>Nos números de ponto flutuante do computador, <strong>o espaçamento não é constante</strong>. Ele é
+                elástico. O $\Delta$ (Delta) é a distância entre um número que o computador consegue armazenar e o
+                próximo número que ele consegue armazenar.</p>
+
+            <p>A fórmula que dita o tamanho desse "salto" é:</p>
             <div class="math-box">
-                $$ \Delta = \beta^{e-(p-1)} $$
-            </div>
-            
-            <div class="concept-box" style="text-align: center;">
-                <h4>Visualização do Sistema Didático $ \mathbb{F}(2,4,e) $</h4>
-                <label>Expoente $ e $: <span id="expValue" style="color:var(--accent); font-weight: bold;">0</span></label>
-                <input type="range" min="-5" max="5" value="0" id="expoente" style="width:100%; margin: 15px 0; accent-color: var(--accent);">
-                <canvas id="canvasDiscreto" width="800" height="150" style="background: #000; border-radius: 8px; border: 1px solid var(--border); width: 100%;"></canvas>
+                $$\Delta = \beta^{e - (p - 1)}$$
             </div>
 
+            <p>No nosso mini-computador didático $\mathbb{F}(2, 4, e)$, se substituirmos as letras, a fórmula vira:</p>
+            <div class="math-box">
+                $$\Delta = 2^{e - (4 - 1)} = 2^{e - 3}$$
+            </div>
+
+            <div class="concept-box" style="text-align: center;">
+                <h4>Visualização do Sistema Didático $ \mathbb{F}(2,4,e) $</h4>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Mova o controle deslizante para ver como o espaçamento
+                    ($\Delta$) cresce junto com o expoente.</p>
+                <label>Expoente $ e $: <span id="expValue"
+                        style="color:var(--accent); font-weight: bold;">0</span></label>
+                <input type="range" min="-5" max="5" value="0" id="expoente"
+                    style="width:100%; margin: 15px 0; accent-color: var(--accent);">
+                <canvas id="canvasDiscreto" width="800" height="150"
+                    style="background: #000; border-radius: 8px; border: 1px solid var(--border); width: 100%;"></canvas>
+            </div>
+
+            <div class="concept-box" style="margin-top: 20px;">
+                <h4 style="margin-top:0; color: var(--accent);">A Mágica do Slider (O que acontece na tela)</h4>
+                <p>Quando você arrasta o slider acima, você está mudando o valor do expoente ($e$) e, consequentemente,
+                    esticando ou encolhendo o $\Delta$.</p>
+
+
+
+                <ul style="line-height: 1.8;">
+                    <li><span class="highlight-text">Quando o slider está no 0 ($e = 0$):</span> A fórmula fica $\Delta
+                        = 2^{0 - 3} = 2^{-3} = 0.125$. Isso significa que, nesta escala perto do zero, o computador
+                        conta de $0.125$ em $0.125$. Os "pontinhos verdes" na tela ficam próximos. Ele consegue
+                        representar perfeitamente o $1.0, 1.125, 1.250...$</li>
+                    <li><span class="highlight-text">Se você arrastar o slider para o 3 ($e = 3$):</span> A fórmula fica
+                        $\Delta = 2^{3 - 3} = 2^0 = 1$. Agora, o espaçamento aumentou. O computador está contando de 1
+                        em 1. Ele conhece o 8, o 9, o 10.</li>
+                    <li><span class="highlight-text">Se você arrastar o slider lá para frente, no 5 ($e = 5$):</span> A
+                        fórmula fica $\Delta = 2^{5 - 3} = 2^2 = 4$. <strong>Aqui acontece o desastre numérico!</strong>
+                        O computador agora conta de 4 em 4. Os pontinhos verdes na tela ficam super distantes. Ele
+                        armazena o número 32 e o próximo número que ele consegue armazenar é o 36.</li>
+                </ul>
+
+                <p><strong>A grande questão é: O que acontece se o seu código gerar o número 33?</strong> Ele
+                    simplesmente não cabe na memória desse sistema. O processador vai arredondar o 33 para o 32, criando
+                    um <strong>Erro de Arredondamento massivo</strong>.</p>
+
+                <div
+                    style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent); margin-top: 20px;">
+                    <p style="margin: 0; font-family: 'Fira Code', monospace; font-size: 0.9rem;">
+                        <strong>Moral da história:</strong> O canvas interativo prova visualmente para o aluno que
+                        quanto maior o número com o qual você está operando, maior é o "buraco" (espaçamento $\Delta$)
+                        entre ele e o próximo valor representável. É por isso que calcular com valores astronômicos
+                        destrói a precisão das casas decimais na programação!
+                    </p>
+                </div>
+            </div>
             <h2>2. Padrão IEEE 754 (Double Precision)</h2>
             <div class="math-box">
                 $$ V = (-1)^s \times (1.m) \times 2^{e - \text{bias}} $$
@@ -91,27 +190,33 @@
             </ul>
 
             <h3>Derivação da Precisão da Máquina ($ \varepsilon_{mach} $)</h3>
-            <p>O menor incremento representável acima de 1 é limitado pelos 52 bits da mantissa. Como o arredondamento é para o par mais próximo:</p>
+            <p>O menor incremento representável acima de 1 é limitado pelos 52 bits da mantissa. Como o arredondamento é
+                para o par mais próximo:</p>
             <div class="math-box">
                 $$ \varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16} $$
             </div>
 
             <h2>3. Modelo Matemático do Erro</h2>
-            <p>A relação fundamental entre um número real $ x $ e sua representação na máquina $ fl(x) $ é dada pelo Axioma do Ponto Flutuante:</p>
+            <p>A relação fundamental entre um número real $ x $ e sua representação na máquina $ fl(x) $ é dada pelo
+                Axioma do Ponto Flutuante:</p>
             <div class="math-box">
                 $$ fl(x) = x(1 + \delta), \quad |\delta| \le \varepsilon_{mach} $$
             </div>
 
             <h2>4. Condicionamento e Estabilidade</h2>
-            <p>O número de condição $ \kappa $ mede a sensibilidade de uma função $ f(x) $ a pequenas perturbações na entrada:</p>
+            <p>O número de condição $ \kappa $ mede a sensibilidade de uma função $ f(x) $ a pequenas perturbações na
+                entrada:</p>
             <div class="math-box">
                 $$ \kappa(f,x) = \left| \frac{x f'(x)}{f(x)} \right| $$
             </div>
 
             <div class="concept-box">
                 <h4 style="margin-top:0; color: var(--accent);">Implementação Computacional Prática</h4>
-                <p>O Teorema da Soma mostra que o erro cresce com as iterações. Abaixo, a solução de estabilidade <em>backward</em> (Algoritmo de Kahan):</p>
-<pre style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
+                <p>O Teorema da Soma mostra que o erro cresce com as iterações. Abaixo, a solução de estabilidade
+                    <em>backward</em> (Algoritmo de Kahan):
+                </p>
+                <pre
+                    style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
 def kahan_sum(n):
     s, c = 0.0, 0.0
     for _ in range(n):
@@ -131,38 +236,86 @@ def kahan_sum(n):
     </main>
 
     <script>
-        // Lógica do Canvas Interativo preservada
         const canvas = document.getElementById("canvasDiscreto");
         const ctx = canvas.getContext("2d");
         const slider = document.getElementById("expoente");
         const expValue = document.getElementById("expValue");
 
         function draw(e) {
+            // Limpa o quadro a cada movimento do slider
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            let nums = [];
-            for (let i = 0; i < 8; i++) { nums.push((1 + i / 8) * Math.pow(2, e)); }
-            let min = nums[0], max = nums[nums.length - 1], scale = (canvas.width - 100) / (max - min);
-            
-            ctx.beginPath(); ctx.moveTo(50, 75); ctx.lineTo(canvas.width - 50, 75);
-            ctx.strokeStyle = "#2ecc71"; ctx.stroke();
-            
-            nums.forEach(v => {
-                let x = 50 + (v - min) * scale;
-                ctx.beginPath(); ctx.arc(x, 75, 5, 0, 2 * Math.PI);
-                ctx.fillStyle = "#2ecc71"; ctx.fill();
-            });
-            ctx.fillStyle = "#2ecc71"; 
-            ctx.font = "14px Fira Code";
-            ctx.fillText("Δ = 2^(" + (e - 3) + ")", 50, 120);
+
+            // Lógica Matemática: Define o ponto de partida e o tamanho do buraco
+            let baseNum = Math.pow(2, e);          // 1.0 * 2^e
+            let delta = Math.pow(2, e - 3);        // O nosso Δ real
+
+            // Linha do Eixo X (Reta contínua de fundo)
+            ctx.beginPath();
+            ctx.moveTo(40, 90);
+            ctx.lineTo(canvas.width - 40, 90);
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Lógica Visual: O espaçamento físico cresce 30% a cada nível do slider
+            // para criar o efeito visual de "elástico" sem estourar a tela instantaneamente
+            let basePixelGap = 50;
+            let visualGap = basePixelGap * Math.pow(1.3, e);
+
+            ctx.textAlign = "center";
+
+            // Desenhando os pontos e os números
+            for (let i = 0; i < 15; i++) {
+                let x = 40 + (i * visualGap);
+
+                // Se o ponto passar do limite do canvas, para de desenhar
+                if (x > canvas.width - 30) break;
+
+                let valorReal = baseNum + (i * delta);
+
+                // Desenha o "Ponto de Ponto Flutuante" (Bolinha Verde)
+                ctx.beginPath();
+                ctx.arc(x, 90, 6, 0, 2 * Math.PI);
+                ctx.fillStyle = "#2ecc71";
+                ctx.fill();
+
+                // Escreve o valor numérico embaixo da bolinha
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.font = "12px Inter";
+                // Formata o número (tira os zeros desnecessários)
+                let textoValor = Number.isInteger(valorReal) ? valorReal.toString() : valorReal.toFixed(3);
+                ctx.fillText(textoValor, x, 115);
+            }
+
+            // Desenha a Régua de Medição (Colchete) do Delta no topo
+            if (40 + visualGap < canvas.width) {
+                let startX = 40;
+                let endX = 40 + visualGap;
+                let midX = startX + (visualGap / 2);
+
+                ctx.beginPath();
+                ctx.moveTo(startX, 75);
+                ctx.lineTo(startX, 65);
+                ctx.lineTo(endX, 65);
+                ctx.lineTo(endX, 75);
+                ctx.strokeStyle = "#2ecc71";
+                ctx.stroke();
+
+                ctx.fillStyle = "#2ecc71";
+                ctx.font = "bold 14px Fira Code";
+                ctx.fillText(`Δ = ${delta}`, midX, 55);
+            }
         }
 
+        // Escuta os movimentos do Slider em tempo real
         slider.addEventListener("input", function () {
             expValue.textContent = this.value;
             draw(parseInt(this.value));
         });
 
-        // Inicializa o Canvas
-        setTimeout(() => draw(0), 500); // Timeout leve para garantir renderização do width
+        // Desenha o estado inicial quando a página carrega
+        setTimeout(() => draw(0), 200);
     </script>
 </body>
+
 </html>
