@@ -310,6 +310,42 @@
                     partir da 17ª casa é lixo gerado pelo processador. Se você estiver calculando a rota de colisão de
                     um satélite, você precisa saber quando parar de confiar na resposta.
                 </p>
+                <details
+                    style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin: 25px 0; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ 🧐 Quer ver a magia acontecer? Clique para abrir o cálculo manual!
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
+                        <p><strong>Passo 1: Inverter a Potência</strong><br>
+                            Na matemática, o primeiro passo para lidar com um expoente negativo é transformá-lo em uma
+                            fração:</p>
+                        <div class="math-box" style="padding: 10px; margin: 10px 0; background: rgba(0,0,0,0.6);">$$
+                            2^{-53} = \frac{1}{2^{53}} $$</div>
+
+                        <p><strong>Passo 2: O Truque Jedi da Computação ($2^{10} \approx 1000$)</strong><br>
+                            Fatiamos o expoente para facilitar a conta: $2^{53} = 2^3 \times 2^{50}$.<br>
+                            Sabemos que $2^3 = 8$ e $2^{50}$ é a mesma coisa que $(2^{10})^5$. Como $2^{10} = 1024$,
+                            elevá-lo à 5ª potência nos dá aproximadamente $1.125$ quatrilhões ($10^{15}$).<br>
+                            Multiplicando: $8 \times 1.125 = 9.000$. Portanto: $2^{53} \approx 9 \times 10^{15}$.</p>
+
+                        <p><strong>Passo 3: A Divisão Mágica</strong><br>
+                            Voltando para a fração, temos: $\frac{1}{9 \times 10^{15}}$. Podemos separar a fração da
+                            potência: $\frac{1}{9} \times 10^{-15}$.<br>
+                            A divisão de $1 \div 9$ é uma dízima periódica clássica: $0.111111...$</p>
+
+                        <p><strong>Passo 4: Ajustar a Notação Científica</strong><br>
+                            Juntando tudo, temos $0.111111... \times 10^{-15}$. Para deixar na notação científica
+                            padrão, andamos com a vírgula uma casa para a direita. O número "cresce", então o expoente
+                            precisa "diminuir" um nível para compensar (-15 vai para -16):</p>
+                        <div class="math-box"
+                            style="border-color: var(--accent); padding: 10px; margin: 10px 0; background: rgba(0,0,0,0.8);">
+                            $$ 1.111111... \times 10^{-16} $$</div>
+                        <p style="margin-bottom: 0; color: var(--accent); font-weight: bold;">E voilà! Está provado no
+                            papel de onde vêm as 16 casas decimais de precisão do seu processador.</p>
+                    </div>
+                </details>
 
                 <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">B. Prever Overflow e Underflow (Limites do
                     Expoente)</h5>

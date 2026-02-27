@@ -77,8 +77,9 @@ function openModal(materia) {
             <ul class="syllabus-list">
                 ${materia.grade_conteudo.map((item, index) => {
         const num = String(index + 1).padStart(2, '0');
+        const topicoNum = index + 1; // Número sem o zero na frente (1, 2, 3...)
 
-        // Lógica para Extensão (n8n, Java): Libera HTML na subpasta e botão de PDF
+        // 1. Lógica para Extensão (n8n, Java): Mantém os links e botão de PDF
         if (materia.links_ativos) {
             return `
                             <li style="display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
@@ -92,16 +93,29 @@ function openModal(materia) {
                         `;
         }
 
-        // Lógica para IHC (Graduação)
-        if (materia.nome.includes("Interação")) {
-            return `
-                            <li onclick="window.location.href='./materiais/ihc-topico-${num}.html'" 
-                                style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
-                                📖 ${item}
-                            </li>
-                        `;
+        // 2. Lógica para Graduação (TUDO LIBERADO! Sem cadeados)
+        let linkDestino = "#"; // Link padrão seguro
+
+        // Roteamento inteligente baseado no nome ou ID da matéria
+        if (materia.nome.includes("Matemática") || materia.id === "mat-comp") {
+            // Mapeia para os seus arquivos: materiais/mat-comp/modulo-01/topico-1-1.html
+            linkDestino = `./materiais/mat-comp/modulo-01/topico-1-${topicoNum}.html`;
+        } else if (materia.nome.includes("Interação")) {
+            // Mantém a rota antiga de IHC
+            linkDestino = `./materiais/ihc-topico-${num}.html`;
+        } else {
+            // Rota genérica para futuras matérias (usa o ID)
+            linkDestino = `./materiais/${materia.id}-topico-${num}.html`;
         }
-        return `<li style="opacity: 0.5; padding: 10px; list-style: none;">🔒 ${item}</li>`;
+
+        return `
+                        <li onclick="window.location.href='${linkDestino}'" 
+                            style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(46, 204, 113, 0.1); margin-top: 8px; padding: 12px; list-style: none; border-radius: 4px; transition: 0.3s;"
+                            onmouseover="this.style.background='rgba(46, 204, 113, 0.2)'; this.style.transform='translateX(5px)';"
+                            onmouseout="this.style.background='rgba(46, 204, 113, 0.1)'; this.style.transform='translateX(0)';">
+                            📖 ${item}
+                        </li>
+                    `;
     }).join('')}
             </ul>
         </div>
