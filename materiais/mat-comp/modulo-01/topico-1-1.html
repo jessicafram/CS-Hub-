@@ -48,6 +48,90 @@
             color: var(--accent);
             font-weight: 600;
         }
+
+        /* --- FLASHCARDS INLINE (TREINAMENTO) --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            /* Profundidade do 3D */
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Classe acionada pelo JavaScript para girar */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            /* Correção extra para navegadores da Apple */
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            /* A MÁGICA QUE IMPEDE O TRANSBORDAMENTO */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Alinha o texto no topo para evitar corte nos casos longos */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        /* Estilo Dinâmico: Teoria (Verde) vs Caso Clínico (Vermelho) */
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -180,59 +264,399 @@
                 </div>
             </div>
             <h2>2. Padrão IEEE 754 (Double Precision)</h2>
+            <p>Até 1985, a computação científica vivia um verdadeiro caos. Um código escrito para um mainframe da IBM
+                gerava resultados completamente diferentes se rodasse em um supercomputador da Cray, porque cada
+                fabricante inventava sua própria regra de como o hardware deveria arredondar números decimais.</p>
+            <p>Para unificar a indústria, o Instituto de Engenheiros Eletricistas e Eletrônicos (IEEE) criou o padrão
+                <strong>754</strong>. Ele é um "contrato global" gravado direto nos transistores (na Unidade de Ponto
+                Flutuante - FPU) que dita exatamente como a memória física deve fatiar os <strong>64 bits</strong> de
+                uma variável <code>double</code> para tentar representar a reta real infinita ($\mathbb{R}$).
+            </p>
+
+
+
             <div class="math-box">
                 $$ V = (-1)^s \times (1.m) \times 2^{e - \text{bias}} $$
             </div>
+
             <ul style="list-style: none; padding: 0;">
-                <li>🟢 <strong>1 bit</strong> de sinal ($s$)</li>
-                <li>🟡 <strong>11 bits</strong> de expoente ($e$) | Bias = 1023</li>
-                <li>🔵 <strong>52 bits</strong> de fração/mantissa ($m$)</li>
+                <li style="margin-bottom: 10px;">🟢 <strong>Sinal (1 bit):</strong> <code>0</code> para positivo,
+                    <code>1</code> para negativo ($s$).
+                </li>
+                <li style="margin-bottom: 10px;">🟡 <strong>Expoente (11 bits):</strong> Define a "escala" do número (se
+                    estamos lidando com a massa de uma galáxia ou o tamanho de um átomo). Ele usa um "Bias" (viés) de
+                    1023 para não precisar gastar um bit extra com o sinal do expoente ($e$).</li>
+                <li style="margin-bottom: 10px;">🔵 <strong>Fração / Mantissa (52 bits):</strong> É aqui que mora a
+                    <strong>precisão</strong>. São esses bits que guardam os detalhes das casas decimais ($m$).
+                </li>
             </ul>
 
-            <h3>Derivação da Precisão da Máquina ($ \varepsilon_{mach} $)</h3>
-            <p>O menor incremento representável acima de 1 é limitado pelos 52 bits da mantissa. Como o arredondamento é
-                para o par mais próximo:</p>
-            <div class="math-box">
-                $$ \varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16} $$
+            <div class="concept-box" style="margin-top: 30px;">
+                <h4 style="margin-top:0; color: var(--accent);">Por que calcular isso nos ajuda? Os 3 Superpoderes</h4>
+                <p>Na Análise Numérica e na criação de Agentes de IA, nós não calculamos a estrutura do IEEE 754 na mão
+                    o tempo todo, mas <strong>nós precisamos deduzir seus limites matemáticos</strong> para garantir que
+                    nossos algoritmos não explodam.</p>
+
+                <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">A. Descobrir a "Precisão da Máquina"
+                    ($\varepsilon_{mach}$)</h5>
+                <p>Se a mantissa tem 52 bits, existe um limite físico de quantos números podemos espremer entre $1.0$ e
+                    o próximo número representável. Ao calcularmos $2^{-53}$ (por conta do arredondamento para o par
+                    mais próximo exigido pelo padrão), descobrimos o nosso Épsilon:</p>
+                <div class="math-box">
+                    $$ \varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16} $$
+                </div>
+                <p><span class="highlight-text">Aplicação prática:</span> Isso prova matematicamente que uma variável
+                    <code>double</code> <strong>só consegue garantir até a 16ª casa decimal</strong>. Qualquer dígito a
+                    partir da 17ª casa é lixo gerado pelo processador. Se você estiver calculando a rota de colisão de
+                    um satélite, você precisa saber quando parar de confiar na resposta.
+                </p>
+
+                <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">B. Prever Overflow e Underflow (Limites do
+                    Expoente)</h5>
+                <p>Com 11 bits de expoente, o limite superior ($\overline{x}$) de um <code>double</code> no IEEE 754
+                    bate na casa de $10^{308}$.</p>
+                <p><span class="highlight-text">Aplicação prática:</span> Se você estiver programando uma Função de
+                    Custo (Loss Function) em Machine Learning com exponenciais, e a conta ultrapassar $10^{308}$, o
+                    computador vai cravar a resposta como <code>Infinity</code> (Overflow) e quebrar todo o treinamento.
+                    Conhecendo o padrão, você projeta o algoritmo para normalizar os dados antes da conta chegar perto
+                    desse teto.</p>
+
+                <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">C. Entender o Bit Implícito (O "Truque" de
+                    Ouro)</h5>
+                <p>O padrão IEEE 754 força todo número binário a ser guardado na forma científica normalizada (ex:
+                    $1.0110 \times 2^e$). Como o primeiro dígito antes do ponto é <strong>sempre</strong> <code>1</code>
+                    (em binário não existe outro dígito além do 0 e 1, e números normalizados não começam com 0), o
+                    padrão não gasta memória salvando esse <code>1</code>. Ele é oculto (implícito).</p>
+                <p><span class="highlight-text">Aplicação prática:</span> Isso nos dá 53 bits de precisão real usando
+                    apenas 52 bits físicos. É uma engenharia de software no nível do silício.</p>
             </div>
 
-            <h2>3. Modelo Matemático do Erro</h2>
-            <p>A relação fundamental entre um número real $ x $ e sua representação na máquina $ fl(x) $ é dada pelo
-                Axioma do Ponto Flutuante:</p>
+            <div
+                style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin: 30px 0;">
+                <h4 style="margin-top:0; color: var(--accent);">Resumo: O Paradigma do Desenvolvedor</h4>
+                <p style="margin-bottom: 0;">Estudar e calcular o IEEE 754 tira o programador da posição de "esperar que
+                    a linguagem faça o cálculo certo" e o coloca na posição de <strong>arquiteto</strong>. Quando um
+                    algoritmo falha por Cancelamento Catastrófico (como veremos no Tópico 1.3), você sabe que não foi um
+                    mistério cósmico; foi simplesmente a mantissa de 52 bits esgotando sua capacidade de representar os
+                    números que você subtraiu.</p>
+            </div>
+
+            <h2>3. Modelo Matemático do Erro: O Axioma Fundamental</h2>
+            <p>Até agora, vimos as limitações físicas do hardware. Mas como um matemático escreve uma equação que
+                <em>prevê</em> essa falha física do processador? A resposta é a "certidão de nascimento" do erro
+                numérico: o <strong>Axioma Fundamental do Ponto Flutuante</strong>.
+            </p>
+            <p>Ele modela matematicamente a imperfeição física do processador, atuando como a ponte definitiva entre a
+                matemática pura e a memória RAM da máquina.</p>
+
             <div class="math-box">
                 $$ fl(x) = x(1 + \delta), \quad |\delta| \le \varepsilon_{mach} $$
             </div>
 
-            <h2>4. Condicionamento e Estabilidade</h2>
-            <p>O número de condição $ \kappa $ mede a sensibilidade de uma função $ f(x) $ a pequenas perturbações na
-                entrada:</p>
+            <div class="concept-box">
+                <h4 style="margin-top:0; color: var(--accent);">O Dicionário da Fórmula (Dissecando os Termos)</h4>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li style="margin-bottom: 10px;">⚪ <strong>$x$ (O Mundo Ideal):</strong> É o número real, exato e
+                        perfeito que você <em>queria</em> calcular.</li>
+                    <li style="margin-bottom: 10px;">💻 <strong>$fl(x)$ (A Realidade):</strong> Lê-se <em>"float de
+                            x"</em>. É o número que o processador <em>efetivamente</em> conseguiu espremer e gravar
+                        dentro da mantissa de 52 bits.</li>
+                    <li style="margin-bottom: 10px;">⚠️ <strong>$\delta$ (O Pedágio do Hardware):</strong> Lê-se
+                        <em>"delta"</em>. É uma variável desconhecida que representa o erro de arredondamento intrínseco
+                        daquela operação.
+                    </li>
+                    <li style="margin-bottom: 10px;">🛡️ <strong>$|\delta| \le \varepsilon_{mach}$ (A Garantia de
+                            Fábrica):</strong> Nós nunca saberemos o valor exato do erro $\delta$, mas o padrão IEEE 754
+                        nos dá uma garantia absoluta: o tamanho desse erro <strong>nunca</strong> ultrapassará o limite
+                        do nosso Épsilon de Máquina ($\approx 1.11 \times 10^{-16}$).</li>
+                </ul>
+            </div>
+
+            <div
+                style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h3
+                    style="color: #fff; margin-top: 0; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px;">
+                    A Matemática de Guardanapo: A Prova do "Lixo Numérico"</h3>
+                <p>Para uma pessoa comum entender a gravidade desse Axioma, basta aplicarmos a regra distributiva (o
+                    famoso "chuveirinho" do ensino médio) no lado direito da equação:</p>
+
+                <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: var(--accent);">
+                    $$ fl(x) = x + (x \times \delta) $$
+                </div>
+
+                <p>Olhe que revelação espetacular: o computador não consegue armazenar o seu $x$ puro. Ele armazena o
+                    <strong>$x$ original somado a um "lixo" intruso ($x \times \delta$)</strong>!
+                </p>
+                <p>O grande perigo aqui é que o tamanho desse lixo é proporcional ao tamanho do número que você está
+                    operando. Vamos provar isso com um cálculo manual passo a passo:</p>
+
+                <div style="padding-left: 20px; border-left: 3px solid #e74c3c; margin-top: 20px;">
+                    <p><strong>Cenário:</strong> Imagine que seu código em Java está calculando o faturamento anual de
+                        uma multinacional, que foi exatamente <strong>10 quatrilhões de dólares ($10^{16}$)</strong>.
+                    </p>
+
+                    <ol style="line-height: 1.8; margin-bottom: 0;">
+                        <li><strong>O Valor Ideal:</strong> $x = 10^{16}$</li>
+                        <li><strong>O Limite do Erro:</strong> Vamos assumir o pior cenário do hardware, onde o erro
+                            bate no teto do Épsilon ($\delta = 10^{-16}$).</li>
+                        <li><strong>Calculando o "Lixo":</strong> Multiplicamos o valor ideal pelo erro: $10^{16} \times
+                            10^{-16}$. Pela regra da matemática, somamos os expoentes ($16 - 16 = 0$). O resultado é
+                            $10^0$, que é igual a <strong>1</strong>.</li>
+                        <li><strong>A Realidade da Máquina:</strong> $fl(x) = 10^{16} + 1$.</li>
+                    </ol>
+
+                    <p style="margin-top: 15px; font-weight: 600; color: #e74c3c;">Conclusão do Desastre:</p>
+                    <p>O computador gerou "1 dólar" fantasma do absoluto nada! Se estivéssemos operando na casa dos
+                        quintilhões ($10^{18}$), o erro seria de <strong>100 dólares</strong> ($10^{18} \times 10^{-16}
+                        = 10^2$).</p>
+                </div>
+
+                <p style="margin-top: 25px;">É por isso que misturar variáveis na casa dos bilhões com frações decimais
+                    em Machine Learning ou Física Quântica pode destruir a precisão do seu sistema inteiro em questão de
+                    milissegundos. <strong>O erro numérico não é um bug de lógica, é uma força da natureza da
+                        máquina.</strong></p>
+            </div>
+
+            <h2>4. Condicionamento e Estabilidade: O Fator de Caos ($\kappa$)</h2>
+            <p>Na seção anterior, vimos que o computador sempre insere um "lixo" numérico ($\delta$) na entrada dos
+                dados. A grande pergunta da Análise Numérica é: <strong>O que a sua função matemática faz com esse
+                    lixo?</strong></p>
+            <p>Ela absorve e ignora o erro? Ou ela amplifica esse erro até destruir a resposta final? Quem mede essa
+                sensibilidade é o <strong>Número de Condição ($\kappa$)</strong>. O $\kappa$ (Kappa) é uma propriedade
+                do problema matemático, não do computador.</p>
+
             <div class="math-box">
                 $$ \kappa(f,x) = \left| \frac{x f'(x)}{f(x)} \right| $$
             </div>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">Implementação Computacional Prática</h4>
-                <p>O Teorema da Soma mostra que o erro cresce com as iterações. Abaixo, a solução de estabilidade
-                    <em>backward</em> (Algoritmo de Kahan):
-                </p>
-                <pre
-                    style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto;">
-def kahan_sum(n):
-    s, c = 0.0, 0.0
-    for _ in range(n):
-        y = 0.1 - c
-        t = s + y
-        c = (t - s) - y
-        s = t
-    return s
-</pre>
+                <h4 style="margin-top:0; color: var(--accent);">Dissecando a Fórmula (De onde ela vem?)</h4>
+                <p>Para o aluno não decorar cegamente, vamos traduzir os pedaços dessa equação:</p>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li style="margin-bottom: 10px;">📈 <strong>A Derivada $f'(x)$:</strong> No Cálculo, a derivada mede
+                        a "taxa de variação". Se a derivada é muito alta, significa que um micro-passo para o lado no
+                        eixo X causa um salto gigante no eixo Y. É a sensibilidade bruta.</li>
+                    <li style="margin-bottom: 10px;">⚖️ <strong>A Fração $\frac{x}{f(x)}$:</strong> Por que
+                        multiplicamos por $x$ e dividimos por $f(x)$? Para transformar o erro absoluto em <strong>erro
+                            relativo (porcentagem)</strong>. Dizer que o erro foi de "2" não significa nada (2 gramas é
+                        muito, 2 toneladas é pouco). Queremos saber a proporção do erro.</li>
+                </ul>
+                <div
+                    style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid #e74c3c; margin-top: 15px;">
+                    <strong>O Veredito do $\kappa$:</strong>
+                    Se $\kappa \approx 1$, o problema é <strong>Bem Condicionado</strong> (Seguro).<br>
+                    Se $\kappa \gg 1$ (ex: $\kappa = 1000$), o problema é <strong>Mal Condicionado</strong> (Um erro de
+                    $1\%$ na entrada vira um erro de $1000\%$ na saída. O resultado é puro lixo).
+                </div>
             </div>
 
-        </section>
+            <div
+                style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h3
+                    style="color: #fff; margin-top: 0; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px;">
+                    A Matemática de Guardanapo: Calculando o Caos na Mão</h3>
+                <p>Vamos provar como uma função inofensiva pode esconder um desastre numérico. Considere a função $f(x)
+                    = \frac{1}{1 - x}$. Vamos calcular o condicionamento dela quando $x = 0.99$.</p>
 
-        <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
-            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
-        </footer>
+                <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: var(--accent);">
+                    <strong>Passo 1: Achar a Derivada $f'(x)$</strong><br>
+                    $$ f(x) = (1 - x)^{-1} \implies f'(x) = \frac{1}{(1 - x)^2} $$
+                </div>
+
+                <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: var(--accent);">
+                    <strong>Passo 2: Montar a Fórmula do $\kappa$</strong><br>
+                    $$ \kappa = \left| \frac{x \cdot \frac{1}{(1-x)^2}}{\frac{1}{1-x}} \right| = \left|
+                    \frac{x}{(1-x)^2} \cdot (1-x) \right| = \left| \frac{x}{1-x} \right| $$
+                </div>
+
+                <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: #e74c3c;">
+                    <strong>Passo 3: Substituir o valor $x = 0.99$</strong><br>
+                    $$ \kappa = \left| \frac{0.99}{1 - 0.99} \right| = \frac{0.99}{0.01} = 99 $$
+                </div>
+
+                <p style="margin-top: 20px;"><strong>O que esse $\kappa = 99$ significa no mundo real?</strong><br>
+                    Significa que a função atua como um megafone estragado. Se o sensor (ou o Épsilon de máquina)
+                    inserir um pequeno erro de $1\%$ ao ler o valor de $x$, a resposta final do seu programa sairá com
+                    <strong>$99\%$ de erro</strong>! O problema é intrinsecamente doente (Mal Condicionado) perto do
+                    número 1.
+                </p>
+            </div>
+
+            <h3 style="margin-top: 40px;">E quando a culpa é do Algoritmo? (Estabilidade)</h3>
+            <p>Se o problema matemático for bem condicionado ($\kappa$ baixo), mas o seu programa continuar gerando lixo
+                numérico, aí sim <strong>a culpa é do programador</strong>. Isso significa que o seu <em>algoritmo</em>
+                é <strong>Instável</strong>.</p>
+
+            <div class="concept-box">
+                <h4 style="margin-top:0; color: var(--accent);">A Cura Computacional: O Algoritmo de Kahan</h4>
+                <p>Entender o Algoritmo de Kahan é o que separa um programador que apenas "escreve código" de um
+                    verdadeiro engenheiro de software que entende a memória da máquina. Criado por William Kahan (o
+                    principal arquiteto do padrão IEEE 754), este algoritmo é a espinha dorsal de sistemas de Machine
+                    Learning, Simulações Físicas e Big Data.</p>
+
+                <h5 style="color: #fff; margin-top: 25px;">1. O Problema Original (Por que a soma normal falha?)</h5>
+                <p>Sempre que você precisar somar milhões de números muito pequenos (como atualizar os "pesos" de uma
+                    rede neural) a um número que já está muito grande, o Erro de Arredondamento ataca. Imagine que a
+                    nossa variável de soma já está gigante: <code>s = 10000.0</code>. Agora queremos somar um número
+                    minúsculo: <code>x = 0.00001</code>.</p>
+                <p>Como vimos no espaçamento $\Delta$, o computador tem um limite de casas decimais. Quando ele tenta
+                    somar <code>10000.0 + 0.00001</code>, os últimos dígitos do <code>0.00001</code> simplesmente "caem
+                    para fora" da mantissa de 52 bits. O processador trunca a conta e o resultado continua sendo
+                    <code>10000.0</code>. O seu <code>0.00001</code> desapareceu no limbo!
+                </p>
+
+                <h5 style="color: #fff; margin-top: 25px;">2. A Autópsia do Código (O Resgate do Lixo)</h5>
+                <p>O que Kahan fez foi criar uma variável extra, o <code>c</code> (de compensação), que atua como uma
+                    "lixeira" matemática. Ela recolhe exatamente os bits que o processador jogou fora, guarda na
+                    memória, e tenta enfiá-los de volta na conta na rodada seguinte.</p>
+
+                <pre
+                    style="background: #000; padding: 15px; border-radius: 8px; border: 1px solid var(--border); color: #dcdcaa; font-family: 'Fira Code', monospace; overflow-x: auto; margin-bottom: 20px;">
+def kahan_sum(n):
+    s = 0.0  # Soma principal
+    c = 0.0  # Compensador (a lixeira que guarda o erro)
+    
+    for _ in range(n):
+        y = 0.1 - c           # Passo A
+        t = s + y             # Passo B
+        c = (t - s) - y       # Passo C
+        s = t                 # Passo D
+        
+    return s
+</pre>
+
+                <h5 style="color: #fff; margin-top: 25px;">3. Dissecando o Loop (O Segredo Revelado)</h5>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li style="margin-bottom: 15px;"><span class="highlight-text">Passo A
+                            (<code>y = 0.1 - c</code>):</span> Aqui preparamos o número que queremos somar (neste
+                        exemplo, <code>0.1</code>). Subtraímos o <code>c</code> (o erro da rodada anterior) para
+                        corrigir a rota antes mesmo da soma principal acontecer. Na primeira rodada, <code>c</code> é
+                        zero, então <code>y = 0.1</code>.</li>
+
+                    <li style="margin-bottom: 15px;"><span class="highlight-text">Passo B
+                            (<code>t = s + y</code>):</span> Esta é a conta onde o "assassinato" acontece. Como o
+                        <code>s</code> pode ser um número gigante e o <code>y</code> um número pequeno, o padrão IEEE
+                        754 vai cortar os bits finais de <code>y</code>. O <code>t</code> guarda essa soma corrompida e
+                        imperfeita.
+                    </li>
+
+                    <li style="margin-bottom: 15px;"><span class="highlight-text">Passo C
+                            (<code>c = (t - s) - y</code>):</span> Este é o momento "Aha!" do algoritmo.
+                        <ul
+                            style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px; border-left: 2px solid rgba(255,255,255,0.2);">
+                            <li>Primeiro o computador faz <code>(t - s)</code>. Matematicamente, se
+                                <code>t = s + y</code>, então <code>t - s</code> deveria ser igual a <code>y</code>. Mas
+                                lembre-se: o <code>t</code> foi arredondado! Então <code>(t - s)</code> recupera apenas
+                                a parte "sobrevivente" do <code>y</code> que conseguiu entrar na conta.
+                            </li>
+                            <li>Em seguida, subtraímos o <code>y</code> original e completo:
+                                <code>(parte_sobrevivente) - y_original</code>.
+                            </li>
+                            <li>O resultado dessa conta dá um número negativo que representa <strong>exatamente a poeira
+                                    decimal que foi cortada pelo processador</strong>. Nós guardamos essa poeira na
+                                variável <code>c</code>.</li>
+                        </ul>
+                    </li>
+
+                    <li style="margin-bottom: 15px;"><span class="highlight-text">Passo D (<code>s = t</code>):</span>
+                        Atualizamos a nossa soma principal com o valor arredondado. Mas agora estamos tranquilos, pois o
+                        erro não foi perdido; ele está guardado no <code>c</code> pronto para ser compensado no próximo
+                        "Passo A".</li>
+                </ul>
+            </div>
+            <div
+                style="margin-top: 60px; padding: 40px 30px; background: rgba(0, 0, 0, 0.4); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <h3 style="color: var(--accent); text-align: center; margin-top: 0; font-size: 1.8rem;">O Mapa Mental do
+                    Erro Numérico</h3>
+                <p style="text-align: center; opacity: 0.8; margin-bottom: 40px;">O caminho lógico: da física do
+                    hardware até o resgate no código.</p>
+
+                <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                    <div
+                        style="background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);">
+                        1</div>
+                    <div
+                        style="margin-left: 20px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; flex-grow: 1; border-left: 3px solid var(--accent);">
+                        <strong style="color: #fff; font-size: 1.15rem;">A Causa Raiz: A Barreira Física ($\mathbb{F}
+                            \subset \mathbb{R}$)</strong><br>
+                        <span
+                            style="opacity: 0.8; font-size: 0.95rem; line-height: 1.6; display: block; margin-top: 8px;">A
+                            memória de 64 bits é finita. Isso nos força a abandonar a reta perfeita da matemática e
+                            criar uma "reta furada", onde o espaço entre os números ($\Delta$) é elástico.</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-left: 21px; border-left: 3px dashed rgba(46, 204, 113, 0.3); height: 40px; margin-bottom: 5px;">
+                </div>
+
+                <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                    <div
+                        style="background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);">
+                        2</div>
+                    <div
+                        style="margin-left: 20px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; flex-grow: 1; border-left: 3px solid var(--accent);">
+                        <strong style="color: #fff; font-size: 1.15rem;">A Organização: O Padrão IEEE 754</strong><br>
+                        <span
+                            style="opacity: 0.8; font-size: 0.95rem; line-height: 1.6; display: block; margin-top: 8px;">Para
+                            gerenciar esses buracos, padronizamos a memória (Sinal, Expoente e Mantissa). Descobrimos
+                            que a mantissa de 52 bits tem um limite máximo de erro: o Épsilon de Máquina
+                            ($\varepsilon_{mach} \approx 10^{-16}$).</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-left: 21px; border-left: 3px dashed rgba(46, 204, 113, 0.3); height: 40px; margin-bottom: 5px;">
+                </div>
+
+                <div style="display: flex; align-items: flex-start; margin-bottom: 5px;">
+                    <div
+                        style="background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);">
+                        3</div>
+                    <div
+                        style="margin-left: 20px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; flex-grow: 1; border-left: 3px solid var(--accent);">
+                        <strong style="color: #fff; font-size: 1.15rem;">A Consequência: O Axioma
+                            Fundamental</strong><br>
+                        <span
+                            style="opacity: 0.8; font-size: 0.95rem; line-height: 1.6; display: block; margin-top: 8px;">Traduzimos
+                            o Épsilon para uma fórmula: $fl(x) = x + (x \times \delta)$. O computador sempre adiciona um
+                            "lixo numérico" que cresce proporcionalmente ao tamanho da variável operada.</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-left: 21px; border-left: 3px dashed rgba(46, 204, 113, 0.3); height: 40px; margin-bottom: 5px;">
+                </div>
+
+                <div style="display: flex; align-items: flex-start;">
+                    <div
+                        style="background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);">
+                        4</div>
+                    <div
+                        style="margin-left: 20px; background: rgba(46, 204, 113, 0.1); padding: 20px; border-radius: 12px; flex-grow: 1; border-left: 3px solid var(--accent);">
+                        <strong style="color: #fff; font-size: 1.15rem;">O Diagnóstico e a Cura: $\kappa$ e
+                            Kahan</strong><br>
+                        <span
+                            style="opacity: 0.9; font-size: 0.95rem; line-height: 1.6; display: block; margin-top: 8px;">Avaliamos
+                            se a culpa da falha é da Matemática (Mau Condicionamento, medido pelo $\kappa$) ou do
+                            Programador (Instabilidade). Para curar algoritmos instáveis, usamos técnicas de resgate de
+                            bits, como o Algoritmo de Kahan.</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento</h2>
+                <p style="text-align: center; opacity: 0.8;">Clique nos cartões para virar e conferir as respostas.</p>
+
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+
+            <footer
+                style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+                <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França
+                </p>
+            </footer>
     </main>
 
     <script>
@@ -315,6 +739,52 @@ def kahan_sum(n):
 
         // Desenha o estado inicial quando a página carrega
         setTimeout(() => draw(0), 200);
+
+        // --- LÓGICA DOS FLASHCARDS ---
+        async function carregarFlashcards() {
+            try {
+                // ATENÇÃO: Ajuste o caminho do arquivo JSON se ele estiver em outra pasta
+                const response = await fetch('../../../data/mat-comp/cards-1-1.json');
+                const data = await response.json();
+                const container = document.getElementById('flashcards-container');
+
+                data.cards.forEach(card => {
+                    // Define a classe de cor baseada no tipo do JSON
+                    const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                    const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Caso Clínico' : '📖 Teoria';
+                    const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                    // Cria o HTML do cartão
+                    const cardHTML = `
+                        <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                    <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px;">${card.frente.replace(/\n/g, '<br>')}</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p style="font-size: 0.9rem; line-height: 1.6;">${card.verso.replace(/\n/g, '<br>')}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += cardHTML;
+                });
+
+                // Como geramos texto novo que pode ter fórmulas em LaTeX ($...$), 
+                // pedimos para o MathJax renderizar a matemática nos cartões!
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+
+            } catch (error) {
+                console.error("Erro ao carregar os flashcards:", error);
+                document.getElementById('flashcards-container').innerHTML = "<p style='color: #e74c3c;'>Erro ao carregar os exercícios. Verifique o caminho do arquivo JSON.</p>";
+            }
+        }
+
+        // Executa a função assim que a página carrega
+        carregarFlashcards();
     </script>
 </body>
 

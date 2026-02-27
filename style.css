@@ -505,3 +505,21 @@ body {
     background: transparent;
     transform: none;
 }
+
+/* --- CORES DOS FLASHCARDS DINÂMICOS --- */
+.card-teoria .modal-face {
+    border-top: 5px solid var(--accent);
+    /* Barrinha verde no topo */
+}
+
+.card-caso .modal-face {
+    border-top: 5px solid #e74c3c;
+    /* Barrinha vermelha no topo para os casos de uso */
+    background: rgba(231, 76, 60, 0.05);
+    /* Fundo levemente avermelhado */
+}
+
+.card-caso .modal-face.back {
+    background: #ffffff;
+    /* O verso do caso clínico fica branco para ler a solução melhor */
+}
