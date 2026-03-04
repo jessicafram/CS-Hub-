@@ -232,7 +232,7 @@
             <h3>1.2 Interoperabilidade - O "Inglês" dos Sistemas (JSON)</h3>
             <p><strong>O Conceito:</strong> Para que sistemas de empresas diferentes conversem, eles usam a
                 Interoperabilidade. O "inglês" que eles escolheram para preencher aquela ficha de correio é o JSON.</p>
-            <p><strong>O Formato:</strong> O JSON é sempre composto por uma Chave (o rótulo) e Valor (a informação).
+            <p><strong>O Formato:</strong> O JSON é sempre composto por uma Chave (o rótulo) e um Valor (a informação).
                 Exemplo: <code>"nome": "Maurício"</code>.</p>
             <p><span class="highlight-text">Na Prática:</span> Você vai ver que tudo o que entra e sai de um
                 "quadradinho" no n8n é um texto nesse formato de ficha.</p>
@@ -252,13 +252,14 @@
             <p style="opacity: 0.8; font-style: italic;">Objetivo: Praticar a navegação e a "limpeza" de dados (ETL)
                 dentro da ferramenta.</p>
 
-            <h3>2.1 A Mesa de Trabalho (O Nó Set e o "Keep Only Set")</h3>
-            <p><strong>O Conceito:</strong> O nó Set é onde você vira um Arquiteto. É a mesa onde você decide o que fica
-                e o que vai embora.</p>
-            <p><strong>A Técnica Sênior:</strong> Ativar a option <em>Keep Only Set</em>. Por que isso é vital? APIs
-                reais enviam centenas de dados inúteis (como IDs de sistema e logs de data).</p>
+            <h3>2.1 A Mesa de Trabalho (O Nó Edit Fields e a Limpeza de Dados)</h3>
+            <p><strong>O Conceito:</strong> O nó Edit Fields (Editar campos) é onde você vira um Arquiteto. É a mesa
+                onde você decide o que fica e o que vai embora.</p>
+            <p><strong>A Técnica Sênior:</strong> Manter a chave <em>"Incluir outros campos de entrada"</em> desativada.
+                Por que isso é vital? APIs reais enviam centenas de dados inúteis (como IDs de sistema e logs de data).
+            </p>
             <p><strong>A Analogia:</strong> É como receber uma caixa de mudança cheia de jornal velho protegendo um vaso
-                de cristal. O "Keep Only Set" joga o jornal fora e mantém só o vaso (o dado que importa).</p>
+                de cristal. Deixar essa chave desligada joga o jornal fora e mantém só o vaso (o dado que importa).</p>
 
             <h3>2.2 Normalização: Criando o "Adaptador Universal"</h3>
             <p><strong>O Desafio Prático:</strong> Imagine que você recebe dados de dois sistemas diferentes:</p>
@@ -266,7 +267,7 @@
                 <li>Sistema A chama o nome de: <code>usr_name</code>.</li>
                 <li>Sistema B chama o nome de: <code>client_nm</code>.</li>
             </ul>
-            <p><strong>A Tarefa:</strong> Você deve usar o nó Set para criar um novo campo chamado simplesmente
+            <p><strong>A Tarefa:</strong> Você deve usar o nó Edit Fields para criar um novo campo chamado simplesmente
                 <code>nome</code> e puxar o valor de qualquer uma dessas fontes.</p>
             <div class="concept-box" style="border-color: #f39c12; background: rgba(243, 156, 18, 0.05);">
                 <p style="margin: 0;"><strong>A Lição de Ouro:</strong> Agora o seu Agente de IA só precisa saber ler o
@@ -410,8 +411,9 @@
                         style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
                         <p>Antes de considerar sua automação pronta, verifique estes 4 pontos fundamentais:</p>
                         <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 10px;">🔲 <strong>O dado está "limpo"?</strong> Usei o nó Set com
-                                a opção Keep Only Set ligada para remover lixos e IDs inúteis?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>O dado está "limpo"?</strong> Usei o nó Edit
+                                Fields com a opção "Incluir outros campos de entrada" desligada para remover lixos e IDs
+                                inúteis?</li>
                             <li style="margin-bottom: 10px;">🔲 <strong>Criei o Adaptador?</strong> O nome dos campos no
                                 meu fluxo segue o meu padrão interno (ex: nome, email) ou estou usando nomes estranhos
                                 da API original?</li>
@@ -492,13 +494,13 @@
             },
             {
                 "tipo": "teoria",
-                "frente": "Ao receber dados brutos de uma API, por que devemos usar o nó Set com a opção 'Keep Only Set' antes de enviar para a IA?",
+                "frente": "Ao receber dados brutos de uma API, por que devemos usar o nó Edit Fields com a chave 'Incluir outros campos de entrada' desligada antes de enviar para a IA?",
                 "verso": "Para limpar dados inúteis (IDs de sistema, logs) que gastam 'energia' (e dinheiro de API) da Inteligência Artificial, entregando apenas o dado que importa."
             },
             {
                 "tipo": "caso_clinico",
                 "frente": "🚨 A Pergunta de Ouro:\nSe a API do Google mudar o nome do campo de 'e-mail' para 'correio_eletronico', você vai ter que refazer seu Agente de IA inteiro ou apenas um nó de Normalização?",
-                "verso": "Apenas o nó de Normalização (Set). O Agente de IA continuará recebendo o campo 'email' porque o nó Set atuará como o Adaptador Universal, traduzindo o novo campo do Google para o padrão interno."
+                "verso": "Apenas o nó de Normalização (Edit Fields). O Agente de IA continuará recebendo o campo 'email' porque o nó Edit Fields atuará como o Adaptador Universal, traduzindo o novo campo do Google para o padrão interno."
             }
         ];
 
