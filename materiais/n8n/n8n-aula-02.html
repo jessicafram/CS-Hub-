@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 — O Coração da Automação</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        /* Caixas de Conceito e Analogias */
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        pre {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        /* --- FLASHCARDS INLINE (TREINAMENTO) --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar">
+        <a href="../../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO
+            HUB</a>
+        <span class="jessica-signature">CS_HUB / N8N / AULA_02</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">ESPECIALISTA EM AGENTES DE IA COM N8N</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Aula 02: O Coração da Automação — JSON e Arquitetura de
+                Dados</h1>
+            <p>Descubra como os sistemas conversam entre si e como criar "adaptadores universais" para tornar suas
+                automações inquebráveis.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <h2>Introdução: Por que estamos aqui?</h2>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">1. O que é o n8n? (A Analogia do Maestro e da Orquestra)</h4>
+                <p>Imagine uma orquestra sinfônica. Temos o violinista, o pianista e o trompetista.</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> O violinista não sabe tocar piano, e o pianista não sabe ler a
+                        partitura do violino. Eles são sistemas diferentes.</li>
+                    <li><strong>O n8n (O Maestro):</strong> O Maestro não toca nenhum instrumento. O papel dele é
+                        garantir que o violinista comece na hora certa e passe a vez para o pianista.</li>
+                </ul>
+                <p><strong>No n8n:</strong> Cada "quadradinho" (nó) é um músico (WhatsApp, Google Sheets, IA). O n8n é o
+                    Maestro que coordena a ordem em que eles "tocam" a informação.</p>
+            </div>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">2. O que é JSON? (A Analogia do Formulário de Correio)</h4>
+                <p>Imagine que você quer enviar um presente para um amigo, mas o correio só aceita se você preencher uma
+                    ficha padrão.</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> Se você escrever uma carta solta ("Entrega lá pro meu amigo João na
+                        Rua X"), o sistema do correio trava porque não sabe onde começa o nome e onde termina a rua.
+                    </li>
+                    <li><strong>O JSON (A Ficha Padrão):</strong> O JSON é apenas uma ficha com campos fixos:</li>
+                </ul>
+                <pre>
+{
+    "Destinatário": "João",
+    "Rua": "X",
+    "Presente": "Relógio"
+}
+</pre>
+                <p><strong>No n8n:</strong> É esse "idioma de ficha" que permite que o WhatsApp passe o dado para o
+                    Google Sheets sem confusão.</p>
+            </div>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">3. Serialização? (A Analogia do Móvel da IKEA)</h4>
+                <p>Como você envia um guarda-roupa enorme de uma cidade para outra?</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Serialização (Desmontar):</strong> Você desmonta o guarda-roupa, coloca as tábuas e
+                        parafusos em uma caixa fina de papelão. Agora ele cabe no caminhão (Internet).</li>
+                    <li><strong>Desserialização (Montar):</strong> Quando a caixa chega na casa nova, você abre e monta
+                        o móvel para poder usar as gavetas.</li>
+                </ul>
+                <p><strong>No n8n:</strong> O dado viaja "desmontado" (como texto puro). O n8n "monta" o dado para você
+                    poder clicar na "gaveta" do Nome ou na "gaveta" do E-mail.</p>
+            </div>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">4. Por que as automações quebram? (A Analogia da Tomada)</h4>
+                <p>Sabe quando você viaja e tenta ligar seu secador de cabelo, mas a tomada é diferente?</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> Se você forçar, você queima o aparelho ou quebra a tomada. Isso é o
+                        que acontece quando ligamos um sistema direto no outro sem cuidado.</li>
+                    <li><strong>A Normalização (O Adaptador Universal):</strong> Se você levar um adaptador universal,
+                        você liga qualquer aparelho em qualquer tomada do mundo.</li>
+                </ul>
+                <p><strong>A Solução:</strong> Na nossa aula, vamos aprender a criar esse "Adaptador". Assim, não
+                    importa se o cliente usa WhatsApp hoje ou Telegram amanhã, o robô nunca "queima".</p>
+            </div>
+
+            <h2>Bloco 1: A Teoria que Sustenta o Prédio</h2>
+            <p style="opacity: 0.8; font-style: italic;">Objetivo: Transformar as analogias em conceitos de Engenharia
+                de Software.</p>
+
+            <h3>1.1 SOA - O n8n como Maestro (Arquitetura Orientada a Serviços)</h3>
+            <p><strong>O Conceito:</strong> No mundo da tecnologia, chamamos essa organização de SOA. Cada instrumento
+                da nossa orquestra (WhatsApp, E-mail, Planilha) é um "Serviço" independente.</p>
+            <p><strong>Por que importa?</strong> Se o pianista (o Banco de Dados) faltar ao ensaio, o Maestro (n8n) sabe
+                exatamente o que fazer: ele pode esperar o músico chegar ou avisar a plateia, sem que o violinista pare
+                de tocar.</p>
+            <p><span class="highlight-text">Na Prática:</span> Você aprenderá que, se o WhatsApp cair, o fluxo dele não
+                precisa "morrer"; ele pode ser desenhado para tentar novamente mais tarde.</p>
+
+            <h3>1.2 Interoperabilidade - O "Inglês" dos Sistemas (JSON)</h3>
+            <p><strong>O Conceito:</strong> Para que sistemas de empresas diferentes conversem, eles usam a
+                Interoperabilidade. O "inglês" que eles escolheram para preencher aquela ficha de correio é o JSON.</p>
+            <p><strong>O Formato:</strong> O JSON é sempre composto por uma Chave (o rótulo) e Valor (a informação).
+                Exemplo: <code>"nome": "Maurício"</code>.</p>
+            <p><span class="highlight-text">Na Prática:</span> Você vai ver que tudo o que entra e sai de um
+                "quadradinho" no n8n é um texto nesse formato de ficha.</p>
+
+            <h3>1.3 Estruturas Hierárquicas - A Árvore JSON</h3>
+            <p><strong>O Conceito:</strong> Uma ficha de correio pode ter sub-fichas. No JSON, chamamos isso de Objetos
+                <code>{}</code> e Arrays <code>[]</code>.</p>
+            <p><strong>A Árvore:</strong> Imagine uma árvore genealógica. Para chegar no "Neto", você precisa passar
+                pelo "Pai".</p>
+            <div class="concept-box">
+                <p style="margin: 0;"><strong>Dot Notation (Caminho de Pontos):</strong> No n8n, para você pegar a
+                    cidade do cliente, você vai escrever: <code>cliente.endereco.cidade</code>. É como dar o endereço
+                    exato de um galho na árvore.</p>
+            </div>
+
+            <h2>Bloco 2: Laboratório Prático - A Mesa de Trabalho</h2>
+            <p style="opacity: 0.8; font-style: italic;">Objetivo: Praticar a navegação e a "limpeza" de dados (ETL)
+                dentro da ferramenta.</p>
+
+            <h3>2.1 A Mesa de Trabalho (O Nó Set e o "Keep Only Set")</h3>
+            <p><strong>O Conceito:</strong> O nó Set é onde você vira um Arquiteto. É a mesa onde você decide o que fica
+                e o que vai embora.</p>
+            <p><strong>A Técnica Sênior:</strong> Ativar a option <em>Keep Only Set</em>. Por que isso é vital? APIs
+                reais enviam centenas de dados inúteis (como IDs de sistema e logs de data).</p>
+            <p><strong>A Analogia:</strong> É como receber uma caixa de mudança cheia de jornal velho protegendo um vaso
+                de cristal. O "Keep Only Set" joga o jornal fora e mantém só o vaso (o dado que importa).</p>
+
+            <h3>2.2 Normalização: Criando o "Adaptador Universal"</h3>
+            <p><strong>O Desafio Prático:</strong> Imagine que você recebe dados de dois sistemas diferentes:</p>
+            <ul>
+                <li>Sistema A chama o nome de: <code>usr_name</code>.</li>
+                <li>Sistema B chama o nome de: <code>client_nm</code>.</li>
+            </ul>
+            <p><strong>A Tarefa:</strong> Você deve usar o nó Set para criar um novo campo chamado simplesmente
+                <code>nome</code> e puxar o valor de qualquer uma dessas fontes.</p>
+            <div class="concept-box" style="border-color: #f39c12; background: rgba(243, 156, 18, 0.05);">
+                <p style="margin: 0;"><strong>A Lição de Ouro:</strong> Agora o seu Agente de IA só precisa saber ler o
+                    campo <code>nome</code>. Se a empresa trocar de sistema amanhã, você só muda a 'ponta' do fluxo, e o
+                    coração do robô continua batendo.</p>
+            </div>
+
+            <h2>Bloco 3: Estudo de Caso - O "Cérebro" do Agente de IA</h2>
+            <p style="opacity: 0.8; font-style: italic;">Objetivo: Entender como a IA consome o JSON que acabamos de
+                preparar.</p>
+
+            <h3>3.1 A Dieta da IA (Dados Estruturados)</h3>
+            <p><strong>O Conceito:</strong> Uma Inteligência Artificial (como o ChatGPT) é excelente em processar texto,
+                mas ela trabalha muito melhor quando recebe informações organizadas em JSON.</p>
+            <p><strong>O Problema:</strong> Se você enviar o JSON "sujo" (com IDs de sistema, datas em formatos loucos e
+                códigos internos), a IA gasta "energia" (e dinheiro de API) tentando entender o que não importa.</p>
+            <p><strong>A Solução:</strong> Enviamos apenas o que normalizamos no Bloco 2: nome, mensagem e histórico.
+            </p>
+
+            <h3>3.2 O Fluxo de Decisão (A Lógica do Robô)</h3>
+            <p>Imagine que você criou um Agente para uma Imobiliária. O fluxo funciona assim:</p>
+            <ol style="line-height: 1.8;">
+                <li><strong>Entrada (Evento):</strong> O cliente manda um "Oi" no WhatsApp.</li>
+                <li><strong>Preparação:</strong> O n8n limpa o dado e monta a ficha:
+                    <code>{ "cliente": "Maurício", "interesse": "Aluguel" }</code>.</li>
+                <li><strong>Consulta à IA:</strong> O n8n passa essa ficha para a OpenAI e pergunta: "Este cliente quer
+                    comprar ou alugar?".</li>
+                <li><strong>Resposta da IA:</strong> A IA devolve outro JSON:
+                    <code>{ "decisao": "aluguel", "urgencia": "alta" }</code>.</li>
+            </ol>
+
+            <div class="concept-box" style="border-color: var(--accent);">
+                <h4 style="margin-top:0; color: var(--accent);">Por que a Normalização salvou o dia aqui?</h4>
+                <p><strong>Cenário de Crise:</strong> O dono da imobiliária decide parar de usar o WhatsApp e migrar
+                    para um formulário no site.</p>
+                <p><strong>O Alívio:</strong> Como você criou o "Adaptador Universal" (Normalização), você só precisa
+                    conectar o formulário no início do fluxo.</p>
+                <p style="margin-bottom: 0;"><strong>O Resultado:</strong> O "Cérebro" da IA não precisa ser
+                    reconfigurado, porque ele continua recebendo a mesma ficha padrão que você desenhou.</p>
+            </div>
+
+            <div
+                style="margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px solid var(--border);">
+                <h2 style="margin-top: 0; border: none; color: #fff;">📚 Apostila de Mentoria</h2>
+                <p style="opacity: 0.8; margin-bottom: 25px;">Expanda os tópicos abaixo para acessar o seu material de
+                    apoio e o gabarito da aula.</p>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ 📖 1. O Dicionário do Maurício (Tradutor Tech)
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text; overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.05);">
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">Termo Técnico
+                                    </th>
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">Analogia do Mundo
+                                        Real</th>
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">O que significa
+                                        no n8n?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        JSON</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">A Ficha
+                                        de Correio: Uma ficha padrão onde cada informação tem seu lugar certo.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">O
+                                        "idioma" universal que os sistemas usam para conversar entre si.</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        SOA</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">A
+                                        Orquestra: Cada músico toca seu instrumento de forma independente, mas segue o
+                                        Maestro.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        Arquitetura onde cada "quadradinho" (nó) é um serviço independente coordenado
+                                        pelo n8n.</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Serialização</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Móvel da
+                                        IKEA (Desmontado): Desmontar o móvel para caber na caixa e viajar pelo caminhão.
+                                    </td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        Transformar dados complexos em texto simples para viajar pela internet.</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Desserialização</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Móvel da
+                                        IKEA (Montado): Abrir a caixa e montar o móvel para usar as gavetas ao chegar em
+                                        casa.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">O
+                                        processo do n8n de "ler" o texto JSON e liberar os campos para você clicar e
+                                        arrastar.</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Dot Notation</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">O Caminho
+                                        das Pedras: Dar o endereço exato de qual galho da árvore você quer alcançar.
+                                    </td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Usar
+                                        pontos para navegar na hierarquia do dado (ex: cliente.nome).</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Normalização</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Adaptador
+                                        Universal: A peça que permite ligar qualquer tomada em qualquer aparelho.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        Padronizar os dados logo no início do fluxo para que o resto do robô nunca
+                                        quebre.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ ✅ 2. O Checklist do Arquiteto (Antes de dar o "Play")
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
+                        <p>Antes de considerar sua automação pronta, verifique estes 4 pontos fundamentais:</p>
+                        <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">🔲 <strong>O dado está "limpo"?</strong> Usei o nó Set com
+                                a opção Keep Only Set ligada para remover lixos e IDs inúteis?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>Criei o Adaptador?</strong> O nome dos campos no
+                                meu fluxo segue o meu padrão interno (ex: nome, email) ou estou usando nomes estranhos
+                                da API original?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>A Árvore está correta?</strong> Testei o caminho
+                                (Dot Notation) para garantir que o n8n está alcançando o dado dentro dos objetos {} e
+                                listas []?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>A IA vai entender?</strong> O JSON que estou
+                                enviando para o Agente de IA contém apenas o necessário para ele tomar a decisão, sem
+                                poluição visual?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ 🎯 3. Gabarito dos Exercícios de Fixação
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
+
+                        <h5 style="color: var(--accent); margin-bottom: 5px;">Exercício 1: Serialização vs
+                            Desserialização</h5>
+                        <p><strong>Pergunta:</strong> Explique a diferença usando o exemplo do móvel na caixa.<br>
+                            <strong>Resposta:</strong> Serializar é colocar o móvel na caixa (transformar em texto JSON)
+                            para o transporte. Desserializar é tirar da caixa e montar no n8n para que possamos usar as
+                            peças individualmente.
+                        </p>
+
+                        <h5 style="color: var(--accent); margin-top: 20px; margin-bottom: 5px;">Exercício 2: Dot
+                            Notation</h5>
+                        <p><strong>Pergunta:</strong> Como acessar o valor 150 no JSON
+                            <code>{"pedido": {"item": {"valor": 150}}}</code>?<br>
+                            <strong>Resposta:</strong> <code>pedido.item.valor</code>.
+                        </p>
+
+                        <h5 style="color: var(--accent); margin-top: 20px; margin-bottom: 5px;">Exercício 3: Arquitetura
+                            e Normalização</h5>
+                        <p><strong>Pergunta:</strong> Por que a Normalização protege o fluxo se o cliente trocar de
+                            software?<br>
+                            <strong>Resposta:</strong> Porque a Normalização cria uma camada de separação. Você só
+                            altera o "tradutor" no início; todo o restante do fluxo (a IA, o banco de dados) continua
+                            recebendo o mesmo padrão de dados e não precisa ser refeito.
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Clique nos cartões para virar e conferir as respostas do
+                    Exercício de Fixação.</p>
+
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <footer
+                style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+                <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        // --- LÓGICA DOS FLASHCARDS PARA N8N AULA 02 ---
+        const flashcardsData = [
+            {
+                "tipo": "teoria",
+                "frente": "Se o JSON é a nossa ficha de correio, o que acontece se a gente escrever o nome do campo errado, como 'nume' em vez de 'nome'?",
+                "verso": "O sistema não vai reconhecer, porque a ficha precisa seguir o rótulo exato (a Chave)."
+            },
+            {
+                "tipo": "teoria",
+                "frente": "Para chegar ao e-mail do cliente em um JSON hierárquico estruturado assim:\n\n{\n  \"cliente\": {\n    \"contato\": {\n      \"email\": \"teste@teste.com\"\n    }\n  }\n}\n\nQual é a Dot Notation correta?",
+                "verso": "O Caminho das Pedras seria:\ncliente.contato.email"
+            },
+            {
+                "tipo": "teoria",
+                "frente": "Ao receber dados brutos de uma API, por que devemos usar o nó Set com a opção 'Keep Only Set' antes de enviar para a IA?",
+                "verso": "Para limpar dados inúteis (IDs de sistema, logs) que gastam 'energia' (e dinheiro de API) da Inteligência Artificial, entregando apenas o dado que importa."
+            },
+            {
+                "tipo": "caso_clinico",
+                "frente": "🚨 A Pergunta de Ouro:\nSe a API do Google mudar o nome do campo de 'e-mail' para 'correio_eletronico', você vai ter que refazer seu Agente de IA inteiro ou apenas um nó de Normalização?",
+                "verso": "Apenas o nó de Normalização (Set). O Agente de IA continuará recebendo o campo 'email' porque o nó Set atuará como o Adaptador Universal, traduzindo o novo campo do Google para o padrão interno."
+            }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Validação' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                const cardHTML = `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>
