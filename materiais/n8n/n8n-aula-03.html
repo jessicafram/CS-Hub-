@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 — Lógica de Fluxo Avançada</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        pre {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar">
+        <a href="../../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO
+            HUB</a>
+        <span class="jessica-signature">CS_HUB / N8N / AULA_03</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">ESPECIALISTA EM AGENTES DE IA COM N8N</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Aula 03: Lógica de Fluxo Avançada — Loops e Switches
+            </h1>
+            <p>Aprenda a dar inteligência decisória ao seu robô e a processar listas gigantescas de dados sem perder
+                nenhuma informação.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <h2>Introdução: O Robô que Pensa e Repete</h2>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">1. O que é o nó Switch? (A Analogia da Triagem do Hospital)
+                </h4>
+                <p>Imagine a recepção de um pronto-socorro. O paciente chega e pega uma senha.</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> Se todos entrarem na mesma fila, quem está apenas com tosse pode
+                        atrasar o atendimento de quem chegou infartando.</li>
+                    <li><strong>A Triagem (O Switch):</strong> A enfermeira avalia o paciente. Se for grave, ela manda
+                        para o "Caminho 1" (Emergência). Se for leve, manda para o "Caminho 2" (Ambulatório).</li>
+                </ul>
+                <p><strong>No n8n:</strong> O nó <code>Switch</code> é a nossa enfermeira. Ele lê o JSON da Aula 02 e
+                    decide para qual caminho o fluxo deve seguir com base em regras que você cria.</p>
+            </div>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">2. O que é um Array? (A Analogia da Caixa de Fichas)</h4>
+                <p>Na Aula 02, aprendemos que o JSON é uma "Ficha de Correio".</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> Se você vender 100 produtos no dia, você não recebe 100 e-mails
+                        separados simultaneamente. Você recebe um relatório com as 100 vendas agrupadas.</li>
+                    <li><strong>O Array (A Lista):</strong> Um Array é como se fosse uma "Caixa de Sapato" onde você
+                        guarda as 100 Fichas de Correio lá dentro.</li>
+                </ul>
+                <p><strong>No n8n:</strong> Quando a saída de um nó diz `100 items`, significa que ele está segurando
+                    uma Caixa (Array) com 100 Fichas (Objetos JSON).</p>
+            </div>
+
+            <div class="analogy-box">
+                <h4 style="margin-top:0; color: #f39c12;">3. O que é o nó Loop? (A Analogia do Carimbador)</h4>
+                <p>O que acontece quando você entrega a Caixa com 100 fichas para o sistema processar?</p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>O Problema:</strong> Sistemas burros tentam processar as 100 de uma vez, travam e deixam
+                        cair informações.</li>
+                    <li><strong>O Carimbador (O Loop):</strong> É um funcionário focado. Ele pega a Caixa de Fichas.
+                        Tira a primeira ficha, envia a mensagem no WhatsApp, e guarda a ficha. Tira a segunda, envia a
+                        mensagem, e guarda. Ele repete o ciclo (Loop) até a caixa esvaziar.</li>
+                </ul>
+                <p><strong>No n8n:</strong> O nó <code>Loop</code> garante que ações individuais (como mandar e-mail)
+                    sejam executadas com perfeição para cada item da sua lista, um por um.</p>
+            </div>
+
+            <h2>Bloco 1: A Teoria que Sustenta o Prédio</h2>
+            <p style="opacity: 0.8; font-style: italic;">Objetivo: Entender a matemática e a lógica booleana por trás
+                das decisões.</p>
+
+            <h3>1.1 Roteamento Condicional (Lógica Booleana)</h3>
+            <p><strong>O Conceito:</strong> Computadores só entendem "Verdadeiro" (True) ou "Falso" (False). Quando
+                usamos o nó Switch, estamos criando comparações lógicas matemáticas.</p>
+            <p><strong>As Regras (Operadores):</strong> Nós dizemos ao robô: "Verifique se o valor X é
+                <code>Igual a</code>, <code>Maior que</code>, ou <code>Contém</code> o valor Y". Se a resposta for sim
+                (True), o dado desce por aquele cano.</p>
+
+            <h3>1.2 Iteração (A Força Bruta do Software)</h3>
+            <p><strong>O Conceito:</strong> Iterar significa "repetir um processo sobre uma lista de dados". Essa é a
+                maior vantagem dos computadores sobre os humanos. Um robô não cansa de enviar 5.000 e-mails idênticos.
+            </p>
+            <p><span class="highlight-text">Na Prática:</span> Se você tentar ligar o Google Sheets (que gera 100
+                clientes) direto no nó do Gmail, ele tentará mandar um e-mail gigantesco para 100 pessoas no mesmo
+                campo. O Loop quebra essa ação em 100 e-mails bonitos e individuais.</p>
+
+            <div class="concept-box">
+                <p style="margin: 0;"><strong>⚠️ A Regra de Ouro do Loop:</strong> O fluxo que sai do nó Loop
+                    <strong>precisa voltar para ele</strong> no final da tarefa. É esse "retorno" que avisa o n8n:
+                    <em>"Terminei de carimbar essa ficha, me dê a próxima!"</em>.</p>
+            </div>
+
+            <h2>Bloco 2: Laboratório Prático</h2>
+            <p style="opacity: 0.8; font-style: italic;">Objetivo: Criar uma "Régua de Relacionamento" usando lógica
+                visual no canvas.</p>
+
+            <h3>2.1 Construindo a Triagem (Nó Switch)</h3>
+            <p><strong>O Desafio:</strong> Receber um banco de dados de clientes e separar os clientes "VIP" dos
+                "Comuns".</p>
+            <p><strong>A Ação:</strong> Adicionamos o nó Switch e criamos as rotas.
+                <br>Rota 0: Se o `status_cliente` for igual a `VIP`.
+                <br>Rota 1: Se o `status_cliente` for igual a `Comum`.
+            </p>
+            <p><strong>O Resultado:</strong> Você verá visualmente o seu JSON "se dividindo" em duas saídas diferentes
+                no canvas, permitindo que você aplique descontos diferentes para cada grupo.</p>
+
+            <h3>2.2 Configurando o Carrossel (Nó Loop)</h3>
+            <p><strong>O Desafio:</strong> Mandar uma mensagem individual para os 5 clientes VIP que saíram da Rota 0 do
+                Switch.</p>
+            <p><strong>A Ação:</strong> Conectamos a saída 0 do Switch na entrada do Loop. Depois do Loop, colocamos um
+                nó de ação (ex: enviar mensagem). O pulo do gato é arrastar a bolinha de saída do nó de mensagem e ligar
+                <strong>de volta na entrada</strong> do Loop.</p>
+
+            <div class="concept-box" style="border-color: #f39c12; background: rgba(243, 156, 18, 0.05);">
+                <p style="margin: 0;"><strong>A Visão do Arquiteto:</strong> Se o nó falhar durante o Loop (ex: o
+                    cliente número 3 estava sem e-mail), você pode configurar as opções de erro para "Continuar". Assim,
+                    o robô reporta o erro do cliente 3, mas continua e entrega os e-mails 4 e 5 intactos.</p>
+            </div>
+
+            <h2>Bloco 3: Estudo de Caso Clínico - O Cérebro da IA</h2>
+
+            <h3>A Triagem Inteligente</h3>
+            <p>Imagine o fluxo de WhatsApp de uma grande clínica médica. O cliente envia uma mensagem solta: <em>"Quero
+                    cancelar minha consulta de amanhã"</em>.</p>
+            <ol style="line-height: 1.8;">
+                <li><strong>Entrada:</strong> O n8n recebe o WhatsApp.</li>
+                <li><strong>Classificação:</strong> O n8n envia a mensagem para a IA e pede: <em>"Leia este texto e me
+                        retorne apenas uma palavra: MARCAR, CANCELAR ou DUVIDA."</em></li>
+                <li><strong>O Retorno JSON:</strong> A IA devolve: <code>{ "intencao": "CANCELAR" }</code>.</li>
+                <li><strong>O Switch (A Mágica):</strong> Nós colocamos um nó Switch para ler a chave
+                    <code>intencao</code>. Como a palavra é CANCELAR, o fluxo é desviado imediatamente para a automação
+                    que libera a agenda do médico, sem intervenção humana.</li>
+            </ol>
+
+            <div
+                style="margin-top: 50px; padding: 25px; background: rgba(0, 0, 0, 0.2); border-radius: 12px; border-left: 4px solid var(--accent);">
+                <h3 style="margin-top: 0; color: var(--accent);">📝 Exercícios de Fixação</h3>
+                <p>Antes de abrir o gabarito na Apostila de Mentoria, reflita e tente responder a estas três perguntas:
+                </p>
+                <ol style="line-height: 1.8; margin-bottom: 0;">
+                    <li><strong>Switch vs Lógica Humana:</strong> Por que usamos o nó Switch no lugar de criar 5 robôs
+                        (fluxos) diferentes para cada status de cliente?</li>
+                    <li><strong>A Ficha e a Caixa:</strong> Qual é a diferença prática entre processar um JSON "Objeto"
+                        (uma ficha) e um JSON "Array" (uma caixa de fichas)?</li>
+                    <li><strong>A Regra do Loop:</strong> O que acontece com a automação se você esquecer de ligar a
+                        saída da última tarefa de volta para a entrada do nó Loop?</li>
+                </ol>
+            </div>
+
+            <div
+                style="margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px solid var(--border);">
+                <h2 style="margin-top: 0; border: none; color: #fff;">📚 Apostila de Mentoria</h2>
+                <p style="opacity: 0.8; margin-bottom: 25px;">Expanda os tópicos abaixo para acessar o dicionário e o
+                    gabarito.</p>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ 📖 1. O Dicionário da Lógica de Fluxo
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text; overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.05);">
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">Termo Técnico
+                                    </th>
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">Analogia do Mundo
+                                        Real</th>
+                                    <th style="padding: 12px; border-bottom: 1px solid var(--accent);">No n8n</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Array (Lista)</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">A Caixa
+                                        contendo várias Fichas.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Vários
+                                        objetos agrupados indicados por colchetes [ ].</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Switch (Roteamento)</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">A Triagem
+                                        do Hospital / Cancelas de Pedágio.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Nó que
+                                        testa condições e desvia os dados para saídas diferentes.</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--accent); font-weight: bold;">
+                                        Loop (Iteração)</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">O
+                                        Carimbador metódico e infinito.</td>
+                                    <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">Nó que
+                                        pega um Array grande e processa item por item até acabar.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ ✅ 2. Checklist do Arquiteto (Antes do Play)
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
+                        <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">🔲 <strong>As rotas estão nomeadas?</strong> As regras do
+                                seu Switch são fáceis de ler (ex: 'É VIP') ou genéricas (ex: 'Regra 0')?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>O Loop está fechado?</strong> A linha tracejada
+                                da última ação volta para o nó Loop?</li>
+                            <li style="margin-bottom: 10px;">🔲 <strong>Fallback configurado?</strong> O seu nó Switch
+                                tem uma rota padrão (Fallback) caso o dado do cliente venha vazio ou desconhecido?</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details
+                    style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; cursor: pointer;">
+                    <summary
+                        style="color: var(--accent); font-weight: bold; font-family: 'Fira Code', monospace; outline: none; list-style-type: none;">
+                        ▶ 🎯 3. Gabarito dos Exercícios de Fixação
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
+                        <p><strong>1. Switch vs Lógica Humana:</strong> Usar um único fluxo com um nó Switch centraliza
+                            a manutenção (SOA). Se algo mudar, você ajusta um único robô em vez de ter que reescrever 5
+                            fluxos separados.</p>
+                        <p><strong>2. A Ficha e a Caixa:</strong> Processar a ficha (Objeto) é uma ação única. Processar
+                            a caixa (Array) exige abrir a caixa e iterar (Loop) sobre cada item, senão o sistema tenta
+                            empurrar 100 itens de uma vez no mesmo campo de destino.</p>
+                        <p><strong>3. A Regra do Loop:</strong> O robô processa o primeiro item e "morre". Como a linha
+                            não voltou para o Loop, o sistema entende que o trabalho acabou, e as outras 99 fichas ficam
+                            paradas na caixa.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos de
+                    Arquitetura de Fluxo.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <footer
+                style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
+                <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que significa dizer que um nó do n8n retornou '15 items' na visualização de Tabela/JSON?", verso: "Significa que ele entregou um Array (Uma Caixa) contendo 15 objetos JSON separados prontos para serem iterados em um Loop." },
+            { tipo: "teoria", frente: "Qual é a principal função do Roteamento (Switch) na interação com a Inteligência Artificial?", verso: "Permitir que a IA classifique a 'intenção' do usuário (ex: Suporte, Vendas) e o n8n desvie a conversa para a equipe correta." },
+            { tipo: "caso_clinico", frente: "🚨 Diagnóstico de Erro:\nVocê mandou um banco de dados de clientes para o nó Loop, mas apenas 1 cliente recebeu o e-mail. Qual foi o erro de arquitetura?", verso: "Falta de conexão de retorno. A saída do nó do Gmail não foi ligada de volta à entrada do nó Loop, quebrando a repetição." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro:\nAo usar o nó Switch, o que acontece com um cliente que tem o status 'inativo' se você só criou as rotas para 'VIP' e 'Comum' e não configurou o Fallback?", verso: "O dado cai no 'limbo'. Ele para no nó Switch e a automação é encerrada silenciosamente para aquele usuário, gerando inconsistência no sistema." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Validação' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>
