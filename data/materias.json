@@ -9,23 +9,14 @@
                     "nome": "Algoritmos e Lógica",
                     "status": "Concluído",
                     "horas": 80,
-                    "descricao": "Fundamentos de programação estruturada.",
-                    "grade_conteudo": [
-                        "Variáveis",
-                        "Estruturas Condicionais",
-                        "Loops"
-                    ]
+                    "descricao": "Fundamentos de programação estruturada."
                 },
                 {
                     "id": "mat-discreta",
                     "nome": "Matemática Discreta",
                     "status": "Concluído",
                     "horas": 80,
-                    "descricao": "Bases lógicas da computação.",
-                    "grade_conteudo": [
-                        "Conjuntos",
-                        "Lógica Proposicional"
-                    ]
+                    "descricao": "Bases lógicas da computação."
                 }
             ]
         },
@@ -37,24 +28,14 @@
                     "nome": "Estrutura de Dados I",
                     "status": "Concluído",
                     "horas": 80,
-                    "descricao": "Organização eficiente de dados.",
-                    "grade_conteudo": [
-                        "Listas",
-                        "Pilhas",
-                        "Filas"
-                    ]
+                    "descricao": "Organização eficiente de dados."
                 },
                 {
                     "id": "poo-java",
                     "nome": "POO (Java)",
                     "status": "Concluído",
                     "horas": 80,
-                    "descricao": "Orientação a Objetos.",
-                    "grade_conteudo": [
-                        "Classes",
-                        "Herança",
-                        "Polimorfismo"
-                    ]
+                    "descricao": "Orientação a Objetos."
                 }
             ]
         },
@@ -70,7 +51,7 @@
                     "unidades": [
                         {
                             "id": 1,
-                            "titulo": "Unidade 1: Paradigmas Contemporâneos de IHC",
+                            "titulo": "Unidade 1: Paradigmas Contemporâneos",
                             "descricao": "Da evolução das GUIs aos agentes de IA e arquitetura de APIs.",
                             "topicos": [
                                 {
@@ -92,18 +73,120 @@
                         },
                         {
                             "id": 2,
-                            "titulo": "Unidade 2: Acessibilidade Profunda e Resiliência",
+                            "titulo": "Unidade 2: Acessibilidade Profunda",
                             "descricao": "Engenharia de semiótica e acessibilidade em nível de código.",
                             "topicos": [
                                 {
                                     "ordem": "2.1",
                                     "nome": "Engenharia Semiótica",
-                                    "path": "ihc/modulo-02/2-1-semiotica.html"
+                                    "path": "ihc/modulo-02/2-1-engenharia-semiotica.html"
                                 },
                                 {
                                     "ordem": "2.2",
                                     "nome": "Diretrizes WCAG",
-                                    "path": "ihc/modulo-02/2-2-wcag.html"
+                                    "path": "ihc/modulo-02/2-2-diretrizes-wcag.html"
+                                },
+                                {
+                                    "ordem": "2.3",
+                                    "nome": "Resiliência no Código",
+                                    "path": "ihc/modulo-02/2-3-resiliencia.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "titulo": "Unidade 3: Ergonomia Física e Cognitiva",
+                            "descricao": "Adaptação da tecnologia ao ser humano em sistemas críticos.",
+                            "topicos": [
+                                {
+                                    "ordem": "3.1",
+                                    "nome": "Fundamentos Cognitivos",
+                                    "path": "ihc/modulo-03/3-1-cognitivos.html"
+                                },
+                                {
+                                    "ordem": "3.2",
+                                    "nome": "Segurança e Erros",
+                                    "path": "ihc/modulo-03/3-2-seguranca.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "titulo": "Unidade 4: Design Centrado no Usuário (DCU)",
+                            "descricao": "Priorização orientada a dados e validação empírica.",
+                            "topicos": [
+                                {
+                                    "ordem": "4.1",
+                                    "nome": "Metodologia DCU",
+                                    "path": "ihc/modulo-04/4-1-metodologia.html"
+                                },
+                                {
+                                    "ordem": "4.2",
+                                    "nome": "Personas Data-Driven",
+                                    "path": "ihc/modulo-04/4-2-personas.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "titulo": "Unidade 5: Prototipagem e Automação Low-Code",
+                            "descricao": "Da baixa fidelidade ao teste lógico de rotas e switches.",
+                            "topicos": [
+                                {
+                                    "ordem": "5.1",
+                                    "nome": "Wireframes e Fluxos",
+                                    "path": "ihc/modulo-05/5-1-wireframes.html"
+                                },
+                                {
+                                    "ordem": "5.2",
+                                    "nome": "Prototipagem com n8n",
+                                    "path": "ihc/modulo-05/5-2-n8n-prototipagem.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "titulo": "Unidade 6: Análise e Testes em Escala",
+                            "descricao": "Heurísticas, telemetria de falhas e Testes A/B.",
+                            "topicos": [
+                                {
+                                    "ordem": "6.1",
+                                    "nome": "Heurísticas de Nielsen",
+                                    "path": "ihc/modulo-06/6-1-heuristicas.html"
+                                },
+                                {
+                                    "ordem": "6.2",
+                                    "nome": "Telemetria de Dados",
+                                    "path": "ihc/modulo-06/6-2-telemetria.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "titulo": "Unidade 7: Engenharia de Interfaces Gráficas",
+                            "descricao": "Componentização, Design Systems e UI de alta fidelidade.",
+                            "topicos": [
+                                {
+                                    "ordem": "7.1",
+                                    "nome": "Design Systems",
+                                    "path": "ihc/modulo-07/7-1-design-systems.html"
+                                },
+                                {
+                                    "ordem": "7.2",
+                                    "nome": "Componentização",
+                                    "path": "ihc/modulo-07/7-2-componentes.html"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "titulo": "Unidade 8: Laboratório Prático (Capstone)",
+                            "descricao": "Aplicação de todo o framework teórico em um projeto final.",
+                            "topicos": [
+                                {
+                                    "ordem": "8.1",
+                                    "nome": "Projeto Final - Handover",
+                                    "path": "ihc/modulo-08/8-1-projeto.html"
                                 }
                             ]
                         }
@@ -114,15 +197,7 @@
                     "nome": "Matemática Computacional Aplicada",
                     "status": "Em andamento",
                     "horas": 80,
-                    "descricao": "Análise numérica avançada, estabilidade de algoritmos e computação científica de alto desempenho.",
-                    "grade_conteudo": [
-                        "Módulo 1: Fundamentos e Análise de Erro Estrita (κ(A) e IEEE 754)",
-                        "Módulo 2: Álgebra Linear Computacional e Teoria Espectral (SVD e QR)",
-                        "Módulo 3: Aproximação, Interpolação e Regularização de Tikhonov",
-                        "Módulo 4: Cálculo Numérico e Equações Diferenciais (EDOs e PDEs)",
-                        "Módulo 5: Otimização e Métodos de Larga Escala (BFGS e KKT)"
-                    ],
-                    "material_complementar": "assets/resumos/matematica-aplicada-jessica.pdf"
+                    "descricao": "Análise numérica avançada e computação científica."
                 }
             ]
         }
@@ -133,44 +208,11 @@
             "nome": "Especialista em Agentes de IA com n8n",
             "status": "Inscrições Abertas",
             "horas": 12,
-            "descricao": "Mentoria Senior: Domine a via profissional de automação, manipulação de JSON e criação de Agentes de IA monetizáveis.",
+            "descricao": "Domine a via profissional de automação e manipulação de JSON.",
             "links_ativos": true,
             "grade_conteudo": [
-                "Aula 01: Instalação Profissional e Lógica de Gatilhos",
-                "Aula 02: Manipulação de Dados e JSON Estruturado",
-                "Aula 03: Lógica de Fluxo Avançada (Loops e Switches)",
-                "Aula 05: JavaScript no n8n (O Pulo do Gato)",
-                "Aula 11: RAG e Conhecimento Especializado"
-            ]
-        },
-        {
-            "id": "java-base",
-            "nome": "Java Básico - De iniciante a Desenvolvedor",
-            "status": "Material Disponível",
-            "horas": 40,
-            "descricao": "Curso completo de sintaxe Java, lógica de programação e primeiros passos no desenvolvimento backend.",
-            "links_ativos": true,
-            "grade_conteudo": [
-                "Configuração do Ambiente (JDK e IDE)",
-                "Tipos de Dados e Operadores",
-                "Estruturas de Controle",
-                "Arrays e Vetores",
-                "Primeiros passos com Métodos"
-            ]
-        },
-        {
-            "id": "java-inter",
-            "nome": "Java Intermediário - Masterização de APIs",
-            "status": "Material Disponível",
-            "horas": 60,
-            "descricao": "Aprofundamento em Java, focado em coleções, exceções e integração com banco de dados.",
-            "links_ativos": true,
-            "grade_conteudo": [
-                "Collections API (List, Set, Map)",
-                "Tratamento de Exceções Customizadas",
-                "Generics e Lambdas",
-                "Trabalhando com Streams",
-                "JDBC e Persistência Básica"
+                "Aula 01: Instalação Profissional",
+                "Aula 02: Manipulação de Dados"
             ]
         }
     ]

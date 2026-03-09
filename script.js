@@ -144,7 +144,7 @@ function openModal(materia) {
             <p style="color:#fff; opacity:0.8;">${descricaoExibicao}</p>
 
             <h4 style="color: var(--accent); font-size: 0.9rem; margin-top:20px; margin-bottom: 15px;">TRILHA DE APRENDIZADO</h4>
-            <div class="syllabus-list" style="padding: 0;">
+          <div class="syllabus-list" style="padding: 0; max-height: 280px; overflow-y: auto; padding-right: 10px;">
                 ${trilhaHTML}
             </div>
         </div>
@@ -174,4 +174,46 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = 'none';
         }
     });
+
+    // --- NOVA LÓGICA DE DEEP LINKING (ABRIR MODAL PELA URL) ---
+    async function checkDeepLink() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const modalId = urlParams.get('modal'); // Procura por ?modal=ihc na URL
+
+        if (modalId) {
+            try {
+                // Garante que o JSON de matérias foi carregado
+                if (!materiasData) {
+                    const response = await fetch('data/materias.json');
+                    materiasData = await response.json();
+                }
+
+                let materiaEncontrada = null;
+
+                // 1. Procura a matéria na Graduação
+                materiasData.grade_curricular.forEach(p => {
+                    const mat = p.materias.find(m => m.id === modalId);
+                    if (mat) materiaEncontrada = mat;
+                });
+
+                // 2. Procura a matéria na Extensão (caso não ache na graduação)
+                if (!materiaEncontrada && materiasData.cursos_extensao) {
+                    materiaEncontrada = materiasData.cursos_extensao.find(c => c.id === modalId);
+                }
+
+                // 3. Se achou a matéria, abre o modal direto!
+                if (materiaEncontrada) {
+                    openModal(materiaEncontrada);
+
+                    // Limpa a URL para tirar o "?modal=ihc" visualmente, deixando profissional
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            } catch (error) {
+                console.error("Erro ao abrir modal por link profundo:", error);
+            }
+        }
+    }
+
+    // Executa a checagem logo que a página carrega
+    checkDeepLink();
 });

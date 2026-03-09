@@ -1,0 +1,56 @@
+{
+    "topico": "Inovação e Escalabilidade em IHC",
+    "nivel": "Pós-graduação / Mestrado",
+    "cards": [
+        {
+            "id": 1,
+            "frente": "Por que o modelo tradicional de prever todas as jornadas de usuário (desenhar dezenas de telas estáticas) não é mais escalável?",
+            "verso": "Porque conforme a complexidade e a quantidade de serviços de uma aplicação crescem, a interface visual fica sobrecarregada e inavegável, forçando o usuário a lidar com menus infinitos."
+        },
+        {
+            "id": 2,
+            "frente": "O que significa 'passar de desenhar caminhos para desenhar contextos' em IHC?",
+            "verso": "Significa abandonar a criação de rotas fixas e engessadas (Tela A > Tela B) e focar em sistemas inteligentes que entendem o que o usuário quer no momento e geram a interface ou resposta ideal em tempo real."
+        },
+        {
+            "id": 3,
+            "frente": "O que é uma Interface Generativa (Generative UI)?",
+            "verso": "É uma interface construída sob demanda por um motor de Inteligência Artificial. Em vez de uma tela HTML pronta no servidor, a IA renderiza botões, gráficos ou textos baseados estritamente na necessidade atual do usuário."
+        },
+        {
+            "id": 4,
+            "frente": "Como a arquitetura orientada a IA lida com a fluidez da linguagem humana?",
+            "verso": "O agente de IA atua como um roteador ou tradutor: ele recebe a fala humana caótica (fluida) e utiliza LLMs para estruturá-la em um formato rígido (como um JSON) que o backend consiga processar de forma segura."
+        },
+        {
+            "id": 5,
+            "frente": "Por que o uso de condicionais (If/Else/Switch) no front-end tornou-se um gargalo de escala?",
+            "verso": "Porque exigem que o desenvolvedor preveja e codifique manualmente todas as intenções possíveis do usuário. Se o usuário quiser algo que não foi previsto no 'Switch', o sistema falha."
+        },
+        {
+            "id": 6,
+            "frente": "O que é a Hiperpersonalização na Interação Humano-Computador contemporânea?",
+            "verso": "É a capacidade do sistema adaptar não apenas a sugestão de conteúdo, mas a própria interface, o tom de voz e o formato da resposta com base no contexto, momento e histórico exato daquele usuário único."
+        },
+        {
+            "id": 7,
+            "frente": "Qual é a relação entre Escalabilidade e Consumo de Memória (Tokens) em Agentes de IA?",
+            "verso": "Para um sistema de IA ser escalável e viável financeiramente, a arquitetura deve enviar apenas os dados estritamente necessários (via RAG) para a LLM, economizando tokens e reduzindo o tempo de processamento."
+        },
+        {
+            "id": 8,
+            "frente": "Como a arquitetura orientada a eventos colabora com a escalabilidade de interfaces invisíveis?",
+            "verso": "Ela permite que a interface não fique 'esperando' de forma síncrona. O usuário faz o pedido, um evento é disparado assincronamente (ex: n8n webhook), o servidor processa sem gargalos e devolve a resposta quando pronta."
+        },
+        {
+            "id": 9,
+            "frente": "Qual o papel dos Fallbacks (planos de contingência) em interfaces baseadas em IA?",
+            "verso": "Como os LLMs são probabilísticos e podem 'alucinar', os Fallbacks são fluxos de escape de IHC desenhados para capturar a falha de compreensão e devolver o controle de forma graciosa ao usuário (ex: transbordo para atendente humano)."
+        },
+        {
+            "id": 10,
+            "frente": "O que significa dizer que interfaces generativas transferem a 'Carga Sintática' do humano para a máquina?",
+            "verso": "O humano não precisa mais aprender a 'sintaxe' do software (saber onde clicar, quais filtros aplicar ou qual a regra de busca). A máquina é que se encarrega de entender a sintaxe desestruturada do humano."
+        }
+    ]
+}

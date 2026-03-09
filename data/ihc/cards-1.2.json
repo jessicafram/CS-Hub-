@@ -1,0 +1,56 @@
+{
+    "topico": "Arquitetura de Interação: Mobile vs Voz",
+    "nivel": "Pós-graduação / Mestrado",
+    "cards": [
+        {
+            "id": 1,
+            "frente": "O que afirma a Lei da Conservação da Complexidade (Lei de Tesler)?",
+            "verso": "A Lei de Tesler afirma que todo sistema possui um nível inerente de complexidade que não pode ser removido, apenas deslocado. Se você simplifica a interface para o usuário, você obrigatoriamente aumenta a complexidade para o desenvolvedor (backend)."
+        },
+        {
+            "id": 2,
+            "frente": "Qual a principal diferença de carga cognitiva entre uma GUI (Visual) e uma VUI (Voz)?",
+            "verso": "Na GUI, o usuário gasta energia mental para ler, navegar e filtrar opções. Na VUI, a carga cognitiva dele é quase zero (fala natural), transferindo 100% da carga e do processamento para a inteligência do servidor."
+        },
+        {
+            "id": 3,
+            "frente": "O que caracteriza o conceito de Zero-UI (Interface Zero)?",
+            "verso": "São interfaces invisíveis ou conversacionais (como voz, chatbots no WhatsApp ou agentes n8n) onde o usuário não precisa interagir com elementos gráficos (botões ou menus) para atingir seu objetivo."
+        },
+        {
+            "id": 4,
+            "frente": "Como a mudança para o paradigma Zero-UI altera a modelagem de APIs tradicionais?",
+            "verso": "As APIs deixam de entregar payloads gigantescos para o front-end filtrar, e passam a precisar processar intenções textuais livres, retornando apenas o dado estrito e contextualizado."
+        },
+        {
+            "id": 5,
+            "frente": "O que significa a mudança do paradigma de 'Reconhecimento' para 'Intenção'?",
+            "verso": "Em GUIs, o humano 'reconhece' as opções visuais na tela e clica nelas. Em interfaces de Agentes de IA, ele não procura opções; ele expressa sua 'intenção' em texto livre e o sistema deduz o caminho."
+        },
+        {
+            "id": 6,
+            "frente": "Qual é o papel do NLP (Processamento de Linguagem Natural) na arquitetura de interação?",
+            "verso": "O NLP é o 'tradutor' que pega a entrada fluida e desestruturada do usuário (um áudio ou texto solto) e a transforma em um dado rígido e estruturado (como um JSON) que o banco de dados entende."
+        },
+        {
+            "id": 7,
+            "frente": "Por que a arquitetura REST tradicional não é ideal para Agentes de IA avançados?",
+            "verso": "A REST foca em retornar entidades inteiras (ex: toda a lista de sapatos). Agentes de IA precisam de contextos específicos para não estourar a memória (tokens), exigindo buscas mais inteligentes e fragmentadas."
+        },
+        {
+            "id": 8,
+            "frente": "O que é RAG (Retrieval-Augmented Generation) no contexto da IHC com IA?",
+            "verso": "É a técnica de buscar a informação exata no banco de dados da empresa e injetá-la no cérebro da IA antes de responder ao usuário. Garante precisão e impede que a interface 'alucine' respostas."
+        },
+        {
+            "id": 9,
+            "frente": "Na arquitetura de GUIs tradicionais (Web/Mobile), quem faz a maior parte do processamento de filtragem visual?",
+            "verso": "O client-side (o dispositivo do usuário, através do navegador usando React/Vue, ou do processador do celular). O servidor apenas fornece a base de dados em massa."
+        },
+        {
+            "id": 10,
+            "frente": "Como o design de uma interface conversacional afeta a modelagem do banco de dados da empresa?",
+            "verso": "Exige que o banco seja otimizado para buscas semânticas (entender o significado da palavra) e baseadas no contexto da intenção, abandonando as antigas buscas exatas que dependiam de filtros e cliques perfeitos."
+        }
+    ]
+}

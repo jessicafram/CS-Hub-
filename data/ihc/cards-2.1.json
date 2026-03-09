@@ -1,0 +1,56 @@
+{
+    "topico": "Engenharia Semiótica e Metacomunicação",
+    "nivel": "Pós-graduação / Mestrado",
+    "cards": [
+        {
+            "id": 1,
+            "frente": "Qual é a premissa central da Engenharia Semiótica em IHC?",
+            "verso": "Ela define que a interface não é apenas uma ferramenta, mas um canal de metacomunicação onde o designer diz ao usuário: 'Aqui está o meu entendimento sobre quem você é e como este sistema pode ajudá-lo'."
+        },
+        {
+            "id": 2,
+            "frente": "O que significa o conceito de 'Designer's Deputy' (Preposto do Designer)?",
+            "verso": "Significa que a interface atua como um representante (um porta-voz) do designer. Como o criador do software não pode estar ao lado do usuário, a interface 'fala' por ele em tempo real."
+        },
+        {
+            "id": 3,
+            "frente": "Como a Engenharia Semiótica classifica os signos de uma interface?",
+            "verso": "Eles são divididos em três categorias: Signos Estáticos (ícones, cores, layout), Signos Dinâmicos (animações, respostas a cliques) e Signos Metalinguísticos (mensagens de erro, tooltips, tutoriais)."
+        },
+        {
+            "id": 4,
+            "frente": "O que caracteriza um Signo Metalinguístico?",
+            "verso": "É a interface explicando a si mesma. Por exemplo, quando o usuário erra uma senha e o sistema exibe: 'A senha deve conter pelo menos 8 caracteres e um número'."
+        },
+        {
+            "id": 5,
+            "frente": "O que é uma Ruptura Semiótica (ou Ruptura de Comunicação)?",
+            "verso": "Ocorre quando o usuário não consegue interpretar a mensagem do designer. Exemplo: um ícone ambíguo que o usuário acha que serve para 'salvar', mas na verdade 'exclui' o documento."
+        },
+        {
+            "id": 6,
+            "frente": "Qual a principal diferença entre a abordagem Cognitiva tradicional e a Semiótica?",
+            "verso": "A abordagem Cognitiva foca no modelo mental do usuário (como ele processa a informação). A Semiótica foca na qualidade e clareza da mensagem enviada pelo designer através do sistema."
+        },
+        {
+            "id": 7,
+            "frente": "Por que a Engenharia Semiótica é crítica em sistemas baseados em Inteligência Artificial?",
+            "verso": "Porque a IA introduz respostas imprevisíveis. O designer precisa criar 'signos de incerteza' (como avisos de que a IA pode alucinar) para manter a transparência da metacomunicação."
+        },
+        {
+            "id": 8,
+            "frente": "Quem é a criadora da teoria da Engenharia Semiótica?",
+            "verso": "Foi criada pela pesquisadora brasileira Clarisse Sieckenius de Souza, sendo uma das maiores contribuições do Brasil para a área global de Interação Humano-Computador."
+        },
+        {
+            "id": 9,
+            "frente": "O que é a 'Emissão' e a 'Recepção' no contexto da interface?",
+            "verso": "A Emissão é o ato do designer codificar sua intenção na interface. A Recepção é o ato do usuário decodificar e interpretar essa interface durante o uso."
+        },
+        {
+            "id": 10,
+            "frente": "Por que a consistência visual (Design System) é tão importante na visão semiótica?",
+            "verso": "Porque mudar o significado de um signo no meio do sistema (ex: usar a cor vermelha para 'sucesso' em uma tela e para 'erro' em outra) causa esquizofrenia na metacomunicação e confunde o receptor."
+        }
+    ]
+}
