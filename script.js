@@ -64,60 +64,89 @@ function openModal(materia) {
     const body = document.getElementById('modal-body');
 
     const aprovado = localStorage.getItem(`${materia.id}_concluido`) === 'true';
-    const statusExibicao = aprovado ? "Concluído ✓" : materia.status;
+    const statusExibicao = aprovado ? "Concluído ✓" : (materia.status || "Ativo");
     const corStatus = aprovado ? "var(--accent)" : "#fff";
+
+    let trilhaHTML = "";
+
+    // 1. NOVA LÓGICA DE MESTRADO (Hierarquia: Unidades -> Tópicos)
+    if (materia.unidades) {
+        trilhaHTML = materia.unidades.map(unidade => `
+            <details style="margin-bottom: 10px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px;">
+                <summary style="padding: 15px; cursor: pointer; font-weight: bold; outline: none; display: flex; align-items: center; justify-content: space-between;">
+                    <span>📁 ${unidade.titulo}</span>
+                    <span style="font-size: 0.8em; opacity: 0.7;">Ver aulas ▼</span>
+                </summary>
+                <div style="padding: 10px 15px 15px 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px; font-style: italic;">${unidade.descricao}</p>
+                    <ul style="padding: 0; margin: 0;">
+                        ${unidade.topicos.map(topico => `
+                            <li onclick="window.location.href='./materiais/${topico.path}'"
+                                style="cursor:pointer; background: rgba(46, 204, 113, 0.1); margin-bottom: 8px; padding: 12px; list-style: none; border-radius: 4px; transition: 0.3s; font-size: 0.95rem; display: flex; align-items: center;"
+                                onmouseover="this.style.background='rgba(46, 204, 113, 0.2)'; this.style.transform='translateX(5px)';"
+                                onmouseout="this.style.background='rgba(46, 204, 113, 0.1)'; this.style.transform='translateX(0)';">
+                                <span style="margin-right: 10px;">📄</span>
+                                <span><strong>${topico.ordem}</strong> - ${topico.nome}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            </details>
+        `).join('');
+    }
+    // 2. LÓGICA ANTIGA (Mantida intacta para não quebrar Java, n8n e Matemática)
+    else if (materia.grade_conteudo) {
+        trilhaHTML = materia.grade_conteudo.map((item, index) => {
+            const num = String(index + 1).padStart(2, '0');
+            const topicoNum = index + 1;
+
+            if (materia.links_ativos) {
+                return `
+                    <li style="display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
+                        <div onclick="window.location.href='./materiais/${materia.id}/${materia.id}-aula-${num}.html'" style="cursor:pointer; flex-grow: 1;">
+                            📖 ${item}
+                        </div>
+                        <a href="assets/cursos/${materia.id}/aula-${num}.pdf" download class="btn-download" title="Baixar PDF" style="text-decoration: none; margin-left: 10px;">
+                            📥
+                        </a>
+                    </li>
+                `;
+            }
+
+            let linkDestino = "#";
+            if (materia.id === "mat-comp" || (materia.nome && materia.nome.includes("Matemática"))) {
+                linkDestino = `./materiais/mat-comp/modulo-01/topico-1-${topicoNum}.html`;
+            } else if (materia.nome && materia.nome.includes("Interação")) {
+                linkDestino = `./materiais/ihc-topico-${num}.html`;
+            } else {
+                linkDestino = `./materiais/${materia.id}-topico-${num}.html`;
+            }
+
+            return `
+                <li onclick="window.location.href='${linkDestino}'" 
+                    style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(46, 204, 113, 0.1); margin-top: 8px; padding: 12px; list-style: none; border-radius: 4px; transition: 0.3s;"
+                    onmouseover="this.style.background='rgba(46, 204, 113, 0.2)'; this.style.transform='translateX(5px)';"
+                    onmouseout="this.style.background='rgba(46, 204, 113, 0.1)'; this.style.transform='translateX(0)';">
+                    📖 ${item}
+                </li>
+            `;
+        }).join('');
+    }
+
+    // Monta o Modal final
+    const tituloExibicao = materia.nome || "Detalhes da Disciplina";
+    const descricaoExibicao = materia.descricao || "";
 
     body.innerHTML = `
         <div class="modal-details">
-            <h2 style="color: var(--accent); margin-top:0;">${materia.nome}</h2>
+            <h2 style="color: var(--accent); margin-top:0;">${tituloExibicao}</h2>
             <p style="color:${corStatus}; font-weight:bold; margin-bottom:20px;">Status: ${statusExibicao}</p>
-            <p style="color:#fff; opacity:0.8;">${materia.descricao}</p>
+            <p style="color:#fff; opacity:0.8;">${descricaoExibicao}</p>
 
-            <h4 style="color: var(--accent); font-size: 0.9rem; margin-top:20px;">TRILHA DE APRENDIZADO</h4>
-            <ul class="syllabus-list">
-                ${materia.grade_conteudo.map((item, index) => {
-        const num = String(index + 1).padStart(2, '0');
-        const topicoNum = index + 1; // Número sem o zero na frente (1, 2, 3...)
-
-        // 1. Lógica para Extensão (n8n, Java): Mantém os links e botão de PDF
-        if (materia.links_ativos) {
-            return `
-                            <li style="display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
-                                <div onclick="window.location.href='./materiais/${materia.id}/${materia.id}-aula-${num}.html'" style="cursor:pointer; flex-grow: 1;">
-                                    📖 ${item}
-                                </div>
-                                <a href="assets/cursos/${materia.id}/aula-${num}.pdf" download class="btn-download" title="Baixar PDF" style="text-decoration: none; margin-left: 10px;">
-                                    📥
-                                </a>
-                            </li>
-                        `;
-        }
-
-        // 2. Lógica para Graduação (TUDO LIBERADO! Sem cadeados)
-        let linkDestino = "#"; // Link padrão seguro
-
-        // Roteamento inteligente baseado no nome ou ID da matéria
-        if (materia.nome.includes("Matemática") || materia.id === "mat-comp") {
-            // Mapeia para os seus arquivos: materiais/mat-comp/modulo-01/topico-1-1.html
-            linkDestino = `./materiais/mat-comp/modulo-01/topico-1-${topicoNum}.html`;
-        } else if (materia.nome.includes("Interação")) {
-            // Mantém a rota antiga de IHC
-            linkDestino = `./materiais/ihc-topico-${num}.html`;
-        } else {
-            // Rota genérica para futuras matérias (usa o ID)
-            linkDestino = `./materiais/${materia.id}-topico-${num}.html`;
-        }
-
-        return `
-                        <li onclick="window.location.href='${linkDestino}'" 
-                            style="cursor:pointer; border-left: 3px solid var(--accent); background: rgba(46, 204, 113, 0.1); margin-top: 8px; padding: 12px; list-style: none; border-radius: 4px; transition: 0.3s;"
-                            onmouseover="this.style.background='rgba(46, 204, 113, 0.2)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.background='rgba(46, 204, 113, 0.1)'; this.style.transform='translateX(0)';">
-                            📖 ${item}
-                        </li>
-                    `;
-    }).join('')}
-            </ul>
+            <h4 style="color: var(--accent); font-size: 0.9rem; margin-top:20px; margin-bottom: 15px;">TRILHA DE APRENDIZADO</h4>
+            <div class="syllabus-list" style="padding: 0;">
+                ${trilhaHTML}
+            </div>
         </div>
     `;
     modal.style.display = 'flex';
