@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: O Problema dos Sistemas de Pagamento - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+
+<body class="notion-theme">
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 01</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header" style="margin-bottom: 50px;">
+            <span class="badge-tech"
+                style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">MÓDULO
+                1</span>
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;">O Problema dos Sistemas de Pagamento
+            </h1>
+        </header>
+
+        <section class="glass-container-main"
+            style="padding: 40px; border-radius: 24px; background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.05);">
+
+            <p style="margin-bottom: 20px;">Antes de qualquer linha de código, precisamos entender o problema que
+                sistemas de pagamento tentam resolver.<span style="display:none;">[cite: 260]</span> Em engenharia de
+                software, especialmente em backend financeiro, a primeira pergunta não é: como programar?<span
+                    style="display:none;">[cite: 261, 262]</span> A pergunta é: <strong>qual problema estamos tentando
+                    resolver?</strong><span style="display:none;">[cite: 263, 264]</span></p>
+
+            <p style="margin-bottom: 40px;">Seu projeto da API de pagamentos é uma resposta para um problema clássico:
+                Como permitir que um cliente pague por produtos de forma confiável, segura e consistente mesmo em um
+                ambiente distribuído como a internet.<span style="display:none;">[cite: 265, 266, 267]</span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">1. O que é uma transação financeira</h2>
+            <p style="margin-bottom: 20px;">Uma transação financeira é um evento que representa a movimentação de valor
+                entre duas partes.<span style="display:none;">[cite: 268, 269]</span> Exemplo simples: Cliente compra um
+                produto &rarr; valor sai da conta/cartão do cliente &rarr; valor vai para o comerciante.<span
+                    style="display:none;">[cite: 270, 271, 272, 273]</span></p>
+
+            <p style="margin-bottom: 20px;">No seu sistema isso aparece como: <code>Transaction</code>.<span
+                    style="display:none;">[cite: 274, 275]</span> No banco de dados da sua API você criou a tabela:
+                <code>transactions</code>.<span style="display:none;">[cite: 276, 277]</span> Ela representa exatamente
+                isso: um evento financeiro.<span style="display:none;">[cite: 278, 279]</span></p>
+
+            <div class="apostila-container"
+                style="margin: 30px 0; padding: 25px; background: rgba(13, 17, 23, 0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3
+                    style="margin-top: 0; font-size: 0.85rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                    Campos comuns em sistemas de pagamento:</h3><span style="display:none;">[cite: 280]</span>
+                <table style="width: 100%; border-collapse: collapse; color: #fff; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--accent); text-align: left;">
+                            <th style="padding: 12px;">Campo</th>
+                            <th style="padding: 12px;">Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">
+                                transaction_id<span style="display:none;">[cite: 281]</span></td>
+                            <td style="padding: 12px;">identificador da transação<span style="display:none;">[cite:
+                                    281]</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">amount<span
+                                    style="display:none;">[cite: 281]</span></td>
+                            <td style="padding: 12px;">valor<span style="display:none;">[cite: 281]</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">status<span
+                                    style="display:none;">[cite: 281]</span></td>
+                            <td style="padding: 12px;">estado da transação<span style="display:none;">[cite: 281]</span>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">gateway<span
+                                    style="display:none;">[cite: 281]</span></td>
+                            <td style="padding: 12px;">provedor que processou<span style="display:none;">[cite:
+                                    281]</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">external_id<span
+                                    style="display:none;">[cite: 281]</span></td>
+                            <td style="padding: 12px;">id no gateway<span style="display:none;">[cite: 281]</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-bottom: 15px;">Isso aparece no seu código quando você cria:<span
+                    style="display:none;">[cite: 282]</span></p>
+            <div class="code-container" style="margin-bottom: 50px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div>
+                    <span class="code-filename">TypeScript</span><span style="display:none;">[cite: 283]</span>
+                </div>
+                <pre
+                    class="code-content"><code><span class="token-kw">await</span> Transaction.<span class="token-fn">create</span>(...)<span style="display:none;">[cite: 284]</span></code></pre>
+            </div>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">2. O que é um Gateway de Pagamento</h2>
+            <p style="margin-bottom: 20px;">Um gateway de pagamento é um sistema externo que conecta sua aplicação ao
+                sistema financeiro.<span style="display:none;">[cite: 285, 286]</span> Ele atua como um intermediário
+                técnico entre seu sistema e as redes bancárias.<span style="display:none;">[cite: 287]</span></p>
+
+            <div
+                style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border-left: 3px solid #555; margin-bottom: 20px;">
+                <p style="font-family: 'Fira Code'; font-size: 0.9rem; margin: 0; line-height: 1.8;">
+                    Fluxo simplificado:<span style="display:none;">[cite: 288]</span><br>
+                    Cliente &darr;<span style="display:none;">[cite: 289, 290]</span><br>
+                    Sua API &darr;<span style="display:none;">[cite: 291]</span><br>
+                    Gateway de pagamento &darr;<span style="display:none;">[cite: 292]</span><br>
+                    Rede financeira &darr;<span style="display:none;">[cite: 293]</span><br>
+                    Banco emissor do cartão<span style="display:none;">[cite: 294]</span>
+                </p>
+            </div>
+
+            <p style="margin-bottom: 15px;">Gateways famosos incluem: Stripe, PayPal, Adyen.<span
+                    style="display:none;">[cite: 295, 296, 297, 298]</span></p>
+            <p style="margin-bottom: 50px;">Seu projeto simula dois gateways: <strong>Gateway 1</strong> e
+                <strong>Gateway 2</strong>.<span style="display:none;">[cite: 299, 300, 301]</span> E o seu
+                <code>PaymentService</code> faz a comunicação com eles.<span style="display:none;">[cite: 302]</span>
+            </p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">3. Autorização</h2>
+            <p style="margin-bottom: 20px;">Quando o cliente tenta pagar, o primeiro passo não é capturar o dinheiro.
+                Primeiro ocorre autorização.<span style="display:none;">[cite: 303, 304, 305]</span></p>
+            <p style="margin-bottom: 20px;">Autorização significa: o banco verifica se o cliente pode pagar.<span
+                    style="display:none;">[cite: 306, 307]</span> Por exemplo: cliente tem limite? cartão é válido?
+                transação é suspeita?<span style="display:none;">[cite: 308, 309, 310, 311]</span></p>
+            <p style="margin-bottom: 20px;">Resultado possível: <code>approved</code> ou <code>declined</code>.<span
+                    style="display:none;">[cite: 312, 313, 314]</span> No seu sistema isso aparece como:<span
+                    style="display:none;">[cite: 315]</span></p>
+
+            <div class="code-container" style="margin-bottom: 20px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 316]</span>
+                </div>
+                <pre
+                    class="code-content"><code>paymentResult.success<span style="display:none;">[cite: 317]</span></code></pre>
+            </div>
+
+            <p style="margin-bottom: 50px;">Se for aprovado: segue fluxo.<span style="display:none;">[cite: 318,
+                    319]</span> Se for recusado: erro de pagamento.<span style="display:none;">[cite: 320, 321]</span>
+            </p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">4. Captura</h2>
+            <p style="margin-bottom: 20px;">Após a autorização, alguns sistemas fazem a captura do pagamento.<span
+                    style="display:none;">[cite: 322, 323]</span> Captura significa: transferir efetivamente o
+                dinheiro.<span style="display:none;">[cite: 324, 325]</span> Fluxo real em muitos sistemas: autorização
+                &rarr; captura.<span style="display:none;">[cite: 326, 327, 328]</span> No seu projeto, simplificamos
+                isso para: pagamento aprovado &rarr; transação salva.<span style="display:none;">[cite: 329, 330,
+                    331]</span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">5. Chargeback (estorno)</h2>
+            <p style="margin-bottom: 20px;">Um chargeback ocorre quando uma transação precisa ser revertida.<span
+                    style="display:none;">[cite: 332, 333]</span> Isso pode acontecer quando: cliente solicita estorno,
+                fraude detectada, erro no pagamento.<span style="display:none;">[cite: 334, 335, 336, 337]</span></p>
+
+            <p style="margin-bottom: 15px;">No seu código isso aparece em:<span style="display:none;">[cite: 338]</span>
+            </p>
+            <div class="code-container" style="margin-bottom: 20px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 339]</span>
+                </div>
+                <pre
+                    class="code-content"><code><span class="token-kw">async</span> <span class="token-fn">chargeback</span>({params})<span style="display:none;">[cite: 340]</span></code></pre>
+            </div>
+
+            <p style="margin-bottom: 50px; line-height: 1.8;">
+                Fluxo: transação encontrada &rarr; chamada ao gateway &rarr; status atualizado.<span
+                    style="display:none;">[cite: 341, 342, 343, 344, 345]</span><br>
+                Status final: <code>REFUNDED</code>.<span style="display:none;">[cite: 346, 347]</span>
+            </p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">6. Problema real 1 — Falhas de rede</h2>
+            <p style="margin-bottom: 20px;">A internet não é confiável.<span style="display:none;">[cite: 348,
+                    349]</span> Requisições podem falhar por: timeout, queda de conexão, gateway fora do ar.<span
+                    style="display:none;">[cite: 350, 351, 352, 353]</span> Exemplo: API chama gateway &rarr; gateway
+                não responde.<span style="display:none;">[cite: 354, 355, 356, 357]</span></p>
+            <p style="margin-bottom: 50px;">Seu sistema resolve isso com: <strong>Failover</strong>.<span
+                    style="display:none;">[cite: 358, 359]</span> Ou seja: Gateway 1 &rarr; falha &rarr; Gateway 2.<span
+                    style="display:none;">[cite: 360, 361, 362, 363]</span> Isso está implementado no seu:
+                <code>PaymentService</code>.<span style="display:none;">[cite: 364, 365]</span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">7. Problema real 2 — Duplicação de pagamento</h2>
+            <p style="margin-bottom: 20px;">Imagine o cenário: usuário clica em pagar &rarr; internet lenta &rarr; ele
+                clica novamente.<span style="display:none;">[cite: 366, 367, 368, 369, 370]</span> Sua API recebe 2
+                requisições.<span style="display:none;">[cite: 371, 372]</span> Sem proteção isso pode gerar 2
+                cobranças.<span style="display:none;">[cite: 373, 374]</span></p>
+            <p style="margin-bottom: 15px;">Seu projeto resolve isso com: <code>Idempotency-Key</code>.<span
+                    style="display:none;">[cite: 375, 376]</span> Trecho do seu código:<span
+                    style="display:none;">[cite: 377]</span></p>
+
+            <div class="code-container" style="margin-bottom: 20px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 378]</span>
+                </div>
+                <pre
+                    class="code-content"><code><span class="token-kw">const</span> idempotencyKey = request.<span class="token-fn">header</span>(<span class="token-str">'Idempotency-Key'</span>)<span style="display:none;">[cite: 379]</span></code></pre>
+            </div>
+            <p style="margin-bottom: 50px;">Se a chave já existir: retorna transação existente.<span
+                    style="display:none;">[cite: 380, 381]</span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">8. Problema real 3 — Consistência de dados</h2>
+            <p style="margin-bottom: 20px;">Imagine este erro: pagamento aprovado &rarr; erro ao salvar no banco.<span
+                    style="display:none;">[cite: 382, 383, 384, 385]</span> Resultado: cliente pagou, mas sistema não
+                registrou.<span style="display:none;">[cite: 386, 387, 388]</span> Isso é catastrófico em sistemas
+                financeiros.<span style="display:none;">[cite: 389]</span></p>
+
+            <p style="margin-bottom: 15px;">Por isso você usou:<span style="display:none;">[cite: 390]</span></p>
+            <div class="code-container" style="margin-bottom: 20px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 391]</span>
+                </div>
+                <pre
+                    class="code-content"><code>db.<span class="token-fn">transaction</span>()<span style="display:none;">[cite: 392]</span></code></pre>
+            </div>
+            <p style="margin-bottom: 50px;">Isso garante propriedades chamadas: ACID. Esse conceito será aprofundado no
+                Módulo 4.<span style="display:none;">[cite: 393, 394, 395]</span></p>
+
+            <h2 style="margin-bottom: 25px;">9. Conectando tudo ao seu PaymentService</h2><span
+                style="display:none;">[cite: 396, 397]</span>
+            <p style="margin-bottom: 30px;">Seu PaymentService resolve três problemas fundamentais:<span
+                    style="display:none;">[cite: 398]</span></p>
+
+            <div class="ontologia-box"
+                style="padding: 35px; background: rgba(13, 17, 23, 0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                <table style="width: 100%; color: #fff; border-spacing: 0 12px; border-collapse: separate;">
+                    <tr
+                        style="color: #555; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
+                        <td style="padding: 0 15px;">Problema<span style="display:none;">[cite: 399]</span></td>
+                        <td style="padding: 0 15px;">Solução no projeto<span style="display:none;">[cite: 399]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
+                            falha de gateway<span style="display:none;">[cite: 399]</span></td>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
+                            failover<span style="display:none;">[cite: 399]</span></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
+                            duplicação de pagamento<span style="display:none;">[cite: 399]</span></td>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
+                            idempotência<span style="display:none;">[cite: 399]</span></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
+                            consistência<span style="display:none;">[cite: 399]</span></td>
+                        <td
+                            style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
+                            DB transaction<span style="display:none;">[cite: 399]</span></td>
+                    </tr>
+                </table>
+            </div>
+            <p style="margin-bottom: 60px;">Isso transforma sua API em um sistema: resiliente.<span
+                    style="display:none;">[cite: 400, 401]</span></p>
+
+            <section
+                style="margin-bottom: 70px; padding: 40px; background: rgba(46, 204, 113, 0.03); border-radius: 20px; border: 1px dashed rgba(46, 204, 113, 0.3);">
+                <h3 style="margin-top: 0; display: flex; align-items: center; gap: 12px; color: var(--accent);">
+                    <span
+                        style="background: var(--accent); color: #0b0f14; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    10. Pergunta de entrevista (Módulo 1)
+                </h3>
+
+                <p style="opacity: 0.8; margin-top: 10px;">Depois de entender esse módulo, você consegue responder:</p>
+                <p style="font-size: 1.2rem; margin-top: 15px; font-weight: 600; color: #fff; line-height: 1.4;">"O que
+                    é um gateway de pagamento e por que usamos mais de um?"</p>
+
+                <details style="margin-top: 25px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: 600; outline: none; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;">👉</span> Clique para revelar a Resposta madura
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 12px; border-left: 4px solid var(--accent); line-height: 1.7; color: #cbd5e1; font-size: 0.95rem;">
+                        Um gateway de pagamento é um serviço que intermedia a comunicação entre a aplicação e a rede
+                        financeira responsável por autorizar e processar pagamentos. Em sistemas críticos, é comum
+                        utilizar mais de um gateway para melhorar a disponibilidade. Caso o gateway principal falhe por
+                        problemas de rede ou indisponibilidade, o sistema pode realizar failover para um gateway
+                        secundário, garantindo maior resiliência no processamento das transações.
+                    </div>
+                </details>
+            </section>
+
+            <div
+                style="margin-top: 100px; padding: 50px; background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+                <div
+                    style="position: absolute; top: -15px; left: 30px; background: #1e293b; padding: 0 15px; color: var(--accent); font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;">
+                    FINAL DO MÓDULO</div>
+
+                <h4 style="margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 20px;">Conclusão do Módulo
+                    1<span style="display:none;">[cite: 410]</span></h4>
+                <p style="margin-bottom: 10px;">Você aprendeu:<span style="display:none;">[cite: 411]</span></p>
+                <ul class="step-list" style="margin-bottom: 20px;">
+                    <li>o que é uma transação financeira<span style="display:none;">[cite: 412]</span></li>
+                    <li>o que é gateway<span style="display:none;">[cite: 413]</span></li>
+                    <li>o que é autorização<span style="display:none;">[cite: 414]</span></li>
+                    <li>o que é captura<span style="display:none;">[cite: 415]</span></li>
+                    <li>o que é chargeback<span style="display:none;">[cite: 416]</span></li>
+                </ul>
+                <p style="margin-bottom: 10px;">E principalmente: quais problemas sistemas de pagamento precisam
+                    resolver.<span style="display:none;">[cite: 417, 418]</span></p>
+                <p style="margin-bottom: 10px;">Seu projeto já resolve: falhas, duplicação, consistência.<span
+                        style="display:none;">[cite: 419, 420, 421, 422]</span></p>
+                <p style="margin-bottom: 35px; color: var(--accent); font-weight: bold;">Isso é a base de toda
+                    engenharia de pagamento.<span style="display:none;">[cite: 423]</span></p>
+
+                <div
+                    style="height: 1px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); opacity: 0.3; margin-bottom: 35px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <p
+                        style="color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Próximo passo (Módulo 2)<span style="display:none;">[cite: 424]</span></p>
+                    <p style="opacity: 0.9; font-size: 1.1rem; line-height: 1.5;">No próximo módulo vamos entrar no tema
+                        que seu projeto usa muito bem: Arquitetura de Backend.<span style="display:none;">[cite: 425,
+                            426]</span> Vamos explicar profundamente: Controller, Service, Model e o padrão: Service
+                        Layer que você usou no seu PaymentService.<span style="display:none;">[cite: 427, 428, 429, 430,
+                            431, 432, 433]</span> Esse módulo vai explicar por que sua arquitetura está correta.<span
+                            style="display:none;">[cite: 434]</span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <section style="margin-top: 60px; text-align: center;">
+            <h2 style="color: var(--accent); border-bottom: none;">🧠 Validação de Conhecimento</h2>
+            <div id="container-cards" class="training-grid"></div>
+        </section>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 60px;">
+            <a href="../modulo-02/2-1-arquitetura-camadas.html"
+                style="background: var(--accent); color: #000; padding: 15px 25px; border-radius: 8px; font-weight: bold; text-decoration: none;">
+                Módulo 2: Arquitetura &rarr;
+            </a>
+        </div>
+    </main>
+
+    <script>
+        async function carregarDashboard() {
+            const container = document.getElementById('container-cards');
+            try {
+                const response = await fetch('../../../data/backend/cards-1.1.json');
+                const data = await response.json();
+                container.innerHTML = '';
+                data.cards.forEach(card => {
+                    container.innerHTML += `
+                        <div class="val-card" onclick="this.classList.toggle('flipped')">
+                            <span class="val-tag">🧠 REVISÃO</span>
+                            <div class="val-frente val-text">${card.frente}</div>
+                            <div class="val-verso val-text"><strong>Resposta:</strong><br><br>${card.verso}</div>
+                        </div>`;
+                });
+            } catch (error) {
+                container.innerHTML = `<p style="color: #e74c3c;">Erro ao carregar os cards.</p>`;
+            }
+        }
+        carregarDashboard();
+    </script>
+</body>
+
+</html>

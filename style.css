@@ -523,3 +523,99 @@ body {
     background: #ffffff;
     /* O verso do caso clínico fica branco para ler a solução melhor */
 }
+
+/* --- SIMULADOR DE QUADRO DE CÓDIGO (BACKEND) --- */
+.code-container {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    margin: 30px 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.code-header {
+    background: #161b22;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #30363d;
+}
+
+.code-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background: #ff5f56;
+}
+
+.dot-yellow {
+    background: #ffbd2e;
+}
+
+.dot-green {
+    background: #27c93f;
+}
+
+.code-filename {
+    color: #8b949e;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.code-content {
+    padding: 25px;
+    margin: 0;
+    color: #e6edf3;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Syntax Highlighting Manual */
+.token-kw {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+/* Keywords: const, async, await */
+.token-fn {
+    color: #d2a8ff;
+}
+
+/* Functions */
+.token-str {
+    color: #a5d6ff;
+}
+
+/* Strings */
+.token-cm {
+    color: #8b949e;
+    font-style: italic;
+}
+
+/* Comments */
+.token-num {
+    color: #79c0ff;
+}
+
+/* Numbers */
+
+/* Efeito neon para o lançamento no menu principal */
+.filter-btn.btn-highlight {
+    border: 1px solid var(--accent) !important;
+    background: rgba(46, 204, 113, 0.15) !important;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+    font-weight: bold;
+}

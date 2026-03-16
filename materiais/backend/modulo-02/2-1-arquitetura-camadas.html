@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Arquitetura de Backend - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+
+<body class="notion-theme">
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 02</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header" style="margin-bottom: 50px;">
+            <span class="badge-tech"
+                style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">MÓDULO
+                2</span>
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;">Arquitetura de Backend</h1>
+        </header>
+
+        <section class="glass-container-main"
+            style="padding: 40px; border-radius: 24px; background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.05);">
+
+            <p style="margin-bottom: 20px;">Agora que entendemos o problema dos sistemas de pagamento, precisamos
+                entender como organizar o código para resolver esse problema de forma sustentável.<span
+                    style="display:none;"></span> A pergunta fundamental deste módulo é:<span
+                    style="display:none;"></span></p>
+
+            <p style="margin-bottom: 40px; font-size: 1.2rem; color: var(--accent); font-weight: bold;">Como estruturar
+                uma aplicação backend para que ela seja manutenível, testável e escalável?<span
+                    style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">1. O problema da organização do código</h2>
+            <p style="margin-bottom: 20px;">Imagine uma API simples de pagamentos.<span style="display:none;"></span>
+                Uma implementação ingênua poderia colocar tudo em um único lugar: Controller valida requisição, calcula
+                preço, chama gateway, salva no banco e retorna resposta.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 20px;">Esse tipo de código geralmente evolui para algo assim: <strong>Controller
+                    com 500+ linhas</strong>.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 20px;">Problemas desse modelo: difícil de manter, difícil de testar, alto
+                acoplamento, difícil de evoluir.<span style="display:none;"></span> Esse problema é conhecido na
+                engenharia como: <strong>God Object / God Controller</strong>.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 50px;">Para resolver isso usamos arquitetura em camadas.<span
+                    style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">2. Separação de responsabilidades</h2>
+            <p style="margin-bottom: 20px;">Um princípio fundamental da engenharia de software é: <strong>Separation of
+                    Concerns</strong>.<span style="display:none;"></span> Significado: cada parte do sistema deve ter
+                uma responsabilidade clara.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 50px;">Esse princípio aparece em vários padrões arquiteturais.<span
+                    style="display:none;"></span> Referência clássica: <em>Robert C. Martin</em>.<span
+                    style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">3. Arquitetura em camadas</h2>
+            <p style="margin-bottom: 20px;">No seu projeto, você utilizou uma arquitetura composta por três camadas
+                principais: <strong>Controller Layer, Service Layer e Model Layer</strong>.<span
+                    style="display:none;"></span></p>
+
+
+
+            <div
+                style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border-left: 3px solid var(--accent); margin-bottom: 20px;">
+                <p style="font-family: 'Fira Code'; font-size: 0.9rem; margin: 0; line-height: 1.8;">
+                    Fluxo completo:<span style="display:none;"></span><br>
+                    Request &rarr; Controller &rarr; Service &rarr; Model &harr; Database<span
+                        style="display:none;"></span>
+                </p>
+            </div>
+            <p style="margin-bottom: 50px;">Essa separação melhora: organização, testabilidade e manutenção.<span
+                    style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">4. Controller Layer</h2>
+            <p style="margin-bottom: 20px;">Responsabilidade: interação HTTP.<span style="display:none;"></span> O
+                controller deve cuidar apenas de: receber requisição, validar dados, chamar serviço e retornar
+                resposta.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 20px;">No seu projeto isso aparece em: <code>TransactionsController</code>.<span
+                    style="display:none;"></span> Exemplo do seu código:<span style="display:none;"></span></p>
+            <div class="code-container" style="margin-bottom: 20px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div><span class="code-filename">TypeScript</span>
+                </div>
+                <pre
+                    class="code-content"><code><span class="token-kw">async</span> <span class="token-fn">store</span>({auth, request, response}: HttpContext)<span style="display:none;"></span></code></pre>
+            </div>
+            <p style="margin-bottom: 50px;">O controller faz: recebe payload, verifica idempotência, chama
+                PaymentService e retorna resposta HTTP.<span style="display:none;"></span> <strong>Importante:</strong>
+                Controller NÃO deve conter lógica de negócio complexa.<span style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">5. Service Layer</h2>
+            <p style="margin-bottom: 20px;">A camada de Service contém a lógica principal da aplicação.<span
+                    style="display:none;"></span> Responsabilidade: regras de negócio, orquestração do fluxo, integração
+                externa.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 20px;">No seu projeto isso aparece em: <code>PaymentService</code>.<span
+                    style="display:none;"></span> Ele faz: processar pagamento, comunicar com gateway, executar failover
+                e retornar resultado.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 50px;">Fluxo simplificado: Controller &rarr; PaymentService &rarr; Gateway.<span
+                    style="display:none;"></span> Esse padrão é conhecido como <strong>Service Layer Pattern</strong>,
+                conceito popularizado por <em>Martin Fowler</em>.<span style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">6. Model Layer</h2>
+            <p style="margin-bottom: 20px;">A camada de Model representa as entidades do sistema.<span
+                    style="display:none;"></span> Responsabilidade: persistência de dados, mapeamento de tabelas.<span
+                    style="display:none;"></span></p>
+            <p style="margin-bottom: 20px;">No seu projeto existem modelos como: User, Product, Transaction,
+                TransactionProduct, Client.<span style="display:none;"></span> Esses modelos são implementados usando o
+                ORM do <strong>AdonisJS</strong>.<span style="display:none;"></span></p>
+            <p style="margin-bottom: 50px;">Eles fazem a ponte entre objetos da aplicação e tabelas do banco.<span
+                    style="display:none;"></span> Exemplo: <code>Transaction</code> &rarr;
+                <code>transactions table</code>.<span style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">7. Como as camadas trabalham juntas</h2>
+            <p style="margin-bottom: 20px;">No seu sistema o fluxo completo de pagamento fica assim:<span
+                    style="display:none;"></span></p>
+            <ul class="step-list" style="margin-bottom: 20px;">
+                <li>Client Request<span style="display:none;"></span></li>
+                <li>TransactionsController<span style="display:none;"></span></li>
+                <li>PaymentService<span style="display:none;"></span></li>
+                <li>Gateway<span style="display:none;"></span></li>
+                <li>Database Transaction<span style="display:none;"></span></li>
+                <li>Response<span style="display:none;"></span></li>
+            </ul>
+            <p style="margin-bottom: 50px;">Representação simplificada: HTTP &rarr; Controller &rarr; Business Logic
+                &rarr; Persistence.<span style="display:none;"></span></p>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">8. Benefícios dessa arquitetura</h2>
+            <p style="margin-bottom: 20px;">Separar camadas traz vários benefícios:<span style="display:none;"></span>
+            </p>
+            <ul class="step-list" style="margin-bottom: 50px;">
+                <li><strong>Manutenção:</strong> cada parte do código é menor.<span style="display:none;"></span></li>
+                <li><strong>Testes:</strong> Podemos testar o PaymentService isoladamente.<span
+                        style="display:none;"></span></li>
+                <li><strong>Evolução:</strong> Se amanhã você trocar o gateway, só altera o Service.<span
+                        style="display:none;"></span></li>
+                <li><strong>Clareza:</strong> Cada desenvolvedor entende rapidamente onde cada responsabilidade
+                    está.<span style="display:none;"></span></li>
+            </ul>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">9. Conectando com seu código real</h2>
+            <p style="margin-bottom: 20px;">Seu projeto segue exatamente esse padrão:<span style="display:none;"></span>
+            </p>
+            <ul class="step-list" style="margin-bottom: 30px;">
+                <li><strong>Controller (TransactionsController):</strong> Responsável por HTTP, idempotência e entrada
+                    de dados.<span style="display:none;"></span></li>
+                <li><strong>Service (PaymentService):</strong> Responsável por processamento de pagamento e failover de
+                    gateway.<span style="display:none;"></span></li>
+                <li><strong>Model (Transaction, Product, User):</strong> Responsável por persistência no banco.<span
+                        style="display:none;"></span></li>
+            </ul>
+
+            <p style="margin-bottom: 20px;">Abaixo, o coração da sua arquitetura, o <code>PaymentService</code> completo
+                e estruturado:<span style="display:none;"></span></p>
+
+            <div class="code-container" style="margin-bottom: 50px;">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div>
+                    <span class="code-filename">PaymentService.ts</span>
+                </div>
+                <pre class="code-content" style="max-height: 500px; overflow-y: auto;"><code><span class="token-kw">import</span> axios <span class="token-kw">from</span> <span class="token-str">'axios'</span>
+<span class="token-kw">import</span> { PaymentGateway } <span class="token-kw">from</span> <span class="token-str">'../enums/payment_enums.js'</span>
+<span class="token-kw">import</span> Transaction <span class="token-kw">from</span> <span class="token-str">'#models/transaction'</span> <span class="token-cm">// 👈 Importação do Model para tipagem forte!</span>
+
+<span class="token-kw">export interface</span> CardData {
+    name?: <span class="token-kw">string</span>
+    cardNumber: <span class="token-kw">string</span>
+    cvv: <span class="token-kw">string</span>
+}
+
+<span class="token-kw">export type</span> PaymentResult =
+    | { success: <span class="token-kw">true</span>; gateway: PaymentGateway; externalId: <span class="token-kw">string</span> }
+    | { success: <span class="token-kw">false</span>; error: <span class="token-kw">string</span>; detalhes?: <span class="token-kw">any</span> }
+
+<span class="token-kw">export default class</span> PaymentService {
+    <span class="token-kw">private static</span> g1Url = process.env.G1_URL
+    <span class="token-kw">private static</span> g1Email = process.env.G1_EMAIL
+    <span class="token-kw">private static</span> g1Token = process.env.G1_TOKEN
+
+    <span class="token-kw">private static</span> g2Url = process.env.G2_URL
+    <span class="token-kw">private static</span> g2Token = process.env.G2_TOKEN
+    <span class="token-kw">private static</span> g2Secret = process.env.G2_SECRET
+
+    <span class="token-cm">// 👇 Instância reutilizável do Axios (Melhor prática)</span>
+    <span class="token-kw">private static</span> httpClient = axios.<span class="token-fn">create</span>({
+        timeout: 5000
+    })
+
+    <span class="token-kw">public static async</span> <span class="token-fn">processPayment</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw">const</span> gateway1 = <span class="token-kw">await this</span>.<span class="token-fn">processGateway1</span>(totalAmount, cardData, customerEmail)
+        <span class="token-kw">if</span> (gateway1.success) <span class="token-kw">return</span> gateway1
+
+        <span class="token-kw">const</span> gateway2 = <span class="token-kw">await this</span>.<span class="token-fn">processGateway2</span>(totalAmount, cardData, customerEmail)
+        <span class="token-kw">if</span> (gateway2.success) <span class="token-kw">return</span> gateway2
+
+        <span class="token-kw">return</span> {
+            success: <span class="token-kw">false</span>,
+            error: <span class="token-str">'Pagamento recusado em todos os gateways.'</span>,
+            detalhes: { gateway1: gateway1.error, gateway2: gateway2.error }
+        }
+    }
+
+    <span class="token-kw">private static async</span> <span class="token-fn">authenticateGateway1</span>(): Promise&lt;<span class="token-kw">string</span>&gt; {
+        <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(<span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/login`</span>, {
+            email: <span class="token-kw">this</span>.g1Email,
+            token: <span class="token-kw">this</span>.g1Token
+        })
+        <span class="token-kw">return</span> response.data.token
+    }
+
+    <span class="token-kw">private static async</span> <span class="token-fn">processGateway1</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw">try</span> {
+            <span class="token-kw">const</span> token = <span class="token-kw">await this</span>.<span class="token-fn">authenticateGateway1</span>()
+
+            <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
+                <span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/transactions`</span>,
+                {
+                    amount: Math.<span class="token-fn">round</span>(totalAmount * 100),
+                    name: cardData.name || <span class="token-str">'Cliente'</span>,
+                    email: customerEmail,
+                    cardNumber: cardData.cardNumber,
+                    cvv: cardData.cvv
+                },
+                { headers: { Authorization: <span class="token-str">`Bearer </span><span class="token-kw">${token}</span><span class="token-str">`</span> } }
+            )
+
+            <span class="token-kw">return</span> { success: <span class="token-kw">true</span>, gateway: PaymentGateway.GATEWAY_1, externalId: response.data.id }
+        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
+            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Gateway 1 Indisponível'</span> }
+        }
+    }
+
+    <span class="token-kw">private static async</span> <span class="token-fn">processGateway2</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw">try</span> {
+            <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
+                <span class="token-str">`</span><span class="token-kw">${this.g2Url}</span><span class="token-str">/transacoes`</span>,
+                {
+                    valor: Math.<span class="token-fn">round</span>(totalAmount * 100),
+                    nome: cardData.name || <span class="token-str">'Cliente'</span>,
+                    email: customerEmail,
+                    numeroCartao: cardData.cardNumber,
+                    cvv: cardData.cvv
+                },
+                {
+                    headers: {
+                        <span class="token-str">'Gateway-Auth-Token'</span>: <span class="token-kw">this</span>.g2Token,
+                        <span class="token-str">'Gateway-Auth-Secret'</span>: <span class="token-kw">this</span>.g2Secret
+                    }
+                }
+            )
+
+            <span class="token-kw">return</span> { success: <span class="token-kw">true</span>, gateway: PaymentGateway.GATEWAY_2, externalId: response.data.id }
+        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
+            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Gateway 2 Indisponível'</span> }
+        }
+    }
+
+    <span class="token-cm">// 👇 Tipagem forte aplicada ao parâmetro `transaction`</span>
+    <span class="token-kw">public static async</span> <span class="token-fn">refundPayment</span>(transaction: Transaction): Promise&lt;{ success: <span class="token-kw">boolean</span>; error?: <span class="token-kw">string</span> }&gt; {
+        <span class="token-kw">try</span> {
+            <span class="token-kw">if</span> (transaction.gateway === PaymentGateway.GATEWAY_1) {
+                <span class="token-kw">const</span> token = <span class="token-kw">await this</span>.<span class="token-fn">authenticateGateway1</span>()
+                <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
+                    <span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/transactions/</span><span class="token-kw">${transaction.externalId}</span><span class="token-str">/chargeback`</span>,
+                    {},
+                    { headers: { Authorization: <span class="token-str">`Bearer </span><span class="token-kw">${token}</span><span class="token-str">`</span> } }
+                )
+                <span class="token-kw">return</span> { success: <span class="token-kw">true</span> }
+            }
+
+            <span class="token-kw">if</span> (transaction.gateway === PaymentGateway.GATEWAY_2) {
+                <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
+                    <span class="token-str">`</span><span class="token-kw">${this.g2Url}</span><span class="token-str">/transacoes/</span><span class="token-kw">${transaction.externalId}</span><span class="token-str">/estorno`</span>,
+                    {},
+                    { headers: { <span class="token-str">'Gateway-Auth-Token'</span>: <span class="token-kw">this</span>.g2Token, <span class="token-str">'Gateway-Auth-Secret'</span>: <span class="token-kw">this</span>.g2Secret } }
+                )
+                <span class="token-kw">return</span> { success: <span class="token-kw">true</span> }
+            }
+
+            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: <span class="token-str">'Gateway desconhecido para estorno.'</span> }
+        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
+            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Erro na comunicação do estorno.'</span> }
+        }
+    }
+}</code></pre>
+            </div>
+
+            <h2 style="margin-bottom: 20px; color: #fff;">10. Problema real resolvido</h2>
+            <p style="margin-bottom: 50px;">Essa arquitetura evita algo muito comum em projetos pequenos: controller
+                gigante.<span style="display:none;"></span> E transforma o sistema em algo modular.<span
+                    style="display:none;"></span></p>
+
+            <section
+                style="margin-bottom: 70px; padding: 40px; background: rgba(46, 204, 113, 0.03); border-radius: 20px; border: 1px dashed rgba(46, 204, 113, 0.3);">
+                <h3 style="margin-top: 0; display: flex; align-items: center; gap: 12px; color: var(--accent);">
+                    <span
+                        style="background: var(--accent); color: #0b0f14; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    11. Pergunta de Entrevista (Módulo 2)<span style="display:none;"></span>
+                </h3>
+
+                <p style="font-size: 1.2rem; margin-top: 20px; font-weight: 600; color: #fff; line-height: 1.4;">"Por
+                    que você colocou a lógica de pagamento no Service e não no Controller?"<span
+                        style="display:none;"></span></p>
+
+                <details style="margin-top: 25px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: 600; outline: none; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;">👉</span> Clique para revelar a Resposta madura<span
+                            style="display:none;"></span>
+                    </summary>
+                    <div
+                        style="margin-top: 20px; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 12px; border-left: 4px solid var(--accent); line-height: 1.7; color: #cbd5e1; font-size: 0.95rem;">
+                        O controller deve lidar apenas com a camada HTTP, como entrada e saída da requisição.<span
+                            style="display:none;"></span> A lógica de negócio pertence à camada de serviço, que
+                        centraliza regras da aplicação e integrações externas.<span style="display:none;"></span> Isso
+                        mantém o código mais organizado, facilita testes e reduz acoplamento entre camadas.<span
+                            style="display:none;"></span>
+                    </div>
+                </details>
+            </section>
+
+            <div
+                style="margin-top: 100px; padding: 50px; background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+                <div
+                    style="position: absolute; top: -15px; left: 30px; background: #1e293b; padding: 0 15px; color: var(--accent); font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;">
+                    FINAL DO MÓDULO</div>
+
+                <h4 style="margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 20px;">Conclusão do Módulo
+                    2<span style="display:none;"></span></h4>
+                <p style="margin-bottom: 10px;">Agora você entende:<span style="display:none;"></span></p>
+                <ul class="step-list" style="margin-bottom: 20px;">
+                    <li>por que separar camadas<span style="display:none;"></span></li>
+                    <li>como funciona a arquitetura Controller-Service-Model<span style="display:none;"></span></li>
+                </ul>
+                <p style="margin-bottom: 20px; color: var(--accent); font-weight: bold;">E principalmente: por que seu
+                    projeto está bem arquitetado.<span style="display:none;"></span></p>
+
+                <p style="margin-bottom: 10px;">O que você aprendeu até agora:<span style="display:none;"></span></p>
+                <ul class="step-list" style="margin-bottom: 35px;">
+                    <li>problema dos sistemas de pagamento<span style="display:none;"></span></li>
+                    <li>arquitetura backend<span style="display:none;"></span></li>
+                </ul>
+
+                <div
+                    style="height: 1px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); opacity: 0.3; margin-bottom: 35px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <p
+                        style="color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Próximo passo (Módulo 3)<span style="display:none;"></span></p>
+                    <p style="opacity: 0.9; font-size: 1.1rem; line-height: 1.5;">No Módulo 3 vamos aprofundar um ponto
+                        crítico do seu projeto: modelagem do banco de dados.<span style="display:none;"></span> Vamos
+                        explicar profundamente: many-to-many, pivot tables, integridade relacional.<span
+                            style="display:none;"></span> E conectar isso diretamente com suas tabelas: transactions,
+                        products e transaction_products.<span style="display:none;"></span> Esse módulo será essencial
+                        para entender a lógica financeira do sistema.<span style="display:none;"></span></p>
+                </div>
+            </div>
+
+        </section>
+
+        <section style="margin-top: 60px; text-align: center;">
+            <h2 style="color: var(--accent); border-bottom: none;">🧠 Validação de Conhecimento</h2>
+            <div id="container-cards" class="training-grid"></div>
+        </section>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 60px;">
+            <a href="../modulo-01/1-1-problema-pagamentos.html"
+                style="color: #8b949e; padding: 15px 25px; border-radius: 8px; text-decoration: none; border: 1px solid #30363d;">
+                &larr; Módulo 1
+            </a>
+            <a href="../modulo-03/3-1-modelagem-banco.html"
+                style="background: var(--accent); color: #000; padding: 15px 25px; border-radius: 8px; font-weight: bold; text-decoration: none;">
+                Módulo 3: Banco de Dados ➡
+            </a>
+        </div>
+    </main>
+
+    <script>
+        async function carregarDashboard() {
+            const container = document.getElementById('container-cards');
+            try {
+                const response = await fetch('../../../data/backend/cards-2.1.json');
+                const data = await response.json();
+                container.innerHTML = '';
+                data.cards.forEach(card => {
+                    container.innerHTML += `
+                        <div class="val-card" onclick="this.classList.toggle('flipped')">
+                            <span class="val-tag">🧠 REVISÃO</span>
+                            <div class="val-frente val-text">${card.frente}</div>
+                            <div class="val-verso val-text"><strong>Resposta:</strong><br><br>${card.verso}</div>
+                        </div>`;
+                });
+            } catch (error) {
+                container.innerHTML = `<p style="color: #e74c3c;">Erro ao carregar os cards.</p>`;
+            }
+        }
+        carregarDashboard();
+    </script>
+</body>
+
+</html>

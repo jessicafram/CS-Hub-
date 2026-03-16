@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engenharia de APIs de Pagamento - CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .backend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .module-card {
+            background: rgba(13, 17, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 16px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .module-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .module-number {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .module-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .module-desc {
+            color: #8b949e;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .hero-backend {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, rgba(46, 204, 113, 0.1) 0%, transparent 70%);
+            border-radius: 30px;
+            margin-bottom: 40px;
+        }
+
+        .git-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #238636;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .git-btn:hover {
+            background: #2ea043;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <span style="color: var(--accent); font-size: 0.9rem; font-weight: bold;">Masterclass Backend</span>
+        </div>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
+        <header class="hero-backend">
+            <span class="badge-tech"
+                style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 0.75rem;">CURSO
+                DE EXTENSÃO</span>
+            <h1 style="font-size: 3rem; color: #fff; margin: 20px 0 10px 0;">Engenharia de uma API de Pagamentos</h1>
+            <p style="font-size: 1.2rem; color: #8b949e; max-width: 700px; margin: 0 auto;">Domine arquitetura,
+                resiliência e segurança financeira através de um projeto real desenvolvido em AdonisJS e
+                TypeScript[cite: 3, 98, 117].</p>
+
+            <a href="SEU_LINK_DO_GITHUB_AQUI" target="_blank" class="git-btn">
+                <svg height="20" width="20" viewBox="0 0 16 16" fill="white">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>
+                Explorar Código no GitHub
+            </a>
+        </header>
+
+        <section>
+            <h2
+                style="color: #fff; font-size: 1.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--accent);">//</span> Grade Curricular do Mestre
+            </h2>
+
+            <div class="backend-grid">
+                <a href="modulo-01/1-1-problema-pagamentos.html" class="module-card">
+                    <span class="module-number">01</span>
+                    <span class="module-title">O Problema dos Pagamentos</span>
+                    <span class="module-desc">Gateways, fluxos de autorização e os riscos do ambiente financeiro
+                        distribuído[cite: 12, 285, 303, 322].</span>
+                </a>
+
+                <a href="modulo-02/2-1-arquitetura-camadas.html" class="module-card">
+                    <span class="module-number">02</span>
+                    <span class="module-title">Arquitetura da API</span>
+                    <span class="module-desc">Service Layer e Separação de Responsabilidades (SoC) com Robert C.
+                        Martin[cite: 25, 36, 38, 521].</span>
+                </a>
+
+                <a href="modulo-03/3-1-modelagem-banco.html" class="module-card">
+                    <span class="module-number">03</span>
+                    <span class="module-title">Modelagem do Banco</span>
+                    <span class="module-desc">Relacionamentos Many-to-Many, tabelas pivot e integridade referencial com
+                        MySQL[cite: 39, 47, 53, 730].</span>
+                </a>
+
+                <a href="modulo-04/4-1-acid-transacoes.html" class="module-card">
+                    <span class="module-number">04</span>
+                    <span class="module-title">Consistência e ACID</span>
+                    <span class="module-desc">Como garantir que operações financeiras ocorram por completo ou não
+                        ocorram (Rollback)[cite: 54, 58, 60, 901].</span>
+                </a>
+
+                <a href="modulo-05/5-1-idempotencia.html" class="module-card">
+                    <span class="module-number">05</span>
+                    <span class="module-title">Idempotência</span>
+                    <span class="module-desc">Implementando Idempotency-Key para evitar cobranças duplicadas em retries
+                        de rede[cite: 67, 73, 1071, 1085].</span>
+                </a>
+
+                <a href="modulo-06/6-1-resiliencia-failover.html" class="module-card">
+                    <span class="module-number">06</span>
+                    <span class="module-title">Resiliência e Failover</span>
+                    <span class="module-desc">Estratégias de tolerância a falhas para manter o sistema vivo quando o
+                        gateway cai[cite: 77, 87, 1243, 1276].</span>
+                </a>
+
+                <a href="modulo-07/7-1-seguranca-rbac.html" class="module-card">
+                    <span class="module-number">07</span>
+                    <span class="module-title">Segurança (RBAC)</span>
+                    <span class="module-desc">Controle de acesso baseado em papéis (ADMIN, FINANCE, USER) e Principle of
+                        Least Privilege[cite: 88, 89, 96, 1441].</span>
+                </a>
+
+                <a href="modulo-08/8-1-typescript-tipagem.html" class="module-card">
+                    <span class="module-number">08</span>
+                    <span class="module-title">TypeScript em APIs</span>
+                    <span class="module-desc">Garantindo contratos de API seguros, refatoração confiável e segurança de
+                        tipos[cite: 97, 101, 1636, 1739].</span>
+                </a>
+
+                <a href="modulo-09/9-1-escalabilidade.html" class="module-card">
+                    <span class="module-number">09</span>
+                    <span class="module-title">Escalabilidade</span>
+                    <span class="module-desc">Filas, mensageria (Kafka/RabbitMQ) e observabilidade para milhões de
+                        requisições[cite: 1766, 1782, 1843, 1872].</span>
+                </a>
+
+                <a href="modulo-10/10-1-fluxo-completo.html" class="module-card"
+                    style="border-color: var(--accent); background: rgba(46, 204, 113, 0.1);">
+                    <span class="module-number">10</span>
+                    <span class="module-title">Fluxo Completo</span>
+                    <span class="module-desc">A anatomia final: do clique no botão de compra até o commit final no banco
+                        de dados[cite: 1969, 1981, 2185].</span>
+                </a>
+            </div>
+        </section>
+
+        <footer
+            style="margin-top: 100px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 50px;">
+            <p style="color: #555; font-family: 'Fira Code', monospace; font-size: 0.9rem;">&copy; 2026 CS HUB -
+                Engenharia de Software Aplicada</p>
+            <p class="signature"
+                style="margin-top: 20px; font-size: 2.2rem; font-family: 'Dancing Script', cursive; color: #fff;">
+                Jessica França</p>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -164,6 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const tipo = this.dataset.type; // graduacao ou extensao
             const valor = tipo === 'graduacao' ? this.dataset.periodo : this.dataset.curso;
 
+            // --- IMPLANTE O CÓDIGO ABAIXO AQUI ---
+            if (valor === 'api-pagamentos') {
+                window.location.href = 'materiais/backend/index.html';
+                return; // Impede que o restante da função execute
+            }
+            // --- FIM DO IMPLANTE ---
+
             loadContent(tipo, valor);
         });
     });

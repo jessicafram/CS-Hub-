@@ -214,6 +214,28 @@
                 "Aula 01: Instalação Profissional",
                 "Aula 02: Manipulação de Dados"
             ]
+        },
+
+        {
+            "id": "api-pagamentos",
+            "nome": "Engenharia de APIs de Pagamento",
+            "status": "LANÇAMENTO 🚀",
+            "horas": 40,
+            "descricao": "Do problema real ao código de produção. Aprenda Arquitetura, ACID, Idempotência e Resiliência em um projeto AdonisJS + TS.",
+            "links_ativos": true,
+            "link_direto": "materiais/backend/index.html",
+            "grade_conteudo": [
+                "Módulo 1: O Problema dos Pagamentos",
+                "Módulo 2: Arquitetura em Camadas (SoC)",
+                "Módulo 3: Modelagem Relacional (MySQL)",
+                "Módulo 4: Consistência de Dados (ACID)",
+                "Módulo 5: Idempotência (Evitando Duplicidade)",
+                "Módulo 6: Resiliência e Failover",
+                "Módulo 7: Segurança e RBAC",
+                "Módulo 8: Tipagem Profissional com TS",
+                "Módulo 9: Escalabilidade e Mensageria",
+                "Módulo 10: Anatomia do Fluxo Completo"
+            ]
         }
     ]
 }
