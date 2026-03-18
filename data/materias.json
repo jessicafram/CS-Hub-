@@ -212,10 +212,17 @@
             "links_ativos": true,
             "grade_conteudo": [
                 "Aula 01: Instalação Profissional",
-                "Aula 02: Manipulação de Dados"
+                "Aula 02: Manipulação de Dados",
+                "Aula 03: Lógica de Fluxo Avançada (Loops e Switches)",
+                "Aula 04: O Cérebro da IA (Integração OpenAI e Prompts)",
+                "Aula 05: Memória e Contexto (Mantendo o Histórico de Conversas)",
+                "Aula 06: Inteligência Ativa (Tools e Chamada de Funções Externas)",
+                "Aula 07: Base de Conhecimento RAG (Lendo PDFs e Documentos)",
+                "Aula 08: Tratamento de Erros e Resiliência (Fallback e Retry)",
+                "Aula 09: Webhooks Avançados (Conectando com o Mundo Real)",
+                "Aula 10: Projeto Final (Assistente de Clínica Autônomo via WhatsApp)"
             ]
         },
-
         {
             "id": "api-pagamentos",
             "nome": "Engenharia de APIs de Pagamento",
