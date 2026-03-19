@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 — Segurança e Controle de Acesso (RBAC)</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 07</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 7: Segurança e Controle de Acesso (RBAC)<span
+                    style="display:none;"></span></h1>
+            <p>Como garantir que apenas os usuários corretos tenham permissão para executar operações críticas.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Até agora aprendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura da aplicação<span style="display:none;"></span></li>
+                <li>consistência de dados<span style="display:none;"></span></li>
+                <li>idempotência<span style="display:none;"></span></li>
+                <li>resiliência do sistema<span style="display:none;"></span></li>
+            </ul>
+            <p>Agora precisamos resolver outro problema essencial:<span style="display:none;"></span></p>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Quem pode executar cada operação
+                dentro do sistema?<span style="display:none;"></span></p>
+            <p>Em sistemas financeiros, permitir acesso incorreto pode causar problemas graves.<span
+                    style="display:none;"></span></p>
+
+            <h2>1. O problema do controle de acesso</h2>
+            <p>Imagine que sua API possui operações como:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>criar pagamento<span style="display:none;"></span></li>
+                <li>consultar transação<span style="display:none;"></span></li>
+                <li>executar chargeback<span style="display:none;"></span></li>
+            </ul>
+            <p>Agora imagine o seguinte cenário:<span style="display:none;"></span></p>
+            <p>usuário comum executa um chargeback<span style="display:none;"></span></p>
+            <p>Resultado possível:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>reversão indevida de pagamentos<span style="display:none;"></span></li>
+                <li>fraudes<span style="display:none;"></span></li>
+                <li>inconsistência financeira<span style="display:none;"></span></li>
+            </ul>
+            <p>Por isso sistemas precisam de controle de acesso.<span style="display:none;"></span></p>
+
+            <h2>2. Autenticação vs Autorização</h2>
+            <p>Esses dois conceitos são frequentemente confundidos.<span style="display:none;"></span></p>
+
+            <h3>Autenticação</h3>
+            <p>Pergunta: quem é o usuário?<span style="display:none;"></span></p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>login<span style="display:none;"></span></li>
+                <li>token<span style="display:none;"></span></li>
+                <li>senha<span style="display:none;"></span></li>
+            </ul>
+            <p>No seu projeto isso ocorre através do sistema de autenticação do: AdonisJS<span
+                    style="display:none;"></span></p>
+
+            <h3>Autorização</h3>
+            <p>Pergunta: o que esse usuário pode fazer?<span style="display:none;"></span></p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>usuário pode criar pagamento<span style="display:none;"></span></li>
+                <li>usuário NÃO pode executar chargeback<span style="display:none;"></span></li>
+            </ul>
+            <p>Autorização define permissões dentro do sistema.<span style="display:none;"></span></p>
+
+            <h2>3. O modelo RBAC</h2>
+            <p>Uma forma comum de implementar autorização é o modelo: <strong>RBAC</strong><span
+                    style="display:none;"></span></p>
+            <p>Significado: Role-Based Access Control<span style="display:none;"></span></p>
+            <p>Nesse modelo, cada usuário possui um papel (role).<span style="display:none;"></span></p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>ADMIN<span style="display:none;"></span></li>
+                <li>MANAGER<span style="display:none;"></span></li>
+                <li>FINANCE<span style="display:none;"></span></li>
+                <li>USER<span style="display:none;"></span></li>
+            </ul>
+            <p>Cada role possui permissões diferentes.<span style="display:none;"></span></p>
+
+            <h2>4. Papéis no seu sistema</h2>
+            <p>No seu projeto você definiu quatro papéis.<span style="display:none;"></span></p>
+
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Permissões</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ADMIN</td>
+                        <td>acesso total<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>MANAGER</td>
+                        <td>operações administrativas<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>FINANCE</td>
+                        <td>operações financeiras<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>USER</td>
+                        <td>realizar compras<span style="display:none;"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Isso define quem pode acessar cada funcionalidade da API.<span style="display:none;"></span></p>
+
+            <h2>5. O princípio do menor privilégio</h2>
+            <p>Uma regra importante em segurança é: <strong>Principle of Least Privilege</strong><span
+                    style="display:none;"></span></p>
+            <p>Significado: cada usuário deve ter apenas as permissões necessárias<span style="display:none;"></span>
+            </p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>usuário comum: apenas comprar<span style="display:none;"></span></li>
+                <li>financeiro: pode executar chargeback<span style="display:none;"></span></li>
+            </ul>
+            <p>Isso reduz riscos de abuso ou erro.<span style="display:none;"></span></p>
+
+            <h2>6. Middleware de autorização</h2>
+            <p>Em APIs modernas, o controle de acesso geralmente ocorre através de middleware.<span
+                    style="display:none;"></span></p>
+            <p>Middleware é um componente que intercepta requisições antes do controller.<span
+                    style="display:none;"></span> Fluxo:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fluxo de Request</span>
+                </div>
+                <pre><code>Request
+  ↓
+Auth Middleware
+  ↓
+Role Middleware
+  ↓
+Controller<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>No seu projeto existem middlewares como:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li><code>auth_middleware</code><span style="display:none;"></span></li>
+                <li><code>role_middleware</code><span style="display:none;"></span></li>
+            </ul>
+
+            <h2>7. Como o middleware funciona</h2>
+            <p>Quando uma requisição chega:<span style="display:none;"></span></p>
+            <p>Fluxo:<span style="display:none;"></span><br>
+                <code>POST /transactions/chargeback</code><span style="display:none;"></span>
+            </p>
+            <ol style="line-height: 1.8;">
+                <li>1. verificar autenticação<span style="display:none;"></span></li>
+                <li>2. verificar role<span style="display:none;"></span></li>
+                <li>3. permitir ou negar acesso<span style="display:none;"></span></li>
+            </ol>
+            <p>Se o usuário não tiver permissão: <strong>HTTP 403 Forbidden</strong><span style="display:none;"></span>
+            </p>
+
+            <h2>8. Fluxo de segurança no seu sistema</h2>
+            <p>Fluxo completo:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Pipeline de Segurança</span>
+                </div>
+                <pre><code>Cliente faz requisição
+  ↓
+Auth Middleware
+  ↓
+verifica token
+  ↓
+Role Middleware
+  ↓
+verifica role do usuário
+  ↓
+Controller executa operação<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Representação simplificada:<span style="display:none;"></span></p>
+            <p><code>Request → Authentication → Authorization → Business Logic</code><span style="display:none;"></span>
+            </p>
+
+            <h2>9. Protegendo operações críticas</h2>
+            <p>Operações críticas no seu sistema incluem:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>chargeback<span style="display:none;"></span></li>
+                <li>operações administrativas<span style="display:none;"></span></li>
+            </ul>
+            <p>Essas operações devem ser restritas a roles específicas. Exemplo: FINANCE, ADMIN.<span
+                    style="display:none;"></span></p>
+            <p>Isso impede que: usuário comum manipule pagamentos.<span style="display:none;"></span></p>
+
+            <h2>10. Como isso aparece no seu projeto</h2>
+            <p>No seu sistema o controle de acesso ocorre antes do controller.<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Router Config</span>
+                </div>
+                <pre><code>Route
+  ↓
+Middleware de autenticação
+  ↓
+Middleware de role
+  ↓
+TransactionsController<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Se o usuário tiver permissão: requisição continua.<span style="display:none;"></span> Caso contrário:
+                erro de autorização.<span style="display:none;"></span></p>
+
+            <h2>11. Benefícios do RBAC</h2>
+            <p>Implementar RBAC traz vários benefícios.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>segurança: acesso restrito a operações sensíveis<span style="display:none;"></span></li>
+                <li>organização: permissões claras<span style="display:none;"></span></li>
+                <li>escalabilidade: novos papéis podem ser adicionados<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>12. Limitações do RBAC</h2>
+            <p>Embora RBAC seja muito usado, ele possui limitações. Exemplo: permissões muito específicas.<span
+                    style="display:none;"></span></p>
+            <p>Nesses casos sistemas avançados usam modelos como: <strong>ABAC</strong>.<span
+                    style="display:none;"></span> Significado: Attribute-Based Access Control.<span
+                    style="display:none;"></span></p>
+            <p>Mas para a maioria das APIs RBAC é suficiente.<span style="display:none;"></span></p>
+
+            <h2>13. Conectando com seu projeto</h2>
+            <p>Seu sistema protege operações financeiras utilizando: RBAC + middleware de autorização.<span
+                    style="display:none;"></span></p>
+            <p>Fluxo final:<span style="display:none;"></span><br>
+                <code>Request → Auth Middleware → Role Middleware → TransactionsController</code><span
+                    style="display:none;"></span>
+            </p>
+            <p>Isso impede que usuários não autorizados executem ações críticas.<span style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">14. Pergunta de entrevista (Módulo
+                        7)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Como você protege operações sensíveis na
+                    sua API?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        A API implementa controle de acesso baseado em papéis (RBAC).<span style="display:none;"></span>
+                        Cada usuário possui uma role associada, como ADMIN, MANAGER, FINANCE ou USER.<span
+                            style="display:none;"></span> Um middleware de autorização verifica a role do usuário antes
+                        que a requisição alcance o controller. Dessa forma garantimos que apenas usuários autorizados
+                        possam executar operações críticas como chargebacks.<span style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 7</h2>
+            <p>Agora você entende profundamente:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>autenticação<span style="display:none;"></span></li>
+                <li>autorização<span style="display:none;"></span></li>
+                <li>RBAC<span style="display:none;"></span></li>
+                <li>middleware de segurança<span style="display:none;"></span></li>
+            </ul>
+            <p>E principalmente: como proteger operações financeiras.<span style="display:none;"></span> Isso cobre boa
+                parte da engenharia de uma API financeira moderna.<span style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 8):</p>
+                <p>No Módulo 8 vamos estudar um ponto muito importante do seu projeto: <strong>TypeScript e tipagem de
+                        APIs</strong>.<span style="display:none;"></span> Vamos entender: type safety, interfaces, DTOs
+                    e contratos de API.<span style="display:none;"></span> Esse módulo é muito importante porque conecta
+                    diretamente com perguntas que entrevistadores realmente fazem: como garantir o formato de dados da
+                    API e onde entram DTOs, Validators e Interfaces.<span style="display:none;"></span></p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Controle de Acesso e Roles.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-06/6-1-resiliencia-failover.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 6: Resiliência
+                </a>
+                <a href="../modulo-08/8-1-typescript-tipagem.html" class="nav-btn nav-btn-next">
+                    Módulo 8: TypeScript e Tipagem ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "Qual a diferença fundamental entre Autenticação e Autorização?", verso: "Autenticação verifica QUEM é o usuário (verificando e-mail, senha ou token). Autorização verifica O QUE esse usuário já autenticado tem permissão para fazer dentro do sistema (ex: ele pode acessar a rota de chargeback?)." },
+            { tipo: "teoria", frente: "O que significa a sigla RBAC?", verso: "Significa Role-Based Access Control (Controle de Acesso Baseado em Papéis). É um modelo de autorização onde cada usuário recebe uma 'Role' (como ADMIN, USER, FINANCE) e as permissões são atreladas a essas roles, não aos usuários individualmente." },
+            { tipo: "teoria", frente: "O que afirma o Princípio do Menor Privilégio (Principle of Least Privilege)?", verso: "É uma regra de segurança que determina que cada usuário (ou serviço) deve ter apenas e estritamente as permissões mínimas necessárias para realizar o seu trabalho, reduzindo significativamente as chances de erros ou fraudes." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nComo você protegeu a rota de Chargeback (estorno) para impedir que um cliente comum cancele suas próprias compras indevidamente?", verso: "Utilizando a arquitetura de Middlewares. A requisição bate na rota e passa pelo 'Auth Middleware' (para saber quem é). Depois passa pelo 'Role Middleware', que verifica a role no banco. Como a rota exige role 'FINANCE' ou 'ADMIN', se um 'USER' tentar acessar, o middleware barra a requisição e retorna um erro HTTP 403 (Forbidden) antes mesmo de tocar no Controller." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

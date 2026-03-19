@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06 — Resiliência e Failover</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 06</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 6: Resiliência, Failover e Tolerância a
+                Falhas<span style="display:none;"></span></h1>
+            <p>Como garantir que o seu sistema continue funcionando mesmo quando os serviços externos caem.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Agora que entendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura da aplicação<span style="display:none;"></span></li>
+                <li>consistência de dados<span style="display:none;"></span></li>
+                <li>idempotência<span style="display:none;"></span></li>
+            </ul>
+            <p>precisamos resolver outro problema fundamental dos sistemas distribuídos:<span
+                    style="display:none;"></span></p>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">O que acontece quando um serviço
+                externo falha?<span style="display:none;"></span></p>
+            <p>Em sistemas de pagamento isso ocorre com frequência.<span style="display:none;"></span></p>
+
+            <h2>1. O problema das dependências externas</h2>
+            <p>Seu sistema depende de serviços externos chamados gateways de pagamento.<span
+                    style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Arquitetura de Rede</span>
+                </div>
+                <pre><code>Cliente
+  ↓
+Sua API
+  ↓
+Gateway de pagamento
+  ↓
+Rede financeira<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Mas serviços externos podem falhar.<span style="display:none;"></span> Motivos comuns:<span
+                    style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>instabilidade de rede<span style="display:none;"></span></li>
+                <li>timeout<span style="display:none;"></span></li>
+                <li>gateway fora do ar<span style="display:none;"></span></li>
+                <li>manutenção do provedor<span style="display:none;"></span></li>
+                <li>sobrecarga do serviço<span style="display:none;"></span></li>
+            </ul>
+            <p>Se o sistema depender de apenas um gateway: falha do gateway → todo o sistema para.<span
+                    style="display:none;"></span> Isso reduz drasticamente a disponibilidade da aplicação.<span
+                    style="display:none;"></span></p>
+
+            <h2>2. O conceito de resiliência</h2>
+            <p>Em engenharia de sistemas distribuídos, chamamos a capacidade de continuar funcionando mesmo com falhas
+                de: <strong>Resiliência</strong>.<span style="display:none;"></span></p>
+            <p>Resiliência significa: o sistema continua operando mesmo quando partes dele falham.<span
+                    style="display:none;"></span> Esse conceito é central em arquiteturas modernas.<span
+                    style="display:none;"></span></p>
+            <p>Referência famosa: <em>Designing Data-Intensive Applications</em>.<span style="display:none;"></span></p>
+
+            <h2>3. Tolerância a falhas</h2>
+            <p>Um sistema tolerante a falhas consegue lidar com problemas como:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>queda de servidor<span style="display:none;"></span></li>
+                <li>falha de rede<span style="display:none;"></span></li>
+                <li>erro de integração<span style="display:none;"></span></li>
+            </ul>
+            <p>Sem interromper completamente o serviço.<span style="display:none;"></span> Esse conceito é chamado de:
+                <strong>Fault Tolerance</strong>.<span style="display:none;"></span></p>
+
+            <h2>4. Estratégias para lidar com falhas</h2>
+            <p>Existem várias estratégias usadas em sistemas distribuídos.<span style="display:none;"></span> Algumas
+                das principais são: retry, failover, circuit breaker, fallback.<span style="display:none;"></span></p>
+
+            <h2>5. Retry</h2>
+            <p>Retry significa simplesmente tentar novamente a mesma operação.<span style="display:none;"></span></p>
+            <p>Fluxo: Gateway falha → tentar novamente.<span style="display:none;"></span></p>
+            <p>Problema: se o gateway estiver realmente fora do ar retry não resolve.<span style="display:none;"></span>
+                Também pode aumentar a latência da requisição.<span style="display:none;"></span></p>
+
+            <h2>6. Failover</h2>
+            <p>Failover significa mudar para um sistema alternativo quando o principal falha.<span
+                    style="display:none;"></span></p>
+            <p>Fluxo: Gateway 1 → falha → Gateway 2.<span style="display:none;"></span></p>
+
+
+
+            <p>Esse é exatamente o padrão que você implementou no seu projeto.<span style="display:none;"></span>
+                Representação:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fluxo de Sistema</span>
+                </div>
+                <pre><code>Payment Service
+  ├── Gateway 1 (Falha ❌)
+  └── Gateway 2 (Sucesso ✅)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Se o primeiro falhar: PaymentService usa o segundo.<span style="display:none;"></span></p>
+
+            <h2>7. Como seu projeto implementa failover</h2>
+            <p>No seu sistema o Payment Service executa a lógica: tentar gateway primário → se falhar → tentar gateway
+                secundário.<span style="display:none;"></span></p>
+            <p>Fluxo completo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Cliente envia pagamento<span style="display:none;"></span></li>
+                <li>Payment Service chama Gateway 1<span style="display:none;"></span></li>
+                <li>Gateway 1 falha<span style="display:none;"></span></li>
+                <li>Payment Service chama Gateway 2<span style="display:none;"></span></li>
+                <li>Gateway 2 processa pagamento<span style="display:none;"></span></li>
+            </ul>
+            <p>Para o cliente: a operação continua funcionando.<span style="display:none;"></span> Isso aumenta a
+                disponibilidade do sistema.<span style="display:none;"></span></p>
+
+            <h2>8. Disponibilidade em sistemas distribuídos</h2>
+            <p>Disponibilidade significa: probabilidade de o sistema estar funcionando.<span
+                    style="display:none;"></span> Em sistemas críticos, empresas buscam níveis como: 99.9%, 99.99%,
+                99.999%.<span style="display:none;"></span> Isso é chamado de: <strong>High Availability</strong>.<span
+                    style="display:none;"></span> Failover é uma técnica fundamental para atingir esse objetivo.<span
+                    style="display:none;"></span></p>
+
+            <h2>9. Benefícios do failover</h2>
+            <p>O uso de múltiplos gateways traz várias vantagens.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>continuidade do serviço (falha de um gateway não para o sistema)<span style="display:none;"></span>
+                </li>
+                <li>redução de risco operacional (dependência menor de um único provedor)<span
+                        style="display:none;"></span></li>
+                <li>melhor experiência do usuário (menos pagamentos recusados)<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>10. Limitações do failover</h2>
+            <p>Embora seja uma boa estratégia, o failover também possui limitações.<span style="display:none;"></span>
+                Exemplo: se ambos gateways falharem.<span style="display:none;"></span> Resultado: pagamento não pode
+                ser processado.<span style="display:none;"></span></p>
+            <p>Nesse caso seu sistema retorna: erro seguro para o cliente.<span style="display:none;"></span> Isso é
+                correto para um sistema financeiro.<span style="display:none;"></span></p>
+
+            <h2>11. Evoluções possíveis</h2>
+            <p>Sistemas mais avançados adicionam outras estratégias.<span style="display:none;"></span></p>
+
+            <p><strong>Circuit Breaker</strong><span style="display:none;"></span></p>
+            <p>Evita continuar chamando um serviço que já está falhando.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>muitas falhas detectadas<span style="display:none;"></span></li>
+                <li>circuit breaker abre<span style="display:none;"></span></li>
+                <li>requisições deixam de ser enviadas<span style="display:none;"></span></li>
+            </ul>
+
+
+
+            <p>Ferramenta popular: Resilience4j.<span style="display:none;"></span></p>
+
+            <p><strong>Observabilidade</strong><span style="display:none;"></span></p>
+            <p>Monitorar o comportamento dos gateways.<span style="display:none;"></span> Ferramentas comuns:
+                Prometheus, Grafana.<span style="display:none;"></span></p>
+
+            <h2>12. Conectando com seu projeto</h2>
+            <p>Seu sistema utiliza: <code>PaymentService</code> para resolver três problemas importantes: falha de
+                gateway, indisponibilidade, redundância.<span style="display:none;"></span></p>
+            <p>Estratégia aplicada: Failover entre gateways.<span style="display:none;"></span> Fluxo final: Controller
+                → Payment Service → Gateway 1 (falha) → Gateway 2 → Transaction salva.<span
+                    style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">13. Pergunta de entrevista (Módulo
+                        6)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Como sua API lida com falhas de
+                    gateway?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        O PaymentService implementa uma estratégia de failover entre gateways.<span
+                            style="display:none;"></span> Quando uma requisição de pagamento é iniciada, o sistema tenta
+                        primeiro o gateway primário.<span style="display:none;"></span> Caso ocorra uma falha, como
+                        timeout ou erro de processamento, o serviço automaticamente tenta um gateway secundário.<span
+                            style="display:none;"></span> Isso aumenta a disponibilidade do sistema e reduz o impacto de
+                        falhas externas.<span style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 6</h2>
+            <p>Agora você entende profundamente: o que é resiliência, o que é tolerância a falhas, o que é
+                failover.<span style="display:none;"></span> E principalmente: como seu sistema continua funcionando
+                quando um gateway falha.<span style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 7):</p>
+                <p>No Módulo 7 vamos entrar em outro ponto importante do seu projeto: <strong>segurança e controle de
+                        acesso</strong>.<span style="display:none;"></span> Vamos estudar: RBAC (Role-Based Access
+                    Control), middleware de autorização, proteção de rotas.<span style="display:none;"></span> E
+                    conectar diretamente com seu código: role_middleware.<span style="display:none;"></span> Esse módulo
+                    explica como evitar que usuários não autorizados executem operações críticas como chargeback.<span
+                        style="display:none;"></span></p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Falhas e Resiliência.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-05/5-1-idempotencia.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 5: Idempotência
+                </a>
+                <a href="../modulo-07/7-1-seguranca-rbac.html" class="nav-btn nav-btn-next">
+                    Módulo 7: Segurança e RBAC ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que é Resiliência em sistemas distribuídos?", verso: "É a capacidade do sistema de continuar operando e entregando valor (mesmo que degradado) quando partes dele, ou serviços externos dos quais ele depende, falham." },
+            { tipo: "teoria", frente: "Qual a diferença fundamental entre Retry e Failover?", verso: "Retry tenta fazer a mesma requisição novamente para o mesmo serviço que acabou de falhar. Failover desiste do serviço que falhou e tenta realizar a mesma operação utilizando um serviço ou rota alternativa (Gateway 1 para Gateway 2)." },
+            { tipo: "teoria", frente: "Como funciona a estratégia avançada de 'Circuit Breaker'?", verso: "É uma proteção para evitar a sobrecarga de serviços fora do ar. Se um serviço falha muitas vezes seguidas, o 'circuito abre' e a API para de enviar requisições para ele instantaneamente, até que ele se recupere, poupando recursos e tempo de timeout." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nO que acontece no seu código se ambos os gateways (Primário e Secundário) falharem?", verso: "Meu PaymentService retornará um erro seguro e padronizado para a camada do Controller, garantindo que o aplicativo/cliente final receba uma mensagem amigável (ex: 'Não foi possível processar o pagamento agora') e a transação financeira não será concluída." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

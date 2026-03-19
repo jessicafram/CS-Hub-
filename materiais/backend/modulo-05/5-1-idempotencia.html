@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 — Idempotência e Requisições Duplicadas</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 05</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 5: Idempotência e Requisições Duplicadas<span
+                    style="display:none;"></span></h1>
+            <p>Como evitar cobrar um cliente duas vezes em cenários de lentidão de rede e múltiplos cliques.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Agora que entendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura da API<span style="display:none;"></span></li>
+                <li>modelagem do banco<span style="display:none;"></span></li>
+                <li>transações ACID<span style="display:none;"></span></li>
+            </ul>
+            <p>precisamos resolver um problema clássico da internet:<span style="display:none;"></span></p>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Como evitar que o mesmo pagamento
+                seja processado mais de uma vez?<span style="display:none;"></span></p>
+            <p>Esse problema ocorre com frequência em sistemas distribuídos.<span style="display:none;"></span></p>
+
+            <h2>1. O problema das requisições duplicadas</h2>
+            <p>Imagine um cenário real.<span style="display:none;"></span> Um cliente está comprando pelo celular com
+                internet lenta.<span style="display:none;"></span></p>
+            <p>Fluxo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Usuário clica em "Comprar"<span style="display:none;"></span></li>
+                <li>requisição enviada<span style="display:none;"></span></li>
+                <li>a tela demora para responder<span style="display:none;"></span></li>
+                <li>usuário clica novamente<span style="display:none;"></span></li>
+            </ul>
+            <p>Agora sua API recebe:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">HTTP</span>
+                </div>
+                <pre><code>POST /transactions
+POST /transactions<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Duas requisições quase simultâneas.<span style="display:none;"></span> Sem proteção isso pode gerar: duas
+                cobranças no cartão.<span style="display:none;"></span> Esse é um problema extremamente sério em
+                sistemas financeiros.<span style="display:none;"></span></p>
+
+            <h2>2. Por que isso acontece na internet</h2>
+            <p>A internet é um ambiente não confiável.<span style="display:none;"></span> Requisições podem ser
+                duplicadas por vários motivos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>usuário clicando várias vezes<span style="display:none;"></span></li>
+                <li>timeout de rede<span style="display:none;"></span></li>
+                <li>retry automático do navegador<span style="display:none;"></span></li>
+                <li>retry automático do cliente HTTP<span style="display:none;"></span></li>
+                <li>balanceadores de carga<span style="display:none;"></span></li>
+            </ul>
+            <p>Isso significa que o servidor pode receber: a mesma requisição múltiplas vezes.<span
+                    style="display:none;"></span></p>
+
+            <h2>3. O conceito de idempotência</h2>
+            <p>Para resolver esse problema usamos um conceito chamado: <strong>Idempotência</strong>.<span
+                    style="display:none;"></span></p>
+            <p>Definição simples:<span style="display:none;"></span></p>
+            <div class="concept-box">
+                <p style="margin: 0; font-size: 1.1rem;">Uma operação pode ser executada várias vezes sem alterar o
+                    resultado final.<span style="display:none;"></span></p>
+            </div>
+
+
+
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>executar uma vez → resultado X<span style="display:none;"></span></li>
+                <li>executar dez vezes → resultado X<span style="display:none;"></span></li>
+            </ul>
+            <p>No caso de pagamentos: uma cobrança só pode acontecer uma vez.<span style="display:none;"></span></p>
+
+            <h2>4. Como APIs implementam idempotência</h2>
+            <p>A solução mais comum é usar um identificador único da requisição.<span style="display:none;"></span> Esse
+                identificador é chamado de: <strong>Idempotency-Key</strong>.<span style="display:none;"></span></p>
+            <p>Fluxo: Cliente envia requisição + Idempotency-Key.<span style="display:none;"></span></p>
+
+            <p>Exemplo:<span style="display:none;"></span></p>
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">HTTP</span>
+                </div>
+                <pre><code>POST /transactions
+Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Agora o servidor faz: verifica se essa chave já foi usada.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Se for a primeira vez: processa pagamento, salva chave no banco.<span style="display:none;"></span>
+                </li>
+                <li>Se já existir: retorna o resultado anterior.<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>5. Como seu projeto implementa isso</h2>
+            <p>No seu controller você faz:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">const</span> idempotencyKey = request.header(<span style="color: #ce9178;">'Idempotency-Key'</span>)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Depois:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Fluxo completo:<span style="display:none;"></span></p>
+            <ol style="line-height: 1.8;">
+                <li>Recebe requisição<span style="display:none;"></span></li>
+                <li>verifica se idempotencyKey existe<span style="display:none;"></span></li>
+                <li>se existir retorna transação existente<span style="display:none;"></span></li>
+                <li>se não existir processa pagamento<span style="display:none;"></span></li>
+            </ol>
+
+            <h2>6. Fluxo completo no seu sistema</h2>
+            <p><strong>Fluxo normal:</strong><span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Cliente envia requisição<span style="display:none;"></span></li>
+                <li>Idempotency-Key recebida<span style="display:none;"></span></li>
+                <li>verifica no banco → não existe<span style="display:none;"></span></li>
+                <li>processa pagamento<span style="display:none;"></span></li>
+                <li>salva transação com a chave<span style="display:none;"></span></li>
+            </ul>
+
+            <p><strong>Fluxo duplicado:</strong><span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Cliente envia mesma requisição novamente<span style="display:none;"></span></li>
+                <li>mesma Idempotency-Key<span style="display:none;"></span></li>
+                <li>transação já existe<span style="display:none;"></span></li>
+                <li>API retorna resposta anterior<span style="display:none;"></span></li>
+            </ul>
+            <p>Resultado: nenhuma cobrança duplicada.<span style="display:none;"></span></p>
+
+            <h2>7. Por que salvar a chave no banco</h2>
+            <p>Se a chave fosse armazenada apenas em memória: reiniciar servidor → perder histórico → duplicação
+                possível.<span style="display:none;"></span></p>
+            <p>Salvar no banco garante: persistência.<span style="display:none;"></span> Por isso seu modelo Transaction
+                contém: <code>idempotencyKey</code>.<span style="display:none;"></span></p>
+
+            <h2>8. Idempotência em APIs reais</h2>
+            <p>Essa estratégia é utilizada por empresas que processam bilhões de transações.<span
+                    style="display:none;"></span> Exemplo: Stripe, PayPal.<span style="display:none;"></span></p>
+            <p>A API da Stripe inclusive recomenda explicitamente: usar Idempotency-Key em operações financeiras.<span
+                    style="display:none;"></span></p>
+
+            <h2>9. Por que isso é importante em pagamentos</h2>
+            <p>Sem idempotência podemos ter:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>cobranças duplicadas<span style="display:none;"></span></li>
+                <li>pedidos duplicados<span style="display:none;"></span></li>
+                <li>erros financeiros<span style="display:none;"></span></li>
+            </ul>
+            <p>Isso gera problemas como: reclamações de clientes, chargebacks, perda de confiança.<span
+                    style="display:none;"></span> Por isso sistemas financeiros tratam esse problema com muita
+                seriedade.<span style="display:none;"></span></p>
+
+            <h2>10. Limitações da idempotência</h2>
+            <p>Mesmo com idempotência ainda precisamos considerar outros cenários.<span style="display:none;"></span>
+            </p>
+            <p>Exemplo: mesma requisição, mas chave diferente.<span style="display:none;"></span> Isso pode acontecer se
+                o cliente gerar uma nova chave.<span style="display:none;"></span> Por isso sistemas avançados também
+                usam: correlation IDs, verificação de duplicação lógica.<span style="display:none;"></span> Mas para um
+                desafio técnico sua solução está muito correta.<span style="display:none;"></span></p>
+
+            <h2>11. Conectando com seu projeto</h2>
+            <p>Seu sistema resolve o problema de duplicação usando três elementos:<span style="display:none;"></span>
+            </p>
+            <ul style="line-height: 1.8;">
+                <li>header Idempotency-Key<span style="display:none;"></span></li>
+                <li>persistência da chave<span style="display:none;"></span></li>
+                <li>verificação antes do processamento<span style="display:none;"></span></li>
+            </ul>
+            <p>Trecho chave do seu código:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso demonstra entendimento de: resiliência em APIs.<span style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">12. Pergunta de entrevista (Módulo
+                        5)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Como sua API evita cobranças
+                    duplicadas?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        A API utiliza um mecanismo de idempotência baseado no header Idempotency-Key.<span
+                            style="display:none;"></span> Quando uma requisição de checkout é recebida, o sistema
+                        verifica se já existe uma transação registrada com a mesma chave.<span
+                            style="display:none;"></span> Se existir, a API retorna a transação já processada em vez de
+                        executar novamente o fluxo de pagamento.<span style="display:none;"></span> Isso garante que
+                        múltiplas requisições idênticas não resultem em cobranças duplicadas.<span
+                            style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 5</h2>
+            <p>Agora você entende profundamente: por que requisições duplicadas acontecem, o que é idempotência, como
+                implementar Idempotency-Key.<span style="display:none;"></span> E principalmente: como evitar cobranças
+                duplicadas.<span style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 6):</p>
+                <p>No Módulo 6 vamos entrar em um dos pontos mais interessantes do seu projeto: <strong>resiliência do
+                        sistema</strong>.<span style="display:none;"></span> Vamos explicar profundamente: failover,
+                    retry, fault tolerance.<span style="display:none;"></span> E conectar diretamente com seu código:
+                    PaymentService.<span style="display:none;"></span> Esse módulo explica como seu sistema continua
+                    funcionando mesmo quando um gateway falha.<span style="display:none;"></span></p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Idempotência e chaves seguras.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-04/4-1-acid-transacoes.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 4: Transações ACID
+                </a>
+                <a href="../modulo-06/6-1-resiliencia-failover.html" class="nav-btn nav-btn-next">
+                    Módulo 6: Resiliência e Failover ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que é o conceito de Idempotência em APIs e Sistemas Distribuídos?", verso: "É a propriedade que garante que uma operação possa ser executada várias vezes sem alterar o resultado final além do que foi estabelecido na primeira execução. Em pagamentos, significa que executar a compra 1 vez ou 10 vezes resultará na mesma e única cobrança." },
+            { tipo: "teoria", frente: "O que é uma 'Idempotency-Key' e como ela é transmitida?", verso: "É um identificador único (geralmente um UUID) gerado pelo cliente (front-end/mobile) e enviado no Header da requisição HTTP. Ela serve como a 'placa de identificação' daquela tentativa exata de compra." },
+            { tipo: "teoria", frente: "Por que devemos salvar a Idempotency-Key no banco de dados e não apenas na memória do servidor (como Redis ou variáveis)?", verso: "Para garantir a persistência absoluta e a segurança em longo prazo. Se a chave ficar apenas na memória RAM e o servidor precisar ser reiniciado (um deploy, por exemplo), o histórico é perdido, e uma requisição em retry poderia causar duplicação." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nComo sua API garante que o cliente não será cobrado duas vezes se clicar repetidamente no botão 'Comprar' devido a uma internet lenta?", verso: "A API extrai a 'Idempotency-Key' do header da requisição e, antes de processar qualquer pagamento, faz um 'Transaction.findBy' no banco de dados. Se a chave já existir, a API imediatamente retorna a transação existente, interrompendo o fluxo e evitando a comunicação duplicada com o gateway." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

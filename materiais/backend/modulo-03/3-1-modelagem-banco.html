@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 — Modelagem de Banco de Dados</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 03</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 3: Modelagem de Banco de Dados<span
+                    style="display:none;"></span></h1>
+            <p>Relações many-to-many, pivot tables e integridade referencial.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Agora que entendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>o problema dos sistemas de pagamento (Módulo 1)<span style="display:none;"></span></li>
+                <li>a arquitetura da aplicação (Módulo 2)<span style="display:none;"></span></li>
+            </ul>
+            <p>precisamos entender como os dados são armazenados corretamente no banco.<span
+                    style="display:none;"></span></p>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">A pergunta central deste módulo
+                é:<span style="display:none;"></span><br>
+                Como modelar dados de forma consistente em um sistema financeiro?<span style="display:none;"></span></p>
+            <p>Essa pergunta é crítica porque erros de modelagem podem causar inconsistências financeiras.<span
+                    style="display:none;"></span></p>
+
+            <h2>1. O papel do banco de dados</h2>
+            <p>O banco de dados é responsável por armazenar:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>usuários<span style="display:none;"></span></li>
+                <li>produtos<span style="display:none;"></span></li>
+                <li>transações<span style="display:none;"></span></li>
+                <li>relacionamentos entre entidades<span style="display:none;"></span></li>
+            </ul>
+            <p>No seu projeto você utilizou: <strong>MySQL</strong><span style="display:none;"></span>. Esse tipo de
+                banco segue o modelo relacional.<span style="display:none;"></span></p>
+
+            <h2>2. O modelo relacional</h2>
+            <p>O modelo relacional foi criado por: <strong>Edgar F. Codd</strong><span style="display:none;"></span>.
+                Ele organiza dados em tabelas relacionadas entre si.<span style="display:none;"></span></p>
+
+
+
+            <p>Exemplo simples:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>users<span style="display:none;"></span></li>
+                <li>products<span style="display:none;"></span></li>
+                <li>transactions<span style="display:none;"></span></li>
+            </ul>
+            <p>Cada tabela possui: linhas → registros e colunas → atributos.<span style="display:none;"></span></p>
+
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Camisa</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Tênis</td>
+                        <td>200</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>3. Entidades principais do seu sistema</h2>
+            <p>Seu banco possui as seguintes entidades principais:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>User<span style="display:none;"></span></li>
+                <li>Client<span style="display:none;"></span></li>
+                <li>Product<span style="display:none;"></span></li>
+                <li>Transaction<span style="display:none;"></span></li>
+                <li>TransactionProduct<span style="display:none;"></span></li>
+                <li>Gateway<span style="display:none;"></span></li>
+            </ul>
+            <p>Representação simplificada:<span style="display:none;"></span><br>
+                <code>User -> Transaction -> TransactionProduct <- Product</code><span style="display:none;"></span>
+            </p>
+            <p>Cada entidade representa um conceito do domínio do sistema.<span style="display:none;"></span></p>
+
+            <h2>4. Entidade Product</h2>
+            <p>Tabela: <code>products</code><span style="display:none;"></span><br>
+                Representa: itens que podem ser comprados<span style="display:none;"></span></p>
+
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Significado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>identificador do produto<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>nome<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>price</td>
+                        <td>preço<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>created_at</td>
+                        <td>data de criação<span style="display:none;"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>No seu código isso aparece como: <code>Product</code> (TypeScript)<span style="display:none;"></span></p>
+
+            <h2>5. Entidade Transaction</h2>
+            <p>Tabela: <code>transactions</code><span style="display:none;"></span><br>
+                Representa: uma compra realizada pelo usuário<span style="display:none;"></span></p>
+
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Significado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>identificador da transação<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>user_id</td>
+                        <td>usuário que comprou<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>amount</td>
+                        <td>valor total<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>gateway</td>
+                        <td>gateway usado<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>estado da transação<span style="display:none;"></span></td>
+                    </tr>
+                    <tr>
+                        <td>external_id</td>
+                        <td>id no gateway<span style="display:none;"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Essa entidade representa o evento financeiro principal do sistema.<span style="display:none;"></span></p>
+
+            <h2>6. O problema do carrinho de compras</h2>
+            <p>Imagine uma compra simples. Cliente compra: Produto A, Produto B, Produto C.<span
+                    style="display:none;"></span> Uma transação precisa armazenar vários produtos.<span
+                    style="display:none;"></span></p>
+            <p>Agora imagine o contrário. Um produto pode aparecer em várias transações.<span
+                    style="display:none;"></span></p>
+            <p>Temos então uma relação: <strong>muitos para muitos (many-to-many)</strong>.<span
+                    style="display:none;"></span></p>
+
+            <h2>7. Relacionamento Many-to-Many</h2>
+            <p>No modelo relacional não podemos conectar duas tabelas many-to-many diretamente. Precisamos criar uma
+                tabela intermediária.<span style="display:none;"></span></p>
+
+
+
+            <p>No seu sistema essa tabela é: <code>transaction_products</code><span style="display:none;"></span>. Essa
+                tabela é chamada de: <strong>pivot table</strong>.<span style="display:none;"></span></p>
+
+            <h2>8. Estrutura da tabela transaction_products</h2>
+            <p>Essa tabela contém:<span style="display:none;"></span></p>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>transaction_id</th>
+                        <th>product_id</th>
+                        <th>quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>10</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>15</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Isso significa: Transaction 1 comprou 2 unidades do produto 10 e 1 unidade do produto 15.<span
+                    style="display:none;"></span></p>
+
+            <h2>9. Por que não salvar um JSON com os produtos?</h2>
+            <p>Uma pergunta muito comum em entrevistas é: Por que você não salvou os produtos dentro de um campo JSON na
+                tabela transactions?<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">JSON</span>
+                </div>
+                <pre><code>// Exemplo de abordagem errada em JSON:
+{
+  "products": [
+    { "id": 10, "quantity": 2 },
+    { "id": 15, "quantity": 1 }
+  ]
+}<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Problemas dessa abordagem:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>não permite integridade referencial<span style="display:none;"></span></li>
+                <li>consultas ficam difíceis<span style="display:none;"></span></li>
+                <li>índices são limitados<span style="display:none;"></span></li>
+                <li>dados ficam inconsistentes<span style="display:none;"></span></li>
+            </ul>
+            <p>Com tabela relacional você pode fazer consultas como:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">SQL</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">SELECT</span> product_id, SUM(quantity) 
+<span style="color: #569cd6;">FROM</span> transaction_products 
+<span style="color: #569cd6;">GROUP BY</span> product_id;<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso permite responder perguntas como: qual produto vendeu mais?<span style="display:none;"></span></p>
+
+            <h2>10. Integridade referencial</h2>
+            <p>Outra vantagem do modelo relacional é o uso de: <strong>foreign keys</strong>.<span
+                    style="display:none;"></span></p>
+            <p>Exemplo: <code>transaction_products.product_id → products.id</code><span style="display:none;"></span>
+            </p>
+            <p>Isso garante: não existe referência para produto inexistente.<span style="display:none;"></span> Sem isso
+                poderíamos ter: <code>produto_id = 999</code> mesmo que o produto não exista.<span
+                    style="display:none;"></span></p>
+
+            <h2>11. Conectando com seu código</h2>
+            <p>Quando uma compra acontece, seu código executa:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code>Transaction.create(...)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Depois:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code>TransactionProduct.create(...)<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso cria registros que conectam: transação, produtos e quantidades.<span style="display:none;"></span>
+            </p>
+
+            <h2>12. Fluxo completo da persistência</h2>
+            <p>Fluxo simplificado:
+                <code>Checkout → Controller → Transaction criada → TransactionProducts criados → Commit no banco</code>.<span
+                    style="display:none;"></span>
+            </p>
+
+            <h2>13. Problema real resolvido</h2>
+            <p>Essa modelagem resolve vários problemas:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>histórico de compras (qual usuário comprou qual produto?)<span style="display:none;"></span></li>
+                <li>relatórios financeiros (quanto cada produto vendeu)<span style="display:none;"></span></li>
+                <li>consistência (produtos sempre válidos)<span style="display:none;"></span></li>
+            </ul>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">14. Pergunta de entrevista (Módulo
+                        3)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Como você modelou o relacionamento entre
+                    transações e produtos?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        Como uma transação pode conter vários produtos e um produto pode aparecer em várias transações,
+                        modelamos essa relação como many-to-many.<span style="display:none;"></span> Para isso criamos
+                        uma tabela intermediária chamada transaction_products, que armazena as chaves estrangeiras da
+                        transação e do produto, além da quantidade comprada.<span style="display:none;"></span> Isso
+                        permite manter integridade referencial e realizar consultas eficientes no banco.<span
+                            style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 3</h2>
+            <p>Agora você entende: modelo relacional, many-to-many, pivot tables, integridade referencial.<span
+                    style="display:none;"></span> E principalmente: por que seu banco foi modelado corretamente.<span
+                    style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 4):</p>
+                <p>No Módulo 4 vamos entrar em um dos conceitos mais importantes de sistemas financeiros: <strong>ACID e
+                        transações de banco de dados</strong>.<span style="display:none;"></span> Vamos explicar
+                    profundamente: atomicidade, consistência, isolamento, durabilidade.<span
+                        style="display:none;"></span> Esse módulo é fundamental para entender como evitar
+                    inconsistências financeiras em sistemas reais.<span style="display:none;"></span></p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos de
+                    Modelagem e Dados.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-02/2-1-arquitetura-camadas.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 2: Arquitetura
+                </a>
+                <a href="../modulo-04/4-1-acid-transacoes.html" class="nav-btn nav-btn-next">
+                    Módulo 4: Transações ACID ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que é uma Pivot Table (Tabela Intermediária) e por que ela é necessária?", verso: "É uma tabela criada para resolver relacionamentos many-to-many (muitos para muitos) no modelo relacional, já que não é possível conectar duas tabelas diretamente nesse formato. No seu projeto, é a tabela 'transaction_products'." },
+            { tipo: "teoria", frente: "Quais os problemas de salvar os itens do carrinho como um Array JSON dentro da tabela 'transactions' em vez de usar uma Pivot Table?", verso: "Não permite integridade referencial, dificulta a criação de consultas complexas (ex: relatórios de qual produto vendeu mais), limita o uso de índices e pode gerar dados inconsistentes." },
+            { tipo: "teoria", frente: "O que é Integridade Referencial e como as Foreign Keys (Chaves Estrangeiras) ajudam nisso?", verso: "É a garantia de que os relacionamentos entre tabelas são válidos. As Foreign Keys garantem que não exista uma referência para um dado inexistente (ex: impedir a venda de um produto_id que não existe na tabela products)." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nComo você modelou o relacionamento entre transações e produtos no seu banco?", verso: "Como é uma relação many-to-many, criei uma tabela intermediária (transaction_products) que armazena as chaves estrangeiras da transação e do produto, além da quantidade. Isso mantém a integridade referencial e permite consultas eficientes." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

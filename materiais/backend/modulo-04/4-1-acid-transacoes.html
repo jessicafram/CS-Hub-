@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 — Consistência e Transações ACID</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 04</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 4: ACID e Transações de Banco de Dados<span
+                    style="display:none;"></span></h1>
+            <p>Garantindo que operações financeiras não deixem o banco em um estado inconsistente.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Agora que entendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>o problema dos sistemas de pagamento (Módulo 1)<span style="display:none;"></span></li>
+                <li>a arquitetura da aplicação (Módulo 2)<span style="display:none;"></span></li>
+                <li>a modelagem do banco (Módulo 3)<span style="display:none;"></span></li>
+            </ul>
+            <p>precisamos entender como garantir que os dados financeiros permaneçam consistentes mesmo quando ocorrem
+                erros.<span style="display:none;"></span></p>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">A pergunta central deste módulo
+                é:<span style="display:none;"></span><br>
+                Como garantir que operações financeiras não deixem o banco em um estado inconsistente?<span
+                    style="display:none;"></span></p>
+            <p>Esse é um dos problemas mais importantes em engenharia de sistemas financeiros.<span
+                    style="display:none;"></span></p>
+
+            <h2>1. O problema da consistência de dados</h2>
+            <p>Imagine o fluxo de checkout do seu sistema. Cliente compra dois produtos: Produto A e Produto B.<span
+                    style="display:none;"></span></p>
+            <p>Fluxo da aplicação:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>1. Criar Transaction<span style="display:none;"></span></li>
+                <li>2. Criar Transaction Products<span style="display:none;"></span></li>
+                <li>3. Confirmar pagamento<span style="display:none;"></span></li>
+            </ul>
+            <p>Agora imagine que ocorre um erro no meio: Transaction criada, mas Erro ao salvar Transaction
+                Products.<span style="display:none;"></span></p>
+            <p>Resultado: Transaction salva, Produtos não associados.<span style="display:none;"></span> Isso cria dados
+                inconsistentes. Em sistemas financeiros isso é extremamente grave.<span style="display:none;"></span>
+            </p>
+
+            <h2>2. O conceito de transação de banco</h2>
+            <p>Para resolver esse problema utilizamos transações de banco de dados.<span style="display:none;"></span>
+                Uma transação agrupa múltiplas operações em uma única unidade lógica.<span style="display:none;"></span>
+            </p>
+
+            <div class="concept-box">
+                <p>Fluxo conceitual:<span style="display:none;"></span><br>
+                    <code>BEGIN TRANSACTION</code><br>
+                    operação 1<br>
+                    operação 2<br>
+                    operação 3<br>
+                    <code>COMMIT</code><span style="display:none;"></span>
+                </p>
+                <p>Se algo falhar: <code>ROLLBACK</code><span style="display:none;"></span>. Ou seja: <strong>tudo ou
+                        nada</strong>.<span style="display:none;"></span></p>
+            </div>
+
+            <h2>3. O princípio ACID</h2>
+            <p>As transações de banco seguem um conjunto de propriedades chamadas: <strong>ACID</strong>.<span
+                    style="display:none;"></span> ACID foi definido na teoria de bancos relacionais. Banco utilizado no
+                seu projeto: MySQL.<span style="display:none;"></span></p>
+
+            <h2>4. Atomicidade (Atomicity)</h2>
+            <p>Atomicidade significa: uma operação ocorre completamente ou não ocorre.<span
+                    style="display:none;"></span></p>
+            <p>Exemplo: Transaction criada + TransactionProducts criados.<span style="display:none;"></span> Se qualquer
+                passo falhar: nenhum dado é salvo.<span style="display:none;"></span> Isso evita estados
+                inconsistentes.<span style="display:none;"></span></p>
+
+            <h2>5. Consistência (Consistency)</h2>
+            <p>Consistência significa que o banco sempre permanece em um estado válido.<span
+                    style="display:none;"></span></p>
+            <p>Exemplo: <code>transaction_products.product_id</code> deve existir em <code>products.id</code>.<span
+                    style="display:none;"></span> Se uma operação violar uma regra: a transação falha.<span
+                    style="display:none;"></span> Isso mantém o banco coerente.<span style="display:none;"></span></p>
+
+            <h2>6. Isolamento (Isolation)</h2>
+            <p>Isolamento garante que transações simultâneas não interfiram entre si.<span style="display:none;"></span>
+                Imagine dois usuários comprando ao mesmo tempo (User A, User B).<span style="display:none;"></span> Cada
+                operação ocorre como se fosse isolada.<span style="display:none;"></span> Isso evita problemas como
+                leitura de dados parcialmente atualizados.<span style="display:none;"></span></p>
+
+            <h2>7. Durabilidade (Durability)</h2>
+            <p>Durabilidade significa que uma vez que a transação foi confirmada (<code>COMMIT</code>), os dados
+                persistem mesmo em caso de falha do sistema.<span style="display:none;"></span> Exemplo: queda de
+                energia ou crash do servidor.<span style="display:none;"></span> Mesmo assim os dados permanecem
+                salvos.<span style="display:none;"></span></p>
+
+            <h2>8. Aplicando ACID no seu projeto</h2>
+            <p>No seu código você implementou transações usando <code>const trx = await db.transaction()</code>.<span
+                    style="display:none;"></span> Fluxo no seu controller:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">const</span> trx = <span style="color: #c586c0;">await</span> db.transaction()
+
+<span style="color: #c586c0;">try</span> {
+    <span style="color: #569cd6;">const</span> transaction = <span style="color: #c586c0;">await</span> Transaction.create(..., { client: trx })
+    <span style="color: #c586c0;">await</span> TransactionProduct.create(..., { client: trx })
+    <span style="color: #c586c0;">await</span> trx.commit()
+} <span style="color: #c586c0;">catch</span> (error) {
+    <span style="color: #c586c0;">await</span> trx.rollback()
+}<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso significa: Transaction + TransactionProducts = uma única operação lógica.<span
+                    style="display:none;"></span> Se qualquer parte falhar: <code>rollback</code>.<span
+                    style="display:none;"></span></p>
+
+            <h2>9. Fluxo real no seu sistema</h2>
+            <p>Fluxo completo do checkout:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Cliente envia requisição → Controller processa pagamento → Gateway aprova<span
+                        style="display:none;"></span></li>
+                <li><strong>BEGIN TRANSACTION</strong> → Transaction criada → TransactionProducts criados →
+                    <strong>COMMIT</strong><span style="display:none;"></span></li>
+                <li>Resposta enviada<span style="display:none;"></span></li>
+            </ul>
+            <p>Se ocorrer erro: BEGIN TRANSACTION → Transaction criada → Erro ao salvar produtos →
+                <strong>ROLLBACK</strong> (nenhum dado salvo).<span style="display:none;"></span></p>
+
+            <h2>10. Problemas reais resolvidos</h2>
+            <p>O uso de transações resolve vários problemas importantes:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>inconsistência de pedidos (pedido sem produtos)<span style="display:none;"></span></li>
+                <li>inconsistência financeira (pagamento aprovado sem registro)<span style="display:none;"></span></li>
+                <li>erros parciais (metade da operação salva)<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>11. Conectando com seu domínio de pagamento</h2>
+            <p>Seu sistema executa duas operações críticas: persistência da transação e associação de produtos.<span
+                    style="display:none;"></span> Ambas precisam ocorrer juntas. Por isso você agrupou em uma
+                transação.<span style="display:none;"></span> Isso demonstra boa prática em sistemas financeiros.<span
+                    style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">12. Pergunta de Entrevista (Módulo
+                        4)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Por que você usou uma transação de banco
+                    no fluxo de checkout?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        O fluxo de checkout envolve múltiplas operações de persistência, como criar a transação e
+                        associar os produtos comprados.<span style="display:none;"></span> Utilizar uma transação de
+                        banco garante que essas operações ocorram de forma atômica.<span style="display:none;"></span>
+                        Caso qualquer etapa falhe, o rollback desfaz todas as alterações, evitando inconsistências no
+                        banco de dados.<span style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 4</h2>
+            <p>Agora você entende profundamente: o que são transações de banco, o que significa ACID e como garantir
+                consistência de dados.<span style="display:none;"></span> E principalmente: por que sistemas financeiros
+                dependem dessas propriedades.<span style="display:none;"></span></p>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Transações e Consistência.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-03/3-1-modelagem-banco.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 3: Modelagem
+                </a>
+                <a href="../modulo-05/5-1-idempotencia.html" class="nav-btn nav-btn-next">
+                    Módulo 5: Idempotência ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que significa a propriedade 'Atomicidade' no modelo ACID?", verso: "Significa 'tudo ou nada'. Uma operação agrupada em uma transação ocorre completamente (todos os passos são salvos) ou não ocorre de jeito nenhum (nenhum dado é salvo), evitando estados pela metade." },
+            { tipo: "teoria", frente: "Qual é a função do comando 'ROLLBACK' em uma transação de banco de dados?", verso: "É o comando executado no bloco 'catch' que desfaz e descarta todas as alterações feitas no banco durante aquela transação específica caso ocorra alguma falha no meio do processo." },
+            { tipo: "teoria", frente: "Por que a propriedade 'Durabilidade' (Durability) é vital para sistemas de pagamentos?", verso: "A durabilidade garante que, uma vez que a transação foi confirmada (COMMIT), os dados persistem e estão seguros no banco, mesmo que ocorra um crash do servidor ou queda de energia imediatamente depois." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nComo você garante que uma falha ao salvar os produtos não corrompa a transação principal no seu código?", verso: "Eu envolvo as duas operações em uma 'db.transaction()'. Se a inserção dos produtos lançar um erro, o código cai no bloco catch, executa 'trx.rollback()' e a transação principal que havia acabado de ser criada também é revertida, mantendo o banco consistente." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

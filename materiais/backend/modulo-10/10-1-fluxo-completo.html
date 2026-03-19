@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 — Anatomia Completa do Fluxo de Pagamento</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO --- */
+        .demo-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .demo-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .demo-box {
+            padding: 25px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            min-height: 250px;
+        }
+
+        /* Ajuste do container Mermaid */
+        .mermaid {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 10</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech"
+                style="background: linear-gradient(90deg, var(--accent), #8b5cf6); color: #000;">MASTERCLASS
+                FINAL</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 10: Anatomia Completa do Fluxo de Pagamento</h1>
+            <p>O que realmente acontece milissegundo a milissegundo quando um cliente clica em "Comprar".</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Nos módulos anteriores estudamos separadamente:</p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura</li>
+                <li>modelagem de banco</li>
+                <li>consistência de dados</li>
+                <li>idempotência</li>
+                <li>resiliência</li>
+                <li>segurança</li>
+                <li>escalabilidade</li>
+            </ul>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Agora vamos analisar o fluxo completo
+                de um pagamento dentro da sua API.<br>
+                A pergunta central deste módulo é:<br>
+                O que realmente acontece dentro do sistema quando um cliente clica em "Comprar"?</p>
+            <p>Vamos percorrer cada etapa da requisição, conectando com o seu código.</p>
+
+            <h2>1. A requisição do cliente</h2>
+            <p>Tudo começa com uma requisição HTTP. Exemplo:</p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">JSON</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">POST</span> /transactions
+
+{
+  <span style="color: #9cdcfe;">"products"</span>: [
+    { <span style="color: #9cdcfe;">"id"</span>: 10, <span style="color: #9cdcfe;">"quantity"</span>: 2 },
+    { <span style="color: #9cdcfe;">"id"</span>: 15, <span style="color: #9cdcfe;">"quantity"</span>: 1 }
+  ],
+  <span style="color: #9cdcfe;">"card_info"</span>: {
+    <span style="color: #9cdcfe;">"cardNumber"</span>: <span style="color: #ce9178;">"4111111111111111"</span>
+  },
+  <span style="color: #9cdcfe;">"client_id"</span>: 3
+}</code></pre>
+            </div>
+
+            <p>Essa requisição representa: um checkout.</p>
+
+            <h2>2. Entrada na API</h2>
+            <p>A requisição chega no servidor e passa primeiro pela camada de roteamento. Arquivo:
+                <code>routes.ts</code></p>
+            <p>Fluxo:<br>
+                <code>Request → Route → Controller</code>
+            </p>
+
+            <h2>3. Middleware de autenticação</h2>
+            <p>Antes de chegar ao controller, a requisição passa por middlewares.</p>
+            <p>Fluxo:<br>
+                <code>Request → Auth Middleware → Role Middleware → Controller</code>
+            </p>
+            <p>Aqui o sistema verifica: usuário autenticado e permissão de acesso. Se falhar: HTTP 401 ou 403.</p>
+
+            <h2>4. Controller recebe a requisição</h2>
+            <p>Agora o controller entra em ação. Arquivo: <code>TransactionsController</code></p>
+            <p>Função principal:</p>
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #c586c0;">async</span> store({ auth, request, response })</code></pre>
+            </div>
+            <p>Responsabilidades do controller: ler dados da requisição, verificar idempotência, preparar dados, chamar
+                serviço e retornar resposta.</p>
+
+            <h2>5. Verificação de idempotência</h2>
+            <p>Primeiro passo dentro do controller:</p>
+            <div class="mac-code-window">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">const</span> idempotencyKey = request.header(<span style="color: #ce9178;">'Idempotency-Key'</span>)
+<span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)</code></pre>
+            </div>
+            <p>Fluxo: Idempotency-Key existe? se sim, retornar transação existente; se não, continuar fluxo. Isso evita
+                pagamentos duplicados.</p>
+
+            <h2>6. Validação do carrinho</h2>
+            <p>O controller verifica os produtos.</p>
+            <p>Fluxo: receber lista de produtos → buscar produtos no banco → validar existência.<br>
+                Trecho do fluxo: <code>Product.find(product_id)</code>. Se um produto não existir: HTTP 404.</p>
+
+            <h2>7. Cálculo do valor total</h2>
+            <p>O valor do pagamento não vem do cliente. Ele é calculado no backend.</p>
+            <p>Fluxo: <code>preço do produto X quantidade</code>. Isso evita manipulação maliciosa.</p>
+
+            <h2>8. Chamada do PaymentService</h2>
+            <p>Agora o controller delega o processamento.<br>
+                <code>Controller → Payment Service</code>
+            </p>
+            <p>Chamada: <code>PaymentService.processPayment(...)</code> Aqui começa a lógica de negócio principal.</p>
+
+            <div
+                style="background: linear-gradient(145deg, rgba(139, 92, 246, 0.1), rgba(0,0,0,0.5)); border-radius: 16px; padding: 40px; border: 1px solid rgba(139, 92, 246, 0.3); margin: 50px 0; box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <span
+                        style="background: linear-gradient(90deg, #a78bfa, #8b5cf6); color: #000; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">A
+                        Cereja do Bolo</span>
+                    <h2 style="margin: 0; color: #a78bfa; border: none; padding: 0;">8.5 Resiliência Preditiva com IA
+                        (Z-Score)</h2>
+                </div>
+
+                <p style="font-size: 1.05rem; line-height: 1.8;">Sistemas normais esperam o gateway cair (Timeout) para
+                    fazer o Failover. Na sua arquitetura avançada, implementamos um <strong>Middleware de IA
+                        Preditiva</strong>.</p>
+                <p style="font-size: 1.05rem; line-height: 1.8;">O sistema analisa a latência histórica do gateway em
+                    tempo real. Utilizando o cálculo estatístico <strong>Z-Score</strong>, o sistema detecta anomalias
+                    de lentidão e redireciona a requisição para o Gateway de Backup <em>antes mesmo que a falha em
+                        cascata aconteça</em>!</p>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <button onclick="runZScoreDemo()" class="demo-button">▶ Iniciar Análise de Tráfego da IA</button>
+                </div>
+
+                <div id="zscore-terminal" class="demo-box" style="margin-top: 25px; display: none;">
+                </div>
+            </div>
+            <h2>9. Comunicação com gateways e Failover</h2>
+            <p>Se o gateway principal falhar (ou se nossa IA Preditiva desviar a rota):<br>
+                <code>Gateway 1 falha → Gateway 2</code>. Isso aumenta a disponibilidade do sistema.
+            </p>
+
+            <h2>10. Início da transação de banco e Persistência</h2>
+            <p>O gateway retorna <code>approved</code>. Agora entramos na parte crítica do sistema.</p>
+            <p>Fluxo: BEGIN TRANSACTION. Isso ativa as propriedades: ACID.<br>
+                Criamos a Transaction (evento financeiro) e os TransactionProducts (itens do carrinho).</p>
+            <p>Se tudo funcionar: COMMIT. Se ocorrer erro: ROLLBACK.</p>
+
+            <h2>11. Fluxo completo do sistema (A Visão do Arquiteto)</h2>
+            <p>Abaixo estão os diagramas oficiais gerados dinamicamente a partir do seu código de arquitetura. Essa é a
+                documentação visual de como seu sistema orquestra 100% da segurança, resiliência e banco de dados em uma
+                única requisição.</p>
+
+            <h3 style="color: var(--accent); margin-top: 40px;">Visão Arquitetural (Top-Down)</h3>
+            <div class="mermaid">
+                flowchart TD
+                A[Client Application] --> B[API Gateway / Routing]
+                B --> C[Auth Middleware]
+                C --> D[Role Middleware]
+                D --> Z[AI Predictive Resilience]
+                Z --> E[TransactionsController]
+                E --> F[Idempotency Check]
+                F --> G[PaymentService]
+                G --> H{Target Gateway}
+                H -->|Failure| I[Fallback Gateway]
+                H -->|Success| J[Start DB Transaction]
+                I -->|Success| J
+                J --> K[(MySQL Database)]
+            </div>
+
+            <h3 style="color: var(--accent); margin-top: 40px;">Visão Sequencial (A Linha do Tempo)</h3>
+            <div class="mermaid">
+                sequenceDiagram
+                participant Client
+                participant API
+                participant AI_Middleware as IA Preditiva (Z-Score)
+                participant PaymentService
+                participant Gateways
+                participant Database
+
+                Client->>API: POST /transactions
+                API->>API: Auth & Role Check
+                API->>API: Check Idempotency-Key
+
+                alt Transaction exists
+                API-->>Client: Return existing (200 OK)
+                else New Transaction
+                API->>AI_Middleware: Analisa Latência Histórica
+                AI_Middleware-->>API: Define Target Gateway (Principal ou Backup)
+                API->>PaymentService: processPayment()
+                PaymentService->>Gateways: Charge (Target Gateway)
+
+                alt Gateway Fails
+                PaymentService->>Gateways: Retry (Fallback Gateway)
+                end
+
+                Gateways-->>PaymentService: Approved
+                PaymentService-->>API: Success
+                API->>AI_Middleware: Registra Latência da Requisição
+                API->>Database: Commit Transaction
+                API-->>Client: Payment Success (201 Created)
+                end
+            </div>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">12. Pergunta final de entrevista
+                    </h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Você pode explicar o fluxo completo de
+                    pagamento na sua API?"</p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        O fluxo começa quando o cliente envia uma requisição de checkout. O controller recebe a
+                        requisição, verifica a idempotência e valida os produtos do carrinho. Em seguida delega o
+                        processamento para o PaymentService, que tenta processar o pagamento através de um gateway e
+                        realiza failover caso necessário. (Como bônus, implementei uma IA preditiva com Z-Score que
+                        monitora a latência e antecipa o failover preventivamente). Após a confirmação do pagamento,
+                        iniciamos uma transação de banco para persistir os dados da compra e os produtos associados. Se
+                        todas as operações forem bem-sucedidas, a transação é confirmada e a API retorna a resposta ao
+                        cliente.
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão da Masterclass</h2>
+            <p>Agora você entende o ciclo completo da sua API: requisição, processamento, persistência e resposta. Você
+                consegue explicar cada decisão arquitetural do projeto.</p>
+            <p>Com os 10 módulos você domina: arquitetura backend, modelagem relacional, ACID, idempotência,
+                resiliência, segurança, tipagem, escalabilidade e o fluxo completo de pagamento.</p>
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Esse conjunto de conhecimentos cobre
+                grande parte da engenharia de uma API financeira moderna. Parabéns por chegar até aqui!</p>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
+                <p style="text-align: center; opacity: 0.8;">Os 4 cartões finais que definem um Arquiteto de Software.
+                </p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-09/9-1-escalabilidade.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 9: Escalabilidade
+                </a>
+                <a href="../../../index.html" class="nav-btn nav-btn-next"
+                    style="background: linear-gradient(90deg, var(--accent), #8b5cf6); color: #000;">
+                    🎉 Finalizar Trilha
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                background: 'transparent',
+                primaryColor: '#2ecc71',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2ecc71',
+                lineColor: '#cbd5e1',
+                secondaryColor: '#1e1e1e',
+                tertiaryColor: '#0d1117'
+            }
+        });
+    </script>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "No Fluxo Completo, por que a validação de segurança (RBAC) ocorre antes mesmo da verificação de Idempotência?", verso: "Para aplicar o princípio de 'Fail Fast' (Falhar Rápido). Se um usuário mal-intencionado não tem token ou não tem a 'Role' correta, o sistema descarta a requisição na porta. Não gastamos poder computacional checando Idempotency-Key ou buscando produtos no banco se o usuário nem tem permissão de estar ali." },
+            { tipo: "teoria", frente: "O que significa 'Falha em Cascata' e como a IA Preditiva (Z-Score) evita isso?", verso: "Uma falha em cascata ocorre quando um Gateway fica lento (ex: 20 segundos de resposta), prendendo todas as threads do seu servidor e derrubando a sua API inteira. O Z-Score percebe que a latência fugiu do desvio padrão estatístico e tira o Gateway da jogada ANTES que ele trave a sua rede." },
+            { tipo: "teoria", frente: "Resumo da Arquitetura: Qual o papel de cada camada na sua API (Controller, Service, Model)?", verso: "1. Controller: É o Garçom. Pega o pedido HTTP, confere o IDempotency e devolve a resposta. \n2. Service: É o Chef. Executa as regras de negócio, calcula preços reais e cobra o Gateway.\n3. Model: É o Almoxarifado. Conversa com o banco de dados via ORM e persiste a transação em segurança (ACID)." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro Final:\nSe um recrutador te disser: 'Me convença de que a sua API de pagamentos é segura contra fraudes', o que você responde?", verso: "Primeiro, calculo o valor total da compra no backend, nunca confiando no 'price' vindo do JSON do cliente. Segundo, previno duplicidade de pagamento (double-click) usando a Idempotency-Key. Terceiro, exijo um JWT Token com Role-Based Access Control para garantir que apenas o sistema financeiro execute chargebacks. E quarto, garanto Atomicidade com db.transaction() para que, se a luz acabar, nenhum dado fique pela metade." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Masterização';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(139, 92, 246, 0.2); color: #a78bfa;';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+
+        // FUNÇÃO DE DEMONSTRAÇÃO DO Z-SCORE
+        function runZScoreDemo() {
+            const box = document.getElementById('zscore-terminal');
+            box.style.display = 'block';
+            box.innerHTML = '<span style="color: #8b949e;">[🤖 IA Middleware] Calibrando base de histórico estatístico...</span><br>';
+
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Principal] Req #101: 152ms (Z-Score: 0.12) - Estável</span><br>', 1200);
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Principal] Req #102: 165ms (Z-Score: 0.45) - Estável</span><br>', 2400);
+            setTimeout(() => box.innerHTML += '<span style="color: #f1c40f;">[Gateway Principal] Req #103: 310ms (Z-Score: 1.95) - Leve degradação...</span><br>', 3600);
+            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c;">[Gateway Principal] Req #104: 980ms (Z-Score: 4.80) - ⚠️ ANOMALIA DETECTADA!</span><br>', 4800);
+            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c; font-weight: bold;">[🤖 IA Preditiva] Desvio padrão estourado. Risco de timeout em cascata iminente.</span><br>', 6000);
+            setTimeout(() => box.innerHTML += '<span style="color: #a78bfa;">[Roteamento] 🔄 Failover Preventivo Ativado. Redirecionando tráfego para Contingência ANTES da falha.</span><br>', 7500);
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Secundário] Req #105: 140ms (Z-Score: 0.05) - Operação Salva! ✅ Pagamento processado.</span><br>', 9000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 — TypeScript e Tipagem de APIs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO --- */
+        .demo-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .demo-btn-js {
+            background: #f1c40f;
+            color: #000;
+        }
+
+        .demo-btn-js:hover {
+            background: #d4ac0d;
+        }
+
+        .demo-btn-ts {
+            background: #3178c6;
+            color: #fff;
+        }
+
+        .demo-btn-ts:hover {
+            background: #2962a3;
+        }
+
+        .demo-box {
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 08</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 8: TypeScript e Tipagem de APIs<span
+                    style="display:none;"></span></h1>
+            <p>Como garantir contratos seguros entre cliente e servidor e evitar bugs silenciosos na produção.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Até agora aprendemos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura da aplicação<span style="display:none;"></span></li>
+                <li>consistência de dados<span style="display:none;"></span></li>
+                <li>idempotência<span style="display:none;"></span></li>
+                <li>resiliência<span style="display:none;"></span></li>
+                <li>segurança de acesso<span style="display:none;"></span></li>
+            </ul>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Agora vamos entender um tema
+                fundamental no desenvolvimento moderno de APIs:<span style="display:none;"></span><br>
+                Como garantir que os dados da aplicação tenham o formato correto?<span style="display:none;"></span></p>
+            <p>Esse problema é resolvido usando tipagem estática.<span style="display:none;"></span></p>
+
+            <h2>1. O problema do JavaScript puro</h2>
+            <p>Historicamente o Node.js foi desenvolvido usando: JavaScript.<span style="display:none;"></span>
+                JavaScript é uma linguagem dinamicamente tipada.<span style="display:none;"></span></p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">JavaScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">let</span> value = <span style="color: #b5cea8;">10</span>
+value = <span style="color: #ce9178;">"dez"</span>
+value = <span style="color: #569cd6;">true</span><span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso funciona.<span style="display:none;"></span> Mas em aplicações grandes pode causar erros difíceis de
+                detectar.<span style="display:none;"></span> Exemplo em uma API:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">JavaScript</span>
+                </div>
+                <pre><code>amount = <span style="color: #ce9178;">"200"</span><span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Em vez de:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">JavaScript</span>
+                </div>
+                <pre><code>amount = <span style="color: #b5cea8;">200</span><span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso pode gerar erros financeiros.<span style="display:none;"></span></p>
+
+            <div
+                style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); margin: 40px 0;">
+                <h4 style="color: var(--accent); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                    🎮 Interativo: O Escudo de Tipagem na Prática
+                </h4>
+                <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 20px;">Clique nos botões abaixo para
+                    simular o que acontece quando o front-end envia acidentalmente o "amount" (valor) como uma String
+                    <code>"200"</code> em vez de um Número <code>200</code> para somar com uma taxa de <code>50</code>.
+                </p>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button
+                        onclick="document.getElementById('demo-js').style.display='block'; document.getElementById('demo-ts').style.display='none';"
+                        class="demo-button demo-btn-js">Executar em JavaScript Puro</button>
+                    <button
+                        onclick="document.getElementById('demo-js').style.display='none'; document.getElementById('demo-ts').style.display='block';"
+                        class="demo-button demo-btn-ts">Executar em TypeScript</button>
+                </div>
+
+                <div id="demo-js" class="demo-box"
+                    style="background: #1e1e1e; border-left: 4px solid #e74c3c; display: none;">
+                    <span style="color: #569cd6;">let</span> amount = <span style="color: #ce9178;">"200"</span>; <span
+                        style="color: #8b949e;">// O JS aceita qualquer coisa</span><br>
+                    <span style="color: #569cd6;">let</span> total = amount + <span style="color: #b5cea8;">50</span>;
+                    <span style="color: #8b949e;">// O cliente espera pagar 250</span><br>
+                    console.<span style="color: #dcdcaa;">log</span>(total);<br><br>
+                    <span style="color: #e74c3c;">// 🚨 RESULTADO SILENCIOSO NA PRODUÇÃO:</span><br>
+                    <span style="color: #e74c3c; font-weight: bold;">"20050" (Concatenou! Cliente cobrado R$
+                        20.050,00)</span>
+                </div>
+
+                <div id="demo-ts" class="demo-box"
+                    style="background: #1e1e1e; border-left: 4px solid #2ecc71; display: none;">
+                    <span style="color: #569cd6;">let</span> amount: <span style="color: #4ec9b0;">number</span> = <span
+                        style="color: #ce9178;">"200"</span>; <span style="color: #e74c3c; font-weight: bold;">// ❌ ERRO
+                        IMEDIATO NO VS CODE</span><br><br>
+                    <span style="color: #8b949e;">// 🛡️ O TypeScript trava o build do projeto antes de ir para o ar e
+                        avisa:</span><br>
+                    <span style="color: #e74c3c;">Error: Type 'string' is not assignable to type 'number'.</span>
+                </div>
+            </div>
+            <h2>2. O que é TypeScript</h2>
+            <p>Para resolver esses problemas foi criado: <strong>TypeScript</strong>.<span style="display:none;"></span>
+                TypeScript é um superset do JavaScript que adiciona tipagem estática.<span style="display:none;"></span>
+            </p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">let</span> amount: <span style="color: #4ec9b0;">number</span> = <span style="color: #b5cea8;">200</span><span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Agora se alguém tentar: <code>amount = "200"</code><span style="display:none;"></span> O compilador gera
+                erro.<span style="display:none;"></span></p>
+
+            <h2>3. Benefícios da tipagem em APIs</h2>
+            <p>Usar TypeScript em APIs traz vários benefícios.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>segurança de tipos: dados com formato incorreto são detectados antes de rodar<span
+                        style="display:none;"></span></li>
+                <li>refatoração segura: alterar código sem quebrar partes invisíveis<span style="display:none;"></span>
+                </li>
+                <li>melhor colaboração em equipe: tipos funcionam como documentação<span style="display:none;"></span>
+                </li>
+            </ul>
+
+            <h2>4. Tipos como contrato de API</h2>
+            <p>Em APIs modernas, tipos funcionam como um contrato entre cliente e servidor.<span
+                    style="display:none;"></span> Exemplo de contrato:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">CreateTransactionRequest</span> {
+    products: ProductInput[]
+    card_info: CardInfo
+}<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso define exatamente: quais campos são esperados.<span style="display:none;"></span></p>
+
+            <h2>5. Validação de dados</h2>
+            <p>Mesmo com TypeScript, precisamos validar dados vindos do cliente.<span style="display:none;"></span>
+                Porque o cliente pode enviar qualquer coisa.<span style="display:none;"></span> Por isso frameworks usam
+                validators.<span style="display:none;"></span> No seu projeto você utilizou: vine validator.<span
+                    style="display:none;"></span></p>
+            <p>Exemplo:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">export const</span> signupValidator = vine.create({
+    email: vine.string().email(),
+    password: vine.string().minLength(<span style="color: #b5cea8;">8</span>)
+})<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso garante: email válido, senha com tamanho mínimo.<span style="display:none;"></span></p>
+
+            <h2>6. Boundary da aplicação</h2>
+            <p>Uma prática importante em APIs é validar dados no boundary da aplicação.<span
+                    style="display:none;"></span> Boundary significa: entrada da API.<span style="display:none;"></span>
+            </p>
+            <p>Fluxo ideal:<span style="display:none;"></span><br>
+                <code>Request → Validator → Controller → Service</code><span style="display:none;"></span>
+            </p>
+            <p>Isso impede que dados inválidos avancem para a lógica de negócio.<span style="display:none;"></span></p>
+
+            <h2>7. Tipagem dentro da aplicação</h2>
+            <p>Dentro do código usamos tipos para modelar dados internos.<span style="display:none;"></span> Exemplo no
+                seu projeto: <code>PaymentResult</code>.<span style="display:none;"></span></p>
+            <p>Esse tipo pode representar algo como:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">PaymentResult</span> {
+    success: <span style="color: #4ec9b0;">boolean</span>
+    gateway: <span style="color: #4ec9b0;">string</span>
+    externalId?: <span style="color: #4ec9b0;">string</span>
+}<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso garante que o service sempre retorne um formato previsível.<span style="display:none;"></span></p>
+
+            <h2>8. Tipagem das respostas da API</h2>
+            <p>Outra boa prática é tipar as respostas da API.<span style="display:none;"></span> Exemplo:<span
+                    style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">TypeScript</span>
+                </div>
+                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">TransactionResponse</span> {
+    id: <span style="color: #4ec9b0;">number</span>
+    totalAmount: <span style="color: #4ec9b0;">number</span>
+    gateway: <span style="color: #4ec9b0;">string</span>
+}<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso cria um contrato claro para clientes da API.<span style="display:none;"></span></p>
+
+            <h2>9. Conectando com seu projeto</h2>
+            <p>No seu sistema TypeScript aparece em vários pontos:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Controllers: TransactionsController<span style="display:none;"></span></li>
+                <li>Services: PaymentService<span style="display:none;"></span></li>
+                <li>Models: Transaction, Product, User<span style="display:none;"></span></li>
+                <li>Validators: signupValidator, loginValidator<span style="display:none;"></span></li>
+            </ul>
+            <p>Isso mostra que seu projeto utiliza tipagem em toda a aplicação.<span style="display:none;"></span></p>
+
+            <h2>10. Problema real resolvido</h2>
+            <p>Sem tipagem podemos ter problemas como:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>valor enviado como string<span style="display:none;"></span></li>
+                <li>campo inexistente<span style="display:none;"></span></li>
+                <li>erro de estrutura no payload<span style="display:none;"></span></li>
+            </ul>
+            <p>Com TypeScript esses erros são detectados antes da execução.<span style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">11. Conectando com entrevistas<span
+                            style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">Uma pergunta comum em entrevistas é: "Por
+                    que você escolheu TypeScript para esse projeto?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        Eu escolhi TypeScript porque ele melhora a segurança do código através de tipagem estática.<span
+                            style="display:none;"></span> Em uma API de pagamentos isso é especialmente importante, pois
+                        ajuda a evitar erros de tipo em dados financeiros e garante contratos claros entre as camadas da
+                        aplicação.<span style="display:none;"></span> Além disso, facilita refatorações e melhora a
+                        colaboração em equipe.<span style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 8</h2>
+            <p>Agora você entende profundamente:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>o que é TypeScript<span style="display:none;"></span></li>
+                <li>por que usar tipagem em APIs<span style="display:none;"></span></li>
+                <li>como validar dados de entrada<span style="display:none;"></span></li>
+            </ul>
+            <p>E principalmente: como garantir contratos seguros entre cliente e servidor.<span
+                    style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 9):</p>
+                <p>No Módulo 9 vamos abordar algo que aparece muito em entrevistas: <strong>Escalabilidade de sistemas
+                        de pagamento</strong>.<span style="display:none;"></span> Vamos estudar: filas, processamento
+                    assíncrono e mensageria.<span style="display:none;"></span> E explicar como sua API poderia evoluir
+                    para um sistema de produção real.<span style="display:none;"></span></p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Tipagem e Boundary.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-07/7-1-seguranca-rbac.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 7: Segurança (RBAC)
+                </a>
+                <a href="../modulo-09/9-1-escalabilidade.html" class="nav-btn nav-btn-next">
+                    Módulo 9: Escalabilidade ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que significa 'tipagem estática' e qual a principal diferença para o JavaScript puro?", verso: "No JavaScript (tipagem dinâmica), os tipos são avaliados apenas quando o código está rodando (em tempo de execução), o que permite falhas silenciosas. O TypeScript (tipagem estática) analisa e trava o código no compilador (em tempo de desenvolvimento) se houver alguma inconsistência." },
+            { tipo: "teoria", frente: "Qual a função dos 'Validators' (como o VineJS) se o TypeScript já garante a tipagem do código?", verso: "O TypeScript protege o seu código internamente, mas ele não consegue controlar o que o cliente (front-end) digita no Postman ou no Navegador. Os Validators servem como os guardas na porta da sua API (Boundary), filtrando requisições maliciosas ou formatadas incorretamente antes de entrarem no seu sistema." },
+            { tipo: "teoria", frente: "O que significa validar dados no 'Boundary da Aplicação'?", verso: "Significa verificar, limpar e formatar os dados de entrada na exata fronteira onde o mundo externo (HTTP/Cliente) toca a sua API (geralmente antes ou dentro do Controller), garantindo que nada de inválido avance para a Camada de Serviços (Business Logic)." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nPor que é perigoso deixar o Front-End enviar o valor (amount) final que o cliente deve pagar?", verso: "Porque dados vindos do front-end são facilmente manipuláveis. Um usuário mal-intencionado poderia interceptar a requisição e alterar o payload para 'price: 1' ou enviar uma string vazia. A única forma segura é receber apenas o ID do produto e recalcular o valor matematicamente no Backend (Service Layer)." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

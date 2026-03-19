@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 — Escalabilidade e Sistemas de Produção</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO --- */
+        .demo-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .demo-btn-sync {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .demo-btn-sync:hover {
+            background: #c0392b;
+        }
+
+        .demo-btn-async {
+            background: #2ecc71;
+            color: #000;
+        }
+
+        .demo-btn-async:hover {
+            background: #27ae60;
+        }
+
+        .demo-box {
+            display: none;
+            padding: 25px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                Backend</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 09</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 9: Escalabilidade e Sistemas de Produção<span
+                    style="display:none;"></span></h1>
+            <p>O que precisaria mudar para que essa API suporte milhares de pagamentos por segundo?</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Até agora construímos praticamente toda a base de engenharia da sua API:<span
+                    style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>arquitetura em camadas<span style="display:none;"></span></li>
+                <li>modelagem de banco<span style="display:none;"></span></li>
+                <li>consistência (ACID)<span style="display:none;"></span></li>
+                <li>idempotência<span style="display:none;"></span></li>
+                <li>resiliência<span style="display:none;"></span></li>
+                <li>segurança<span style="display:none;"></span></li>
+                <li>tipagem<span style="display:none;"></span></li>
+            </ul>
+
+            <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Agora surge uma pergunta
+                fundamental:<span style="display:none;"></span><br>
+                O que precisaria mudar para que essa API suporte milhares de pagamentos por segundo?<span
+                    style="display:none;"></span></p>
+            <p>Esse é o problema da escalabilidade.<span style="display:none;"></span></p>
+
+            <h2>1. O problema da escala</h2>
+            <p>Seu sistema atual funciona assim:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fluxo Síncrono</span>
+                </div>
+                <pre><code>Cliente
+  ↓
+API
+  ↓
+Gateway
+  ↓
+Banco de dados<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Esse fluxo é síncrono.<span style="display:none;"></span> Ou seja: cliente espera a resposta da API.<span
+                    style="display:none;"></span></p>
+            <p>Isso funciona bem em:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>projetos pequenos<span style="display:none;"></span></li>
+                <li>baixo volume de requisições<span style="display:none;"></span></li>
+            </ul>
+            <p>Mas imagine um cenário real: 10.000 requisições por segundo.<span style="display:none;"></span> Agora
+                surgem problemas.<span style="display:none;"></span></p>
+
+            <h2>2. Gargalos do sistema</h2>
+            <p>Em sistemas de pagamento existem alguns gargalos comuns.<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>tempo de resposta do gateway: chamada externa pode demorar<span style="display:none;"></span></li>
+                <li>escrita no banco: muitas transações simultâneas<span style="display:none;"></span></li>
+                <li>concorrência: muitos usuários ao mesmo tempo<span style="display:none;"></span></li>
+            </ul>
+            <p>Isso pode causar: lentidão, timeout, sobrecarga.<span style="display:none;"></span></p>
+
+            <h2>3. Escala horizontal</h2>
+            <p>Uma das primeiras soluções é escala horizontal.<span style="display:none;"></span> Em vez de um único
+                servidor (API Server), usamos vários:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>API Server 1<span style="display:none;"></span></li>
+                <li>API Server 2<span style="display:none;"></span></li>
+                <li>API Server 3<span style="display:none;"></span></li>
+            </ul>
+            <p>Na frente deles fica um: Load Balancer.<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Load Balancing</span>
+                </div>
+                <pre><code>Cliente
+  ↓
+Load Balancer
+  ↓
+Múltiplos servidores<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso permite que o sistema processe mais requisições simultâneas.<span style="display:none;"></span></p>
+
+            <h2>4. Processamento assíncrono</h2>
+            <p>Outra estratégia muito usada é processamento assíncrono.<span style="display:none;"></span> Em vez de
+                processar tudo na requisição (Cliente espera o pagamento), podemos usar filas.<span
+                    style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fluxo Assíncrono</span>
+                </div>
+                <pre><code>Cliente
+  ↓
+API recebe requisição
+  ↓
+coloca evento na fila
+  ↓
+Worker processa pagamento<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso desacopla partes do sistema.<span style="display:none;"></span></p>
+
+            <div
+                style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); margin: 40px 0;">
+                <h4 style="color: var(--accent); margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                    🎮 Interativo: Simulador de Black Friday (10.000 Requisições)
+                </h4>
+                <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 20px;">Clique nos botões para simular uma
+                    enxurrada de acessos simultâneos na sua arquitetura atual (Síncrona) e na arquitetura ideal de
+                    produção (Assíncrona).</p>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button
+                        onclick="document.getElementById('demo-sync').style.display='block'; document.getElementById('demo-async').style.display='none';"
+                        class="demo-button demo-btn-sync">Testar Arquitetura Síncrona</button>
+                    <button
+                        onclick="document.getElementById('demo-sync').style.display='none'; document.getElementById('demo-async').style.display='block';"
+                        class="demo-button demo-btn-async">Testar Arquitetura Assíncrona</button>
+                </div>
+
+                <div id="demo-sync" class="demo-box"
+                    style="background: #1e1e1e; border-left: 4px solid #e74c3c; display: none;">
+                    <span style="color: #8b949e;">[API] Recebendo 10.000 requisições simultâneas...</span><br>
+                    <span style="color: #dcdcaa;">[Gateway] Tentando processar...</span><br>
+                    <span style="color: #e74c3c;">[Erro] Connection Timeout no Gateway! (Gargalo de I/O)</span><br>
+                    <span style="color: #e74c3c;">[Banco] Falha de concorrência - Deadlock na Tabela!</span><br>
+                    <span style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;"><br>💥 STATUS: Sistema Fora do
+                        Ar (Downtime). Clientes aguardando tela de carregamento infinita.</span>
+                </div>
+
+                <div id="demo-async" class="demo-box"
+                    style="background: #1e1e1e; border-left: 4px solid #2ecc71; display: none;">
+                    <span style="color: #8b949e;">[API] Recebendo 10.000 requisições simultâneas...</span><br>
+                    <span style="color: #2ecc71;">[Fila] Inserindo 10.000 mensagens no RabbitMQ (0.01ms)...</span><br>
+                    <span style="color: #569cd6;">[API] Respondendo cliente: "Pagamento em Processamento!" (HTTP
+                        202)</span><br>
+                    <span style="color: #dcdcaa;">[Workers] 50 Workers consumindo a fila gradativamente...</span><br>
+                    <span style="color: #2ecc71; font-weight: bold; font-size: 1.1rem;"><br>✅ STATUS: 10.000 pagamentos
+                        processados em background sem queda do servidor central!</span>
+                </div>
+            </div>
+            <h2>5. Sistemas de mensageria</h2>
+            <p>Para implementar filas usamos sistemas de mensageria.<span style="display:none;"></span> Alguns exemplos
+                populares: RabbitMQ, Apache Kafka.<span style="display:none;"></span></p>
+            <p>Esses sistemas permitem:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>processamento assíncrono<span style="display:none;"></span></li>
+                <li>alta escalabilidade<span style="display:none;"></span></li>
+                <li>tolerância a falhas<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>6. Workers</h2>
+            <p>Quando usamos filas, adicionamos workers.<span style="display:none;"></span> Workers são processos
+                responsáveis por executar tarefas.<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fila e Worker</span>
+                </div>
+                <pre><code>API
+  ↓
+Fila
+  ↓
+Worker
+  ↓
+Gateway<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso permite processar milhares de pagamentos paralelamente.<span style="display:none;"></span></p>
+
+            <h2>7. Rate limiting</h2>
+            <p>Outra proteção importante é limitar requisições.<span style="display:none;"></span> Isso evita ataques ou
+                abusos.<span style="display:none;"></span> Exemplo: 100 requisições por minuto por usuário.<span
+                    style="display:none;"></span></p>
+            <p>Ferramenta comum em Node: Redis.<span style="display:none;"></span> Redis é usado para armazenar
+                contadores rápidos.<span style="display:none;"></span></p>
+
+            <h2>8. Observabilidade</h2>
+            <p>Quando sistemas crescem precisamos monitorá-los.<span style="display:none;"></span> Isso inclui: logs,
+                métricas, alertas.<span style="display:none;"></span></p>
+            <p>Ferramentas comuns: Prometheus, Grafana.<span style="display:none;"></span> Isso permite responder
+                perguntas como:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>quantos pagamentos estão sendo processados?<span style="display:none;"></span></li>
+                <li>qual gateway está falhando?<span style="display:none;"></span></li>
+                <li>qual tempo médio de resposta?<span style="display:none;"></span></li>
+            </ul>
+
+            <h2>9. Circuit breaker</h2>
+            <p>No módulo de resiliência vimos o failover.<span style="display:none;"></span> Mas sistemas de produção
+                também usam Circuit Breaker.<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Circuit Breaker</span>
+                </div>
+                <pre><code>gateway falha repetidamente
+  ↓
+circuit breaker abre
+  ↓
+API para de chamar esse gateway<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso evita sobrecarregar serviços que já estão falhando.<span style="display:none;"></span></p>
+
+            <h2>10. Evolução da arquitetura</h2>
+            <p>Seu sistema atual: <code>Cliente → API → Gateway → Banco</code><span style="display:none;"></span></p>
+            <p>Uma arquitetura de produção poderia evoluir para:<span style="display:none;"></span></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Arquitetura de Produção</span>
+                </div>
+                <pre><code>Cliente
+  ↓
+API
+  ↓
+Fila
+  ↓
+Workers
+  ↓
+Gateway
+  ↓
+Banco<span style="display:none;"></span></code></pre>
+            </div>
+
+            <p>Isso melhora: escala, resiliência, performance.<span style="display:none;"></span></p>
+
+            <h2>11. Conectando com seu projeto</h2>
+            <p>Seu projeto já possui vários elementos importantes para produção:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>Service Layer<span style="display:none;"></span></li>
+                <li>Failover de gateway<span style="display:none;"></span></li>
+                <li>Idempotência<span style="display:none;"></span></li>
+                <li>Transações ACID<span style="display:none;"></span></li>
+                <li>RBAC<span style="display:none;"></span></li>
+            </ul>
+            <p>Esses elementos formam a base de um sistema financeiro robusto.<span style="display:none;"></span></p>
+            <p>As evoluções necessárias seriam principalmente: filas, observabilidade, circuit breaker, rate
+                limiting.<span style="display:none;"></span></p>
+
+            <div
+                style="border: 1px dashed rgba(46, 204, 113, 0.4); border-radius: 16px; padding: 30px; background: rgba(0, 0, 0, 0.2); margin-top: 50px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: var(--accent); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Simulado
+                        Técnica</span>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.2rem;">12. Pergunta de entrevista (Módulo
+                        9)<span style="display:none;"></span></h3>
+                </div>
+                <p style="font-size: 1.15rem; font-weight: 600; color: #fff;">"Como você transformaria esse projeto em
+                    um sistema de produção?"<span style="display:none;"></span></p>
+                <details style="margin-top: 20px;">
+                    <summary
+                        style="cursor: pointer; color: var(--accent); font-weight: bold; outline: none; display: flex; align-items: center; gap: 8px;">
+                        👉 Clique para revelar a Resposta madura
+                    </summary>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px; color: #cbd5e1; line-height: 1.7;">
+                        O projeto já possui uma base sólida com arquitetura em camadas, transações ACID, idempotência e
+                        failover entre gateways.<span style="display:none;"></span> Para evoluir para produção eu
+                        adicionaria processamento assíncrono usando filas, workers para executar pagamentos em paralelo,
+                        monitoramento com métricas e logs estruturados, além de mecanismos de proteção como rate
+                        limiting e circuit breakers para lidar melhor com falhas externas.<span
+                            style="display:none;"></span>
+                    </p>
+                </details>
+            </div>
+
+            <h2>Conclusão do Módulo 9</h2>
+            <p>Agora você entende profundamente:<span style="display:none;"></span></p>
+            <ul style="line-height: 1.8;">
+                <li>escalabilidade<span style="display:none;"></span></li>
+                <li>processamento assíncrono<span style="display:none;"></span></li>
+                <li>filas<span style="display:none;"></span></li>
+                <li>observabilidade<span style="display:none;"></span></li>
+            </ul>
+            <p>E principalmente: como evoluir sua API para produção.<span style="display:none;"></span></p>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <p class="highlight-text">Próximo passo (Módulo 10):</p>
+                <p>No Módulo 10 (A grande Masterclass final) vamos analisar a <strong>Anatomia Completa do Fluxo de
+                        Pagamento</strong>. Vamos repassar tudo o que aprendemos e entender exatamente o que acontece
+                    milissegundo a milissegundo quando um cliente clica em "Comprar".</p>
+            </div>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
+                    Escalabilidade e Filas.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-08/8-1-typescript-tipagem.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 8: TypeScript
+                </a>
+                <a href="../modulo-10/10-1-fluxo-completo.html" class="nav-btn nav-btn-next">
+                    Módulo 10: Fluxo Completo ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "O que é Escala Horizontal e por que ela exige um Load Balancer?", verso: "Escala Horizontal é adicionar mais servidores físicos (máquinas) em vez de melhorar a potência de um só (Escala Vertical). O Load Balancer (Balanceador de Carga) é necessário para distribuir o tráfego da rede uniformemente entre esses múltiplos servidores para que nenhum fique sobrecarregado." },
+            { tipo: "teoria", frente: "Qual a grande vantagem de adotar o Processamento Assíncrono (uso de Filas como RabbitMQ/Kafka)?", verso: "Desacoplamento. A API recebe o pedido, salva na fila e responde instantaneamente ao cliente ('Processando...'). Ela não fica travada esperando o gateway responder, permitindo que o sistema suporte milhares de acessos simultâneos (Workers cuidam do trabalho pesado em background)." },
+            { tipo: "teoria", frente: "Como ferramentas de Observabilidade (Prometheus, Grafana) salvam sistemas em produção?", verso: "Ao contrário de apenas olhar 'logs' soltos, a observabilidade cria métricas visuais e alertas automatizados. Se a taxa de erros do Gateway 1 passar de 5%, por exemplo, os engenheiros são notificados em tempo real antes que os clientes comecem a reclamar no suporte." },
+            { tipo: "caso_clinico", frente: "🚨 A Pergunta de Ouro (Entrevista):\nPor que você usaria o Redis para implementar Rate Limiting na sua API?", verso: "O Redis é um banco de dados em memória ultrarrápido. O Rate Limiting serve para evitar ataques de força bruta (ex: 1.000 requisições por segundo do mesmo IP). Usar o Redis permite incrementar contadores em milissegundos sem sobrecarregar o banco de dados relacional principal (MySQL/PostgreSQL)." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Entrevista' : '📖 Fixação';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(46,204,113,0.2); color: var(--accent);';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>
