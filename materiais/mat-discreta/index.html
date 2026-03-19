@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática Discreta — CS Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        /* --- LAYOUT EM DUAS COLUNAS --- */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1100px) {
+            .dashboard-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        /* --- ESTILOS DA COLUNA ESQUERDA (EMENTA) --- */
+        .course-header {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(11, 15, 20, 0.8));
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(52, 152, 219, 0.4);
+            transform: translateX(5px);
+        }
+
+        .btn-access {
+            background: var(--accent);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-access:hover {
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
+
+        /* --- ESTILOS DA COLUNA DIREITA (PAINEL DE TREINAMENTO) --- */
+        .practice-panel {
+            background: rgba(11, 15, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .practice-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .practice-panel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb {
+            background: rgba(52, 152, 219, 0.5);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(52, 152, 219, 0.8);
+        }
+
+        .training-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .training-card:hover {
+            border-color: rgba(52, 152, 219, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .view-container {
+            display: none;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        .view-active {
+            display: block;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: #888;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-back:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Estilos das Questões */
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+            border: 1px solid #3498db;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .btn-reveal {
+            background: transparent;
+            color: #3498db;
+            border: 1px dashed #3498db;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .btn-reveal:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #2ecc71;
+            border-radius: 0 8px 8px 0;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .answer-box h4 {
+            color: #2ecc71;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .math-block {
+            background: #000;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            color: #dcdcaa;
+            border: 1px solid #30363d;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <span style="color: #3498db; font-size: 0.9rem; font-weight: bold;">Ciência da Computação</span>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">1º Período</span>
+    </nav>
+
+    <div class="dashboard-layout">
+
+        <main>
+            <div class="course-header">
+                <span class="badge-tech"
+                    style="background: rgba(52, 152, 219, 0.2); color: #3498db; border: 1px solid #3498db; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CARGA
+                    HORÁRIA: 80 HORAS</span>
+                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">Matemática Discreta
+                </h1>
+                <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
+                    A base matemática da Ciência da Computação. Abandone a decoreba e aprenda a pensar como um
+                    processador através de Lógica, Conjuntos, Combinatória e Grafos.
+                </p>
+            </div>
+
+            <h2
+                style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;">
+                Ementa do Curso</h2>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        01</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Fundamentos da Lógica</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Lógica Proposicional, Tabelas-Verdade e
+                        Quantificadores.</p>
+                </div>
+                <a href="modulo-01/1-1-fundamentos-logica.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        02</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Teoria dos Conjuntos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">A base matemática para Bancos de Dados
+                        Relacionais.</p>
+                </div>
+                <a href="modulo-02/2-1-teoria-conjuntos.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        03</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Indução e Recursividade</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Entendendo funções recursivas e loops na
+                        memória.</p>
+                </div>
+                <a href="modulo-03/3-1-inducao-recursividade.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        04</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Análise Combinatória</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O Guia Definitivo de Interpretação:
+                        Arranjo, Permutação e Combinação.</p>
+                </div>
+                <a href="modulo-04/4-1-interpretacao-combinatoria.html" class="btn-access btn-secondary">Acessar Aula
+                    ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        05</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Probabilidade Discreta</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O alicerce da Inteligência Artificial e
+                        Machine Learning.</p>
+                </div>
+                <a href="modulo-05/5-1-probabilidade-discreta.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #3498db;">
+                <div>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        06</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Teoria dos Grafos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Algoritmos de rotas, redes sociais e
+                        estruturas de alta performance.</p>
+                </div>
+                <a href="modulo-06/6-1-teoria-grafos.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+            </div>
+        </main>
+
+        <aside class="practice-panel">
+
+            <div id="view-menu" class="view-container view-active">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
+                    <h2 style="margin: 0; color: #3498db; font-size: 1.4rem;">🧠 Área de Treinamento</h2>
+                </div>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;">Escolha o simulado do módulo que deseja
+                    praticar.</p>
+
+                <div class="training-card" style="border-left: 4px solid #3498db;">
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">MÓDULO
+                        01</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Fundamentos da Lógica</h3>
+                    <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
+                        onclick="openView('view-mod-01')">Começar Simulado ▶</button>
+                </div>
+
+                <div class="training-card">
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 02</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Teoria dos Conjuntos</h3>
+                    <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
+                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                </div>
+
+                <div class="training-card">
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 03</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Indução e Recursividade</h3>
+                    <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
+                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                </div>
+
+                <div class="training-card" style="border-left: 4px solid #3498db;">
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">MÓDULO
+                        04</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Análise Combinatória</h3>
+                    <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
+                        onclick="openView('view-mod-04')">Começar Simulado ▶</button>
+                </div>
+
+                <div class="training-card">
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 05</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Probabilidade Discreta</h3>
+                    <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
+                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                </div>
+
+                <div class="training-card">
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 06</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Teoria dos Grafos</h3>
+                    <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
+                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                </div>
+            </div>
+
+            <div id="view-mod-01" class="view-container">
+                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: #3498db; font-size: 1.3rem; margin: 0 0 5px 0;">Simulado: Fundamentos da Lógica
+                    </h3>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">01</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Aquecimento</span>
+                    </div>
+                    <div class="question-text">
+                        A afirmação: <em>"Se chover amanhã, então eu levarei o guarda-chuva"</em> é um exemplo clássico
+                        de Implicação (P → Q). Qual é a ÚNICA situação em que essa afirmação será considerada FALSA?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-m1-1', this)">Já fiz sozinho! Revelar
+                        Gabarito</button>
+                    <div id="ans-m1-1" class="answer-box">
+                        <h4>✅ Resolução</h4>
+                        <p>A implicação (P → Q) só é falsa no caso "Vera Fischer": A premissa é Verdadeira e a conclusão
+                            é Falsa.</p>
+                        <div class="math-block">Choveu (V), mas eu NÃO levei o guarda-chuva (F).</div>
+                        <p>Nesse caso, a promessa foi quebrada.</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">02</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Código Real</span>
+                    </div>
+                    <div class="question-text">
+                        Você encontrou a seguinte linha de código no backend: <br><br>
+                        <code>if (!(isAdmin || isManager)) { return "Acesso Negado"; }</code><br><br>
+                        Como você reescreveria a condição de dentro do <code>if</code> aplicando a Lei de De Morgan para
+                        eliminar os parênteses externos?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-m1-2', this)">Já fiz sozinho! Revelar
+                        Gabarito</button>
+                    <div id="ans-m1-2" class="answer-box">
+                        <h4>✅ Resolução</h4>
+                        <p>A Lei de De Morgan diz que a negação de um "OU" (||) se transforma em um "E" (&&) com as
+                            variáveis negadas.</p>
+                        <div class="math-block">!isAdmin && !isManager</div>
+                        <p>Ou seja: Se não for admin E não for gerente, acesso negado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-mod-04" class="view-container

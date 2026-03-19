@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 — Interpretação em Análise Combinatória</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid var(--accent);
+            background: rgba(46, 204, 113, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f39c12;
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            color: #cbd5e1;
+        }
+
+        table.db-table th {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table.db-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent);
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid var(--accent);
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO --- */
+        .demo-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .demo-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        .demo-btn-alt {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .demo-btn-alt:hover {
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+        }
+
+        .demo-box {
+            padding: 25px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            min-height: 150px;
+            text-align: center;
+        }
+
+        .mermaid {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html"
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Matemática
+                Discreta</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 01</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech" style="background: linear-gradient(90deg, #3498db, #2980b9); color: #fff;">CIÊNCIA
+                DA COMPUTAÇÃO</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 1: O Guia Definitivo de Interpretação</h1>
+            <p>Se você já decorou as fórmulas mas trava na hora de ler o enunciado, esta aula é para você.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Você não está sozinho. A frase mais ouvida pelos professores de Matemática Discreta é exatamente esta:
+            </p>
+
+            <div
+                style="padding: 20px; border-left: 4px solid #f1c40f; background: rgba(241, 196, 15, 0.05); font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin: 20px 0;">
+                "Os conceitos eu já entendi, sei as fórmulas... eu só preciso aprender a interpretar as perguntas para
+                achar a solução."
+            </div>
+
+            <p>Análise Combinatória <strong>não é sobre decorar matemática</strong>. É sobre <strong>traduzir o
+                    português</strong>. A partir de hoje, você não vai mais tentar "adivinhar" a fórmula. Você vai
+                executar um algoritmo de decisão.</p>
+
+            <h2>1. O Dicionário do Problema (Português → Matemática)</h2>
+            <p>A primeira coisa que precisamos fazer é treinar o seu cérebro para identificar "Gatilhos" no texto.
+                Algumas palavras no enunciado gritam a operação matemática que você deve usar.</p>
+
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Palavra-Chave no Texto</th>
+                        <th>Tradução Matemática</th>
+                        <th>Exemplo Prático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: #e74c3c; font-weight: bold;">"E"</td>
+                        <td>Multiplicação (Princípio Multiplicativo)</td>
+                        <td>Escolher 1 camisa <strong>E</strong> 1 calça. (3 camisas × 2 calças = 6)</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #3498db; font-weight: bold;">"OU"</td>
+                        <td>Soma (Princípio Aditivo)</td>
+                        <td>Viajar de ônibus <strong>OU</strong> de avião. (3 ônibus + 2 aviões = 5)</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #2ecc71; font-weight: bold;">"Pelo menos um"</td>
+                        <td>Técnica do Complementar (TOTAL - O que eu não quero)</td>
+                        <td>"Comissões com <strong>pelo menos 1</strong> médico" = (Todas as comissões) - (Comissões SEM
+                            nenhum médico).</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #9b59b6; font-weight: bold;">"Juntos / Lado a lado"</td>
+                        <td>Técnica do Bloco</td>
+                        <td>Amarrar os elementos como se fossem 1 só item e permutar o bloco.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>2. A Árvore de Decisão Suprema</h2>
+            <p>Quando você se deparar com um problema pedindo para "escolher", "formar", "montar" ou "organizar", você
+                nunca mais vai chutar uma fórmula. Você fará <strong>exatamente estas duas perguntas</strong> para o
+                enunciado:</p>
+
+            <div class="mermaid">
+                flowchart TD
+                A[Eu preciso escolher/organizar elementos.] --> B{1. A ORDEM dos elementos <br> muda o resultado?}
+                B -->|NÃO| C[COMBINAÇÃO <br> C = n! / p! n-p !]
+                B -->|SIM| D{2. Vou usar TODOS <br> os elementos disponíveis?}
+                D -->|SIM| E[PERMUTAÇÃO <br> P = n!]
+                D -->|NÃO| F[ARRANJO <br> A = n! / n-p !]
+            </div>
+
+            <div
+                style="background: linear-gradient(145deg, rgba(52, 152, 219, 0.1), rgba(0,0,0,0.5)); border-radius: 16px; padding: 40px; border: 1px solid rgba(52, 152, 219, 0.3); margin: 50px 0; box-shadow: 0 10px 40px rgba(52, 152, 219, 0.1);">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <span
+                        style="background: linear-gradient(90deg, #3498db, #2980b9); color: #fff; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Treinamento
+                        Interativo</span>
+                    <h2 style="margin: 0; color: #3498db; border: none; padding: 0;">O Simulador Detetive</h2>
+                </div>
+
+                <p style="font-size: 1.05rem; line-height: 1.8;">Vamos treinar o seu cérebro. Leia um problema
+                    mentalmente e responda às perguntas abaixo. O simulador revelará a ferramenta exata que você precisa
+                    usar.</p>
+
+                <div id="sim-step-1" class="demo-box" style="display: block;">
+                    <p style="color: #fff; font-size: 1.2rem; margin-bottom: 30px;"><strong>Pergunta 1:</strong> Se você
+                        inverter a ordem das pessoas/coisas que você escolheu, isso gera um resultado
+                        <strong>novo/diferente</strong>?<br><br><span
+                            style="font-size: 0.9rem; color: #8b949e;">Exemplo: A senha "123" é diferente de "321"? O
+                            Pódio "1º João, 2º Maria" é diferente de "1º Maria, 2º João"? A comissão "Ana e Beto" é
+                            diferente da comissão "Beto e Ana"?</span></p>
+                    <div style="display: flex; justify-content: center; gap: 15px;">
+                        <button onclick="nextSim(true)" class="demo-button">Sim (A ordem importa)</button>
+                        <button onclick="showResult('combinacao')" class="demo-button demo-btn-alt">Não (A ordem não
+                            importa)</button>
+                    </div>
+                </div>
+
+                <div id="sim-step-2" class="demo-box" style="display: none;">
+                    <p style="color: #fff; font-size: 1.2rem; margin-bottom: 30px;"><strong>Pergunta 2:</strong> Você
+                        vai usar <strong>TODOS</strong> os elementos disponíveis de uma vez na sua
+                        organização?<br><br><span style="font-size: 0.9rem; color: #8b949e;">Exemplo: Você tem 5 pessoas
+                            e vai organizar as 5 na fila? Ou você tem 10 pessoas, mas só vai escolher 3 para sentar nas
+                            cadeiras?</span></p>
+                    <div style="display: flex; justify-content: center; gap: 15px;">
+                        <button onclick="showResult('permutacao')" class="demo-button">Sim (Uso todos os N
+                            elementos)</button>
+                        <button onclick="showResult('arranjo')" class="demo-button demo-btn-alt">Não (Escolho apenas P
+                            elementos)</button>
+                    </div>
+                </div>
+
+                <div id="res-combinacao" class="demo-box" style="display: none; border-left: 4px solid #f1c40f;">
+                    <h3 style="color: #f1c40f; margin-top: 0; font-size: 1.5rem;">É UMA COMBINAÇÃO! 🎯</h3>
+                    <p>Se trocar a ordem não muda nada (ex: fazer uma salada de frutas com Maçã e Banana é igual a
+                        Banana e Maçã), você apenas agrupa. Use a fórmula de Combinação Simples e não sofra.</p>
+                    <button onclick="resetSim()"
+                        style="margin-top: 15px; background: transparent; border: 1px solid #8b949e; color: #8b949e; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Tentar
+                        outro problema</button>
+                </div>
+
+                <div id="res-permutacao" class="demo-box" style="display: none; border-left: 4px solid #2ecc71;">
+                    <h3 style="color: #2ecc71; margin-top: 0; font-size: 1.5rem;">É UMA PERMUTAÇÃO! 🔄</h3>
+                    <p>A ordem importa E você está usando todo mundo ao mesmo tempo (ex: Anagramas da palavra AMOR,
+                        organizar 5 pessoas em 5 cadeiras). Você só está "embaralhando" os lugares. Use n!</p>
+                    <button onclick="resetSim()"
+                        style="margin-top: 15px; background: transparent; border: 1px solid #8b949e; color: #8b949e; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Tentar
+                        outro problema</button>
+                </div>
+
+                <div id="res-arranjo" class="demo-box" style="display: none; border-left: 4px solid #e74c3c;">
+                    <h3 style="color: #e74c3c; margin-top: 0; font-size: 1.5rem;">É UM ARRANJO! 🏆</h3>
+                    <p>A ordem importa, MAS você não está usando todo mundo (ex: Tem 10 corredores, mas só os 3
+                        primeiros ganham medalhas diferentes). Trocar a ordem importa, e ficam pessoas de fora. Use a
+                        fórmula de Arranjo (ou as barrinhas do PFC).</p>
+                    <button onclick="resetSim()"
+                        style="margin-top: 15px; background: transparent; border: 1px solid #8b949e; color: #8b949e; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Tentar
+                        outro problema</button>
+                </div>
+            </div>
+            <h2>3. Estudos de Caso: Dissecando Enunciados</h2>
+
+            <h3>Caso 1: O Pódio da Fórmula 1</h3>
+            <p><em>"Dez pilotos disputam uma corrida. Quantos são os possíveis resultados para o pódio (1º, 2º e 3º
+                    lugares)?"</em></p>
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Raciocínio Mental</span>
+                </div>
+                <pre><code><span style="color: #8b949e;">// 1. A Ordem importa?</span>
+<span style="color: #569cd6;">Sim!</span> Hamilton em 1º e Massa em 2º é diferente de Massa em 1º e Hamilton em 2º.
+
+<span style="color: #8b949e;">// 2. Uso todos os elementos?</span>
+<span style="color: #569cd6;">Não.</span> Tenho 10 pilotos, mas só escolho 3 para o pódio.
+
+<span style="color: #2ecc71;">// CONCLUSÃO: ARRANJO (Ou Princípio Fundamental da Contagem: 10 * 9 * 8)</span></code></pre>
+            </div>
+
+            <h3>Caso 2: A Diretoria da Empresa</h3>
+            <p><em>"Uma empresa tem 10 gerentes. Quantas comissões formadas por 3 gerentes podem ser montadas para
+                    analisar um projeto?"</em></p>
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Raciocínio Mental</span>
+                </div>
+                <pre><code><span style="color: #8b949e;">// 1. A Ordem importa?</span>
+<span style="color: #569cd6;">Não!</span> Uma comissão formada por João, Maria e Pedro é exatamente a mesma comissão formada por Pedro, Maria e João. Os cargos não são diferentes (como Presidente e Vice).
+
+<span style="color: #2ecc71;">// CONCLUSÃO: COMBINAÇÃO SIMPLES (C 10,3)</span></code></pre>
+            </div>
+
+            <h3>Caso 3: A Fila do Banco</h3>
+            <p><em>"De quantas maneiras 5 pessoas podem se organizar em uma fila no caixa do banco?"</em></p>
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Raciocínio Mental</span>
+                </div>
+                <pre><code><span style="color: #8b949e;">// 1. A Ordem importa?</span>
+<span style="color: #569cd6;">Sim!</span> Ser o primeiro da fila é muito diferente de ser o último da fila.
+
+<span style="color: #8b949e;">// 2. Uso todos os elementos?</span>
+<span style="color: #569cd6;">Sim.</span> Tenho 5 pessoas e as 5 entrarão na fila simultaneamente. 
+
+<span style="color: #2ecc71;">// CONCLUSÃO: PERMUTAÇÃO SIMPLES (P5 = 5!)</span></code></pre>
+            </div>
+
+            <h2>Conclusão: O Segredo é a Pergunta</h2>
+            <p>Como você pôde ver, o desafio não estava na matemática, estava no português. A partir de hoje, nunca
+                comece uma questão de Combinatória escrevendo números. Comece fazendo as duas perguntas vitais do
+                Simulador para o texto. Se a ordem importa e a quantidade muda, a matemática flui naturalmente.</p>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Interpretando
+                    Textos</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões e force seu cérebro a classificar o
+                    problema, e não a calculá-lo.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="#" class="nav-btn nav-btn-prev" style="visibility: hidden;">
+                    ⬅ Anterior
+                </a>
+                <a href="#" class="nav-btn nav-btn-next">
+                    Módulo 2: Probabilidade ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                background: 'transparent',
+                primaryColor: '#3498db',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#3498db',
+                lineColor: '#cbd5e1',
+                secondaryColor: '#1e1e1e',
+                tertiaryColor: '#0d1117'
+            }
+        });
+    </script>
+
+    <script>
+        const flashcardsData = [
+            { tipo: "teoria", frente: "Problema: 'Quantos anagramas possui a palavra COMPUTAÇÃO?' - Qual ferramenta usar?", verso: "Permutação com Repetição! \nA Ordem importa (letras diferentes formam palavras diferentes) e vamos usar TODAS as letras. Como existem letras repetidas (C, O, A, Ç...), temos que dividir o fatorial total pelos fatoriais das repetições." },
+            { tipo: "teoria", frente: "Problema: 'Em um campeonato com 20 times, de quantas maneiras podemos ter o Campeão e o Vice-Campeão?' - Qual ferramenta?", verso: "Arranjo Simples! (Ou apenas Princípio Multiplicativo: 20 x 19).\nA ordem importa (Ser Campeão é diferente de Vice) e NÃO vamos usar todos os 20 times (apenas 2 vagas disponíveis)." },
+            { tipo: "teoria", frente: "Problema: 'Numa turma de 30 alunos, preciso escolher 4 para limpar a sala.' - Qual ferramenta?", verso: "Combinação Simples!\nA ordem NÃO importa. Escolher (Ana, Beto, Carlos e Dani) ou (Dani, Carlos, Beto e Ana) resulta no mesmo grupo de pessoas que vai limpar a sala com a mesma função." },
+            { tipo: "caso_clinico", frente: "🚨 Casca de Banana:\n'De quantas maneiras posso organizar 3 casais em um banco de 6 lugares, sendo que os casais DEVEM ficar juntos?'", verso: "Técnica do Bloco + Permutação!\nComo os casais não podem se separar, amarramos o Homem e a Mulher de cada casal como 1 BLOCO. Permutamos os 3 Blocos (3!) e, em seguida, multiplicamos pela permutação interna de cada casal (Homem-Mulher ou Mulher-Homem = 2! x 2! x 2!). Resposta: 3! * 2³." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Casca de Banana' : '📖 Diagnóstico';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(52, 152, 219, 0.2); color: #3498db;';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+
+        // LOGIC FOR THE INTERACTIVE SIMULATOR
+        function nextSim(orderMatters) {
+            document.getElementById('sim-step-1').style.display = 'none';
+            if (orderMatters) {
+                document.getElementById('sim-step-2').style.display = 'block';
+            }
+        }
+
+        function showResult(type) {
+            document.getElementById('sim-step-1').style.display = 'none';
+            document.getElementById('sim-step-2').style.display = 'none';
+
+            document.getElementById('res-combinacao').style.display = 'none';
+            document.getElementById('res-permutacao').style.display = 'none';
+            document.getElementById('res-arranjo').style.display = 'none';
+
+            if (type === 'combinacao') document.getElementById('res-combinacao').style.display = 'block';
+            if (type === 'permutacao') document.getElementById('res-permutacao').style.display = 'block';
+            if (type === 'arranjo') document.getElementById('res-arranjo').style.display = 'block';
+        }
+
+        function resetSim() {
+            document.getElementById('res-combinacao').style.display = 'none';
+            document.getElementById('res-permutacao').style.display = 'none';
+            document.getElementById('res-arranjo').style.display = 'none';
+            document.getElementById('sim-step-2').style.display = 'none';
+            document.getElementById('sim-step-1').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

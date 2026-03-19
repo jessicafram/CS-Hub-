@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Hub — Engenharia de Software de Elite. Para Todos.</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0b0f14;
+            --accent-blue: #3498db;
+            --accent-purple: #8b5cf6;
+            --accent-green: #2ecc71;
+            --accent-orange: #f39c12;
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* ==========================================
+           NAVEGAÇÃO (COM A LOGO DA HOME PRINCIPAL)
+        ========================================== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--accent-green);
+            /* Borda mais fina para igualar à home */
+            background: transparent;
+            /* Fundo removido para mesclar com o tema dark */
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hub-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .jessica-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            line-height: 1;
+            margin-top: 3px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--glass-border);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            color: #fff;
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 85vh;
+            padding: 40px 0;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 90%;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop') center/cover;
+            height: 500px;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: rgba(11, 15, 20, 0.9);
+            border: 1px solid var(--glass-border);
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- MANIFESTO --- */
+        .manifesto {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-color) 0%, rgba(52, 152, 219, 0.05) 100%);
+        }
+
+        .manifesto-text {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .manifesto-highlight {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        /* --- GRADE DE MATÉRIAS --- */
+        .curriculum {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+
+        .group-title {
+            font-size: 1.25rem;
+            color: #fff;
+            margin: 50px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
+        }
+
+        .course-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .course-card ul {
+            list-style: none;
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        .course-card li {
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-table;
+            font-size: 0.7rem;
+            font-family: 'Fira Code', monospace;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            align-self: flex-start;
+            font-weight: 600;
+        }
+
+        /* --- DESTAQUE: SÓ O COMEÇO --- */
+        .just-beginning {
+            margin: 80px 0;
+            padding: 60px;
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), rgba(52, 152, 219, 0.1));
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+            border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .just-beginning::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 60%);
+            animation: pulse 10s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .just-beginning-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- CTA FINAL --- */
+        .cta-section {
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(11, 15, 20, 0.9), rgba(52, 152, 219, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .email-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+
+        .email-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--glass-border);
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        /* --- MODAL CRIADOR & CRIATURA --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #0b0f14, #1a1f26);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 24px;
+            padding: 50px;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .btn-close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-close-modal:hover {
+            color: #fff;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .creator-card,
+        .creature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .creator-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-purple);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .creature-img {
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .modal-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .modal-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin: 0 auto 35px;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="nav-logo">
+                <img src="assets/CS_Hub_-removebg-preview.png" alt="CS Hub Logo" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <span class="hub-title">CS Hub &lt;/&gt;</span>
+                    <span class="jessica-signature">Jessica França</span>
+                </div>
+            </a>
+
+            <div class="nav-actions">
+                <button onclick="openModal()" class="btn-outline">O Projeto 👁️</button>
+                <a href="#inscrever" class="btn-primary">Acesso Antecipado</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="tag"
+                    style="color: var(--accent-green); border-color: var(--accent-green); background: rgba(46, 204, 113, 0.1);">
+                    Em Pleno Desenvolvimento 🏗️</div>
+                <h1>A ponte definitiva entre o código e o <span class="gradient-text">Vale do Silício.</span></h1>
+                <p>O mercado de tecnologia elitizou-se. Nós estamos a quebrar essa barreira. Engenharia de Software de
+                    nível superior, arquitetura de sistemas e matemática computacional. <strong>100% gratuito. Para
+                        todos.</strong></p>
+                <a href="#curriculum" class="btn-primary" style="display: inline-block;">Conhecer a Plataforma</a>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="hero-image"></div>
+                <div class="floating-badge">
+                    <div style="font-size: 2rem;">🚀</div>
+                    <div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">Status do Projeto</div>
+                        <div style="font-weight: bold; color: #fff;">Construindo o Legado</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="manifesto">
+        <div class="container">
+            <p class="manifesto-text">
+                "Você não precisa ser rico para aprender <span class="manifesto-highlight">Engenharia de Software de
+                    verdade</span>. Sistemas transformam dados; <span class="manifesto-highlight">a educação transforma
+                    vidas</span>."
+            </p>
+        </div>
+    </section>
+
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai <span class="gradient-text">Dominar</span></h2>
+            <p class="section-subtitle">Uma grade curricular desenhada para separar Tarefeiros de Engenheiros.</p>
+
+            <h3 class="group-title"><span style="color: var(--accent-blue);">🎓</span> Grade de Bacharelado</h3>
+            <div class="grid-cards">
+                <div class="course-card">
+                    <span class="tag">80 HORAS • AVANÇADO</span>
+                    <h3>Engenharia de Backend</h3>
+                    <p>A anatomia completa de uma API de Pagamentos. De design de arquitetura limpa e RBAC até proteção
+                        contra falhas em cascata.</p>
+                    <ul>
+                        <li>✓ Transações ACID & Bancos Relacionais</li>
+                        <li>✓ Idempotência e Resiliência de Rede</li>
+                        <li>✓ Z-Score e Failover Preditivo</li>
+                    </ul>
+                    <div style="color: var(--accent-blue); font-weight: bold; font-size: 0.85rem;">10 Módulos Concluídos
+                        ✨</div>
+                </div>
+
+                <div class="course-card">
+                    <span class="tag">80 HORAS • FUNDAMENTOS</span>
+                    <h3>Matemática Discreta</h3>
+                    <p>A linguagem nativa dos processadores. Abandone a decoreba e aprenda como a matemática abstrata se
+                        transforma em código de alta performance.</p>
+                    <ul>
+                        <li>✓ Lógica Proposicional e De Morgan</li>
+                        <li>✓ Teoria dos Conjuntos e SQL JOINs</li>
+                        <li>✓ O Algoritmo da Análise Combinatória</li>
+                    </ul>
+                    <div style="color: var(--accent-green); font-weight: bold; font-size: 0.85rem;">Módulos em
+                        Desenvolvimento 🏗️</div>
+                </div>
+            </div>
+
+            <h3 class="group-title"><span style="color: var(--accent-purple);">⚡</span> Especializações de Mercado</h3>
+            <div class="grid-cards">
+                <div class="course-card">
+                    <span class="tag"
+                        style="color: #e74c3c; border-color: rgba(231, 76, 60, 0.3); background: rgba(231, 76, 60, 0.1);">NÍVEL
+                        MESTRADO • DESIGN</span>
+                    <h3>IHC e Experiência (UX)</h3>
+                    <p>A psicologia cognitiva por trás de interfaces que convertem e engajam. Não é sobre telas bonitas,
+                        é sobre engenharia comportamental.</p>
+                    <ul>
+                        <li>✓ Heurísticas de Nielsen e Usabilidade</li>
+                        <li>✓ Carga Cognitiva e Fitts's Law</li>
+                        <li>✓ Arquitetura de Informação</li>
+                    </ul>
+                    <div style="color: #e74c3c; font-weight: bold; font-size: 0.85rem;">Módulos em Desenvolvimento 🎨
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <span class="tag"
+                        style="color: var(--accent-orange); border-color: rgba(243, 156, 18, 0.3); background: rgba(243, 156, 18, 0.1);">EM
+                        ALTA 🔥 • AUTOMAÇÃO & IA</span>
+                    <h3>Agentes de IA e Automação (n8n)</h3>
+                    <p>A revolução da automação. Construa agentes autônomos, integre APIs complexas e multiplique a
+                        produtividade sem boilerplate code.</p>
+                    <ul>
+                        <li>✓ Webhooks e Integrações de APIs</li>
+                        <li>✓ Orquestração de Agentes de IA</li>
+                        <li>✓ Fluxos de Trabalho Escaláveis</li>
+                    </ul>
+                    <div style="color: var(--accent-orange); font-weight: bold; font-size: 0.85rem;">Em Breve 🚀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="just-beginning">
+        <div class="just-beginning-content">
+            <h2 style="font-size: 3rem; margin-bottom: 15px; color: #fff; letter-spacing: -1px;">E, acredite... <span
+                    class="gradient-text">Isso é só o começo.</span></h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">
+                O CS Hub não é um curso estático. É um ecossistema vivo. Estamos trabalhando continuamente nos
+                bastidores para adicionar novas disciplinas, arquiteturas avançadas, simuladores dinâmicos e ferramentas
+                modernas.
+            </p>
+        </div>
+    </section>
+
+    <section id="inscrever" class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Faça parte da <span
+                        class="gradient-text">Revolução</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Junte-se à
+                    lista de espera para ser um dos primeiros a ter acesso à plataforma completa.</p>
+                <form class="email-form"
+                    onsubmit="event.preventDefault(); alert('Obrigado pelo interesse! Em breve enviaremos novidades.');">
+                    <input type="email" class="email-input" placeholder="Seu melhor e-mail..." required>
+                    <button type="submit" class="btn-primary">Garantir Meu Acesso</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 CS Hub. Construído para transformar vidas através do código.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="aboutModal" onclick="closeModalOutside(event)">
+        <div class="modal-content">
+            <button class="btn-close-modal" onclick="closeModal()">&times;</button>
+
+            <div style="text-align: center; margin-bottom: 10px;">
+                <h2 style="font-size: 2.5rem; color: #fff;">A <span class="gradient-text">Visão</span></h2>
+                <p style="color: var(--text-muted);">Quem somos e por que o CS Hub existe.</p>
+            </div>
+
+            <div class="modal-grid">
+                <div class="creator-card">
+                    <img src="assets/jessica.jpeg" alt="Jessica França" class="creator-img">
+                    <h3 class="modal-title">Jessica França</h3>
+                    <span class="modal-subtitle">A Criadora</span>
+                    <p class="modal-text">Engenheira de software apaixonada por educação. A minha missão é traduzir a
+                        complexidade da computação em conhecimento acessível, com o objetivo de formar não apenas
+                        programadores que copiam código, mas verdadeiros arquitetos de sistemas.</p>
+                </div>
+
+                <div class="creature-card">
+                    <img src="assets/CS_Hub_-removebg-preview.png" alt="CS Hub Logo" class="creature-img">
+                    <h3 class="modal-title">CS Hub</h3>
+                    <span class="modal-subtitle">A Criatura</span>
+                    <p class="modal-text">Um projeto nascido para democratizar o ensino de elite em tecnologia. Muito
+                        mais que uma plataforma de cursos com vídeos passivos, é um ecossistema interativo de formação
+                        preparado para as exigências reais das gigantes da tecnologia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('aboutModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('aboutModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        function closeModalOutside(event) {
+            if (event.target === document.getElementById('aboutModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>
