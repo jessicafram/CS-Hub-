@@ -16,7 +16,17 @@
                     "nome": "Matemática Discreta",
                     "status": "Concluído",
                     "horas": 80,
-                    "descricao": "Bases lógicas da computação."
+                    "descricao": "Bases lógicas da computação. Abandone a decoreba e aprenda a pensar como um processador.",
+                    "links_ativos": true,
+                    "link_direto": "materiais/mat-discreta/index.html",
+                    "grade_conteudo": [
+                        "Módulo 1: Fundamentos da Lógica",
+                        "Módulo 2: Teoria dos Conjuntos e Relações",
+                        "Módulo 3: Indução Matemática e Recursividade",
+                        "Módulo 4: Análise Combinatória e Contagem",
+                        "Módulo 5: Probabilidade Discreta",
+                        "Módulo 6: Teoria dos Grafos e Árvores"
+                    ]
                 }
             ]
         },

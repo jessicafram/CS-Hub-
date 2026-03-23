@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 — Probabilidade Discreta</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <style>
+        .concept-box {
+            border-left: 4px solid #3498db;
+            background: rgba(52, 152, 219, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-text {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #3498db;
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid #3498db;
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO (SIMULADOR BAYES) --- */
+        .ai-simulator {
+            background: #0d1117;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-simulator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+
+        .email-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn-email {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            flex: 1;
+            text-align: left;
+        }
+
+        .btn-email:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #3498db;
+        }
+
+        .btn-email.active {
+            background: rgba(52, 152, 219, 0.1);
+            border-color: #3498db;
+            color: #fff;
+        }
+
+        .analysis-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .math-formula {
+            font-family: 'Fira Code', monospace;
+            color: #dcdcaa;
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .prob-gauge {
+            width: 100%;
+            height: 20px;
+            background: #30363d;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .prob-fill {
+            height: 100%;
+            width: 0%;
+            background: #2ecc71;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1), background-color 1s;
+        }
+
+        .prob-text {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">Matemática
+                Discreta</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 05</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech" style="background: linear-gradient(90deg, #3498db, #2980b9); color: #fff;">CIÊNCIA
+                DA COMPUTAÇÃO</span>
+            <h1 style="font-size: 2.2rem; color: #3498db;">Módulo 5: Probabilidade Discreta</h1>
+            <p>Em computação, não usamos probabilidade para jogar dados. Usamos para ensinar algoritmos de IA a tomar
+                decisões sozinhos.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Se você acha que Probabilidade é apenas o estudo de tirar "cara" ou "coroa" em uma moeda, prepare-se para
+                mudar a sua visão sobre desenvolvimento de software.</p>
+
+            <p>A Inteligência Artificial moderna (Machine Learning), os algoritmos de recomendação do YouTube, os
+                filtros de SPAM do Gmail e até mesmo a criptografia que protege a sua conta bancária... <strong>Tudo
+                    isso é construído em cima da Matemática da Probabilidade.</strong></p>
+
+            <h2>1. O Casamento com a Análise Combinatória</h2>
+            <p>No Módulo 04, aprendemos a contar coisas usando Arranjos, Permutações e Combinações. A Probabilidade
+                Clássica é simplesmente pegar o que você aprendeu a contar lá e colocar em uma fração:</p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">A Fórmula Universal</span>
+                </div>
+                <pre><code>P(E) = O que eu QUERO que aconteça / TUDO o que pode acontecer
+
+P(E) = Casos Favoráveis / Espaço Amostral (Ω)</code></pre>
+            </div>
+
+            <div class="concept-box">
+                <p style="margin: 0;"><strong>Exemplo Prático:</strong> Se um Hacker está tentando descobrir um PIN de 4
+                    dígitos do seu telemóvel, o "TUDO" (Espaço Amostral) são os 10.000 (10x10x10x10) PINs possíveis. O
+                    "O que eu QUERO" é a sua 1 senha correta. A probabilidade de ele acertar na primeira tentativa é
+                    <strong>1 / 10.000 (0,01%)</strong>.
+                </p>
+            </div>
+
+            <h2>2. Eventos Independentes (A Regra do "E")</h2>
+            <p>Assim como na Análise Combinatória o "E" significa multiplicar, na probabilidade funciona igual. Se dois
+                eventos são independentes (um não afeta o outro), a probabilidade de AMBOS acontecerem é a multiplicação
+                de suas probabilidades.</p>
+
+            <p><strong>Por que isso importa na Engenharia?</strong><br>
+                Imagine que o seu <em>Gateway Primário</em> (que vimos nas aulas de Backend) tem uma chance de falhar de
+                5% (0,05). Você adicionou um <em>Gateway Secundário</em> que também tem 5% de chance de falhar.</p>
+            <p>Qual a probabilidade do seu sistema INTEIRO cair (ou seja, Gateway 1 falhar <strong>E</strong> Gateway 2
+                falhar)?<br>
+                <code>0,05 * 0,05 = 0,0025 (0,25%)</code>.<br>
+                Apenas adicionando redundância, você reduziu a chance de queda de 5% para quase zero. Essa é a
+                matemática da <strong>Alta Disponibilidade (High Availability)</strong>.
+            </p>
+
+            <h2>3. Probabilidade Condicional (A Mudança de Paradigma)</h2>
+            <p>A verdadeira magia acontece quando a nossa probabilidade se <strong>atualiza com base em novas
+                    informações</strong>. Isso chama-se Probabilidade Condicional: <em>Qual a probabilidade do Evento A
+                    acontecer, SABENDO QUE o Evento B já aconteceu?</em></p>
+            <p>A fórmula é lida como <strong>P(A | B)</strong>.</p>
+
+            <h2>4. O Teorema de Bayes (O Algoritmo que Aprende)</h2>
+            <p>Thomas Bayes criou uma fórmula no século XVIII que, centenas de anos depois, se tornaria a base do
+                Aprendizado de Máquina (Machine Learning). O Teorema de Bayes permite que o computador calcule
+                probabilidades "de trás para frente".</p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Fórmula de Bayes</span>
+                </div>
+                <pre><code>P(A | B) = [ P(B | A) * P(A) ] / P(B)</code></pre>
+            </div>
+
+            <p><strong>Traduzindo para IA:</strong> Qual a probabilidade de este e-mail ser SPAM (A), dado que ele
+                contém a palavra "GRÁTIS" (B)?</p>
+            <ul style="line-height: 1.8;">
+                <li><code>P(A)</code>: A chance de qualquer e-mail genérico ser Spam (ex: 20% de todo o tráfego da rede
+                    é spam).</li>
+                <li><code>P(B | A)</code>: Em todos os Spams do mundo, com que frequência aparece a palavra "GRÁTIS"?
+                </li>
+                <li>O algoritmo multiplica essas realidades e nos dá o veredito exato.</li>
+            </ul>
+
+            <div class="ai-simulator">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: rgba(46, 204, 113, 0.2); color: #2ecc71; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Laboratório
+                        de Machine Learning</span>
+                    <h3 style="margin: 0; color: #fff;">Classificador Naive Bayes (Filtro de SPAM)</h3>
+                </div>
+                <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px;">Selecione um e-mail para que a nossa
+                    rede neural aplique o Teorema de Bayes e calcule a probabilidade matemática de ser um SPAM com base
+                    na frequência histórica das palavras.</p>
+
+                <div class="email-selector">
+                    <button class="btn-email" onclick="analyzeSpam(1)">
+                        ✉️ "Reunião de alinhamento do projeto CS Hub amanhã às 14h."
+                    </button>
+                    <button class="btn-email" onclick="analyzeSpam(2)">
+                        ✉️ "URGENTE: Parabéns! Você ganhou um PIX grátis de 10.000! Clique aqui."
+                    </button>
+                    <button class="btn-email" onclick="analyzeSpam(3)">
+                        ✉️ "Sua fatura da AWS referente ao mês de Outubro está disponível."
+                    </button>
+                </div>
+
+                <div id="analysis-panel" class="analysis-panel">
+                    <h4 style="color: #3498db; margin-top: 0;">Análise Bayesiana Concluída:</h4>
+                    <div class="math-formula" id="bayes-math">P(Spam | Palavras) = ...</div>
+
+                    <div class="prob-gauge">
+                        <div id="prob-fill" class="prob-fill"></div>
+                    </div>
+                    <div id="prob-text" class="prob-text">0% de chance de ser SPAM</div>
+                    <p id="ai-conclusion"
+                        style="color: #8b949e; text-align: center; margin-top: 10px; font-size: 0.9rem;"></p>
+                </div>
+            </div>
+            <h2>5. Distribuições de Probabilidade</h2>
+            <p>Na ciência da computação, os eventos não são uniformes. Alguns seguem padrões que chamamos de
+                Distribuições:</p>
+            <ul style="line-height: 1.8;">
+                <li><strong>Distribuição Binomial:</strong> Quando temos apenas Sucesso/Falha. Ex: Qual a probabilidade
+                    de 3 servidores falharem num cluster de 10 servidores, sabendo que cada um tem 10% de chance de
+                    falhar?</li>
+                <li><strong>Distribuição de Poisson:</strong> Avalia ocorrências num intervalo de tempo. Ex: Se a nossa
+                    API recebe em média 50 requisições por minuto, qual a probabilidade de receber 100 no próximo minuto
+                    e o servidor ir abaixo?</li>
+            </ul>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos na teoria
+                    da Probabilidade.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-04/4-1-interpretacao-combinatoria.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 4: Análise Combinatória
+                </a>
+                <a href="../modulo-06/6-1-teoria-grafos.html" class="nav-btn nav-btn-next">
+                    Módulo 6: Teoria dos Grafos ➡
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // --- LÓGICA DO SIMULADOR BAYESIANO (SPAM FILTER) ---
+        function analyzeSpam(emailType) {
+            // Remove classes
+            document.querySelectorAll('.btn-email').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.btn-email')[emailType - 1].classList.add('active');
+
+            const panel = document.getElementById('analysis-panel');
+            const mathBox = document.getElementById('bayes-math');
+            const fill = document.getElementById('prob-fill');
+            const text = document.getElementById('prob-text');
+            const conclusion = document.getElementById('ai-conclusion');
+
+            panel.style.display = 'block';
+            fill.style.width = '0%'; // reset para animação
+
+            // Simula um delay de processamento neural
+            setTimeout(() => {
+                let probability = 0;
+                let color = '';
+
+                if (emailType === 1) {
+                    // Reunião (Palavras comuns de trabalho)
+                    mathBox.innerHTML = `P(Spam | "reunião", "projeto") = [ 0.01 * 0.20 ] / 0.15`;
+                    probability = 2;
+                    color = '#2ecc71'; // Verde (Safe)
+                    conclusion.innerText = "Veredito da IA: E-mail de trabalho legítimo. Entregando na Caixa de Entrada.";
+                } else if (emailType === 2) {
+                    // Spam clássico (URGENTE, PIX, grátis)
+                    mathBox.innerHTML = `P(Spam | "urgente", "grátis") = [ 0.85 * 0.20 ] / 0.18`;
+                    probability = 94;
+                    color = '#e74c3c'; // Vermelho (Danger)
+                    conclusion.innerText = "Veredito da IA: Gatilhos fortíssimos de fraude identificados. Enviando para o Lixo Eletrônico.";
+                } else if (emailType === 3) {
+                    // Fatura (Pode ser phising, mas tem palavras neutras)
+                    mathBox.innerHTML = `P(Spam | "fatura", "AWS") = [ 0.15 * 0.20 ] / 0.10`;
+                    probability = 30;
+                    color = '#f1c40f'; // Amarelo (Warning)
+                    conclusion.innerText = "Veredito da IA: E-mail transacional. Probabilidade moderada de Phishing, exibindo alerta amarelo ao usuário.";
+                }
+
+                fill.style.width = probability + '%';
+                fill.style.backgroundColor = color;
+                text.innerText = `${probability}% de chance de ser SPAM`;
+                text.style.color = color;
+            }, 300);
+        }
+
+        // --- LÓGICA DOS FLASHCARDS ---
+        const flashcardsData = [
+            { tipo: "teoria", frente: "Qual a diferença entre Eventos Independentes e Eventos Mutuamente Exclusivos?", verso: "Eventos Independentes: Um não afeta a probabilidade do outro (Ex: Jogar um dado e depois uma moeda). Usa-se a regra da Multiplicação.\n\nMutuamente Exclusivos: Se um acontece, o outro NÃO PODE acontecer (Ex: O utilizador ou é Sênior ou é Júnior. Não pode ser os dois). Usa-se a regra da Soma." },
+            { tipo: "teoria", frente: "Num teste de carga, você tem 2 servidores que podem falhar independentemente com 10% de chance cada. Qual a probabilidade de ambos caírem e o sistema parar?", verso: "Como são independentes e precisamos que o Servidor 1 caia E o Servidor 2 caia, nós multiplicamos.\n\n0,10 * 0,10 = 0,01.\n\nExiste apenas 1% de chance do sistema parar. É por isso que balanceadores de carga salvam a internet!" },
+            { tipo: "teoria", frente: "O que o Teorema de Bayes calcula de forma resumida?", verso: "Calcula a probabilidade de uma 'Causa' ter gerado um determinado 'Efeito' que já estamos observando. Por exemplo, observando o sintoma (tosse), ele diz-nos qual a probabilidade da causa ser uma doença X." },
+            { tipo: "caso_clinico", frente: "🚨 Arquitetura de Software:\nPor que algoritmos de Machine Learning em Filtros de Spam são chamados de 'Naive Bayes' (Bayes Ingênuo)?", verso: "São chamados de 'Ingênuos' porque o algoritmo assume (falsamente) que a presença de cada palavra na frase é independente da outra.\n\nMesmo sendo uma simplificação matemática brutal ('ingênua'), o cálculo funciona maravilhosamente bem na prática para classificar milhares de e-mails em milissegundos na Google e Microsoft." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Machine Learning' : '📖 Estatística';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(52, 152, 219, 0.2); color: #3498db;';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+    </script>
+</body>
+
+</html>

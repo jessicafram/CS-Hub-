@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06 — Teoria dos Grafos e Árvores</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        .concept-box {
+            border-left: 4px solid #8b5cf6;
+            background: rgba(139, 92, 246, 0.05);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        h2 {
+            color: #8b5cf6;
+            margin-top: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .highlight-text {
+            color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DO CÓDIGO TIPO MAC OS --- */
+        .mac-code-window {
+            background: #0d1117;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mac-code-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .mac-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-dot.red {
+            background: #ff5f56;
+        }
+
+        .mac-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .mac-dot.green {
+            background: #27c93f;
+        }
+
+        .mac-lang {
+            color: #8b949e;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .mac-code-window pre {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            padding: 20px;
+            color: #dcdcaa;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DOS FLASHCARDS --- */
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .card-teoria .flip-card-front {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #8b5cf6;
+        }
+
+        .card-caso .flip-card-front {
+            background: rgba(231, 76, 60, 0.05);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-top: 4px solid #e74c3c;
+        }
+
+        .flip-card-back {
+            background: #ffffff;
+            color: #0b0f14;
+            transform: rotateY(180deg);
+            border: 2px solid #8b5cf6;
+        }
+
+        .card-caso .flip-card-back {
+            border: 2px solid #e74c3c;
+        }
+
+        .badge-tipo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* --- BOTÕES DE NAVEGAÇÃO --- */
+        .nav-btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .nav-btn-prev {
+            color: #8b949e;
+            border: 1px solid #30363d;
+            background: transparent;
+        }
+
+        .nav-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-btn-next {
+            background: linear-gradient(135deg, #8b5cf6, #3498db);
+            color: #fff;
+            border: none;
+        }
+
+        .nav-btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        /* --- ESTILOS DO COMPONENTE CRIATIVO (SIMULADOR GRAFOS) --- */
+        .graph-simulator {
+            background: #0d1117;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .graph-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .node {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #1e1e1e;
+            border: 3px solid #8b949e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+            z-index: 2;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .node.active {
+            border-color: #2ecc71;
+            background: rgba(46, 204, 113, 0.2);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+            transform: scale(1.1);
+        }
+
+        .node.start {
+            border-color: #3498db;
+        }
+
+        .node.end {
+            border-color: #e74c3c;
+        }
+
+        /* Posições dos nós */
+        #node-A {
+            top: 150px;
+            left: 10%;
+        }
+
+        /* Origem */
+        #node-B {
+            top: 50px;
+            left: 40%;
+        }
+
+        #node-C {
+            top: 250px;
+            left: 40%;
+        }
+
+        #node-D {
+            top: 150px;
+            left: 80%;
+        }
+
+        /* Destino */
+
+        /* SVG para desenhar as arestas (linhas) */
+        .edges {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .edge-line {
+            stroke: #444;
+            stroke-width: 4;
+            transition: stroke 0.5s, stroke-width 0.5s;
+        }
+
+        .edge-line.active {
+            stroke: #2ecc71;
+            stroke-width: 6;
+            filter: drop-shadow(0 0 8px #2ecc71);
+        }
+
+        .edge-weight {
+            position: absolute;
+            background: #0d1117;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #8b949e;
+            border: 1px solid #30363d;
+            z-index: 3;
+            transition: all 0.5s;
+        }
+
+        .edge-weight.active {
+            color: #2ecc71;
+            border-color: #2ecc71;
+            font-weight: bold;
+        }
+
+        /* Posições dos pesos */
+        #w-ab {
+            top: 80px;
+            left: 23%;
+        }
+
+        #w-ac {
+            top: 200px;
+            left: 23%;
+        }
+
+        #w-bd {
+            top: 80px;
+            left: 60%;
+        }
+
+        #w-cd {
+            top: 200px;
+            left: 60%;
+        }
+
+        #w-bc {
+            top: 140px;
+            left: 42%;
+        }
+
+        .btn-calc {
+            background: linear-gradient(90deg, #8b5cf6, #3498db);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-calc:hover {
+            transform: scale(1.02);
+        }
+
+        .log-panel {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 15px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <a href="../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">Matemática
+                Discreta</a>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 06</span>
+    </nav>
+
+    <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
+        <header class="chapter-header">
+            <span class="badge-tech" style="background: linear-gradient(90deg, #8b5cf6, #3498db); color: #fff;">CIÊNCIA
+                DA COMPUTAÇÃO</span>
+            <h1 style="font-size: 2.2rem; color: #8b5cf6;">Módulo 6: Teoria dos Grafos e Árvores</h1>
+            <p>Descubra como o Google Maps, o Facebook e o seu Navegador mapeiam a internet e encontram dados em
+                milissegundos.</p>
+        </header>
+
+        <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
+            <p>Se você já se perguntou como é que o Instagram sabe exatamente quem recomendar na aba "Pessoas que você
+                talvez conheça", ou como o Waze calcula a rota mais rápida desviando do trânsito... Bem-vindo à
+                <strong>Teoria dos Grafos</strong>.
+            </p>
+
+            <p>Na Matemática Discreta, um Grafo não tem nada a ver com os gráficos de barras do Excel. Um Grafo é
+                simplesmente um conjunto de "pontos" conectados por "linhas".</p>
+
+            <h2>1. Vértices e Arestas (O Vocabulário)</h2>
+            <p>Para ler a documentação de qualquer arquitetura de software, você precisa conhecer esses dois termos:</p>
+            <ul style="line-height: 1.8;">
+                <li><strong>Vértice (Node / Nó):</strong> É a entidade. Pode ser um Servidor, uma Cidade, um Usuário do
+                    Facebook, ou um Roteador.</li>
+                <li><strong>Aresta (Edge / Linha):</strong> É a conexão entre eles. Pode ser um cabo de fibra óptica,
+                    uma estrada, ou uma amizade na rede social.</li>
+            </ul>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Notação Matemática</span>
+                </div>
+                <pre><code>G = (V, E)
+
+V = {A, B, C, D}       // 4 Cidades (Vértices)
+E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
+            </div>
+
+            <h2>2. Grafos Direcionados vs Não Direcionados</h2>
+            <p>Essa é a diferença exata entre o WhatsApp e o Instagram/Twitter!</p>
+
+            <div class="concept-box">
+                <p style="margin: 0; color: #cbd5e1;"><strong>Não Direcionado (WhatsApp/Facebook):</strong> A conexão é
+                    de mão dupla. Se eu sou seu amigo no Facebook, você <em>obrigatoriamente</em> é meu amigo de volta.
+                    A aresta não tem seta.</p>
+                <p style="margin-top: 15px; color: #cbd5e1;"><strong>Direcionado (Instagram/Twitter):</strong> A conexão
+                    tem sentido (uma seta). Eu posso seguir você (A → B), mas você não precisa me seguir de volta. Se o
+                    seu código usa Grafos Direcionados, você está mapeando relacionamentos assimétricos.</p>
+            </div>
+
+            <h2>3. Pesos nas Arestas (O Segredo do GPS)</h2>
+            <p>Às vezes, uma conexão custa mais "caro" que a outra. Em uma rede de computadores, a aresta A-B pode ter
+                um <em>Ping</em> de 10ms, enquanto a aresta A-C tem 50ms de latência. A esses valores chamamos de
+                <strong>Pesos (Weights)</strong>.
+            </p>
+            <p>É assim que o famoso Algoritmo de Dijkstra (que roda por trás do GPS) encontra a melhor rota.</p>
+
+            <div class="graph-simulator">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span
+                        style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Laboratório
+                        Interativo</span>
+                    <h3 style="margin: 0; color: #fff;">Algoritmo de Roteamento (Caminho Mínimo)</h3>
+                </div>
+                <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px;">O Pacote de Dados precisa sair do
+                    Servidor A e chegar ao Servidor D. Os números nas linhas são a latência (em milissegundos). Clique
+                    no botão para o algoritmo calcular a rota mais rápida.</p>
+
+                <div class="graph-container">
+                    <svg class="edges">
+                        <line id="line-ab" class="edge-line" x1="10%" y1="150" x2="40%" y2="50" />
+                        <line id="line-ac" class="edge-line" x1="10%" y1="150" x2="40%" y2="250" />
+                        <line id="line-bd" class="edge-line" x1="40%" y1="50" x2="80%" y2="150" />
+                        <line id="line-cd" class="edge-line" x1="40%" y1="250" x2="80%" y2="150" />
+                        <line id="line-bc" class="edge-line" x1="40%" y1="50" x2="40%" y2="250" />
+                    </svg>
+
+                    <div id="w-ab" class="edge-weight">8ms</div>
+                    <div id="w-ac" class="edge-weight">2ms</div>
+                    <div id="w-bd" class="edge-weight">5ms</div>
+                    <div id="w-cd" class="edge-weight">1ms</div>
+                    <div id="w-bc" class="edge-weight">2ms</div>
+
+                    <div id="node-A" class="node start">A</div>
+                    <div id="node-B" class="node">B</div>
+                    <div id="node-C" class="node">C</div>
+                    <div id="node-D" class="node end">D</div>
+                </div>
+
+                <button class="btn-calc" onclick="runShortestPath()">Calcular Rota Mais Rápida (A → D)</button>
+
+                <div class="log-panel" id="path-logger">
+                    > Aguardando execução do algoritmo...
+                </div>
+            </div>
+            <h2>4. Árvores (Trees)</h2>
+            <p>Uma <strong>Árvore</strong> é apenas um tipo muito específico de Grafo. Para ser uma árvore, o grafo não
+                pode ter <em>ciclos</em> (caminhos que fecham um loop) e precisa de uma <strong>Raiz (Root)</strong>.
+            </p>
+            <p>Toda a vez que você constrói uma página HTML e usa CSS/JavaScript, está a manipular uma árvore (o DOM -
+                Document Object Model). A tag <code>&lt;html&gt;</code> é a raiz, e <code>&lt;body&gt;</code>,
+                <code>&lt;div&gt;</code> são os nós filhos (Branches/Leaves).
+            </p>
+
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
+                <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos
+                    estruturais.</p>
+                <div id="flashcards-container" class="flashcards-grid"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
+                <a href="../modulo-05/5-1-probabilidade-discreta.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 5: Probabilidade Discreta
+                </a>
+                <button id="btn-concluir" class="nav-btn nav-btn-next">
+                    🎉 Concluir Trilha
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // --- LÓGICA DO SIMULADOR DE ROTEAMENTO (SHORTEST PATH) ---
+        function runShortestPath() {
+            const logger = document.getElementById('path-logger');
+            const nodes = ['A', 'B', 'C', 'D'];
+            const lines = ['ab', 'ac', 'bd', 'cd', 'bc'];
+
+            // Reset state
+            nodes.forEach(n => document.getElementById(`node-${n}`).classList.remove('active'));
+            lines.forEach(l => {
+                document.getElementById(`line-${l}`).classList.remove('active');
+                document.getElementById(`w-${l}`).classList.remove('active');
+            });
+
+            logger.innerHTML = "> Analisando rotas possíveis partindo do Vértice A...<br>";
+
+            setTimeout(() => {
+                logger.innerHTML += "> Rota 1 avaliada: A → B → D (Custo: 8ms + 5ms = 13ms)<br>";
+            }, 800);
+
+            setTimeout(() => {
+                logger.innerHTML += "> Rota 2 avaliada: A → C → B → D (Custo: 2ms + 2ms + 5ms = 9ms)<br>";
+            }, 1600);
+
+            setTimeout(() => {
+                logger.innerHTML += "> Rota 3 avaliada: A → C → D (Custo: 2ms + 1ms = 3ms) ✅ Menor Custo!<br>";
+            }, 2400);
+
+            setTimeout(() => {
+                // Highlight Node A, C, D
+                ['A', 'C', 'D'].forEach(n => document.getElementById(`node-${n}`).classList.add('active'));
+
+                // Highlight edges A-C and C-D
+                ['ac', 'cd'].forEach(l => {
+                    document.getElementById(`line-${l}`).classList.add('active');
+                    document.getElementById(`w-${l}`).classList.add('active');
+                });
+
+                logger.innerHTML += "<br><span style='color:#2ecc71; font-weight:bold;'>[SUCESSO] Rota Otimizada Aplicada (A → C → D). Tempo total: 3ms.</span>";
+            }, 3000);
+        }
+
+        // --- LÓGICA DOS FLASHCARDS ---
+        const flashcardsData = [
+            { tipo: "teoria", frente: "Qual a principal restrição que transforma um Grafo numa 'Árvore'?", verso: "Uma Árvore é um Grafo Conexo (não possui partes isoladas) e Acíclico (NÃO PODE CONTER CICLOS). Isso significa que existe apenas um único caminho possível entre a raiz e qualquer outro nó." },
+            { tipo: "teoria", frente: "O que é um 'Grafo Ponderado'?", verso: "É um grafo onde as arestas (linhas) possuem valores associados a elas, conhecidos como 'Pesos' (Weights). Esses pesos podem representar distância, custo em dinheiro, latência de rede, etc." },
+            { tipo: "caso_clinico", frente: "🚨 Arquitetura de Dados:\nSe você precisasse mapear o sistema de Pastas e Arquivos (Diretórios) de um Sistema Operacional, que tipo de Grafo você utilizaria?", verso: "Eu utilizaria uma Árvore (Tree).\n\nO Diretório Raiz (C:\\ ou /) é o nó principal. As pastas dentro dele são os nós filhos, e os arquivos finais são as 'Folhas' (Leaves). A natureza acíclica das árvores impede que uma pasta seja pai e filha dela mesma simultaneamente." },
+            { tipo: "caso_clinico", frente: "🚨 Entrevista Algoritmos:\nCite um algoritmo famoso que utiliza a Teoria dos Grafos para encontrar o caminho mais rápido entre dois pontos.", verso: "O Algoritmo de Dijkstra.\n\nEle é a base de funcionamento de sistemas modernos de roteamento GPS e protocolos de rede de computadores para garantir a menor latência entre servidores." }
+        ];
+
+        function carregarFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            flashcardsData.forEach(card => {
+                const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Sistema Real' : '📖 Fundamento';
+                const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(139, 92, 246, 0.2); color: #8b5cf6;';
+
+                container.innerHTML += `
+                    <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarFlashcards);
+
+        // --- LÓGICA DO CONFETE E REDIRECIONAMENTO ---
+        document.getElementById('btn-concluir').addEventListener('click', function (e) {
+            e.preventDefault(); // Impede qualquer navegação imediata
+
+            // Muda o texto do botão para mostrar que foi processado
+            this.innerHTML = "Salvando Progresso... ⏳";
+            this.style.pointerEvents = "none";
+            this.style.opacity = "0.8";
+
+            // Dispara os fogos de artifício nas laterais
+            var duration = 2.5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function () {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+
+                // Fogos da esquerda
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+                }));
+
+                // Fogos da direita
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+                }));
+            }, 250);
+
+            // Aguarda os fogos terminarem para redirecionar para a Home Principal
+            setTimeout(function () {
+                window.location.href = '../../../index.html';
+            }, duration);
+        });
+    </script>
+</body>
+
+</html>
