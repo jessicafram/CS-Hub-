@@ -4,16 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 01 — Interpretação em Análise Combinatória</title>
+    <title>Aula 04 — Análise Combinatória e Contagem</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../../style.css">
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
+        :root {
+            --comb-color: #f39c12;
+            /* Laranja para Combinatória */
+            --comb-bg: rgba(243, 156, 18, 0.1);
+        }
+
         .concept-box {
-            border-left: 4px solid var(--accent);
-            background: rgba(46, 204, 113, 0.05);
+            border-left: 4px solid var(--comb-color);
+            background: var(--comb-bg);
             padding: 20px;
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
@@ -28,7 +37,7 @@
         }
 
         h2 {
-            color: var(--accent);
+            color: var(--comb-color);
             margin-top: 50px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
@@ -40,7 +49,7 @@
         }
 
         .highlight-text {
-            color: var(--accent);
+            color: var(--comb-color);
             font-weight: 600;
         }
 
@@ -116,8 +125,8 @@
         }
 
         table.db-table th {
-            background: rgba(46, 204, 113, 0.1);
-            color: var(--accent);
+            background: rgba(243, 156, 18, 0.1);
+            color: var(--comb-color);
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -175,7 +184,7 @@
         .card-teoria .flip-card-front {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid var(--accent);
+            border-top: 4px solid var(--comb-color);
         }
 
         .card-caso .flip-card-front {
@@ -188,7 +197,7 @@
             background: #ffffff;
             color: #0b0f14;
             transform: rotateY(180deg);
-            border: 2px solid var(--accent);
+            border: 2px solid var(--comb-color);
         }
 
         .card-caso .flip-card-back {
@@ -204,6 +213,7 @@
             border-radius: 12px;
             font-family: 'Fira Code', monospace;
             text-transform: uppercase;
+            font-weight: bold;
         }
 
         /* --- BOTÕES DE NAVEGAÇÃO --- */
@@ -227,16 +237,16 @@
         }
 
         .nav-btn-next {
-            background: var(--accent);
+            background: var(--comb-color);
             color: #000;
         }
 
         .nav-btn-next:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
         }
 
-        /* --- ESTILOS DO COMPONENTE CRIATIVO --- */
+        /* --- ESTILOS DO COMPONENTE CRIATIVO (DETETIVE) --- */
         .demo-button {
             padding: 12px 25px;
             border: none;
@@ -285,6 +295,85 @@
             margin: 30px 0;
             overflow-x: auto;
         }
+
+        /* --- ESTILOS DO SIMULADOR HACKER --- */
+        .hacker-simulator {
+            background: #0d1117;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .form-select,
+        .form-range {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--comb-color);
+        }
+
+        .hacker-btn {
+            background: linear-gradient(90deg, #e67e22, #f39c12);
+            color: #000;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .hacker-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .terminal-output {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            margin-top: 20px;
+            color: #2ecc71;
+            font-size: 0.9rem;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .terminal-red {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .terminal-yellow {
+            color: #f1c40f;
+        }
     </style>
 </head>
 
@@ -296,18 +385,21 @@
             <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
             <span style="color: #555;">/</span>
             <a href="../index.html"
-                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Matemática
+                style="color: var(--comb-color); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Matemática
                 Discreta</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 01</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 04</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech" style="background: linear-gradient(90deg, #3498db, #2980b9); color: #fff;">CIÊNCIA
+            <span class="badge-tech"
+                style="background: rgba(243, 156, 18, 0.2); color: var(--comb-color); border: 1px solid var(--comb-color);">CIÊNCIA
                 DA COMPUTAÇÃO</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 1: O Guia Definitivo de Interpretação</h1>
-            <p>Se você já decorou as fórmulas mas trava na hora de ler o enunciado, esta aula é para você.</p>
+            <h1 style="font-size: 2.2rem; color: var(--comb-color); margin-top: 15px;">Módulo 4: Análise Combinatória e
+                Contagem</h1>
+            <p>Se você já decorou as fórmulas mas trava na hora de ler o enunciado, esta aula é para você. Descubra como
+                os hackers quebram senhas aplicando a Combinatória.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -376,12 +468,12 @@
             </div>
 
             <div
-                style="background: linear-gradient(145deg, rgba(52, 152, 219, 0.1), rgba(0,0,0,0.5)); border-radius: 16px; padding: 40px; border: 1px solid rgba(52, 152, 219, 0.3); margin: 50px 0; box-shadow: 0 10px 40px rgba(52, 152, 219, 0.1);">
+                style="background: linear-gradient(145deg, rgba(243, 156, 18, 0.1), rgba(0,0,0,0.5)); border-radius: 16px; padding: 40px; border: 1px solid rgba(243, 156, 18, 0.3); margin: 50px 0; box-shadow: 0 10px 40px rgba(243, 156, 18, 0.1);">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                     <span
-                        style="background: linear-gradient(90deg, #3498db, #2980b9); color: #fff; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Treinamento
+                        style="background: linear-gradient(90deg, #f39c12, #e67e22); color: #000; padding: 5px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Treinamento
                         Interativo</span>
-                    <h2 style="margin: 0; color: #3498db; border: none; padding: 0;">O Simulador Detetive</h2>
+                    <h2 style="margin: 0; color: var(--comb-color); border: none; padding: 0;">O Simulador Detetive</h2>
                 </div>
 
                 <p style="font-size: 1.05rem; line-height: 1.8;">Vamos treinar o seu cérebro. Leia um problema
@@ -394,7 +486,8 @@
                         <strong>novo/diferente</strong>?<br><br><span
                             style="font-size: 0.9rem; color: #8b949e;">Exemplo: A senha "123" é diferente de "321"? O
                             Pódio "1º João, 2º Maria" é diferente de "1º Maria, 2º João"? A comissão "Ana e Beto" é
-                            diferente da comissão "Beto e Ana"?</span></p>
+                            diferente da comissão "Beto e Ana"?</span>
+                    </p>
                     <div style="display: flex; justify-content: center; gap: 15px;">
                         <button onclick="nextSim(true)" class="demo-button">Sim (A ordem importa)</button>
                         <button onclick="showResult('combinacao')" class="demo-button demo-btn-alt">Não (A ordem não
@@ -444,6 +537,7 @@
                         outro problema</button>
                 </div>
             </div>
+
             <h2>3. Estudos de Caso: Dissecando Enunciados</h2>
 
             <h3>Caso 1: O Pódio da Fórmula 1</h3>
@@ -505,25 +599,110 @@
 <span style="color: #2ecc71;">// CONCLUSÃO: PERMUTAÇÃO SIMPLES (P5 = 5!)</span></code></pre>
             </div>
 
-            <h2>Conclusão: O Segredo é a Pergunta</h2>
-            <p>Como você pôde ver, o desafio não estava na matemática, estava no português. A partir de hoje, nunca
-                comece uma questão de Combinatória escrevendo números. Comece fazendo as duas perguntas vitais do
-                Simulador para o texto. Se a ordem importa e a quantidade muda, a matemática flui naturalmente.</p>
+            <h2 style="color: #e74c3c;">4. A Matemática na Prática (Cortando Fatoriais)</h2>
+            <p>Saber qual ferramenta usar é 90% do trabalho. Os outros 10% são não errar a conta. A regra de ouro ao
+                lidar com fatoriais em frações é: <strong>Nunca calcule o fatorial inteiro, expanda o maior até chegar
+                    no menor e CORTE.</strong></p>
+
+            <div class="mac-code-window" style="margin-bottom: 15px;">
+                <div class="mac-code-header">
+                    <div class="mac-dots">
+                        <div class="mac-dot red"></div>
+                        <div class="mac-dot yellow"></div>
+                        <div class="mac-dot green"></div>
+                    </div>
+                    <span class="mac-lang">Cálculo de Combinação: C(10,3)</span>
+                </div>
+                <pre><code><span style="color: #8b949e;">// Fórmula: C(n,p) = n! / [p! * (n-p)!]</span>
+C(10,3) = 10! / [3! * 7!]
+
+<span style="color: #8b949e;">// 1. Expanda o 10! apenas até chegar no 7! para poder cortar</span>
+= (10 * 9 * 8 * <del style="color: #e74c3c;">7!</del>) / [ (3 * 2 * 1) * <del style="color: #e74c3c;">7!</del> ]
+
+<span style="color: #8b949e;">// 2. Faça a conta do que sobrou</span>
+= (10 * 9 * 8) / 6
+= 720 / 6
+<span style="color: #2ecc71;">= 120 Comissões Possíveis</span></code></pre>
+            </div>
+
+            <h3 style="color: #fff; margin-top: 30px;">O Caso Especial: Permutação com Repetição</h3>
+            <p>A Árvore de Decisão mandou você usar Permutação (pois usa todos os elementos e a ordem importa). Mas e se
+                houver <strong>elementos idênticos</strong>?</p>
+            <p>Exemplo Clássico: <em>Quantos anagramas possui a palavra <strong>BANANA</strong>?</em></p>
+
+            <ul style="line-height: 1.8;">
+                <li>Total de Letras ($n$): 6 Letras ➜ Fica no Numerador ($6!$).</li>
+                <li>Repetições: A letra 'A' repete 3 vezes e a letra 'N' repete 2 vezes. ➜ Vão para o Denominador ($3!$
+                    e $2!$).</li>
+            </ul>
+
+            <div class="concept-box" style="border-color: #e74c3c; background: rgba(231, 76, 60, 0.05);">
+                <p style="margin: 0; font-size: 1.2rem; text-align: center;">
+                    $$P_{6}^{3, 2} = \frac{6!}{3! \times 2!} = \frac{6 \times 5 \times 4 \times 3!}{3! \times 2} =
+                    \frac{120}{2} = 60 \text{ anagramas}$$
+                </p>
+            </div>
+
+            <h2>5. A Aplicação na Engenharia: Criptografia</h2>
+            <p>Na Ciência da Computação, nós usamos o <strong>Princípio Multiplicativo (E)</strong> para criar e quebrar
+                senhas. Se uma senha exige "Letras Maiúsculas <strong>E</strong> Minúsculas <strong>E</strong> Números",
+                a Base Multiplicativa explode, tornando impossível para o processador adivinhar a combinação.</p>
+
+            <div class="hacker-simulator">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <span
+                        style="background: rgba(231, 76, 60, 0.2); color: #e74c3c; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Cybersecurity
+                        Lab</span>
+                    <h3 style="margin: 0; color: #fff;">Simulador de Força Bruta (Brute Force)</h3>
+                </div>
+                <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px;">Selecione os parâmetros da sua
+                    senha. Vamos aplicar o <strong>Princípio Fundamental da Contagem</strong> para descobrir o Espaço
+                    Amostral e ver quanto tempo uma Botnet testando 100 Milhões de senhas por segundo demoraria para
+                    invadir a sua conta.</p>
+
+                <div class="form-group">
+                    <label class="form-label">Tamanho da Senha (Nº de Posições):</label>
+                    <input type="range" id="pass-length" class="form-range" min="4" max="16" value="8"
+                        oninput="document.getElementById('len-val').innerText = this.value">
+                    <div style="text-align: right; color: var(--comb-color); font-weight: bold; margin-top: 5px;"><span
+                            id="len-val">8</span> caracteres</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Conjunto de Caracteres (Base Multiplicativa):</label>
+                    <select id="char-set" class="form-select">
+                        <option value="10">Apenas Números (Ex: PIN) → 10 opções/posição</option>
+                        <option value="26">Apenas Letras Minúsculas → 26 opções/posição</option>
+                        <option value="62" selected>Letras + Números → 62 opções/posição</option>
+                        <option value="94">Completo: Letras + Números + Símbolos (!@#$) → 94 opções/posição</option>
+                    </select>
+                </div>
+
+                <button class="hacker-btn" onclick="startBruteForce()">INICIAR ATAQUE DE FORÇA BRUTA</button>
+
+                <div id="terminal" class="terminal-output">
+                    root@cshub:~# Iniciando ataque de Força Bruta...<br>
+                    > Calculando possibilidades (Base^Tamanho)...<br>
+                    > <span id="term-math" class="terminal-yellow"></span><br>
+                    > Combinações Possíveis: <span id="term-total" style="color: #fff; font-weight: bold;"></span><br>
+                    > Velocidade de Injeção: 100.000.000 senhas/segundo.<br><br>
+                    <span id="term-result"></span>
+                </div>
+            </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Interpretando
-                    Textos</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões e force seu cérebro a classificar o
-                    problema, e não a calculá-lo.</p>
+                    problema.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
             </div>
 
             <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 20px;">
-                <a href="#" class="nav-btn nav-btn-prev" style="visibility: hidden;">
-                    ⬅ Anterior
+                <a href="../modulo-03/index.html" class="nav-btn nav-btn-prev">
+                    ⬅ Módulo 3: Recursividade
                 </a>
-                <a href="#" class="nav-btn nav-btn-next">
-                    Módulo 2: Probabilidade ➡
+                <a href="../modulo-05/5-1-probabilidade-discreta.html" class="nav-btn nav-btn-next">
+                    Módulo 5: Probabilidade Discreta ➡
                 </a>
             </div>
 
@@ -533,25 +712,85 @@
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
+            startOnLoad: true, theme: 'dark',
             themeVariables: {
-                background: 'transparent',
-                primaryColor: '#3498db',
-                primaryTextColor: '#fff',
-                primaryBorderColor: '#3498db',
-                lineColor: '#cbd5e1',
-                secondaryColor: '#1e1e1e',
-                tertiaryColor: '#0d1117'
+                background: 'transparent', primaryColor: '#f39c12',
+                primaryTextColor: '#fff', primaryBorderColor: '#f39c12',
+                lineColor: '#cbd5e1', secondaryColor: '#1e1e1e', tertiaryColor: '#0d1117'
             }
         });
     </script>
 
     <script>
+        // LOGIC FOR THE DETECTIVE SIMULATOR
+        function nextSim(orderMatters) {
+            document.getElementById('sim-step-1').style.display = 'none';
+            if (orderMatters) {
+                document.getElementById('sim-step-2').style.display = 'block';
+            }
+        }
+        function showResult(type) {
+            document.getElementById('sim-step-1').style.display = 'none';
+            document.getElementById('sim-step-2').style.display = 'none';
+            document.getElementById('res-combinacao').style.display = 'none';
+            document.getElementById('res-permutacao').style.display = 'none';
+            document.getElementById('res-arranjo').style.display = 'none';
+
+            if (type === 'combinacao') document.getElementById('res-combinacao').style.display = 'block';
+            if (type === 'permutacao') document.getElementById('res-permutacao').style.display = 'block';
+            if (type === 'arranjo') document.getElementById('res-arranjo').style.display = 'block';
+        }
+        function resetSim() {
+            document.getElementById('res-combinacao').style.display = 'none';
+            document.getElementById('res-permutacao').style.display = 'none';
+            document.getElementById('res-arranjo').style.display = 'none';
+            document.getElementById('sim-step-2').style.display = 'none';
+            document.getElementById('sim-step-1').style.display = 'block';
+        }
+
+        // LOGIC FOR THE HACKER SIMULATOR
+        function formatTime(seconds) {
+            if (seconds < 1) return "Menos de 1 segundo (Instantâneo)";
+            if (seconds < 60) return `${Math.round(seconds)} Segundos`;
+            if (seconds < 3600) return `${Math.round(seconds / 60)} Minutos`;
+            if (seconds < 86400) return `${Math.round(seconds / 3600)} Horas`;
+            if (seconds < 31536000) return `${Math.round(seconds / 86400)} Dias`;
+            if (seconds < 3153600000) return `${Math.round(seconds / 31536000)} Anos`;
+            return `${Math.round(seconds / 3153600000)} Séculos`;
+        }
+
+        function startBruteForce() {
+            const term = document.getElementById('terminal');
+            term.style.display = 'none';
+
+            setTimeout(() => {
+                const length = parseInt(document.getElementById('pass-length').value);
+                const base = parseInt(document.getElementById('char-set').value);
+                const combinations = Math.pow(base, length);
+                const guessesPerSec = 100000000;
+                const secondsToCrack = combinations / guessesPerSec;
+
+                document.getElementById('term-math').innerText = `Matemática: ${base}^${length}`;
+                document.getElementById('term-total').innerText = combinations.toLocaleString('pt-BR');
+
+                const resultSpan = document.getElementById('term-result');
+                if (secondsToCrack < 60) {
+                    resultSpan.innerHTML = `[CRITICAL] SENHA COMPROMETIDA EM: <span class="terminal-red">${formatTime(secondsToCrack)}</span>.`;
+                } else if (secondsToCrack < 31536000) {
+                    resultSpan.innerHTML = `[WARNING] SENHA QUEBRADA EM: <span class="terminal-yellow">${formatTime(secondsToCrack)}</span>. Seguro contra bots fracos.`;
+                } else {
+                    resultSpan.innerHTML = `[SECURE] TEMPO ESTIMADO: <span style="color: #2ecc71; font-weight: bold;">${formatTime(secondsToCrack)}</span>. Matematicamente inquebrável.`;
+                }
+                term.style.display = 'block';
+            }, 300);
+        }
+
+        // LOGIC FOR FLASHCARDS
         const flashcardsData = [
             { tipo: "teoria", frente: "Problema: 'Quantos anagramas possui a palavra COMPUTAÇÃO?' - Qual ferramenta usar?", verso: "Permutação com Repetição! \nA Ordem importa (letras diferentes formam palavras diferentes) e vamos usar TODAS as letras. Como existem letras repetidas (C, O, A, Ç...), temos que dividir o fatorial total pelos fatoriais das repetições." },
-            { tipo: "teoria", frente: "Problema: 'Em um campeonato com 20 times, de quantas maneiras podemos ter o Campeão e o Vice-Campeão?' - Qual ferramenta?", verso: "Arranjo Simples! (Ou apenas Princípio Multiplicativo: 20 x 19).\nA ordem importa (Ser Campeão é diferente de Vice) e NÃO vamos usar todos os 20 times (apenas 2 vagas disponíveis)." },
-            { tipo: "teoria", frente: "Problema: 'Numa turma de 30 alunos, preciso escolher 4 para limpar a sala.' - Qual ferramenta?", verso: "Combinação Simples!\nA ordem NÃO importa. Escolher (Ana, Beto, Carlos e Dani) ou (Dani, Carlos, Beto e Ana) resulta no mesmo grupo de pessoas que vai limpar a sala com a mesma função." },
+            { tipo: "teoria", frente: "Problema: 'Em um campeonato com 20 times, de quantas maneiras podemos ter o Campeão e o Vice?'", verso: "Arranjo Simples! (Ou apenas Princípio Multiplicativo: 20 x 19).\nA ordem importa (Ser Campeão é diferente de Vice) e NÃO vamos usar todos os 20 times (apenas 2 vagas disponíveis)." },
+            { tipo: "teoria", frente: "Problema: 'Numa turma de 30 alunos, preciso escolher 4 para limpar a sala.'", verso: "Combinação Simples!\nA ordem NÃO importa. Escolher (Ana, Beto, Carlos e Dani) ou (Dani, Carlos, Beto e Ana) resulta no mesmo grupo de pessoas." },
+            { tipo: "caso_clinico", frente: "🚨 CyberSec:\nPor que os sites exigem 'Pelo menos um símbolo especial (!@#)' na senha?", verso: "Porque isso aumenta a BASE da Análise Combinatória.\n\nCom letras minúsculas (26 opções), uma senha de 8 dígitos tem $26^8$ combinações.\nCom símbolos e números, a base pula para 94.\n$94^8$ é TRILHÕES de vezes maior que $26^8$, atrasando o hack em séculos!" },
             { tipo: "caso_clinico", frente: "🚨 Casca de Banana:\n'De quantas maneiras posso organizar 3 casais em um banco de 6 lugares, sendo que os casais DEVEM ficar juntos?'", verso: "Técnica do Bloco + Permutação!\nComo os casais não podem se separar, amarramos o Homem e a Mulher de cada casal como 1 BLOCO. Permutamos os 3 Blocos (3!) e, em seguida, multiplicamos pela permutação interna de cada casal (Homem-Mulher ou Mulher-Homem = 2! x 2! x 2!). Resposta: 3! * 2³." }
         ];
 
@@ -559,7 +798,7 @@
             const container = document.getElementById('flashcards-container');
             flashcardsData.forEach(card => {
                 const classeCor = card.tipo === 'caso_clinico' ? 'card-caso' : 'card-teoria';
-                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Casca de Banana' : '📖 Diagnóstico';
+                const labelTipo = card.tipo === 'caso_clinico' ? '🚨 Cybersecurity / Provas' : '📖 Diagnóstico';
                 const corBadge = card.tipo === 'caso_clinico' ? 'background: rgba(231,76,60,0.2); color: #e74c3c;' : 'background: rgba(52, 152, 219, 0.2); color: #3498db;';
 
                 container.innerHTML += `
@@ -577,35 +816,6 @@
             });
         }
         document.addEventListener('DOMContentLoaded', carregarFlashcards);
-
-        // LOGIC FOR THE INTERACTIVE SIMULATOR
-        function nextSim(orderMatters) {
-            document.getElementById('sim-step-1').style.display = 'none';
-            if (orderMatters) {
-                document.getElementById('sim-step-2').style.display = 'block';
-            }
-        }
-
-        function showResult(type) {
-            document.getElementById('sim-step-1').style.display = 'none';
-            document.getElementById('sim-step-2').style.display = 'none';
-
-            document.getElementById('res-combinacao').style.display = 'none';
-            document.getElementById('res-permutacao').style.display = 'none';
-            document.getElementById('res-arranjo').style.display = 'none';
-
-            if (type === 'combinacao') document.getElementById('res-combinacao').style.display = 'block';
-            if (type === 'permutacao') document.getElementById('res-permutacao').style.display = 'block';
-            if (type === 'arranjo') document.getElementById('res-arranjo').style.display = 'block';
-        }
-
-        function resetSim() {
-            document.getElementById('res-combinacao').style.display = 'none';
-            document.getElementById('res-permutacao').style.display = 'none';
-            document.getElementById('res-arranjo').style.display = 'none';
-            document.getElementById('sim-step-2').style.display = 'none';
-            document.getElementById('sim-step-1').style.display = 'block';
-        }
     </script>
 </body>
 

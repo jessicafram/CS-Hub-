@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade & Networking — CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --surface: #161b22;
+            --accent: #2ecc71;
+            --discord: #5865F2;
+            --discord-dark: #36393f;
+        }
+
+        body {
+            background: var(--bg);
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .header-community {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header-community h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-community p {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* --- QUADROS DE SEPARAÇÃO --- */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-container h2 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--discord);
+            padding-left: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* --- SERVIDOR VIP CS HUB --- */
+        .vip-banner {
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.2) 0%, rgba(22, 27, 34, 1) 100%);
+            border: 1px solid var(--discord);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .vip-info h3 {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .vip-info p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .btn-discord {
+            background: var(--discord);
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-discord:hover {
+            background: #4752C4;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+        }
+
+        /* --- GRID DE COMUNIDADES ABERTAS --- */
+        .grid-communities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .community-card {
+            background: var(--discord-dark);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--discord);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .community-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .community-icon {
+            width: 50px;
+            height: 50px;
+            background: #2f3136;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .community-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .community-members {
+            font-size: 0.75rem;
+            color: #8e9297;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .dot-online {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .community-desc {
+            color: #dcddde;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .btn-join {
+            background: #2f3136;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-join:hover {
+            background: var(--discord);
+            border-color: var(--discord);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-navbar">
+        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
+            <div class="nav-logo">
+                <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <span class="hub-title" style="font-family: 'Fira Code', monospace;">CS Hub &lt;/&gt;</span>
+                    <span class="jessica-signature" style="font-family: 'Dancing Script', cursive;">Jessica
+                        França</span>
+                </div>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Trilha Acadêmica</a></li>
+            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
+            <li><a href="biblioteca.html">Tech Library & Insights</a></li>
+            <li style="display: flex; align-items: center; gap: 8px;">
+                <a href="comunidade.html" class="active">Comunidade</a>
+
+                <a href="https://discord.gg/2MzvA82W8Y" target="_blank" title="Ir direto para o Servidor"
+                    style="padding: 0; display: flex; transition: 0.2s;">
+                    <svg width="22" height="22" viewBox="0 0 127.14 96.36" fill="#2ecc71">
+                        <path
+                            d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.58,67.58,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <a href="workspace.html" class="btn-notion"
+            style="text-decoration: none; display: inline-block; text-align: center;">
+            Estude por aqui (Crie seu Espaço)
+        </a>
+    </nav>
+
+    <div class="header-community">
+        <h1><span style="color: var(--discord);">#</span> Hub de Comunidades</h1>
+        <p>Networking, Dúvidas e Evolução em Grupo</p>
+    </div>
+
+    <div class="section-container">
+        <h2>Sua Base Oficial 🚀</h2>
+        <div class="vip-banner">
+            <div class="vip-info">
+                <h3>CS Hub — Elite Tech</h3>
+                <p>Nossa comunidade oficial no Discord. É aqui que os alunos do CS Hub se encontram, tiram dúvidas sobre
+                    os cadernos, formam grupos de estudos e trocam experiências reais de mercado diretamente com a
+                    mentora <strong>Jessica França</strong>.</p>
+                <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">#
+                        network</span>
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">#
+                        tira-duvidas</span>
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff;">#
+                        vagas</span>
+                </div>
+                <a href="https://discord.gg/2MzvA82W8Y" target="_blank" class="btn-discord">
+                    <svg width="24" height="24" viewBox="0 0 127.14 96.36" fill="#fff">
+                        <path
+                            d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.58,67.58,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+                    </svg>
+                    Entrar no Servidor VIP
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2>Guildas de Tecnologia 💻</h2>
+        <div class="grid-communities">
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">☕</div>
+                    <div>
+                        <h3 class="community-title">Java Community BR</h3>
+                        <span class="community-members"><span class="dot-online"></span> 1.2k Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">A maior guilda de desenvolvedores Java do Brasil. Ótimo para tirar dúvidas de
+                    POO, Spring Boot e acompanhar as novidades do ecossistema.</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">🛠️</div>
+                    <div>
+                        <h3 class="community-title">VS Code & Front-end</h3>
+                        <span class="community-members"><span class="dot-online"></span> 3.4k Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">Focado em interfaces, extensões do VS Code e discussões sobre UI/UX. Perfeito
+                    para quem ama criar telas, como as do CS Hub!</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">🐍</div>
+                    <div>
+                        <h3 class="community-title">Python & Dados</h3>
+                        <span class="community-members"><span class="dot-online"></span> 2.8k Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">Onde a mágica da Inteligência Artificial acontece. Servidor focado em análise
+                    de dados, automação (Edge AI) e machine learning.</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2>Networking & Vagas Regionais 📍</h2>
+        <div class="grid-communities">
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">🏙️</div>
+                    <div>
+                        <h3 class="community-title">Devs Sudeste</h3>
+                        <span class="community-members"><span class="dot-online"></span> 800 Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">Focado em encontros presenciais, hackathons e as maiores vagas das startups de
+                    São Paulo, Rio e Minas.</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">🏖️</div>
+                    <div>
+                        <h3 class="community-title">Nordeste Valley</h3>
+                        <span class="community-members"><span class="dot-online"></span> 650 Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">Comunidade fortíssima do Porto Digital e outros polos do Nordeste. Muito
+                    networking e fomento ao ecossistema local.</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">🌐</div>
+                    <div>
+                        <h3 class="community-title">Remoto BR / Gringa</h3>
+                        <span class="community-members"><span class="dot-online"></span> 5.1k Online</span>
+                    </div>
+                </div>
+                <p class="community-desc">Exclusivo para vagas remotas no Brasil e exterior. Dicas de entrevistas
+                    técnicas, inglês para devs e como cobrar em Dólar/Euro.</p>
+                <a href="#" class="btn-join">Participar do Servidor</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

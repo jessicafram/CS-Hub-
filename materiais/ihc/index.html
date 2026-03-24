@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHC e Experiência do Usuário (UX) — CS Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        /* --- LAYOUT EM DUAS COLUNAS --- */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1100px) {
+            .dashboard-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        /* --- ESTILOS DA COLUNA ESQUERDA (EMENTA) --- */
+        .course-header {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(11, 15, 20, 0.8));
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(231, 76, 60, 0.4);
+            transform: translateX(5px);
+        }
+
+        .btn-access {
+            background: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-access:hover {
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
+
+        /* --- ESTILOS DA COLUNA DIREITA (UX LAB - SPA) --- */
+        .practice-panel {
+            background: rgba(11, 15, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .practice-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .practice-panel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb {
+            background: rgba(231, 76, 60, 0.5);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(231, 76, 60, 0.8);
+        }
+
+        .training-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .training-card:hover {
+            border-color: rgba(231, 76, 60, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .view-container {
+            display: none;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        .view-active {
+            display: block;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: #888;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-back:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Estilos das Questões */
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .question-text {
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .btn-reveal {
+            background: transparent;
+            color: #e74c3c;
+            border: 1px dashed #e74c3c;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .btn-reveal:hover {
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #2ecc71;
+            border-radius: 0 8px 8px 0;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <span style="color: #e74c3c; font-size: 0.9rem; font-weight: bold;">Mestrado (IHC)</span>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Especialização</span>
+    </nav>
+
+    <div class="dashboard-layout">
+
+        <main>
+            <div class="course-header">
+                <span class="badge-tech"
+                    style="background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CARGA
+                    HORÁRIA: 80 HORAS</span>
+                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">IHC e Experiência do
+                    Usuário (UX)</h1>
+                <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
+                    Estudo avançado de usabilidade, ergonomia em sistemas críticos, design orientado a dados e
+                    acessibilidade a nível de código.
+                </p>
+            </div>
+
+            <h2
+                style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;">
+                Grade Curricular</h2>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        01</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Paradigmas Contemporâneos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Da evolução das GUIs à arquitetura de APIs
+                        e Voz.</p>
+                </div>
+                <a href="modulo-01/1-1-fundamentos.html" class="btn-access btn-secondary">Acessar Unidade ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        02</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Acessibilidade Profunda</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Engenharia semiótica e Diretrizes WCAG.</p>
+                </div>
+                <a href="modulo-02/2-1-engenharia-semiotica.html" class="btn-access btn-secondary">Acessar Unidade ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        03</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Ergonomia Física e Cognitiva</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Carga cognitiva em Dashboards e segurança.
+                    </p>
+                </div>
+                <a href="modulo-03/3-1-fundamentos-cognitivos.html" class="btn-access btn-secondary">Acessar Unidade
+                    ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        04</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Design Centrado no Usuário (DCU)</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Metodologias, Personas Data-Driven e
+                        priorização SMART.</p>
+                </div>
+                <a href="modulo-04/4-1-metodologia-dcu.html" class="btn-access btn-secondary">Acessar Unidade ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        05</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Prototipagem e Low-Code</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Wireframes e automação de fluxos com n8n.
+                    </p>
+                </div>
+                <a href="modulo-05/5-1-wireframes-e-baixa-fidelidade.html" class="btn-access btn-secondary">Acessar
+                    Unidade ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        06</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Análise e Testes em Escala</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Heurísticas de Nielsen e Telemetria de
+                        Dados.</p>
+                </div>
+                <a href="modulo-06/6-1-heuristicas-de-nielsen.html" class="btn-access btn-secondary">Acessar Unidade
+                    ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        07</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Engenharia de Interfaces Gráficas</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Princípios de UI Design e Componentização.
+                    </p>
+                </div>
+                <a href="modulo-07/7-1-principios-de-ui-design.html" class="btn-access btn-secondary">Acessar Unidade
+                    ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #e74c3c;">
+                <div>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">UNIDADE
+                        08</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Laboratório Prático (Capstone)</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O desafio final integrando IHC e
+                        Engenharia.</p>
+                </div>
+                <a href="modulo-08/8-1-laboratorio-pratico.html" class="btn-access btn-secondary">Acessar Unidade ▶</a>
+            </div>
+        </main>
+
+        <aside class="practice-panel">
+            <div id="view-menu" class="view-container view-active">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
+                    <h2 style="margin: 0; color: #e74c3c; font-size: 1.4rem;">🧪 UX Lab: Estudos de Caso</h2>
+                </div>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;">Selecione uma análise heurística para
+                    treinar a sua visão crítica de Design de Interfaces.</p>
+
+                <div class="training-card" style="border-left: 4px solid #e74c3c;">
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">TREINO
+                        HEURÍSTICO</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Leis de Nielsen na Prática</h3>
+                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">2 Casos Reais de auditoria de
+                        interfaces.</p>
+                    <button class="btn-access" style="width: 100%;" onclick="openView('view-ux-01')">Iniciar Auditoria
+                        🔍</button>
+                </div>
+            </div>
+
+            <div id="view-ux-01" class="view-container">
+                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar ao Laboratório</button>
+
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: #e74c3c; font-size: 1.3rem; margin: 0 0 5px 0;">Auditoria Heurística</h3>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">01</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Cenário Backend</span>
+                    </div>
+                    <div class="question-text">
+                        Um utilizador preenche um formulário gigante de faturação. Ao clicar em "Salvar", a página
+                        recarrega e todos os dados desaparecem, exibindo apenas um pequeno texto vermelho no topo: "Erro
+                        500". Qual Heurística de Nielsen foi severamente violada?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-ux-1', this)">Revelar Parecer Técnico</button>
+                    <div id="ans-ux-1" class="answer-box">
+                        <h4 style="color: #e74c3c;">🚨 Falha Crítica de UX</h4>
+                        <p><strong>Visibilidade do Estado do Sistema</strong> e <strong>Ajudar utilizadores a
+                                reconhecer, diagnosticar e recuperar de erros.</strong></p>
+                        <p>O sistema falhou ao não preservar o esforço do utilizador (dados apagados) e emitiu um erro
+                            técnico (500) incompreensível para um leigo, sem oferecer uma via clara de recuperação.</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">02</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Cognição</span>
+                    </div>
+                    <div class="question-text">
+                        O Waze e o Google Maps utilizam um ícone de uma "Lupa" para a funcionalidade de busca, e um
+                        ícone de "Engrenagem" para as configurações. Por que razão eles não inovam desenhando ícones
+                        completamente novos e exclusivos?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-ux-2', this)">Revelar Parecer Técnico</button>
+                    <div id="ans-ux-2" class="answer-box">
+                        <h4 style="color: #2ecc71;">✅ Acerto de Arquitetura</h4>
+                        <p>Eles estão a aplicar a <strong>Lei de Jakob</strong> (Os utilizadores passam a maior parte do
+                            tempo noutros sites) e a Heurística de <strong>Consistência e Padrões</strong>.</p>
+                        <p>Aumentar a carga cognitiva obrigando o utilizador a aprender um ícone novo para uma função
+                            universal é um erro grave de design. Padrões devem ser respeitados.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function openView(viewId) {
+            const views = document.querySelectorAll('.view-container');
+            views.forEach(view => { view.classList.remove('view-active'); });
+            const activeView = document.getElementById(viewId);
+            activeView.classList.add('view-active');
+            document.querySelector('.practice-panel').scrollTop = 0;
+        }
+
+        function toggleAnswer(answerId, buttonElement) {
+            const answerBox = document.getElementById(answerId);
+            if (answerBox.style.display === "none" || answerBox.style.display === "") {
+                answerBox.style.display = "block";
+                buttonElement.innerHTML = "Ocultar Parecer 🙈";
+                buttonElement.style.color = "#888";
+                buttonElement.style.borderColor = "rgba(255,255,255,0.1)";
+            } else {
+                answerBox.style.display = "none";
+                buttonElement.innerHTML = "Revelar Parecer Técnico";
+                buttonElement.style.color = "#e74c3c";
+                buttonElement.style.borderColor = "#e74c3c";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática Computacional Aplicada — CS Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        /* --- LAYOUT EM DUAS COLUNAS --- */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1100px) {
+            .dashboard-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        /* --- ESTILOS DA COLUNA ESQUERDA (EMENTA) --- */
+        .course-header {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(11, 15, 20, 0.8));
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 188, 212, 0.4);
+            transform: translateX(5px);
+        }
+
+        .btn-access {
+            background: #00bcd4;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-access:hover {
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+            color: #00bcd4;
+        }
+
+        /* --- ESTILOS DA COLUNA DIREITA (LABORATÓRIO) --- */
+        .practice-panel {
+            background: rgba(11, 15, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .practice-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .practice-panel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb {
+            background: rgba(0, 188, 212, 0.5);
+            border-radius: 10px;
+        }
+
+        .practice-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 188, 212, 0.8);
+        }
+
+        .training-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .training-card:hover {
+            border-color: rgba(0, 188, 212, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .code-display {
+            background: #0d1117;
+            font-family: 'Fira Code', monospace;
+            color: #00bcd4;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .explanation-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="notion-theme">
+
+    <nav class="top-navbar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
+            <span style="color: #555;">/</span>
+            <span style="color: #00bcd4; font-size: 0.9rem; font-weight: bold;">Matemática Computacional</span>
+        </div>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Cálculo Numérico</span>
+    </nav>
+
+    <div class="dashboard-layout">
+
+        <main>
+            <div class="course-header">
+                <span class="badge-tech"
+                    style="background: rgba(0, 188, 212, 0.2); color: #00bcd4; border: 1px solid #00bcd4; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CARGA
+                    HORÁRIA: 80 HORAS</span>
+                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">Matemática
+                    Computacional</h1>
+                <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
+                    O computador não entende matemática infinita. Descubra como a máquina aproxima cálculos, manipula
+                    memória e comete erros invisíveis em sistemas críticos.
+                </p>
+            </div>
+
+            <h2
+                style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;">
+                Grade Curricular</h2>
+
+            <div class="module-card" style="border-left: 4px solid #00bcd4;">
+                <div>
+                    <span
+                        style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        01</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Fundamentos e Erros Numéricos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Padrão IEEE 754, Ponto Flutuante e
+                        Propagação de Erros.</p>
+                </div>
+                <a href="modulo-01/index.html" class="btn-access btn-secondary">Acessar Módulo ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #00bcd4;">
+                <div>
+                    <span
+                        style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        02</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Equações Não Lineares</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Método da Bisseção e Algoritmo de
+                        Newton-Raphson.</p>
+                </div>
+                <a href="modulo-02/index.html" class="btn-access btn-secondary">Acessar Módulo ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #00bcd4;">
+                <div>
+                    <span
+                        style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        03</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Sistemas Lineares e Matrizes</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Eliminação de Gauss e Fatoração LU em
+                        Memória.</p>
+                </div>
+                <a href="modulo-03/index.html" class="btn-access btn-secondary">Acessar Módulo ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #00bcd4;">
+                <div>
+                    <span
+                        style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        04</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Interpolação de Funções</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Como a máquina desenha curvas perfeitamente
+                        lisas (Lagrange).</p>
+                </div>
+                <a href="modulo-04/index.html" class="btn-access btn-secondary">Acessar Módulo ▶</a>
+            </div>
+
+            <div class="module-card" style="border-left: 4px solid #00bcd4;">
+                <div>
+                    <span
+                        style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
+                        05</span>
+                    <h3 style="color: #fff; margin: 5px 0;">Integração Numérica</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Regra dos Trapézios e Simpson Aplicada a
+                        Algoritmos.</p>
+                </div>
+                <a href="modulo-05/index.html" class="btn-access btn-secondary">Acessar Módulo ▶</a>
+            </div>
+        </main>
+
+        <aside class="practice-panel">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
+                <h2 style="margin: 0; color: #00bcd4; font-size: 1.4rem;">💻 NumLab: Simuladores</h2>
+            </div>
+
+            <div class="training-card" style="border-left: 4px solid #00bcd4;">
+                <span
+                    style="color: #00bcd4; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">TESTE
+                    DE CPU (MÓDULO 1)</span>
+                <h3 style="color: #fff; margin: 5px 0 10px 0;">O Problema do Ponto Flutuante</h3>
+                <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">Peça ao JavaScript do seu navegador
+                    para somar <strong>0.1 + 0.2</strong> e veja o resultado bruto da memória.</p>
+
+                <button class="btn-access" style="width: 100%;" onclick="runFloatTest()">Executar Soma na CPU ⚡</button>
+
+                <div id="result-box" class="code-display" style="display: none;"></div>
+
+                <div id="explanation-box" class="explanation-box">
+                    <strong style="color: #fff;">Por que isso acontece?</strong><br>
+                    Processadores usam base binária (0 e 1). O número 0.1 é uma dízima periódica infinita em binário.
+                    Como a memória RAM tem limite (64 bits no padrão IEEE 754), o computador "corta" o número, gerando
+                    um pequeno erro de arredondamento. Em transações financeiras, esse pequeno erro pode custar milhões!
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function runFloatTest() {
+            const resBox = document.getElementById('result-box');
+            const expBox = document.getElementById('explanation-box');
+
+            resBox.style.display = 'block';
+            resBox.innerHTML = 'Calculando...';
+            resBox.style.color = '#fff';
+
+            setTimeout(() => {
+                const soma = 0.1 + 0.2;
+                resBox.innerHTML = `0.1 + 0.2 = <span style="color: #e74c3c;">${soma}</span>`;
+                expBox.style.display = 'block';
+            }, 800);
+        }
+    </script>
+</body>
+
+</html>

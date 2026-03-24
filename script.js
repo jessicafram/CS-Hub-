@@ -8,7 +8,7 @@ const codeToType = `class ComputerScience {
 }`;
 
 let charIndex = 0;
-let materiasData = null; // Cache para não precisar ler o arquivo JSON toda hora
+let materiasData = null; // Cache para não precisar ler o arquivo JSON toda a hora
 
 function typeCode() {
     const element = document.getElementById("typing-code");
@@ -19,7 +19,6 @@ function typeCode() {
     }
 }
 
-// Função atualizada para aceitar o tipo (graduacao ou extensao)
 async function loadContent(tipo, valor) {
     try {
         if (!materiasData) {
@@ -37,7 +36,6 @@ async function loadContent(tipo, valor) {
             const periodoEncontrado = materiasData.grade_curricular.find(p => p.periodo === periodoNum);
             if (periodoEncontrado) listaExibicao = periodoEncontrado.materias;
         } else if (tipo === 'extensao') {
-            // Busca nos cursos de extensão (você deve adicionar esta chave no seu JSON)
             const cursoEncontrado = materiasData.cursos_extensao.find(c => c.id === valor);
             if (cursoEncontrado) listaExibicao = [cursoEncontrado];
         }
@@ -45,13 +43,29 @@ async function loadContent(tipo, valor) {
         listaExibicao.forEach(m => {
             const card = document.createElement('div');
             card.className = 'mat-card-modern';
+
+            // UX Tweak: Muda o texto do botão se for uma Home dedicada
+            const textoBotao = m.link_direto ? "ACESSAR AMBIENTE 🚀" : "VER CONTEÚDO";
+            const corBotao = m.link_direto ? "#2ecc71" : "var(--accent)"; // Fica verdinho se for direto
+
             card.innerHTML = `
                 <div class="card-status">${m.status}</div>
                 <h3>${m.nome}</h3>
                 <p>${m.horas} Horas</p>
-                <button class="btn-primary-small" style="background:var(--accent); color:#000; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-weight:bold; margin-top:10px;">VER CONTEÚDO</button>
+                <button class="btn-primary-small" style="background:${corBotao}; color:#000; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-weight:bold; margin-top:10px;">${textoBotao}</button>
             `;
-            card.querySelector('button').addEventListener('click', () => openModal(m));
+
+            // A LÓGICA MÁGICA DO CLIQUE
+            card.querySelector('button').addEventListener('click', () => {
+                if (m.link_direto) {
+                    // Vai direto para a Home Nova (Bypass no Modal)
+                    window.location.href = m.link_direto;
+                } else {
+                    // Abre o modal antigo para matérias que ainda não foram atualizadas
+                    openModal(m);
+                }
+            });
+
             container.appendChild(card);
         });
     } catch (error) {
@@ -69,7 +83,7 @@ function openModal(materia) {
 
     let trilhaHTML = "";
 
-    // 1. NOVA LÓGICA DE MESTRADO (Hierarquia: Unidades -> Tópicos)
+    // 1. LÓGICA DE MESTRADO (IHC)
     if (materia.unidades) {
         trilhaHTML = materia.unidades.map(unidade => `
             <details style="margin-bottom: 10px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent); border-radius: 4px;">
@@ -94,12 +108,23 @@ function openModal(materia) {
             </details>
         `).join('');
     }
-    // 2. LÓGICA ANTIGA (Mantida intacta para não quebrar Java, n8n e Matemática)
+    // 2. LÓGICA PADRÃO (Mat Discreta, Backend, Java, etc)
     else if (materia.grade_conteudo) {
         trilhaHTML = materia.grade_conteudo.map((item, index) => {
             const num = String(index + 1).padStart(2, '0');
             const topicoNum = index + 1;
 
+            // NOVA LÓGICA: SE A MATÉRIA TEM HOME PRÓPRIA
+            // A lista fica apenas visual (sem tentar abrir links quebrados)
+            if (materia.link_direto) {
+                return `
+                    <li style="border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 8px; padding: 12px; list-style: none; border-radius: 4px; color: #cbd5e1; font-size: 0.95rem;">
+                        📖 ${item}
+                    </li>
+                `;
+            }
+
+            // LÓGICA ANTIGA PARA DISCIPLINAS AINDA NÃO MODERNIZADAS
             if (materia.links_ativos) {
                 return `
                     <li style="display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent); background: rgba(255,255,255,0.05); margin-top: 5px; padding: 10px; list-style: none;">
@@ -133,6 +158,19 @@ function openModal(materia) {
         }).join('');
     }
 
+    // CRIAÇÃO DO BOTÃO "ACESSAR HUB" SE EXISTIR LINK DIRETO
+    let btnAcessarHub = "";
+    if (materia.link_direto) {
+        btnAcessarHub = `
+            <button onclick="window.location.href='${materia.link_direto}'" 
+                    style="width: 100%; padding: 15px; margin-top: 25px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);"
+                    onmouseover="this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.transform='translateY(0)';">
+                🚀 ACESSAR AMBIENTE DA DISCIPLINA
+            </button>
+        `;
+    }
+
     // Monta o Modal final
     const tituloExibicao = materia.nome || "Detalhes da Disciplina";
     const descricaoExibicao = materia.descricao || "";
@@ -144,9 +182,11 @@ function openModal(materia) {
             <p style="color:#fff; opacity:0.8;">${descricaoExibicao}</p>
 
             <h4 style="color: var(--accent); font-size: 0.9rem; margin-top:20px; margin-bottom: 15px;">TRILHA DE APRENDIZADO</h4>
-          <div class="syllabus-list" style="padding: 0; max-height: 280px; overflow-y: auto; padding-right: 10px;">
+            <div class="syllabus-list" style="padding: 0; max-height: 280px; overflow-y: auto; padding-right: 10px;">
                 ${trilhaHTML}
             </div>
+            
+            ${btnAcessarHub}
         </div>
     `;
     modal.style.display = 'flex';
@@ -154,23 +194,17 @@ function openModal(materia) {
 
 document.addEventListener("DOMContentLoaded", () => {
     typeCode();
-    loadContent('graduacao', 1); // Carrega o 1º período por padrão
+    loadContent('graduacao', 1); // Carrega o 1º período por defeito
 
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', function () {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
-            const tipo = this.dataset.type; // graduacao ou extensao
+            const tipo = this.dataset.type;
             const valor = tipo === 'graduacao' ? this.dataset.periodo : this.dataset.curso;
 
-            // --- IMPLANTE O CÓDIGO ABAIXO AQUI ---
-            if (valor === 'api-pagamentos') {
-                window.location.href = 'materiais/backend/index.html';
-                return; // Impede que o restante da função execute
-            }
-            // --- FIM DO IMPLANTE ---
-
+            // Hack do Backend removido! A lógica agora é gerida dinamicamente no Modal.
             loadContent(tipo, valor);
         });
     });
@@ -182,14 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- NOVA LÓGICA DE DEEP LINKING (ABRIR MODAL PELA URL) ---
     async function checkDeepLink() {
         const urlParams = new URLSearchParams(window.location.search);
-        const modalId = urlParams.get('modal'); // Procura por ?modal=ihc na URL
+        const modalId = urlParams.get('modal');
 
         if (modalId) {
             try {
-                // Garante que o JSON de matérias foi carregado
                 if (!materiasData) {
                     const response = await fetch('data/materias.json');
                     materiasData = await response.json();
@@ -197,22 +229,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let materiaEncontrada = null;
 
-                // 1. Procura a matéria na Graduação
                 materiasData.grade_curricular.forEach(p => {
                     const mat = p.materias.find(m => m.id === modalId);
                     if (mat) materiaEncontrada = mat;
                 });
 
-                // 2. Procura a matéria na Extensão (caso não ache na graduação)
                 if (!materiaEncontrada && materiasData.cursos_extensao) {
                     materiaEncontrada = materiasData.cursos_extensao.find(c => c.id === modalId);
                 }
 
-                // 3. Se achou a matéria, abre o modal direto!
                 if (materiaEncontrada) {
                     openModal(materiaEncontrada);
-
-                    // Limpa a URL para tirar o "?modal=ihc" visualmente, deixando profissional
                     window.history.replaceState({}, document.title, window.location.pathname);
                 }
             } catch (error) {
@@ -221,6 +248,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Executa a checagem logo que a página carrega
     checkDeepLink();
 });

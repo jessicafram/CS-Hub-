@@ -58,6 +58,8 @@
                     "status": "Em andamento",
                     "horas": 80,
                     "descricao": "Estudo avançado da interface e experiência do usuário, integrando usabilidade, acessibilidade em nível de código, ergonomia em sistemas críticos e design orientado a dados.",
+                    "links_ativos": true,
+                    "link_direto": "materiais/ihc/index.html",
                     "unidades": [
                         {
                             "id": 1,
@@ -207,7 +209,16 @@
                     "nome": "Matemática Computacional Aplicada",
                     "status": "Em andamento",
                     "horas": 80,
-                    "descricao": "Análise numérica avançada e computação científica."
+                    "descricao": "Análise numérica avançada e computação científica.",
+                    "links_ativos": true,
+                    "link_direto": "materiais/mat-comp/index.html",
+                    "grade_conteudo": [
+                        "Módulo 1: Fundamentos e Erros Numéricos",
+                        "Módulo 2: Equações Não Lineares",
+                        "Módulo 3: Sistemas Lineares e Matrizes",
+                        "Módulo 4: Interpolação de Funções",
+                        "Módulo 5: Integração Numérica"
+                    ]
                 }
             ]
         }
@@ -220,6 +231,7 @@
             "horas": 12,
             "descricao": "Domine a via profissional de automação e manipulação de JSON.",
             "links_ativos": true,
+            "link_direto": "materiais/n8n/index.html",
             "grade_conteudo": [
                 "Aula 01: Instalação Profissional",
                 "Aula 02: Manipulação de Dados",

@@ -9,6 +9,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../../style.css">
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         /* --- LAYOUT EM DUAS COLUNAS --- */
         .dashboard-layout {
@@ -331,8 +334,7 @@
                     <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O Guia Definitivo de Interpretação:
                         Arranjo, Permutação e Combinação.</p>
                 </div>
-                <a href="modulo-04/4-1-interpretacao-combinatoria.html" class="btn-access btn-secondary">Acessar Aula
-                    ▶</a>
+                <a href="modulo-04/4-1-analise-combinatoria.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
@@ -417,6 +419,16 @@
                 </div>
             </div>
 
+            <div id="view-generic" class="view-container">
+                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+                <div style="text-align: center; margin-top: 60px;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🚧</div>
+                    <h3 style="color: #3498db; font-size: 1.3rem;">Simulado em Construção</h3>
+                    <p style="color: #888; line-height: 1.6;">As questões deste módulo estão sendo preparadas pela
+                        plataforma e serão liberadas em breve.</p>
+                </div>
+            </div>
+
             <div id="view-mod-01" class="view-container">
                 <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
 
@@ -468,4 +480,368 @@
                 </div>
             </div>
 
-            <div id="view-mod-04" class="view-container
+            <div id="view-mod-04" class="view-container">
+                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: #3498db; font-size: 1.3rem; margin: 0 0 5px 0;">Simulado: Análise Combinatória
+                    </h3>
+                    <p style="color: #888; font-size: 0.9rem; margin: 0;">Aplique a Árvore de Decisão e não caia em
+                        pegadinhas.</p>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">01</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Infraestrutura de
+                            Servidores</span>
+                    </div>
+                    <div class="question-text">
+                        Um data center possui 15 nós de processamento disponíveis. O sistema precisa escolher exatamente
+                        3 nós para formar um cluster de backup (onde todos os 3 nós terão exatamente a mesma função).
+                        Quantos clusters diferentes podem ser formados?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-mod4-1', this)">Revelar Resolução
+                        Detalhada</button>
+
+                    <div id="ans-mod4-1" class="answer-box">
+                        <h4 style="color: #2ecc71; margin-bottom: 20px;">✅ Resolução Guiada</h4>
+
+                        <h5 style="color: #3498db; margin-top: 15px; margin-bottom: 5px; font-size: 1rem;">Passo 1: O
+                            "Modo Detetive" (A Interpretação)</h5>
+                        <p>Esqueça o 15 e o 3 por um minuto. Imagine o nosso data center. Se você for lá e escolher os
+                            servidores <strong>A, B e C</strong> para salvar os arquivos, e depois mudar de ideia e
+                            disser que escolheu <strong>C, B e A</strong>... mudou alguma coisa? Não! Os arquivos vão
+                            ser salvos nos mesmos três computadores.</p>
+                        <p
+                            style="background: rgba(241, 196, 15, 0.1); padding: 10px; border-left: 3px solid #f1c40f; border-radius: 4px;">
+                            <strong>A Conclusão:</strong> Se trocar a ordem <strong>NÃO</strong> muda o resultado, a
+                            nossa Árvore de Decisão diz que isso é uma <strong>Combinação</strong>.
+                        </p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 2:
+                            Montando a Fração (Sem pânico)</h5>
+                        <p>A fórmula da Combinação tem a parte de cima (o total que temos) e a parte de baixo (quem
+                            escolhemos e quem ficou de fora).</p>
+                        <ul style="margin-top: 10px; margin-bottom: 15px;">
+                            <li><strong>Numerador (Topo):</strong> Temos 15 no total, então é <code>15!</code></li>
+                            <li><strong>Denominador (Base):</strong> Escolhemos 3 (<code>3!</code>) e deixamos 12 de
+                                fora (<code>12!</code>).</li>
+                        </ul>
+                        <p>Fração montada: $$C_{15,3} = \frac{15!}{3! \times 12!}$$</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 3: A
+                            Mágica de Cortar (O Cálculo)</h5>
+                        <p>Não ouse calcular o 15 fatorial inteiro! Vamos usar a técnica de expandir e cortar. O 15 é o
+                            maior em cima, e o 12 é o maior embaixo. Vamos descer o 15 só até o 12.</p>
+
+                        <div class="math-block"
+                            style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); line-height: 1.8;">
+                            <div style="margin-bottom: 10px;">= (15 × 14 × 13 × <del
+                                    style="color:#e74c3c; font-weight: bold;">12!</del>) / (3 × 2 × 1 × <del
+                                    style="color:#e74c3c; font-weight: bold;">12!</del>)</div>
+
+                            <div style="color: #888; font-style: italic;">// O que sobrou após cortar:</div>
+                            <div style="margin-bottom: 10px;">= (15 × 14 × 13) / (3 × 2 × 1)</div>
+
+                            <div
+                                style="color: #888; font-style: italic; border-top: 1px dashed #333; padding-top: 10px; margin-top: 10px;">
+                                // Dica de Ouro da Simplificação: Divida antes de multiplicar!<br>
+                                // 15 dividido por 3 dá <strong>5</strong>. <br>
+                                // 14 dividido por 2 dá <strong>7</strong>. <br>
+                                // O 1 de baixo some.
+                            </div>
+
+                            <div style="margin-top: 15px; color: #fff;">Conta Final: <strong>5 × 7 × 13</strong></div>
+                            <div style="color: #ccc;">5 × 7 = 35</div>
+                            <div style="color: #2ecc71; font-weight: bold; font-size: 1.1rem; margin-top: 5px;">35 × 13
+                                = 455 clusters</div>
+                        </div>
+                        <p style="color: #f1c40f; margin-top: 15px; font-weight: 600;">✨ Fim da questão, sem usar
+                            números gigantes!</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">02</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Segurança de PIN</span>
+                    </div>
+                    <div class="question-text">
+                        Uma trava de segurança exige um PIN numérico de 4 dígitos (0 a 9). Porém, o sistema foi
+                        programado para não aceitar o número "0" no primeiro dígito. Quantas senhas válidas existem?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-mod4-2', this)">Revelar Resolução
+                        Detalhada</button>
+
+                    <div id="ans-mod4-2" class="answer-box">
+                        <h4 style="color: #2ecc71; margin-bottom: 20px;">✅ Resolução Guiada</h4>
+
+                        <h5 style="color: #3498db; margin-top: 15px; margin-bottom: 5px; font-size: 1rem;">Passo 1:
+                            Visualizando o Problema (A Interpretação)</h5>
+                        <p>Sempre que o problema pedir para criar <em>'senhas'</em>, <em>'placas de carro'</em> ou
+                            <em>'códigos'</em>, <strong>a ordem importa</strong> (A senha 1234 não abre o cofre da senha
+                            4321). Então NÃO usamos Combinação. Vamos desenhar as 'casinhas' da senha:
+                        </p>
+
+                        <div class="math-block"
+                            style="text-align: center; font-size: 1.5rem; letter-spacing: 15px; background: transparent; border: none; color: #fff;">
+                            _ _ _ _
+                        </div>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 2:
+                            Atacando a Restrição Primeiro</h5>
+                        <p>Regra número um de Arranjos: <strong>Sempre comece pelo problema!</strong> Qual é o problema
+                            dessa senha? O primeiro dígito.</p>
+                        <ul style="margin-top: 10px; margin-bottom: 15px;">
+                            <li><strong>1º traço (casinha):</strong> Quantos números existem de 0 a 9? São 10 números.
+                                Mas o sistema bloqueia o zero aqui. Então, nos restam apenas <strong>9 opções</strong>
+                                (do 1 ao 9).</li>
+                            <li><strong>Outros 3 traços:</strong> O sistema bloqueia mais alguma coisa? Não. Então, para
+                                a segunda, terceira e quarta 'casinha' nós podemos usar todos os <strong>10
+                                    números</strong>.</li>
+                        </ul>
+
+                        <div class="math-block"
+                            style="text-align: center; font-size: 1.2rem; background: rgba(0,0,0,0.3); border: 1px dashed #333; padding: 15px;">
+                            [ <span style="color:#e74c3c; font-weight: bold;">9</span> ] [ <span
+                                style="color:#3498db; font-weight: bold;">10</span> ] [ <span
+                                style="color:#3498db; font-weight: bold;">10</span> ] [ <span
+                                style="color:#3498db; font-weight: bold;">10</span> ]
+                        </div>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 3: O
+                            Cálculo Ninja</h5>
+                        <p>Pelo Princípio Multiplicativo (o famoso <strong>'E'</strong>, porque você escolhe um dígito E
+                            outro E outro), basta multiplicar tudo.</p>
+
+                        <div class="math-block"
+                            style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); line-height: 1.8;">
+                            <div style="margin-bottom: 10px; color: #fff;">= 9 × 10 × 10 × 10</div>
+                            <div
+                                style="color: #888; font-style: italic; border-top: 1px dashed #333; padding-top: 10px; margin-top: 10px;">
+                                // Dica de calculadora humana: Repita o 9 e apenas conte quantos zeros tem na frente.
+                                <br>
+                                // Temos três vezes o número 10? Então coloque três zeros atrás do 9.
+                            </div>
+                            <div style="color: #2ecc71; font-weight: bold; font-size: 1.2rem; margin-top: 15px;">= 9.000
+                                senhas válidas</div>
+                        </div>
+
+                        <div
+                            style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-left: 4px solid #e74c3c; border-radius: 4px; margin-top: 30px;">
+                            <strong style="color: #e74c3c; font-size: 0.9rem; text-transform: uppercase;">🧠 Dica
+                                Psicológica para a Prova:</strong><br>
+                            <div
+                                style="font-style: italic; color: #cbd5e1; font-size: 0.95rem; margin-top: 8px; line-height: 1.6;">
+                                "Se você errar a conta de multiplicação no final, você perdeu 1 ponto na prova. Mas se
+                                você usar a ferramenta errada (chutar Combinação onde era Arranjo), você perdeu a
+                                questão inteira. Foque 90% da sua energia em fazer as perguntas do Detetive para o
+                                texto. A matemática a gente domina com o tempo."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">03</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Gestão de Squads
+                            (Estilo UNICAMP)</span>
+                    </div>
+                    <div class="question-text">
+                        Uma empresa de tecnologia tem 8 Desenvolvedores Backend e 5 Desenvolvedores Frontend
+                        disponíveis. O Tech Lead precisa montar uma "Squad de Emergência" com exatamente 5 membros,
+                        sendo obrigatoriamente <strong>3 de Backend e 2 de Frontend</strong>. Quantas squads diferentes
+                        podem ser formadas?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-mod4-3', this)">Revelar Resolução
+                        Detalhada</button>
+
+                    <div id="ans-mod4-3" class="answer-box">
+                        <h4 style="color: #2ecc71; margin-bottom: 20px;">✅ Resolução Guiada</h4>
+
+                        <h5 style="color: #3498db; margin-top: 15px; margin-bottom: 5px; font-size: 1rem;">Passo 1: O
+                            "Modo Detetive"</h5>
+                        <p>A ordem de quem entra na Squad importa? Se o Tech Lead escolher (Ana, Beto e Carlos) para o
+                            Backend, é a mesma coisa que escolher (Carlos, Ana e Beto). A função deles no time será a
+                            mesma. Portanto, usamos <strong>Combinação</strong>.</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 2:
+                            Separando os Problemas</h5>
+                        <p>Nós não temos um problema só, temos dois! Precisamos escolher o Backend <strong>"E"</strong>
+                            precisamos escolher o Frontend. Lembra do nosso Dicionário? A palavra <strong>"E"</strong>
+                            significa <strong>Multiplicação</strong>.</p>
+
+                        <div class="math-block"
+                            style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); line-height: 1.8;">
+                            <div style="color: #fff;"><strong>1. Escolher os Backends:</strong> Temos 8, queremos 3.
+                            </div>
+                            <div style="margin-bottom: 10px;">$$C_{8,3} = \frac{8!}{3! \times 5!} = \frac{8 \times 7
+                                \times 6 \times \cancel{5!}}{3 \times 2 \times 1 \times \cancel{5!}} = \frac{336}{6} =
+                                56 \text{ grupos}$$</div>
+
+                            <div style="color: #fff; margin-top: 20px;"><strong>2. Escolher os Frontends:</strong> Temos
+                                5, queremos 2.</div>
+                            <div style="margin-bottom: 10px;">$$C_{5,2} = \frac{5!}{2! \times 3!} = \frac{5 \times 4
+                                \times \cancel{3!}}{2 \times 1 \times \cancel{3!}} = \frac{20}{2} = 10 \text{ grupos}$$
+                            </div>
+                        </div>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 3: O
+                            Xeque-Mate Multiplicativo</h5>
+                        <p>Como precisamos dos Backends <strong>E</strong> dos Frontends para fechar a Squad,
+                            multiplicamos os resultados parciais:</p>
+                        <div class="math-block"
+                            style="text-align: center; font-size: 1.2rem; color: #2ecc71; font-weight: bold;">
+                            56 × 10 = 560 Squads possíveis
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">04</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Criptografia (Estilo
+                            POSCOMP)</span>
+                    </div>
+                    <div class="question-text">
+                        Um sistema gera tokens de segurança embaralhando todas as letras da palavra
+                        <strong>DATABASE</strong>. O algoritmo não diferencia letras maiúsculas de minúsculas. Quantos
+                        tokens distintos o sistema consegue gerar?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-mod4-4', this)">Revelar Resolução
+                        Detalhada</button>
+
+                    <div id="ans-mod4-4" class="answer-box">
+                        <h4 style="color: #2ecc71; margin-bottom: 20px;">✅ Resolução Guiada</h4>
+
+                        <h5 style="color: #3498db; margin-top: 15px; margin-bottom: 5px; font-size: 1rem;">Passo 1: O
+                            "Modo Detetive"</h5>
+                        <p>Nós vamos embaralhar <strong>todas</strong> as 8 letras. Como estamos mudando a ordem de
+                            TODOS os elementos simultaneamente, é uma <strong>Permutação</strong> ($8!$).</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 2: A
+                            Casca de Banana (A Repetição)</h5>
+                        <p>A palavra DATABASE tem a letra <strong>'A'</strong> repetida 3 vezes. Pense bem: se você
+                            trocar o primeiro 'A' de lugar com o último 'A', o token visualmente muda? Não! Continua
+                            escrito DATABASE. O computador gerou senhas repetidas gastando processamento à toa!</p>
+
+                        <p
+                            style="background: rgba(231, 76, 60, 0.1); padding: 10px; border-left: 3px solid #e74c3c; border-radius: 4px;">
+                            <strong>A Regra:</strong> Toda vez que houver elementos idênticos, você pega o Total
+                            Fatorial ($8!$) e <strong>DIVIDE</strong> pelo fatorial da quantidade de repetições ($3!$).
+                        </p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 3: A
+                            Mágica de Cortar</h5>
+
+                        <div class="math-block"
+                            style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); line-height: 1.8;">
+                            <div style="margin-bottom: 10px;">$$P_{8}^{3} = \frac{8!}{3!}$$</div>
+                            <div style="margin-bottom: 10px;">= (8 × 7 × 6 × 5 × 4 × <del
+                                    style="color:#e74c3c; font-weight: bold;">3!</del>) / <del
+                                    style="color:#e74c3c; font-weight: bold;">3!</del></div>
+
+                            <div style="color: #888; font-style: italic; margin-top: 15px;">// Resolvendo a
+                                multiplicação que sobrou:</div>
+                            <div style="margin-bottom: 10px; color: #fff;">= 8 × 7 × 6 × 5 × 4</div>
+                            <div style="color: #2ecc71; font-weight: bold; font-size: 1.2rem; margin-top: 5px;">= 6.720
+                                tokens distintos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-number">05</div>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Redes e Hardware (A
+                            Regra do Bloco)</span>
+                    </div>
+                    <div class="question-text">
+                        Em um rack de servidores recém-comprado, há 5 gavetas (slots) vazias lado a lado. Vamos instalar
+                        <strong>2 Roteadores</strong> e <strong>3 Firewalls</strong>. De quantas maneiras podemos
+                        organizar esses equipamentos, sabendo que os 2 Roteadores DEVEM ficar obrigatoriamente
+                        <strong>juntos</strong> (lado a lado) para facilitar o cabeamento?
+                    </div>
+                    <button class="btn-reveal" onclick="toggleAnswer('ans-mod4-5', this)">Revelar Resolução
+                        Detalhada</button>
+
+                    <div id="ans-mod4-5" class="answer-box">
+                        <h4 style="color: #2ecc71; margin-bottom: 20px;">✅ Resolução Guiada</h4>
+
+                        <h5 style="color: #3498db; margin-top: 15px; margin-bottom: 5px; font-size: 1rem;">Passo 1: A
+                            Técnica da "Fita Isolante"</h5>
+                        <p>O enunciado falou "Juntos" ou "Lado a lado"? Nós aplicamos a técnica do
+                            <strong>Bloco</strong>. Imagine que pegamos uma fita isolante e amarramos os 2 Roteadores
+                            juntos. Agora, eles não são mais 2 itens separados, eles se movem pelo rack como se fossem
+                            <strong>1 super-item</strong>.</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 2:
+                            Permutação Externa (O Rack inteiro)</h5>
+                        <p>Quantos "itens" nós temos para encaixar nos slots agora?</p>
+                        <ul style="margin-top: 10px; margin-bottom: 15px;">
+                            <li>1 Bloco de Roteadores</li>
+                            <li>3 Firewalls soltos</li>
+                            <li><strong>Total: 4 "itens"</strong></li>
+                        </ul>
+                        <p>A permutação desses 4 itens é: <code>4! = 4 × 3 × 2 × 1 = 24 maneiras</code>.</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 3:
+                            Permutação Interna (Dentro do Bloco)</h5>
+                        <p>A pegadinha mortal: A fita isolante manteve os roteadores juntos, mas não definiu a ordem
+                            deles! Nós podemos ter o Roteador A na esquerda e o B na direita, ou vice-versa.</p>
+                        <p>Temos que permutar os elementos DENTRO do bloco: <code>2! = 2 × 1 = 2 maneiras</code>.</p>
+
+                        <h5 style="color: #3498db; margin-top: 25px; margin-bottom: 5px; font-size: 1rem;">Passo 4: O
+                            Gran Finale</h5>
+                        <p>Pelo Princípio Multiplicativo, multiplicamos a organização de fora (o rack) pela organização
+                            de dentro (o bloco):</p>
+
+                        <div class="math-block"
+                            style="text-align: center; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <span style="color: #fff;">Externa (4!) × Interna (2!)</span><br>
+                            <span style="color: #2ecc71; font-weight: bold; font-size: 1.3rem;">24 × 2 = 48
+                                maneiras</span>
+                        </div>
+                    </div>
+                </div>
+
+        </aside>
+    </div>
+
+    <script>
+        // Função para trocar as telas (views) do painel de treinamento
+        function openView(viewId) {
+            const views = document.querySelectorAll('.view-container');
+            // Esconde todas
+            views.forEach(view => {
+                view.classList.remove('view-active');
+            });
+            // Mostra a selecionada
+            const activeView = document.getElementById(viewId);
+            if (activeView) {
+                activeView.classList.add('view-active');
+                // Rola o painel para o topo suavemente
+                document.querySelector('.practice-panel').scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Função para revelar ou esconder o gabarito
+        function toggleAnswer(answerId, buttonElement) {
+            const answerBox = document.getElementById(answerId);
+            if (answerBox.style.display === "none" || answerBox.style.display === "") {
+                answerBox.style.display = "block";
+                buttonElement.innerHTML = "Ocultar Gabarito 🙈";
+                buttonElement.style.color = "#888";
+                buttonElement.style.borderColor = "rgba(255,255,255,0.1)";
+            } else {
+                answerBox.style.display = "none";
+                buttonElement.innerHTML = "Já fiz sozinho! Revelar Gabarito";
+                buttonElement.style.color = "#3498db";
+                buttonElement.style.borderColor = "#3498db";
+            }
+        }
+    </script>
+</body>
+
+</html>

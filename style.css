@@ -619,3 +619,21 @@ body {
     box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
     font-weight: bold;
 }
+
+.btn-notion {
+    background: #2ecc71;
+    /* Verde Notion/Agente */
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0px rgba(46, 204, 113, 0);
+}
+
+.btn-notion:hover {
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
+    transform: translateY(-2px);
+}

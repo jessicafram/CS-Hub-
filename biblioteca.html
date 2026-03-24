@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Library & Insights — CS Hub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --surface: #161b22;
+            --accent: #2ecc71;
+            --amazon: #f39c12;
+        }
+
+        body {
+            background: var(--bg);
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .header-lib {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header-lib h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .header-lib p {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* --- QUADROS DE SEPARAÇÃO DAS SEÇÕES --- */
+        .section-container {
+            background: rgba(255, 255, 255, 0.02);
+            /* Fundo transparente elegante */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-container h2 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* --- RADAR DE INSIGHTS --- */
+        .grid-insights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .insight-card {
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+            flex: 1 1 300px;
+            max-width: 420px;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(52, 152, 219, 0.4);
+        }
+
+        .insight-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .insight-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .badge-radar {
+            background: rgba(52, 152, 219, 0.15);
+            color: #3498db;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            width: max-content;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- SISTEMA DA CARTEIRINHA DE BIBLIOTECA (ACORDEÃO) --- */
+        details.library-card-box {
+            background: rgba(52, 152, 219, 0.05);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        details.library-card-box[open] {
+            background: rgba(52, 152, 219, 0.08);
+            border-color: rgba(52, 152, 219, 0.4);
+        }
+
+        details.library-card-box summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #3498db;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            outline: none;
+        }
+
+        details.library-card-box summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.library-card-box summary:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 12px;
+        }
+
+        .library-card-content {
+            padding: 0 20px 20px 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .library-card-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed var(--accent);
+        }
+
+        .library-card-content a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* --- PRATELEIRA DE LIVROS --- */
+        .grid-books {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .book-container {
+            perspective: 1000px;
+            width: 200px;
+            height: 310px;
+        }
+
+        .book-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 4px 12px 12px 4px;
+        }
+
+        .book-container:hover .book-card {
+            transform: rotateY(180deg);
+        }
+
+        .book-front,
+        .book-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .book-front {
+            border-radius: 4px 10px 10px 4px;
+            overflow: hidden;
+            box-shadow: inset 6px 0 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .book-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-back {
+            background: #1c222a;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            border-radius: 10px 4px 4px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .amazon-btn {
+            background: var(--amazon);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: auto;
+            transition: 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .amazon-btn:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        .free-btn {
+            background: #2ecc71;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: auto;
+            transition: 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .free-btn:hover {
+            background: #27ae60;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-navbar">
+        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
+            <div class="nav-logo">
+                <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
+                <div class="logo-text-wrapper">
+                    <span class="hub-title" style="font-family: 'Fira Code', monospace;">CS Hub &lt;/&gt;</span>
+                    <span class="jessica-signature" style="font-family: 'Dancing Script', cursive;">Jessica
+                        França</span>
+                </div>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Trilha Acadêmica</a></li>
+            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
+            <li><a href="biblioteca.html">Tech Library & Insights</a></li>
+            <li><a href="comunidade.html">Comunidade Discord</a></li>
+        </ul>
+
+        <a href="workspace.html" class="btn-notion"
+            style="text-decoration: none; display: inline-block; text-align: center;">
+            Estude por aqui (Crie seu Espaço)
+        </a>
+    </nav>
+
+    <div class="header-lib">
+        <h1>Tech Library & Insights</h1>
+        <p>Curadoria Estratégica para o Mercado 2026</p>
+    </div>
+
+    <div class="section-container">
+        <h2>Radar de Insights 2026</h2>
+        <div class="grid-insights">
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+                    alt="IA e Agentes" class="insight-img">
+                <div class="insight-content">
+                    <span class="badge-radar">TENDÊNCIA 🚀</span>
+                    <h3 style="color: #fff; margin: 0 0 10px 0;">Engenharia de Agentes Autônomos</h3>
+                    <p style="font-size: 0.9rem; color: #888; flex: 1;">O mercado busca quem constrói ecossistemas de
+                        IAs que trabalham sozinhas utilizando ferramentas como n8n.</p>
+                    <a href="https://n8n.io/ai-agents/" target="_blank"
+                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver
+                        Ecossistema n8n →</a>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80"
+                    alt="Código e Segurança" class="insight-img">
+                <div class="insight-content">
+                    <span class="badge-radar">ARTIGO TÉCNICO 🛡️</span>
+                    <h3 style="color: #fff; margin: 0 0 10px 0;">O Papel do Rust na Segurança</h3>
+                    <p style="font-size: 0.9rem; color: #888; flex: 1;">Governos e Big Techs estão exigindo a transição
+                        para linguagens Memory-Safe na infraestrutura crítica.</p>
+                    <a href="https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf"
+                        target="_blank"
+                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ler
+                        Relatório (PDF) →</a>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                    alt="Edge AI" class="insight-img">
+                <div class="insight-content">
+                    <span class="badge-radar" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">TENDÊNCIA
+                        🔋</span>
+                    <h3 style="color: #fff; margin: 0 0 10px 0;">Edge AI e Modelos Locais</h3>
+                    <p style="font-size: 0.9rem; color: #888; flex: 1;">A grande corrida do mercado é otimizar IAs para
+                        rodarem nativamente em celulares, garantindo privacidade zero-latency.</p>
+                    <a href="https://www.ibm.com/think/topics/edge-ai" target="_blank"
+                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Entender
+                        Edge AI →</a>
+                </div>
+            </div>
+
+            <div class="insight-card">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+                    alt="Pós-Transformer" class="insight-img">
+                <div class="insight-content">
+                    <span class="badge-radar" style="background: rgba(230, 126, 34, 0.15); color: #e67e22;">ARTIGO
+                        TÉCNICO 🧠</span>
+                    <h3 style="color: #fff; margin: 0 0 10px 0;">Além do Transformer: A era SSM</h3>
+                    <p style="font-size: 0.9rem; color: #888; flex: 1;">Entenda por que as arquiteturas State Space
+                        Models (Mamba) estão ameaçando a hegemonia dos Transformers.</p>
+                    <a href="https://thegradient.pub/mamba-explained/" target="_blank"
+                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ler
+                        Explicação Técnica →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2>Livraria Open Source 📖</h2>
+
+        <details class="library-card-box">
+            <summary>🎫 Faça sua Carteirinha Digital (Clique para entender e acessar)</summary>
+            <div class="library-card-content">
+                <p>O <strong>CS Hub</strong> apoia fortemente o conhecimento livre! Os livros desta seção estão
+                    hospedados no acervo da <em>Open Library</em> (A Biblioteca da Internet).</p>
+                <p>Você pode clicar diretamente em um livro abaixo para ir à página dele, ou
+                    <a href="https://openlibrary.org/" target="_blank">acessar a Home Principal da Open Library aqui</a>
+                    para criar seu cadastro gratuito. Funciona como uma biblioteca física real: você pega o livro
+                    emprestado, lê no seu navegador e devolve!
+                </p>
+            </div>
+        </details>
+
+        <div class="grid-books">
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9781491939369-L.jpg" alt="Pense em Python">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: #2ecc71; margin-bottom: 10px; font-size: 1.1rem;">Pense em Python</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">O melhor livro para iniciantes. Ensina você a
+                            pensar e estruturar problemas como um cientista da computação.</p>
+                        <a href="https://openlibrary.org/works/OL17332714W/Think_Python" target="_blank"
+                            class="free-btn">Pegar Emprestado 📚</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780262011532-L.jpg" alt="O Livro do Mago SICP">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: #2ecc71; margin-bottom: 10px; font-size: 1.1rem;">O Livro do Mago (SICP)</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">O livro mais famoso do MIT. Um rito de passagem
+                            para quem quer dominar a magia da estrutura do código.</p>
+                        <a href="https://openlibrary.org/works/OL2740925W/Structure_and_interpretation_of_computer_programs"
+                            target="_blank" class="free-btn">Pegar Emprestado 📚</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2>Livraria de Referência 🏆</h2>
+        <div class="grid-books">
+
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg" alt="Código Limpo">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Código Limpo</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">O manual de sobrevivência. Escreva código para
+                            humanos, não apenas para máquinas. Leitura obrigatória.</p>
+                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780691155647-L.jpg" alt="Alan Turing">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Alan Turing: O Enigma
+                        </h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">Essencial para <strong>Matemática
+                                Discreta</strong>. Entenda como a lógica matemática quebrou códigos e encurtou a guerra.
+                        </p>
+                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780465050659-L.jpg"
+                            alt="O Design do Dia a Dia">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">O Design do Dia a Dia
+                        </h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">A bíblia de <strong>IHC e UX</strong>. A culpa
+                            nunca é do usuário, mas sempre do mau design da interface.</p>
+                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg" alt="Trabalho Focado">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Trabalho Focado</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">Aprenda a blindar sua mente contra distrações e
+                            programar em estado de fluxo profundo.</p>
+                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
