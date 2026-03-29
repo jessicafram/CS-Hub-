@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Hub — Bem-vindo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #080c11;
+      --surface:     #0d1117;
+      --surface-2:   #111820;
+      --border:      rgba(255,255,255,0.07);
+      --accent:      #2ecc71;
+      --accent-dim:  rgba(46,204,113,0.1);
+      --accent-glow: rgba(46,204,113,0.2);
+      --text:        #e6edf3;
+      --muted:       #6e7a8a;
+      --mono:        'Fira Code', monospace;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(8,12,17,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
+      flex-shrink: 0;
+    }
+    .topbar-brand {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .topbar-back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .topbar-back:hover { color: var(--text); }
+
+    /* ── MAIN LAYOUT ── */
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 40px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ── REBECA PANEL ── */
+    .rebeca-panel {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .rebeca-frame {
+      position: relative;
+      width: 240px;
+      height: 240px;
+    }
+
+    .rebeca-glow {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.06); }
+    }
+
+    .rebeca-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 40px var(--accent-glow), 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .rebeca-status {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 20px; height: 20px;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      50%       { box-shadow: 0 0 0 8px transparent; }
+    }
+
+    .rebeca-info { text-align: center; }
+    .rebeca-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .rebeca-role {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .rebeca-traits {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .trait {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .trait-icon { font-size: 1rem; }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      height: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 100px;
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+    .progress-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ── CHAT PANEL ── */
+    .chat-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 500px;
+    }
+
+    .chat-header {
+      margin-bottom: 32px;
+    }
+    .chat-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .chat-header p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+      min-height: 100px;
+    }
+
+    /* Message bubbles */
+    .msg {
+      max-width: 88%;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 0.35s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg.rebeca { align-self: flex-start; }
+    .msg.user   { align-self: flex-end; }
+
+    .msg-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .msg.rebeca .msg-bubble {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+      color: var(--text);
+    }
+
+    .msg.user .msg-bubble {
+      background: var(--accent-dim);
+      border: 1px solid rgba(46,204,113,0.25);
+      border-bottom-right-radius: 4px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .msg-sender {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    .msg.user .msg-sender { text-align: right; color: var(--accent); opacity: 0.7; }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: none;
+      align-self: flex-start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+      padding: 14px 20px;
+    }
+    .typing-dots {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+    .typing-dots span {
+      width: 6px; height: 6px;
+      background: var(--muted);
+      border-radius: 50%;
+      animation: dot 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dot {
+      0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+      40%            { transform: scale(1);   opacity: 1;   }
+    }
+
+    /* ── OPTIONS ── */
+    .options-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .opt-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: var(--text);
+      font-size: 0.88rem;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.22s, background 0.22s, transform 0.18s;
+      font-family: 'Inter', sans-serif;
+    }
+    .opt-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      transform: translateX(4px);
+    }
+    .opt-btn:active { transform: translateX(2px); }
+    .opt-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── RESULT CARDS ── */
+    .result-section {
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .result-profile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .result-profile-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .result-profile-type {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .result-summary {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .result-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .primary-card {
+      display: block;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(46,204,113,0.08) 0%, var(--surface) 70%);
+      border: 1px solid rgba(46,204,113,0.35);
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .primary-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-color: var(--accent);
+    }
+    .primary-card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .primary-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(46,204,113,0.3);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+    }
+    .primary-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .primary-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .primary-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .next-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .next-card {
+      display: block;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: border-color 0.22s, transform 0.22s;
+    }
+    .next-card:hover {
+      border-color: rgba(46,204,113,0.4);
+      transform: translateY(-3px);
+    }
+    .next-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .next-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .next-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .dashboard-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 0.83rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .dashboard-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+        gap: 36px;
+      }
+      .rebeca-panel {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+      .rebeca-frame { width: 100px; height: 100px; flex-shrink: 0; }
+      .rebeca-traits, .progress-wrap, .progress-label { display: none; }
+      .rebeca-name { font-size: 1.1rem; }
+    }
+    @media (max-width: 480px) {
+      .topbar { padding: 14px 20px; }
+      .opt-btn { font-size: 0.82rem; padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <span class="topbar-brand">CS_HUB</span>
+    <a href="/" class="topbar-back">← Voltar ao Hub</a>
+  </header>
+
+  <div class="layout">
+
+    <!-- REBECA PANEL -->
+    <aside class="rebeca-panel">
+      <div class="rebeca-frame">
+        <div class="rebeca-glow"></div>
+        <img src="/assets/rebeca.jpeg" alt="Rebeca — Guia do CS Hub" class="rebeca-img" onerror="this.style.background='var(--surface-2)';this.removeAttribute('src')">
+        <div class="rebeca-status"></div>
+      </div>
+
+      <div class="rebeca-info">
+        <div class="rebeca-name">Rebeca</div>
+        <div class="rebeca-role">// Guia do CS Hub</div>
+      </div>
+
+      <div class="rebeca-traits">
+        <div class="trait"><span class="trait-icon">🎓</span>Engenheira de Software</div>
+        <div class="trait"><span class="trait-icon">🧭</span>Orientação personalizada</div>
+        <div class="trait"><span class="trait-icon">💬</span>Método socrático</div>
+      </div>
+
+      <div style="width:100%">
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-label" id="progressLabel">Iniciando...</div>
+      </div>
+    </aside>
+
+    <!-- CHAT PANEL -->
+    <main class="chat-panel">
+      <div class="chat-header">
+        <h1>Diagnóstico de Carreira</h1>
+        <p>Rebeca vai entender seu momento atual e recomendar o melhor caminho para você no CS Hub.</p>
+      </div>
+
+      <div class="messages" id="messages">
+        <div class="typing-indicator" id="typingIndicator">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="options-wrap" id="optionsWrap"></div>
+
+      <div class="result-section" id="resultSection"></div>
+    </main>
+
+  </div>
+
+  <script>
+    const state = {
+      sessionId: null,
+      step: 0,
+      total: 5,
+      allAnswers: {}
+    };
+
+    async function startOnboarding() {
+      showTyping();
+      try {
+        const res = await fetch('/api/onboarding/start', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+        const data = await res.json();
+        state.sessionId = data.sessionId;
+        state.total = data.total;
+        hideTyping();
+        appendMessage('rebeca', data.message);
+        renderOptions(data.options);
+        updateProgress(data.step, data.total);
+      } catch (e) {
+        hideTyping();
+        appendMessage('rebeca', 'Desculpe, ocorreu um erro ao iniciar. Tente recarregar a página.');
+      }
+    }
+
+    async function sendAnswer(value, label) {
+      disableOptions();
+      appendMessage('user', label);
+      state.allAnswers[getCurrentQuestionKey()] = value;
+
+      showTyping();
+      try {
+        const res = await fetch('/api/onboarding/answer', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: state.sessionId,
+            answer: value,
+            answerLabel: label,
+            allAnswers: state.allAnswers
+          })
+        });
+        const data = await res.json();
+        hideTyping();
+
+        if (data.done) {
+          appendMessage('rebeca', data.message);
+          clearOptions();
+          setTimeout(() => showResults(data), 600);
+        } else {
+          appendMessage('rebeca', data.message);
+          renderOptions(data.options);
+          updateProgress(data.step, data.total);
+          state.step = data.step;
+        }
+      } catch (e) {
+        hideTyping();
+        appendMessage('rebeca', 'Houve um erro. Por favor, tente novamente.');
+      }
+    }
+
+    const questionKeys = ['background', 'goal', 'learning_style', 'focus_area', 'short_term_goal'];
+    function getCurrentQuestionKey() { return questionKeys[state.step] || 'unknown'; }
+
+    function appendMessage(role, text) {
+      const messages = document.getElementById('messages');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+
+      const sender = document.createElement('div');
+      sender.className = 'msg-sender';
+      sender.textContent = role === 'rebeca' ? 'Rebeca' : 'Você';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.textContent = text;
+
+      div.appendChild(sender);
+      div.appendChild(bubble);
+
+      const typing = document.getElementById('typingIndicator');
+      messages.insertBefore(div, typing);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function renderOptions(options) {
+      const wrap = document.getElementById('optionsWrap');
+      wrap.innerHTML = '';
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => sendAnswer(opt.value, opt.label));
+        wrap.appendChild(btn);
+      });
+    }
+
+    function clearOptions() { document.getElementById('optionsWrap').innerHTML = ''; }
+
+    function disableOptions() {
+      document.querySelectorAll('.opt-btn').forEach(b => { b.disabled = true; });
+    }
+
+    function showTyping() {
+      const t = document.getElementById('typingIndicator');
+      t.style.display = 'block';
+      document.getElementById('messages').scrollTop = 9999;
+    }
+    function hideTyping() { document.getElementById('typingIndicator').style.display = 'none'; }
+
+    function updateProgress(step, total) {
+      const pct = ((step + 1) / total) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = `Pergunta ${step + 1} de ${total}`;
+    }
+
+    function showResults(data) {
+      const section = document.getElementById('resultSection');
+      section.style.display = 'flex';
+
+      const { primary, next } = data.recommendation;
+
+      section.innerHTML = `
+        <div class="result-profile">
+          <div class="result-profile-label">// Seu perfil</div>
+          <div class="result-profile-type">${escHtml(data.profileType?.replace(/_/g,' ') || 'Explorador')}</div>
+          <div class="result-summary">${escHtml(data.summary)}</div>
+        </div>
+
+        <div class="result-heading">🎯 Caminho Primário Recomendado</div>
+
+        <a href="${escHtml(primary.url)}" class="primary-card">
+          <div class="primary-card-top">
+            <div class="primary-icon">${primary.icon}</div>
+            <div>
+              <div class="primary-tag">${escHtml(primary.tag)} · ${escHtml(primary.duration)}</div>
+              <div class="primary-title">${escHtml(primary.title)}</div>
+            </div>
+          </div>
+          <div class="primary-desc">${escHtml(primary.description)}</div>
+          <span class="primary-cta">Começar agora →</span>
+        </a>
+
+        <div class="result-heading">📌 Próximos Passos</div>
+
+        <div class="next-grid">
+          ${next.map(n => `
+            <a href="${escHtml(n.url)}" class="next-card">
+              <div class="next-icon">${n.icon}</div>
+              <div class="next-title">${escHtml(n.title)}</div>
+              <div class="next-tag">${escHtml(n.tag)} · ${escHtml(n.duration)}</div>
+            </a>
+          `).join('')}
+        </div>
+
+        <a href="/dashboard" class="dashboard-link">Ver meu painel completo →</a>
+      `;
+
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('progressLabel').textContent = 'Diagnóstico completo!';
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function escHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', startOnboarding);
+  </script>
+</body>
+</html>

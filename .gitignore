@@ -1,0 +1,5 @@
+node_modules/
+data/cshub.db
+data/cshub.db-shm
+data/cshub.db-wal
+.env

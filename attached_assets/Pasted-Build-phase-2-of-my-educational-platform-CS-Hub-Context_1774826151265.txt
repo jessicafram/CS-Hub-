@@ -1,0 +1,132 @@
+Build phase 2 of my educational platform CS Hub.
+
+Context:
+CS Hub already exists as a visual educational platform. I do NOT want to build the full course content now. I want to focus on the core interactive platform layer that gives the project a soul, intelligence, and personalization.
+
+Main concept:
+Create a premium onboarding and guidance experience centered around a virtual guide called Rebeca.
+
+Important visual asset:
+Use the existing Rebeca image already available in the project at:
+assets/rebeca.jpeg
+
+Rebeca must be the visual guide of the onboarding experience.
+For this phase, use her as a static assistant positioned beside the chat or onboarding interface.
+Do NOT generate new images for her in this phase.
+Build the system so future visual states can be added later if needed.
+
+Main goal:
+Create a premium onboarding experience where Rebeca welcomes the user, asks Socratic questions, understands their background and goals, and recommends the best learning path inside the platform.
+
+What I want in this phase:
+1. A premium onboarding experience
+2. Rebeca as the visual guide
+3. Socratic question flow
+4. Backend logic
+5. Database persistence
+6. Recommendation engine
+7. A simple user dashboard
+8. Clean architecture for future expansion
+
+Detailed requirements:
+
+A. Frontend experience
+- Create a full-screen onboarding page with a premium, modern, elegant UI
+- Include a visual area for Rebeca
+- Include a chat-style conversation interface
+- Rebeca should feel like the soul of the platform
+- The experience should feel immersive, polished, and emotionally engaging
+- The UI must be responsive and mobile-friendly
+
+B. Onboarding conversation flow
+Build a Socratic onboarding flow with 4 to 6 questions such as:
+- Are you already in tech, in college, or starting from zero?
+- What do you want to learn most right now?
+- Are you more interested in practice, theory, projects, or career growth?
+- Do you want to focus on AI, front-end, multilingual/global career, or interviews?
+- What is your short-term goal?
+- What kind of learning path would help you most right now?
+
+The system should:
+- store each answer
+- maintain session state
+- decide the next question
+- infer a user profile
+- recommend a next path inside CS Hub
+
+C. User profile classification
+Create a simple but scalable logic to classify users into profiles such as:
+- beginner explorer
+- college learner
+- career transition learner
+- AI-focused learner
+- front-end focused learner
+- global communication learner
+- interview preparation learner
+
+D. Recommendation engine
+At the end of the onboarding, the system should:
+- generate a profile summary
+- recommend 1 primary learning path
+- recommend 2 or 3 next steps
+- present them as clickable cards
+
+E. Database and persistence
+Use a SQL database.
+Store:
+- users
+- onboarding sessions
+- messages / answers
+- inferred profile
+- recommendations
+- timestamped progress
+
+F. Authentication
+If appropriate, prepare the structure for authentication and user continuity.
+Do not overcomplicate this phase, but keep the app ready for future login-based persistence.
+If Replit Auth is the best option, scaffold it cleanly.
+
+G. Dashboard
+Create a simple dashboard page that shows:
+- user profile
+- onboarding summary
+- recommended path
+- next steps
+- recent session info
+
+H. Architecture
+Create a clean, scalable architecture.
+I want the project ready for future expansion into:
+- tutors
+- labs
+- simulations
+- course modules
+- multilingual support
+- advanced AI interactions
+
+I. Important constraints
+- Do NOT build the full course content
+- Do NOT focus on static marketing pages
+- Do NOT implement dynamic image generation for Rebeca yet
+- Do NOT waste effort on unnecessary complexity
+- Focus on core product experience, backend, persistence, recommendation logic, and dashboard foundation
+
+J. Visual direction
+The platform should feel:
+- premium
+- modern
+- educational
+- intelligent
+- human-centered
+- visually elegant
+
+K. Final deliverables
+I want:
+- the onboarding flow working
+- the backend working
+- the database integrated
+- recommendation logic implemented
+- a dashboard page working
+- clear file organization
+- code comments only where necessary
+- a short explanation of the architecture after implementation

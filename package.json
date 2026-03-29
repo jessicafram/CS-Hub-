@@ -1,0 +1,21 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "> **[PROJETO PESSOAL & SOCIAL EM DESENVOLVIMENTO CONTÍNUO]** > > O **CS Hub** é uma iniciativa independente e de impacto social, criada para democratizar o acesso a conteúdos de alta complexidade em Ciência da Computação. Por ser um organismo vivo de estudo e aprimoramento, este repositório está em constante evolução, refletindo as fronteiras mais recentes da tecnologia e da academia.",
+  "main": "script.js",
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "detect-libc": "^2.1.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "semver": "^7.7.4",
+    "sharp": "^0.34.5",
+    "uuid": "^13.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
