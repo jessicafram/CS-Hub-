@@ -32,9 +32,10 @@ app.use("/api/onboarding", onboardingRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/workspace", workspaceRoutes);
 
-// Serve static files from project root
+// Serve static files from project root, but do NOT serve index.html at "/"
 app.use(
   express.static(path.join(__dirname), {
+    index: false,
     setHeaders(res) {
       res.setHeader("X-Content-Type-Options", "nosniff");
     },
