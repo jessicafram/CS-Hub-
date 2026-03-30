@@ -14,11 +14,12 @@ db.pragma('foreign_keys = ON');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
-    id        TEXT PRIMARY KEY,
-    session_id TEXT UNIQUE NOT NULL,
-    name      TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    id           TEXT PRIMARY KEY,
+    session_id   TEXT UNIQUE NOT NULL,
+    name         TEXT,
+    display_name TEXT,
+    created_at   DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at   DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 
   CREATE TABLE IF NOT EXISTS onboarding_sessions (
@@ -64,6 +65,35 @@ db.exec(`
     primary_path TEXT NOT NULL,
     next_steps   TEXT NOT NULL,
     created_at   DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+  );
+
+  CREATE TABLE IF NOT EXISTS notebook_entries (
+    id         TEXT PRIMARY KEY,
+    user_id    TEXT NOT NULL,
+    title      TEXT,
+    content    TEXT NOT NULL DEFAULT '',
+    last_saved DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+  );
+
+  CREATE TABLE IF NOT EXISTS agent_interactions (
+    id             TEXT PRIMARY KEY,
+    user_id        TEXT NOT NULL,
+    mode           TEXT NOT NULL,
+    user_input     TEXT,
+    agent_response TEXT NOT NULL,
+    note_context   TEXT,
+    created_at     DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+  );
+
+  CREATE TABLE IF NOT EXISTS user_activity (
+    id         TEXT PRIMARY KEY,
+    user_id    TEXT NOT NULL,
+    action     TEXT NOT NULL,
+    detail     TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
   );
 `);
@@ -151,6 +181,57 @@ const queries = {
       db.prepare('INSERT INTO recommendations (id, user_id, primary_path, next_steps) VALUES (?, ?, ?, ?)')
         .run(uuidv4(), userId, JSON.stringify(primaryPath), JSON.stringify(nextSteps));
     }
+  },
+
+  setDisplayName(userId, name) {
+    db.prepare('UPDATE users SET display_name = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').run(name, userId);
+  },
+
+  getUserProfile(userId) {
+    return db.prepare('SELECT * FROM user_profiles WHERE user_id = ?').get(userId);
+  },
+
+  getLatestNote(userId) {
+    return db.prepare('SELECT * FROM notebook_entries WHERE user_id = ? ORDER BY last_saved DESC LIMIT 1').get(userId);
+  },
+
+  saveNote(userId, title, content) {
+    const existing = db.prepare('SELECT id FROM notebook_entries WHERE user_id = ?').get(userId);
+    if (existing) {
+      db.prepare('UPDATE notebook_entries SET title = ?, content = ?, last_saved = CURRENT_TIMESTAMP WHERE user_id = ?')
+        .run(title, content, userId);
+    } else {
+      db.prepare('INSERT INTO notebook_entries (id, user_id, title, content) VALUES (?, ?, ?, ?)')
+        .run(uuidv4(), userId, title, content);
+    }
+  },
+
+  saveAgentInteraction(userId, mode, userInput, agentBlocks, noteContext) {
+    db.prepare('INSERT INTO agent_interactions (id, user_id, mode, user_input, agent_response, note_context) VALUES (?, ?, ?, ?, ?, ?)')
+      .run(uuidv4(), userId, mode, userInput, JSON.stringify(agentBlocks), noteContext || '');
+  },
+
+  getRecentAgentInteractions(userId, limit = 5) {
+    return db.prepare('SELECT * FROM agent_interactions WHERE user_id = ? ORDER BY created_at DESC LIMIT ?')
+      .all(userId, limit)
+      .map(r => ({ ...r, agent_response: JSON.parse(r.agent_response) }))
+      .reverse();
+  },
+
+  logActivity(userId, action, detail) {
+    db.prepare('INSERT INTO user_activity (id, user_id, action, detail) VALUES (?, ?, ?, ?)')
+      .run(uuidv4(), userId, action, detail || '');
+  },
+
+  getRecentActivity(userId, limit = 5) {
+    return db.prepare('SELECT * FROM user_activity WHERE user_id = ? ORDER BY created_at DESC LIMIT ?')
+      .all(userId, limit);
+  },
+
+  getNotesCount(userId) {
+    const note = db.prepare('SELECT content FROM notebook_entries WHERE user_id = ?').get(userId);
+    if (!note || !note.content) return 0;
+    return note.content.split('\n').filter(l => l.trim().length > 0).length;
   },
 
   getDashboardData(userId) {

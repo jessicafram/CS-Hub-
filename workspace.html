@@ -1,478 +1,606 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Canvas — Hub de Estudos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Hub — Área de Estudos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    :root {
+      --bg:          #080c11;
+      --surface:     #0d1117;
+      --surface-2:   #111820;
+      --surface-3:   #141c26;
+      --border:      rgba(255,255,255,0.07);
+      --border-hi:   rgba(46,204,113,0.35);
+      --accent:      #2ecc71;
+      --accent-dim:  rgba(46,204,113,0.1);
+      --accent-glow: rgba(46,204,113,0.18);
+      --text:        #e6edf3;
+      --muted:       #6e7a8a;
+      --subtle:      #3d4c5e;
+      --mono:        'Fira Code', monospace;
+    }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&family=Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      display: flex; flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-    <style>
-        :root {
-            --sidebar-width: 260px;
-            --agent-width: 300px;
-            --accent: #2ecc71;
-            --bg-dark: #0b0f14;
-            --surface-dark: #161b22;
-        }
+    /* ── NAV ── */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      background: rgba(8,12,17,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      flex-shrink: 0;
+    }
+    .nav-brand { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-user {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--muted); cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-user-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
 
-        body {
-            margin: 0;
-            background: var(--bg-dark);
-            color: #cbd5e1;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
+    /* ── NAME OVERLAY ── */
+    .name-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+    }
+    .name-overlay.visible { display: flex; }
+    .name-box {
+      background: var(--surface); border: 1px solid var(--border-hi);
+      border-radius: 20px; padding: 40px;
+      width: min(440px, 90vw); text-align: center;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .name-box img {
+      width: 72px; height: 72px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 2px solid var(--accent); margin: 0 auto;
+    }
+    .name-box h2 { font-size: 1.2rem; font-weight: 700; color: #fff; }
+    .name-box p  { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .name-input {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 16px;
+      color: var(--text); font-size: 0.9rem;
+      font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color 0.2s;
+    }
+    .name-input:focus { border-color: var(--accent); }
+    .name-submit {
+      background: var(--accent); color: #000;
+      font-weight: 700; font-size: 0.88rem;
+      padding: 12px; border-radius: 10px;
+      border: none; cursor: pointer; transition: opacity 0.2s;
+    }
+    .name-submit:hover { opacity: 0.85; }
+    .name-skip { color: var(--muted); font-size: 0.78rem; cursor: pointer; text-decoration: underline; }
 
-        /* --- BARRA RESIZER --- */
-        .resizer {
-            width: 4px;
-            cursor: col-resize;
-            background: transparent;
-            transition: background 0.2s;
-            z-index: 1000;
-        }
+    /* ── MAIN LAYOUT ── */
+    .workspace {
+      flex: 1; display: grid;
+      grid-template-columns: 1fr 380px;
+      overflow: hidden;
+    }
 
-        .resizer:hover,
-        .resizer.dragging {
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-        }
+    /* ── NOTE EDITOR ── */
+    .editor-panel {
+      display: flex; flex-direction: column;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .editor-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px; border-bottom: 1px solid var(--border);
+      background: var(--surface); flex-shrink: 0;
+    }
+    .editor-title-wrap { display: flex; align-items: center; gap: 12px; flex: 1; }
+    .editor-title {
+      background: transparent; border: none; outline: none;
+      color: var(--text); font-size: 0.95rem; font-weight: 600;
+      font-family: 'Inter', sans-serif; flex: 1; min-width: 0;
+    }
+    .editor-title::placeholder { color: var(--muted); }
+    .save-status { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); white-space: nowrap; }
+    .save-status.saved { color: var(--accent); }
+    .save-btn {
+      background: var(--accent); color: #000;
+      font-weight: 700; font-size: 0.78rem;
+      padding: 7px 16px; border-radius: 8px;
+      border: none; cursor: pointer; transition: opacity 0.2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .save-btn:hover { opacity: 0.85; }
+    .editor-body { flex: 1; overflow: hidden; }
+    .editor-textarea {
+      width: 100%; height: 100%;
+      background: var(--bg); border: none; outline: none; resize: none;
+      color: var(--text); font-family: 'Inter', sans-serif;
+      font-size: 0.93rem; line-height: 1.8; padding: 28px 32px;
+    }
+    .editor-textarea::placeholder { color: var(--subtle); }
+    .editor-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 24px; border-top: 1px solid var(--border);
+      background: var(--surface); flex-shrink: 0;
+    }
+    .editor-meta { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
 
-        /* --- SIDEBAR ESQUERDA --- */
-        .workspace-sidebar {
-            width: var(--sidebar-width);
-            background: var(--surface-dark);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            z-index: 100;
-            overflow-x: hidden;
-        }
+    /* ── AGENT PANEL ── */
+    .agent-panel {
+      display: flex; flex-direction: column;
+      background: var(--surface); overflow: hidden;
+    }
 
-        .notebook-item {
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.9rem;
-            color: #888;
-        }
+    .rebeca-companion {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px; border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(46,204,113,0.06) 0%, var(--surface) 100%);
+      flex-shrink: 0;
+    }
+    .companion-img {
+      width: 48px; height: 48px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 1.5px solid var(--accent); flex-shrink: 0;
+    }
+    .companion-name { font-size: 0.88rem; font-weight: 700; color: #fff; }
+    .companion-role { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.08em; }
+    .companion-status {
+      margin-left: auto; width: 8px; height: 8px;
+      background: var(--accent); border-radius: 50%; flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      50%       { box-shadow: 0 0 0 6px transparent; }
+    }
 
-        .notebook-item.active {
-            background: rgba(46, 204, 113, 0.1);
-            color: var(--accent);
-            font-weight: bold;
-        }
+    .modes-bar {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 14px 16px; border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .mode-btn {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 12px; color: var(--muted);
+      font-size: 0.73rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .mode-btn:hover { border-color: var(--border-hi); color: var(--accent); background: var(--accent-dim); }
 
-        .style-btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.02);
-            color: #ccc;
-            cursor: pointer;
-            font-size: 0.8rem;
-            text-align: left;
-            transition: 0.3s;
-        }
+    .agent-messages {
+      flex: 1; overflow-y: auto; padding: 16px;
+      display: flex; flex-direction: column; gap: 14px;
+      scroll-behavior: smooth;
+    }
+    .agent-msg { animation: fadeUp 0.3s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .agent-msg-label {
+      font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;
+    }
 
-        .style-btn:hover {
-            border-color: var(--accent);
-            background: rgba(46, 204, 113, 0.05);
-            color: #fff;
-        }
+    .block-text {
+      font-size: 0.84rem; color: var(--text); line-height: 1.7;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 14px;
+    }
+    .block-question {
+      font-size: 0.84rem; color: var(--accent); line-height: 1.7;
+      background: var(--accent-dim); border: 1px solid rgba(46,204,113,0.2);
+      border-radius: 12px; padding: 12px 14px; font-style: italic;
+    }
+    .block-section {
+      background: var(--surface-3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px;
+    }
+    .block-section-title { font-size: 0.75rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .block-section ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .block-section ul li {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .block-section ul li::before { content: '·'; color: var(--accent); flex-shrink: 0; font-weight: 700; }
+    .block-action {
+      background: linear-gradient(135deg, rgba(46,204,113,0.07) 0%, var(--surface-2) 100%);
+      border: 1px solid rgba(46,204,113,0.25); border-radius: 12px; padding: 14px;
+    }
+    .block-action-title { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .block-action-detail { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .block-outline {
+      background: var(--surface-3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px;
+    }
+    .block-outline-root {
+      font-size: 0.88rem; font-weight: 700; color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .block-outline-branches { display: flex; flex-direction: column; gap: 6px; padding-left: 16px; }
+    .block-outline-branch { font-size: 0.8rem; color: var(--muted); display: flex; gap: 8px; }
+    .block-outline-branch::before { content: '└'; color: var(--subtle); }
+    .block-questions { display: flex; flex-direction: column; gap: 8px; }
+    .block-question-item {
+      font-size: 0.82rem; color: var(--text); line-height: 1.6;
+      background: var(--surface-3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 12px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .block-question-item::before { content: '?'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
 
-        .btn-pen-mode {
-            background: var(--accent) !important;
-            color: #0b0f14 !important;
-            font-weight: 800 !important;
-            border: none !important;
-            margin-bottom: 20px !important;
-        }
+    .agent-typing { display: none; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; }
+    .typing-dots { display: flex; gap: 4px; align-items: center; }
+    .typing-dots span { width: 5px; height: 5px; background: var(--muted); border-radius: 50%; animation: dot 1.2s infinite; }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dot {
+      0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+      40%            { transform: scale(1);   opacity: 1; }
+    }
 
-        /* --- EDITOR CENTRAL --- */
-        .editor-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
+    .agent-input-wrap {
+      padding: 14px 16px; border-top: 1px solid var(--border);
+      display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0;
+    }
+    .agent-input {
+      flex: 1; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 14px; color: var(--text);
+      font-size: 0.83rem; font-family: 'Inter', sans-serif;
+      outline: none; resize: none; min-height: 40px; max-height: 100px;
+      transition: border-color 0.2s;
+    }
+    .agent-input:focus { border-color: var(--border-hi); }
+    .agent-input::placeholder { color: var(--subtle); }
+    .agent-send {
+      background: var(--accent); color: #000; border: none;
+      border-radius: 10px; width: 38px; height: 38px;
+      font-size: 1rem; cursor: pointer;
+      display: grid; place-items: center; flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .agent-send:hover { opacity: 0.85; }
 
-        .ql-toolbar.ql-snow {
-            border: none !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 12px 60px !important;
-        }
-
-        .ql-container.ql-snow {
-            border: none !important;
-            font-size: 1.15rem;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .ql-editor {
-            padding: 50px 80px !important;
-            line-height: 1.8 !important;
-        }
-
-        /* SKINS */
-        .skin-pautado .ql-editor {
-            background: #ffffff !important;
-            color: #2c3e50 !important;
-            background-image: linear-gradient(#e1e9ff 1px, transparent 1px) !important;
-            background-size: 100% 32px !important;
-        }
-
-        .skin-quadro-negro .ql-editor {
-            background: #16261e !important;
-            color: #f8f9fa !important;
-            font-family: 'Permanent Marker', cursive !important;
-            border: 15px solid #3d2b1f !important;
-        }
-
-        .editor-header {
-            padding: 30px 80px 10px 80px;
-        }
-
-        .editor-title {
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 2.5rem;
-            font-weight: 800;
-            width: 100%;
-            outline: none;
-        }
-
-        /* MODO DESENHO */
-        #drawing-mode-container {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 500;
-            background: #fff;
-            touch-action: none;
-        }
-
-        .drawing-toolbar {
-            position: absolute;
-            top: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1a1a1a;
-            padding: 12px 20px;
-            border-radius: 50px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .tool-btn {
-            background: none;
-            border: 1px solid #555;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            padding: 5px 10px;
-            transition: 0.2s;
-        }
-
-        .tool-btn:hover,
-        .tool-btn.active {
-            background: #333;
-            border-color: var(--accent);
-        }
-
-        /* --- AGENTE SOCRÁTICO --- */
-        .agent-panel {
-            width: var(--agent-width);
-            background: var(--surface-dark);
-            border-left: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            min-width: 0;
-            overflow: hidden;
-        }
-
-        .agent-header {
-            padding: 30px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .agent-body {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .msg-bubble {
-            background: rgba(46, 204, 113, 0.05);
-            border: 1px solid rgba(46, 204, 113, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #cbd5e1;
-            margin-bottom: 15px;
-        }
-    </style>
+    @media (max-width: 860px) {
+      .workspace { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+      .editor-panel { border-right: none; border-bottom: 1px solid var(--border); }
+      .agent-panel { max-height: 420px; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 12px 16px; }
+      .editor-textarea { padding: 20px; }
+    }
+  </style>
 </head>
-
 <body>
 
-    <aside class="workspace-sidebar" id="sidebar">
-        <a href="index.html" style="text-decoration: none; display: block;">
-            <div class="nav-logo"
-                style="margin-bottom: 30px; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img"
-                    style="width: 40px; height: 40px;">
-                <div class="logo-text-wrapper">
-                    <span class="hub-title" style="font-family: 'Fira Code', monospace; font-size: 0.9rem;">CS Hub
-                        &lt;/&gt;</span>
-                    <span class="jessica-signature"
-                        style="font-family: 'Dancing Script', cursive; font-size: 0.9rem;">Jessica França</span>
-                </div>
-            </div>
-        </a>
+  <nav class="nav">
+    <span class="nav-brand">CS_HUB</span>
+    <ul class="nav-links">
+      <li><a href="/">Hub</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/workspace" class="active">Estudos</a></li>
+    </ul>
+    <div class="nav-user" id="navUser" title="Clique para identificar-se">
+      <div class="nav-user-dot"></div>
+      <span id="navUserName">Anônimo</span>
+    </div>
+  </nav>
 
-        <div style="display: flex; gap: 8px; margin-bottom: 30px; padding: 0 10px;">
-            <a href="index.html" class="style-btn"
-                style="text-decoration: none; font-size: 0.7rem; padding: 5px; text-align: center; flex: 1;">🏠 Home</a>
-            <a href="biblioteca.html" class="style-btn"
-                style="text-decoration: none; font-size: 0.7rem; padding: 5px; text-align: center; flex: 1;">📚 Lib</a>
-            <a href="comunidade.html" class="style-btn"
-                style="text-decoration: none; font-size: 0.7rem; padding: 5px; text-align: center; flex: 1;">💬
-                Discord</a>
+  <div class="name-overlay" id="nameOverlay">
+    <div class="name-box">
+      <img src="/assets/rebeca.jpeg" alt="Rebeca" onerror="this.style.display='none'">
+      <h2>Como você quer ser chamado?</h2>
+      <p>Seu nome personaliza a experiência e mantém suas notas organizadas com continuidade.</p>
+      <input class="name-input" id="nameInput" type="text" placeholder="Seu primeiro nome..." maxlength="40" autocomplete="off">
+      <button class="name-submit" id="nameSubmit">Salvar e continuar →</button>
+      <span class="name-skip" id="nameSkip">Continuar sem identificar</span>
+    </div>
+  </div>
+
+  <div class="workspace">
+
+    <section class="editor-panel">
+      <div class="editor-topbar">
+        <div class="editor-title-wrap">
+          <input class="editor-title" id="noteTitle" type="text" placeholder="Título da nota..." maxlength="80">
         </div>
-
-        <h2
-            style="font-size: 1rem; color: #fff; margin-bottom: 20px; padding-left: 10px; border-left: 3px solid var(--accent);">
-            📓 Cadernos</h2>
-        <div class="notebook-item active">📁 Matemática Discreta</div>
-
-        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);">
-            <button class="style-btn btn-pen-mode" onclick="activateDrawingMode()">✍️ Modo Caneta (Tablet)</button>
-            <button class="style-btn" onclick="changeSkin('skin-default')">🌑 Modo Dark</button>
-            <button class="style-btn" onclick="changeSkin('skin-pautado')">📝 Folha Pautada</button>
-            <button class="style-btn" onclick="changeSkin('skin-quadro-negro')">🌳 Quadro de Giz</button>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="save-status" id="saveStatus">Não salvo</span>
+          <button class="save-btn" id="saveBtn">Salvar</button>
         </div>
+      </div>
 
-        <div style="margin-top: auto;">
-            <button class="style-btn" onclick="exportarPDF()" style="border-color: #3498db; color: #3498db;">📥 Exportar
-                para PDF</button>
-            <p style="text-align: center; font-size: 0.65rem; color: #444; margin-top: 10px;">v1.0 • Jessica França</p>
-        </div>
-    </aside>
+      <div class="editor-body">
+        <textarea class="editor-textarea" id="noteContent"
+          placeholder="Escreva suas anotações aqui...
 
-    <div class="resizer" id="resizer-left"></div>
+Dicas para boas notas:
+• Use títulos para organizar seções
+• Escreva exemplos com suas próprias palavras
+• Anote dúvidas e perguntas
 
-    <main class="editor-wrapper skin-default" id="editor-container">
-        <div id="drawing-mode-container">
-            <div class="drawing-toolbar">
-                <div style="width:20px; height:20px; border-radius:50%; background:#000; cursor:pointer;"
-                    onclick="setPenColor('#000')"></div>
-                <div style="width:20px; height:20px; border-radius:50%; background:#3498db; cursor:pointer; margin-right: 15px;"
-                    onclick="setPenColor('#3498db')"></div>
+Quando terminar, peça à Rebeca para resumir, refletir ou organizar seu conteúdo →"
+          spellcheck="true"
+        ></textarea>
+      </div>
 
-                <button class="tool-btn active" id="btn-pen" onclick="setTool('pen')">✏️ Lápis</button>
-                <button class="tool-btn" id="btn-rect" onclick="setTool('rect')">⬜ Quadrado</button>
-                <button class="tool-btn" id="btn-circle" onclick="setTool('circle')">⭕ Círculo</button>
-
-                <div style="width: 1px; height: 20px; background: #555; margin: 0 10px;"></div>
-
-                <button class="tool-btn" onclick="clearCanvas()">Limpar</button>
-                <button onclick="deactivateDrawingMode()"
-                    style="background:#e74c3c; border:none; color:#fff; padding:5px 15px; cursor:pointer; border-radius:4px; font-weight:bold;">Sair</button>
-            </div>
-            <canvas id="canvas"></canvas>
-        </div>
-
-        <div class="editor-header">
-            <input type="text" class="editor-title" id="note-title" placeholder="Título..."
-                value="Resumo: Análise Combinatória">
-        </div>
-        <div id="editor"></div>
-    </main>
-
-    <div class="resizer" id="resizer-right"></div>
-
-    <section class="agent-panel" id="agent-panel">
-        <div class="agent-header">
-            <div
-                style="width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent);">
-            </div>
-            <strong style="color: #fff; font-size: 1.1rem; letter-spacing: 0.5px;">Agente Socrático</strong>
-        </div>
-
-        <div class="agent-body" id="agent-chat">
-            <div class="msg-bubble">
-                <span style="color: var(--accent); font-weight: 800; display: block; margin-bottom: 10px;">Olá, Jéssica!
-                    🚀</span>
-                Sinta-se em casa no seu novo workspace. <br><br>
-                Utilize o <strong>Modo Caneta</strong> para diagramas à mão livre ou o botão <strong>f(x)</strong> para
-                inserir fórmulas matemáticas complexas.
-            </div>
-
-            <button class="style-btn" onclick="simulateMindMap()"
-                style="border-color: #9b59b6; color: #9b59b6; font-weight: bold; text-align: center; margin-top: 10px; border-style: dashed;">
-                🧠 Gerar Mapa Mental do Resumo
-            </button>
-        </div>
-
-        <div
-            style="padding: 20px; text-align: center; font-size: 0.7rem; color: #444; border-top: 1px solid rgba(255,255,255,0.03);">
-            IA de Apoio • CS Hub
-        </div>
+      <div class="editor-footer">
+        <span class="editor-meta" id="wordCount">0 palavras</span>
+        <span class="editor-meta" id="lastSaved"></span>
+      </div>
     </section>
 
-    <script>
-        // Inicializa o Quill
-        var quill = new Quill('#editor', {
-            theme: 'snow',
-            modules: { toolbar: [[{ 'header': [1, 2, false] }], ['bold', 'italic', 'underline'], [{ 'color': [] }, { 'background': [] }], [{ 'list': 'ordered' }, { 'list': 'bullet' }], ['formula', 'code-block'], ['clean']] },
-            placeholder: 'Sua jornada começa aqui...'
-        });
+    <aside class="agent-panel">
+      <div class="rebeca-companion">
+        <img src="/assets/rebeca.jpeg" class="companion-img" alt="Rebeca"
+             onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')">
+        <div>
+          <div class="companion-name">Rebeca</div>
+          <div class="companion-role">// Agente Socrático</div>
+        </div>
+        <div class="companion-status"></div>
+      </div>
 
-        function changeSkin(skinName) {
-            document.getElementById('editor-container').className = 'editor-wrapper ' + skinName;
-            localStorage.setItem('canvas_skin', skinName);
+      <div class="modes-bar" id="modesBar">
+        <button class="mode-btn" data-mode="summarize">📋 Resumir</button>
+        <button class="mode-btn" data-mode="reflect">🤔 Refletir</button>
+        <button class="mode-btn" data-mode="organize">🗂️ Organizar</button>
+        <button class="mode-btn" data-mode="simplify">💡 Simplificar</button>
+        <button class="mode-btn" data-mode="outline">🗺️ Roteiro</button>
+        <button class="mode-btn" data-mode="next_step">🎯 Próximo Passo</button>
+      </div>
+
+      <div class="agent-messages" id="agentMessages">
+        <div class="agent-msg">
+          <div class="block-text">Olá! Estou aqui enquanto você estuda. Escreva suas notas à esquerda e use os botões acima para interagir comigo de forma socrática — não para receber respostas prontas, mas para pensar com mais profundidade.</div>
+        </div>
+        <div class="agent-typing" id="agentTyping">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="agent-input-wrap">
+        <textarea class="agent-input" id="agentInput" rows="1"
+          placeholder="Ou faça uma pergunta livre..."
+          oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"
+        ></textarea>
+        <button class="agent-send" id="agentSend" title="Enviar">↑</button>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    let autoSaveTimer = null;
+
+    async function init() {
+      try {
+        const res  = await fetch('/api/workspace');
+        const data = await res.json();
+
+        if (data.user?.name) {
+          document.getElementById('navUserName').textContent = data.user.name;
+        } else {
+          document.getElementById('nameOverlay').classList.add('visible');
         }
 
-        // --- SISTEMA DE DESENHO E FORMAS ---
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        const drawingContainer = document.getElementById('drawing-mode-container');
-        let isDrawing = false;
-        let penColor = '#000';
-        let currentTool = 'pen'; // Controla qual ferramenta está ativa
-
-        function setTool(tool) {
-            currentTool = tool;
-            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`btn-${tool}`).classList.add('active');
+        if (data.note?.content) {
+          document.getElementById('noteTitle').value   = data.note.title || '';
+          document.getElementById('noteContent').value = data.note.content;
+          updateWordCount();
+          if (data.note.last_saved) {
+            const d = new Date(data.note.last_saved);
+            document.getElementById('lastSaved').textContent = 'Salvo ' + d.toLocaleDateString('pt-BR');
+          }
         }
 
-        function activateDrawingMode() { drawingContainer.style.display = 'block'; canvas.width = drawingContainer.clientWidth; canvas.height = drawingContainer.clientHeight; }
-        function deactivateDrawingMode() { drawingContainer.style.display = 'none'; }
-
-        canvas.addEventListener('pointerdown', (e) => {
-            if (currentTool === 'pen') {
-                isDrawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY);
-            } else if (currentTool === 'rect') {
-                // Carimba um quadrado
-                ctx.strokeStyle = penColor; ctx.lineWidth = 3;
-                ctx.strokeRect(e.offsetX - 40, e.offsetY - 30, 80, 60);
-            } else if (currentTool === 'circle') {
-                // Carimba um círculo
-                ctx.beginPath(); ctx.strokeStyle = penColor; ctx.lineWidth = 3;
-                ctx.arc(e.offsetX, e.offsetY, 35, 0, Math.PI * 2); ctx.stroke();
-            }
-        });
-
-        canvas.addEventListener('pointermove', (e) => {
-            if (!isDrawing || currentTool !== 'pen') return;
-            ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.strokeStyle = penColor;
-            ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke();
-        });
-
-        canvas.addEventListener('pointerup', () => isDrawing = false);
-
-        function setPenColor(color) { penColor = color; }
-        function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
-
-        function exportarPDF() {
-            const element = document.getElementById('editor-container');
-            html2pdf().from(element).set({ margin: 10, filename: 'meu-estudo-cs-hub.pdf', html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).save();
+        if (data.agentHistory?.length > 0) {
+          data.agentHistory.forEach(i => appendAgentBlocks(i.agent_response, true));
         }
+      } catch (e) {
+        console.error('Init error:', e);
+      }
+    }
 
-        // --- SIMULAÇÃO DE IA (PITCH DO HACKATHON) ---
-        function simulateMindMap() {
-            const chat = document.getElementById('agent-chat');
-            const btn = chat.querySelector('button');
-            btn.innerHTML = '⏳ Analisando contexto...';
+    document.getElementById('navUser').addEventListener('click', () => {
+      document.getElementById('nameOverlay').classList.add('visible');
+    });
 
-            setTimeout(() => {
-                const newMsg = document.createElement('div');
-                newMsg.className = 'msg-bubble';
-                newMsg.style.borderColor = '#9b59b6';
-                newMsg.innerHTML = `<span style="color: #9b59b6; font-weight: 800; display: block; margin-bottom: 10px;">IA Generativa ✨</span>Análise concluída!<br><br><em>(No MVP oficial, a API do Mermaid.js injetaria aqui o diagrama interativo gerado a partir do seu resumo.)</em><br><br><button class="style-btn" style="margin-top:10px; background: rgba(155, 89, 182, 0.2); border:none;">Inserir no Caderno</button>`;
-                chat.appendChild(newMsg);
-                chat.scrollTop = chat.scrollHeight; // Rola para baixo
-                btn.innerHTML = '🧠 Gerar Mapa Mental do Resumo'; // Reseta o botão
-            }, 1500);
-        }
-
-        // --- LÓGICA DE REDIMENSIONAMENTO (RESIZERS) ---
-        const setupResizer = (resizerId, panelId, side) => {
-            const resizer = document.getElementById(resizerId);
-            const panel = document.getElementById(panelId);
-            if (!resizer || !panel) return;
-
-            let isResizing = false;
-
-            resizer.addEventListener('mousedown', (e) => {
-                isResizing = true;
-                document.body.style.cursor = 'col-resize';
-                resizer.classList.add('dragging');
-            });
-
-            document.addEventListener('mousemove', (e) => {
-                if (!isResizing) return;
-                let newWidth;
-                if (side === 'left') {
-                    newWidth = e.clientX;
-                    if (newWidth > 100 && newWidth < 500) document.documentElement.style.setProperty('--sidebar-width', `${newWidth}px`);
-                } else {
-                    newWidth = window.innerWidth - e.clientX;
-                    if (newWidth > 100 && newWidth < 600) document.documentElement.style.setProperty('--agent-width', `${newWidth}px`);
-                }
-            });
-
-            document.addEventListener('mouseup', () => {
-                isResizing = false;
-                document.body.style.cursor = 'default';
-                resizer.classList.remove('dragging');
-            });
-        };
-
-        setupResizer('resizer-left', 'sidebar', 'left');
-        setupResizer('resizer-right', 'agent-panel', 'right');
-
-        window.addEventListener('resize', () => {
-            if (drawingContainer.style.display === 'block') {
-                canvas.width = drawingContainer.clientWidth;
-                canvas.height = drawingContainer.clientHeight;
-            }
+    async function submitName(name) {
+      if (!name || !name.trim()) return;
+      try {
+        await fetch('/api/workspace/identify', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name.trim() })
         });
-    </script>
+        document.getElementById('navUserName').textContent = name.trim();
+        document.getElementById('nameOverlay').classList.remove('visible');
+      } catch (e) { console.error(e); }
+    }
+
+    document.getElementById('nameSubmit').addEventListener('click', () => submitName(document.getElementById('nameInput').value));
+    document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(e.target.value); });
+    document.getElementById('nameSkip').addEventListener('click', () => document.getElementById('nameOverlay').classList.remove('visible'));
+
+    function updateWordCount() {
+      const text = document.getElementById('noteContent').value;
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      document.getElementById('wordCount').textContent = words + ' palavra' + (words !== 1 ? 's' : '');
+    }
+
+    document.getElementById('noteContent').addEventListener('input', () => {
+      updateWordCount();
+      document.getElementById('saveStatus').textContent = 'Não salvo';
+      document.getElementById('saveStatus').classList.remove('saved');
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(saveNote, 3000);
+    });
+
+    document.getElementById('saveBtn').addEventListener('click', saveNote);
+
+    async function saveNote() {
+      const title   = document.getElementById('noteTitle').value;
+      const content = document.getElementById('noteContent').value;
+      try {
+        await fetch('/api/workspace/note', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content })
+        });
+        const status = document.getElementById('saveStatus');
+        status.textContent = 'Salvo ✓';
+        status.classList.add('saved');
+        document.getElementById('lastSaved').textContent = 'Salvo agora';
+      } catch (e) {
+        document.getElementById('saveStatus').textContent = 'Erro ao salvar';
+      }
+    }
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => callAgent(btn.dataset.mode, ''));
+    });
+
+    document.getElementById('agentSend').addEventListener('click', () => {
+      const text = document.getElementById('agentInput').value.trim();
+      if (!text) return;
+      callAgent('free', text);
+      document.getElementById('agentInput').value = '';
+      document.getElementById('agentInput').style.height = 'auto';
+    });
+
+    document.getElementById('agentInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.getElementById('agentSend').click(); }
+    });
+
+    async function callAgent(mode, freeText) {
+      const noteContent = document.getElementById('noteContent').value;
+      showTyping();
+      try {
+        const res  = await fetch('/api/workspace/agent', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode, freeText, noteContent })
+        });
+        const data = await res.json();
+        hideTyping();
+        appendAgentBlocks(data.blocks, false);
+      } catch (e) {
+        hideTyping();
+        appendBlock({ type: 'text', text: 'Houve um erro. Tente novamente.' });
+      }
+    }
+
+    function showTyping() {
+      document.getElementById('agentTyping').style.display = 'block';
+      scrollMessages();
+    }
+    function hideTyping() {
+      document.getElementById('agentTyping').style.display = 'none';
+    }
+    function scrollMessages() {
+      const m = document.getElementById('agentMessages');
+      m.scrollTop = m.scrollHeight;
+    }
+
+    function appendAgentBlocks(blocks, isHistory) {
+      const container = document.getElementById('agentMessages');
+      const typing    = document.getElementById('agentTyping');
+      const wrap = document.createElement('div');
+      wrap.className = 'agent-msg';
+      if (!isHistory) {
+        const label = document.createElement('div');
+        label.className = 'agent-msg-label';
+        label.textContent = 'Rebeca';
+        wrap.appendChild(label);
+      }
+      (blocks || []).forEach(block => {
+        const el = renderBlock(block);
+        if (el) { el.style.marginBottom = '8px'; wrap.appendChild(el); }
+      });
+      container.insertBefore(wrap, typing);
+      scrollMessages();
+    }
+
+    function renderBlock(block) {
+      const el = document.createElement('div');
+      switch (block.type) {
+        case 'text':
+          el.className = 'block-text';
+          el.textContent = block.text;
+          break;
+        case 'question':
+          el.className = 'block-question';
+          el.textContent = '💬 ' + block.text;
+          break;
+        case 'section': {
+          el.className = 'block-section';
+          const title = document.createElement('div');
+          title.className = 'block-section-title';
+          title.textContent = block.title;
+          const ul = document.createElement('ul');
+          (block.items || []).forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+          });
+          el.appendChild(title);
+          el.appendChild(ul);
+          break;
+        }
+        case 'action':
+          el.className = 'block-action';
+          el.innerHTML = '<div class="block-action-title">→ ' + esc(block.title) + '</div><div class="block-action-detail">' + esc(block.detail) + '</div>';
+          break;
+        case 'outline': {
+          el.className = 'block-outline';
+          const root = document.createElement('div');
+          root.className = 'block-outline-root';
+          root.textContent = '● ' + (block.root || 'Tópico Central');
+          const branches = document.createElement('div');
+          branches.className = 'block-outline-branches';
+          (block.branches || []).forEach(b => {
+            const bd = document.createElement('div');
+            bd.className = 'block-outline-branch';
+            bd.textContent = b;
+            branches.appendChild(bd);
+          });
+          el.appendChild(root);
+          el.appendChild(branches);
+          break;
+        }
+        case 'questions':
+          el.className = 'block-questions';
+          (block.items || []).forEach(q => {
+            const qd = document.createElement('div');
+            qd.className = 'block-question-item';
+            qd.textContent = q;
+            el.appendChild(qd);
+          });
+          break;
+        default: return null;
+      }
+      return el;
+    }
+
+    function esc(str) {
+      return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    init();
+  </script>
 </body>
-
 </html>

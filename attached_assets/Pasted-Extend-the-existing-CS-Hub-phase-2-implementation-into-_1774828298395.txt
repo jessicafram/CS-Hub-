@@ -1,0 +1,219 @@
+Extend the existing CS Hub phase 2 implementation into a complete phase 2.2 platform layer.
+
+Important:
+Do NOT rebuild the project from scratch.
+Use the existing working implementation as the foundation.
+Preserve what is already working in:
+- /onboarding
+- /dashboard
+- the current backend
+- the current database
+- the current Rebeca onboarding flow
+
+Context:
+CS Hub already has a phase 2.1 implementation with:
+- Rebeca as a visual onboarding guide
+- a Socratic onboarding flow
+- backend + database
+- recommendation engine
+- dashboard foundation
+
+Now I want to evolve this into phase 2.2, where Rebeca becomes a persistent platform presence and the Socratic Agent becomes functional inside the student workspace.
+
+Main concept:
+Rebeca is the visual and emotional identity of the platform.
+The Socratic Agent is the intelligent behavior layer of the platform.
+In practice, they should feel connected:
+- Rebeca = the face and guide
+- Socratic Agent = the intelligence that helps the student think, organize, and progress
+
+Use the existing Rebeca image already available in the project at:
+assets/rebeca.jpeg
+
+For this phase:
+- keep Rebeca as a static visual assistant
+- do NOT generate new images
+- do NOT implement voice
+- do NOT implement dynamic avatar animation
+- build the platform so future visual states can be added later
+
+PHASE 2.2 GOALS
+
+1. Keep Rebeca as the entry guide in onboarding
+2. Make Rebeca appear again in strategic places after onboarding
+3. Make the Socratic Agent actually useful inside the workspace / notebook area
+4. Add login / identity persistence so the student has continuity
+5. Connect onboarding, dashboard, workspace, recommendations, and user progress
+6. Make the platform feel personalized and alive
+
+DETAILED REQUIREMENTS
+
+A. PRESERVE AND EXTEND, DO NOT REPLACE
+- Keep the existing /onboarding experience working
+- Keep the existing /dashboard working
+- Extend the current architecture instead of rewriting it
+- Reuse the existing database where possible
+- Keep routes, sessions, and recommendation logic compatible
+
+B. REBECA AS PERSISTENT PLATFORM GUIDE
+Rebeca should not only exist in onboarding.
+She must also appear in the following places:
+
+1. Onboarding
+- Keep her as the welcome guide
+- Keep the Socratic diagnostic flow
+- Keep the profile classification and recommendation flow
+
+2. Dashboard
+- Rebeca must appear in the dashboard as a contextual guide
+- She should provide a short personalized message based on the user profile and next step
+- Example behavior:
+  - acknowledge the student’s profile
+  - remind them where to continue
+  - suggest the next recommended action
+
+3. Workspace / Notebook / Study area
+- Rebeca must appear as the visual companion of the workspace
+- She should visually support the Socratic Agent panel
+- She does not need to be large; she can appear as a small guide card, side assistant, or persistent helper area
+- The workspace should feel like the student is still being accompanied inside the CS Hub journey
+
+C. SOCRATIC AGENT AS FUNCTIONAL ASSISTANT
+The Socratic Agent inside the workspace must become actually useful.
+
+The Socratic Agent should support at least these actions:
+1. Help the student summarize notes
+2. Ask reflective questions to deepen understanding
+3. Suggest a clearer organization of ideas
+4. Offer a simpler explanation when requested
+5. Generate a conceptual outline / mind map style structure
+6. Suggest the next study step
+
+Important:
+The Socratic Agent should not just answer like a generic chatbot.
+It should behave in a Socratic, educational way:
+- ask guiding questions
+- help the student think
+- encourage reflection
+- support autonomy
+- avoid just dumping final answers without pedagogical structure
+
+D. LOGIN / USER IDENTITY
+Phase 2.2 must introduce real user identity.
+
+Implement login or auth-ready identity persistence so the student can:
+- keep their diagnostic results
+- keep their dashboard state
+- keep their notes / notebook content
+- keep their recommendations
+- reconnect later and continue from where they stopped
+
+Requirements:
+- Use a clean authentication-ready structure
+- If Replit Auth is appropriate, scaffold it properly
+- If full auth is too much for this exact step, implement a clean auth-ready user model and route structure with clear upgrade path
+- The system must support future multi-user continuity cleanly
+
+E. STUDENT DATA PERSISTENCE
+Persist the following data in the database:
+- users
+- onboarding sessions
+- onboarding answers
+- inferred user profile
+- recommendations
+- dashboard data
+- notebook / workspace notes
+- agent interactions
+- timestamps
+- last active step
+
+F. DASHBOARD EVOLUTION
+Expand the existing dashboard so it becomes a real personal hub.
+
+The dashboard should show:
+- user identity / logged-in state or auth-ready state
+- profile label
+- profile summary from Rebeca
+- recommended path
+- next steps
+- saved notes summary
+- recent activity
+- last session or last completed action
+- a clear CTA to continue studying
+
+Rebeca must appear here as a contextual guide.
+
+G. WORKSPACE / NOTEBOOK INTEGRATION
+Use the existing workspace / notebook idea as part of phase 2.2.
+
+Requirements:
+- connect the workspace to the logged-in user or persistent identity
+- save notebook content per user
+- connect the Socratic Agent to the notes context
+- allow the student to interact with the agent while writing or reviewing notes
+- preserve the visual identity of the current workspace as much as possible
+- do not break the existing notebook feel
+
+H. SPECIFIC LOCATION STRATEGY
+Implement the platform behavior exactly like this:
+
+1. Entry point
+- the user first meets Rebeca in /onboarding
+
+2. After onboarding
+- the user is classified and receives recommended paths
+
+3. Dashboard
+- the user lands in /dashboard and sees Rebeca again
+- the dashboard reinforces continuity and next actions
+
+4. Study / Notebook area
+- when the user enters the workspace or notebook area, the Socratic Agent is available
+- Rebeca remains present as a companion identity
+- the student can save notes and ask for help
+
+This must feel like one connected journey, not separate disconnected pages.
+
+I. UX / PRODUCT DIRECTION
+The experience must feel:
+- premium
+- modern
+- cohesive
+- educational
+- personalized
+- human-centered
+- not robotic
+- not generic
+
+The emotional experience matters:
+- Rebeca should feel welcoming and intelligent
+- the Socratic Agent should feel helpful and pedagogically aware
+- the student should feel guided, not abandoned after onboarding
+
+J. IMPORTANT CONSTRAINTS
+- Do NOT rebuild phase 2.1 from scratch
+- Do NOT remove the existing onboarding
+- Do NOT remove the existing dashboard
+- Do NOT implement course content generation
+- Do NOT implement voice or animated talking avatar yet
+- Do NOT add unnecessary complexity
+- Focus on continuity, persistence, identity, and educational assistance
+
+K. FINAL DELIVERABLES FOR PHASE 2.2
+I want:
+1. the existing onboarding preserved and extended
+2. Rebeca present in onboarding, dashboard, and workspace
+3. Socratic Agent functional in the workspace
+4. login or auth-ready identity persistence
+5. notebook/workspace tied to user continuity
+6. dashboard upgraded into a real personal hub
+7. database updated to support all of the above
+8. scalable architecture for future growth
+9. a clear explanation of what files and features were added or changed
+10. a clear explanation of how phase 2.2 works end-to-end
+
+Before making risky changes:
+- inspect the current architecture
+- preserve working routes
+- extend the system carefully
+- avoid breaking the existing CS Hub experience

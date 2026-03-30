@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const onboardingRoutes = require('./routes/onboarding');
 const dashboardRoutes  = require('./routes/dashboard');
+const workspaceRoutes  = require('./routes/workspace');
 
 const app  = express();
 const PORT = 5000;
@@ -27,6 +28,7 @@ app.use((req, _res, next) => {
 
 app.use('/api/onboarding', onboardingRoutes);
 app.use('/api/dashboard',  dashboardRoutes);
+app.use('/api/workspace',  workspaceRoutes);
 
 // Serve static files from project root
 app.use(express.static(path.join(__dirname), {
@@ -38,6 +40,7 @@ app.use(express.static(path.join(__dirname), {
 
 app.get('/onboarding', (_req, res) => res.sendFile(path.join(__dirname, 'onboarding.html')));
 app.get('/dashboard',  (_req, res) => res.sendFile(path.join(__dirname, 'dashboard.html')));
+app.get('/workspace',  (_req, res) => res.sendFile(path.join(__dirname, 'workspace.html')));
 
 app.use((_req, res) => res.status(404).send('Not found'));
 
