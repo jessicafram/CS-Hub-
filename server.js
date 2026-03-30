@@ -35,12 +35,16 @@ app.use("/api/workspace", workspaceRoutes);
 // Serve static files from project root
 app.use(
   express.static(path.join(__dirname), {
-    index: "index.html",
     setHeaders(res) {
       res.setHeader("X-Content-Type-Options", "nosniff");
     },
   }),
 );
+
+// Redirect root to onboarding first
+app.get("/", (_req, res) => {
+  res.redirect("/onboarding");
+});
 
 app.get("/onboarding", (_req, res) =>
   res.sendFile(path.join(__dirname, "onboarding.html")),
