@@ -1,0 +1,133 @@
+Refine and extend the existing Phase 2.2 workspace only.
+
+Important:
+Do NOT rebuild the platform.
+Do NOT remove anything that already works.
+Do NOT change onboarding, dashboard, database structure, profile logic, or recommendation flow unless strictly necessary for workspace integration.
+
+Preserve everything that Phase 2.2 already added:
+- Rebeca in the workspace
+- Socratic Agent panel
+- note persistence
+- dashboard integration
+- saved activity
+- profile-aware agent behavior
+
+Main goal:
+Restore and improve the full CS Hub study workspace experience that was lost during the Phase 2.2 implementation.
+
+The current problem:
+The workspace became too simplified.
+It lost important study features that previously existed and were part of the identity of CS Hub.
+
+I want to KEEP the new intelligent platform layer, but RESTORE the richer study experience.
+
+Required restorations and upgrades:
+
+A. Study surface modes
+Restore a study mode selector and support these modes:
+1. Lined paper mode (Folha Pautada)
+2. Chalkboard / blackboard mode (Lousa / Quadro de Giz)
+3. Blank page mode
+4. Pen / tablet mode
+5. Keep the current clean editor mode if useful, but not as the only option
+
+Behavior requirements:
+- Switching modes must NOT erase the student’s notes
+- The note content must persist while the visual surface changes
+- The selected mode should be remembered per user/session if possible
+- The writing surface should feel like a real study environment, not just a plain editor
+
+B. Rich formatting toolbar
+Restore a richer formatting toolbar similar to a writing/study editor, including:
+- font family selection
+- bold
+- italic
+- underline
+- text color
+- highlight / marker tool
+- bullet list and numbered list
+- alignment options if appropriate
+- basic heading/title support if appropriate
+
+Important:
+- Keep the toolbar elegant and consistent with the premium dark CS Hub design
+- Do not turn the interface into a generic office app
+- Preserve the educational/study identity
+
+C. Math support
+Restore support for mathematical formulas.
+
+Requirements:
+- the student should be able to insert or write mathematical expressions
+- if there was previous math/formula support, restore it
+- keep the experience compatible with the current workspace
+- do not break persistence
+- formulas should remain visible and saved correctly
+
+D. Mind map functionality
+Restore the mind map feature.
+
+Requirements:
+- keep the existing Socratic Agent in the workspace
+- connect the mind map generation to the note content when possible
+- the student should be able to generate a mind map or conceptual structure from their notes
+- do not remove current agent features
+- integrate the mind map action naturally into the workspace experience
+
+E. Rebeca and Socratic Agent
+Keep both fully present and working.
+
+Requirements:
+- Rebeca must remain in the workspace as the visual companion
+- the Socratic Agent must remain functional
+- do not remove the current agent modes
+- the workspace must still feel like an intelligent guided environment, not just a notebook
+
+F. Preservation rules
+Do NOT remove:
+- the current save behavior
+- the current database persistence
+- the current dashboard integration
+- the current profile-aware Socratic Agent behavior
+- the current workspace route
+- the current Rebeca identity
+
+G. UX direction
+The workspace should feel:
+- premium
+- academic
+- visually rich
+- flexible
+- intelligent
+- focused on study, not just text editing
+
+The student should feel they can choose HOW to study:
+- notebook style
+- chalkboard style
+- plain writing style
+- pen/tablet style
+- structured formatting
+- formulas
+- mind map support
+
+H. Technical guidance
+Please inspect the current workspace implementation carefully and extend it without destructive rewrites.
+Use additive changes whenever possible.
+Preserve persistence and compatibility with the existing Phase 2.2 data flow.
+
+Final deliverable:
+- improved workspace only
+- study surface modes restored
+- rich formatting toolbar restored
+- formula support restored
+- mind map support restored
+- Rebeca and Socratic Agent preserved
+- note persistence preserved
+- no regressions in onboarding, dashboard, or platform flow
+
+Before changing anything:
+- inspect the current workspace carefully
+- preserve what works
+- extend rather than replace
+- avoid breaking the current Phase 2.2 platform
