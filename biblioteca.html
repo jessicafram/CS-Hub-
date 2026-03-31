@@ -1,4 +1,5 @@
-''<!DOCTYPE html>
+''
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -8,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
         :root {
             --bg: #0b0f14;
@@ -262,6 +263,82 @@
             background: #27ae60;
             transform: scale(1.05);
         }
+
+        .rebeca-library-guide {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(46, 204, 113, 0.12);
+            border-radius: 20px;
+            padding: 28px;
+            margin: 0 0 40px 0;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .rebeca-library-avatar {
+            flex-shrink: 0;
+        }
+
+        .rebeca-library-avatar img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid rgba(46, 204, 113, 0.45);
+            box-shadow: 0 0 24px rgba(46, 204, 113, 0.16);
+        }
+
+        .rebeca-library-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rebeca-badge {
+            width: max-content;
+            background: rgba(46, 204, 113, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(46, 204, 113, 0.25);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .rebeca-library-content h2 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+
+        .rebeca-library-content p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 780px;
+        }
+
+        @media (max-width: 768px) {
+            .rebeca-library-guide {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px;
+            }
+
+            .rebeca-library-avatar img {
+                width: 88px;
+                height: 88px;
+            }
+
+            .rebeca-library-content h2 {
+                font-size: 1.45rem;
+            }
+        }
     </style>
 </head>
 
@@ -362,6 +439,22 @@
 
         </div>
     </div>
+    <section class="rebeca-library-guide">
+        <div class="rebeca-library-avatar">
+            <img src="assets/rebeca.jpeg" alt="Rebeca">
+        </div>
+        <div class="rebeca-library-content">
+            <span class="rebeca-badge">Curadoria da Rebeca</span>
+            <h2>Biblioteca orientada pelo seu perfil</h2>
+            <p id="rebeca-library-message">
+                Com base no seu diagnóstico, selecionei os materiais mais relevantes para o seu momento de estudo.
+            </p>
+        </div>
+    </section>
+    <section class="section-container">
+        <h2>Seleção da Rebeca ✨</h2>
+        <div id="rebeca-library-highlights" class="rebeca-highlights-grid"></div>
+    </section>
 
     <div class="section-container">
         <h2>Livraria Open Source 📖</h2>
@@ -380,7 +473,7 @@
         </details>
 
         <div class="grid-books">
-            <div class="book-container">
+            <div class="book-container" data-book-id="think-python">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9781491939369-L.jpg" alt="Pense em Python">
@@ -395,7 +488,7 @@
                 </div>
             </div>
 
-            <div class="book-container">
+            <div class="book-container" data-book-id="sicp">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9780262011532-L.jpg" alt="O Livro do Mago SICP">
@@ -416,7 +509,7 @@
         <h2>Livraria de Referência 🏆</h2>
         <div class="grid-books">
 
-            <div class="book-container">
+            <div class="book-container" data-book-id="clean-code">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg" alt="Código Limpo">
@@ -425,12 +518,13 @@
                         <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Código Limpo</h3>
                         <p style="font-size: 0.8rem; line-height: 1.5;">O manual de sobrevivência. Escreva código para
                             humanos, não apenas para máquinas. Leitura obrigatória.</p>
-                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                        <a href="https://www.amazon.com.br/s?k=C%C3%B3digo+Limpo+Robert+C.+Martin" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
                     </div>
                 </div>
             </div>
 
-            <div class="book-container">
+            <div class="book-container" data-book-id="alan-turing-enigma">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9780691155647-L.jpg" alt="Alan Turing">
@@ -441,12 +535,13 @@
                         <p style="font-size: 0.8rem; line-height: 1.5;">Essencial para <strong>Matemática
                                 Discreta</strong>. Entenda como a lógica matemática quebrou códigos e encurtou a guerra.
                         </p>
-                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                        <a href="https://www.amazon.com.br/s?k=Alan+Turing+O+Enigma+Andrew+Hodges" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
                     </div>
                 </div>
             </div>
 
-            <div class="book-container">
+            <div class="book-container" data-book-id="design-of-everyday-things">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9780465050659-L.jpg"
@@ -457,12 +552,13 @@
                         </h3>
                         <p style="font-size: 0.8rem; line-height: 1.5;">A bíblia de <strong>IHC e UX</strong>. A culpa
                             nunca é do usuário, mas sempre do mau design da interface.</p>
-                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                        <a href="https://www.amazon.com.br/s?k=O+Design+do+Dia+a+Dia+Don+Norman" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
                     </div>
                 </div>
             </div>
 
-            <div class="book-container">
+            <div class="book-container" data-book-id="deep-work">
                 <div class="book-card">
                     <div class="book-front">
                         <img src="https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg" alt="Trabalho Focado">
@@ -471,13 +567,15 @@
                         <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Trabalho Focado</h3>
                         <p style="font-size: 0.8rem; line-height: 1.5;">Aprenda a blindar sua mente contra distrações e
                             programar em estado de fluxo profundo.</p>
-                        <a href="#" class="amazon-btn">Ver na Amazon 🛒</a>
+                        <a href="https://www.amazon.com.br/s?k=Trabalho+Focado+Cal+Newport" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    <script src="../js/biblioteca.js"></script>
 
 </body>
 

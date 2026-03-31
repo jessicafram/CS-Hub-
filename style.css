@@ -637,3 +637,128 @@ body {
     box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
     transform: translateY(-2px);
 }
+
+
+.rebeca-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+    gap: 18px;
+    justify-content: start;
+}
+
+.rebeca-highlight-card {
+    background: var(--bg);
+    border: 1px solid rgba(46, 204, 113, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.rebeca-highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(46, 204, 113, 0.28);
+}
+
+.rebeca-highlight-cover {
+    width: 100%;
+    height: 140px;
+    background: #111;
+    overflow: hidden;
+}
+
+.rebeca-highlight-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rebeca-highlight-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.rebeca-highlight-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.rebeca-highlight-label,
+.rebeca-highlight-type {
+    width: max-content;
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.rebeca-highlight-label {
+    background: rgba(46, 204, 113, 0.12);
+    color: var(--accent);
+}
+
+.rebeca-highlight-type {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+}
+
+.rebeca-highlight-card h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+
+.rebeca-highlight-author {
+    margin: 0;
+    color: #8ea3b7;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.rebeca-highlight-card p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.rebeca-highlight-card a {
+    margin-top: auto;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.rebeca-book-recommended {
+    position: relative;
+}
+
+.rebeca-book-recommended::before {
+    content: "Rebeca recomenda";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    background: rgba(46, 204, 113, 0.92);
+    color: #000;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.rebeca-book-recommended .book-card {
+    border: 1px solid rgba(46, 204, 113, 0.35);
+    box-shadow: 0 0 0 1px rgba(46, 204, 113, 0.15), 5px 5px 15px rgba(0, 0, 0, 0.5);
+}

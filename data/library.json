@@ -1,0 +1,190 @@
+[
+    {
+        "id": "agents-n8n",
+        "title": "Engenharia de Agentes Autônomos",
+        "author": "CS Hub Curated Insight",
+        "type": "article",
+        "library": "insights",
+        "level": "intermediate",
+        "category": [
+            "ai",
+            "agents",
+            "automation"
+        ],
+        "profiles": [
+            "ai-focused",
+            "college-learner",
+            "career-transition"
+        ],
+        "description": "O mercado busca quem constrói ecossistemas de IAs que trabalham sozinhas utilizando ferramentas como n8n.",
+        "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+        "action_url": "https://n8n.io/ai-agents/",
+        "action_label": "Ver Ecossistema n8n →",
+        "source": "external",
+        "priority": 10
+    },
+    {
+        "id": "rust-security",
+        "title": "O Papel do Rust na Segurança",
+        "author": "CS Hub Curated Insight",
+        "type": "article",
+        "library": "insights",
+        "level": "advanced",
+        "category": [
+            "rust",
+            "security",
+            "systems"
+        ],
+        "profiles": [
+            "backend-focused",
+            "college-learner",
+            "career-transition"
+        ],
+        "description": "Governos e Big Techs estão exigindo a transição para linguagens Memory-Safe na infraestrutura crítica.",
+        "cover": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80",
+        "action_url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf",
+        "action_label": "Ler Relatório (PDF) →",
+        "source": "external",
+        "priority": 9
+    },
+    {
+        "id": "think-python",
+        "title": "Pense em Python",
+        "author": "Allen B. Downey",
+        "type": "book",
+        "library": "open_source",
+        "level": "beginner",
+        "category": [
+            "python",
+            "programming",
+            "logic"
+        ],
+        "profiles": [
+            "beginner-explorer",
+            "college-learner"
+        ],
+        "description": "O melhor livro para iniciantes. Ensina você a pensar e estruturar problemas como um cientista da computação.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9781491939369-L.jpg",
+        "action_url": "https://openlibrary.org/works/OL17332714W/Think_Python",
+        "action_label": "Pegar Emprestado 📚",
+        "source": "open_library",
+        "priority": 10
+    },
+    {
+        "id": "sicp",
+        "title": "O Livro do Mago (SICP)",
+        "author": "Harold Abelson, Gerald Jay Sussman, Julie Sussman",
+        "type": "book",
+        "library": "open_source",
+        "level": "advanced",
+        "category": [
+            "computer-science",
+            "theory",
+            "programming"
+        ],
+        "profiles": [
+            "college-learner",
+            "ai-focused"
+        ],
+        "description": "O livro mais famoso do MIT. Um rito de passagem para quem quer dominar a estrutura profunda do código.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9780262011532-L.jpg",
+        "action_url": "https://openlibrary.org/works/OL2740925W/Structure_and_interpretation_of_computer_programs",
+        "action_label": "Pegar Emprestado 📚",
+        "source": "open_library",
+        "priority": 10
+    },
+    {
+        "id": "clean-code",
+        "title": "Código Limpo",
+        "author": "Robert C. Martin",
+        "type": "book",
+        "library": "reference",
+        "level": "intermediate",
+        "category": [
+            "software-engineering",
+            "code-quality"
+        ],
+        "profiles": [
+            "college-learner",
+            "career-transition",
+            "frontend-focused"
+        ],
+        "description": "O manual de sobrevivência. Escreva código para humanos, não apenas para máquinas.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
+        "action_url": "https://www.amazon.com.br/s?k=C%C3%B3digo+Limpo+Robert+C.+Martin",
+        "action_label": "Ver na Amazon 🛒",
+        "source": "amazon",
+        "priority": 10
+    },
+    {
+        "id": "alan-turing-enigma",
+        "title": "Alan Turing: O Enigma",
+        "author": "Andrew Hodges",
+        "type": "book",
+        "library": "reference",
+        "level": "intermediate",
+        "category": [
+            "math",
+            "history",
+            "logic",
+            "computing"
+        ],
+        "profiles": [
+            "college-learner",
+            "beginner-explorer"
+        ],
+        "description": "Essencial para Matemática Discreta e história da computação.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9780691155647-L.jpg",
+        "action_url": "https://www.amazon.com.br/s?k=Alan+Turing+O+Enigma+Andrew+Hodges",
+        "action_label": "Ver na Amazon 🛒",
+        "source": "amazon",
+        "priority": 8
+    },
+    {
+        "id": "design-of-everyday-things",
+        "title": "O Design do Dia a Dia",
+        "author": "Don Norman",
+        "type": "book",
+        "library": "reference",
+        "level": "intermediate",
+        "category": [
+            "ux",
+            "ihc",
+            "design"
+        ],
+        "profiles": [
+            "frontend-focused",
+            "college-learner"
+        ],
+        "description": "A bíblia de IHC e UX. A culpa nunca é do usuário, mas do mau design.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9780465050659-L.jpg",
+        "action_url": "https://www.amazon.com.br/s?k=O+Design+do+Dia+a+Dia+Don+Norman",
+        "action_label": "Ver na Amazon 🛒",
+        "source": "amazon",
+        "priority": 9
+    },
+    {
+        "id": "deep-work",
+        "title": "Trabalho Focado",
+        "author": "Cal Newport",
+        "type": "book",
+        "library": "reference",
+        "level": "beginner",
+        "category": [
+            "productivity",
+            "study",
+            "focus"
+        ],
+        "profiles": [
+            "beginner-explorer",
+            "career-transition",
+            "interview-preparation"
+        ],
+        "description": "Aprenda a blindar sua mente contra distrações e estudar em estado de fluxo profundo.",
+        "cover": "https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg",
+        "action_url": "https://www.amazon.com.br/s?k=Trabalho+Focado+Cal+Newport",
+        "action_label": "Ver na Amazon 🛒",
+        "source": "amazon",
+        "priority": 8
+    }
+]
