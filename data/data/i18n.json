@@ -1,0 +1,34 @@
+{
+    "pt": {
+        "nav_academic": "Trilha Acadêmica",
+        "nav_jobs": "Mural de Vagas",
+        "nav_library": "Tech Library & Insights",
+        "nav_community": "Comunidade Discord",
+        "nav_workspace": "Estude por aqui (Crie seu Espaço)",
+        "library_title": "Tech Library & Insights",
+        "library_subtitle": "Curadoria Estratégica para o Mercado 2026",
+        "rebeca_badge": "Curadoria da Rebeca",
+        "rebeca_title": "Biblioteca orientada pelo seu perfil",
+        "rebeca_message_default": "Com base no seu diagnóstico, selecionei os materiais mais relevantes para o seu momento de estudo.",
+        "rebeca_selection_title": "Seleção da Rebeca ✨",
+        "open_source_title": "Livraria Open Source 📖",
+        "reference_title": "Livraria de Referência 🏆",
+        "insights_title": "Radar de Insights 2026"
+    },
+    "en": {
+        "nav_academic": "Academic Track",
+        "nav_jobs": "Jobs Board",
+        "nav_library": "Tech Library & Insights",
+        "nav_community": "Discord Community",
+        "nav_workspace": "Study here (Create your Space)",
+        "library_title": "Tech Library & Insights",
+        "library_subtitle": "Strategic Curation for the 2026 Market",
+        "rebeca_badge": "Curated by Rebeca",
+        "rebeca_title": "Library guided by your profile",
+        "rebeca_message_default": "Based on your diagnostic, I selected the most relevant materials for your current study moment.",
+        "rebeca_selection_title": "Rebeca's Picks ✨",
+        "open_source_title": "Open Source Library 📖",
+        "reference_title": "Reference Library 🏆",
+        "insights_title": "2026 Insights Radar"
+    }
+}

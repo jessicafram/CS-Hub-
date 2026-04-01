@@ -357,107 +357,28 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="index.html">Trilha Acadêmica</a></li>
-            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
-            <li><a href="biblioteca.html">Tech Library & Insights</a></li>
-            <li><a href="comunidade.html">Comunidade Discord</a></li>
+            <li><a href="index.html" data-i18n="nav_academic">Trilha Acadêmica</a></li>
+            <li><a href="vagas/vagas.html" data-i18n="nav_jobs">Mural de Vagas</a></li>
+            <li><a href="biblioteca.html" data-i18n="nav_library">Tech Library & Insights</a></li>
+            <li><a href="comunidade.html" data-i18n="nav_community">Comunidade Discord</a></li>
         </ul>
+        <div class="language-switcher" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
 
-        <a href="workspace.html" class="btn-notion"
-            style="text-decoration: none; display: inline-block; text-align: center;">
+        <a href="workspace.html" class="btn-notion" data-i18n="nav_workspace">
             Estude por aqui (Crie seu Espaço)
         </a>
     </nav>
 
     <div class="header-lib">
-        <h1>Tech Library & Insights</h1>
-        <p>Curadoria Estratégica para o Mercado 2026</p>
+        <h1 data-i18n="library_title">Tech Library & Insights</h1>
+        <p data-i18n="library_subtitle">Curadoria Estratégica para o Mercado 2026</p>
     </div>
 
     <div class="section-container">
-        <h2>Radar de Insights 2026</h2>
-        <div class="grid-insights">
-
-            <div class="insight-card">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
-                    alt="IA e Agentes" class="insight-img">
-                <div class="insight-content">
-                    <span class="badge-radar">TENDÊNCIA 🚀</span>
-                    <h3 style="color: #fff; margin: 0 0 10px 0;">Engenharia de Agentes Autônomos</h3>
-                    <p style="font-size: 0.9rem; color: #888; flex: 1;">O mercado busca quem constrói ecossistemas de
-                        IAs que trabalham sozinhas utilizando ferramentas como n8n.</p>
-                    <a href="https://n8n.io/ai-agents/" target="_blank"
-                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver
-                        Ecossistema n8n →</a>
-                </div>
-            </div>
-
-            <div class="insight-card">
-                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80"
-                    alt="Código e Segurança" class="insight-img">
-                <div class="insight-content">
-                    <span class="badge-radar">ARTIGO TÉCNICO 🛡️</span>
-                    <h3 style="color: #fff; margin: 0 0 10px 0;">O Papel do Rust na Segurança</h3>
-                    <p style="font-size: 0.9rem; color: #888; flex: 1;">Governos e Big Techs estão exigindo a transição
-                        para linguagens Memory-Safe na infraestrutura crítica.</p>
-                    <a href="https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf"
-                        target="_blank"
-                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ler
-                        Relatório (PDF) →</a>
-                </div>
-            </div>
-
-            <div class="insight-card">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-                    alt="Edge AI" class="insight-img">
-                <div class="insight-content">
-                    <span class="badge-radar" style="background: rgba(155, 89, 182, 0.15); color: #9b59b6;">TENDÊNCIA
-                        🔋</span>
-                    <h3 style="color: #fff; margin: 0 0 10px 0;">Edge AI e Modelos Locais</h3>
-                    <p style="font-size: 0.9rem; color: #888; flex: 1;">A grande corrida do mercado é otimizar IAs para
-                        rodarem nativamente em celulares, garantindo privacidade zero-latency.</p>
-                    <a href="https://www.ibm.com/think/topics/edge-ai" target="_blank"
-                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Entender
-                        Edge AI →</a>
-                </div>
-            </div>
-
-            <div class="insight-card">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
-                    alt="Pós-Transformer" class="insight-img">
-                <div class="insight-content">
-                    <span class="badge-radar" style="background: rgba(230, 126, 34, 0.15); color: #e67e22;">ARTIGO
-                        TÉCNICO 🧠</span>
-                    <h3 style="color: #fff; margin: 0 0 10px 0;">Além do Transformer: A era SSM</h3>
-                    <p style="font-size: 0.9rem; color: #888; flex: 1;">Entenda por que as arquiteturas State Space
-                        Models (Mamba) estão ameaçando a hegemonia dos Transformers.</p>
-                    <a href="https://thegradient.pub/mamba-explained/" target="_blank"
-                        style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ler
-                        Explicação Técnica →</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <section class="rebeca-library-guide">
-        <div class="rebeca-library-avatar">
-            <img src="assets/rebeca.jpeg" alt="Rebeca">
-        </div>
-        <div class="rebeca-library-content">
-            <span class="rebeca-badge">Curadoria da Rebeca</span>
-            <h2>Biblioteca orientada pelo seu perfil</h2>
-            <p id="rebeca-library-message">
-                Com base no seu diagnóstico, selecionei os materiais mais relevantes para o seu momento de estudo.
-            </p>
-        </div>
-    </section>
-    <section class="section-container">
-        <h2>Seleção da Rebeca ✨</h2>
-        <div id="rebeca-library-highlights" class="rebeca-highlights-grid"></div>
-    </section>
-
-    <div class="section-container">
-        <h2>Livraria Open Source 📖</h2>
+        <h2 data-i18n="open_source_title">Livraria Open Source 📖</h2>
 
         <details class="library-card-box">
             <summary>🎫 Faça sua Carteirinha Digital (Clique para entender e acessar)</summary>
@@ -506,7 +427,80 @@
     </div>
 
     <div class="section-container">
-        <h2>Livraria de Referência 🏆</h2>
+        <h2 data-i18n="reference_title">Livraria de Referência 🏆</h2>
+        <div class="grid-books">
+
+            <div class="book-container" data-book-id="clean-code">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg" alt="Código Limpo">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Código Limpo</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">O manual de sobrevivência. Escreva código para
+                            humanos, não apenas para máquinas. Leitura obrigatória.</p>
+                        <a href="https://www.amazon.com.br/s?k=C%C3%B3digo+Limpo+Robert+C.+Martin" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container" data-book-id="alan-turing-enigma">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780691155647-L.jpg" alt="Alan Turing">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Alan Turing: O Enigma
+                        </h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">Essencial para <strong>Matemática
+                                Discreta</strong>. Entenda como a lógica matemática quebrou códigos e encurtou a guerra.
+                        </p>
+                        <a href="https://www.amazon.com.br/s?k=Alan+Turing+O+Enigma+Andrew+Hodges" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container" data-book-id="design-of-everyday-things">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9780465050659-L.jpg"
+                            alt="O Design do Dia a Dia">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">O Design do Dia a Dia
+                        </h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">A bíblia de <strong>IHC e UX</strong>. A culpa
+                            nunca é do usuário, mas sempre do mau design da interface.</p>
+                        <a href="https://www.amazon.com.br/s?k=O+Design+do+Dia+a+Dia+Don+Norman" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-container" data-book-id="deep-work">
+                <div class="book-card">
+                    <div class="book-front">
+                        <img src="https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg" alt="Trabalho Focado">
+                    </div>
+                    <div class="book-back">
+                        <h3 style="color: var(--amazon); margin-bottom: 10px; font-size: 1.1rem;">Trabalho Focado</h3>
+                        <p style="font-size: 0.8rem; line-height: 1.5;">Aprenda a blindar sua mente contra distrações e
+                            programar em estado de fluxo profundo.</p>
+                        <a href="https://www.amazon.com.br/s?k=Trabalho+Focado+Cal+Newport" target="_blank"
+                            rel="noopener noreferrer nofollow sponsored" class="amazon-btn">Ver na Amazon 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="section-container">
+        <h2 data-i18n="open_source_title">Livraria Open Source 📖</h2>
         <div class="grid-books">
 
             <div class="book-container" data-book-id="clean-code">
@@ -576,6 +570,7 @@
         </div>
     </div>
     <script src="../js/biblioteca.js"></script>
+    <script src="../js/i18n.js"></script>
 
 </body>
 

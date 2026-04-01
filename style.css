@@ -762,3 +762,41 @@ body {
     border: 1px solid rgba(46, 204, 113, 0.35);
     box-shadow: 0 0 0 1px rgba(46, 204, 113, 0.15), 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 7px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.lang-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.lang-btn.active {
+    background: var(--accent);
+    color: #000;
+}
