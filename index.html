@@ -4,150 +4,2091 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Hub: Jessica França</title>
+    <title>CS Hub — Jéssica França</title>
+    <meta name="description"
+        content="A plataforma de tecnologia para quem pensa global. Trilhas, labs, comunidade e IA com a Rebeca.">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #080c11;
+            --surface: #0d1117;
+            --surface2: #111820;
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #2ecc71;
+            --a2: rgba(46, 204, 113, 0.15);
+            --a3: rgba(46, 204, 113, 0.07);
+            --glow: 0 0 32px rgba(46, 204, 113, 0.18);
+            --text: #e6edf3;
+            --muted: #6e7a8a;
+            --muted2: #3d4a5a;
+            --r: 12px;
+            --rl: 20px;
+            --nh: 64px;
+            --mono: 'Fira Code', monospace;
+            --serif: 'Dancing Script', cursive;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--surface);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--muted2);
+            border-radius: 3px;
+        }
+
+        /* ── ANIMATED CODE BACKGROUND (Home 1 only) ─── */
+        #code-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .code-line {
+            position: absolute;
+            bottom: -40px;
+            font-family: var(--mono);
+            color: #2ecc71;
+            white-space: nowrap;
+            animation: code-rise linear infinite;
+            will-change: transform;
+            user-select: none;
+        }
+
+        @keyframes code-rise {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(calc(-100vh - 60px));
+            }
+        }
+
+        /* ── NAVBAR ─────────────────────────────────── */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nh);
+            background: rgba(8, 12, 17, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent);
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .nav-logo-text .brand {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo-text .sub {
+            font-family: var(--serif);
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+            flex: 1;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 5px 10px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: color .2s, background .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .lang-sw {
+            display: flex;
+            align-items: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .lang-sw button {
+            padding: 4px 8px;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all .2s;
+            text-transform: uppercase;
+        }
+
+        .lang-sw button:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .lang-sw button.lang-active {
+            background: var(--accent);
+            color: #080c11;
+        }
+
+        .btn-nav-ghost {
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid rgba(46, 204, 113, 0.35);
+            color: var(--accent);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-nav-ghost:hover {
+            background: var(--a2);
+            border-color: var(--accent);
+        }
+
+        .btn-nav-solid {
+            padding: 6px 14px;
+            background: var(--accent);
+            border: none;
+            color: #080c11;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-nav-solid:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        #nav-user-info {
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #nav-user-info.visible {
+            display: flex;
+        }
+
+        #nav-user-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent);
+            object-fit: cover;
+        }
+
+        #nav-user-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            margin-left: auto;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all .3s;
+        }
+
+        /* ── HERO ─────────────────────────────────────── */
+        #hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding-top: var(--nh);
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 40px;
+            align-items: center;
+            padding-left: 72px;
+            padding-right: 56px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            padding: 48px 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--a3);
+            border: 1px solid rgba(46, 204, 113, 0.18);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .4;
+                transform: scale(.8);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(1.9rem, 3.2vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.14;
+            letter-spacing: -.4px;
+            color: var(--text);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            background: var(--accent);
+            color: #080c11;
+            border: none;
+            border-radius: var(--r);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .25s;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .25s;
+            white-space: nowrap;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .trust-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .hero-reassurance {
+            font-size: 0.76rem;
+            color: var(--muted2);
+            font-style: italic;
+        }
+
+        /* ── HERO RIGHT: Rebeca + compact entry ──────── */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Rebeca Character Card */
+        .rebeca-char-card {
+            position: relative;
+            background: linear-gradient(160deg, rgba(46, 204, 113, 0.04) 0%, var(--surface) 60%);
+            border: 1px solid rgba(46, 204, 113, 0.18);
+            border-radius: var(--rl);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            overflow: hidden;
+        }
+
+        .rebeca-char-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .rebeca-char-card::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .rebeca-img-wrap {
+            position: relative;
+            width: 130px;
+            height: 130px;
+        }
+
+        .rebeca-img-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(46, 204, 113, 0.4), transparent 60%, rgba(46, 204, 113, 0.3));
+            animation: spin-slow 8s linear infinite;
+        }
+
+        @keyframes spin-slow {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rebeca-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: var(--bg);
+        }
+
+        .rebeca-char-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(46, 204, 113, 0.4);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), var(--glow);
+        }
+
+        .rebeca-char-name {
+            text-align: center;
+        }
+
+        .rebeca-char-name .name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            display: block;
+        }
+
+        .rebeca-char-name .role {
+            font-size: 0.72rem;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .rebeca-opt-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Compact entry card */
+        .entry-compact {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--rl);
+            padding: 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .entry-compact-header {}
+
+        .entry-compact-header p {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .entry-compact-header span {
+            font-size: 0.76rem;
+            color: var(--muted);
+        }
+
+        .btn-replit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--accent);
+            color: #080c11;
+            border: none;
+            border-radius: var(--r);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-replit:hover {
+            opacity: .9;
+            box-shadow: var(--glow);
+        }
+
+        .entry-or {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .entry-or::before,
+        .entry-or::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .entry-or span {
+            font-size: 0.7rem;
+            color: var(--muted2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .entry-paths {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .entry-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            text-decoration: none;
+            color: var(--text);
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .entry-path:hover {
+            border-color: rgba(46, 204, 113, 0.28);
+            background: var(--a3);
+        }
+
+        .entry-path-ico {
+            width: 32px;
+            height: 32px;
+            background: var(--a3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .entry-path-txt {
+            flex: 1;
+        }
+
+        .entry-path-lbl {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .entry-path-sub {
+            font-size: 0.68rem;
+            color: var(--muted);
+        }
+
+        .entry-path-arr {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .entry-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .entry-links a {
+            font-size: 0.74rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .entry-links a:hover {
+            color: var(--accent);
+        }
+
+        .entry-links a.accent {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ── HOW IT WORKS ─────────────────────────────── */
+        #how {
+            position: relative;
+            z-index: 1;
+            padding: 96px 72px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -.3px;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .section-sub {
+            font-size: 0.97rem;
+            color: var(--muted);
+            margin-bottom: 48px;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .how-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--rl);
+            padding: 28px 24px;
+            transition: transform .25s, border-color .25s;
+        }
+
+        .how-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(46, 204, 113, 0.18);
+        }
+
+        .how-num {
+            font-family: var(--mono);
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.3), rgba(46, 204, 113, 0.06));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+
+        .how-ico {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .how-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .how-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── TRACKS ───────────────────────────────────── */
+        #tracks {
+            position: relative;
+            z-index: 1;
+            padding: 64px 72px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .tracks-hdr {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .track-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--rl);
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform .25s, border-color .25s, box-shadow .25s;
+            cursor: pointer;
+        }
+
+        .track-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(46, 204, 113, 0.22);
+            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.3);
+        }
+
+        .track-ico {
+            font-size: 1.6rem;
+            width: 44px;
+            height: 44px;
+            background: var(--a3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 100px;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .chip-new {
+            background: rgba(46, 204, 113, 0.12);
+            color: var(--accent);
+        }
+
+        .chip-hot {
+            background: rgba(239, 68, 68, 0.12);
+            color: #ef4444;
+        }
+
+        .track-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .track-card p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .track-meta {
+            font-family: var(--mono);
+            font-size: 0.66rem;
+            color: var(--muted2);
+        }
+
+        .tracks-cta-row {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        /* ── REBECA SECTION ───────────────────────────── */
+        #rebeca-sec {
+            position: relative;
+            z-index: 1;
+            padding: 64px 72px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .rebeca-inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--rl);
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rebeca-inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .rebeca-opt-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.18);
+            color: #fbbf24;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .rebeca-inner h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .rebeca-inner .rsub {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .rebeca-inner p.rdesc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .rebeca-pts {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .rebeca-pts li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .rebeca-pts li::before {
+            content: '✓';
+            width: 18px;
+            height: 18px;
+            background: var(--a3);
+            color: var(--accent);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .rebeca-ctas {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-skip {
+            font-size: 0.78rem;
+            color: var(--muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .btn-skip:hover {
+            color: var(--text);
+        }
+
+        .rebeca-right-img {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rebeca-big-wrap {
+            position: relative;
+        }
+
+        .rebeca-big-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.12) 0%, transparent 70%);
+        }
+
+        .rebeca-big {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(46, 204, 113, 0.28);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 16px 52px rgba(0, 0, 0, 0.4), var(--glow);
+        }
+
+        .rebeca-float {
+            position: absolute;
+            bottom: 8px;
+            right: -16px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 7px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text);
+            z-index: 2;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+
+        /* ── PRICING ──────────────────────────────────── */
+        #pricing {
+            position: relative;
+            z-index: 1;
+            padding: 64px 72px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .pricing-hdr {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .pricing-badge-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: var(--a3);
+            border: 1px solid rgba(46, 204, 113, 0.18);
+            border-radius: 100px;
+            padding: 7px 18px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 32px;
+        }
+
+        .pricing-free {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 36px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .plan-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--rl);
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            position: relative;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-card.featured {
+            border-color: rgba(46, 204, 113, 0.38);
+            background: linear-gradient(155deg, rgba(46, 204, 113, 0.05) 0%, var(--surface) 50%);
+            box-shadow: 0 0 0 1px rgba(46, 204, 113, 0.1), 0 18px 52px rgba(0, 0, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        .plan-card.featured:hover {
+            transform: scale(1.02) translateY(-4px);
+        }
+
+        .plan-rec {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #080c11;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .plan-name {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Installment-first pricing */
+        .plan-price-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .plan-install-row {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .plan-install-pfx {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .plan-install-val {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .plan-period {
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .plan-total {
+            font-size: 0.72rem;
+            color: var(--muted2);
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .plan-starter-price {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .plan-desc {
+            font-size: 0.83rem;
+            color: var(--muted);
+            line-height: 1.55;
+            padding-top: 4px;
+            border-top: 1px solid var(--border);
+        }
+
+        .plan-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            flex: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 0.83rem;
+            color: var(--text);
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .btn-plan {
+            display: block;
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: var(--r);
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .2s;
+            border: none;
+        }
+
+        .btn-plan-green {
+            background: var(--accent);
+            color: #080c11;
+        }
+
+        .btn-plan-green:hover {
+            opacity: .9;
+            box-shadow: var(--glow);
+        }
+
+        .btn-plan-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-plan-outline:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        /* ── DIVIDERS ─────────────────────────────────── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── FOOTER ───────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 56px 72px 36px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand .logo-row img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent);
+        }
+
+        .footer-brand .bn {
+            font-family: var(--mono);
+            font-size: 0.86rem;
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .fc h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .fc ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .fc ul li a {
+            font-size: 0.82rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .fc ul li a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--muted2);
+        }
+
+        .footer-sig {
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        /* ── FADE-IN ──────────────────────────────────── */
+        .fi {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .fi.vis {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── AUTH STATE ───────────────────────────────── */
+        .hide-auth {
+            display: block;
+        }
+
+        .show-auth {
+            display: none;
+        }
+
+        body.authenticated .hide-auth {
+            display: none;
+        }
+
+        body.authenticated .show-auth {
+            display: flex;
+        }
+
+        /* ── MOBILE NAV ───────────────────────────────── */
+        #mnav {
+            display: none;
+            position: fixed;
+            top: var(--nh);
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 14px;
+            z-index: 999;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        #mnav.open {
+            display: flex;
+        }
+
+        #mnav a {
+            display: block;
+            padding: 10px 14px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all .2s;
+        }
+
+        #mnav a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .mnav-lang {
+            display: flex;
+            gap: 6px;
+            padding: 12px 14px;
+            border-top: 1px solid var(--border);
+            margin-top: 6px;
+        }
+
+        .mnav-lang button {
+            flex: 1;
+            padding: 7px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all .2s;
+        }
+
+        button[data-lang].lang-active {
+            background: var(--accent) !important;
+            color: #080c11 !important;
+            border-color: var(--accent) !important;
+        }
+
+        /* ── RESPONSIVE ───────────────────────────────── */
+        @media (max-width: 1100px) {
+            .tracks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #hero {
+                grid-template-columns: 1fr 380px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            #hero {
+                grid-template-columns: 1fr;
+                padding: 72px 28px 40px;
+                gap: 28px;
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .rebeca-inner {
+                grid-template-columns: 1fr;
+                padding: 36px 28px;
+                gap: 28px;
+            }
+
+            .rebeca-right-img {
+                display: none;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .plan-card.featured {
+                transform: none;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            #how,
+            #tracks,
+            #rebeca-sec,
+            #pricing {
+                padding: 56px 28px;
+            }
+
+            footer {
+                padding: 44px 28px 28px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #navbar {
+                padding: 0 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                justify-content: center;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
-<body class="notion-theme">
-    <nav class="top-navbar">
-        <div class="nav-logo">
-            <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
-            <div class="logo-text-wrapper">
-                <span class="hub-title">CS Hub &lt;/&gt;</span>
-                <span class="jessica-signature">Jessica França</span>
-            </div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Trilha Acadêmica</a></li>
-            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
-            <li><a href="biblioteca.html">Tech Library & Insights</a></li>
-            <li style="display: flex; align-items: center; gap: 8px;">
-                <a href="comunidade.html">Comunidade</a>
+<body>
 
-                <a href="https://discord.gg/2MzvA82W8Y" target="_blank" title="Ir direto para o Servidor"
-                    style="padding: 0; display: flex; transition: 0.2s;">
-                    <svg width="22" height="22" viewBox="0 0 127.14 96.36" fill="#2ecc71">
-                        <path
-                            d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.58,67.58,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
-        <a href="workspace.html" class="btn-notion"
-            style="text-decoration: none; display: inline-block; text-align: center;">
-            Estude por aqui (Crie seu Espaço)
+    <!-- ═══ ANIMATED CODE BACKGROUND ═══ -->
+    <div id="code-bg" aria-hidden="true"></div>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav id="navbar">
+        <a href="/" class="nav-logo">
+            <img src="assets/logo-jessica.jpg" alt="CS Hub">
+            <div class="nav-logo-text">
+                <span class="brand" data-i18n="nav.brand">CS_HUB</span>
+                <span class="sub">Jéssica França</span>
+            </div>
         </a>
+
+        <ul class="nav-links">
+            <li><a href="/" class="active" data-i18n="nav.home">Início</a></li>
+            <li><a href="/platform" data-i18n="nav.platform">Explorar</a></li>
+            <li><a href="comunidade.html" data-i18n="nav.community">Comunidade</a></li>
+            <li><a href="biblioteca.html" data-i18n="nav.library">Biblioteca</a></li>
+            <li><a href="/workspace" data-i18n="nav.study_here">Estude Aqui</a></li>
+            <li><a href="/onboarding" data-i18n="nav.rebeca">Rebeca</a></li>
+            <li><a href="#pricing" data-i18n="nav.plans">Planos</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-sw">
+                <button data-lang="pt-br">PT</button>
+                <button data-lang="en">EN</button>
+                <button data-lang="es">ES</button>
+            </div>
+
+            <!-- logged-out -->
+            <a href="/api/auth/login" class="btn-nav-ghost hide-auth">
+                <span data-i18n="nav.login">Entrar</span>
+            </a>
+            <a href="/api/auth/login" class="btn-nav-solid hide-auth" style="display:inline-block;">
+                <span data-i18n="nav.signup">Criar Conta</span>
+            </a>
+
+            <!-- logged-in -->
+            <div id="nav-user-info" class="show-auth">
+                <img id="nav-user-avatar" src="" alt="" style="display:none;">
+                <span id="nav-user-name"></span>
+                <a href="/platform" class="btn-nav-solid" data-i18n="nav.platform">Explorar</a>
+                <a href="/api/auth/logout" class="btn-nav-ghost" style="border-color:rgba(239,68,68,.3);color:#ef4444;"
+                    data-i18n="nav.logout">Sair</a>
+            </div>
+        </div>
+
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
-    <div
-        style="background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%); width: 100%; padding: 12px 20px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.4); flex-wrap: wrap;">
 
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span
-                style="background: #fff; color: #8b5cf6; padding: 4px 10px; border-radius: 20px; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Atualização</span>
-            <span style="color: #fff; font-size: 0.95rem; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-                A nova <strong>Tech Library</strong> e o <strong>CS Canvas</strong> já estão disponíveis para uso!
-            </span>
+    <!-- Mobile Nav -->
+    <nav id="mnav">
+        <a href="/" data-i18n="nav.home">Início</a>
+        <a href="/platform" data-i18n="nav.platform">Explorar</a>
+        <a href="comunidade.html" data-i18n="nav.community">Comunidade</a>
+        <a href="biblioteca.html" data-i18n="nav.library">Biblioteca</a>
+        <a href="/workspace" data-i18n="nav.study_here">Estude Aqui</a>
+        <a href="/onboarding" data-i18n="nav.rebeca">Rebeca</a>
+        <a href="#pricing" data-i18n="nav.plans">Planos</a>
+        <a href="/api/auth/login" data-i18n="nav.login">Entrar</a>
+        <div class="mnav-lang">
+            <button data-lang="pt-br">PT-BR</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="es">ES</button>
         </div>
+    </nav>
 
-        <div style="display: flex; gap: 15px; align-items: center;">
-            <a href="biblioteca.html"
-                style="color: #fff; text-decoration: underline; font-size: 0.85rem; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">Ver
-                Biblioteca</a>
-            <a href="workspace.html"
-                style="background: #fff; color: #d946ef; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;">Testar
-                Canvas →</a>
-        </div>
+    <!-- ═══ HERO ═══ -->
+    <section id="hero">
+        <div class="hero-left fi">
+            <div class="hero-badge" data-i18n="hero.badge">Plataforma EdTech Global</div>
 
-    </div>
+            <h1 class="hero-title" data-i18n="hero.title">
+                A Plataforma de Tecnologia para Quem Pensa Global
+            </h1>
 
-    <div class="hero-academic-wrapper">
-        <header class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="badge-tech">PLENO HEAVER</span>
-                    <h1>Sua Jornada em Ciência da Computação</h1>
-                    <p>Explore as matérias, acesse os cadernos do Goodnotes e gerencie seu progresso com foco total em
-                        tecnologia.</p>
-                    <button class="btn-primary">VER MATÉRIAS</button>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Aprenda programação, IA e engenharia de sistemas com trilhas estruturadas, labs práticos e a orientação
+                inteligente da Rebeca.
+            </p>
+
+            <div class="hero-ctas">
+                <a href="/onboarding" class="btn-primary">
+                    <span>✦</span>
+                    <span data-i18n="hero.cta_rebeca">Começar com a Rebeca</span>
+                </a>
+                <a href="/platform" class="btn-secondary">
+                    <span data-i18n="hero.cta_explore">Explorar o ecossistema</span>
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <div class="trust-chip">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span data-i18n="hero.free_badge">30 dias grátis</span>
                 </div>
-                <div class="hero-graphics">
-                    <div class="floating-card-glass">
-                        <div class="card-tag">CS Hub</div>
-                        <h3>Arquitetura de Computadores</h3>
-                        <p>Dominando RISC vs CISC e Hierarquia de Memória.</p>
-                    </div>
+                <div class="trust-chip">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2.5">
+                        <rect x="1" y="4" width="22" height="16" rx="2" />
+                        <line x1="1" y1="10" x2="23" y2="10" />
+                    </svg>
+                    <span data-i18n="hero.no_cc">Sem cartão de crédito</span>
+                </div>
+            </div>
 
-                    <div class="neon-badge-7">
-                        <div class="badge-ring">
-                            <span class="score-label">APPROVED</span>
-                            <div class="score-row">
-                                <span class="score-num">7.0</span>
-                                <span class="check-mark">✓</span>
-                            </div>
+            <p class="hero-reassurance" data-i18n="hero.reassurance">
+                Você pode alternar entre guiado e livre a qualquer momento.
+            </p>
+        </div>
+
+        <!-- Hero Right: Rebeca + Entry -->
+        <div class="hero-right fi" style="transition-delay:.12s;">
+
+            <!-- Rebeca character card -->
+            <div class="rebeca-char-card">
+                <div class="rebeca-img-wrap">
+                    <img src="assets/rebeca.jpeg" alt="Rebeca — CS Hub AI Guide" class="rebeca-char-img"
+                        onerror="this.parentElement.parentElement.style.display='none'">
+                </div>
+                <div class="rebeca-char-name">
+                    <span class="name">Rebeca</span>
+                    <span class="role" data-i18n="rebeca.char_tag">Guia Inteligente de Aprendizado</span>
+                </div>
+                <div class="rebeca-opt-pill">
+                    <span>★</span>
+                    <span data-i18n="rebeca.badge">Opcional</span>
+                </div>
+            </div>
+
+            <!-- Compact entry card -->
+            <div class="entry-compact">
+                <div class="entry-compact-header">
+                    <p data-i18n="hero.entry_title">Acesse sua conta</p>
+                    <span data-i18n="hero.entry_sub">Entre ou crie sua conta para ter acesso completo à
+                        plataforma.</span>
+                </div>
+
+                <a href="/api/auth/login" class="btn-replit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                    </svg>
+                    <span data-i18n="auth.login_btn">Entrar com Replit</span>
+                </a>
+
+                <div class="entry-or"><span data-i18n="auth.or">ou</span></div>
+
+                <div class="entry-paths">
+                    <a href="/onboarding" class="entry-path">
+                        <div class="entry-path-ico">✦</div>
+                        <div class="entry-path-txt">
+                            <div class="entry-path-lbl" data-i18n="hero.cta_rebeca">Começar com a Rebeca</div>
+                            <div class="entry-path-sub" data-i18n="rebeca.badge">Opcional</div>
                         </div>
-                    </div>
+                        <span class="entry-path-arr">→</span>
+                    </a>
+                    <a href="/platform" class="entry-path">
+                        <div class="entry-path-ico">⚡</div>
+                        <div class="entry-path-txt">
+                            <div class="entry-path-lbl" data-i18n="hero.cta_explore">Explorar o ecossistema</div>
+                            <div class="entry-path-sub" data-i18n="how.step1_title">Escolha seu caminho</div>
+                        </div>
+                        <span class="entry-path-arr">→</span>
+                    </a>
                 </div>
-            </div>
 
-        </header>
-
-        <div class="side-notebook">
-            <div class="notebook-page pautada">
-                <div class="notebook-header">PAUTADA</div>
-                <pre class="code-snippet" id="typing-code"></pre>
+                <div class="entry-links">
+                    <a href="/api/auth/login" data-i18n="auth.login_new">Primeiro acesso? Criar conta →</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <section class="academic-grid-section">
-            <div class="glass-container-main">
-                <h2 class="section-title">CENTRAL DE FORMAÇÕES</h2>
+    <div class="divider"></div>
 
-                <div class="category-wrapper">
-                    <span class="category-label">BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO</span>
-                    <div class="periods-grid">
-                        <button class="filter-btn active" data-type="graduacao" data-periodo="1">1º Período</button>
-                        <button class="filter-btn" data-type="graduacao" data-periodo="2">2º Período</button>
-                        <button class="filter-btn" data-type="graduacao" data-periodo="3">3º Período</button>
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section id="how">
+        <p class="section-eyebrow">how it works</p>
+        <h2 class="section-title fi" data-i18n="how.title">Como funciona</h2>
+        <p class="section-sub fi" data-i18n="how.subtitle">Do primeiro acesso ao domínio real, em três passos.</p>
 
-                        <button class="filter-btn locked" title="Em breve">4º Período</button>
-                        <button class="filter-btn locked" title="Em breve">5º Período</button>
-                        <button class="filter-btn locked" title="Em breve">6º Período</button>
-                        <button class="filter-btn locked" title="Em breve">7º Período</button>
-                        <button class="filter-btn locked" title="Em breve">8º Período</button>
-                    </div>
+        <div class="how-grid">
+            <div class="how-card fi" style="transition-delay:.08s;">
+                <div class="how-num">01</div>
+                <div class="how-ico">🧭</div>
+                <h3 data-i18n="how.step1_title">Escolha seu caminho</h3>
+                <p data-i18n="how.step1_desc">Comece com a Rebeca para um caminho personalizado, ou explore as trilhas
+                    diretamente. Sem etapas obrigatórias.</p>
+            </div>
+            <div class="how-card fi" style="transition-delay:.16s;">
+                <div class="how-num">02</div>
+                <div class="how-ico">📚</div>
+                <h3 data-i18n="how.step2_title">Aprenda com estrutura</h3>
+                <p data-i18n="how.step2_desc">Trilhas progressivas, labs práticos, notebooks de estudo e o Agente
+                    Socrático em cada etapa.</p>
+            </div>
+            <div class="how-card fi" style="transition-delay:.24s;">
+                <div class="how-num">03</div>
+                <div class="how-ico">🚀</div>
+                <h3 data-i18n="how.step3_title">Avance para o mercado global</h3>
+                <p data-i18n="how.step3_desc">Acumule experiência real, construa portfólio e prepare-se para seleções em
+                    empresas top tier.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ TRACKS ═══ -->
+    <section id="tracks">
+        <div class="tracks-hdr">
+            <div>
+                <p class="section-eyebrow">featured tracks</p>
+                <h2 class="section-title fi" data-i18n="tracks.title">Trilhas em Destaque</h2>
+                <p style="font-size:.9rem;color:var(--muted);margin-top:4px;" class="fi" data-i18n="tracks.subtitle">
+                    Conteúdo premium, construído para resultados reais.</p>
+            </div>
+            <a href="/platform" class="btn-secondary fi" data-i18n="tracks.cta">Ver todas as trilhas</a>
+        </div>
+
+        <div class="tracks-grid">
+            <div class="track-card fi" style="transition-delay:.04s;">
+                <div class="track-ico">☕</div>
+                <span class="chip chip-hot" data-i18n="tracks.badge_hot">Popular</span>
+                <h3 data-i18n="tracks.t1_title">Java Básico</h3>
+                <p data-i18n="tracks.t1_desc">A base sólida de toda engenharia de software. OOP, lógica e estruturas de
+                    dados.</p>
+                <span class="track-meta" data-i18n="tracks.t1_tag">Iniciante · ~18h</span>
+            </div>
+            <div class="track-card fi" style="transition-delay:.08s;">
+                <div class="track-ico">⚡</div>
+                <span class="chip chip-new" data-i18n="tracks.badge_new">Novo</span>
+                <h3 data-i18n="tracks.t2_title">Engenharia de APIs</h3>
+                <p data-i18n="tracks.t2_desc">Construa APIs robustas com AdonisJS e TypeScript. Arquitetura real e
+                    segurança.</p>
+                <span class="track-meta" data-i18n="tracks.t2_tag">Avançado · ~40h</span>
+            </div>
+            <div class="track-card fi" style="transition-delay:.12s;">
+                <div class="track-ico">🤖</div>
+                <span class="chip chip-new" data-i18n="tracks.badge_new">Novo</span>
+                <h3 data-i18n="tracks.t3_title">Automação com IA</h3>
+                <p data-i18n="tracks.t3_desc">Crie agentes de IA e automatize processos complexos com ferramentas
+                    modernas.</p>
+                <span class="track-meta" data-i18n="tracks.t3_tag">IA & Automação · ~12h</span>
+            </div>
+            <div class="track-card fi" style="transition-delay:.16s;">
+                <div class="track-ico">∑</div>
+                <span class="chip chip-hot" data-i18n="tracks.badge_hot">Popular</span>
+                <h3 data-i18n="tracks.t4_title">Matemática Discreta</h3>
+                <p data-i18n="tracks.t4_desc">Os fundamentos matemáticos da ciência da computação: lógica, grafos e
+                    combinatória.</p>
+                <span class="track-meta" data-i18n="tracks.t4_tag">Teoria · ~30h</span>
+            </div>
+        </div>
+        <div class="tracks-cta-row">
+            <a href="/platform" class="btn-secondary fi" data-i18n="tracks.cta">Ver todas as trilhas</a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ REBECA ═══ -->
+    <section id="rebeca-sec">
+        <div class="rebeca-inner fi">
+            <div>
+                <div class="rebeca-opt-badge">
+                    <span>★</span>
+                    <span data-i18n="rebeca.badge">Opcional</span>
                 </div>
+                <h2 data-i18n="rebeca.title">Conheça a Rebeca</h2>
+                <p class="rsub" data-i18n="rebeca.subtitle">Sua guia inteligente de aprendizado — quando e se você
+                    quiser.</p>
+                <p class="rdesc" data-i18n="rebeca.desc">A Rebeca é uma assistente de onboarding e orientação. Ela faz
+                    perguntas socráticas para entender seu perfil, sugere trilhas personalizadas e permanece como
+                    companheira na área de estudos.</p>
 
-                <div class="divider-glass"></div>
+                <ul class="rebeca-pts">
+                    <li data-i18n="rebeca.point1">Diagnóstico personalizado com 5 perguntas</li>
+                    <li data-i18n="rebeca.point2">Recomendação de trilha baseada no seu perfil</li>
+                    <li data-i18n="rebeca.point3">Agente socrático no workspace de estudos</li>
+                </ul>
 
-                <div class="category-wrapper">
-                    <span class="category-label">ESPECIALIZAÇÕES & MENTORIA SÊNIOR</span>
-                    <div class="extensions-flex">
-                        <button class="filter-btn btn-highlight" data-type="extensao" data-curso="api-pagamentos">
-                            ⚡ Engenharia de APIs (Pagamentos)
-                        </button>
-
-                        <button class="filter-btn" data-type="extensao" data-curso="n8n">🚀 Agentes de IA (n8n)</button>
-                        <button class="filter-btn" data-type="extensao" data-curso="java-base">☕ Java Básico</button>
-                        <button class="filter-btn" data-type="extensao" data-curso="java-inter">☕ Java
-                            Intermediário</button>
-                    </div>
+                <div class="rebeca-ctas">
+                    <a href="/onboarding" class="btn-primary">
+                        <span>✦</span>
+                        <span data-i18n="rebeca.cta">Começar com a Rebeca</span>
+                    </a>
+                    <a href="/platform" class="btn-skip" data-i18n="rebeca.skip">Prefiro explorar direto</a>
                 </div>
             </div>
 
-            <div id="subjects-container" class="mat-grid"></div>
-        </section>
-    </div>
-
-    <div id="course-modal" class="modal-overlay">
-        <div class="modal-content glass-effect">
-            <span class="close-modal">&times;</span>
-            <div id="modal-body"></div>
+            <div class="rebeca-right-img">
+                <div class="rebeca-big-wrap">
+                    <img src="assets/rebeca.jpeg" alt="Rebeca" class="rebeca-big"
+                        onerror="this.parentElement.style.display='none'">
+                    <div class="rebeca-float">✦ CS Hub AI Guide</div>
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ PRICING ═══ -->
+    <section id="pricing">
+        <div class="pricing-hdr">
+            <p class="section-eyebrow">pricing</p>
+            <h2 class="section-title fi" data-i18n="pricing.title">Planos e Preços</h2>
+            <p class="section-sub fi" data-i18n="pricing.subtitle">30 dias grátis. Sem cartão de crédito. Acesso
+                vitalício.</p>
+        </div>
+        <div class="pricing-badge-row">
+            <span class="pricing-badge" data-i18n="pricing.launch">🚀 Oferta de Lançamento — Acesso Vitalício</span>
+        </div>
+        <p class="pricing-free" data-i18n="pricing.free_note">30 dias grátis · Sem cartão de crédito necessário</p>
+
+        <div class="pricing-grid">
+
+            <!-- Starter -->
+            <div class="plan-card fi" style="transition-delay:.05s;">
+                <p class="plan-name" data-i18n="pricing.starter_name">Starter</p>
+                <div class="plan-price-block">
+                    <div class="plan-install-row">
+                        <span class="plan-starter-price" data-i18n="pricing.starter_price">Grátis</span>
+                    </div>
+                    <span class="plan-period" data-i18n="pricing.starter_period">30 dias</span>
+                    <p class="plan-total" data-i18n="pricing.starter_then">Após o teste: R$ 297 acesso vitalício</p>
+                </div>
+                <p class="plan-desc" data-i18n="pricing.starter_desc">O ponto de partida perfeito para começar sua
+                    jornada.</p>
+                <ul class="plan-features">
+                    <li data-i18n="pricing.starter_f1">Cursos introdutórios</li>
+                    <li data-i18n="pricing.starter_f2">Trilhas básicas</li>
+                    <li data-i18n="pricing.starter_f3">Labs de entrada</li>
+                    <li data-i18n="pricing.starter_f4">Onboarding com a Rebeca</li>
+                </ul>
+                <a href="/api/auth/login" class="btn-plan btn-plan-outline" data-i18n="pricing.starter_cta">Começar
+                    grátis</a>
+            </div>
+
+            <!-- Pro (featured) -->
+            <div class="plan-card featured fi" style="transition-delay:.1s;">
+                <div class="plan-rec" data-i18n="pricing.pro_recommended">Recomendado</div>
+                <p class="plan-name" data-i18n="pricing.pro_name">Pro</p>
+                <div class="plan-price-block">
+                    <div class="plan-install-row">
+                        <span class="plan-install-pfx" data-i18n="pricing.install_pfx">12x de</span>
+                        <span class="plan-install-val" data-i18n="pricing.pro_install">R$ 49,75</span>
+                    </div>
+                    <p class="plan-total">
+                        <span data-i18n="pricing.or_total">ou</span>
+                        <span data-i18n="pricing.pro_full">R$ 597</span>
+                        <span data-i18n="pricing.lifetime">acesso vitalício</span>
+                    </p>
+                </div>
+                <p class="plan-desc" data-i18n="pricing.pro_desc">Acesso completo à plataforma com certificados e
+                    suporte expandido.</p>
+                <ul class="plan-features">
+                    <li data-i18n="pricing.pro_f5">Tudo do Starter</li>
+                    <li data-i18n="pricing.pro_f1">Todos os cursos e trilhas</li>
+                    <li data-i18n="pricing.pro_f2">Labs práticos completos</li>
+                    <li data-i18n="pricing.pro_f3">Certificados de conclusão</li>
+                    <li data-i18n="pricing.pro_f4">Suporte expandido da Rebeca</li>
+                </ul>
+                <a href="/api/auth/login" class="btn-plan btn-plan-green" data-i18n="pricing.pro_cta">Escolher Pro</a>
+            </div>
+
+            <!-- Global -->
+            <div class="plan-card fi" style="transition-delay:.15s;">
+                <p class="plan-name" data-i18n="pricing.global_name">Global</p>
+                <div class="plan-price-block">
+                    <div class="plan-install-row">
+                        <span class="plan-install-pfx" data-i18n="pricing.install_pfx">12x de</span>
+                        <span class="plan-install-val" data-i18n="pricing.global_install">R$ 83,08</span>
+                    </div>
+                    <p class="plan-total">
+                        <span data-i18n="pricing.or_total">ou</span>
+                        <span data-i18n="pricing.global_full">R$ 997</span>
+                        <span data-i18n="pricing.lifetime">acesso vitalício</span>
+                    </p>
+                </div>
+                <p class="plan-desc" data-i18n="pricing.global_desc">Para quem mira o mercado internacional e
+                    entrevistas em empresas top tier.</p>
+                <ul class="plan-features">
+                    <li data-i18n="pricing.global_f1">Tudo do Pro</li>
+                    <li data-i18n="pricing.global_f2">Interview Lab</li>
+                    <li data-i18n="pricing.global_f3">Multinational Lab</li>
+                    <li data-i18n="pricing.global_f4">Preparação para mercado global</li>
+                    <li data-i18n="pricing.global_f5">Experiências premium de carreira</li>
+                </ul>
+                <a href="/api/auth/login" class="btn-plan btn-plan-outline" data-i18n="pricing.global_cta">Escolher
+                    Global</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-row">
+                    <img src="assets/logo-jessica.jpg" alt="CS Hub">
+                    <span class="bn" data-i18n="nav.brand">CS_HUB</span>
+                </div>
+                <p data-i18n="footer.tagline">Tecnologia com propósito. Carreira com visão global.</p>
+            </div>
+            <div class="fc">
+                <h4 data-i18n="footer.platform">Plataforma</h4>
+                <ul>
+                    <li><a href="/" data-i18n="footer.home">Início</a></li>
+                    <li><a href="/platform" data-i18n="nav.platform">Explorar</a></li>
+                    <li><a href="#pricing" data-i18n="footer.plans">Planos</a></li>
+                    <li><a href="/workspace" data-i18n="footer.workspace">Workspace</a></li>
+                </ul>
+            </div>
+            <div class="fc">
+                <h4 data-i18n="footer.resources">Recursos</h4>
+                <ul>
+                    <li><a href="comunidade.html" data-i18n="footer.community">Comunidade</a></li>
+                    <li><a href="biblioteca.html" data-i18n="footer.library">Biblioteca Tech</a></li>
+                    <li><a href="/onboarding" data-i18n="footer.rebeca">Rebeca</a></li>
+                </ul>
+            </div>
+            <div class="fc">
+                <h4 data-i18n="footer.legal">Legal</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footer.privacy">Privacidade</a></li>
+                    <li><a href="#" data-i18n="footer.terms">Termos de Uso</a></li>
+                    <li><a href="#" data-i18n="footer.contact">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy" data-i18n="footer.copyright">© 2025 CS Hub · Jéssica França · Todos os direitos
+                reservados.</p>
+            <span class="footer-sig">Jéssica França</span>
+        </div>
+    </footer>
+
+    <!-- ═══ SCRIPTS ═══ -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        (function () {
+            // ── Animated code background ──
+            const CODE = [
+                "const router = express.Router()",
+                "async function classify(profile) {",
+                "import { tracks } from './engine'",
+                "if (session.authenticated) return next()",
+                "const user = await db.getUser(id)",
+                "SELECT * FROM users WHERE session_id = ?",
+                "export default class SocraticAgent {",
+                "return { profile, confidence, tracks }",
+                "const lang = localStorage.getItem('lang')",
+                "db.prepare('INSERT INTO notebook').run(data)",
+                "for (const step of learningPath.steps) {",
+                "await client.discovery(new URL(issuer))",
+                "function resolveTranslation(key, lang) {",
+                "const claims = tokens.claims()",
+                "app.use('/api/auth', authRoutes)",
+                "Object.keys(TRANSLATIONS).forEach(k => {",
+                "const { sub, email, first_name } = claims",
+                "async (req, res) => { res.json(data) }",
+                "module.exports = { queries, db }",
+                "const tracks = recommendations.primary",
+                "type Profile = 'beginner' | 'global'",
+                "await agent.respond(mode, prompt)",
+            ];
+            const bg = document.getElementById('code-bg');
+            CODE.forEach((text, i) => {
+                for (let j = 0; j < 2; j++) {
+                    const el = document.createElement('span');
+                    el.className = 'code-line';
+                    el.textContent = text;
+                    el.style.left = (Math.random() * 115 - 8) + 'vw';
+                    el.style.animationDuration = (30 + Math.random() * 24) + 's';
+                    el.style.animationDelay = -(Math.random() * 54) + 's';
+                    el.style.opacity = (0.022 + Math.random() * 0.034).toFixed(3);
+                    el.style.fontSize = (0.56 + Math.random() * 0.2) + 'rem';
+                    bg.appendChild(el);
+                }
+            });
+
+            // ── Fade-in on scroll ──
+            const obs = new IntersectionObserver(
+                es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
+                { threshold: 0.08 }
+            );
+            document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+            // ── Mobile nav ──
+            const ham = document.getElementById('hamburger');
+            const mnav = document.getElementById('mnav');
+            ham.addEventListener('click', () => mnav.classList.toggle('open'));
+            mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
+
+            // ── Auth state ──
+            fetch('/api/auth/me')
+                .then(r => r.json())
+                .then(d => {
+                    if (d.authenticated) {
+                        document.body.classList.add('authenticated');
+                        const nameEl = document.getElementById('nav-user-name');
+                        const avatarEl = document.getElementById('nav-user-avatar');
+                        if (nameEl && d.name) nameEl.textContent = d.name;
+                        if (avatarEl && d.avatar) { avatarEl.src = d.avatar; avatarEl.style.display = 'block'; }
+                    }
+                })
+                .catch(() => { });
+
+            // ── Error toast ──
+            const p = new URLSearchParams(window.location.search);
+            if (p.get('error') === 'auth_failed') {
+                const t = document.createElement('div');
+                t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#ef4444;color:#fff;padding:12px 20px;border-radius:10px;font-size:.84rem;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);';
+                t.textContent = 'Falha na autenticação. Tente novamente.';
+                document.body.appendChild(t);
+                setTimeout(() => t.remove(), 4000);
+            }
+        })();
+    </script>
 </body>
 
 </html>
