@@ -1,21 +1,16 @@
-async function loadTranslations() {
-    const response = await fetch("../data/i18n.json");
-
-    if (!response.ok) {
-        throw new Error("Não foi possível carregar o arquivo i18n.json");
-    }
-
-    return await response.json();
-}
-
 function getSavedLanguage() {
-    return localStorage.getItem("cshub_language") || "pt";
+    return localStorage.getItem("cshub_language") || "pt-br";
 }
 
 function applyTranslations(translations, lang) {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.dataset.i18n;
-        const value = translations?.[lang]?.[key];
+        const parts = key.split(".");
+
+        let value = translations?.[lang];
+        for (const part of parts) {
+            value = value?.[part];
+        }
 
         if (value) {
             el.textContent = value;
@@ -29,23 +24,23 @@ function applyTranslations(translations, lang) {
     });
 }
 
-async function setLanguage(lang) {
+function setLanguage(lang) {
     localStorage.setItem("cshub_language", lang);
 
-    const translations = await loadTranslations();
+    const translations = window.TRANSLATIONS || {};
     applyTranslations(translations, lang);
 
     console.log("Idioma salvo:", lang);
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
     const savedLang = getSavedLanguage();
-    await setLanguage(savedLang);
+    setLanguage(savedLang);
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
-        btn.addEventListener("click", async () => {
+        btn.addEventListener("click", () => {
             const lang = btn.dataset.lang;
-            await setLanguage(lang);
+            setLanguage(lang);
         });
     });
 });
