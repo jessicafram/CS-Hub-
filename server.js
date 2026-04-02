@@ -43,8 +43,9 @@ app.use(
 );
 
 // Redirect root to onboarding first
+// Public entry home
 app.get("/", (_req, res) => {
-  res.redirect("/onboarding");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/onboarding", (_req, res) =>
