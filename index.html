@@ -78,7 +78,8 @@
             position: absolute;
             bottom: -40px;
             font-family: var(--mono);
-            color: #2ecc71;
+            color: rgba(46, 204, 113, 0.32);
+            text-shadow: 0 0 8px rgba(46, 204, 113, 0.12);
             white-space: nowrap;
             animation: code-rise linear infinite;
             will-change: transform;
@@ -2045,7 +2046,7 @@
                     el.style.left = (Math.random() * 115 - 8) + 'vw';
                     el.style.animationDuration = (30 + Math.random() * 24) + 's';
                     el.style.animationDelay = -(Math.random() * 54) + 's';
-                    el.style.opacity = (0.022 + Math.random() * 0.034).toFixed(3);
+                    el.style.opacity = (0.099 + Math.random() * 0.099).toFixed(3);
                     el.style.fontSize = (0.56 + Math.random() * 0.2) + 'rem';
                     bg.appendChild(el);
                 }
