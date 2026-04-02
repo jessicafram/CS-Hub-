@@ -34,11 +34,21 @@ body {
 }
 
 .logo-img {
-    height: 52px;
-    width: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1.5px solid var(--accent);
+    height: 28px;
+    width: auto;
+    max-width: 28px;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .logo-text-wrapper {
