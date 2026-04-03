@@ -1,0 +1,150 @@
+Quero que você faça um INVENTÁRIO ESTRUTURAL COMPLETO do projeto CS Hub com base apenas nos arquivos reais já existentes no repositório.
+
+IMPORTANTE:
+
+* não invente cursos, páginas ou funcionalidades;
+* não reescreva código nesta etapa;
+* não altere arquivos ainda;
+* primeiro quero apenas diagnóstico, mapeamento e organização do que já existe.
+
+Analise cuidadosamente a estrutura real do projeto, especialmente estas áreas:
+
+1. RAIZ DO PROJETO
+   Verifique páginas e arquivos principais como:
+
+* index.html
+* hub.html
+* dashboard.html
+* workspace.html
+* onboarding.html
+* login.html
+* signup.html
+* assinatura.html
+* biblioteca.html
+* comunidade.html
+* divulgacao.html
+* package.json
+* package-lock.json
+* .replit
+* js/
+* routes/
+* assets/
+* data/
+* db/
+* engine/
+
+2. PASTA `materiais/`
+   Mapeie tudo o que já existe dentro de:
+
+* materiais/backend
+* materiais/ihc
+* materiais/java-basico
+* materiais/mat-comp
+* materiais/mat-discreta
+* materiais/n8n
+
+Para cada uma dessas áreas, identifique:
+
+* nome da área/curso/matéria;
+* tipo (disciplina do bacharelado, especialização, extensão, laboratório ou outro);
+* arquivos/páginas existentes;
+* se já parece navegável;
+* se há página inicial própria;
+* se está completa, parcial ou em construção.
+
+3. PASTA `cursos/english/`
+   Analise a estrutura já existente de inglês, incluindo:
+
+* modulos
+* labs
+* interview-lab
+* multinational-lab
+* capstone.html
+* dashboard.html
+* glossary.html
+* index.html
+* english.css
+* english.js
+
+Quero que você identifique:
+
+* como esse curso está organizado;
+* quais módulos e labs já existem;
+* se ele deve ser tratado como formação separada, especialização, curso premium ou trilha própria;
+* como ele se conecta à plataforma principal.
+
+4. NAVEGAÇÃO ATUAL
+   Mapeie a navegação real entre as páginas principais:
+
+* o que a home pública já oferece;
+* para onde vai a home do aluno;
+* como login, signup e assinatura se conectam;
+* como dashboard e workspace se conectam;
+* se comunidade e biblioteca estão acessíveis;
+* quais links já funcionam e quais estão ausentes, frágeis ou incoerentes.
+
+5. CLASSIFICAÇÃO ESTRUTURAL
+   Com base nos arquivos reais do projeto, organize o inventário em grupos:
+
+A. HOME PÚBLICA
+
+* páginas e componentes já existentes
+
+B. ÁREA DO ALUNO / PORTO SEGURO
+
+* hub
+* dashboard
+* workspace
+* onboarding
+
+C. BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO
+
+* listar tudo o que já existir e que faça sentido aqui
+
+D. ESPECIALIZAÇÕES / EXTENSÕES / FORMAÇÕES
+
+* listar tudo o que já existir e que faça sentido aqui
+
+E. INGLÊS / GLOBAL ENGLISH
+
+* mapear separadamente como formação própria, se fizer sentido
+
+F. PÁGINAS INSTITUCIONAIS E DE APOIO
+
+* comunidade
+* biblioteca
+* assinatura
+* login
+* signup
+* outras páginas encontradas
+
+6. IDENTIFICAÇÃO DE LACUNAS
+   Aponte claramente:
+
+* quais páginas estratégicas já existem;
+* quais ainda faltam;
+* quais existem mas estão fracas ou pouco conectadas;
+* quais partes parecem protótipo visual e não navegação real;
+* quais blocos do sistema já estão prontos para serem usados numa home central do aluno.
+
+7. FORMATO DA RESPOSTA
+   Quero a resposta organizada assim:
+
+* Resumo executivo do estado atual da plataforma
+* Estrutura real encontrada
+* Inventário por áreas
+* Inventário das páginas principais
+* Classificação entre bacharelado, especializações e outras formações
+* Situação da navegação atual
+* Principais lacunas e inconsistências
+* Recomendação de como transformar isso em uma home central do aluno
+
+8. OBJETIVO FINAL DESTA ETAPA
+   Ao final, quero uma visão clara do que o CS Hub já possui hoje, para que depois possamos:
+
+* redesenhar a home do aluno como porto seguro;
+* criar o Mural de Vagas;
+* organizar bacharelado, especializações e formações;
+* e só depois partir para as construções novas.
+
+Não altere nada ainda. Apenas leia, mapeie e me devolva o inventário completo.

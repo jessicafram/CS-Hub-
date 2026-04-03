@@ -25,7 +25,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node server.js"
+args = "node js/server.js"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
@@ -37,4 +37,4 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "cloudrun"
-run = ["sh", "-c", "node server.js"]
+run = ["sh", "-c", "node js/server.js"]
