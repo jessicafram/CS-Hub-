@@ -1,153 +1,817 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Hub: Jessica França</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&family=Dancing+Script:wght@400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Hub — Home do Aluno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #080c11;
+      --surface:     #0d1117;
+      --surface-2:   #111820;
+      --surface-3:   #141c26;
+      --border:      rgba(255,255,255,0.07);
+      --border-hi:   rgba(46,204,113,0.35);
+      --accent:      #2ecc71;
+      --accent-dim:  rgba(46,204,113,0.10);
+      --accent-glow: rgba(46,204,113,0.18);
+      --text:        #e6edf3;
+      --muted:       #6e7a8a;
+      --mono:        'Fira Code', monospace;
+    }
+
+    html, body { min-height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: rgba(8,12,17,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      height: 38px;
+      width: 38px;
+      object-fit: contain;
+    }
+
+    .nav-brand-text {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      flex: 1;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color .15s, background .15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: var(--mono);
+      transition: all .15s;
+    }
+
+    .lang-btn:hover { color: var(--text); border-color: var(--border); }
+    .lang-btn.active { color: var(--accent); border-color: var(--border-hi); background: var(--accent-dim); }
+
+    .nav-user-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-user-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .nav-auth-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all .15s;
+    }
+
+    .nav-auth-link:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+
+    /* ── BANNER ── */
+    .banner {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 40px 0;
+      background: var(--bg);
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,0.025) 39px,
+          rgba(255,255,255,0.025) 40px
+        );
+      pointer-events: none;
+    }
+
+    .banner::after {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46,204,113,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .banner-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+    }
+
+    .banner-text {
+      flex: 1;
+      padding-bottom: 64px;
+    }
+
+    .banner-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .banner-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .banner-title span {
+      color: var(--accent);
+    }
+
+    .banner-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .banner-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #080c11;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .15s, transform .15s;
+    }
+
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 11px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: background .15s, border-color .15s;
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.14); }
+
+    .banner-image {
+      flex-shrink: 0;
+      width: 240px;
+      align-self: flex-end;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px 12px 0 0;
+      display: block;
+      filter: brightness(0.92) contrast(1.05);
+      border: 1px solid var(--border-hi);
+      border-bottom: none;
+    }
+
+    .banner-image-fallback {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(160deg, var(--surface-3) 0%, #0a1520 100%);
+      border: 1px solid var(--border-hi);
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+    }
+
+    .progress-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .progress-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width .6s ease;
+    }
+
+    .progress-count {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    /* ── NAV GRID (6 cards) ── */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    .nav-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .15s, background .15s, transform .15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background .15s;
+    }
+
+    .nav-card:hover {
+      border-color: rgba(46,204,113,0.2);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+
+    .nav-card:hover::before { background: var(--accent); }
+
+    .nav-card-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .nav-card-cta {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+
+    /* ── COURSE SECTIONS ── */
+    .section-block {
+      margin-bottom: 56px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color .15s, background .15s;
+    }
+
+    .course-card:hover {
+      border-color: rgba(46,204,113,0.22);
+      background: var(--surface-2);
+    }
+
+    .course-card.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .course-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .course-period {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .course-badge {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-ok   { background: rgba(46,204,113,0.12); color: var(--accent); }
+    .badge-wip  { background: rgba(255,193,7,0.12);  color: #f0c040; }
+    .badge-soon { background: rgba(255,255,255,0.05); color: var(--muted); }
+
+    .course-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .course-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-text a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-text a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 20px; }
+      .banner { padding: 48px 20px 0; }
+      .banner-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .banner-image { width: 180px; align-self: flex-end; }
+      .progress-strip { padding: 14px 20px; }
+      .main { padding: 40px 20px 60px; }
+      .nav-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer { padding: 20px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .nav-grid { grid-template-columns: 1fr; }
+      .banner-image { display: none; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="notion-theme">
-    <nav class="top-navbar">
-        <div class="nav-logo">
-            <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
-            <div class="logo-text-wrapper">
-                <span class="hub-title">CS Hub &lt;/&gt;</span>
-                <span class="jessica-signature">Jessica França</span>
-            </div>
+  <nav class="nav">
+    <a href="/hub" class="nav-brand" title="CS Hub — Home do Aluno">
+      <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" onerror="this.style.display='none'">
+      <span class="nav-brand-text">CS_HUB</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/hub" class="active" data-i18n="nav.hub">Hub</a></li>
+      <li><a href="/comunidade.html" data-i18n="nav.community">Comunidade</a></li>
+      <li><a href="/biblioteca.html" data-i18n="nav.library">Biblioteca</a></li>
+      <li><a href="/vagas" data-i18n="nav.vagas">Vagas</a></li>
+      <li><a href="/workspace" data-i18n="nav.workspace">Estudos</a></li>
+      <li><a href="/dashboard" data-i18n="nav.dashboard">Dashboard</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="pt-br">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <div id="navAuthArea">
+        <a href="/login.html" class="nav-auth-link" data-i18n="nav.login">Entrar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="banner-inner">
+      <div class="banner-text">
+        <span class="banner-eyebrow" data-i18n="hub.eyebrow">// seu espaço no CS Hub</span>
+        <h1 class="banner-title">
+          <span data-i18n="hub.greeting">Bem-vindo</span><span id="bannerName"></span><br>
+          <span data-i18n="hub.title_line2">ao CS Hub.</span>
+        </h1>
+        <p class="banner-sub" data-i18n="hub.subtitle">Aqui é onde você estuda, cresce e se prepara para o mercado global de tecnologia.</p>
+        <div class="banner-ctas">
+          <a href="/workspace" class="btn-primary" data-i18n="hub.cta_study">Continuar Estudando</a>
+          <a href="/dashboard" class="btn-ghost" data-i18n="hub.cta_path">Ver meu caminho</a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Trilha Acadêmica</a></li>
-            <li><a href="vagas/vagas.html">Mural de Vagas</a></li>
-            <li><a href="biblioteca.html">Tech Library & Insights</a></li>
-            <li style="display: flex; align-items: center; gap: 8px;">
-                <a href="comunidade.html">Comunidade</a>
+      </div>
+      <div class="banner-image">
+        <img src="/assets/rebeca.jpeg" alt="Rebeca — Guia do CS Hub"
+          onerror="this.parentElement.innerHTML='<div class=\'banner-image-fallback\'>🤖</div>'">
+      </div>
+    </div>
+  </section>
 
-                <a href="https://discord.gg/2MzvA82W8Y" target="_blank" title="Ir direto para o Servidor"
-                    style="padding: 0; display: flex; transition: 0.2s;">
-                    <svg width="22" height="22" viewBox="0 0 127.14 96.36" fill="#2ecc71">
-                        <path
-                            d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.58,67.58,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
-        <a href="workspace.html" class="btn-notion"
-            style="text-decoration: none; display: inline-block; text-align: center;">
-            Estude por aqui (Crie seu Espaço)
+  <!-- PROGRESS STRIP -->
+  <div class="progress-strip">
+    <div class="progress-inner">
+      <span class="progress-label" data-i18n="hub.progress_label">// sua jornada</span>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 33%"></div>
+      </div>
+      <span class="progress-count">2 / 6 matérias</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- NAVEGAÇÃO PRINCIPAL -->
+    <div class="section-block">
+      <div class="section-label" data-i18n="hub.nav_section">// navegação</div>
+      <div class="section-title" data-i18n="hub.nav_title">Recursos da Plataforma</div>
+
+      <div class="nav-grid">
+
+        <a href="/comunidade.html" class="nav-card">
+          <div class="nav-card-icon">🌐</div>
+          <div class="nav-card-title" data-i18n="hub.card_community_title">Comunidade</div>
+          <div class="nav-card-desc" data-i18n="hub.card_community_desc">Conecte-se com outros estudantes, compartilhe progresso e tire dúvidas no Discord.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_enter">→ Entrar</div>
         </a>
-    </nav>
-    <div
-        style="background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%); width: 100%; padding: 12px 20px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.4); flex-wrap: wrap;">
 
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span
-                style="background: #fff; color: #8b5cf6; padding: 4px 10px; border-radius: 20px; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Atualização</span>
-            <span style="color: #fff; font-size: 0.95rem; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
-                A nova <strong>Tech Library</strong> e o <strong>CS Canvas</strong> já estão disponíveis para uso!
-            </span>
-        </div>
+        <a href="/biblioteca.html" class="nav-card">
+          <div class="nav-card-icon">📖</div>
+          <div class="nav-card-title" data-i18n="hub.card_library_title">Tech Library</div>
+          <div class="nav-card-desc" data-i18n="hub.card_library_desc">Artigos técnicos, referências e insights curados sobre tecnologia e carreira.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_explore">→ Explorar</div>
+        </a>
 
-        <div style="display: flex; gap: 15px; align-items: center;">
-            <a href="biblioteca.html"
-                style="color: #fff; text-decoration: underline; font-size: 0.85rem; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">Ver
-                Biblioteca</a>
-            <a href="workspace.html"
-                style="background: #fff; color: #d946ef; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;">Testar
-                Canvas →</a>
-        </div>
+        <a href="/vagas" class="nav-card">
+          <div class="nav-card-icon">💼</div>
+          <div class="nav-card-title" data-i18n="hub.card_vagas_title">Mural de Vagas</div>
+          <div class="nav-card-desc" data-i18n="hub.card_vagas_desc">Links reais para vagas de estágio, júnior, back-end, front-end, dados e remotas.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_see">→ Ver vagas</div>
+        </a>
 
+        <a href="/workspace" class="nav-card">
+          <div class="nav-card-icon">🧪</div>
+          <div class="nav-card-title" data-i18n="hub.card_workspace_title">Área de Estudos</div>
+          <div class="nav-card-desc" data-i18n="hub.card_workspace_desc">Notebook digital com Agente Socrático. Estude com orientação inteligente.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_open">→ Abrir</div>
+        </a>
+
+        <a href="/dashboard" class="nav-card">
+          <div class="nav-card-icon">🧭</div>
+          <div class="nav-card-title" data-i18n="hub.card_dashboard_title">Dashboard</div>
+          <div class="nav-card-desc" data-i18n="hub.card_dashboard_desc">Seu perfil de aprendizado, anotações e o caminho sugerido pela Rebeca.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_view">→ Visualizar</div>
+        </a>
+
+        <a href="/onboarding" class="nav-card">
+          <div class="nav-card-icon">✦</div>
+          <div class="nav-card-title" data-i18n="hub.card_rebeca_title">Diagnóstico com Rebeca</div>
+          <div class="nav-card-desc" data-i18n="hub.card_rebeca_desc">Responda 5 perguntas e receba um caminho de estudos personalizado para o seu perfil.</div>
+          <div class="nav-card-cta" data-i18n="hub.card_cta_start">→ Começar</div>
+        </a>
+
+      </div>
     </div>
 
-    <div class="hero-academic-wrapper">
-        <header class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="badge-tech">PLENO HEAVER</span>
-                    <h1>Sua Jornada em Ciência da Computação</h1>
-                    <p>Explore as matérias, acesse os cadernos do Goodnotes e gerencie seu progresso com foco total em
-                        tecnologia.</p>
-                    <button class="btn-primary">VER MATÉRIAS</button>
-                </div>
-                <div class="hero-graphics">
-                    <div class="floating-card-glass">
-                        <div class="card-tag">CS Hub</div>
-                        <h3>Arquitetura de Computadores</h3>
-                        <p>Dominando RISC vs CISC e Hierarquia de Memória.</p>
-                    </div>
+    <!-- BACHARELADO -->
+    <div class="section-block">
+      <div class="section-label">// bacharelado</div>
+      <div class="section-title" data-i18n="hub.bach_title">Bacharelado em Ciência da Computação</div>
 
-                    <div class="neon-badge-7">
-                        <div class="badge-ring">
-                            <span class="score-label">APPROVED</span>
-                            <div class="score-row">
-                                <span class="score-num">7.0</span>
-                                <span class="check-mark">✓</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="course-grid">
 
-        </header>
+        <a href="/materiais/mat-discreta/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">P1 · Matemática</span>
+            <span class="course-badge badge-ok">✓ Disponível</span>
+          </div>
+          <div class="course-name">Matemática Discreta</div>
+          <div class="course-desc">Lógica, conjuntos, grafos e combinatória — os fundamentos matemáticos da computação.</div>
+        </a>
 
-        <div class="side-notebook">
-            <div class="notebook-page pautada">
-                <div class="notebook-header">PAUTADA</div>
-                <pre class="code-snippet" id="typing-code"></pre>
-            </div>
+        <a href="/materiais/ihc/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">P3 · Design</span>
+            <span class="course-badge badge-ok">✓ Disponível</span>
+          </div>
+          <div class="course-name">IHC e UX — Nível Mestrado</div>
+          <div class="course-desc">Interação humano-computador e UX com profundidade técnica e referências acadêmicas.</div>
+        </a>
+
+        <a href="/materiais/mat-comp/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">P3 · Matemática</span>
+            <span class="course-badge badge-wip">Em andamento</span>
+          </div>
+          <div class="course-name">Matemática Computacional</div>
+          <div class="course-desc">Álgebra linear, cálculo numérico e aplicações diretas em algoritmos e IA.</div>
+        </a>
+
+        <a href="/materiais/java-basico/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">P2 · POO</span>
+            <span class="course-badge badge-wip">Em andamento</span>
+          </div>
+          <div class="course-name">Java Básico (POO)</div>
+          <div class="course-desc">Fundamentos de orientação a objetos com Java — base sólida para toda engenharia de software.</div>
+        </a>
+
+        <div class="course-card disabled">
+          <div class="course-card-top">
+            <span class="course-period">P1 · Lógica</span>
+            <span class="course-badge badge-soon">Em breve</span>
+          </div>
+          <div class="course-name">Algoritmos e Lógica</div>
+          <div class="course-desc">Resolução de problemas, pseudocódigo e análise de complexidade.</div>
         </div>
 
-        <section class="academic-grid-section">
-            <div class="glass-container-main">
-                <h2 class="section-title">CENTRAL DE FORMAÇÕES</h2>
-
-                <div class="category-wrapper">
-                    <span class="category-label">BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO</span>
-                    <div class="periods-grid">
-                        <button class="filter-btn active" data-type="graduacao" data-periodo="1">1º Período</button>
-                        <button class="filter-btn" data-type="graduacao" data-periodo="2">2º Período</button>
-                        <button class="filter-btn" data-type="graduacao" data-periodo="3">3º Período</button>
-
-                        <button class="filter-btn locked" title="Em breve">4º Período</button>
-                        <button class="filter-btn locked" title="Em breve">5º Período</button>
-                        <button class="filter-btn locked" title="Em breve">6º Período</button>
-                        <button class="filter-btn locked" title="Em breve">7º Período</button>
-                        <button class="filter-btn locked" title="Em breve">8º Período</button>
-                    </div>
-                </div>
-
-                <div class="divider-glass"></div>
-
-                <div class="category-wrapper">
-                    <span class="category-label">ESPECIALIZAÇÕES & MENTORIA SÊNIOR</span>
-                    <div class="extensions-flex">
-                        <button class="filter-btn btn-highlight" data-type="extensao" data-curso="api-pagamentos">
-                            ⚡ Engenharia de APIs (Pagamentos)
-                        </button>
-
-                        <button class="filter-btn" data-type="extensao" data-curso="n8n">🚀 Agentes de IA (n8n)</button>
-                        <button class="filter-btn" data-type="extensao" data-curso="java-base">☕ Java Básico</button>
-                        <button class="filter-btn" data-type="extensao" data-curso="java-inter">☕ Java
-                            Intermediário</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="subjects-container" class="mat-grid"></div>
-        </section>
-    </div>
-
-    <div id="course-modal" class="modal-overlay">
-        <div class="modal-content glass-effect">
-            <span class="close-modal">&times;</span>
-            <div id="modal-body"></div>
+        <div class="course-card disabled">
+          <div class="course-card-top">
+            <span class="course-period">P2 · Estruturas</span>
+            <span class="course-badge badge-soon">Em breve</span>
+          </div>
+          <div class="course-name">Estrutura de Dados I</div>
+          <div class="course-desc">Listas, pilhas, filas, árvores e tabelas hash com implementações reais.</div>
         </div>
+
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- FORMAÇÕES E EXTENSÕES -->
+    <div class="section-block">
+      <div class="section-label">// especializações</div>
+      <div class="section-title" data-i18n="hub.spec_title">Formações & Extensões</div>
+
+      <div class="course-grid">
+
+        <a href="/materiais/backend/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">Extensão · Backend</span>
+            <span class="course-badge badge-ok">✓ Disponível</span>
+          </div>
+          <div class="course-name">Engenharia de APIs</div>
+          <div class="course-desc">Construa APIs robustas com AdonisJS e TypeScript. Autenticação, pagamentos e arquitetura real.</div>
+        </a>
+
+        <a href="/materiais/n8n/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">Lab · IA & Automação</span>
+            <span class="course-badge badge-ok">✓ Disponível</span>
+          </div>
+          <div class="course-name">Automação com n8n / IA</div>
+          <div class="course-desc">Crie agentes de IA e automatize fluxos complexos com ferramentas modernas de low-code.</div>
+        </a>
+
+        <a href="/cursos/english/index.html" class="course-card">
+          <div class="course-card-top">
+            <span class="course-period">Formação · Inglês</span>
+            <span class="course-badge badge-wip">Em construção</span>
+          </div>
+          <div class="course-name">Global English for Tech</div>
+          <div class="course-desc">Inglês técnico voltado para entrevistas, documentação e trabalho em empresas globais.</div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">
+      © 2026 CS Hub · Jéssica França ·
+      <a href="/assinatura.html">Planos</a> ·
+      <a href="/comunidade.html">Comunidade</a>
+    </p>
+  </footer>
+
+  <script src="/js/translations.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script>
+    (function () {
+      const LANGS = ['pt-br', 'en', 'es'];
+      const KEY   = 'cshub_lang';
+
+      function getLang() {
+        return localStorage.getItem(KEY) || 'pt-br';
+      }
+
+      function applyLang(lang) {
+        localStorage.setItem(KEY, lang);
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.lang === lang);
+        });
+        if (window.i18n && window.i18n.applyTranslations) {
+          window.i18n.applyTranslations(lang);
+        }
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+      });
+
+      applyLang(getLang());
+
+      fetch('/auth/me')
+        .then(r => r.ok ? r.json() : { authenticated: false })
+        .then(data => {
+          const area = document.getElementById('navAuthArea');
+          const nameEl = document.getElementById('bannerName');
+          if (data.authenticated && data.user) {
+            const name = data.user.displayName || data.user.name || '';
+            if (name) nameEl.textContent = ', ' + name.split(' ')[0];
+            area.innerHTML =
+              '<div class="nav-user-chip">' +
+              '<div class="nav-user-dot"></div>' +
+              '<span>' + name.split(' ')[0] + '</span>' +
+              '</div>' +
+              '<a href="/auth/logout" class="nav-auth-link" style="margin-left:4px" data-i18n="nav.logout">Sair</a>';
+          }
+        })
+        .catch(() => {});
+    })();
+  </script>
+
 </body>
-
 </html>
