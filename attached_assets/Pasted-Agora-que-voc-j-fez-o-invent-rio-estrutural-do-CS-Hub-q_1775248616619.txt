@@ -1,0 +1,169 @@
+Agora que você já fez o inventário estrutural do CS Hub, quero partir para a ETAPA DE PROPOSTA DE REORGANIZAÇÃO da plataforma.
+
+IMPORTANTE — REGRA ABSOLUTA:
+
+* nesta etapa, você NÃO deve alterar nenhum arquivo ainda;
+* você NÃO deve reescrever código ainda;
+* você NÃO deve aplicar nenhuma mudança automaticamente;
+* você só pode propor, organizar, diagnosticar e planejar;
+* qualquer alteração só poderá ser feita DEPOIS da minha aprovação explícita.
+
+Quero primeiro ver a proposta completa antes de autorizar qualquer implementação.
+
+OBJETIVO PRINCIPAL
+Quero transformar a home do aluno em um PORTO SEGURO real dentro do CS Hub.
+
+Essa página deve funcionar como a casa do aluno logado, ou seja:
+
+* sempre que ele se perder, a logo e o item Hub devem trazê-lo de volta para essa página;
+* ela deve reunir os caminhos principais da plataforma;
+* ela deve apresentar de forma clara, moderna e organizada tudo o que já existe no projeto.
+
+REQUISITO CRÍTICO DE I18N E CONSISTÊNCIA
+A escolha de idioma feita pelo usuário na home principal deve se tornar uma preferência global da plataforma.
+
+Isso significa que o idioma selecionado deve permanecer consistente em:
+
+* home pública;
+* home do aluno / hub;
+* dashboard;
+* workspace;
+* onboarding;
+* biblioteca;
+* comunidade;
+* assinatura;
+* login;
+* signup;
+* e, quando tecnicamente possível sem quebrar o que já existe, também nos conteúdos dos cursos e materiais já criados.
+
+IMPORTANTE:
+
+* não quero regressão;
+* não quero que você quebre páginas já funcionais;
+* não quero que você mexa no que já está validado;
+* preserve tudo o que já funciona hoje;
+* qualquer mudança deve ser pensada para ampliar e organizar, nunca para bagunçar.
+
+PRIORIDADES DE PROPOSTA
+
+1. TRANSFORMAR `hub.html` NA HOME CENTRAL DO ALUNO
+   Use `hub.html` como base conceitual e proponha como essa página deve ser reorganizada para virar o centro da experiência do aluno.
+
+Essa nova home do aluno deve ter blocos claros para:
+
+A. COMUNIDADE
+
+* levar para `comunidade.html`
+
+B. BIBLIOTECA
+
+* levar para `biblioteca.html`
+
+C. MURAL DE VAGAS
+
+* levar para a futura página `vagas/vagas.html`
+
+D. BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO
+
+* usar os conteúdos reais já existentes em `materiais/`
+* destacar pelo menos:
+
+  * matemática discreta
+  * ihc
+  * matemática computacional
+  * java básico
+  * backend, se fizer sentido como formação aplicada
+
+E. ESPECIALIZAÇÕES / FORMAÇÕES / EXTENSÕES
+
+* usar os conteúdos reais já existentes, especialmente:
+
+  * n8n
+  * backend / engenharia de APIs
+  * english / global english, se fizer sentido como formação separada
+
+F. ÁREA DE ESTUDOS
+
+* levar para `workspace.html`
+
+G. DASHBOARD / CAMINHO COM A REBECA
+
+* manter acesso para `dashboard.html` e/ou `onboarding.html` de forma coerente
+
+DIRETRIZ VISUAL PARA O HUB DO ALUNO
+No `hub.html`, quero:
+
+* um banner principal muito forte, bonito, moderno e aspiracional;
+* esse banner deve comunicar que essa é a casa do aluno dentro da plataforma;
+* abaixo do banner, o restante da página deve ser mais clean, organizado e funcional;
+* menos elementos decorativos soltos;
+* mais clareza na navegação;
+* visual dark premium coerente com o CS Hub.
+
+Em outras palavras:
+
+* topo forte e memorável;
+* restante da página limpo, útil e bem organizado.
+
+2. CRIAR A PÁGINA `vagas/vagas.html`
+   Quero a proposta da futura página do Mural de Vagas.
+
+OBJETIVO:
+
+* conectar estudo e mercado;
+* oferecer links reais de vagas em tecnologia;
+* manter consistência visual com o restante do CS Hub.
+
+ESTRUTURA DESEJADA:
+
+* Estágio / Júnior
+* Back-end
+* Front-end
+* Dados / IA
+* Remotas / internacionais
+
+REQUISITOS:
+
+* usar links reais e confiáveis;
+* deixar claro que as vagas podem mudar com o tempo;
+* incluir texto curto explicando que o mural será atualizado continuamente;
+* incluir navegação de volta para a home do aluno.
+
+3. REVISAR A NAVEGAÇÃO DA PLATAFORMA
+   Quero uma proposta de revisão da navegação para garantir que:
+
+* a logo da área do aluno leva sempre para a home do aluno;
+* o item Hub leva sempre para a home do aluno;
+* Comunidade leva para `comunidade.html`;
+* Biblioteca leva para `biblioteca.html`;
+* Mural de Vagas leva para `vagas/vagas.html`;
+* Workspace leva para `workspace.html`;
+* Dashboard leva para `dashboard.html`;
+* Rebeca / onboarding leva para `onboarding.html` quando fizer sentido.
+
+4. NÃO PRIORIZAR AGORA
+   Nesta etapa, não quero foco principal em:
+
+* completar o curso de inglês;
+* preencher páginas vazias de english;
+* expandir toda a grade curricular;
+* alterar profundamente o backend se isso atrasar o fluxo principal.
+
+Se necessário, apenas aponte o que ficaria para a próxima fase.
+
+FORMATO DA RESPOSTA
+Quero que você me entregue, SEM alterar arquivos, exatamente nesta ordem:
+
+1. proposta da nova estrutura da home do aluno em seções;
+2. proposta visual do banner principal;
+3. proposta de organização entre bacharelado, especializações e recursos;
+4. proposta da página Mural de Vagas;
+5. proposta de revisão da navegação;
+6. lista dos arquivos que precisariam ser alterados;
+7. checklist dos impactos;
+8. observação explícita do que já funciona hoje e não deve ser quebrado.
+
+REGRA FINAL
+Não implemente nada ainda.
+Não altere nada ainda.
+Espere minha aprovação explícita antes de editar qualquer arquivo.
