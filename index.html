@@ -1591,10 +1591,10 @@
             </div>
 
             <!-- logged-out -->
-            <a href="/api/auth/login" class="btn-nav-ghost hide-auth">
+            <a href="/login.html" class="btn-nav-ghost hide-auth">
                 <span data-i18n="nav.login">Entrar</span>
             </a>
-            <a href="/api/auth/login" class="btn-nav-solid hide-auth" style="display:inline-block;">
+            <a href="/login.html" class="btn-nav-solid hide-auth" style="display:inline-block;">
                 <span data-i18n="nav.signup">Criar Conta</span>
             </a>
 
@@ -1603,7 +1603,7 @@
                 <img id="nav-user-avatar" src="" alt="" style="display:none;">
                 <span id="nav-user-name"></span>
                 <a href="/hub.html" class="btn-nav-solid" data-i18n="nav.platform">Explorar</a>
-                <a href="/api/auth/logout" class="btn-nav-ghost" style="border-color:rgba(239,68,68,.3);color:#ef4444;"
+                <a href="/login.html" class="btn-nav-ghost" style="border-color:rgba(239,68,68,.3);color:#ef4444;"
                     data-i18n="nav.logout">Sair</a>
             </div>
         </div>
@@ -1622,7 +1622,7 @@
         <a href="/workspace" data-i18n="nav.study_here">Estude Aqui</a>
         <a href="/onboarding" data-i18n="nav.rebeca">Rebeca</a>
         <a href="#pricing" data-i18n="nav.plans">Planos</a>
-        <a href="/api/auth/login" data-i18n="nav.login">Entrar</a>
+        <a href="/login.html" data-i18n="nav.login">Entrar</a>
         <div class="mnav-lang">
             <button data-lang="pt-br">PT-BR</button>
             <button data-lang="en">EN</button>
@@ -1703,7 +1703,7 @@
                         plataforma.</span>
                 </div>
 
-                <a href="/api/auth/login" class="btn-replit">
+                <a href="/login.html" class="btn-replit">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="8" r="4" />
                         <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
@@ -1733,7 +1733,7 @@
                 </div>
 
                 <div class="entry-links">
-                    <a href="/api/auth/login" data-i18n="auth.login_new">Primeiro acesso? Criar conta →</a>
+                    <a href="/login.html" data-i18n="auth.login_new">Primeiro acesso? Criar conta →</a>
                 </div>
             </div>
         </div>
@@ -1902,7 +1902,7 @@
                     <li data-i18n="pricing.starter_f3">Labs de entrada</li>
                     <li data-i18n="pricing.starter_f4">Onboarding com a Rebeca</li>
                 </ul>
-                <a href="/api/auth/login" class="btn-plan btn-plan-outline" data-i18n="pricing.starter_cta">Começar
+                <a href="/login.html" class="btn-plan btn-plan-outline" data-i18n="pricing.starter_cta">Começar
                     grátis</a>
             </div>
 
@@ -1930,7 +1930,7 @@
                     <li data-i18n="pricing.pro_f3">Certificados de conclusão</li>
                     <li data-i18n="pricing.pro_f4">Suporte expandido da Rebeca</li>
                 </ul>
-                <a href="/api/auth/login" class="btn-plan btn-plan-green" data-i18n="pricing.pro_cta">Escolher Pro</a>
+                <a href="/login.html" class="btn-plan btn-plan-green" data-i18n="pricing.pro_cta">Escolher Pro</a>
             </div>
 
             <!-- Global -->
@@ -1956,7 +1956,7 @@
                     <li data-i18n="pricing.global_f4">Preparação para mercado global</li>
                     <li data-i18n="pricing.global_f5">Experiências premium de carreira</li>
                 </ul>
-                <a href="/api/auth/login" class="btn-plan btn-plan-outline" data-i18n="pricing.global_cta">Escolher
+                <a href="/login.html" class="btn-plan btn-plan-outline" data-i18n="pricing.global_cta">Escolher
                     Global</a>
             </div>
         </div>
@@ -2066,7 +2066,7 @@
             mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
 
             // ── Auth state ──
-            fetch('/api/auth/me')
+            fetch('/login.html')
                 .then(r => r.json())
                 .then(d => {
                     if (d.authenticated) {
