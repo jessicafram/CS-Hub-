@@ -1,23 +1,133 @@
-window.TRANSLATIONS = {
-    'pt-br': {
-        nav: {
-            brand: 'CS_HUB',
-            home: 'Início',
-            tracks: 'Trilhas',
-            courses: 'Cursos',
-            labs: 'Labs',
-            community: 'Comunidade',
-            library: 'Biblioteca',
-            study_here: 'Estude Aqui',
-            rebeca: 'Rebeca',
-            plans: 'Planos',
-            login: 'Entrar',
-            signup: 'Criar Conta',
-            logout: 'Sair',
-            dashboard: 'Dashboard',
-            workspace: 'Estudos',
-            platform: 'Explorar',
-        },
+        window.TRANSLATIONS = {
+          'pt-br': {
+            nav: {
+              brand: 'CS_HUB',
+              home: 'Início',
+              tracks: 'Trilhas',
+              courses: 'Cursos',
+              labs: 'Labs',
+              community: 'Comunidade',
+              library: 'Biblioteca',
+              study_here: 'Estude Aqui',
+              rebeca: 'Rebeca',
+              plans: 'Planos',
+              login: 'Entrar',
+              signup: 'Criar Conta',
+              logout: 'Sair',
+              dashboard: 'Dashboard',
+              workspace: 'Estudos',
+              platform: 'Explorar',
+              hub: 'Hub',
+              vagas: 'Vagas'
+            },
+            hub: {
+              spec_label: '// especializações',
+              spec_title: 'Formações & Extensões',
+
+              badge_available: '✓ Disponível',
+              badge_wip: 'Em construção',
+              badge_soon: 'Em breve',
+
+              spec_backend_period: 'Extensão · Backend',
+              spec_backend_name: 'Engenharia de APIs',
+              spec_backend_desc: 'Construa APIs robustas com AdonisJS e TypeScript. Autenticação, pagamentos e arquitetura real.',
+
+              spec_n8n_period: 'Lab · IA & Automação',
+              spec_n8n_name: 'Automação com n8n / IA',
+              spec_n8n_desc: 'Crie agentes de IA e automatize fluxos complexos com ferramentas modernas de low-code.',
+
+              spec_english_period: 'Formação · Inglês',
+              spec_english_name: 'Global English for Tech',
+              spec_english_desc: 'Inglês técnico voltado para entrevistas, documentação e trabalho em empresas globais.'
+            }
+          },
+
+          en: {
+            nav: {
+              brand: 'CS_HUB',
+              home: 'Home',
+              tracks: 'Tracks',
+              courses: 'Courses',
+              labs: 'Labs',
+              community: 'Community',
+              library: 'Library',
+              study_here: 'Study Here',
+              rebeca: 'Rebeca',
+              plans: 'Plans',
+              login: 'Log In',
+              signup: 'Sign Up',
+              logout: 'Log Out',
+              dashboard: 'Dashboard',
+              workspace: 'Study',
+              platform: 'Explore',
+              hub: 'Hub',
+              vagas: 'Jobs'
+            },
+            hub: {
+              spec_label: '// specializations',
+              spec_title: 'Programs & Extensions',
+
+              badge_available: '✓ Available',
+              badge_wip: 'In progress',
+              badge_soon: 'Coming soon',
+
+              spec_backend_period: 'Extension · Backend',
+              spec_backend_name: 'API Engineering',
+              spec_backend_desc: 'Build robust APIs with AdonisJS and TypeScript. Authentication, payments, and real architecture.',
+
+              spec_n8n_period: 'Lab · AI & Automation',
+              spec_n8n_name: 'Automation with n8n / AI',
+              spec_n8n_desc: 'Create AI agents and automate complex workflows with modern low-code tools.',
+
+              spec_english_period: 'Program · English',
+              spec_english_name: 'Global English for Tech',
+              spec_english_desc: 'Technical English focused on interviews, documentation, and work in global companies.'
+            }
+          },
+
+          es: {
+            nav: {
+              brand: 'CS_HUB',
+              home: 'Inicio',
+              tracks: 'Rutas',
+              courses: 'Cursos',
+              labs: 'Labs',
+              community: 'Comunidad',
+              library: 'Biblioteca',
+              study_here: 'Estudia Aquí',
+              rebeca: 'Rebeca',
+              plans: 'Planes',
+              login: 'Entrar',
+              signup: 'Crear Cuenta',
+              logout: 'Salir',
+              dashboard: 'Dashboard',
+              workspace: 'Estudios',
+              platform: 'Explorar',
+              hub: 'Hub',
+              vagas: 'Empleos'
+            },
+            hub: {
+              spec_label: '// especializaciones',
+              spec_title: 'Formaciones y Extensiones',
+
+              badge_available: '✓ Disponible',
+              badge_wip: 'En construcción',
+              badge_soon: 'Próximamente',
+
+              spec_backend_period: 'Extensión · Backend',
+              spec_backend_name: 'Ingeniería de APIs',
+              spec_backend_desc: 'Construye APIs robustas con AdonisJS y TypeScript. Autenticación, pagos y arquitectura real.',
+
+              spec_n8n_period: 'Lab · IA y Automatización',
+              spec_n8n_name: 'Automatización con n8n / IA',
+              spec_n8n_desc: 'Crea agentes de IA y automatiza flujos complejos con herramientas modernas de low-code.',
+
+              spec_english_period: 'Formación · Inglés',
+              spec_english_name: 'Global English for Tech',
+              spec_english_desc: 'Inglés técnico enfocado en entrevistas, documentación y trabajo en empresas globales.'
+            }
+          }
+        };
         hero: {
             badge: 'Plataforma EdTech Global',
             title: 'A Plataforma de Tecnologia para Quem Pensa Global',

@@ -12,7 +12,7 @@ function applyTranslations(translations, lang) {
             value = value?.[part];
         }
 
-        if (value) {
+        if (value !== undefined && value !== null) {
             el.textContent = value;
         }
     });
@@ -25,9 +25,13 @@ function applyTranslations(translations, lang) {
 }
 
 function setLanguage(lang) {
-    localStorage.setItem("cshub_language", lang);
-
     const translations = window.TRANSLATIONS || {};
+
+    if (!translations[lang]) {
+        lang = "pt-br";
+    }
+
+    localStorage.setItem("cshub_language", lang);
     applyTranslations(translations, lang);
 
     console.log("Idioma salvo:", lang);
@@ -44,3 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+window.setLanguage = setLanguage;
+window.applyTranslations = applyTranslations;
