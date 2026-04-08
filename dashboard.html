@@ -1,1214 +1,970 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CS Hub — Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
 
-      :root {
-        --bg: #080c11;
-        --surface: #0d1117;
-        --surface-2: #111820;
-        --surface-3: #141c26;
-        --border: rgba(255, 255, 255, 0.07);
-        --border-hi: rgba(46, 204, 113, 0.35);
-        --accent: #2ecc71;
-        --accent-dim: rgba(46, 204, 113, 0.1);
-        --accent-glow: rgba(46, 204, 113, 0.18);
-        --text: #e6edf3;
-        --muted: #6e7a8a;
-        --subtle: #3d4c5e;
-        --mono: "Fira Code", monospace;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS Hub — Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Inter", sans-serif;
-        min-height: 100vh;
-        -webkit-font-smoothing: antialiased;
-      }
+    :root {
+      --bg: #080c11;
+      --surface: #0d1117;
+      --surface-2: #111820;
+      --surface-3: #141c26;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hi: rgba(46, 204, 113, 0.35);
+      --accent: #2ecc71;
+      --accent-dim: rgba(46, 204, 113, 0.1);
+      --accent-glow: rgba(46, 204, 113, 0.18);
+      --text: #e6edf3;
+      --muted: #6e7a8a;
+      --subtle: #3d4c5e;
+      --mono: "Fira Code", monospace;
+    }
 
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 40px;
+      background: rgba(8, 12, 17, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: var(--mono);
+      transition: all 0.15s;
+    }
+
+    .lang-btn:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .lang-btn.active {
+      color: var(--accent);
+      border-color: var(--border-hi);
+      background: var(--accent-dim);
+    }
+
+    .nav-user {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-user-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    #loadingState {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 16px;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #emptyState {
+      display: none;
+    }
+
+    #dashContent {
+      display: none;
+    }
+
+    .dash-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .dash-hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dash-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 0% 50%,
+          var(--accent-glow),
+          transparent);
+      pointer-events: none;
+    }
+
+    .dash-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .dash-greeting {
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .dash-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .dash-hero-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .rebeca-msg-card {
+      background: linear-gradient(135deg,
+          rgba(46, 204, 113, 0.06) 0%,
+          var(--surface) 70%);
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .rebeca-msg-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1.5px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .rebeca-msg-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .rebeca-msg-text {
+      font-size: 0.87rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .rebeca-msg-text strong {
+      color: #fff;
+    }
+
+    .rebeca-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .rebeca-cta:hover {
+      opacity: 0.85;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .stat-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid currentColor;
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .profile-summary {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .primary-card {
+      display: block;
+      text-decoration: none;
+      background: linear-gradient(135deg,
+          rgba(46, 204, 113, 0.07) 0%,
+          var(--surface) 60%);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        border-color 0.25s;
+    }
+
+    .primary-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      border-color: var(--accent);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(46, 204, 113, 0.25);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+    }
+
+    .card-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .next-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .next-card {
+      display: block;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition:
+        border-color 0.22s,
+        transform 0.22s;
+    }
+
+    .next-card:hover {
+      border-color: rgba(46, 204, 113, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .next-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .next-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .next-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .notes-empty {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .notes-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .notes-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .notes-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .notes-unit {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .notes-title {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .notes-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      color: var(--accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+
+    .notes-cta:hover {
+      background: var(--accent-dim);
+    }
+
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .activity-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .activity-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .activity-text {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .activity-time {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .activity-empty {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .redo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition:
+        border-color 0.2s,
+        color 0.2s;
+    }
+
+    .redo-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
       .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 16px 40px;
-        background: rgba(8, 12, 17, 0.9);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-
-      .nav-brand {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 96px;
-        height: 96px;
-        flex-shrink: 0;
-        overflow: hidden;
-      }
-
-      .logo-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
+        padding: 14px 20px;
+        flex-wrap: wrap;
       }
 
       .nav-links {
-        display: flex;
-        gap: 24px;
-        list-style: none;
-        flex: 1;
-        justify-content: center;
-      }
-
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.82rem;
-        transition: color 0.2s;
-      }
-
-      .nav-links a:hover {
-        color: var(--text);
-      }
-
-      .nav-links a.active {
-        color: var(--accent);
-      }
-
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .lang-switcher {
-        display: flex;
-        gap: 2px;
-      }
-
-      .lang-btn {
-        background: none;
-        border: 1px solid transparent;
-        color: var(--muted);
-        font-size: 0.75rem;
-        padding: 4px 8px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-family: var(--mono);
-        transition: all 0.15s;
-      }
-
-      .lang-btn:hover {
-        color: var(--text);
-        border-color: var(--border);
-      }
-
-      .lang-btn.active {
-        color: var(--accent);
-        border-color: var(--border-hi);
-        background: var(--accent-dim);
-      }
-
-      .nav-user {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .nav-user-dot {
-        width: 7px;
-        height: 7px;
-        background: var(--accent);
-        border-radius: 50%;
-      }
-
-      #loadingState {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 60vh;
         gap: 16px;
-      }
-
-      .spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid var(--border);
-        border-top-color: var(--accent);
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      #emptyState {
-        display: none;
-      }
-
-      #dashContent {
-        display: none;
+        width: 100%;
+        justify-content: center;
+        order: 3;
       }
 
       .dash-wrapper {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 48px 40px;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+        padding: 32px 20px;
       }
 
       .dash-hero {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 24px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 28px 32px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .dash-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse 60% 80% at 0% 50%,
-          var(--accent-glow),
-          transparent
-        );
-        pointer-events: none;
+        grid-template-columns: 1fr;
+        text-align: center;
       }
 
       .dash-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: center top;
-        border: 2px solid var(--accent);
-        flex-shrink: 0;
-      }
-
-      .dash-greeting {
-        font-size: 0.75rem;
-        font-family: var(--mono);
-        color: var(--accent);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-      }
-
-      .dash-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: -0.02em;
-      }
-
-      .dash-hero-sub {
-        font-size: 0.85rem;
-        color: var(--muted);
-        margin-top: 6px;
+        margin: 0 auto;
       }
 
       .rebeca-msg-card {
-        background: linear-gradient(
-          135deg,
-          rgba(46, 204, 113, 0.06) 0%,
-          var(--surface) 70%
-        );
-        border: 1px solid rgba(46, 204, 113, 0.2);
-        border-radius: 16px;
-        padding: 24px 28px;
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-      }
-
-      .rebeca-msg-avatar {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: center top;
-        border: 1.5px solid var(--accent);
-        flex-shrink: 0;
-      }
-
-      .rebeca-msg-label {
-        font-family: var(--mono);
-        font-size: 0.62rem;
-        color: var(--accent);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-
-      .rebeca-msg-text {
-        font-size: 0.87rem;
-        color: var(--text);
-        line-height: 1.75;
-      }
-
-      .rebeca-msg-text strong {
-        color: #fff;
-      }
-
-      .rebeca-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--accent);
-        color: #000;
-        font-weight: 700;
-        font-size: 0.8rem;
-        padding: 9px 18px;
-        border-radius: 8px;
-        text-decoration: none;
-        margin-top: 14px;
-        transition: opacity 0.2s;
-      }
-
-      .rebeca-cta:hover {
-        opacity: 0.85;
-      }
-
-      .section-label {
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--accent);
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        margin-bottom: 18px;
-      }
-
-      .section-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #fff;
-        margin-bottom: 18px;
-      }
-
-      .stats-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 14px;
-      }
-
-      .stat-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
-      }
-
-      .stat-label {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        color: var(--muted);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-
-      .stat-value {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #fff;
-        margin-bottom: 2px;
-      }
-
-      .stat-sub {
-        font-size: 0.75rem;
-        color: var(--muted);
-      }
-
-      .profile-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-      }
-
-      .profile-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid currentColor;
-        border-radius: 100px;
-        padding: 6px 16px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        margin-bottom: 14px;
-      }
-
-      .profile-summary {
-        font-size: 0.87rem;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      .primary-card {
-        display: block;
-        text-decoration: none;
-        background: linear-gradient(
-          135deg,
-          rgba(46, 204, 113, 0.07) 0%,
-          var(--surface) 60%
-        );
-        border: 1px solid rgba(46, 204, 113, 0.3);
-        border-radius: 16px;
-        padding: 28px;
-        margin-bottom: 20px;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s,
-          border-color 0.25s;
-      }
-
-      .primary-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        border-color: var(--accent);
-      }
-
-      .card-top {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 14px;
-      }
-
-      .card-icon {
-        width: 52px;
-        height: 52px;
-        background: var(--accent-dim);
-        border: 1px solid rgba(46, 204, 113, 0.25);
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        font-size: 1.5rem;
-      }
-
-      .card-tag {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        color: var(--accent);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-      }
-
-      .card-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #fff;
-      }
-
-      .card-desc {
-        font-size: 0.84rem;
-        color: var(--muted);
-        line-height: 1.65;
-        margin-bottom: 16px;
-      }
-
-      .card-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--accent);
-        color: #000;
-        font-weight: 700;
-        font-size: 0.82rem;
-        padding: 9px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-      }
-
-      .next-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 14px;
-      }
-
-      .next-card {
-        display: block;
-        text-decoration: none;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
-        transition:
-          border-color 0.22s,
-          transform 0.22s;
-      }
-
-      .next-card:hover {
-        border-color: rgba(46, 204, 113, 0.4);
-        transform: translateY(-3px);
-      }
-
-      .next-icon {
-        font-size: 1.6rem;
-        margin-bottom: 12px;
-      }
-
-      .next-title {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 6px;
-      }
-
-      .next-meta {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        color: var(--muted);
+        flex-direction: column;
       }
 
       .two-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr;
       }
+    }
+  </style>
+</head>
 
-      .info-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 24px;
-      }
+<body>
+  <nav class="nav">
+    <a href="/hub.html" class="nav-brand">
+      <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+    </a>
 
-      .notes-empty {
-        font-size: 0.83rem;
-        color: var(--muted);
-        line-height: 1.6;
-      }
+    <ul class="nav-links">
+      <li><a href="/hub.html" data-i18n="nav.hub">Hub</a></li>
+      <li>
+        <a href="/onboarding.html" data-i18n="dashboard.nav_diagnostic">Diagnóstico</a>
+      </li>
+      <li>
+        <a href="/dashboard.html" class="active" data-i18n="nav.dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a href="/workspace.html" data-i18n="nav.workspace">Estudos</a>
+      </li>
+    </ul>
 
-      .notes-content {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .notes-stat {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-      }
-
-      .notes-num {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #fff;
-      }
-
-      .notes-unit {
-        font-size: 0.78rem;
-        color: var(--muted);
-      }
-
-      .notes-title {
-        font-size: 0.82rem;
-        color: var(--muted);
-      }
-
-      .notes-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid rgba(46, 204, 113, 0.3);
-        color: var(--accent);
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-size: 0.78rem;
-        font-weight: 600;
-        text-decoration: none;
-        margin-top: 4px;
-        transition: background 0.2s;
-      }
-
-      .notes-cta:hover {
-        background: var(--accent-dim);
-      }
-
-      .activity-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .activity-item {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-      }
-
-      .activity-dot {
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        flex-shrink: 0;
-        margin-top: 5px;
-      }
-
-      .activity-text {
-        font-size: 0.82rem;
-        color: var(--text);
-        line-height: 1.5;
-      }
-
-      .activity-time {
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        color: var(--muted);
-        display: block;
-        margin-top: 2px;
-      }
-
-      .activity-empty {
-        font-size: 0.83rem;
-        color: var(--muted);
-      }
-
-      .redo-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--border);
-        color: var(--muted);
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 0.8rem;
-        text-decoration: none;
-        transition:
-          border-color 0.2s,
-          color 0.2s;
-      }
-
-      .redo-link:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
-      @media (max-width: 768px) {
-        .nav {
-          padding: 14px 20px;
-          flex-wrap: wrap;
-        }
-
-        .nav-links {
-          gap: 16px;
-          width: 100%;
-          justify-content: center;
-          order: 3;
-        }
-
-        .dash-wrapper {
-          padding: 32px 20px;
-        }
-
-        .dash-hero {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        .dash-avatar {
-          margin: 0 auto;
-        }
-
-        .rebeca-msg-card {
-          flex-direction: column;
-        }
-
-        .two-col {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <nav class="nav">
-      <a href="/hub.html" class="nav-brand">
-        <img
-          src="/assets/CS_Hub_-removebg-preview.png"
-          alt="CS Hub"
-          class="logo-img"
-        />
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="/hub.html" data-i18n="nav.hub">Hub</a></li>
-        <li>
-          <a href="/onboarding" data-i18n="dashboard.nav_diagnostic"
-            >Diagnóstico</a
-          >
-        </li>
-        <li>
-          <a href="/dashboard" class="active" data-i18n="nav.dashboard"
-            >Dashboard</a
-          >
-        </li>
-        <li>
-          <a href="/workspace" data-i18n="nav.workspace">Estudos</a>
-        </li>
-      </ul>
-
-      <div class="nav-right">
-        <div class="lang-switcher">
-          <button class="lang-btn" data-lang="pt-br">PT</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="es">ES</button>
-        </div>
-
-        <div class="nav-user">
-          <div class="nav-user-dot"></div>
-          <span id="navUserName"></span>
-        </div>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="pt-br">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
-    </nav>
 
-    <div id="loadingState">
-      <div class="spinner"></div>
-      <span
-        style="color: var(--muted); font-size: 0.85rem"
-        data-i18n="dashboard.loading"
-        >Carregando seu perfil...</span
-      >
-    </div>
-
-    <div id="emptyState"></div>
-
-    <div id="dashContent">
-      <div class="dash-wrapper">
-        <div class="dash-hero">
-          <img
-            src="/assets/rebeca.jpeg"
-            alt="Rebeca"
-            class="dash-avatar"
-            onerror="this.style.background='var(--surface-2)';this.removeAttribute('src')"
-          />
-          <div>
-            <div class="dash-greeting" data-i18n="dashboard.hero_label">
-              // Seu painel pessoal
-            </div>
-            <div
-              class="dash-title"
-              id="heroTitle"
-              data-i18n="dashboard.hero_title"
-            >
-              Bem-vindo de volta!
-            </div>
-            <div
-              class="dash-hero-sub"
-              id="heroSub"
-              data-i18n="dashboard.hero_sub"
-            >
-              Aqui está o resumo do seu diagnóstico com a Rebeca.
-            </div>
-          </div>
-        </div>
-
-        <div class="rebeca-msg-card" id="rebecaMsgCard">
-          <img
-            src="/assets/rebeca.jpeg"
-            class="rebeca-msg-avatar"
-            alt="Rebeca"
-            onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')"
-          />
-          <div class="rebeca-msg-body">
-            <div class="rebeca-msg-label" data-i18n="dashboard.rebeca_label">
-              // Mensagem da Rebeca
-            </div>
-            <div class="rebeca-msg-text" id="rebecaMsgText">Carregando...</div>
-            <a
-              href="/workspace"
-              class="rebeca-cta"
-              data-i18n="dashboard.rebeca_cta"
-              >Abrir área de estudos →</a
-            >
-          </div>
-        </div>
-
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-label" data-i18n="dashboard.stat_diagnostic">
-              Diagnóstico
-            </div>
-            <div class="stat-value" id="statStatus">—</div>
-            <div class="stat-sub" data-i18n="dashboard.stat_status">Status</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n="dashboard.stat_answers">
-              Respostas
-            </div>
-            <div class="stat-value" id="statAnswers">—</div>
-            <div class="stat-sub" data-i18n="dashboard.stat_questions">
-              Perguntas respondidas
-            </div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n="dashboard.stat_tracks">
-              Trilhas disponíveis
-            </div>
-            <div class="stat-value">6</div>
-            <div class="stat-sub" data-i18n="dashboard.stat_in_cshub">
-              No CS Hub
-            </div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n="dashboard.stat_date">Data</div>
-            <div class="stat-value" id="statDate">—</div>
-            <div class="stat-sub" data-i18n="dashboard.stat_completed">
-              Diagnóstico realizado
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="section-label" data-i18n="dashboard.profile_label">
-            // Seu perfil
-          </div>
-          <div class="profile-badge" id="profileBadge">—</div>
-          <div class="profile-summary" id="profileSummary"></div>
-        </div>
-
-        <div>
-          <div class="section-title" data-i18n="dashboard.primary_title">
-            🎯 Caminho Primário Recomendado
-          </div>
-          <a href="#" class="primary-card" id="primaryCard">
-            <div class="card-top">
-              <div class="card-icon" id="primaryIcon">?</div>
-              <div>
-                <div class="card-tag" id="primaryTag">—</div>
-                <div class="card-title" id="primaryTitle">—</div>
-              </div>
-            </div>
-            <div class="card-desc" id="primaryDesc">—</div>
-            <span class="card-cta" data-i18n="dashboard.primary_cta"
-              >Começar agora →</span
-            >
-          </a>
-        </div>
-
-        <div>
-          <div class="section-title" data-i18n="dashboard.next_title">
-            📌 Próximos Passos
-          </div>
-          <div class="next-grid" id="nextGrid"></div>
-        </div>
-
-        <div class="two-col">
-          <div class="info-card">
-            <div class="section-label" data-i18n="dashboard.notes_label">
-              // Suas anotações
-            </div>
-            <div id="notesContent"></div>
-          </div>
-          <div class="info-card">
-            <div class="section-label" data-i18n="dashboard.activity_label">
-              // Atividade recente
-            </div>
-            <div id="activityContent"></div>
-          </div>
-        </div>
-
-        <div>
-          <a href="/onboarding" class="redo-link" data-i18n="dashboard.redo_cta"
-            >↺ Refazer diagnóstico com Rebeca</a
-          >
-        </div>
+      <div class="nav-user">
+        <div class="nav-user-dot"></div>
+        <span id="navUserName"></span>
       </div>
     </div>
+  </nav>
 
-    <script src="/js/translations.js"></script>
-    <script src="/js/i18n.js"></script>
+  <div id="loadingState">
+    <div class="spinner"></div>
+    <span style="color: var(--muted); font-size: 0.85rem" data-i18n="dashboard.loading">Carregando seu perfil...</span>
+  </div>
 
-    <script>
-      function esc(str) {
-        return String(str || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-      }
+  <div id="emptyState"></div>
 
-      function getLang() {
-        return localStorage.getItem("cshub_language") || "pt-br";
-      }
+  <div id="dashContent">
+    <div class="dash-wrapper">
+      <div class="dash-hero">
+        <img src="/assets/rebeca.jpeg" alt="Rebeca" class="dash-avatar"
+          onerror="this.style.background='var(--surface-2)';this.removeAttribute('src')" />
+        <div>
+          <div class="dash-greeting" data-i18n="dashboard.hero_label">
+            // Seu painel pessoal
+          </div>
+          <div class="dash-title" id="heroTitle" data-i18n="dashboard.hero_title">
+            Bem-vindo de volta!
+          </div>
+          <div class="dash-hero-sub" id="heroSub" data-i18n="dashboard.hero_sub">
+            Aqui está o resumo do seu diagnóstico com a Rebeca.
+          </div>
+        </div>
+      </div>
 
-      function getDashboardCopy(lang) {
-        const copy = {
-          "pt-br": {
-            hello: "Olá, ",
-            statusComplete: "✓ Completo",
-            statusInitial: "Inicial",
-            heroWelcome: "Bem-vindo!",
-            heroInitialSub:
-              "Este painel acompanha seu progresso na plataforma. Você pode começar estudando agora, explorar o Hub ou fazer o diagnóstico com a Rebeca depois.",
-            rebecaInitial:
-              "Para ver recomendações mais personalizadas aqui no dashboard, faça o diagnóstico com a Rebeca. Mas você já pode estudar livremente desde agora.",
-            profileExploring: "Painel inicial",
-            profileExploringSummary:
-              "Este dashboard ganha mais contexto conforme você entra em cursos, matérias e atividades. Você pode começar pelo Hub, pela área de estudos ou pelo diagnóstico com a Rebeca.",
-            primaryTag: "Início livre · Agora",
-            primaryTitle: "Começar pela área de estudos",
-            primaryDesc:
-              "Abra seu espaço de estudos agora mesmo e avance no seu ritmo. Quando entrar em matérias e cursos, este painel ficará mais completo.",
-            emptyActivity:
-              "Seu dashboard inicial já está pronto. Conforme você entrar em matérias, cursos e atividades, este espaço mostrará seu progresso."
-            next1Title: "Abrir área de estudos",
-            next1Meta: "Workspace · imediato",
-            next2Title: "Explorar o Hub",
-            next2Meta: "Plataforma · livre",
-            next3Title: "Fazer diagnóstico com Rebeca",
-            next3Meta: "Opcional · recomendado",
-            noNotes: "Você ainda não tem anotações salvas.",
-            openStudy: "Abrir área de estudos →",
-            continueStudy: "Continuar estudando →",
-            lastNote: "Última nota:",
-            savedAt: "Salvo em ",
-            emptyActivity:
-              "Seu dashboard inicial está pronto. Comece pelo workspace, pelo Hub ou pelo diagnóstico.",
-            noActivity: "Nenhuma atividade registrada ainda. Comece estudando!",
-            noteSaved: "Nota salva",
-            rebecaInteraction: "Interação com Rebeca",
-            identified: "Identidade confirmada",
-            onboardingComplete: "Diagnóstico concluído",
-            lines: "linhas",
-          },
-          en: {
-            hello: "Hello, ",
-            statusComplete: "✓ Complete",
-            statusInitial: "Initial",
-            heroWelcome: "Welcome!",
-            heroInitialSub:
-              "Your starter dashboard is ready. You can begin studying now or take the diagnostic with Rebeca later.",
-            rebecaInitial:
-              "You have not completed the diagnostic yet, but you can already explore the platform. Whenever you want, I can build a personalized path for you.",
-            profileExploring: "Exploring",
-            profileExploringSummary:
-              "You have not defined a profile with Rebeca yet. In the meantime, you can explore the Hub, study in the workspace, and return to the diagnostic whenever you want.",
-            primaryTag: "Free start · Now",
-            primaryTitle: "Start from the study area",
-            primaryDesc:
-              "Open your study space right now, take notes, and move at your own pace.",
-            next1Title: "Open study area",
-            next1Meta: "Workspace · immediate",
-            next2Title: "Explore the Hub",
-            next2Meta: "Platform · free",
-            next3Title: "Take diagnostic with Rebeca",
-            next3Meta: "Optional · recommended",
-            noNotes: "You do not have saved notes yet.",
-            openStudy: "Open study area →",
-            continueStudy: "Continue studying →",
-            lastNote: "Last note:",
-            savedAt: "Saved on ",
-            emptyActivity:
-              "Your starter dashboard is ready. Begin with the workspace, the Hub, or the diagnostic.",
-            noActivity: "No activity recorded yet. Start studying!",
-            noteSaved: "Note saved",
-            rebecaInteraction: "Interaction with Rebeca",
-            identified: "Identity confirmed",
-            onboardingComplete: "Diagnostic completed",
-            lines: "lines",
-          },
-          es: {
-            hello: "Hola, ",
-            statusComplete: "✓ Completo",
-            statusInitial: "Inicial",
-            heroWelcome: "¡Bienvenido!",
-            heroInitialSub:
-              "Tu dashboard inicial ya está listo. Puedes comenzar a estudiar ahora o hacer el diagnóstico con Rebeca después.",
-            rebecaInitial:
-              "Aún no has completado el diagnóstico, pero ya puedes explorar la plataforma. Cuando quieras, puedo crear un camino personalizado para ti.",
-            profileExploring: "Explorando",
-            profileExploringSummary:
-              "Aún no has definido un perfil con Rebeca. Mientras tanto, puedes explorar el Hub, estudiar en el workspace y volver al diagnóstico cuando quieras.",
-            primaryTag: "Inicio libre · Ahora",
-            primaryTitle: "Comenzar por el área de estudios",
-            primaryDesc:
-              "Abre tu espacio de estudio ahora mismo, toma notas y avanza a tu propio ritmo.",
-            next1Title: "Abrir área de estudios",
-            next1Meta: "Workspace · inmediato",
-            next2Title: "Explorar el Hub",
-            next2Meta: "Plataforma · libre",
-            next3Title: "Hacer diagnóstico con Rebeca",
-            next3Meta: "Opcional · recomendado",
-            noNotes: "Aún no tienes notas guardadas.",
-            openStudy: "Abrir área de estudios →",
-            continueStudy: "Seguir estudiando →",
-            lastNote: "Última nota:",
-            savedAt: "Guardado el ",
-            emptyActivity:
-              "Tu dashboard inicial ya está listo. Comienza por el workspace, el Hub o el diagnóstico.",
-            noActivity:
-              "Todavía no hay actividad registrada. ¡Empieza a estudiar!",
-            noteSaved: "Nota guardada",
-            rebecaInteraction: "Interacción con Rebeca",
-            identified: "Identidad confirmada",
-            onboardingComplete: "Diagnóstico completado",
-            lines: "líneas",
-          },
-        };
+      <div class="rebeca-msg-card" id="rebecaMsgCard">
+        <img src="/assets/rebeca.jpeg" class="rebeca-msg-avatar" alt="Rebeca"
+          onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')" />
+        <div class="rebeca-msg-body">
+          <div class="rebeca-msg-label" data-i18n="dashboard.rebeca_label">
+            // Mensagem da Rebeca
+          </div>
+          <div class="rebeca-msg-text" id="rebecaMsgText">Carregando...</div>
+          <a href="/workspace.html" class="rebeca-cta" data-i18n="dashboard.rebeca_cta">Abrir área de estudos →</a>
+        </div>
+      </div>
 
-        return copy[lang] || copy["pt-br"];
-      }
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label" data-i18n="dashboard.stat_diagnostic">
+            Diagnóstico
+          </div>
+          <div class="stat-value" id="statStatus">—</div>
+          <div class="stat-sub" data-i18n="dashboard.stat_status">Status</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n="dashboard.stat_answers">
+            Respostas
+          </div>
+          <div class="stat-value" id="statAnswers">—</div>
+          <div class="stat-sub" data-i18n="dashboard.stat_questions">
+            Perguntas respondidas
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n="dashboard.stat_tracks">
+            Trilhas disponíveis
+          </div>
+          <div class="stat-value">6</div>
+          <div class="stat-sub" data-i18n="dashboard.stat_in_cshub">
+            No CS Hub
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n="dashboard.stat_date">Data</div>
+          <div class="stat-value" id="statDate">—</div>
+          <div class="stat-sub" data-i18n="dashboard.stat_completed">
+            Diagnóstico realizado
+          </div>
+        </div>
+      </div>
 
-      async function loadDashboard() {
-        const lang = getLang();
-        const copy = getDashboardCopy(lang);
+      <div class="profile-card">
+        <div class="section-label" data-i18n="dashboard.profile_label">
+          // Seu perfil
+        </div>
+        <div class="profile-badge" id="profileBadge">—</div>
+        <div class="profile-summary" id="profileSummary"></div>
+      </div>
 
-        try {
-          const res = await fetch("/api/dashboard");
-          const data = await res.json();
+      <div>
+        <div class="section-title" data-i18n="dashboard.primary_title">
+          🎯 Caminho Primário Recomendado
+        </div>
+        <a href="#" class="primary-card" id="primaryCard">
+          <div class="card-top">
+            <div class="card-icon" id="primaryIcon">?</div>
+            <div>
+              <div class="card-tag" id="primaryTag">—</div>
+              <div class="card-title" id="primaryTitle">—</div>
+            </div>
+          </div>
+          <div class="card-desc" id="primaryDesc">—</div>
+          <span class="card-cta" data-i18n="dashboard.primary_cta">Começar agora →</span>
+        </a>
+      </div>
 
-          document.getElementById("loadingState").style.display = "none";
-          document.getElementById("dashContent").style.display = "block";
+      <div>
+        <div class="section-title" data-i18n="dashboard.next_title">
+          📌 Próximos Passos
+        </div>
+        <div class="next-grid" id="nextGrid"></div>
+      </div>
 
-          if (data.user?.name) {
-            document.getElementById("navUserName").textContent = data.user.name;
-          }
+      <div class="two-col">
+        <div class="info-card">
+          <div class="section-label" data-i18n="dashboard.notes_label">
+            // Suas anotações
+          </div>
+          <div id="notesContent"></div>
+        </div>
+        <div class="info-card">
+          <div class="section-label" data-i18n="dashboard.activity_label">
+            // Atividade recente
+          </div>
+          <div id="activityContent"></div>
+        </div>
+      </div>
 
-          if (data.onboardingRequired || !data.profile) {
-            document.getElementById("heroTitle").textContent = copy.heroWelcome;
-            document.getElementById("heroSub").textContent =
-              copy.heroInitialSub;
-            document.getElementById("rebecaMsgText").textContent =
-              copy.rebecaInitial;
+      <div>
+        <a href="/onboarding.html" class="redo-link" data-i18n="dashboard.redo_cta">↺ Refazer diagnóstico com Rebeca</a>
+      </div>
+    </div>
+  </div>
 
-            document.getElementById("statStatus").textContent =
-              copy.statusInitial;
-            document.getElementById("statAnswers").textContent = "0";
-            document.getElementById("statDate").textContent = "—";
+  <script src="/js/translations.js"></script>
+  <script src="/js/i18n.js"></script>
 
-            const badge = document.getElementById("profileBadge");
-            badge.textContent = copy.profileExploring;
-            badge.style.color = "var(--accent)";
-            document.getElementById("profileSummary").textContent =
-              copy.profileExploringSummary;
+  <script>
+    function esc(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
 
-            document.getElementById("primaryCard").href = "/workspace";
-            document.getElementById("primaryIcon").textContent = "🧠";
-            document.getElementById("primaryTag").textContent = copy.primaryTag;
-            document.getElementById("primaryTitle").textContent =
-              copy.primaryTitle;
-            document.getElementById("primaryDesc").textContent =
-              copy.primaryDesc;
+    function getLang() {
+      return localStorage.getItem("cshub_language") || "pt-br";
+    }
 
-            document.getElementById("nextGrid").innerHTML = `
-              <a href="/workspace" class="next-card">
-                <div class="next-icon">📝</div>
-                <div class="next-title">${esc(copy.next1Title)}</div>
-                <div class="next-meta">${esc(copy.next1Meta)}</div>
-              </a>
-              <a href="/hub.html" class="next-card">
-                <div class="next-icon">🧭</div>
-                <div class="next-title">${esc(copy.next2Title)}</div>
-                <div class="next-meta">${esc(copy.next2Meta)}</div>
-              </a>
-              <a href="/onboarding" class="next-card">
-                <div class="next-icon">🤖</div>
-                <div class="next-title">${esc(copy.next3Title)}</div>
-                <div class="next-meta">${esc(copy.next3Meta)}</div>
-              </a>
-            `;
+    function getDashboardCopy(lang) {
+      const copy = {
+        "pt-br": {
+          hello: "Olá, ",
+          statusComplete: "✓ Completo",
+          statusInitial: "Inicial",
+          heroWelcome: "Bem-vindo!",
+          heroInitialSub:
+            "Este painel acompanha seu progresso na plataforma. Você pode começar estudando agora, explorar o Hub ou fazer o diagnóstico com a Rebeca depois.",
+          rebecaInitial:
+            "Para ver recomendações mais personalizadas aqui no dashboard, faça o diagnóstico com a Rebeca. Mas você já pode estudar livremente desde agora.",
+          profileExploring: "Painel inicial",
+          profileExploringSummary:
+            "Este dashboard ganha mais contexto conforme você entra em cursos, matérias e atividades. Você pode começar pelo Hub, pela área de estudos ou pelo diagnóstico com a Rebeca.",
+          primaryTag: "Início livre · Agora",
+          primaryTitle: "Começar pela área de estudos",
+          primaryDesc:
+            "Abra seu espaço de estudos agora mesmo e avance no seu ritmo. Quando entrar em matérias e cursos, este painel ficará mais completo.",
+          next1Title: "Abrir área de estudos",
+          next1Meta: "Workspace · imediato",
+          next2Title: "Explorar o Hub",
+          next2Meta: "Plataforma · livre",
+          next3Title: "Fazer diagnóstico com Rebeca",
+          next3Meta: "Opcional · recomendado",
+          noNotes: "Você ainda não tem anotações salvas.",
+          openStudy: "Abrir área de estudos →",
+          continueStudy: "Continuar estudando →",
+          lastNote: "Última nota:",
+          savedAt: "Salvo em ",
+          emptyActivity:
+            "Seu dashboard inicial está pronto. Comece pelo workspace, pelo Hub ou pelo diagnóstico.",
+          noActivity: "Nenhuma atividade registrada ainda. Comece estudando!",
+          noteSaved: "Nota salva",
+          rebecaInteraction: "Interação com Rebeca",
+          identified: "Identidade confirmada",
+          onboardingComplete: "Diagnóstico concluído",
+          lines: "linhas",
+        },
+        en: {
+          hello: "Hello, ",
+          statusComplete: "✓ Complete",
+          statusInitial: "Initial",
+          heroWelcome: "Welcome!",
+          heroInitialSub:
+            "This panel tracks your progress across the platform. You can start studying now, explore the Hub, or take the diagnostic with Rebeca later.",
+          rebecaInitial:
+            "To see more personalized recommendations here in the dashboard, take the diagnostic with Rebeca. But you can already study freely right now.",
+          profileExploring: "Starter dashboard",
+          profileExploringSummary:
+            "This dashboard gains more context as you enter courses, subjects, and activities. You can begin with the Hub, the study area, or the diagnostic with Rebeca.",
+          primaryTag: "Free start · Now",
+          primaryTitle: "Start from the study area",
+          primaryDesc:
+            "Open your study space right now and move at your own pace. Once you enter subjects and courses, this panel will become richer.",
+          next1Title: "Open study area",
+          next1Meta: "Workspace · immediate",
+          next2Title: "Explore the Hub",
+          next2Meta: "Platform · free",
+          next3Title: "Take diagnostic with Rebeca",
+          next3Meta: "Optional · recommended",
+          noNotes: "You do not have saved notes yet.",
+          openStudy: "Open study area →",
+          continueStudy: "Continue studying →",
+          lastNote: "Last note:",
+          savedAt: "Saved on ",
+          emptyActivity:
+            "Your starter dashboard is ready. Begin with the workspace, the Hub, or the diagnostic.",
+          noActivity: "No activity recorded yet. Start studying!",
+          noteSaved: "Note saved",
+          rebecaInteraction: "Interaction with Rebeca",
+          identified: "Identity confirmed",
+          onboardingComplete: "Diagnostic completed",
+          lines: "lines",
+        },
+        es: {
+          hello: "Hola, ",
+          statusComplete: "✓ Completo",
+          statusInitial: "Inicial",
+          heroWelcome: "¡Bienvenido!",
+          heroInitialSub:
+            "Este panel acompaña tu progreso dentro de la plataforma. Puedes comenzar a estudiar ahora, explorar el Hub o hacer el diagnóstico con Rebeca después.",
+          rebecaInitial:
+            "Para ver recomendaciones más personalizadas aquí en el dashboard, haz el diagnóstico con Rebeca. Pero ya puedes estudiar libremente desde ahora.",
+          profileExploring: "Panel inicial",
+          profileExploringSummary:
+            "Este dashboard gana más contexto a medida que entras en cursos, materias y actividades. Puedes comenzar por el Hub, el área de estudios o el diagnóstico con Rebeca.",
+          primaryTag: "Inicio libre · Ahora",
+          primaryTitle: "Comenzar por el área de estudios",
+          primaryDesc:
+            "Abre tu espacio de estudio ahora mismo y avanza a tu propio ritmo. Cuando entres en materias y cursos, este panel será más completo.",
+          next1Title: "Abrir área de estudios",
+          next1Meta: "Workspace · imediato",
+          next2Title: "Explorar el Hub",
+          next2Meta: "Plataforma · livre",
+          next3Title: "Hacer diagnóstico con Rebeca",
+          next3Meta: "Opcional · recomendado",
+          noNotes: "Aún no tienes notas guardadas.",
+          openStudy: "Abrir área de estudios →",
+          continueStudy: "Seguir estudiando →",
+          lastNote: "Última nota:",
+          savedAt: "Guardado el ",
+          emptyActivity:
+            "Tu dashboard inicial ya está listo. Comienza por el workspace, el Hub o el diagnóstico.",
+          noActivity:
+            "Todavía no hay actividad registrada. ¡Empieza a estudiar!",
+          noteSaved: "Nota guardada",
+          rebecaInteraction: "Interacción con Rebeca",
+          identified: "Identidad confirmada",
+          onboardingComplete: "Diagnóstico completado",
+          lines: "líneas",
+        },
+      };
 
-            document.getElementById("notesContent").innerHTML =
-              `<div class="notes-empty">${esc(copy.noNotes)}<br><br><a href="/workspace" class="notes-cta">${esc(copy.openStudy)}</a></div>`;
+      return copy[lang] || copy["pt-br"];
+    }
 
-            document.getElementById("activityContent").innerHTML =
-              `<div class="activity-empty">${esc(copy.emptyActivity)}</div>`;
+    async function loadDashboard() {
+      const lang = getLang();
+      const copy = getDashboardCopy(lang);
 
-            return;
-          }
+      try {
+        const res = await fetch("/api/dashboard");
+        const data = await res.json();
 
-          if (data.user?.name) {
-            document.getElementById("heroTitle").textContent =
-              copy.hello + data.user.name + "!";
-          }
+        document.getElementById("loadingState").style.display = "none";
+        document.getElementById("dashContent").style.display = "block";
 
-          const msgText = data.rebecaMessage || "";
-          document.getElementById("rebecaMsgText").innerHTML = esc(
-            msgText,
-          ).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        if (data.user?.name) {
+          document.getElementById("navUserName").textContent = data.user.name;
+        }
 
-          const badge = document.getElementById("profileBadge");
-          badge.textContent = data.profile.label;
-          badge.style.color = data.profile.color;
-          document.getElementById("profileSummary").textContent =
-            data.profile.summary;
-
-          document.getElementById("statStatus").textContent =
-            copy.statusComplete;
-          document.getElementById("statAnswers").textContent =
-            data.session?.messageCount || "5";
-
-          if (data.session?.completedAt) {
-            const d = new Date(data.session.completedAt);
-            const locale =
-              lang === "en" ? "en-US" : lang === "es" ? "es-ES" : "pt-BR";
-            document.getElementById("statDate").textContent =
-              d.toLocaleDateString(locale, {
-                day: "2-digit",
-                month: "short",
-              });
-          }
-
-          if (data.recommendation?.primaryPath) {
-            const p = data.recommendation.primaryPath;
-            document.getElementById("primaryCard").href = p.url;
-            document.getElementById("primaryIcon").textContent = p.icon;
-            document.getElementById("primaryTag").textContent =
-              p.tag + " · " + p.duration;
-            document.getElementById("primaryTitle").textContent = p.title;
-            document.getElementById("primaryDesc").textContent = p.description;
-          }
-
-          const grid = document.getElementById("nextGrid");
-          grid.innerHTML = "";
-          (data.recommendation?.nextSteps || []).forEach((n) => {
-            const a = document.createElement("a");
-            a.href = n.url;
-            a.className = "next-card";
-            a.innerHTML =
-              '<div class="next-icon">' +
-              esc(n.icon) +
-              "</div>" +
-              '<div class="next-title">' +
-              esc(n.title) +
-              "</div>" +
-              '<div class="next-meta">' +
-              esc(n.tag) +
-              " · " +
-              esc(n.duration) +
-              "</div>";
-            grid.appendChild(a);
-          });
-
-          const notesEl = document.getElementById("notesContent");
-          const locale =
-            lang === "en" ? "en-US" : lang === "es" ? "es-ES" : "pt-BR";
-
-          if (data.notes?.hasContent) {
-            notesEl.innerHTML =
-              '<div class="notes-content">' +
-              '<div class="notes-stat"><span class="notes-num">' +
-              data.notes.lineCount +
-              '</span><span class="notes-unit">' +
-              esc(copy.lines) +
-              "</span></div>" +
-              (data.notes.title
-                ? '<div class="notes-title">' +
-                  esc(copy.lastNote) +
-                  " <em>" +
-                  esc(data.notes.title) +
-                  "</em></div>"
-                : "") +
-              (data.notes.lastSaved
-                ? '<div class="notes-title" style="color:var(--subtle)">' +
-                  esc(copy.savedAt) +
-                  new Date(data.notes.lastSaved).toLocaleDateString(locale) +
-                  "</div>"
-                : "") +
-              '<a href="/workspace" class="notes-cta">' +
-              esc(copy.continueStudy) +
-              "</a>" +
-              "</div>";
-          } else {
-            notesEl.innerHTML =
-              '<div class="notes-empty">' +
-              esc(copy.noNotes) +
-              "<br><br>" +
-              '<a href="/workspace" class="notes-cta">' +
-              esc(copy.openStudy) +
-              "</a></div>";
-          }
-
-          const actEl = document.getElementById("activityContent");
-          if (data.recentActivity?.length > 0) {
-            const actionLabels = {
-              note_saved: copy.noteSaved,
-              agent_interaction: copy.rebecaInteraction,
-              identified: copy.identified,
-              onboarding_complete: copy.onboardingComplete,
-            };
-
-            const list = data.recentActivity
-              .map((a) => {
-                const label = actionLabels[a.action] || a.action;
-                const detail = a.detail ? " — " + a.detail : "";
-                const time = new Date(a.created_at).toLocaleString(locale, {
-                  day: "2-digit",
-                  month: "short",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                });
-
-                return (
-                  '<div class="activity-item">' +
-                  '<div class="activity-dot"></div>' +
-                  '<div class="activity-text">' +
-                  esc(label + detail) +
-                  '<span class="activity-time">' +
-                  time +
-                  "</span></div>" +
-                  "</div>"
-                );
-              })
-              .join("");
-
-            actEl.innerHTML = '<div class="activity-list">' + list + "</div>";
-          } else {
-            actEl.innerHTML =
-              '<div class="activity-empty">' + esc(copy.noActivity) + "</div>";
-          }
-        } catch (e) {
-          document.getElementById("loadingState").style.display = "none";
-          document.getElementById("dashContent").style.display = "block";
-
-          const copy = getDashboardCopy(getLang());
-
+        if (data.onboardingRequired || !data.profile) {
           document.getElementById("heroTitle").textContent = copy.heroWelcome;
           document.getElementById("heroSub").textContent = copy.heroInitialSub;
-          document.getElementById("rebecaMsgText").textContent =
-            copy.rebecaInitial;
-          document.getElementById("statStatus").textContent =
-            copy.statusInitial;
+          document.getElementById("rebecaMsgText").textContent = copy.rebecaInitial;
+
+          document.getElementById("statStatus").textContent = copy.statusInitial;
           document.getElementById("statAnswers").textContent = "0";
           document.getElementById("statDate").textContent = "—";
 
@@ -1221,37 +977,241 @@
           document.getElementById("primaryCard").href = "/workspace";
           document.getElementById("primaryIcon").textContent = "🧠";
           document.getElementById("primaryTag").textContent = copy.primaryTag;
-          document.getElementById("primaryTitle").textContent =
-            copy.primaryTitle;
+          document.getElementById("primaryTitle").textContent = copy.primaryTitle;
           document.getElementById("primaryDesc").textContent = copy.primaryDesc;
 
           document.getElementById("nextGrid").innerHTML = `
-            <a href="/workspace" class="next-card">
-              <div class="next-icon">📝</div>
-              <div class="next-title">${esc(copy.next1Title)}</div>
-              <div class="next-meta">${esc(copy.next1Meta)}</div>
-            </a>
-            <a href="/hub.html" class="next-card">
-              <div class="next-icon">🧭</div>
-              <div class="next-title">${esc(copy.next2Title)}</div>
-              <div class="next-meta">${esc(copy.next2Meta)}</div>
-            </a>
-            <a href="/onboarding" class="next-card">
-              <div class="next-icon">🤖</div>
-              <div class="next-title">${esc(copy.next3Title)}</div>
-              <div class="next-meta">${esc(copy.next3Meta)}</div>
-            </a>
-          `;
+          <a href="/workspace.html" class="next-card">
+            <div class="next-icon">📝</div>
+            <div class="next-title">${esc(copy.next1Title)}</div>
+            <div class="next-meta">${esc(copy.next1Meta)}</div>
+          </a>
+          <a href="/hub.html" class="next-card">
+            <div class="next-icon">🧭</div>
+            <div class="next-title">${esc(copy.next2Title)}</div>
+            <div class="next-meta">${esc(copy.next2Meta)}</div>
+          </a>
+          <a href="/onboarding.html" class="next-card">
+            <div class="next-icon">🤖</div>
+            <div class="next-title">${esc(copy.next3Title)}</div>
+            <div class="next-meta">${esc(copy.next3Meta)}</div>
+          </a>
+        `;
 
           document.getElementById("notesContent").innerHTML =
-            `<div class="notes-empty">${esc(copy.noNotes)}<br><br><a href="/workspace" class="notes-cta">${esc(copy.openStudy)}</a></div>`;
+            `<div class="notes-empty">${esc(copy.noNotes)}<br><br><a href="/workspace.html" class="notes-cta">${esc(copy.openStudy)}</a></div>`;
 
           document.getElementById("activityContent").innerHTML =
             `<div class="activity-empty">${esc(copy.emptyActivity)}</div>`;
-        }
-      }
 
+          return;
+        }
+
+        if (data.user?.name) {
+          document.getElementById("heroTitle").textContent =
+            copy.hello + data.user.name + "!";
+        }
+
+        const msgText = data.rebecaMessage || "";
+        document.getElementById("rebecaMsgText").innerHTML = esc(msgText).replace(
+          /\*\*(.+?)\*\*/g,
+          "<strong>$1</strong>"
+        );
+
+        const badge = document.getElementById("profileBadge");
+        badge.textContent = data.profile.label;
+        badge.style.color = data.profile.color;
+        document.getElementById("profileSummary").textContent =
+          data.profile.summary;
+
+        document.getElementById("statStatus").textContent = copy.statusComplete;
+        document.getElementById("statAnswers").textContent =
+          data.session?.messageCount || "5";
+
+        if (data.session?.completedAt) {
+          const d = new Date(data.session.completedAt);
+          const locale =
+            lang === "en" ? "en-US" : lang === "es" ? "es-ES" : "pt-BR";
+          document.getElementById("statDate").textContent = d.toLocaleDateString(
+            locale,
+            {
+              day: "2-digit",
+              month: "short",
+            }
+          );
+        }
+
+        if (data.recommendation?.primaryPath) {
+          const p = data.recommendation.primaryPath;
+          document.getElementById("primaryCard").href = p.url;
+          document.getElementById("primaryIcon").textContent = p.icon;
+          document.getElementById("primaryTag").textContent =
+            p.tag + " · " + p.duration;
+          document.getElementById("primaryTitle").textContent = p.title;
+          document.getElementById("primaryDesc").textContent = p.description;
+        }
+
+        const grid = document.getElementById("nextGrid");
+        grid.innerHTML = "";
+        (data.recommendation?.nextSteps || []).forEach((n) => {
+          const a = document.createElement("a");
+          a.href = n.url;
+          a.className = "next-card";
+          a.innerHTML =
+            '<div class="next-icon">' +
+            esc(n.icon) +
+            "</div>" +
+            '<div class="next-title">' +
+            esc(n.title) +
+            "</div>" +
+            '<div class="next-meta">' +
+            esc(n.tag) +
+            " · " +
+            esc(n.duration) +
+            "</div>";
+          grid.appendChild(a);
+        });
+
+        const notesEl = document.getElementById("notesContent");
+        const locale =
+          lang === "en" ? "en-US" : lang === "es" ? "es-ES" : "pt-BR";
+
+        if (data.notes?.hasContent) {
+          notesEl.innerHTML =
+            '<div class="notes-content">' +
+            '<div class="notes-stat"><span class="notes-num">' +
+            data.notes.lineCount +
+            '</span><span class="notes-unit">' +
+            esc(copy.lines) +
+            "</span></div>" +
+            (data.notes.title
+              ? '<div class="notes-title">' +
+              esc(copy.lastNote) +
+              " <em>" +
+              esc(data.notes.title) +
+              "</em></div>"
+              : "") +
+            (data.notes.lastSaved
+              ? '<div class="notes-title" style="color:var(--subtle)">' +
+              esc(copy.savedAt) +
+              new Date(data.notes.lastSaved).toLocaleDateString(locale) +
+              "</div>"
+              : "") +
+            '<a href="/workspace.html" class="notes-cta">' +
+            esc(copy.continueStudy) +
+            "</a>" +
+            "</div>";
+        } else {
+          notesEl.innerHTML =
+            '<div class="notes-empty">' +
+            esc(copy.noNotes) +
+            "<br><br>" +
+            '<a href="/workspace.html" class="notes-cta">' +
+            esc(copy.openStudy) +
+            "</a></div>";
+        }
+
+        const actEl = document.getElementById("activityContent");
+        if (data.recentActivity?.length > 0) {
+          const actionLabels = {
+            note_saved: copy.noteSaved,
+            agent_interaction: copy.rebecaInteraction,
+            identified: copy.identified,
+            onboarding_complete: copy.onboardingComplete,
+          };
+
+          const list = data.recentActivity
+            .map((a) => {
+              const label = actionLabels[a.action] || a.action;
+              const detail = a.detail ? " — " + a.detail : "";
+              const time = new Date(a.created_at).toLocaleString(locale, {
+                day: "2-digit",
+                month: "short",
+                hour: "2-digit",
+                minute: "2-digit",
+              });
+
+              return (
+                '<div class="activity-item">' +
+                '<div class="activity-dot"></div>' +
+                '<div class="activity-text">' +
+                esc(label + detail) +
+                '<span class="activity-time">' +
+                time +
+                "</span></div>" +
+                "</div>"
+              );
+            })
+            .join("");
+
+          actEl.innerHTML = '<div class="activity-list">' + list + "</div>";
+        } else {
+          actEl.innerHTML =
+            '<div class="activity-empty">' + esc(copy.noActivity) + "</div>";
+        }
+      } catch (e) {
+        document.getElementById("loadingState").style.display = "none";
+        document.getElementById("dashContent").style.display = "block";
+
+        const copy = getDashboardCopy(getLang());
+
+        document.getElementById("heroTitle").textContent = copy.heroWelcome;
+        document.getElementById("heroSub").textContent = copy.heroInitialSub;
+        document.getElementById("rebecaMsgText").textContent = copy.rebecaInitial;
+        document.getElementById("statStatus").textContent = copy.statusInitial;
+        document.getElementById("statAnswers").textContent = "0";
+        document.getElementById("statDate").textContent = "—";
+
+        const badge = document.getElementById("profileBadge");
+        badge.textContent = copy.profileExploring;
+        badge.style.color = "var(--accent)";
+        document.getElementById("profileSummary").textContent =
+          copy.profileExploringSummary;
+
+        document.getElementById("primaryCard").href = "/workspace.html";
+        document.getElementById("primaryIcon").textContent = "🧠";
+        document.getElementById("primaryTag").textContent = copy.primaryTag;
+        document.getElementById("primaryTitle").textContent = copy.primaryTitle;
+        document.getElementById("primaryDesc").textContent = copy.primaryDesc;
+
+        document.getElementById("nextGrid").innerHTML = `
+        <a href="/workspace.html" class="next-card">
+          <div class="next-icon">📝</div>
+          <div class="next-title">${esc(copy.next1Title)}</div>
+          <div class="next-meta">${esc(copy.next1Meta)}</div>
+        </a>
+        <a href="/hub.html" class="next-card">
+          <div class="next-icon">🧭</div>
+          <div class="next-title">${esc(copy.next2Title)}</div>
+          <div class="next-meta">${esc(copy.next2Meta)}</div>
+        </a>
+        <a href="/onboarding.html" class="next-card">
+          <div class="next-icon">🤖</div>
+          <div class="next-title">${esc(copy.next3Title)}</div>
+          <div class="next-meta">${esc(copy.next3Meta)}</div>
+        </a>
+      `;
+
+        document.getElementById("notesContent").innerHTML =
+          `<div class="notes-empty">${esc(copy.noNotes)}<br><br><a href="/workspace.html" class="notes-cta">${esc(copy.openStudy)}</a></div>`;
+
+        document.getElementById("activityContent").innerHTML =
+          `<div class="activity-empty">${esc(copy.emptyActivity)}</div>`;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
       loadDashboard();
-    </script>
-  </body>
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          setTimeout(() => {
+            loadDashboard();
+          }, 50);
+        });
+      });
+    });
+  </script>
+</body>
+
 </html>

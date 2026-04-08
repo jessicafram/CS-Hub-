@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Hub — Vagas</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #080c11;
+            --surface: #0d1117;
+            --surface-2: #111820;
+            --surface-3: #141c26;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-hi: rgba(46, 204, 113, 0.35);
+            --accent: #2ecc71;
+            --accent-dim: rgba(46, 204, 113, 0.1);
+            --accent-glow: rgba(46, 204, 113, 0.18);
+            --text: #e6edf3;
+            --muted: #6e7a8a;
+            --mono: "Fira Code", monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 40px;
+            min-height: 78px;
+            background: rgba(8, 12, 17, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 88px;
+        }
+
+
+        .nav-brand img.logo-img {
+            height: 72px !important;
+            width: auto !important;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.84rem;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.88;
+        }
+
+        .page-shell {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 36px 40px 64px;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            background:
+                radial-gradient(circle at 15% 30%, rgba(46, 204, 113, 0.20), transparent 35%),
+                radial-gradient(circle at 85% 20%, rgba(52, 152, 219, 0.14), transparent 28%),
+                linear-gradient(135deg, #0b1118 0%, #0d131c 55%, #111820 100%);
+            padding: 42px;
+            margin-bottom: 30px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            width: max-content;
+            background: rgba(46, 204, 113, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(46, 204, 113, 0.22);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.15rem;
+            line-height: 0.96;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            color: #fff;
+            max-width: 660px;
+        }
+
+        .hero p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            max-width: 720px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.18s, opacity 0.2s, border-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-btn.primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .hero-btn.secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .hero-visual {
+            min-height: 280px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background:
+                radial-gradient(circle at 30% 20%, rgba(46, 204, 113, 0.18), transparent 28%),
+                radial-gradient(circle at 80% 70%, rgba(52, 152, 219, 0.14), transparent 25%),
+                linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            padding: 20px;
+            display: grid;
+            gap: 12px;
+            align-content: center;
+        }
+
+        .mini-job {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 14px 16px;
+        }
+
+        .mini-job .line-1 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .mini-job .line-2 {
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-top: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+        }
+
+        .section-sub {
+            font-size: 0.92rem;
+            color: var(--muted);
+            max-width: 760px;
+            line-height: 1.7;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .filter-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.18s;
+        }
+
+        .filter-btn:hover {
+            color: var(--text);
+            border-color: rgba(46, 204, 113, 0.3);
+        }
+
+        .filter-btn.active {
+            color: var(--accent);
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.08);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 18px;
+        }
+
+        .job-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(46, 204, 113, 0.32);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
+        }
+
+        .job-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 14px;
+        }
+
+        .job-source {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.35;
+        }
+
+        .job-type {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            border-radius: 999px;
+            padding: 7px 10px;
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+
+        .job-desc {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            min-height: 72px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #b8c1cd;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.72rem;
+        }
+
+        .job-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 11px 15px;
+            width: max-content;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .source-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .source-card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .source-card p {
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .source-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 980px) {
+            .top-navbar {
+                padding: 14px 20px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 18px;
+                width: 100%;
+                order: 3;
+                justify-content: center;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .page-shell {
+                padding: 28px 20px 52px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                padding: 28px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-navbar">
+        <a href="/hub.html" class="nav-brand">
+            <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/hub.html" data-nav="hub">Hub</a></li>
+            <li><a href="/comunidade.html" data-nav="community">Comunidade</a></li>
+            <li><a href="/biblioteca.html" data-nav="library">Biblioteca</a></li>
+            <li><a href="/vagas/vagas.html" class="active" data-nav="jobs">Vagas</a></li>
+            <li><a href="/workspace" data-nav="study">Estudos</a></li>
+            <li><a href="/dashboard" data-nav="dashboard">Dashboard</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <a href="/workspace" class="nav-cta" id="navCta">Estude aqui</a>
+        </div>
+    </nav>
+
+    <main class="page-shell">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge" id="heroBadge">career launchpad</div>
+                    <h1 id="heroTitle">From Study to Opportunity</h1>
+                    <p id="heroSubtitle">
+                        O próximo passo do seu aprendizado é o mercado. Encontre vagas reais, portais confiáveis e
+                        trilhas de busca para estágio, júnior, remoto e crescimento internacional.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#vagas-reais" class="hero-btn primary" id="heroBtn1">Ver vagas agora</a>
+                        <a href="#fontes" class="hero-btn secondary" id="heroBtn2">Explorar fontes</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="mini-job">
+                        <div class="line-1">Frontend • Júnior • Remoto</div>
+                        <div class="line-2">Trilhas modernas com TypeScript, UI responsiva e portfólio real.</div>
+                    </div>
+                    <div class="mini-job">
+                        <div class="line-1">Backend • APIs • SQL</div>
+                        <div class="line-2">Vagas alinhadas com estudo de Node, Java, Python e arquitetura.</div>
+                    </div>
+                    <div class="mini-job">
+                        <div class="line-1">Data & AI • Pesquisa aplicada</div>
+                        <div class="line-2">Oportunidades para quem quer conectar base técnica e mercado global.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="vagas-reais">
+            <div class="section-header">
+                <div>
+                    <div class="section-label" id="jobsLabel">job board</div>
+                    <div class="section-title" id="jobsTitle">Vagas reais e links confiáveis</div>
+                </div>
+                <div class="section-sub" id="jobsSub">
+                    Filtre por tipo de oportunidade e use a página como ponto de partida para sua rotina de candidatura.
+                </div>
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="internship">Estágio</button>
+                <button class="filter-btn" data-filter="junior">Júnior</button>
+                <button class="filter-btn" data-filter="remote">Remoto</button>
+                <button class="filter-btn" data-filter="frontend">Front-end</button>
+                <button class="filter-btn" data-filter="backend">Back-end</button>
+                <button class="filter-btn" data-filter="data">Dados & IA</button>
+                <button class="filter-btn" data-filter="qa">QA</button>
+            </div>
+
+            <div class="jobs-grid" id="jobsGrid">
+                <article class="job-card" data-category="junior remote backend">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">ProgramaThor</div>
+                            <div class="job-title">Desenvolvedor(a) Web Full Stack Angular Remoto</div>
+                        </div>
+                        <span class="job-type">Remoto</span>
+                    </div>
+                    <div class="job-desc">
+                        Vaga real publicada no ProgramaThor para perfil full stack com Node.js e framework de frontend.
+                        Boa referência para quem está construindo base web moderna.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Júnior / Pleno</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">Node</span>
+                        <span class="tag">Full Stack</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://programathor.com.br/jobs/31266-desenvolvedor-a-web-full-stack-angular-remoto">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="frontend remote junior">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">ProgramaThor</div>
+                            <div class="job-title">Pessoa Desenvolvedora Front-end (VueJS | Tailwind | TypeScript)</div>
+                        </div>
+                        <span class="job-type">Front-end</span>
+                    </div>
+                    <div class="job-desc">
+                        Excelente exemplo de vaga alinhada com stack moderna de interface e componentização, útil para
+                        estudantes focados em web responsiva.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Vue</span>
+                        <span class="tag">Tailwind</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Remoto</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://programathor.com.br/jobs/28021-pessoa-desenvolvedora-front-end-vuejs-tailwind-typescript">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="backend remote">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">ProgramaThor</div>
+                            <div class="job-title">Desenvolvedor(a) Back-End Sênior</div>
+                        </div>
+                        <span class="job-type">Back-end</span>
+                    </div>
+                    <div class="job-desc">
+                        Referência útil para observar requisitos de APIs, bancos relacionais e integrações. Boa para
+                        benchmarking técnico mesmo em níveis mais altos.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Banco de Dados</span>
+                        <span class="tag">Arquitetura</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://programathor.com.br/jobs/31269-desenvolvedor-a-back-end-senior">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="internship backend junior">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">ProgramaThor</div>
+                            <div class="job-title">Trainee — Vaga Back-End</div>
+                        </div>
+                        <span class="job-type">Entrada</span>
+                    </div>
+                    <div class="job-desc">
+                        Boa referência para quem está migrando do estudo para a primeira oportunidade técnica, com foco
+                        em base de programação e inglês técnico.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Trainee</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Inglês</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://programathor.com.br/jobs/12830-trainee">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="remote qa">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">Remotar</div>
+                            <div class="job-title">Analista de Testes / Qualidade — Pleno</div>
+                        </div>
+                        <span class="job-type">QA</span>
+                    </div>
+                    <div class="job-desc">
+                        Exemplo real de vaga remota em qualidade e testes, útil para estudantes interessados em QA,
+                        automação e validação de software.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Qualidade</span>
+                        <span class="tag">Testes</span>
+                        <span class="tag">Remoto</span>
+                        <span class="tag">Tecnologia</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://remotar.com.br/job/130982/montreal-oficial/analista-de-testesqualidade-pleno">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="remote data">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">Remotar</div>
+                            <div class="job-title">Cientista de Dados / Desenvolvedor de Software</div>
+                        </div>
+                        <span class="job-type">Dados & IA</span>
+                    </div>
+                    <div class="job-desc">
+                        Vaga remota com interseção entre ciência de dados, software e impacto público. Ótima referência
+                        para quem quer trilha técnica avançada.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Data Science</span>
+                        <span class="tag">IA</span>
+                        <span class="tag">Software</span>
+                        <span class="tag">Remoto</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://remotar.com.br/job/131336/montreal-oficial/cientista-de-dadosdesenvolvedor-de-software-senior">
+                        Abrir vaga
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="remote backend">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">Gupy</div>
+                            <div class="job-title">Busca por vagas remotas / home office</div>
+                        </div>
+                        <span class="job-type">Portal</span>
+                    </div>
+                    <div class="job-desc">
+                        Busca ampla para oportunidades remotas. Boa porta de entrada para montar rotina diária de
+                        candidatura em diferentes empresas.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Home Office</span>
+                        <span class="tag">Busca aberta</span>
+                        <span class="tag">Empresas</span>
+                        <span class="tag">Tecnologia</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer"
+                        href="https://portal.gupy.io/job-search/workplaceTypes%5B%5D%3Dremote">
+                        Abrir portal
+                    </a>
+                </article>
+
+                <article class="job-card" data-category="junior remote backend frontend">
+                    <div class="job-top">
+                        <div>
+                            <div class="job-source">Stefanini</div>
+                            <div class="job-title">Página de carreiras para tecnologia</div>
+                        </div>
+                        <span class="job-type">Empresa-alvo</span>
+                    </div>
+                    <div class="job-desc">
+                        Página de carreira útil para acompanhar oportunidades frequentes em tecnologia, transformação
+                        digital e projetos corporativos.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Carreiras</span>
+                        <span class="tag">Tech</span>
+                        <span class="tag">Global</span>
+                        <span class="tag">Empresa</span>
+                    </div>
+                    <a class="job-link" target="_blank" rel="noopener noreferrer" href="https://stefanini.gupy.io/">
+                        Ver oportunidades
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="fontes">
+            <div class="section-header">
+                <div>
+                    <div class="section-label" id="sourcesLabel">trusted sources</div>
+                    <div class="section-title" id="sourcesTitle">Fontes para acompanhar toda semana</div>
+                </div>
+                <div class="section-sub" id="sourcesSub">
+                    Em vez de depender de uma vaga isolada, acompanhe fontes que continuam úteis ao longo da sua
+                    jornada.
+                </div>
+            </div>
+
+            <div class="sources-grid">
+                <article class="source-card">
+                    <h3>ProgramaThor</h3>
+                    <p id="source1Desc">
+                        Plataforma brasileira focada em desenvolvedores, com vagas de programação e tecnologia em
+                        diferentes stacks.
+                    </p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://programathor.com.br/">Explorar
+                        plataforma</a>
+                </article>
+
+                <article class="source-card">
+                    <h3>Remotar</h3>
+                    <p id="source2Desc">
+                        Curadoria de vagas 100% remotas em tecnologia, produto, design e outras áreas com forte presença
+                        digital.
+                    </p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://remotar.com.br/">Explorar plataforma</a>
+                </article>
+
+                <article class="source-card">
+                    <h3>Portal Gupy</h3>
+                    <p id="source3Desc">
+                        Grande agregador de vagas usado por muitas empresas. Excelente para buscas recorrentes por
+                        remoto, estágio e júnior.
+                    </p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://portal.gupy.io/">Explorar plataforma</a>
+                </article>
+
+                <article class="source-card">
+                    <h3>Stefanini Careers</h3>
+                    <p id="source4Desc">
+                        Página de carreira de uma empresa global de tecnologia, útil para acompanhar abertura de
+                        oportunidades e perfis-alvo.
+                    </p>
+                    <a target="_blank" rel="noopener noreferrer" href="https://stefanini.gupy.io/">Explorar
+                        carreiras</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const jobsCopy = {
+            "pt-br": {
+                nav: {
+                    hub: "Hub",
+                    community: "Comunidade",
+                    library: "Biblioteca",
+                    jobs: "Vagas",
+                    study: "Estudos",
+                    dashboard: "Dashboard"
+                },
+                navCta: "Estude aqui",
+                heroBadge: "career launchpad",
+                heroTitle: "From Study to Opportunity",
+                heroSubtitle: "O próximo passo do seu aprendizado é o mercado. Encontre vagas reais, portais confiáveis e trilhas de busca para estágio, júnior, remoto e crescimento internacional.",
+                heroBtn1: "Ver vagas agora",
+                heroBtn2: "Explorar fontes",
+                jobsLabel: "job board",
+                jobsTitle: "Vagas reais e links confiáveis",
+                jobsSub: "Filtre por tipo de oportunidade e use a página como ponto de partida para sua rotina de candidatura.",
+                sourcesLabel: "trusted sources",
+                sourcesTitle: "Fontes para acompanhar toda semana",
+                sourcesSub: "Em vez de depender de uma vaga isolada, acompanhe fontes que continuam úteis ao longo da sua jornada.",
+                source1Desc: "Plataforma brasileira focada em desenvolvedores, com vagas de programação e tecnologia em diferentes stacks.",
+                source2Desc: "Curadoria de vagas 100% remotas em tecnologia, produto, design e outras áreas com forte presença digital.",
+                source3Desc: "Grande agregador de vagas usado por muitas empresas. Excelente para buscas recorrentes por remoto, estágio e júnior.",
+                source4Desc: "Página de carreira de uma empresa global de tecnologia, útil para acompanhar abertura de oportunidades e perfis-alvo.",
+                filters: {
+                    all: "Todos",
+                    internship: "Estágio",
+                    junior: "Júnior",
+                    remote: "Remoto",
+                    frontend: "Front-end",
+                    backend: "Back-end",
+                    data: "Dados & IA",
+                    qa: "QA"
+                }
+            },
+            en: {
+                nav: {
+                    hub: "Hub",
+                    community: "Community",
+                    library: "Library",
+                    jobs: "Jobs",
+                    study: "Study",
+                    dashboard: "Dashboard"
+                },
+                navCta: "Study here",
+                heroBadge: "career launchpad",
+                heroTitle: "From Study to Opportunity",
+                heroSubtitle: "Your next learning step is the market. Find real openings, trusted portals and search paths for internships, junior roles, remote work and global growth.",
+                heroBtn1: "See jobs now",
+                heroBtn2: "Explore sources",
+                jobsLabel: "job board",
+                jobsTitle: "Real openings and trusted links",
+                jobsSub: "Filter by opportunity type and use this page as the starting point for your application routine.",
+                sourcesLabel: "trusted sources",
+                sourcesTitle: "Sources to monitor every week",
+                sourcesSub: "Instead of depending on a single opening, follow sources that remain useful throughout your journey.",
+                source1Desc: "Brazilian platform focused on developers, with programming and technology jobs across different stacks.",
+                source2Desc: "Curated remote jobs in technology, product, design and other digitally-driven areas.",
+                source3Desc: "Large job aggregator used by many companies. Excellent for recurring searches for remote, internship and junior roles.",
+                source4Desc: "Career page of a global technology company, useful for monitoring new openings and target profiles.",
+                filters: {
+                    all: "All",
+                    internship: "Internship",
+                    junior: "Junior",
+                    remote: "Remote",
+                    frontend: "Frontend",
+                    backend: "Backend",
+                    data: "Data & AI",
+                    qa: "QA"
+                }
+            },
+            es: {
+                nav: {
+                    hub: "Hub",
+                    community: "Comunidad",
+                    library: "Biblioteca",
+                    jobs: "Vacantes",
+                    study: "Estudios",
+                    dashboard: "Dashboard"
+                },
+                navCta: "Estudia aquí",
+                heroBadge: "career launchpad",
+                heroTitle: "From Study to Opportunity",
+                heroSubtitle: "El siguiente paso de tu aprendizaje es el mercado. Encuentra vacantes reales, portales confiables y rutas de búsqueda para prácticas, junior, remoto y crecimiento global.",
+                heroBtn1: "Ver vacantes ahora",
+                heroBtn2: "Explorar fuentes",
+                jobsLabel: "job board",
+                jobsTitle: "Vacantes reales y enlaces confiables",
+                jobsSub: "Filtra por tipo de oportunidad y usa esta página como punto de partida para tu rutina de postulaciones.",
+                sourcesLabel: "trusted sources",
+                sourcesTitle: "Fuentes para seguir cada semana",
+                sourcesSub: "En lugar de depender de una sola vacante, sigue fuentes que seguirán siendo útiles durante tu trayectoria.",
+                source1Desc: "Plataforma brasileña enfocada en desarrolladores, con vacantes de programación y tecnología en diferentes stacks.",
+                source2Desc: "Curaduría de vacantes 100% remotas en tecnología, producto, diseño y otras áreas digitales.",
+                source3Desc: "Gran agregador de vacantes usado por muchas empresas. Excelente para búsquedas recurrentes de remoto, prácticas y junior.",
+                source4Desc: "Página de carreras de una empresa global de tecnología, útil para monitorear nuevas oportunidades y perfiles objetivo.",
+                filters: {
+                    all: "Todos",
+                    internship: "Prácticas",
+                    junior: "Junior",
+                    remote: "Remoto",
+                    frontend: "Front-end",
+                    backend: "Back-end",
+                    data: "Datos & IA",
+                    qa: "QA"
+                }
+            }
+        };
+
+        function getLang() {
+            return localStorage.getItem("cshub_language") || "pt-br";
+        }
+
+        function applyLanguage() {
+            const lang = getLang();
+            const copy = jobsCopy[lang] || jobsCopy["pt-br"];
+
+            document.documentElement.setAttribute("lang", lang);
+
+            document.querySelector('[data-nav="hub"]').textContent = copy.nav.hub;
+            document.querySelector('[data-nav="community"]').textContent = copy.nav.community;
+            document.querySelector('[data-nav="library"]').textContent = copy.nav.library;
+            document.querySelector('[data-nav="jobs"]').textContent = copy.nav.jobs;
+            document.querySelector('[data-nav="study"]').textContent = copy.nav.study;
+            document.querySelector('[data-nav="dashboard"]').textContent = copy.nav.dashboard;
+
+            document.getElementById("navCta").textContent = copy.navCta;
+            document.getElementById("heroBadge").textContent = copy.heroBadge;
+            document.getElementById("heroTitle").textContent = copy.heroTitle;
+            document.getElementById("heroSubtitle").textContent = copy.heroSubtitle;
+            document.getElementById("heroBtn1").textContent = copy.heroBtn1;
+            document.getElementById("heroBtn2").textContent = copy.heroBtn2;
+            document.getElementById("jobsLabel").textContent = copy.jobsLabel;
+            document.getElementById("jobsTitle").textContent = copy.jobsTitle;
+            document.getElementById("jobsSub").textContent = copy.jobsSub;
+            document.getElementById("sourcesLabel").textContent = copy.sourcesLabel;
+            document.getElementById("sourcesTitle").textContent = copy.sourcesTitle;
+            document.getElementById("sourcesSub").textContent = copy.sourcesSub;
+            document.getElementById("source1Desc").textContent = copy.source1Desc;
+            document.getElementById("source2Desc").textContent = copy.source2Desc;
+            document.getElementById("source3Desc").textContent = copy.source3Desc;
+            document.getElementById("source4Desc").textContent = copy.source4Desc;
+
+            document.querySelectorAll(".filter-btn").forEach((btn) => {
+                const key = btn.dataset.filter;
+                if (copy.filters[key]) btn.textContent = copy.filters[key];
+                btn.classList.toggle("active", btn.classList.contains("active"));
+            });
+
+            document.querySelectorAll(".lang-btn").forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.lang === lang);
+            });
+        }
+
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const cards = document.querySelectorAll(".job-card");
+
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    filterButtons.forEach((b) => b.classList.remove("active"));
+                    button.classList.add("active");
+
+                    const filter = button.dataset.filter;
+
+                    cards.forEach((card) => {
+                        const categories = card.dataset.category.split(" ");
+                        const visible = filter === "all" || categories.includes(filter);
+                        card.style.display = visible ? "flex" : "none";
+                    });
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            applyLanguage();
+            setupFilters();
+
+            document.querySelectorAll(".lang-btn").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    localStorage.setItem("cshub_language", btn.dataset.lang);
+                    applyLanguage();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

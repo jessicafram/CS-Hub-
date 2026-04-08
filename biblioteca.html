@@ -1,4 +1,3 @@
-''
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,7 +22,7 @@
             color: #cbd5e1;
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 40px;
+            padding: 0;
         }
 
         .header-lib {
@@ -339,35 +338,74 @@
                 font-size: 1.45rem;
             }
         }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 88px;
+        }
+
+
+        .nav-brand img.logo-img {
+            height: 72px !important;
+            width: auto !important;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.1);
+        }
     </style>
 </head>
 
 <body>
 
     <nav class="top-navbar">
-        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
-            <div class="nav-logo">
-                <img src="assets/logo-jessica.jpg" alt="Jessica França" class="logo-img">
-                <div class="logo-text-wrapper">
-                    <span class="hub-title" style="font-family: 'Fira Code', monospace;">CS Hub &lt;/&gt;</span>
-                    <span class="jessica-signature" style="font-family: 'Dancing Script', cursive;">Jessica
-                        França</span>
-                </div>
-            </div>
+        <a href="/hub.html" class="nav-brand">
+            <img src="assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
         </a>
 
         <ul class="nav-links">
-            <li><a href="index.html" data-i18n="nav_academic">Trilha Acadêmica</a></li>
-            <li><a href="vagas/vagas.html" data-i18n="nav_jobs">Mural de Vagas</a></li>
-            <li><a href="biblioteca.html" data-i18n="nav_library">Tech Library & Insights</a></li>
-            <li><a href="comunidade.html" data-i18n="nav_community">Comunidade Discord</a></li>
+            <li><a href="/hub.html" data-i18n="nav.hub">Hub</a></li>
+            <li><a href="index.html" data-i18n="nav.tracks">Trilha Acadêmica</a></li>
+            <li><a href="/vagas.html" data-i18n="nav.vagas">Mural de Vagas</a></li>
+            <li><a href="/biblioteca.html" class="active" data-i18n="nav.library">Tech Library & Insights</a></li>
+            <li><a href="/comunidade.html" data-i18n="nav.community">Comunidade Discord</a></li>
         </ul>
-        <div class="language-switcher" aria-label="Language selector">
-            <button class="lang-btn active" data-lang="pt">PT</button>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="pt-br">PT</button>
             <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
         </div>
 
-        <a href="workspace.html" class="btn-notion" data-i18n="nav_workspace">
+        <a href="/workspace.html" class="btn-notion" data-i18n="nav.study_here">
             Estude por aqui (Crie seu Espaço)
         </a>
     </nav>
@@ -569,8 +607,9 @@
 
         </div>
     </div>
-    <script src="../js/biblioteca.js"></script>
-    <script src="../js/i18n.js"></script>
+    <script src="/js/biblioteca.js"></script>
+    <script src="/js/translations.js"></script>
+    <script src="/js/i18n.js"></script>
 
 </body>
 
