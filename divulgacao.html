@@ -559,21 +559,26 @@
             </a>
 
             <div class="nav-actions">
-                <button onclick="openModal()" class="btn-outline">O Projeto 👁️</button>
-                <a href="#inscrever" class="btn-primary">Acesso Antecipado</a>
+                <button onclick="openModal()" class="btn-outline" data-i18n="divulgacao_nav_project">O Projeto
+                    👁️</button>
+                <a href="#inscrever" class="btn-primary" data-i18n="divulgacao_nav_access">Acesso Antecipado</a>
             </div>
         </nav>
 
         <section class="hero">
             <div class="hero-content">
                 <div class="tag"
-                    style="color: var(--accent-green); border-color: var(--accent-green); background: rgba(46, 204, 113, 0.1);">
+                    style="color: var(--accent-green); border-color: var(--accent-green); background: rgba(46, 204, 113, 0.1);"
+                    data-i18n="divulgacao_hero_tag">
                     Em Pleno Desenvolvimento 🏗️</div>
-                <h1>A ponte definitiva entre o código e o <span class="gradient-text">Vale do Silício.</span></h1>
-                <p>O mercado de tecnologia elitizou-se. Nós estamos a quebrar essa barreira. Engenharia de Software de
+                <h1 data-i18n="divulgacao_hero_title">A ponte definitiva entre o código e o <span
+                        class="gradient-text">Vale do Silício.</span></h1>
+                <p data-i18n="divulgacao_hero_description">O mercado de tecnologia elitizou-se. Nós estamos a quebrar
+                    essa barreira. Engenharia de Software de
                     nível superior, arquitetura de sistemas e matemática computacional. <strong>100% gratuito. Para
                         todos.</strong></p>
-                <a href="index.html" class="btn-primary" style="display: inline-block;">Acessar o CS Hub ▶</a>
+                <a href="index.html" class="btn-primary" style="display: inline-block;"
+                    data-i18n="divulgacao_hero_button">Acessar o CS Hub ▶</a>
             </div>
 
             <div class="hero-image-container">
@@ -581,8 +586,10 @@
                 <div class="floating-badge">
                     <div style="font-size: 2rem;">🚀</div>
                     <div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Status do Projeto</div>
-                        <div style="font-weight: bold; color: #fff;">Construindo o Legado</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="divulgacao_badge_status">
+                            Status do Projeto</div>
+                        <div style="font-weight: bold; color: #fff;" data-i18n="divulgacao_badge_title">Construindo o
+                            Legado</div>
                     </div>
                 </div>
             </div>
@@ -591,7 +598,7 @@
 
     <section class="manifesto">
         <div class="container">
-            <p class="manifesto-text">
+            <p class="manifesto-text" data-i18n="divulgacao_manifesto">
                 "Você não precisa ser rico para aprender <span class="manifesto-highlight">Engenharia de Software de
                     verdade</span>. Sistemas transformam dados; <span class="manifesto-highlight">a educação transforma
                     vidas</span>."
@@ -601,81 +608,96 @@
 
     <section id="curriculum" class="curriculum">
         <div class="container">
-            <h2 class="section-title">O Que Você Vai <span class="gradient-text">Dominar</span></h2>
-            <p class="section-subtitle">Uma grade curricular desenhada para separar Tarefeiros de Engenheiros.</p>
+            <h2 class="section-title" data-i18n="divulgacao_curriculum_title">O Que Você Vai <span
+                    class="gradient-text">Dominar</span></h2>
+            <p class="section-subtitle" data-i18n="divulgacao_curriculum_subtitle">Uma grade curricular desenhada para
+                separar Tarefeiros de Engenheiros.</p>
 
-            <h3 class="group-title"><span style="color: var(--accent-blue);">🎓</span> Grade de Bacharelado</h3>
+            <h3 class="group-title"><span style="color: var(--accent-blue);">🎓</span> <span
+                    data-i18n="divulgacao_group_bachelor">Grade de Bacharelado</span></h3>
             <div class="grid-cards">
                 <div class="course-card">
                     <span class="tag">80 HORAS • AVANÇADO</span>
-                    <h3>Engenharia de Backend</h3>
-                    <p>A anatomia completa de uma API de Pagamentos. De design de arquitetura limpa e RBAC até proteção
+                    <h3 data-i18n="divulgacao_backend_title">Engenharia de Backend</h3>
+                    <p data-i18n="divulgacao_backend_description">A anatomia completa de uma API de Pagamentos. De
+                        design de arquitetura limpa e RBAC até proteção
                         contra falhas em cascata.</p>
                     <ul>
-                        <li>✓ Transações ACID & Bancos Relacionais</li>
-                        <li>✓ Idempotência e Resiliência de Rede</li>
-                        <li>✓ Z-Score e Failover Preditivo</li>
+                        <li data-i18n="divulgacao_backend_feature1">✓ Transações ACID & Bancos Relacionais</li>
+                        <li data-i18n="divulgacao_backend_feature2">✓ Idempotência e Resiliência de Rede</li>
+                        <li data-i18n="divulgacao_backend_feature3">✓ Z-Score e Failover Preditivo</li>
                     </ul>
-                    <div style="color: var(--accent-blue); font-weight: bold; font-size: 0.85rem;">10 Módulos Concluídos
-                        ✨</div>
-                </div>
-
-                <div class="course-card">
-                    <span class="tag">80 HORAS • FUNDAMENTOS</span>
-                    <h3>Matemática Discreta</h3>
-                    <p>A linguagem nativa dos processadores. Abandone a decoreba e aprenda como a matemática abstrata se
-                        transforma em código de alta performance.</p>
-                    <ul>
-                        <li>✓ Lógica Proposicional e De Morgan</li>
-                        <li>✓ Teoria dos Conjuntos e SQL JOINs</li>
-                        <li>✓ O Algoritmo da Análise Combinatória</li>
-                    </ul>
-                    <div style="color: var(--accent-green); font-weight: bold; font-size: 0.85rem;">Módulos em
-                        Desenvolvimento 🏗️</div>
+                    <div style="color: var(--accent-green); font-weight: bold; font-size: 0.85rem;"
+                        data-i18n="divulgacao_backend_status">10 Módulos Concluídos ✨</div>
+                    ✨
                 </div>
             </div>
 
-            <h3 class="group-title"><span style="color: var(--accent-purple);">⚡</span> Especializações de Mercado</h3>
-            <div class="grid-cards">
-                <div class="course-card">
-                    <span class="tag"
-                        style="color: #e74c3c; border-color: rgba(231, 76, 60, 0.3); background: rgba(231, 76, 60, 0.1);">NÍVEL
-                        MESTRADO • DESIGN</span>
-                    <h3>IHC e Experiência (UX)</h3>
-                    <p>A psicologia cognitiva por trás de interfaces que convertem e engajam. Não é sobre telas bonitas,
-                        é sobre engenharia comportamental.</p>
-                    <ul>
-                        <li>✓ Heurísticas de Nielsen e Usabilidade</li>
-                        <li>✓ Carga Cognitiva e Fitts's Law</li>
-                        <li>✓ Arquitetura de Informação</li>
-                    </ul>
-                    <div style="color: #e74c3c; font-weight: bold; font-size: 0.85rem;">Módulos em Desenvolvimento 🎨
-                    </div>
-                </div>
+            <div class="course-card">
+                <span class="tag">80 HORAS • FUNDAMENTOS</span>
+                <h3 data-i18n="divulgacao_math_title">Matemática Discreta</h3>
+                <p data-i18n="divulgacao_math_description">A linguagem nativa dos processadores. Abandone a decoreba e
+                    aprenda como a matemática abstrata se
+                    transforma em código de alta performance.</p>
+                <ul>
+                    <li data-i18n="divulgacao_math_feature1">✓ Lógica Proposicional e De Morgan</li>
+                    <li data-i18n="divulgacao_math_feature2">✓ Teoria dos Conjuntos e SQL JOINs</li>
+                    <li data-i18n="divulgacao_math_feature3">✓ O Algoritmo da Análise Combinatória</li>
+                </ul>
+                <div style="color: var(--accent-green); font-weight: bold; font-size: 0.85rem;"
+                    data-i18n="divulgacao_math_status">Módulos em
+                    Desenvolvimento 🏗️</div>
+            </div>
+        </div>
 
-                <div class="course-card">
-                    <span class="tag"
-                        style="color: var(--accent-orange); border-color: rgba(243, 156, 18, 0.3); background: rgba(243, 156, 18, 0.1);">EM
-                        ALTA 🔥 • AUTOMAÇÃO & IA</span>
-                    <h3>Agentes de IA e Automação (n8n)</h3>
-                    <p>A revolução da automação. Construa agentes autônomos, integre APIs complexas e multiplique a
-                        produtividade sem boilerplate code.</p>
-                    <ul>
-                        <li>✓ Webhooks e Integrações de APIs</li>
-                        <li>✓ Orquestração de Agentes de IA</li>
-                        <li>✓ Fluxos de Trabalho Escaláveis</li>
-                    </ul>
-                    <div style="color: var(--accent-orange); font-weight: bold; font-size: 0.85rem;">Em Breve 🚀</div>
+        <h3 class="group-title"><span style="color: var(--accent-purple);">⚡</span> <span
+                data-i18n="divulgacao_group_specializations">Especializações de Mercado</span></h3>
+        <div class="grid-cards">
+            <div class="course-card">
+                <span class="tag"
+                    style="color: #e74c3c; border-color: rgba(231, 76, 60, 0.3); background: rgba(231, 76, 60, 0.1);">NÍVEL
+                    MESTRADO • DESIGN</span>
+                <h3 data-i18n="divulgacao_ihc_title">IHC e Experiência (UX)</h3>
+                <p data-i18n="divulgacao_ihc_description">A psicologia cognitiva por trás de interfaces que convertem e
+                    engajam. Não é sobre telas bonitas,
+                    é sobre engenharia comportamental.</p>
+                <ul>
+                    <li data-i18n="divulgacao_ihc_feature1">✓ Heurísticas de Nielsen e Usabilidade</li>
+                    <li data-i18n="divulgacao_ihc_feature2">✓ Carga Cognitiva e Fitts's Law</li>
+                    <li data-i18n="divulgacao_ihc_feature3">✓ Arquitetura de Informação</li>
+                </ul>
+                <div style="color: #e74c3c; font-weight: bold; font-size: 0.85rem;" data-i18n="divulgacao_ihc_status">
+                    Módulos em Desenvolvimento 🎨
                 </div>
             </div>
+
+            <div class="course-card">
+                <span class="tag"
+                    style="color: var(--accent-orange); border-color: rgba(243, 156, 18, 0.3); background: rgba(243, 156, 18, 0.1);">EM
+                    ALTA 🔥 • AUTOMAÇÃO & IA</span>
+                <h3 data-i18n="divulgacao_n8n_title">Agentes de IA e Automação (n8n)</h3>
+                <p data-i18n="divulgacao_n8n_description">A revolução da automação. Construa agentes autônomos, integre
+                    APIs complexas e multiplique a
+                    produtividade sem boilerplate code.</p>
+                <ul>
+                    <li data-i18n="divulgacao_n8n_feature1">✓ Webhooks e Integrações de APIs</li>
+                    <li data-i18n="divulgacao_n8n_feature2">✓ Orquestração de Agentes de IA</li>
+                    <li data-i18n="divulgacao_n8n_feature3">✓ Fluxos de Trabalho Escaláveis</li>
+                </ul>
+                <div style="color: var(--accent-orange); font-weight: bold; font-size: 0.85rem;"
+                    data-i18n="divulgacao_n8n_status">Em Breve 🚀</div>
+            </div>
+        </div>
         </div>
     </section>
 
     <section class="just-beginning">
         <div class="just-beginning-content">
-            <h2 style="font-size: 3rem; margin-bottom: 15px; color: #fff; letter-spacing: -1px;">E, acredite... <span
-                    class="gradient-text">Isso é só o começo.</span></h2>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 3rem; margin-bottom: 15px; color: #fff; letter-spacing: -1px;"
+                data-i18n="divulgacao_beginning_title">E, acredite... <span class="gradient-text">Isso é só o
+                    começo.</span></h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;"
+                data-i18n="divulgacao_beginning_text">
                 O CS Hub não é um curso estático. É um ecossistema vivo. Estamos trabalhando continuamente nos
                 bastidores para adicionar novas disciplinas, arquiteturas avançadas, simuladores dinâmicos e ferramentas
                 modernas.
@@ -686,14 +708,16 @@
     <section id="inscrever" class="cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Faça parte da <span
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;" data-i18n="divulgacao_cta_title">Faça parte da <span
                         class="gradient-text">Revolução</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Junte-se à
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;"
+                    data-i18n="divulgacao_cta_text">Junte-se à
                     lista de espera para ser um dos primeiros a ter acesso à plataforma completa.</p>
                 <form class="email-form"
                     onsubmit="event.preventDefault(); alert('Obrigado pelo interesse! Em breve enviaremos novidades.');">
                     <input type="email" class="email-input" placeholder="Seu melhor e-mail..." required>
-                    <button type="submit" class="btn-primary">Garantir Meu Acesso</button>
+                    <button type="submit" class="btn-primary" data-i18n="divulgacao_cta_button">Garantir Meu
+                        Acesso</button>
                 </form>
             </div>
         </div>

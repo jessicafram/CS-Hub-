@@ -185,7 +185,7 @@
             flex-shrink: 0;
         }
 
-        .lang-sw {
+        .lang-switcher {
             display: flex;
             align-items: center;
             background: var(--surface2);
@@ -195,7 +195,7 @@
             gap: 2px;
         }
 
-        .lang-sw button {
+        .lang-switcher .lang-btn {
             padding: 4px 8px;
             border: none;
             background: transparent;
@@ -208,12 +208,12 @@
             text-transform: uppercase;
         }
 
-        .lang-sw button:hover {
+        .lang-switcher .lang-btn:hover {
             color: var(--text);
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .lang-sw button.lang-active {
+        .lang-switcher .lang-btn.active {
             background: var(--accent);
             color: #080c11;
         }
@@ -1454,7 +1454,7 @@
             transition: all .2s;
         }
 
-        button[data-lang].lang-active {
+        button[data-lang].active {
             background: var(--accent) !important;
             color: #080c11 !important;
             border-color: var(--accent) !important;
@@ -1584,7 +1584,7 @@
         </ul>
 
         <div class="nav-right">
-            <div class="lang-sw">
+            <div class="lang-switcher">
                 <button class="lang-btn" data-lang="pt-br">PT</button>
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="es">ES</button>
@@ -1624,9 +1624,9 @@
         <a href="#pricing" data-i18n="nav.plans">Planos</a>
         <a href="/login.html" data-i18n="nav.login">Entrar</a>
         <div class="mnav-lang">
-            <button data-lang="pt-br">PT-BR</button>
-            <button data-lang="en">EN</button>
-            <button data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt-br">PT-BR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
         </div>
     </nav>
 

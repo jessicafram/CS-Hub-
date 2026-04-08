@@ -137,8 +137,8 @@
 <body>
     <div class="wrap">
         <div class="hero">
-            <h1>Planos e Assinaturas do CS Hub</h1>
-            <p>
+            <h1 data-i18n="subscription_title">Planos e Assinaturas do CS Hub</h1>
+            <p data-i18n="subscription_description">
                 Escolha o plano que mais combina com sua jornada. Nesta fase de validação, a estrutura comercial já está
                 sendo apresentada,
                 mas o acesso permanece temporariamente liberado para testes.
@@ -146,57 +146,63 @@
         </div>
 
         <div class="notice">
-            <strong>Aviso importante:</strong> no momento, todos os acessos estão liberados gratuitamente durante a fase
+            <strong data-i18n="subscription_notice">Aviso importante:</strong> no momento, todos os acessos estão
+            liberados gratuitamente durante a fase
             de testes da plataforma.
             Futuramente, áreas e recursos premium dependerão de assinatura ativa.
         </div>
 
         <div class="grid">
             <div class="card">
-                <div class="tag">Starter</div>
-                <div class="price">Grátis por 30 dias</div>
-                <div class="muted">Ideal para começar e conhecer a experiência do CS Hub.</div>
+                <div class="tag" data-i18n="starter_tag">Starter</div>
+                <div class="price" data-i18n="starter_price">Grátis por 30 dias</div>
+                <div class="muted" data-i18n="starter_description">Ideal para começar e conhecer a experiência do CS
+                    Hub.</div>
                 <ul>
-                    <li>Cursos introdutórios</li>
-                    <li>Trilhas básicas</li>
-                    <li>Labs de entrada</li>
-                    <li>Onboarding com a Rebeca</li>
+                    <li data-i18n="starter_feature1">Cursos introdutórios</li>
+                    <li data-i18n="starter_feature2">Trilhas básicas</li>
+                    <li data-i18n="starter_feature3">Labs de entrada</li>
+                    <li data-i18n="starter_feature4">Onboarding com a Rebeca</li>
                 </ul>
-                <a class="btn btn-primary" href="login.html">Começar grátis</a>
+                <a class="btn btn-primary" href="login.html" data-i18n="starter_button">Começar grátis</a>
             </div>
 
             <div class="card featured">
-                <div class="tag">Pro</div>
-                <div class="price">12x de R$ 49,75</div>
-                <div class="muted">Acesso completo à plataforma, certificados e suporte expandido.</div>
+                <div class="tag" data-i18n="pro_tag">Pro</div>
+                <div class="price" data-i18n="pro_price">12x de R$ 49,75</div>
+                <div class="muted" data-i18n="pro_description">Acesso completo à plataforma, certificados e suporte
+                    expandido.</div>
                 <ul>
-                    <li>Todos os cursos e trilhas</li>
-                    <li>Labs práticos completos</li>
-                    <li>Certificados</li>
-                    <li>Suporte expandido da Rebeca</li>
+                    <li data-i18n="pro_feature1">Todos os cursos e trilhas</li>
+                    <li data-i18n="pro_feature2">Labs práticos completos</li>
+                    <li data-i18n="pro_feature3">Certificados</li>
+                    <li data-i18n="pro_feature4">Suporte expandido da Rebeca</li>
                 </ul>
-                <a class="btn btn-secondary" href="#">Assinar plano Pro</a>
+                <a class="btn btn-secondary" href="#" data-i18n="pro_button">Assinar plano Pro</a>
             </div>
 
             <div class="card">
-                <div class="tag">Global</div>
-                <div class="price">12x de R$ 83,08</div>
-                <div class="muted">Para quem busca mercado internacional e preparação premium.</div>
+                <div class="tag" data-i18n="global_tag">Global</div>
+                <div class="price" data-i18n="global_price">12x de R$ 83,08</div>
+                <div class="muted" data-i18n="global_description">Para quem busca mercado internacional e preparação
+                    premium.</div>
                 <ul>
-                    <li>Interview Lab</li>
-                    <li>Multinational Lab</li>
-                    <li>Preparação para mercado global</li>
-                    <li>Experiências premium de carreira</li>
+                    <li data-i18n="global_feature1">Interview Lab</li>
+                    <li data-i18n="global_feature2">Multinational Lab</li>
+                    <li data-i18n="global_feature3">Preparação para mercado global</li>
+                    <li data-i18n="global_feature4">Experiências premium de carreira</li>
                 </ul>
-                <a class="btn btn-secondary" href="#">Assinar plano Global</a>
+                <a class="btn btn-secondary" href="#" data-i18n="global_button">Assinar plano Global</a>
             </div>
         </div>
 
         <div class="extra">
-            <a href="login.html">Entrar com acesso temporário gratuito</a>
-            <a href="index.html">Voltar para a home</a>
+            <a href="login.html" data-i18n="subscription_temp_access">Entrar com acesso temporário gratuito</a>
+            <a href="index.html" data-i18n="subscription_back_home">Voltar para a home</a>
         </div>
     </div>
+    <script src="/js/translations.js"></script>
+    <script src="/js/i18n.js"></script>
 </body>
 
 </html>

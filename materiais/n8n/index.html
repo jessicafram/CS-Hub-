@@ -220,11 +220,19 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
-            <span style="color: var(--n8n-color); font-size: 0.9rem; font-weight: bold;">Extensão (Automação)</span>
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
+                data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
+            <span style="color: var(--n8n-color); font-size: 0.9rem; font-weight: bold;"
+                data-i18n="materials_n8n_category">Extensão (Automação)</span>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Agentes de IA</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;"
+            data-i18n="materials_n8n_signature">Agentes de IA</span>
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="pt-br">PT</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
     </nav>
 
     <div class="dashboard-layout">
@@ -232,9 +240,11 @@
         <main>
             <div class="course-header">
                 <span class="badge-tech"
-                    style="background: var(--n8n-bg); color: var(--n8n-color); border: 1px solid var(--n8n-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CURSO
+                    style="background: var(--n8n-bg); color: var(--n8n-color); border: 1px solid var(--n8n-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;"
+                    data-i18n="materials_n8n_badge">CURSO
                     DE EXTENSÃO</span>
-                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">Especialista em
+                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;"
+                    data-i18n="materials_n8n_title">Especialista em
                     Agentes de IA com n8n</h1>
                 <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
                     Domine a via profissional de automação e manipulação de JSON. Integre LLMs a ferramentas do mundo
@@ -242,48 +252,56 @@
                 </p>
             </div>
 
-            <h2
-                style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;">
+            <h2 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;"
+                data-i18n="materials_n8n_lessons_title">
                 Aulas da Especialização</h2>
 
             <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
                 <div>
                     <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
+                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_lesson_prefix">AULA
                         01</span>
                     <h3 style="color: #fff; margin: 5px 0;">Instalação Profissional</h3>
                 </div>
-                <a href="n8n-aula-01.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="n8n-aula-01.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
+                    Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
                 <div>
                     <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
+                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_lesson_prefix">AULA
                         02</span>
                     <h3 style="color: #fff; margin: 5px 0;">Manipulação de Dados</h3>
                 </div>
-                <a href="n8n-aula-02.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="n8n-aula-02.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
+                    Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
                 <div>
                     <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
+                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_lesson_prefix">AULA
                         03</span>
                     <h3 style="color: #fff; margin: 5px 0;">Lógica de Fluxo Avançada</h3>
                 </div>
-                <a href="n8n-aula-03.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="n8n-aula-03.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
+                    Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
                 <div>
                     <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
+                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_lesson_prefix">AULA
                         04</span>
                     <h3 style="color: #fff; margin: 5px 0;">O Cérebro da IA</h3>
                 </div>
-                <a href="n8n-aula-04.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="n8n-aula-04.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
+                    Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -293,7 +311,8 @@
                         05</span>
                     <h3 style="color: #fff; margin: 5px 0;">Memória e Contexto</h3>
                 </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
+                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
+                    data-i18n="materials_status_soon">Em Breve 🔒</button>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -303,7 +322,8 @@
                         06</span>
                     <h3 style="color: #fff; margin: 5px 0;">Inteligência Ativa (Tools)</h3>
                 </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
+                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
+                    data-i18n="materials_status_soon">Em Breve 🔒</button>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -313,7 +333,8 @@
                         07</span>
                     <h3 style="color: #fff; margin: 5px 0;">Base de Conhecimento RAG</h3>
                 </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
+                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
+                    data-i18n="materials_status_soon">Em Breve 🔒</button>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -323,7 +344,8 @@
                         08</span>
                     <h3 style="color: #fff; margin: 5px 0;">Tratamento de Erros</h3>
                 </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
+                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
+                    data-i18n="materials_status_soon">Em Breve 🔒</button>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -333,7 +355,8 @@
                         09</span>
                     <h3 style="color: #fff; margin: 5px 0;">Webhooks Avançados</h3>
                 </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
+                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
+                    data-i18n="materials_status_soon">Em Breve 🔒</button>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
@@ -443,6 +466,8 @@
             }, 2500);
         }
     </script>
+    <script src="../../js/translations.js"></script>
+    <script src="../../js/i18n.js"></script>
 </body>
 
 </html>

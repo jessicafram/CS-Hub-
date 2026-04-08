@@ -7,6 +7,7 @@
     <title>Global English for Tech & Careers | CS Hub</title>
     <meta name="description"
         content="Formação em inglês para tecnologia, entrevistas e comunicação profissional global no CS Hub." />
+    <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="english.css" />
 </head>
 
@@ -22,12 +23,17 @@
             </a>
 
             <nav class="english-nav">
-                <a href="../../index.html" class="english-nav__home">← Voltar ao CS Hub</a>
-                <a href="#overview">Visão Geral</a>
-                <a href="#tracks">Trilhas</a>
-                <a href="#labs">Labs</a>
-                <a href="#resources">Recursos</a>
+                <a href="../../index.html" class="english-nav__home" data-i18n="english_nav_home">← Voltar ao CS Hub</a>
+                <a href="#overview" data-i18n="english_nav_overview">Visão Geral</a>
+                <a href="#tracks" data-i18n="english_nav_tracks">Trilhas</a>
+                <a href="#labs" data-i18n="english_nav_labs">Labs</a>
+                <a href="#resources" data-i18n="english_nav_resources">Recursos</a>
             </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
         </div>
     </header>
 
@@ -39,27 +45,30 @@
             </div>
 
             <div class="english-hero__content">
-                <span class="english-badge">Formação Estratégica</span>
+                <span class="english-badge" data-i18n="english_badge_strategic">Formação Estratégica</span>
                 <h2 class="english-hero__title">
-                    Inglês para tecnologia, entrevistas e empresas multinacionais
+                    <span data-i18n="english_hero_title">Inglês para tecnologia, entrevistas e empresas
+                        multinacionais</span>
                 </h2>
-                <p class="english-hero__text">
+                <p class="english-hero__text" data-i18n="english_hero_text">
                     Uma formação construída para desenvolver inglês com aplicação real em
                     documentação técnica, reuniões, entrevistas, portfólio e comunicação
                     profissional global.
                 </p>
 
                 <div class="english-hero__actions">
-                    <a class="english-button english-button--primary" href="#tracks">Explorar trilhas</a>
-                    <a class="english-button english-button--ghost" href="dashboard.html">Ver dashboard</a>
+                    <a class="english-button english-button--primary" href="#tracks"
+                        data-i18n="english_explore_tracks">Explorar trilhas</a>
+                    <a class="english-button english-button--ghost" href="dashboard.html"
+                        data-i18n="english_view_dashboard">Ver dashboard</a>
                 </div>
             </div>
         </section>
 
         <section class="english-section" id="tracks">
             <div class="english-section__header">
-                <span class="english-section__eyebrow">Estrutura da formação</span>
-                <h3 class="english-section__title">Trilhas principais</h3>
+                <span class="english-section__eyebrow" data-i18n="english_structure_title">Estrutura da formação</span>
+                <h3 class="english-section__title" data-i18n="english_tracks_title">Trilhas principais</h3>
                 <p class="english-section__text">
                     A formação foi organizada em fases progressivas, com foco em uso real
                     da língua no contexto de tecnologia e carreira internacional.
@@ -101,8 +110,8 @@
 
         <section class="english-section" id="labs">
             <div class="english-section__header">
-                <span class="english-section__eyebrow">Prática aplicada</span>
-                <h3 class="english-section__title">Labs e simulações</h3>
+                <span class="english-section__eyebrow" data-i18n="english_practice_title">Prática aplicada</span>
+                <h3 class="english-section__title" data-i18n="english_labs_title">Labs e simulações</h3>
                 <p class="english-section__text">
                     Espaços dedicados para speaking, listening, vocabulary practice e
                     preparação para entrevistas e ambiente multinacional.
@@ -134,23 +143,23 @@
 
         <section class="english-section" id="resources">
             <div class="english-section__header">
-                <span class="english-section__eyebrow">Acesso rápido</span>
-                <h3 class="english-section__title">Recursos da formação</h3>
+                <span class="english-section__eyebrow" data-i18n="english_access_title">Acesso rápido</span>
+                <h3 class="english-section__title" data-i18n="english_resources_title">Recursos da formação</h3>
             </div>
 
             <div class="english-links">
                 <a class="english-link-card" href="dashboard.html">
-                    <strong>Dashboard</strong>
+                    <strong data-i18n="english_dashboard">Dashboard</strong>
                     <span>Acompanhar progresso e checkpoints</span>
                 </a>
 
                 <a class="english-link-card" href="glossary.html">
-                    <strong>Glossary</strong>
+                    <strong data-i18n="english_glossary">Glossary</strong>
                     <span>Vocabulário técnico e profissional</span>
                 </a>
 
                 <a class="english-link-card" href="capstone.html">
-                    <strong>Capstone</strong>
+                    <strong data-i18n="english_capstone">Capstone</strong>
                     <span>Projeto final integrador</span>
                 </a>
             </div>
@@ -158,10 +167,12 @@
     </main>
 
     <footer class="english-footer">
-        <p>CS Hub · Global English for Tech & Careers</p>
+        <p data-i18n="english_footer">CS Hub · Global English for Tech & Careers</p>
     </footer>
 
     <script src="english.js"></script>
+    <script src="../../js/translations.js"></script>
+    <script src="../../js/i18n.js"></script>
 </body>
 
 </html>

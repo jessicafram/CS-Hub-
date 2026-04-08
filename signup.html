@@ -82,29 +82,31 @@
 
 <body>
     <div class="card">
-        <h1>Criar conta no CS Hub</h1>
-        <p>Esta é a área provisória de cadastro da fase de testes. Em breve ela será integrada ao fluxo final da
+        <h1 data-i18n="signup_title">Criar conta no CS Hub</h1>
+        <p data-i18n="signup_description">Esta é a área provisória de cadastro da fase de testes. Em breve ela será integrada ao fluxo final da
             plataforma.</p>
 
-        <label for="nome">Nome</label>
-        <input id="nome" type="text" placeholder="Seu nome completo">
+        <label for="nome" data-i18n="signup_name_label">Nome</label>
+        <input id="nome" type="text" placeholder="Seu nome completo" data-i18n-placeholder="signup_name_placeholder">
 
-        <label for="email">E-mail</label>
-        <input id="email" type="email" placeholder="seuemail@exemplo.com">
+        <label for="email" data-i18n="signup_email_label">E-mail</label>
+        <input id="email" type="email" placeholder="seuemail@exemplo.com" data-i18n-placeholder="signup_email_placeholder">
 
-        <label for="senha">Senha</label>
-        <input id="senha" type="password" placeholder="Crie uma senha">
+        <label for="senha" data-i18n="signup_password_label">Senha</label>
+        <input id="senha" type="password" placeholder="Crie uma senha" data-i18n-placeholder="signup_password_placeholder">
 
-        <label for="confirmar">Confirmar senha</label>
-        <input id="confirmar" type="password" placeholder="Repita sua senha">
+        <label for="confirmar" data-i18n="signup_confirm_label">Confirmar senha</label>
+        <input id="confirmar" type="password" placeholder="Repita sua senha" data-i18n-placeholder="signup_confirm_placeholder">
 
-        <button class="btn">Criar conta</button>
+        <button class="btn" data-i18n="signup_button">Criar conta</button>
 
         <div class="links">
-            <a href="login.html">Já tenho conta</a>
-            <a href="index.html">Voltar para a home</a>
+            <a href="login.html" data-i18n="signup_have_account">Já tenho conta</a>
+            <a href="index.html" data-i18n="signup_back_home">Voltar para a home</a>
         </div>
     </div>
+    <script src="/js/translations.js"></script>
+    <script src="/js/i18n.js"></script>
 </body>
 
 </html>

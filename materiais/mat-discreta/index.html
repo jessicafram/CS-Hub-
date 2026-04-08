@@ -263,11 +263,19 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
-            <span style="color: #3498db; font-size: 0.9rem; font-weight: bold;">Ciência da Computação</span>
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
+                data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
+            <span style="color: #3498db; font-size: 0.9rem; font-weight: bold;"
+                data-i18n="materials_nav_computing">Ciência da Computação</span>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">1º Período</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_nav_period">1º
+            Período</span>
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="pt-br">PT</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
     </nav>
 
     <div class="dashboard-layout">
@@ -275,7 +283,8 @@
         <main>
             <div class="course-header">
                 <span class="badge-tech"
-                    style="background: rgba(52, 152, 219, 0.2); color: #3498db; border: 1px solid #3498db; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CARGA
+                    style="background: rgba(52, 152, 219, 0.2); color: #3498db; border: 1px solid #3498db; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;"
+                    data-i18n="materials_workload">CARGA
                     HORÁRIA: 80 HORAS</span>
                 <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">Matemática Discreta
                 </h1>
@@ -292,25 +301,31 @@
             <div class="module-card" style="border-left: 4px solid #3498db;">
                 <div>
                     <span
-                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
-                        01</span>
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">01</span>
                     <h3 style="color: #fff; margin: 5px 0;">Fundamentos da Lógica</h3>
                     <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Lógica Proposicional, Tabelas-Verdade e
                         Quantificadores.</p>
                 </div>
-                <a href="modulo-01/1-1-fundamentos-logica.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="modulo-01/1-1-fundamentos-logica.html" class="btn-access btn-secondary"
+                    data-i18n="materials_access_lesson">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
                 <div>
                     <span
-                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">MÓDULO
-                        02</span>
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">02</span>
                     <h3 style="color: #fff; margin: 5px 0;">Teoria dos Conjuntos</h3>
                     <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">A base matemática para Bancos de Dados
                         Relacionais.</p>
                 </div>
-                <a href="modulo-02/2-1-teoria-conjuntos.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="modulo-02/2-1-teoria-conjuntos.html" class="btn-access btn-secondary"
+                    data-i18n="materials_access_lesson">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
@@ -322,7 +337,8 @@
                     <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Entendendo funções recursivas e loops na
                         memória.</p>
                 </div>
-                <a href="modulo-03/3-1-inducao-recursividade.html" class="btn-access btn-secondary">Acessar Aula ▶</a>
+                <a href="modulo-03/3-1-inducao-recursividade.html" class="btn-access btn-secondary"
+                    data-i18n="materials_access_lesson">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
@@ -371,9 +387,11 @@
             <div id="view-menu" class="view-container view-active">
                 <div
                     style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
-                    <h2 style="margin: 0; color: #3498db; font-size: 1.4rem;">🧠 Área de Treinamento</h2>
+                    <h2 style="margin: 0; color: #3498db; font-size: 1.4rem;" data-i18n="materials_training_area">🧠
+                        Área de Treinamento</h2>
                 </div>
-                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;">Escolha o simulado do módulo que deseja
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;" data-i18n="materials_choose_simulado">
+                    Escolha o simulado do módulo que deseja
                     praticar.</p>
 
                 <div class="training-card" style="border-left: 4px solid #3498db;">
@@ -382,21 +400,24 @@
                         01</span>
                     <h3 style="color: #fff; margin: 5px 0 10px 0;">Fundamentos da Lógica</h3>
                     <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
-                        onclick="openView('view-mod-01')">Começar Simulado ▶</button>
+                        onclick="openView('view-mod-01')" data-i18n="materials_start_simulado">Começar Simulado
+                        ▶</button>
                 </div>
 
                 <div class="training-card">
                     <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 02</span>
                     <h3 style="color: #fff; margin: 5px 0 10px 0;">Teoria dos Conjuntos</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
-                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                        onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
+                        ▶</button>
                 </div>
 
                 <div class="training-card">
                     <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 03</span>
                     <h3 style="color: #fff; margin: 5px 0 10px 0;">Indução e Recursividade</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
-                        onclick="openView('view-generic')">Começar Simulado ▶</button>
+                        onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
+                        ▶</button>
                 </div>
 
                 <div class="training-card" style="border-left: 4px solid #3498db;">
@@ -405,7 +426,8 @@
                         04</span>
                     <h3 style="color: #fff; margin: 5px 0 10px 0;">Análise Combinatória</h3>
                     <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
-                        onclick="openView('view-mod-04')">Começar Simulado ▶</button>
+                        onclick="openView('view-mod-04')" data-i18n="materials_start_simulado">Começar Simulado
+                        ▶</button>
                 </div>
 
                 <div class="training-card">
@@ -424,17 +446,21 @@
             </div>
 
             <div id="view-generic" class="view-container">
-                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+                <button class="btn-back" onclick="openView('view-menu')" data-i18n="materials_back_simulados">⬅ Voltar
+                    aos Simulados</button>
                 <div style="text-align: center; margin-top: 60px;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">🚧</div>
-                    <h3 style="color: #3498db; font-size: 1.3rem;">Simulado em Construção</h3>
-                    <p style="color: #888; line-height: 1.6;">As questões deste módulo estão sendo preparadas pela
+                    <div style="font-size: 3rem; margin-bottom: 15px;" data-i18n="materials_under_construction">🚧</div>
+                    <h3 style="color: #3498db; font-size: 1.3rem;" data-i18n="materials_simulado_construction">Simulado
+                        em Construção</h3>
+                    <p style="color: #888; line-height: 1.6;" data-i18n="materials_simulado_description">As questões
+                        deste módulo estão sendo preparadas pela
                         plataforma e serão liberadas em breve.</p>
                 </div>
             </div>
 
             <div id="view-mod-01" class="view-container">
-                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+                <button class="btn-back" onclick="openView('view-menu')" data-i18n="materials_back_simulados">⬅ Voltar
+                    aos Simulados</button>
 
                 <div style="margin-bottom: 25px;">
                     <h3 style="color: #3498db; font-size: 1.3rem; margin: 0 0 5px 0;">Simulado: Fundamentos da Lógica
@@ -485,7 +511,8 @@
             </div>
 
             <div id="view-mod-04" class="view-container">
-                <button class="btn-back" onclick="openView('view-menu')">⬅ Voltar aos Simulados</button>
+                <button class="btn-back" onclick="openView('view-menu')" data-i18n="materials_back_simulados">⬅ Voltar
+                    aos Simulados</button>
 
                 <div style="margin-bottom: 25px;">
                     <h3 style="color: #3498db; font-size: 1.3rem; margin: 0 0 5px 0;">Simulado: Análise Combinatória
@@ -847,6 +874,9 @@
             }
         }
     </script>
+
+    <script src="../../js/translations.js"></script>
+    <script src="../../js/i18n.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de Java Básico - CS Hub</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
@@ -137,6 +137,11 @@
                 </a>
             </li>
         </ul>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="pt-br">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
         <a href="workspace.html" class="btn-notion"
             style="text-decoration: none; display: inline-block; text-align: center;">Estude por aqui (Crie seu
             Espaço)</a>
@@ -151,35 +156,36 @@
     <main class="modules-grid">
 
         <div class="module-card">
-            <span class="module-number">// Módulo 01</span>
+            <span class="module-number" data-i18n="materials_module">// Módulo 01</span>
             <h3>O Ecossistema Java</h3>
             <p>Entenda a diferença entre JDK, JRE e JVM. Como o Java compila e executa o código em qualquer máquina.</p>
             <a href="java-aula1.html" class="btn-start">Começar Aula</a>
         </div>
 
         <div class="module-card">
-            <span class="module-number">// Módulo 02</span>
+            <span class="module-number" data-i18n="materials_module">// Módulo 02</span>
             <h3>Sintaxe e Variáveis</h3>
             <p>A estrutura de uma classe, método main, tipos primitivos e como o Java lida com a memória.</p>
             <a href="#" class="btn-start">Em Breve</a>
         </div>
 
         <div class="module-card">
-            <span class="module-number">// Módulo 03</span>
+            <span class="module-number" data-i18n="materials_module">// Módulo 03</span>
             <h3>Operadores e Decisões</h3>
             <p>Operadores lógicos, aritméticos e controle de fluxo com estruturas if/else e switch case.</p>
             <a href="#" class="btn-start">Em Breve</a>
         </div>
 
         <div class="module-card">
-            <span class="module-number">// Módulo 04</span>
+            <span class="module-number" data-i18n="materials_module">// Módulo 04</span>
             <h3>Laços de Repetição</h3>
             <p>Automatizando tarefas com for, while e do-while. Evitando loops infinitos e travamentos.</p>
             <a href="#" class="btn-start">Em Breve</a>
         </div>
 
     </main>
-
+    <script src="../../js/translations.js"></script>
+    <script src="../../js/i18n.js"></script>
 </body>
 
 </html>

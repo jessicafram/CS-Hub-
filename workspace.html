@@ -119,6 +119,36 @@
       border-radius: 50%;
     }
 
+    /* ── LANG SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: #6e7a8a;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: "Fira Code", monospace;
+      transition: all 0.15s;
+    }
+
+    .lang-btn:hover {
+      color: #e6edf3;
+      border-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .lang-btn.active {
+      color: var(--accent);
+      border-color: rgba(46, 204, 113, 0.35);
+      background: rgba(46, 204, 113, 0.1);
+    }
+
     /* ── NAME OVERLAY ── */
     .name-overlay {
       display: none;
@@ -719,10 +749,15 @@
       <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img">
     </a>
     <ul class="nav-links">
-      <li><a href="/hub.html">Hub</a></li>
-      <li><a href="/dashboard.html">Dashboard</a></li>
-      <li><a href="/workspace.html" class="active">Estudos</a></li>
+      <li><a href="/hub.html" data-i18n="nav.hub">Hub</a></li>
+      <li><a href="/dashboard.html" data-i18n="nav.dashboard">Dashboard</a></li>
+      <li><a href="/workspace.html" class="active" data-i18n="nav.workspace">Estudos</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="pt-br">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
     <div class="nav-user" id="navUser" title="Clique para identificar-se">
       <div class="nav-user-dot"></div>
       <span id="navUserName">Anônimo</span>
@@ -732,300 +767,307 @@
   <div class="name-overlay" id="nameOverlay">
     <div class="name-box">
       <img src="/assets/rebeca.jpeg" alt="Rebeca" onerror="this.style.display='none'">
-      <h2>Como você quer ser chamado?</h2>
-      <p>Seu nome personaliza a experiência e mantém suas notas organizadas com continuidade.</p>
+      <h2 data-i18n="workspace_name_title">Como você quer ser chamado?</h2>
+      <p data-i18n="workspace_name_desc">Seu nome personaliza a experiência e mantém suas notas organizadas com
+        continuidade.</p>
       <input class="name-input" id="nameInput" type="text" placeholder="Seu primeiro nome..." maxlength="40"
-        autocomplete="off">
-      <button class="name-submit" id="nameSubmit">Salvar e continuar →</button>
-      <span class="name-skip" id="nameSkip">Continuar sem identificar</span>
-    </div>
-  </div>
+        autocomplete="off" data-i18n-placeholder="workspace_name_placeholder">
+      <button class="name-submit" id="nameSubmit" data-i18n="workspace_name_save">Salvar e continuar →</button>
+      <span class="name-skip" id="nameSkip" data-i18n="workspace_name_skip">Continuar sem identificar</span>
+      <div class="workspace">
 
-  <div class="workspace">
+        <section class="editor-panel">
+          <div class="editor-topbar">
+            <div class="editor-title-wrap">
+              <input class="editor-title" id="noteTitle" type="text" placeholder="Título da nota..." maxlength="80"
+                data-i18n-placeholder="workspace_title_placeholder">
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span class="save-status" id="saveStatus" data-i18n="workspace_unsaved">Não salvo</span>
+              <button class="save-btn" id="saveBtn" data-i18n="workspace_save_btn">Salvar</button>
+            </div>
+          </div>
 
-    <section class="editor-panel">
-      <div class="editor-topbar">
-        <div class="editor-title-wrap">
-          <input class="editor-title" id="noteTitle" type="text" placeholder="Título da nota..." maxlength="80">
-        </div>
-        <div style="display:flex;align-items:center;gap:12px">
-          <span class="save-status" id="saveStatus">Não salvo</span>
-          <button class="save-btn" id="saveBtn">Salvar</button>
-        </div>
-      </div>
-
-      <div class="editor-body">
-        <textarea class="editor-textarea" id="noteContent" placeholder="Escreva suas anotações aqui...
+          <div class="editor-body">
+            <textarea class="editor-textarea" id="noteContent" placeholder="Escreva suas anotações aqui...
 
 Dicas para boas notas:
 • Use títulos para organizar seções
 • Escreva exemplos com suas próprias palavras
 • Anote dúvidas e perguntas
 
-Quando terminar, peça à Rebeca para resumir, refletir ou organizar seu conteúdo →" spellcheck="true"></textarea>
+Quando terminar, peça à Rebeca para resumir, refletir ou organizar seu conteúdo →" spellcheck="true"
+              data-i18n-placeholder="workspace_content_placeholder"></textarea>
+          </div>
+
+          <div class="editor-footer">
+            <span class="editor-meta" id="wordCount">0 palavras</span>
+            <span class="editor-meta" id="lastSaved"></span>
+          </div>
+        </section>
+
+        <aside class="agent-panel">
+          <div class="rebeca-companion">
+            <img src="/assets/rebeca.jpeg" class="companion-img" alt="Rebeca"
+              onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')">
+            <div>
+              <div class="companion-name" data-i18n="workspace_agent_name">Rebeca</div>
+              <div class="companion-role" data-i18n="workspace_agent_role">// Agente Socrático</div>
+            </div>
+            <div class="companion-status"></div>
+          </div>
+
+          <div class="modes-bar" id="modesBar">
+            <button class="mode-btn" data-mode="summarize" data-i18n="workspace_mode_summarize">📋 Resumir</button>
+            <button class="mode-btn" data-mode="reflect" data-i18n="workspace_mode_reflect">🤔 Refletir</button>
+            <button class="mode-btn" data-mode="organize" data-i18n="workspace_mode_organize">🗂️ Organizar</button>
+            <button class="mode-btn" data-mode="simplify" data-i18n="workspace_mode_simplify">💡 Simplificar</button>
+            <button class="mode-btn" data-mode="outline" data-i18n="workspace_mode_outline">🗺️ Roteiro</button>
+            <button class="mode-btn" data-mode="next_step" data-i18n="workspace_mode_next_step">🎯 Próximo
+              Passo</button>
+          </div>
+
+          <div class="agent-messages" id="agentMessages">
+            <div class="agent-msg">
+              <div class="block-text" data-i18n="workspace_agent_welcome">Olá! Estou aqui enquanto você estuda. Escreva
+                suas notas à esquerda e use os botões
+                acima para interagir comigo de forma socrática — não para receber respostas prontas, mas para pensar com
+                mais profundidade.</div>
+            </div>
+            <div class="agent-typing" id="agentTyping">
+              <div class="typing-dots"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <div class="agent-input-wrap">
+            <textarea class="agent-input" id="agentInput" rows="1" placeholder="Ou faça uma pergunta livre..."
+              oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"
+              data-i18n-placeholder="workspace_agent_placeholder"></textarea>
+            <button class="agent-send" id="agentSend" title="Enviar"
+              data-i18n-title="workspace_agent_send_title">↑</button>
+          </div>
+        </aside>
       </div>
 
-      <div class="editor-footer">
-        <span class="editor-meta" id="wordCount">0 palavras</span>
-        <span class="editor-meta" id="lastSaved"></span>
-      </div>
-    </section>
+      <script>
+        let autoSaveTimer = null;
 
-    <aside class="agent-panel">
-      <div class="rebeca-companion">
-        <img src="/assets/rebeca.jpeg" class="companion-img" alt="Rebeca"
-          onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')">
-        <div>
-          <div class="companion-name">Rebeca</div>
-          <div class="companion-role">// Agente Socrático</div>
-        </div>
-        <div class="companion-status"></div>
-      </div>
+        async function init() {
+          try {
+            const res = await fetch('/api/workspace');
+            const data = await res.json();
 
-      <div class="modes-bar" id="modesBar">
-        <button class="mode-btn" data-mode="summarize">📋 Resumir</button>
-        <button class="mode-btn" data-mode="reflect">🤔 Refletir</button>
-        <button class="mode-btn" data-mode="organize">🗂️ Organizar</button>
-        <button class="mode-btn" data-mode="simplify">💡 Simplificar</button>
-        <button class="mode-btn" data-mode="outline">🗺️ Roteiro</button>
-        <button class="mode-btn" data-mode="next_step">🎯 Próximo Passo</button>
-      </div>
+            if (data.user?.name) {
+              document.getElementById('navUserName').textContent = data.user.name;
+            } else {
+              document.getElementById('nameOverlay').classList.add('visible');
+            }
 
-      <div class="agent-messages" id="agentMessages">
-        <div class="agent-msg">
-          <div class="block-text">Olá! Estou aqui enquanto você estuda. Escreva suas notas à esquerda e use os botões
-            acima para interagir comigo de forma socrática — não para receber respostas prontas, mas para pensar com
-            mais profundidade.</div>
-        </div>
-        <div class="agent-typing" id="agentTyping">
-          <div class="typing-dots"><span></span><span></span><span></span></div>
-        </div>
-      </div>
+            if (data.note?.content) {
+              document.getElementById('noteTitle').value = data.note.title || '';
+              document.getElementById('noteContent').value = data.note.content;
+              updateWordCount();
+              if (data.note.last_saved) {
+                const d = new Date(data.note.last_saved);
+                document.getElementById('lastSaved').textContent = 'Salvo ' + d.toLocaleDateString('pt-BR');
+              }
+            }
 
-      <div class="agent-input-wrap">
-        <textarea class="agent-input" id="agentInput" rows="1" placeholder="Ou faça uma pergunta livre..."
-          oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
-        <button class="agent-send" id="agentSend" title="Enviar">↑</button>
-      </div>
-    </aside>
-  </div>
-
-  <script>
-    let autoSaveTimer = null;
-
-    async function init() {
-      try {
-        const res = await fetch('/api/workspace');
-        const data = await res.json();
-
-        if (data.user?.name) {
-          document.getElementById('navUserName').textContent = data.user.name;
-        } else {
-          document.getElementById('nameOverlay').classList.add('visible');
-        }
-
-        if (data.note?.content) {
-          document.getElementById('noteTitle').value = data.note.title || '';
-          document.getElementById('noteContent').value = data.note.content;
-          updateWordCount();
-          if (data.note.last_saved) {
-            const d = new Date(data.note.last_saved);
-            document.getElementById('lastSaved').textContent = 'Salvo ' + d.toLocaleDateString('pt-BR');
+            if (data.agentHistory?.length > 0) {
+              data.agentHistory.forEach(i => appendAgentBlocks(i.agent_response, true));
+            }
+          } catch (e) {
+            console.error('Init error:', e);
           }
         }
 
-        if (data.agentHistory?.length > 0) {
-          data.agentHistory.forEach(i => appendAgentBlocks(i.agent_response, true));
-        }
-      } catch (e) {
-        console.error('Init error:', e);
-      }
-    }
-
-    document.getElementById('navUser').addEventListener('click', () => {
-      document.getElementById('nameOverlay').classList.add('visible');
-    });
-
-    async function submitName(name) {
-      if (!name || !name.trim()) return;
-      try {
-        await fetch('/api/workspace/identify', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: name.trim() })
+        document.getElementById('navUser').addEventListener('click', () => {
+          document.getElementById('nameOverlay').classList.add('visible');
         });
-        document.getElementById('navUserName').textContent = name.trim();
-        document.getElementById('nameOverlay').classList.remove('visible');
-      } catch (e) { console.error(e); }
-    }
 
-    document.getElementById('nameSubmit').addEventListener('click', () => submitName(document.getElementById('nameInput').value));
-    document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(e.target.value); });
-    document.getElementById('nameSkip').addEventListener('click', () => document.getElementById('nameOverlay').classList.remove('visible'));
-
-    function updateWordCount() {
-      const text = document.getElementById('noteContent').value;
-      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-      document.getElementById('wordCount').textContent = words + ' palavra' + (words !== 1 ? 's' : '');
-    }
-
-    document.getElementById('noteContent').addEventListener('input', () => {
-      updateWordCount();
-      document.getElementById('saveStatus').textContent = 'Não salvo';
-      document.getElementById('saveStatus').classList.remove('saved');
-      clearTimeout(autoSaveTimer);
-      autoSaveTimer = setTimeout(saveNote, 3000);
-    });
-
-    document.getElementById('saveBtn').addEventListener('click', saveNote);
-
-    async function saveNote() {
-      const title = document.getElementById('noteTitle').value;
-      const content = document.getElementById('noteContent').value;
-      try {
-        await fetch('/api/workspace/note', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, content })
-        });
-        const status = document.getElementById('saveStatus');
-        status.textContent = 'Salvo ✓';
-        status.classList.add('saved');
-        document.getElementById('lastSaved').textContent = 'Salvo agora';
-      } catch (e) {
-        document.getElementById('saveStatus').textContent = 'Erro ao salvar';
-      }
-    }
-
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => callAgent(btn.dataset.mode, ''));
-    });
-
-    document.getElementById('agentSend').addEventListener('click', () => {
-      const text = document.getElementById('agentInput').value.trim();
-      if (!text) return;
-      callAgent('free', text);
-      document.getElementById('agentInput').value = '';
-      document.getElementById('agentInput').style.height = 'auto';
-    });
-
-    document.getElementById('agentInput').addEventListener('keydown', e => {
-      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.getElementById('agentSend').click(); }
-    });
-
-    async function callAgent(mode, freeText) {
-      const noteContent = document.getElementById('noteContent').value;
-      showTyping();
-      try {
-        const res = await fetch('/api/workspace/agent', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ mode, freeText, noteContent })
-        });
-        const data = await res.json();
-        hideTyping();
-        appendAgentBlocks(data.blocks, false);
-      } catch (e) {
-        hideTyping();
-        appendBlock({ type: 'text', text: 'Houve um erro. Tente novamente.' });
-      }
-    }
-
-    function showTyping() {
-      document.getElementById('agentTyping').style.display = 'block';
-      scrollMessages();
-    }
-    function hideTyping() {
-      document.getElementById('agentTyping').style.display = 'none';
-    }
-    function scrollMessages() {
-      const m = document.getElementById('agentMessages');
-      m.scrollTop = m.scrollHeight;
-    }
-
-    function appendAgentBlocks(blocks, isHistory) {
-      const container = document.getElementById('agentMessages');
-      const typing = document.getElementById('agentTyping');
-      const wrap = document.createElement('div');
-      wrap.className = 'agent-msg';
-      if (!isHistory) {
-        const label = document.createElement('div');
-        label.className = 'agent-msg-label';
-        label.textContent = 'Rebeca';
-        wrap.appendChild(label);
-      }
-      (blocks || []).forEach(block => {
-        const el = renderBlock(block);
-        if (el) { el.style.marginBottom = '8px'; wrap.appendChild(el); }
-      });
-      container.insertBefore(wrap, typing);
-      scrollMessages();
-    }
-
-    function renderBlock(block) {
-      const el = document.createElement('div');
-      switch (block.type) {
-        case 'text':
-          el.className = 'block-text';
-          el.textContent = block.text;
-          break;
-        case 'question':
-          el.className = 'block-question';
-          el.textContent = '💬 ' + block.text;
-          break;
-        case 'section': {
-          el.className = 'block-section';
-          const title = document.createElement('div');
-          title.className = 'block-section-title';
-          title.textContent = block.title;
-          const ul = document.createElement('ul');
-          (block.items || []).forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            ul.appendChild(li);
-          });
-          el.appendChild(title);
-          el.appendChild(ul);
-          break;
+        async function submitName(name) {
+          if (!name || !name.trim()) return;
+          try {
+            await fetch('/api/workspace/identify', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name: name.trim() })
+            });
+            document.getElementById('navUserName').textContent = name.trim();
+            document.getElementById('nameOverlay').classList.remove('visible');
+          } catch (e) { console.error(e); }
         }
-        case 'action':
-          el.className = 'block-action';
-          el.innerHTML = '<div class="block-action-title">→ ' + esc(block.title) + '</div><div class="block-action-detail">' + esc(block.detail) + '</div>';
-          break;
-        case 'outline': {
-          el.className = 'block-outline';
-          const root = document.createElement('div');
-          root.className = 'block-outline-root';
-          root.textContent = '● ' + (block.root || 'Tópico Central');
-          const branches = document.createElement('div');
-          branches.className = 'block-outline-branches';
-          (block.branches || []).forEach(b => {
-            const bd = document.createElement('div');
-            bd.className = 'block-outline-branch';
-            bd.textContent = b;
-            branches.appendChild(bd);
-          });
-          el.appendChild(root);
-          el.appendChild(branches);
-          break;
+
+        document.getElementById('nameSubmit').addEventListener('click', () => submitName(document.getElementById('nameInput').value));
+        document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(e.target.value); });
+        document.getElementById('nameSkip').addEventListener('click', () => document.getElementById('nameOverlay').classList.remove('visible'));
+
+        function updateWordCount() {
+          const text = document.getElementById('noteContent').value;
+          const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+          const wordLabel = words === 1 ? TRANSLATIONS[currentLang]['workspace_word_singular'] : TRANSLATIONS[currentLang]['workspace_word_plural'];
+          document.getElementById('wordCount').textContent = words + ' ' + wordLabel;
         }
-        case 'questions':
-          el.className = 'block-questions';
-          (block.items || []).forEach(q => {
-            const qd = document.createElement('div');
-            qd.className = 'block-question-item';
-            qd.textContent = q;
-            el.appendChild(qd);
+
+        document.getElementById('noteContent').addEventListener('input', () => {
+          updateWordCount();
+          document.getElementById('saveStatus').textContent = TRANSLATIONS[currentLang]['workspace_unsaved'];
+          document.getElementById('saveStatus').classList.remove('saved');
+          clearTimeout(autoSaveTimer);
+          autoSaveTimer = setTimeout(saveNote, 3000);
+        });
+
+        document.getElementById('saveBtn').addEventListener('click', saveNote);
+
+        async function saveNote() {
+          const title = document.getElementById('noteTitle').value;
+          const content = document.getElementById('noteContent').value;
+          try {
+            await fetch('/api/workspace/note', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ title, content })
+            });
+            const status = document.getElementById('saveStatus');
+            status.textContent = TRANSLATIONS[currentLang]['workspace_saved'];
+            status.classList.add('saved');
+            document.getElementById('lastSaved').textContent = TRANSLATIONS[currentLang]['workspace_saved_now'];
+          } catch (e) {
+            document.getElementById('saveStatus').textContent = TRANSLATIONS[currentLang]['workspace_save_error'];
+          }
+        }
+
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+          btn.addEventListener('click', () => callAgent(btn.dataset.mode, ''));
+        });
+
+        document.getElementById('agentSend').addEventListener('click', () => {
+          const text = document.getElementById('agentInput').value.trim();
+          if (!text) return;
+          callAgent('free', text);
+          document.getElementById('agentInput').value = '';
+          document.getElementById('agentInput').style.height = 'auto';
+        });
+
+        document.getElementById('agentInput').addEventListener('keydown', e => {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.getElementById('agentSend').click(); }
+        });
+
+        async function callAgent(mode, freeText) {
+          const noteContent = document.getElementById('noteContent').value;
+          showTyping();
+          try {
+            const res = await fetch('/api/workspace/agent', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ mode, freeText, noteContent })
+            });
+            const data = await res.json();
+            hideTyping();
+            appendAgentBlocks(data.blocks, false);
+          } catch (e) {
+            hideTyping();
+            appendBlock({ type: 'text', text: TRANSLATIONS[currentLang]['workspace_agent_error'] });
+          }
+        }
+
+        function showTyping() {
+          document.getElementById('agentTyping').style.display = 'block';
+          scrollMessages();
+        }
+        function hideTyping() {
+          document.getElementById('agentTyping').style.display = 'none';
+        }
+        function scrollMessages() {
+          const m = document.getElementById('agentMessages');
+          m.scrollTop = m.scrollHeight;
+        }
+
+        function appendAgentBlocks(blocks, isHistory) {
+          const container = document.getElementById('agentMessages');
+          const typing = document.getElementById('agentTyping');
+          const wrap = document.createElement('div');
+          wrap.className = 'agent-msg';
+          if (!isHistory) {
+            const label = document.createElement('div');
+            label.className = 'agent-msg-label';
+            label.textContent = 'Rebeca';
+            wrap.appendChild(label);
+          }
+          (blocks || []).forEach(block => {
+            const el = renderBlock(block);
+            if (el) { el.style.marginBottom = '8px'; wrap.appendChild(el); }
           });
-          break;
-        default: return null;
-      }
-      return el;
-    }
+          container.insertBefore(wrap, typing);
+          scrollMessages();
+        }
 
-    function esc(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
+        function renderBlock(block) {
+          const el = document.createElement('div');
+          switch (block.type) {
+            case 'text':
+              el.className = 'block-text';
+              el.textContent = block.text;
+              break;
+            case 'question':
+              el.className = 'block-question';
+              el.textContent = '💬 ' + block.text;
+              break;
+            case 'section': {
+              el.className = 'block-section';
+              const title = document.createElement('div');
+              title.className = 'block-section-title';
+              title.textContent = block.title;
+              const ul = document.createElement('ul');
+              (block.items || []).forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+              });
+              el.appendChild(title);
+              el.appendChild(ul);
+              break;
+            }
+            case 'action':
+              el.className = 'block-action';
+              el.innerHTML = '<div class="block-action-title">→ ' + esc(block.title) + '</div><div class="block-action-detail">' + esc(block.detail) + '</div>';
+              break;
+            case 'outline': {
+              el.className = 'block-outline';
+              const root = document.createElement('div');
+              root.className = 'block-outline-root';
+              root.textContent = '● ' + (block.root || 'Tópico Central');
+              const branches = document.createElement('div');
+              branches.className = 'block-outline-branches';
+              (block.branches || []).forEach(b => {
+                const bd = document.createElement('div');
+                bd.className = 'block-outline-branch';
+                bd.textContent = b;
+                branches.appendChild(bd);
+              });
+              el.appendChild(root);
+              el.appendChild(branches);
+              break;
+            }
+            case 'questions':
+              el.className = 'block-questions';
+              (block.items || []).forEach(q => {
+                const qd = document.createElement('div');
+                qd.className = 'block-question-item';
+                qd.textContent = q;
+                el.appendChild(qd);
+              });
+              break;
+            default: return null;
+          }
+          return el;
+        }
 
-    init();
-  </script>
+        function esc(str) {
+          return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        init();
+      </script>
+      <script src="/js/translations.js"></script>
+      <script src="/js/i18n.js"></script>
 </body>
 
 </html>
