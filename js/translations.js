@@ -266,6 +266,30 @@ window.TRANSLATIONS = {
             start_rebeca: "Quero começar com a Rebeca",
         },
 
+        library: {
+            passport_summary: "🎫 Faça sua Carteirinha Digital (Clique para entender e acessar)",
+            passport_intro_start: "O ",
+            passport_intro_mid: "apoia fortemente o conhecimento livre! Os livros desta seção estão hospedados no acervo da ",
+            passport_intro_end: " (A Biblioteca da Internet).",
+            passport_desc_start: "Você pode clicar diretamente em um livro abaixo para ir à página dele, ou ",
+            open_library_link: "acessar a Home Principal da Open Library aqui",
+            passport_desc_end: " para criar seu cadastro gratuito. Funciona como uma biblioteca física real: você pega o livro emprestado, lê no seu navegador e devolve!",
+            borrow_btn: "Pegar Emprestado 📚",
+            amazon_btn: "Ver na Amazon 🛒",
+            book_think_python_title: "Pense em Python",
+            book_think_python_desc: "O melhor livro para iniciantes. Ensina você a pensar e estruturar problemas como um cientista da computação.",
+            book_sicp_title: "O Livro do Mago (SICP)",
+            book_sicp_desc: "O livro mais famoso do MIT. Um rito de passagem para quem quer dominar a magia da estrutura do código.",
+            book_clean_code_title: "Código Limpo",
+            book_clean_code_desc: "O manual de sobrevivência. Escreva código para humanos, não apenas para máquinas. Leitura obrigatória.",
+            book_turing_title: "Alan Turing: O Enigma",
+            book_turing_desc: "Essencial para Matemática Discreta. Entenda como a lógica matemática quebrou códigos e encurtou a guerra.",
+            book_design_title: "O Design do Dia a Dia",
+            book_design_desc: "A bíblia de IHC e UX. A culpa nunca é do usuário, mas sempre do mau design da interface.",
+            book_deepwork_title: "Trabalho Focado",
+            book_deepwork_desc: "Aprenda a blindar sua mente contra distrações e programar em estado de fluxo profundo.",
+        },
+
         auth: {
             login_title: "Acesse sua conta",
             login_sub:
@@ -334,6 +358,11 @@ window.TRANSLATIONS = {
         lang: {
             label: "Idioma",
         },
+
+        library_title: "Tech Library & Insights",
+        library_subtitle: "Curadoria Estratégica para o Mercado 2026",
+        open_source_title: "Livraria Open Source 📖",
+        reference_title: "Livraria de Referência 🏆",
     },
 
     en: {
@@ -598,6 +627,30 @@ window.TRANSLATIONS = {
             start_rebeca: "I want to start with Rebeca",
         },
 
+        library: {
+            passport_summary: "🎫 Get your Digital Library Card (Click to learn and access)",
+            passport_intro_start: " strongly supports free knowledge! The books in this section are hosted by ",
+            passport_intro_mid: "Open Library",
+            passport_intro_end: " (The Internet Archive).",
+            passport_desc_start: "You can click directly on a book below to go to its page, or ",
+            open_library_link: "visit the Open Library homepage here",
+            passport_desc_end: " to create your free account. It works like a real library: you borrow the book, read it in your browser, and return it!",
+            borrow_btn: "Borrow 📚",
+            amazon_btn: "See on Amazon 🛒",
+            book_think_python_title: "Think Python",
+            book_think_python_desc: "The best book for beginners. Teaches you to think and structure problems like a computer scientist.",
+            book_sicp_title: "The Wizard Book (SICP)",
+            book_sicp_desc: "The most famous book from MIT. A rite of passage for those who want to master the magic of code structure.",
+            book_clean_code_title: "Clean Code",
+            book_clean_code_desc: "The survival manual. Write code for humans, not just machines. Essential reading.",
+            book_turing_title: "Alan Turing: The Enigma",
+            book_turing_desc: "Essential for Discrete Mathematics. Understand how mathematical logic broke codes and shortened the war.",
+            book_design_title: "The Design of Everyday Things",
+            book_design_desc: "The bible of HCI and UX. Blame is never the user's, but always bad design interface.",
+            book_deepwork_title: "Deep Work",
+            book_deepwork_desc: "Learn to shield your mind from distractions and program in a state of deep flow.",
+        },
+
         auth: {
             login_title: "Access your account",
             login_sub: "Sign in with Replit for full platform access.",
@@ -664,6 +717,11 @@ window.TRANSLATIONS = {
         lang: {
             label: "Language",
         },
+
+        library_title: "Tech Library & Insights",
+        library_subtitle: "Strategic Curation for the 2026 Market",
+        open_source_title: "Open Source Library 📖",
+        reference_title: "Reference Library 🏆",
     },
 
     es: {
@@ -932,6 +990,30 @@ window.TRANSLATIONS = {
             start_rebeca: "Quiero comenzar con Rebeca",
         },
 
+        library: {
+            passport_summary: "🎫 Obtén tu Carné Digital (Haz clic para entender y acceder)",
+            passport_intro_start: " apoya firmemente el conocimiento libre. Los libros de esta sección están alojados en el acervo de ",
+            passport_intro_mid: "Open Library",
+            passport_intro_end: " (La Biblioteca de Internet).",
+            passport_desc_start: "Puedes hacer clic directamente en un libro a continuación para ir a su página, o ",
+            open_library_link: "acceder a la página principal de Open Library aquí",
+            passport_desc_end: " para crear tu cuenta gratuita. Funciona como una biblioteca física real: tomas prestado el libro, lo lees en tu navegador y lo devuelves!",
+            borrow_btn: "Tomar prestado 📚",
+            amazon_btn: "Ver en Amazon 🛒",
+            book_think_python_title: "Piensa en Python",
+            book_think_python_desc: "El mejor libro para principiantes. Te enseña a pensar y estructurar problemas como un científico de la computación.",
+            book_sicp_title: "El Libro del Mago (SICP)",
+            book_sicp_desc: "El libro más famoso del MIT. Un rito de paso para quien quiere dominar la magia de la estructura del código.",
+            book_clean_code_title: "Código Limpio",
+            book_clean_code_desc: "El manual de supervivencia. Escribe código para humanos, no solo para máquinas. Lectura obligatoria.",
+            book_turing_title: "Alan Turing: El Enigma",
+            book_turing_desc: "Esencial para Matemática Discreta. Entiende cómo la lógica matemática rompió códigos y acortó la guerra.",
+            book_design_title: "El Diseño del Día a Día",
+            book_design_desc: "La biblia de IHC y UX. La culpa nunca es del usuario, sino siempre del mal diseño de la interfaz.",
+            book_deepwork_title: "Trabajo Profundo",
+            book_deepwork_desc: "Aprende a blindar tu mente contra distracciones y a programar en un estado de flujo profundo.",
+        },
+
         auth: {
             login_title: "Accede a tu cuenta",
             login_sub:
@@ -1000,5 +1082,10 @@ window.TRANSLATIONS = {
         lang: {
             label: "Idioma",
         },
+
+        library_title: "Tech Library & Insights",
+        library_subtitle: "Curación Estratégica para el Mercado 2026",
+        open_source_title: "Librería Open Source 📖",
+        reference_title: "Librería de Referencia 🏆",
     },
 };
