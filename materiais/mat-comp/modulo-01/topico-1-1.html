@@ -140,12 +140,12 @@
     <nav class="top-navbar">
         <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
             01</a>
-        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.1</span>
+        <span class="jessica-signature" data-i18n="materials_mat_comp_modulo_01_topico_1_1_cs_hub___mat_comp___t1_1">CS_HUB / MAT_COMP / T1.1</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <span class="badge-tech" data-i18n="materials_mat_comp_modulo_01_topico_1_1_matem_tica_computacional_aplicada">MATEMÁTICA COMPUTACIONAL APLICADA</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Representação Numérica, Modelo de Máquina e
                 Estabilidade</h1>
             <p>A computação científica não opera sobre $ \mathbb{R} $, mas sobre um subconjunto finito $ \mathbb{F}
@@ -153,26 +153,26 @@
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
-            <h2>0. Por que uma Matemática da "Imperfeição"?</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_1_0__por_que_uma_matem_tica_da__imperfei__o">0. Por que uma Matemática da "Imperfeição"?</h2>
             <p>Para um matemático puro, a reta real $ \mathbb{R} $ é contínua, infinita e densa. Contudo, para um
                 computador, a memória é finita e a representação é binária. Essa colisão entre o <strong>contínuo
-                    ideal</strong> e o <strong>discreto físico</strong> criou a necessidade de uma nova arquitetura.</p>
+                    ideal</strong> e o <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_discreto_f_sico">discreto físico</strong> criou a necessidade de uma nova arquitetura.</p>
 
             <div class="concept-box">
-                <p><strong>A Epistemologia do Erro:</strong></p>
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_epistemologia_do_erro">A Epistemologia do Erro:</strong></p>
                 <div class="math-box">
                     $$\mathbb{F} \subset \mathbb{R} \implies \text{Erro} \neq \text{Falha}$$
                 </div>
 
-                <p><strong>Lendo a notação completa:</strong> $\mathbb{F} \subset \mathbb{R}$</p>
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_lendo_a_nota__o_completa">Lendo a notação completa:</strong> $\mathbb{F} \subset \mathbb{R}$</p>
                 <p>Quando escrevemos $\mathbb{F} \subset \mathbb{R}$, estamos escrevendo a seguinte frase
                     matemática:<br>
                     <em>"O conjunto dos números de ponto flutuante do computador ($\mathbb{F}$) é um subconjunto dos
                         números reais ($\mathbb{R}$)."</em>
                 </p>
 
-                <p><span class="highlight-text">O que isso significa na prática para o seu código?</span><br>
-                    Significa que <strong>todo</strong> número que o seu computador consegue processar ($\mathbb{F}$) é
+                <p><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_que_isso_significa_na_pr_tica_para_o_seu_c_digo">O que isso significa na prática para o seu código?</span><br>
+                    Significa que <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_todo">todo</strong> número que o seu computador consegue processar ($\mathbb{F}$) é
                     um número real. Mas existem infinitos números reais ($\mathbb{R}$) que o seu computador não conhece.
                     E é exatamente porque o computador não conhece a reta inteira que ocorrem os arredondamentos e os
                     erros que estudamos neste módulo!</p>
@@ -183,45 +183,45 @@
                     catastróficas.</p>
             </div>
 
-            <h2>1. Sistema de Ponto Flutuante</h2>
-            <h3>1.1 Definição Formal</h3>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_1_1__sistema_de_ponto_flutuante">1. Sistema de Ponto Flutuante</h2>
+            <h3 data-i18n="materials_mat_comp_modulo_01_topico_1_1_1_1_defini__o_formal">1.1 Definição Formal</h3>
             <div class="math-box">
                 $$ \mathbb{F}(\beta, p, e_{min}, e_{max}) = \{ \pm (1.d_1d_2...d_{p-1})_\beta \times \beta^e \} $$
             </div>
             <ul>
-                <li><strong>$ \beta $ (Base):</strong> Determina o sistema de numeração (geralmente 2).</li>
-                <li><strong>$ p $ (Precisão):</strong> Quantidade de dígitos significativos na mantissa. Define o
-                    <em>poder de resolução</em>.
+                <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_beta____base">$ \beta $ (Base):</strong> Determina o sistema de numeração (geralmente 2).</li>
+                <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_p____precis_o">$ p $ (Precisão):</strong> Quantidade de dígitos significativos na mantissa. Define o
+                    <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_poder_de_resolu__o">poder de resolução</em>.
                 </li>
-                <li><strong>$ [e_{min}, e_{max}] $ (Expoente):</strong> Define a escala ou magnitude (Overflow vs
+                <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_e__min___e__max______expoente">$ [e_{min}, e_{max}] $ (Expoente):</strong> Define a escala ou magnitude (Overflow vs
                     Underflow).</li>
             </ul>
 
-            <h3>1.2 Espaçamento Absoluto ($ \Delta $)</h3>
+            <h3 data-i18n="materials_mat_comp_modulo_01_topico_1_1_1_2_espa_amento_absoluto_____delta">1.2 Espaçamento Absoluto ($ \Delta $)</h3>
 
             <p>O que é o Espaçamento Absoluto ($\Delta$)? Pense nos números inteiros normais: a distância entre o 1 e o
                 2 é de exatamente 1. A distância entre 1000 e 1001 também é 1. O espaçamento é sempre constante.</p>
 
-            <p>Nos números de ponto flutuante do computador, <strong>o espaçamento não é constante</strong>. Ele é
+            <p>Nos números de ponto flutuante do computador, <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_espa_amento_n_o___constante">o espaçamento não é constante</strong>. Ele é
                 elástico. O $\Delta$ (Delta) é a distância entre um número que o computador consegue armazenar e o
                 próximo número que ele consegue armazenar.</p>
 
-            <p>A fórmula que dita o tamanho desse "salto" é:</p>
+            <p data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_f_rmula_que_dita_o_tamanho_desse__salto">A fórmula que dita o tamanho desse "salto" é:</p>
             <div class="math-box">
                 $$\Delta = \beta^{e - (p - 1)}$$
             </div>
 
-            <p>No nosso mini-computador didático $\mathbb{F}(2, 4, e)$, se substituirmos as letras, a fórmula vira:</p>
+            <p data-i18n="materials_mat_comp_modulo_01_topico_1_1_no_nosso_mini_computador_did_tico___mathbb_f__2__4">No nosso mini-computador didático $\mathbb{F}(2, 4, e)$, se substituirmos as letras, a fórmula vira:</p>
             <div class="math-box">
                 $$\Delta = 2^{e - (4 - 1)} = 2^{e - 3}$$
             </div>
 
             <div class="concept-box" style="text-align: center;">
-                <h4>Visualização do Sistema Didático $ \mathbb{F}(2,4,e) $</h4>
+                <h4 data-i18n="materials_mat_comp_modulo_01_topico_1_1_visualiza__o_do_sistema_did_tico____mathbb_f__2_4">Visualização do Sistema Didático $ \mathbb{F}(2,4,e) $</h4>
                 <p style="font-size: 0.9rem; opacity: 0.8;">Mova o controle deslizante para ver como o espaçamento
                     ($\Delta$) cresce junto com o expoente.</p>
                 <label>Expoente $ e $: <span id="expValue"
-                        style="color:var(--accent); font-weight: bold;">0</span></label>
+                        style="color:var(--accent); font-weight: bold;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_0">0</span></label>
                 <input type="range" min="-5" max="5" value="0" id="expoente"
                     style="width:100%; margin: 15px 0; accent-color: var(--accent);">
                 <canvas id="canvasDiscreto" width="800" height="150"
@@ -229,47 +229,47 @@
             </div>
 
             <div class="concept-box" style="margin-top: 20px;">
-                <h4 style="margin-top:0; color: var(--accent);">A Mágica do Slider (O que acontece na tela)</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_m_gica_do_slider__o_que_acontece_na_tela">A Mágica do Slider (O que acontece na tela)</h4>
                 <p>Quando você arrasta o slider acima, você está mudando o valor do expoente ($e$) e, consequentemente,
                     esticando ou encolhendo o $\Delta$.</p>
 
 
 
                 <ul style="line-height: 1.8;">
-                    <li><span class="highlight-text">Quando o slider está no 0 ($e = 0$):</span> A fórmula fica $\Delta
+                    <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_quando_o_slider_est__no_0___e___0">Quando o slider está no 0 ($e = 0$):</span> A fórmula fica $\Delta
                         = 2^{0 - 3} = 2^{-3} = 0.125$. Isso significa que, nesta escala perto do zero, o computador
                         conta de $0.125$ em $0.125$. Os "pontinhos verdes" na tela ficam próximos. Ele consegue
                         representar perfeitamente o $1.0, 1.125, 1.250...$</li>
-                    <li><span class="highlight-text">Se você arrastar o slider para o 3 ($e = 3$):</span> A fórmula fica
+                    <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_se_voc__arrastar_o_slider_para_o_3___e___3">Se você arrastar o slider para o 3 ($e = 3$):</span> A fórmula fica
                         $\Delta = 2^{3 - 3} = 2^0 = 1$. Agora, o espaçamento aumentou. O computador está contando de 1
                         em 1. Ele conhece o 8, o 9, o 10.</li>
-                    <li><span class="highlight-text">Se você arrastar o slider lá para frente, no 5 ($e = 5$):</span> A
-                        fórmula fica $\Delta = 2^{5 - 3} = 2^2 = 4$. <strong>Aqui acontece o desastre numérico!</strong>
+                    <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_se_voc__arrastar_o_slider_l__para_frente__no_5___e">Se você arrastar o slider lá para frente, no 5 ($e = 5$):</span> A
+                        fórmula fica $\Delta = 2^{5 - 3} = 2^2 = 4$. <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_aqui_acontece_o_desastre_num_rico">Aqui acontece o desastre numérico!</strong>
                         O computador agora conta de 4 em 4. Os pontinhos verdes na tela ficam super distantes. Ele
                         armazena o número 32 e o próximo número que ele consegue armazenar é o 36.</li>
                 </ul>
 
-                <p><strong>A grande questão é: O que acontece se o seu código gerar o número 33?</strong> Ele
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_grande_quest_o____o_que_acontece_se_o_seu_c_digo">A grande questão é: O que acontece se o seu código gerar o número 33?</strong> Ele
                     simplesmente não cabe na memória desse sistema. O processador vai arredondar o 33 para o 32, criando
-                    um <strong>Erro de Arredondamento massivo</strong>.</p>
+                    um <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_erro_de_arredondamento_massivo">Erro de Arredondamento massivo</strong>.</p>
 
                 <div
                     style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent); margin-top: 20px;">
                     <p style="margin: 0; font-family: 'Fira Code', monospace; font-size: 0.9rem;">
-                        <strong>Moral da história:</strong> O canvas interativo prova visualmente para o aluno que
+                        <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_moral_da_hist_ria">Moral da história:</strong> O canvas interativo prova visualmente para o aluno que
                         quanto maior o número com o qual você está operando, maior é o "buraco" (espaçamento $\Delta$)
                         entre ele e o próximo valor representável. É por isso que calcular com valores astronômicos
                         destrói a precisão das casas decimais na programação!
                     </p>
                 </div>
             </div>
-            <h2>2. Padrão IEEE 754 (Double Precision)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_1_2__padr_o_ieee_754__double_precision">2. Padrão IEEE 754 (Double Precision)</h2>
             <p>Até 1985, a computação científica vivia um verdadeiro caos. Um código escrito para um mainframe da IBM
                 gerava resultados completamente diferentes se rodasse em um supercomputador da Cray, porque cada
                 fabricante inventava sua própria regra de como o hardware deveria arredondar números decimais.</p>
             <p>Para unificar a indústria, o Instituto de Engenheiros Eletricistas e Eletrônicos (IEEE) criou o padrão
-                <strong>754</strong>. Ele é um "contrato global" gravado direto nos transistores (na Unidade de Ponto
-                Flutuante - FPU) que dita exatamente como a memória física deve fatiar os <strong>64 bits</strong> de
+                <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_754">754</strong>. Ele é um "contrato global" gravado direto nos transistores (na Unidade de Ponto
+                Flutuante - FPU) que dita exatamente como a memória física deve fatiar os <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_64_bits">64 bits</strong> de
                 uma variável <code>double</code> para tentar representar a reta real infinita ($\mathbb{R}$).
             </p>
 
@@ -280,21 +280,21 @@
             </div>
 
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 10px;">🟢 <strong>Sinal (1 bit):</strong> <code>0</code> para positivo,
+                <li style="margin-bottom: 10px;">🟢 <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_sinal__1_bit">Sinal (1 bit):</strong> <code>0</code> para positivo,
                     <code>1</code> para negativo ($s$).
                 </li>
-                <li style="margin-bottom: 10px;">🟡 <strong>Expoente (11 bits):</strong> Define a "escala" do número (se
+                <li style="margin-bottom: 10px;">🟡 <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_expoente__11_bits">Expoente (11 bits):</strong> Define a "escala" do número (se
                     estamos lidando com a massa de uma galáxia ou o tamanho de um átomo). Ele usa um "Bias" (viés) de
                     1023 para não precisar gastar um bit extra com o sinal do expoente ($e$).</li>
-                <li style="margin-bottom: 10px;">🔵 <strong>Fração / Mantissa (52 bits):</strong> É aqui que mora a
-                    <strong>precisão</strong>. São esses bits que guardam os detalhes das casas decimais ($m$).
+                <li style="margin-bottom: 10px;">🔵 <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_fra__o___mantissa__52_bits">Fração / Mantissa (52 bits):</strong> É aqui que mora a
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_precis_o">precisão</strong>. São esses bits que guardam os detalhes das casas decimais ($m$).
                 </li>
             </ul>
 
             <div class="concept-box" style="margin-top: 30px;">
-                <h4 style="margin-top:0; color: var(--accent);">Por que calcular isso nos ajuda? Os 3 Superpoderes</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_por_que_calcular_isso_nos_ajuda__os_3_superpoderes">Por que calcular isso nos ajuda? Os 3 Superpoderes</h4>
                 <p>Na Análise Numérica e na criação de Agentes de IA, nós não calculamos a estrutura do IEEE 754 na mão
-                    o tempo todo, mas <strong>nós precisamos deduzir seus limites matemáticos</strong> para garantir que
+                    o tempo todo, mas <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_n_s_precisamos_deduzir_seus_limites_matem_ticos">nós precisamos deduzir seus limites matemáticos</strong> para garantir que
                     nossos algoritmos não explodam.</p>
 
                 <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">A. Descobrir a "Precisão da Máquina"
@@ -305,8 +305,8 @@
                 <div class="math-box">
                     $$ \varepsilon_{mach} = 2^{-53} \approx 1.11 \times 10^{-16} $$
                 </div>
-                <p><span class="highlight-text">Aplicação prática:</span> Isso prova matematicamente que uma variável
-                    <code>double</code> <strong>só consegue garantir até a 16ª casa decimal</strong>. Qualquer dígito a
+                <p><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_aplica__o_pr_tica">Aplicação prática:</span> Isso prova matematicamente que uma variável
+                    <code>double</code> <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_s__consegue_garantir_at__a_16__casa_decimal">só consegue garantir até a 16ª casa decimal</strong>. Qualquer dígito a
                     partir da 17ª casa é lixo gerado pelo processador. Se você estiver calculando a rota de colisão de
                     um satélite, você precisa saber quando parar de confiar na resposta.
                 </p>
@@ -318,24 +318,24 @@
                     </summary>
                     <div
                         style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
-                        <p><strong>Passo 1: Inverter a Potência</strong><br>
+                        <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_1__inverter_a_pot_ncia">Passo 1: Inverter a Potência</strong><br>
                             Na matemática, o primeiro passo para lidar com um expoente negativo é transformá-lo em uma
                             fração:</p>
                         <div class="math-box" style="padding: 10px; margin: 10px 0; background: rgba(0,0,0,0.6);">$$
                             2^{-53} = \frac{1}{2^{53}} $$</div>
 
-                        <p><strong>Passo 2: O Truque Jedi da Computação ($2^{10} \approx 1000$)</strong><br>
+                        <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_2__o_truque_jedi_da_computa__o___2__10___app">Passo 2: O Truque Jedi da Computação ($2^{10} \approx 1000$)</strong><br>
                             Fatiamos o expoente para facilitar a conta: $2^{53} = 2^3 \times 2^{50}$.<br>
                             Sabemos que $2^3 = 8$ e $2^{50}$ é a mesma coisa que $(2^{10})^5$. Como $2^{10} = 1024$,
                             elevá-lo à 5ª potência nos dá aproximadamente $1.125$ quatrilhões ($10^{15}$).<br>
                             Multiplicando: $8 \times 1.125 = 9.000$. Portanto: $2^{53} \approx 9 \times 10^{15}$.</p>
 
-                        <p><strong>Passo 3: A Divisão Mágica</strong><br>
+                        <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_3__a_divis_o_m_gica">Passo 3: A Divisão Mágica</strong><br>
                             Voltando para a fração, temos: $\frac{1}{9 \times 10^{15}}$. Podemos separar a fração da
                             potência: $\frac{1}{9} \times 10^{-15}$.<br>
                             A divisão de $1 \div 9$ é uma dízima periódica clássica: $0.111111...$</p>
 
-                        <p><strong>Passo 4: Ajustar a Notação Científica</strong><br>
+                        <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_4__ajustar_a_nota__o_cient_fica">Passo 4: Ajustar a Notação Científica</strong><br>
                             Juntando tudo, temos $0.111111... \times 10^{-15}$. Para deixar na notação científica
                             padrão, andamos com a vírgula uma casa para a direita. O número "cresce", então o expoente
                             precisa "diminuir" um nível para compensar (-15 vai para -16):</p>
@@ -351,7 +351,7 @@
                     Expoente)</h5>
                 <p>Com 11 bits de expoente, o limite superior ($\overline{x}$) de um <code>double</code> no IEEE 754
                     bate na casa de $10^{308}$.</p>
-                <p><span class="highlight-text">Aplicação prática:</span> Se você estiver programando uma Função de
+                <p><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_aplica__o_pr_tica">Aplicação prática:</span> Se você estiver programando uma Função de
                     Custo (Loss Function) em Machine Learning com exponenciais, e a conta ultrapassar $10^{308}$, o
                     computador vai cravar a resposta como <code>Infinity</code> (Overflow) e quebrar todo o treinamento.
                     Conhecendo o padrão, você projeta o algoritmo para normalizar os dados antes da conta chegar perto
@@ -360,27 +360,27 @@
                 <h5 style="color: #fff; font-size: 1.1rem; margin-top: 25px;">C. Entender o Bit Implícito (O "Truque" de
                     Ouro)</h5>
                 <p>O padrão IEEE 754 força todo número binário a ser guardado na forma científica normalizada (ex:
-                    $1.0110 \times 2^e$). Como o primeiro dígito antes do ponto é <strong>sempre</strong> <code>1</code>
+                    $1.0110 \times 2^e$). Como o primeiro dígito antes do ponto é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_sempre">sempre</strong> <code>1</code>
                     (em binário não existe outro dígito além do 0 e 1, e números normalizados não começam com 0), o
                     padrão não gasta memória salvando esse <code>1</code>. Ele é oculto (implícito).</p>
-                <p><span class="highlight-text">Aplicação prática:</span> Isso nos dá 53 bits de precisão real usando
+                <p><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_1_aplica__o_pr_tica">Aplicação prática:</span> Isso nos dá 53 bits de precisão real usando
                     apenas 52 bits físicos. É uma engenharia de software no nível do silício.</p>
             </div>
 
             <div
                 style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h4 style="margin-top:0; color: var(--accent);">Resumo: O Paradigma do Desenvolvedor</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_resumo__o_paradigma_do_desenvolvedor">Resumo: O Paradigma do Desenvolvedor</h4>
                 <p style="margin-bottom: 0;">Estudar e calcular o IEEE 754 tira o programador da posição de "esperar que
-                    a linguagem faça o cálculo certo" e o coloca na posição de <strong>arquiteto</strong>. Quando um
+                    a linguagem faça o cálculo certo" e o coloca na posição de <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_arquiteto">arquiteto</strong>. Quando um
                     algoritmo falha por Cancelamento Catastrófico (como veremos no Tópico 1.3), você sabe que não foi um
                     mistério cósmico; foi simplesmente a mantissa de 52 bits esgotando sua capacidade de representar os
                     números que você subtraiu.</p>
             </div>
 
-            <h2>3. Modelo Matemático do Erro: O Axioma Fundamental</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_1_3__modelo_matem_tico_do_erro__o_axioma_fundamental">3. Modelo Matemático do Erro: O Axioma Fundamental</h2>
             <p>Até agora, vimos as limitações físicas do hardware. Mas como um matemático escreve uma equação que
-                <em>prevê</em> essa falha física do processador? A resposta é a "certidão de nascimento" do erro
-                numérico: o <strong>Axioma Fundamental do Ponto Flutuante</strong>.
+                <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_prev">prevê</em> essa falha física do processador? A resposta é a "certidão de nascimento" do erro
+                numérico: o <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_axioma_fundamental_do_ponto_flutuante">Axioma Fundamental do Ponto Flutuante</strong>.
             </p>
             <p>Ele modela matematicamente a imperfeição física do processador, atuando como a ponte definitiva entre a
                 matemática pura e a memória RAM da máquina.</p>
@@ -390,20 +390,20 @@
             </div>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">O Dicionário da Fórmula (Dissecando os Termos)</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_dicion_rio_da_f_rmula__dissecando_os_termos">O Dicionário da Fórmula (Dissecando os Termos)</h4>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li style="margin-bottom: 10px;">⚪ <strong>$x$ (O Mundo Ideal):</strong> É o número real, exato e
-                        perfeito que você <em>queria</em> calcular.</li>
-                    <li style="margin-bottom: 10px;">💻 <strong>$fl(x)$ (A Realidade):</strong> Lê-se <em>"float de
-                            x"</em>. É o número que o processador <em>efetivamente</em> conseguiu espremer e gravar
+                    <li style="margin-bottom: 10px;">⚪ <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_x___o_mundo_ideal">$x$ (O Mundo Ideal):</strong> É o número real, exato e
+                        perfeito que você <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_queria">queria</em> calcular.</li>
+                    <li style="margin-bottom: 10px;">💻 <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_fl_x____a_realidade">$fl(x)$ (A Realidade):</strong> Lê-se <em>"float de
+                            x"</em>. É o número que o processador <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_efetivamente">efetivamente</em> conseguiu espremer e gravar
                         dentro da mantissa de 52 bits.</li>
-                    <li style="margin-bottom: 10px;">⚠️ <strong>$\delta$ (O Pedágio do Hardware):</strong> Lê-se
-                        <em>"delta"</em>. É uma variável desconhecida que representa o erro de arredondamento intrínseco
+                    <li style="margin-bottom: 10px;">⚠️ <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_delta___o_ped_gio_do_hardware">$\delta$ (O Pedágio do Hardware):</strong> Lê-se
+                        <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_delta">"delta"</em>. É uma variável desconhecida que representa o erro de arredondamento intrínseco
                         daquela operação.
                     </li>
                     <li style="margin-bottom: 10px;">🛡️ <strong>$|\delta| \le \varepsilon_{mach}$ (A Garantia de
                             Fábrica):</strong> Nós nunca saberemos o valor exato do erro $\delta$, mas o padrão IEEE 754
-                        nos dá uma garantia absoluta: o tamanho desse erro <strong>nunca</strong> ultrapassará o limite
+                        nos dá uma garantia absoluta: o tamanho desse erro <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_nunca">nunca</strong> ultrapassará o limite
                         do nosso Épsilon de Máquina ($\approx 1.11 \times 10^{-16}$).</li>
                 </ul>
             </div>
@@ -421,29 +421,29 @@
                 </div>
 
                 <p>Olhe que revelação espetacular: o computador não consegue armazenar o seu $x$ puro. Ele armazena o
-                    <strong>$x$ original somado a um "lixo" intruso ($x \times \delta$)</strong>!
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_x__original_somado_a_um__lixo__intruso___x__times">$x$ original somado a um "lixo" intruso ($x \times \delta$)</strong>!
                 </p>
                 <p>O grande perigo aqui é que o tamanho desse lixo é proporcional ao tamanho do número que você está
                     operando. Vamos provar isso com um cálculo manual passo a passo:</p>
 
                 <div style="padding-left: 20px; border-left: 3px solid #e74c3c; margin-top: 20px;">
-                    <p><strong>Cenário:</strong> Imagine que seu código em Java está calculando o faturamento anual de
-                        uma multinacional, que foi exatamente <strong>10 quatrilhões de dólares ($10^{16}$)</strong>.
+                    <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_cen_rio">Cenário:</strong> Imagine que seu código em Java está calculando o faturamento anual de
+                        uma multinacional, que foi exatamente <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_10_quatrilh_es_de_d_lares___10__16">10 quatrilhões de dólares ($10^{16}$)</strong>.
                     </p>
 
                     <ol style="line-height: 1.8; margin-bottom: 0;">
-                        <li><strong>O Valor Ideal:</strong> $x = 10^{16}$</li>
-                        <li><strong>O Limite do Erro:</strong> Vamos assumir o pior cenário do hardware, onde o erro
+                        <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_valor_ideal">O Valor Ideal:</strong> $x = 10^{16}$</li>
+                        <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_limite_do_erro">O Limite do Erro:</strong> Vamos assumir o pior cenário do hardware, onde o erro
                             bate no teto do Épsilon ($\delta = 10^{-16}$).</li>
-                        <li><strong>Calculando o "Lixo":</strong> Multiplicamos o valor ideal pelo erro: $10^{16} \times
+                        <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_calculando_o__lixo">Calculando o "Lixo":</strong> Multiplicamos o valor ideal pelo erro: $10^{16} \times
                             10^{-16}$. Pela regra da matemática, somamos os expoentes ($16 - 16 = 0$). O resultado é
-                            $10^0$, que é igual a <strong>1</strong>.</li>
-                        <li><strong>A Realidade da Máquina:</strong> $fl(x) = 10^{16} + 1$.</li>
+                            $10^0$, que é igual a <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_1">1</strong>.</li>
+                        <li><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_realidade_da_m_quina">A Realidade da Máquina:</strong> $fl(x) = 10^{16} + 1$.</li>
                     </ol>
 
-                    <p style="margin-top: 15px; font-weight: 600; color: #e74c3c;">Conclusão do Desastre:</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: #e74c3c;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_conclus_o_do_desastre">Conclusão do Desastre:</p>
                     <p>O computador gerou "1 dólar" fantasma do absoluto nada! Se estivéssemos operando na casa dos
-                        quintilhões ($10^{18}$), o erro seria de <strong>100 dólares</strong> ($10^{18} \times 10^{-16}
+                        quintilhões ($10^{18}$), o erro seria de <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_100_d_lares">100 dólares</strong> ($10^{18} \times 10^{-16}
                         = 10^2$).</p>
                 </div>
 
@@ -453,12 +453,12 @@
                         máquina.</strong></p>
             </div>
 
-            <h2>4. Condicionamento e Estabilidade: O Fator de Caos ($\kappa$)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_1_4__condicionamento_e_estabilidade__o_fator_de_caos">4. Condicionamento e Estabilidade: O Fator de Caos ($\kappa$)</h2>
             <p>Na seção anterior, vimos que o computador sempre insere um "lixo" numérico ($\delta$) na entrada dos
                 dados. A grande pergunta da Análise Numérica é: <strong>O que a sua função matemática faz com esse
                     lixo?</strong></p>
             <p>Ela absorve e ignora o erro? Ou ela amplifica esse erro até destruir a resposta final? Quem mede essa
-                sensibilidade é o <strong>Número de Condição ($\kappa$)</strong>. O $\kappa$ (Kappa) é uma propriedade
+                sensibilidade é o <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_n_mero_de_condi__o____kappa">Número de Condição ($\kappa$)</strong>. O $\kappa$ (Kappa) é uma propriedade
                 do problema matemático, não do computador.</p>
 
             <div class="math-box">
@@ -466,22 +466,22 @@
             </div>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">Dissecando a Fórmula (De onde ela vem?)</h4>
-                <p>Para o aluno não decorar cegamente, vamos traduzir os pedaços dessa equação:</p>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_dissecando_a_f_rmula__de_onde_ela_vem">Dissecando a Fórmula (De onde ela vem?)</h4>
+                <p data-i18n="materials_mat_comp_modulo_01_topico_1_1_para_o_aluno_n_o_decorar_cegamente__vamos_traduzir">Para o aluno não decorar cegamente, vamos traduzir os pedaços dessa equação:</p>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                    <li style="margin-bottom: 10px;">📈 <strong>A Derivada $f'(x)$:</strong> No Cálculo, a derivada mede
+                    <li style="margin-bottom: 10px;">📈 <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_derivada__f__x">A Derivada $f'(x)$:</strong> No Cálculo, a derivada mede
                         a "taxa de variação". Se a derivada é muito alta, significa que um micro-passo para o lado no
                         eixo X causa um salto gigante no eixo Y. É a sensibilidade bruta.</li>
-                    <li style="margin-bottom: 10px;">⚖️ <strong>A Fração $\frac{x}{f(x)}$:</strong> Por que
+                    <li style="margin-bottom: 10px;">⚖️ <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_fra__o___frac_x__f_x">A Fração $\frac{x}{f(x)}$:</strong> Por que
                         multiplicamos por $x$ e dividimos por $f(x)$? Para transformar o erro absoluto em <strong>erro
                             relativo (porcentagem)</strong>. Dizer que o erro foi de "2" não significa nada (2 gramas é
                         muito, 2 toneladas é pouco). Queremos saber a proporção do erro.</li>
                 </ul>
                 <div
                     style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 8px; border-left: 3px solid #e74c3c; margin-top: 15px;">
-                    <strong>O Veredito do $\kappa$:</strong>
-                    Se $\kappa \approx 1$, o problema é <strong>Bem Condicionado</strong> (Seguro).<br>
-                    Se $\kappa \gg 1$ (ex: $\kappa = 1000$), o problema é <strong>Mal Condicionado</strong> (Um erro de
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_veredito_do___kappa">O Veredito do $\kappa$:</strong>
+                    Se $\kappa \approx 1$, o problema é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_bem_condicionado">Bem Condicionado</strong> (Seguro).<br>
+                    Se $\kappa \gg 1$ (ex: $\kappa = 1000$), o problema é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_mal_condicionado">Mal Condicionado</strong> (Um erro de
                     $1\%$ na entrada vira um erro de $1000\%$ na saída. O resultado é puro lixo).
                 </div>
             </div>
@@ -495,42 +495,42 @@
                     = \frac{1}{1 - x}$. Vamos calcular o condicionamento dela quando $x = 0.99$.</p>
 
                 <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: var(--accent);">
-                    <strong>Passo 1: Achar a Derivada $f'(x)$</strong><br>
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_1__achar_a_derivada__f__x">Passo 1: Achar a Derivada $f'(x)$</strong><br>
                     $$ f(x) = (1 - x)^{-1} \implies f'(x) = \frac{1}{(1 - x)^2} $$
                 </div>
 
                 <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: var(--accent);">
-                    <strong>Passo 2: Montar a Fórmula do $\kappa$</strong><br>
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_2__montar_a_f_rmula_do___kappa">Passo 2: Montar a Fórmula do $\kappa$</strong><br>
                     $$ \kappa = \left| \frac{x \cdot \frac{1}{(1-x)^2}}{\frac{1}{1-x}} \right| = \left|
                     \frac{x}{(1-x)^2} \cdot (1-x) \right| = \left| \frac{x}{1-x} \right| $$
                 </div>
 
                 <div class="math-box" style="background: rgba(0,0,0,0.8); border-color: #e74c3c;">
-                    <strong>Passo 3: Substituir o valor $x = 0.99$</strong><br>
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_passo_3__substituir_o_valor__x___0_99">Passo 3: Substituir o valor $x = 0.99$</strong><br>
                     $$ \kappa = \left| \frac{0.99}{1 - 0.99} \right| = \frac{0.99}{0.01} = 99 $$
                 </div>
 
-                <p style="margin-top: 20px;"><strong>O que esse $\kappa = 99$ significa no mundo real?</strong><br>
+                <p style="margin-top: 20px;"><strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_o_que_esse___kappa___99__significa_no_mundo_real">O que esse $\kappa = 99$ significa no mundo real?</strong><br>
                     Significa que a função atua como um megafone estragado. Se o sensor (ou o Épsilon de máquina)
                     inserir um pequeno erro de $1\%$ ao ler o valor de $x$, a resposta final do seu programa sairá com
-                    <strong>$99\%$ de erro</strong>! O problema é intrinsecamente doente (Mal Condicionado) perto do
+                    <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_99____de_erro">$99\%$ de erro</strong>! O problema é intrinsecamente doente (Mal Condicionado) perto do
                     número 1.
                 </p>
             </div>
 
-            <h3 style="margin-top: 40px;">E quando a culpa é do Algoritmo? (Estabilidade)</h3>
+            <h3 style="margin-top: 40px;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_e_quando_a_culpa___do_algoritmo___estabilidade">E quando a culpa é do Algoritmo? (Estabilidade)</h3>
             <p>Se o problema matemático for bem condicionado ($\kappa$ baixo), mas o seu programa continuar gerando lixo
-                numérico, aí sim <strong>a culpa é do programador</strong>. Isso significa que o seu <em>algoritmo</em>
-                é <strong>Instável</strong>.</p>
+                numérico, aí sim <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_culpa___do_programador">a culpa é do programador</strong>. Isso significa que o seu <em data-i18n="materials_mat_comp_modulo_01_topico_1_1_algoritmo">algoritmo</em>
+                é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_1_inst_vel">Instável</strong>.</p>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">A Cura Computacional: O Algoritmo de Kahan</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_cura_computacional__o_algoritmo_de_kahan">A Cura Computacional: O Algoritmo de Kahan</h4>
                 <p>Entender o Algoritmo de Kahan é o que separa um programador que apenas "escreve código" de um
                     verdadeiro engenheiro de software que entende a memória da máquina. Criado por William Kahan (o
                     principal arquiteto do padrão IEEE 754), este algoritmo é a espinha dorsal de sistemas de Machine
                     Learning, Simulações Físicas e Big Data.</p>
 
-                <h5 style="color: #fff; margin-top: 25px;">1. O Problema Original (Por que a soma normal falha?)</h5>
+                <h5 style="color: #fff; margin-top: 25px;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_1__o_problema_original__por_que_a_soma_normal_falh">1. O Problema Original (Por que a soma normal falha?)</h5>
                 <p>Sempre que você precisar somar milhões de números muito pequenos (como atualizar os "pesos" de uma
                     rede neural) a um número que já está muito grande, o Erro de Arredondamento ataca. Imagine que a
                     nossa variável de soma já está gigante: <code>s = 10000.0</code>. Agora queremos somar um número
@@ -541,7 +541,7 @@
                     <code>10000.0</code>. O seu <code>0.00001</code> desapareceu no limbo!
                 </p>
 
-                <h5 style="color: #fff; margin-top: 25px;">2. A Autópsia do Código (O Resgate do Lixo)</h5>
+                <h5 style="color: #fff; margin-top: 25px;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_2__a_aut_psia_do_c_digo__o_resgate_do_lixo">2. A Autópsia do Código (O Resgate do Lixo)</h5>
                 <p>O que Kahan fez foi criar uma variável extra, o <code>c</code> (de compensação), que atua como uma
                     "lixeira" matemática. Ela recolhe exatamente os bits que o processador jogou fora, guarda na
                     memória, e tenta enfiá-los de volta na conta na rodada seguinte.</p>
@@ -561,7 +561,7 @@ def kahan_sum(n):
     return s
 </pre>
 
-                <h5 style="color: #fff; margin-top: 25px;">3. Dissecando o Loop (O Segredo Revelado)</h5>
+                <h5 style="color: #fff; margin-top: 25px;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_3__dissecando_o_loop__o_segredo_revelado">3. Dissecando o Loop (O Segredo Revelado)</h5>
                 <ul style="list-style: none; padding: 0; line-height: 1.8;">
                     <li style="margin-bottom: 15px;"><span class="highlight-text">Passo A
                             (<code>y = 0.1 - c</code>):</span> Aqui preparamos o número que queremos somar (neste
@@ -632,7 +632,7 @@ def kahan_sum(n):
                         2</div>
                     <div
                         style="margin-left: 20px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; flex-grow: 1; border-left: 3px solid var(--accent);">
-                        <strong style="color: #fff; font-size: 1.15rem;">A Organização: O Padrão IEEE 754</strong><br>
+                        <strong style="color: #fff; font-size: 1.15rem;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_a_organiza__o__o_padr_o_ieee_754">A Organização: O Padrão IEEE 754</strong><br>
                         <span
                             style="opacity: 0.8; font-size: 0.95rem; line-height: 1.6; display: block; margin-top: 8px;">Para
                             gerenciar esses buracos, padronizamos a memória (Sinal, Expoente e Mantissa). Descobrimos
@@ -681,8 +681,8 @@ def kahan_sum(n):
                 </div>
             </div>
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento</h2>
-                <p style="text-align: center; opacity: 0.8;">Clique nos cartões para virar e conferir as respostas.</p>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_rea_de_treinamento">🧠 Área de Treinamento</h2>
+                <p style="text-align: center; opacity: 0.8;" data-i18n="materials_mat_comp_modulo_01_topico_1_1_clique_nos_cart_es_para_virar_e_conferir_as_respos">Clique nos cartões para virar e conferir as respostas.</p>
 
                 <div id="flashcards-container" class="flashcards-grid"></div>
             </div>
@@ -795,7 +795,7 @@ def kahan_sum(n):
                         <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
+                                    <span class="badge-tipo" style="${corBadge}" data-i18n="materials_mat_comp_modulo_01_topico_1_1_labeltipo">${labelTipo}</span>
                                     <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px;">${card.frente.replace(/\n/g, '<br>')}</p>
                                 </div>
                                 <div class="flip-card-back">
@@ -815,7 +815,7 @@ def kahan_sum(n):
 
             } catch (error) {
                 console.error("Erro ao carregar os flashcards:", error);
-                document.getElementById('flashcards-container').innerHTML = "<p style='color: #e74c3c;'>Erro ao carregar os exercícios. Verifique o caminho do arquivo JSON.</p>";
+                document.getElementById('flashcards-container').innerHTML = "<p style='color: #e74c3c;' data-i18n="materials_mat_comp_modulo_01_topico_1_1_erro_ao_carregar_os_exerc_cios__verifique_o_caminh">Erro ao carregar os exercícios. Verifique o caminho do arquivo JSON.</p>";
             }
         }
 

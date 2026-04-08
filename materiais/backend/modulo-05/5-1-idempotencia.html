@@ -243,21 +243,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 05</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_m_dulo_05">Módulo 05</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_05_5_1_idempotencia_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 5: Idempotência e Requisições Duplicadas<span
                     style="display:none;"></span></h1>
-            <p>Como evitar cobrar um cliente duas vezes em cenários de lentidão de rede e múltiplos cliques.</p>
+            <p data-i18n="materials_backend_modulo_05_5_1_idempotencia_como_evitar_cobrar_um_cliente_duas_vezes_em_cen_ri">Como evitar cobrar um cliente duas vezes em cenários de lentidão de rede e múltiplos cliques.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -273,7 +273,7 @@
                 seja processado mais de uma vez?<span style="display:none;"></span></p>
             <p>Esse problema ocorre com frequência em sistemas distribuídos.<span style="display:none;"></span></p>
 
-            <h2>1. O problema das requisições duplicadas</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_1__o_problema_das_requisi__es_duplicadas">1. O problema das requisições duplicadas</h2>
             <p>Imagine um cenário real.<span style="display:none;"></span> Um cliente está comprando pelo celular com
                 internet lenta.<span style="display:none;"></span></p>
             <p>Fluxo:<span style="display:none;"></span></p>
@@ -292,7 +292,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">HTTP</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_05_5_1_idempotencia_http">HTTP</span>
                 </div>
                 <pre><code>POST /transactions
 POST /transactions<span style="display:none;"></span></code></pre>
@@ -302,7 +302,7 @@ POST /transactions<span style="display:none;"></span></code></pre>
                 cobranças no cartão.<span style="display:none;"></span> Esse é um problema extremamente sério em
                 sistemas financeiros.<span style="display:none;"></span></p>
 
-            <h2>2. Por que isso acontece na internet</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_2__por_que_isso_acontece_na_internet">2. Por que isso acontece na internet</h2>
             <p>A internet é um ambiente não confiável.<span style="display:none;"></span> Requisições podem ser
                 duplicadas por vários motivos:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
@@ -315,8 +315,8 @@ POST /transactions<span style="display:none;"></span></code></pre>
             <p>Isso significa que o servidor pode receber: a mesma requisição múltiplas vezes.<span
                     style="display:none;"></span></p>
 
-            <h2>3. O conceito de idempotência</h2>
-            <p>Para resolver esse problema usamos um conceito chamado: <strong>Idempotência</strong>.<span
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_3__o_conceito_de_idempot_ncia">3. O conceito de idempotência</h2>
+            <p>Para resolver esse problema usamos um conceito chamado: <strong data-i18n="materials_backend_modulo_05_5_1_idempotencia_idempot_ncia">Idempotência</strong>.<span
                     style="display:none;"></span></p>
             <p>Definição simples:<span style="display:none;"></span></p>
             <div class="concept-box">
@@ -333,9 +333,9 @@ POST /transactions<span style="display:none;"></span></code></pre>
             </ul>
             <p>No caso de pagamentos: uma cobrança só pode acontecer uma vez.<span style="display:none;"></span></p>
 
-            <h2>4. Como APIs implementam idempotência</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_4__como_apis_implementam_idempot_ncia">4. Como APIs implementam idempotência</h2>
             <p>A solução mais comum é usar um identificador único da requisição.<span style="display:none;"></span> Esse
-                identificador é chamado de: <strong>Idempotency-Key</strong>.<span style="display:none;"></span></p>
+                identificador é chamado de: <strong data-i18n="materials_backend_modulo_05_5_1_idempotencia_idempotency_key">Idempotency-Key</strong>.<span style="display:none;"></span></p>
             <p>Fluxo: Cliente envia requisição + Idempotency-Key.<span style="display:none;"></span></p>
 
             <p>Exemplo:<span style="display:none;"></span></p>
@@ -346,7 +346,7 @@ POST /transactions<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">HTTP</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_05_5_1_idempotencia_http">HTTP</span>
                 </div>
                 <pre><code>POST /transactions
 Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
@@ -359,7 +359,7 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                 <li>Se já existir: retorna o resultado anterior.<span style="display:none;"></span></li>
             </ul>
 
-            <h2>5. Como seu projeto implementa isso</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_5__como_seu_projeto_implementa_isso">5. Como seu projeto implementa isso</h2>
             <p>No seu controller você faz:<span style="display:none;"></span></p>
 
             <div class="mac-code-window">
@@ -369,9 +369,9 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_05_5_1_idempotencia_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">const</span> idempotencyKey = request.header(<span style="color: #ce9178;">'Idempotency-Key'</span>)<span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_const">const</span> idempotencyKey = request.header(<span style="color: #ce9178;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_idempotency_key">'Idempotency-Key'</span>)<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Depois:<span style="display:none;"></span></p>
@@ -383,9 +383,9 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_05_5_1_idempotencia_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_const">const</span> existingTransaction = <span style="color: #c586c0;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_await">await</span> Transaction.findBy(<span style="color: #ce9178;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_idempotencykey">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Fluxo completo:<span style="display:none;"></span></p>
@@ -396,8 +396,8 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                 <li>se não existir processa pagamento<span style="display:none;"></span></li>
             </ol>
 
-            <h2>6. Fluxo completo no seu sistema</h2>
-            <p><strong>Fluxo normal:</strong><span style="display:none;"></span></p>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_6__fluxo_completo_no_seu_sistema">6. Fluxo completo no seu sistema</h2>
+            <p><strong data-i18n="materials_backend_modulo_05_5_1_idempotencia_fluxo_normal">Fluxo normal:</strong><span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>Cliente envia requisição<span style="display:none;"></span></li>
                 <li>Idempotency-Key recebida<span style="display:none;"></span></li>
@@ -406,7 +406,7 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                 <li>salva transação com a chave<span style="display:none;"></span></li>
             </ul>
 
-            <p><strong>Fluxo duplicado:</strong><span style="display:none;"></span></p>
+            <p><strong data-i18n="materials_backend_modulo_05_5_1_idempotencia_fluxo_duplicado">Fluxo duplicado:</strong><span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>Cliente envia mesma requisição novamente<span style="display:none;"></span></li>
                 <li>mesma Idempotency-Key<span style="display:none;"></span></li>
@@ -415,19 +415,19 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
             </ul>
             <p>Resultado: nenhuma cobrança duplicada.<span style="display:none;"></span></p>
 
-            <h2>7. Por que salvar a chave no banco</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_7__por_que_salvar_a_chave_no_banco">7. Por que salvar a chave no banco</h2>
             <p>Se a chave fosse armazenada apenas em memória: reiniciar servidor → perder histórico → duplicação
                 possível.<span style="display:none;"></span></p>
             <p>Salvar no banco garante: persistência.<span style="display:none;"></span> Por isso seu modelo Transaction
                 contém: <code>idempotencyKey</code>.<span style="display:none;"></span></p>
 
-            <h2>8. Idempotência em APIs reais</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_8__idempot_ncia_em_apis_reais">8. Idempotência em APIs reais</h2>
             <p>Essa estratégia é utilizada por empresas que processam bilhões de transações.<span
                     style="display:none;"></span> Exemplo: Stripe, PayPal.<span style="display:none;"></span></p>
             <p>A API da Stripe inclusive recomenda explicitamente: usar Idempotency-Key em operações financeiras.<span
                     style="display:none;"></span></p>
 
-            <h2>9. Por que isso é importante em pagamentos</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_9__por_que_isso___importante_em_pagamentos">9. Por que isso é importante em pagamentos</h2>
             <p>Sem idempotência podemos ter:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>cobranças duplicadas<span style="display:none;"></span></li>
@@ -438,7 +438,7 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                     style="display:none;"></span> Por isso sistemas financeiros tratam esse problema com muita
                 seriedade.<span style="display:none;"></span></p>
 
-            <h2>10. Limitações da idempotência</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_10__limita__es_da_idempot_ncia">10. Limitações da idempotência</h2>
             <p>Mesmo com idempotência ainda precisamos considerar outros cenários.<span style="display:none;"></span>
             </p>
             <p>Exemplo: mesma requisição, mas chave diferente.<span style="display:none;"></span> Isso pode acontecer se
@@ -446,7 +446,7 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                 usam: correlation IDs, verificação de duplicação lógica.<span style="display:none;"></span> Mas para um
                 desafio técnico sua solução está muito correta.<span style="display:none;"></span></p>
 
-            <h2>11. Conectando com seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_11__conectando_com_seu_projeto">11. Conectando com seu projeto</h2>
             <p>Seu sistema resolve o problema de duplicação usando três elementos:<span style="display:none;"></span>
             </p>
             <ul style="line-height: 1.8;">
@@ -463,9 +463,9 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_05_5_1_idempotencia_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_const">const</span> existingTransaction = <span style="color: #c586c0;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_await">await</span> Transaction.findBy(<span style="color: #ce9178;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_idempotencykey">'idempotencyKey'</span>, idempotencyKey)<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso demonstra entendimento de: resiliência em APIs.<span style="display:none;"></span></p>
@@ -499,13 +499,13 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 5</h2>
+            <h2 data-i18n="materials_backend_modulo_05_5_1_idempotencia_conclus_o_do_m_dulo_5">Conclusão do Módulo 5</h2>
             <p>Agora você entende profundamente: por que requisições duplicadas acontecem, o que é idempotência, como
                 implementar Idempotency-Key.<span style="display:none;"></span> E principalmente: como evitar cobranças
                 duplicadas.<span style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 6):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_05_5_1_idempotencia_pr_ximo_passo__m_dulo_6">Próximo passo (Módulo 6):</p>
                 <p>No Módulo 6 vamos entrar em um dos pontos mais interessantes do seu projeto: <strong>resiliência do
                         sistema</strong>.<span style="display:none;"></span> Vamos explicar profundamente: failover,
                     retry, fault tolerance.<span style="display:none;"></span> E conectar diretamente com seu código:
@@ -514,7 +514,7 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Idempotência e chaves seguras.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -551,11 +551,11 @@ Idempotency-Key: 8f9a3c2d-1234<span style="display:none;"></span></code></pre>
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_05_5_1_idempotencia_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_05_5_1_idempotencia_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

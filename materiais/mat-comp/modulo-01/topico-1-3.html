@@ -68,28 +68,28 @@
     <nav class="top-navbar">
         <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
             01</a>
-        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.3</span>
+        <span class="jessica-signature" data-i18n="materials_mat_comp_modulo_01_topico_1_3_cs_hub___mat_comp___t1_3">CS_HUB / MAT_COMP / T1.3</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Estabilidade e Erro Forward/Backward</h1>
+            <span class="badge-tech" data-i18n="materials_mat_comp_modulo_01_topico_1_3_matem_tica_computacional_aplicada">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_3_estabilidade_e_erro_forward_backward">Estabilidade e Erro Forward/Backward</h1>
             <p>O paradigma de J.H. Wilkinson: Como julgar se um algoritmo é verdadeiramente confiável ou se o problema
                 matemático é que estava fadado ao fracasso.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
 
-            <h2>0. A Ilusão da Resposta "Certa"</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_3_0__a_ilus_o_da_resposta__certa">0. A Ilusão da Resposta "Certa"</h2>
             <p>Seja $f(x)$ um problema matemático e $\tilde{f}(x)$ o algoritmo que roda no computador. Devido ao espaço
                 discreto $\mathbb{F}$ (como vimos no Tópico 1.1), quase nunca teremos $\tilde{f}(x) = f(x)$. Sempre
                 haverá um erro.</p>
             <p>Mas como medimos esse erro? A abordagem natural humana é olhar para o final do processo, mas a Análise
                 Numérica moderna exige olhar também para o início.</p>
 
-            <h2>1. Erro Forward (O Erro Para Frente)</h2>
-            <p>O <strong>Erro Forward</strong> é a forma clássica e óbvia de medir um erro. É a diferença entre o
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_3_1__erro_forward__o_erro_para_frente">1. Erro Forward (O Erro Para Frente)</h2>
+            <p>O <strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_erro_forward">Erro Forward</strong> é a forma clássica e óbvia de medir um erro. É a diferença entre o
                 resultado exato que você esperava $y = f(x)$ e o resultado aproximado que o computador te entregou
                 $\tilde{y} = \tilde{f}(x)$.</p>
 
@@ -98,13 +98,13 @@
                 $$ E_{forward\_relativo} = \frac{\|\tilde{y} - y\|}{\|y\|} \quad \text{(Erro Relativo)} $$
             </div>
 
-            <p><strong>O Problema:</strong> Se o Erro Forward for gigante, a culpa é do seu algoritmo (programador) ou o
+            <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_o_problema">O Problema:</strong> Se o Erro Forward for gigante, a culpa é do seu algoritmo (programador) ou o
                 problema era Mal Condicionado (Tópico 1.2)? O Erro Forward, sozinho, não responde isso.</p>
 
-            <h2>2. Erro Backward (A Mudança de Paradigma)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_3_2__erro_backward__a_mudan_a_de_paradigma">2. Erro Backward (A Mudança de Paradigma)</h2>
             <p>Nos anos 60, o matemático James H. Wilkinson propôs uma inversão genial. Em vez de medir o erro na
                 resposta (no espaço $Y$), vamos medir o erro na pergunta (no espaço $X$).</p>
-            <p>O <strong>Erro Backward</strong> pergunta: <em>Qual seria a perturbação $\Delta x$ que eu teria que fazer
+            <p>O <strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_erro_backward">Erro Backward</strong> pergunta: <em>Qual seria a perturbação $\Delta x$ que eu teria que fazer
                     nos dados de entrada originais $x$ para que a resposta exata da matemática fosse igual à resposta
                     errada que o computador me deu?</em></p>
 
@@ -116,15 +116,15 @@
 
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">O Santo Graal: Algoritmo Backward Stable</h4>
-                <p>Um algoritmo é considerado <strong>Backward Stable</strong> (Estável para trás) se ele entrega a
-                    resposta exata para um problema <em>ligeiramente perturbado</em>. Em termos de hardware, isso
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_3_o_santo_graal__algoritmo_backward_stable">O Santo Graal: Algoritmo Backward Stable</h4>
+                <p>Um algoritmo é considerado <strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_backward_stable">Backward Stable</strong> (Estável para trás) se ele entrega a
+                    resposta exata para um problema <em data-i18n="materials_mat_comp_modulo_01_topico_1_3_ligeiramente_perturbado">ligeiramente perturbado</em>. Em termos de hardware, isso
                     significa que $\Delta x \approx \varepsilon_{mach}$.</p>
                 <p>Se o seu algoritmo atinge isso, ele é perfeito. Ele fez o melhor que o hardware permitia. Você, como
                     programadora, cumpriu o seu papel com excelência.</p>
             </div>
 
-            <h2>3. A Regra de Ouro da Análise Numérica</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_3_3__a_regra_de_ouro_da_an_lise_num_rica">3. A Regra de Ouro da Análise Numérica</h2>
             <p>Como o Condicionamento $\kappa(x)$ (Tópico 1.2) se conecta com a Estabilidade (Tópico 1.3)? Através do
                 Teorema Fundamental que une as duas pontas:</p>
 
@@ -133,24 +133,24 @@
             </div>
 
             <div class="alert-box">
-                <h4 style="margin-top:0; color: #e74c3c;">O Julgamento Final do Algoritmo</h4>
+                <h4 style="margin-top:0; color: #e74c3c;" data-i18n="materials_mat_comp_modulo_01_topico_1_3_o_julgamento_final_do_algoritmo">O Julgamento Final do Algoritmo</h4>
                 <p>Se você tem um erro gigante na saída (Forward enorme), use a equação acima para investigar o culpado:
                 </p>
                 <ul>
-                    <li>Se o <strong>$\kappa$ for enorme</strong>, a culpa é do problema matemático (Mal condicionado).
+                    <li>Se o <strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_kappa__for_enorme">$\kappa$ for enorme</strong>, a culpa é do problema matemático (Mal condicionado).
                         Nem o melhor algoritmo do mundo te salvaria.</li>
-                    <li>Se o <strong>Erro Backward for enorme</strong>, a culpa é sua. Seu algoritmo é instável,
+                    <li>Se o <strong data-i18n="materials_mat_comp_modulo_01_topico_1_3_erro_backward_for_enorme">Erro Backward for enorme</strong>, a culpa é sua. Seu algoritmo é instável,
                         amplificou lixo na memória e destruiu a precisão. (Ex: Cancelamento Catastrófico).</li>
                 </ul>
             </div>
 
-            <h2>4. Cancelamento Catastrófico na Prática</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_3_4__cancelamento_catastr_fico_na_pr_tica">4. Cancelamento Catastrófico na Prática</h2>
             <p>O erro mais comum que destrói a Estabilidade Backward de um algoritmo é subtrair dois números muito
                 próximos. Os bits significativos se anulam, e o que sobra na memória é apenas o lixo computacional de
                 arredondamentos anteriores.</p>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">Exemplo Clássico: O Cálculo da Variância</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_3_exemplo_cl_ssico__o_c_lculo_da_vari_ncia">Exemplo Clássico: O Cálculo da Variância</h4>
                 <p>Em estatística e Machine Learning, a variância pode ser calculada de duas formas. A fórmula ingênua
                     (usada em livros de matemática) é um desastre no computador se os dados tiverem média alta e
                     variância baixa.</p>
@@ -182,7 +182,7 @@ print(f"Variância Estável: {variancia_estavel}")
         </section>
 
         <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
-            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
+            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;" data-i18n="materials_mat_comp_modulo_01_topico_1_3_jessica_fran_a">Jessica França</p>
         </footer>
     </main>
 

@@ -15,21 +15,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
             <a href="../index.html"
-                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
+                style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;" data-i18n="materials_backend_title">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 01</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_m_dulo_01">Módulo 01</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header" style="margin-bottom: 50px;">
             <span class="badge-tech"
-                style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">MÓDULO
+                style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;" data-i18n="materials_backend_module_badge">MÓDULO
                 1</span>
-            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;">O Problema dos Sistemas de Pagamento
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;" data-i18n="materials_backend_module_1_title">O Problema dos Sistemas de Pagamento
             </h1>
         </header>
 
@@ -37,31 +37,31 @@
             style="padding: 40px; border-radius: 24px; background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.05);">
 
             <p style="margin-bottom: 20px;">Antes de qualquer linha de código, precisamos entender o problema que
-                sistemas de pagamento tentam resolver.<span style="display:none;">[cite: 260]</span> Em engenharia de
+                sistemas de pagamento tentam resolver.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__260">[cite: 260]</span> Em engenharia de
                 software, especialmente em backend financeiro, a primeira pergunta não é: como programar?<span
-                    style="display:none;">[cite: 261, 262]</span> A pergunta é: <strong>qual problema estamos tentando
-                    resolver?</strong><span style="display:none;">[cite: 263, 264]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__261__262">[cite: 261, 262]</span> A pergunta é: <strong>qual problema estamos tentando
+                    resolver?</strong><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__263__264">[cite: 263, 264]</span></p>
 
             <p style="margin-bottom: 40px;">Seu projeto da API de pagamentos é uma resposta para um problema clássico:
                 Como permitir que um cliente pague por produtos de forma confiável, segura e consistente mesmo em um
-                ambiente distribuído como a internet.<span style="display:none;">[cite: 265, 266, 267]</span></p>
+                ambiente distribuído como a internet.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__265__266__267">[cite: 265, 266, 267]</span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">1. O que é uma transação financeira</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_module_1_section_1">1. O que é uma transação financeira</h2>
             <p style="margin-bottom: 20px;">Uma transação financeira é um evento que representa a movimentação de valor
-                entre duas partes.<span style="display:none;">[cite: 268, 269]</span> Exemplo simples: Cliente compra um
+                entre duas partes.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__268__269">[cite: 268, 269]</span> Exemplo simples: Cliente compra um
                 produto &rarr; valor sai da conta/cartão do cliente &rarr; valor vai para o comerciante.<span
-                    style="display:none;">[cite: 270, 271, 272, 273]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__270__271__272__273">[cite: 270, 271, 272, 273]</span></p>
 
             <p style="margin-bottom: 20px;">No seu sistema isso aparece como: <code>Transaction</code>.<span
-                    style="display:none;">[cite: 274, 275]</span> No banco de dados da sua API você criou a tabela:
-                <code>transactions</code>.<span style="display:none;">[cite: 276, 277]</span> Ela representa exatamente
-                isso: um evento financeiro.<span style="display:none;">[cite: 278, 279]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__274__275">[cite: 274, 275]</span> No banco de dados da sua API você criou a tabela:
+                <code>transactions</code>.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__276__277">[cite: 276, 277]</span> Ela representa exatamente
+                isso: um evento financeiro.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__278__279">[cite: 278, 279]</span></p>
 
             <div class="apostila-container"
                 style="margin: 30px 0; padding: 25px; background: rgba(13, 17, 23, 0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                 <h3
                     style="margin-top: 0; font-size: 0.85rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
-                    Campos comuns em sistemas de pagamento:</h3><span style="display:none;">[cite: 280]</span>
+                    Campos comuns em sistemas de pagamento:</h3><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__280">[cite: 280]</span>
                 <table style="width: 100%; border-collapse: collapse; color: #fff; font-size: 0.95rem;">
                     <thead>
                         <tr style="border-bottom: 2px solid var(--accent); text-align: left;">
@@ -72,38 +72,38 @@
                     <tbody>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                             <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">
-                                transaction_id<span style="display:none;">[cite: 281]</span></td>
+                                transaction_id<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
                             <td style="padding: 12px;">identificador da transação<span style="display:none;">[cite:
                                     281]</span></td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                             <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">amount<span
-                                    style="display:none;">[cite: 281]</span></td>
-                            <td style="padding: 12px;">valor<span style="display:none;">[cite: 281]</span></td>
+                                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
+                            <td style="padding: 12px;">valor<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                             <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">status<span
-                                    style="display:none;">[cite: 281]</span></td>
-                            <td style="padding: 12px;">estado da transação<span style="display:none;">[cite: 281]</span>
+                                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
+                            <td style="padding: 12px;">estado da transação<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span>
                             </td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                             <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">gateway<span
-                                    style="display:none;">[cite: 281]</span></td>
+                                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
                             <td style="padding: 12px;">provedor que processou<span style="display:none;">[cite:
                                     281]</span></td>
                         </tr>
                         <tr>
                             <td style="padding: 12px; font-family: 'Fira Code'; color: var(--accent);">external_id<span
-                                    style="display:none;">[cite: 281]</span></td>
-                            <td style="padding: 12px;">id no gateway<span style="display:none;">[cite: 281]</span></td>
+                                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
+                            <td style="padding: 12px;">id no gateway<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__281">[cite: 281]</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <p style="margin-bottom: 15px;">Isso aparece no seu código quando você cria:<span
-                    style="display:none;">[cite: 282]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__282">[cite: 282]</span></p>
             <div class="code-container" style="margin-bottom: 50px;">
                 <div class="code-header">
                     <div class="code-dots">
@@ -111,45 +111,45 @@
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
                     </div>
-                    <span class="code-filename">TypeScript</span><span style="display:none;">[cite: 283]</span>
+                    <span class="code-filename" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_typescript">TypeScript</span><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__283">[cite: 283]</span>
                 </div>
                 <pre
-                    class="code-content"><code><span class="token-kw">await</span> Transaction.<span class="token-fn">create</span>(...)<span style="display:none;">[cite: 284]</span></code></pre>
+                    class="code-content"><code><span class="token-kw" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_await">await</span> Transaction.<span class="token-fn" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_create">create</span>(...)<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__284">[cite: 284]</span></code></pre>
             </div>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">2. O que é um Gateway de Pagamento</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_2__o_que___um_gateway_de_pagamento">2. O que é um Gateway de Pagamento</h2>
             <p style="margin-bottom: 20px;">Um gateway de pagamento é um sistema externo que conecta sua aplicação ao
-                sistema financeiro.<span style="display:none;">[cite: 285, 286]</span> Ele atua como um intermediário
-                técnico entre seu sistema e as redes bancárias.<span style="display:none;">[cite: 287]</span></p>
+                sistema financeiro.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__285__286">[cite: 285, 286]</span> Ele atua como um intermediário
+                técnico entre seu sistema e as redes bancárias.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__287">[cite: 287]</span></p>
 
             <div
                 style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border-left: 3px solid #555; margin-bottom: 20px;">
                 <p style="font-family: 'Fira Code'; font-size: 0.9rem; margin: 0; line-height: 1.8;">
-                    Fluxo simplificado:<span style="display:none;">[cite: 288]</span><br>
-                    Cliente &darr;<span style="display:none;">[cite: 289, 290]</span><br>
-                    Sua API &darr;<span style="display:none;">[cite: 291]</span><br>
-                    Gateway de pagamento &darr;<span style="display:none;">[cite: 292]</span><br>
-                    Rede financeira &darr;<span style="display:none;">[cite: 293]</span><br>
-                    Banco emissor do cartão<span style="display:none;">[cite: 294]</span>
+                    Fluxo simplificado:<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__288">[cite: 288]</span><br>
+                    Cliente &darr;<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__289__290">[cite: 289, 290]</span><br>
+                    Sua API &darr;<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__291">[cite: 291]</span><br>
+                    Gateway de pagamento &darr;<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__292">[cite: 292]</span><br>
+                    Rede financeira &darr;<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__293">[cite: 293]</span><br>
+                    Banco emissor do cartão<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__294">[cite: 294]</span>
                 </p>
             </div>
 
             <p style="margin-bottom: 15px;">Gateways famosos incluem: Stripe, PayPal, Adyen.<span
-                    style="display:none;">[cite: 295, 296, 297, 298]</span></p>
-            <p style="margin-bottom: 50px;">Seu projeto simula dois gateways: <strong>Gateway 1</strong> e
-                <strong>Gateway 2</strong>.<span style="display:none;">[cite: 299, 300, 301]</span> E o seu
-                <code>PaymentService</code> faz a comunicação com eles.<span style="display:none;">[cite: 302]</span>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__295__296__297__298">[cite: 295, 296, 297, 298]</span></p>
+            <p style="margin-bottom: 50px;">Seu projeto simula dois gateways: <strong data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_gateway_1">Gateway 1</strong> e
+                <strong data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_gateway_2">Gateway 2</strong>.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__299__300__301">[cite: 299, 300, 301]</span> E o seu
+                <code>PaymentService</code> faz a comunicação com eles.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__302">[cite: 302]</span>
             </p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">3. Autorização</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_3__autoriza__o">3. Autorização</h2>
             <p style="margin-bottom: 20px;">Quando o cliente tenta pagar, o primeiro passo não é capturar o dinheiro.
-                Primeiro ocorre autorização.<span style="display:none;">[cite: 303, 304, 305]</span></p>
+                Primeiro ocorre autorização.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__303__304__305">[cite: 303, 304, 305]</span></p>
             <p style="margin-bottom: 20px;">Autorização significa: o banco verifica se o cliente pode pagar.<span
-                    style="display:none;">[cite: 306, 307]</span> Por exemplo: cliente tem limite? cartão é válido?
-                transação é suspeita?<span style="display:none;">[cite: 308, 309, 310, 311]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__306__307">[cite: 306, 307]</span> Por exemplo: cliente tem limite? cartão é válido?
+                transação é suspeita?<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__308__309__310__311">[cite: 308, 309, 310, 311]</span></p>
             <p style="margin-bottom: 20px;">Resultado possível: <code>approved</code> ou <code>declined</code>.<span
-                    style="display:none;">[cite: 312, 313, 314]</span> No seu sistema isso aparece como:<span
-                    style="display:none;">[cite: 315]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__312__313__314">[cite: 312, 313, 314]</span> No seu sistema isso aparece como:<span
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__315">[cite: 315]</span></p>
 
             <div class="code-container" style="margin-bottom: 20px;">
                 <div class="code-header">
@@ -157,30 +157,30 @@
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 316]</span>
+                    </div><span class="code-filename" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_typescript">TypeScript</span><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__316">[cite: 316]</span>
                 </div>
                 <pre
-                    class="code-content"><code>paymentResult.success<span style="display:none;">[cite: 317]</span></code></pre>
+                    class="code-content"><code>paymentResult.success<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__317">[cite: 317]</span></code></pre>
             </div>
 
             <p style="margin-bottom: 50px;">Se for aprovado: segue fluxo.<span style="display:none;">[cite: 318,
-                    319]</span> Se for recusado: erro de pagamento.<span style="display:none;">[cite: 320, 321]</span>
+                    319]</span> Se for recusado: erro de pagamento.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__320__321">[cite: 320, 321]</span>
             </p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">4. Captura</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_4__captura">4. Captura</h2>
             <p style="margin-bottom: 20px;">Após a autorização, alguns sistemas fazem a captura do pagamento.<span
-                    style="display:none;">[cite: 322, 323]</span> Captura significa: transferir efetivamente o
-                dinheiro.<span style="display:none;">[cite: 324, 325]</span> Fluxo real em muitos sistemas: autorização
-                &rarr; captura.<span style="display:none;">[cite: 326, 327, 328]</span> No seu projeto, simplificamos
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__322__323">[cite: 322, 323]</span> Captura significa: transferir efetivamente o
+                dinheiro.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__324__325">[cite: 324, 325]</span> Fluxo real em muitos sistemas: autorização
+                &rarr; captura.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__326__327__328">[cite: 326, 327, 328]</span> No seu projeto, simplificamos
                 isso para: pagamento aprovado &rarr; transação salva.<span style="display:none;">[cite: 329, 330,
                     331]</span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">5. Chargeback (estorno)</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_5__chargeback__estorno">5. Chargeback (estorno)</h2>
             <p style="margin-bottom: 20px;">Um chargeback ocorre quando uma transação precisa ser revertida.<span
-                    style="display:none;">[cite: 332, 333]</span> Isso pode acontecer quando: cliente solicita estorno,
-                fraude detectada, erro no pagamento.<span style="display:none;">[cite: 334, 335, 336, 337]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__332__333">[cite: 332, 333]</span> Isso pode acontecer quando: cliente solicita estorno,
+                fraude detectada, erro no pagamento.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__334__335__336__337">[cite: 334, 335, 336, 337]</span></p>
 
-            <p style="margin-bottom: 15px;">No seu código isso aparece em:<span style="display:none;">[cite: 338]</span>
+            <p style="margin-bottom: 15px;">No seu código isso aparece em:<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__338">[cite: 338]</span>
             </p>
             <div class="code-container" style="margin-bottom: 20px;">
                 <div class="code-header">
@@ -188,36 +188,36 @@
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 339]</span>
+                    </div><span class="code-filename" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_typescript">TypeScript</span><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__339">[cite: 339]</span>
                 </div>
                 <pre
-                    class="code-content"><code><span class="token-kw">async</span> <span class="token-fn">chargeback</span>({params})<span style="display:none;">[cite: 340]</span></code></pre>
+                    class="code-content"><code><span class="token-kw" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_async">async</span> <span class="token-fn" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_chargeback">chargeback</span>({params})<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__340">[cite: 340]</span></code></pre>
             </div>
 
             <p style="margin-bottom: 50px; line-height: 1.8;">
                 Fluxo: transação encontrada &rarr; chamada ao gateway &rarr; status atualizado.<span
-                    style="display:none;">[cite: 341, 342, 343, 344, 345]</span><br>
-                Status final: <code>REFUNDED</code>.<span style="display:none;">[cite: 346, 347]</span>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__341__342__343__344__345">[cite: 341, 342, 343, 344, 345]</span><br>
+                Status final: <code>REFUNDED</code>.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__346__347">[cite: 346, 347]</span>
             </p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">6. Problema real 1 — Falhas de rede</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_6__problema_real_1___falhas_de_rede">6. Problema real 1 — Falhas de rede</h2>
             <p style="margin-bottom: 20px;">A internet não é confiável.<span style="display:none;">[cite: 348,
                     349]</span> Requisições podem falhar por: timeout, queda de conexão, gateway fora do ar.<span
-                    style="display:none;">[cite: 350, 351, 352, 353]</span> Exemplo: API chama gateway &rarr; gateway
-                não responde.<span style="display:none;">[cite: 354, 355, 356, 357]</span></p>
-            <p style="margin-bottom: 50px;">Seu sistema resolve isso com: <strong>Failover</strong>.<span
-                    style="display:none;">[cite: 358, 359]</span> Ou seja: Gateway 1 &rarr; falha &rarr; Gateway 2.<span
-                    style="display:none;">[cite: 360, 361, 362, 363]</span> Isso está implementado no seu:
-                <code>PaymentService</code>.<span style="display:none;">[cite: 364, 365]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__350__351__352__353">[cite: 350, 351, 352, 353]</span> Exemplo: API chama gateway &rarr; gateway
+                não responde.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__354__355__356__357">[cite: 354, 355, 356, 357]</span></p>
+            <p style="margin-bottom: 50px;">Seu sistema resolve isso com: <strong data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_failover">Failover</strong>.<span
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__358__359">[cite: 358, 359]</span> Ou seja: Gateway 1 &rarr; falha &rarr; Gateway 2.<span
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__360__361__362__363">[cite: 360, 361, 362, 363]</span> Isso está implementado no seu:
+                <code>PaymentService</code>.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__364__365">[cite: 364, 365]</span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">7. Problema real 2 — Duplicação de pagamento</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_7__problema_real_2___duplica__o_de_pagamento">7. Problema real 2 — Duplicação de pagamento</h2>
             <p style="margin-bottom: 20px;">Imagine o cenário: usuário clica em pagar &rarr; internet lenta &rarr; ele
-                clica novamente.<span style="display:none;">[cite: 366, 367, 368, 369, 370]</span> Sua API recebe 2
-                requisições.<span style="display:none;">[cite: 371, 372]</span> Sem proteção isso pode gerar 2
-                cobranças.<span style="display:none;">[cite: 373, 374]</span></p>
+                clica novamente.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__366__367__368__369__370">[cite: 366, 367, 368, 369, 370]</span> Sua API recebe 2
+                requisições.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__371__372">[cite: 371, 372]</span> Sem proteção isso pode gerar 2
+                cobranças.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__373__374">[cite: 373, 374]</span></p>
             <p style="margin-bottom: 15px;">Seu projeto resolve isso com: <code>Idempotency-Key</code>.<span
-                    style="display:none;">[cite: 375, 376]</span> Trecho do seu código:<span
-                    style="display:none;">[cite: 377]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__375__376">[cite: 375, 376]</span> Trecho do seu código:<span
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__377">[cite: 377]</span></p>
 
             <div class="code-container" style="margin-bottom: 20px;">
                 <div class="code-header">
@@ -225,77 +225,77 @@
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 378]</span>
+                    </div><span class="code-filename" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_typescript">TypeScript</span><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__378">[cite: 378]</span>
                 </div>
                 <pre
-                    class="code-content"><code><span class="token-kw">const</span> idempotencyKey = request.<span class="token-fn">header</span>(<span class="token-str">'Idempotency-Key'</span>)<span style="display:none;">[cite: 379]</span></code></pre>
+                    class="code-content"><code><span class="token-kw" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_const">const</span> idempotencyKey = request.<span class="token-fn" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_header">header</span>(<span class="token-str" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_idempotency_key">'Idempotency-Key'</span>)<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__379">[cite: 379]</span></code></pre>
             </div>
             <p style="margin-bottom: 50px;">Se a chave já existir: retorna transação existente.<span
-                    style="display:none;">[cite: 380, 381]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__380__381">[cite: 380, 381]</span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">8. Problema real 3 — Consistência de dados</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_8__problema_real_3___consist_ncia_de_dados">8. Problema real 3 — Consistência de dados</h2>
             <p style="margin-bottom: 20px;">Imagine este erro: pagamento aprovado &rarr; erro ao salvar no banco.<span
-                    style="display:none;">[cite: 382, 383, 384, 385]</span> Resultado: cliente pagou, mas sistema não
-                registrou.<span style="display:none;">[cite: 386, 387, 388]</span> Isso é catastrófico em sistemas
-                financeiros.<span style="display:none;">[cite: 389]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__382__383__384__385">[cite: 382, 383, 384, 385]</span> Resultado: cliente pagou, mas sistema não
+                registrou.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__386__387__388">[cite: 386, 387, 388]</span> Isso é catastrófico em sistemas
+                financeiros.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__389">[cite: 389]</span></p>
 
-            <p style="margin-bottom: 15px;">Por isso você usou:<span style="display:none;">[cite: 390]</span></p>
+            <p style="margin-bottom: 15px;">Por isso você usou:<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__390">[cite: 390]</span></p>
             <div class="code-container" style="margin-bottom: 20px;">
                 <div class="code-header">
                     <div class="code-dots">
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                    </div><span class="code-filename">TypeScript</span><span style="display:none;">[cite: 391]</span>
+                    </div><span class="code-filename" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_typescript">TypeScript</span><span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__391">[cite: 391]</span>
                 </div>
                 <pre
-                    class="code-content"><code>db.<span class="token-fn">transaction</span>()<span style="display:none;">[cite: 392]</span></code></pre>
+                    class="code-content"><code>db.<span class="token-fn" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_transaction">transaction</span>()<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__392">[cite: 392]</span></code></pre>
             </div>
             <p style="margin-bottom: 50px;">Isso garante propriedades chamadas: ACID. Esse conceito será aprofundado no
-                Módulo 4.<span style="display:none;">[cite: 393, 394, 395]</span></p>
+                Módulo 4.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__393__394__395">[cite: 393, 394, 395]</span></p>
 
-            <h2 style="margin-bottom: 25px;">9. Conectando tudo ao seu PaymentService</h2><span
-                style="display:none;">[cite: 396, 397]</span>
+            <h2 style="margin-bottom: 25px;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_9__conectando_tudo_ao_seu_paymentservice">9. Conectando tudo ao seu PaymentService</h2><span
+                style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__396__397">[cite: 396, 397]</span>
             <p style="margin-bottom: 30px;">Seu PaymentService resolve três problemas fundamentais:<span
-                    style="display:none;">[cite: 398]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__398">[cite: 398]</span></p>
 
             <div class="ontologia-box"
                 style="padding: 35px; background: rgba(13, 17, 23, 0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
                 <table style="width: 100%; color: #fff; border-spacing: 0 12px; border-collapse: separate;">
                     <tr
                         style="color: #555; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
-                        <td style="padding: 0 15px;">Problema<span style="display:none;">[cite: 399]</span></td>
-                        <td style="padding: 0 15px;">Solução no projeto<span style="display:none;">[cite: 399]</span>
+                        <td style="padding: 0 15px;">Problema<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
+                        <td style="padding: 0 15px;">Solução no projeto<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span>
                         </td>
                     </tr>
                     <tr>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
-                            falha de gateway<span style="display:none;">[cite: 399]</span></td>
+                            falha de gateway<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
-                            failover<span style="display:none;">[cite: 399]</span></td>
+                            failover<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                     </tr>
                     <tr>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
-                            duplicação de pagamento<span style="display:none;">[cite: 399]</span></td>
+                            duplicação de pagamento<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
-                            idempotência<span style="display:none;">[cite: 399]</span></td>
+                            idempotência<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                     </tr>
                     <tr>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px 0 0 12px; font-weight: 600;">
-                            consistência<span style="display:none;">[cite: 399]</span></td>
+                            consistência<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                         <td
                             style="padding: 20px; background: rgba(255,255,255,0.03); border-radius: 0 12px 12px 0; color: var(--accent); font-family: 'Fira Code';">
-                            DB transaction<span style="display:none;">[cite: 399]</span></td>
+                            DB transaction<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__399">[cite: 399]</span></td>
                     </tr>
                 </table>
             </div>
             <p style="margin-bottom: 60px;">Isso transforma sua API em um sistema: resiliente.<span
-                    style="display:none;">[cite: 400, 401]</span></p>
+                    style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__400__401">[cite: 400, 401]</span></p>
 
             <section
                 style="margin-bottom: 70px; padding: 40px; background: rgba(46, 204, 113, 0.03); border-radius: 20px; border: 1px dashed rgba(46, 204, 113, 0.3);">
@@ -306,14 +306,14 @@
                     10. Pergunta de entrevista (Módulo 1)
                 </h3>
 
-                <p style="opacity: 0.8; margin-top: 10px;">Depois de entender esse módulo, você consegue responder:</p>
+                <p style="opacity: 0.8; margin-top: 10px;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_depois_de_entender_esse_m_dulo__voc__consegue_resp">Depois de entender esse módulo, você consegue responder:</p>
                 <p style="font-size: 1.2rem; margin-top: 15px; font-weight: 600; color: #fff; line-height: 1.4;">"O que
                     é um gateway de pagamento e por que usamos mais de um?"</p>
 
                 <details style="margin-top: 25px;">
                     <summary
                         style="cursor: pointer; color: var(--accent); font-weight: 600; outline: none; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 1.2rem;">👉</span> Clique para revelar a Resposta madura
+                        <span style="font-size: 1.2rem;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_">👉</span> Clique para revelar a Resposta madura
                     </summary>
                     <div
                         style="margin-top: 20px; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 12px; border-left: 4px solid var(--accent); line-height: 1.7; color: #cbd5e1; font-size: 0.95rem;">
@@ -333,21 +333,21 @@
                     FINAL DO MÓDULO</div>
 
                 <h4 style="margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 20px;">Conclusão do Módulo
-                    1<span style="display:none;">[cite: 410]</span></h4>
-                <p style="margin-bottom: 10px;">Você aprendeu:<span style="display:none;">[cite: 411]</span></p>
+                    1<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__410">[cite: 410]</span></h4>
+                <p style="margin-bottom: 10px;">Você aprendeu:<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__411">[cite: 411]</span></p>
                 <ul class="step-list" style="margin-bottom: 20px;">
-                    <li>o que é uma transação financeira<span style="display:none;">[cite: 412]</span></li>
-                    <li>o que é gateway<span style="display:none;">[cite: 413]</span></li>
-                    <li>o que é autorização<span style="display:none;">[cite: 414]</span></li>
-                    <li>o que é captura<span style="display:none;">[cite: 415]</span></li>
-                    <li>o que é chargeback<span style="display:none;">[cite: 416]</span></li>
+                    <li>o que é uma transação financeira<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__412">[cite: 412]</span></li>
+                    <li>o que é gateway<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__413">[cite: 413]</span></li>
+                    <li>o que é autorização<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__414">[cite: 414]</span></li>
+                    <li>o que é captura<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__415">[cite: 415]</span></li>
+                    <li>o que é chargeback<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__416">[cite: 416]</span></li>
                 </ul>
                 <p style="margin-bottom: 10px;">E principalmente: quais problemas sistemas de pagamento precisam
-                    resolver.<span style="display:none;">[cite: 417, 418]</span></p>
+                    resolver.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__417__418">[cite: 417, 418]</span></p>
                 <p style="margin-bottom: 10px;">Seu projeto já resolve: falhas, duplicação, consistência.<span
-                        style="display:none;">[cite: 419, 420, 421, 422]</span></p>
+                        style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__419__420__421__422">[cite: 419, 420, 421, 422]</span></p>
                 <p style="margin-bottom: 35px; color: var(--accent); font-weight: bold;">Isso é a base de toda
-                    engenharia de pagamento.<span style="display:none;">[cite: 423]</span></p>
+                    engenharia de pagamento.<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__423">[cite: 423]</span></p>
 
                 <div
                     style="height: 1px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); opacity: 0.3; margin-bottom: 35px;">
@@ -356,20 +356,20 @@
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <p
                         style="color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                        Próximo passo (Módulo 2)<span style="display:none;">[cite: 424]</span></p>
+                        Próximo passo (Módulo 2)<span style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__424">[cite: 424]</span></p>
                     <p style="opacity: 0.9; font-size: 1.1rem; line-height: 1.5;">No próximo módulo vamos entrar no tema
                         que seu projeto usa muito bem: Arquitetura de Backend.<span style="display:none;">[cite: 425,
                             426]</span> Vamos explicar profundamente: Controller, Service, Model e o padrão: Service
                         Layer que você usou no seu PaymentService.<span style="display:none;">[cite: 427, 428, 429, 430,
                             431, 432, 433]</span> Esse módulo vai explicar por que sua arquitetura está correta.<span
-                            style="display:none;">[cite: 434]</span></p>
+                            style="display:none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_cite__434">[cite: 434]</span></p>
                 </div>
             </div>
 
         </section>
 
         <section style="margin-top: 60px; text-align: center;">
-            <h2 style="color: var(--accent); border-bottom: none;">🧠 Validação de Conhecimento</h2>
+            <h2 style="color: var(--accent); border-bottom: none;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_valida__o_de_conhecimento">🧠 Validação de Conhecimento</h2>
             <div id="container-cards" class="training-grid"></div>
         </section>
 
@@ -391,17 +391,18 @@
                 data.cards.forEach(card => {
                     container.innerHTML += `
                         <div class="val-card" onclick="this.classList.toggle('flipped')">
-                            <span class="val-tag">🧠 REVISÃO</span>
-                            <div class="val-frente val-text">${card.frente}</div>
-                            <div class="val-verso val-text"><strong>Resposta:</strong><br><br>${card.verso}</div>
+                            <span class="val-tag" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_revis_o">🧠 REVISÃO</span>
+                            <div class="val-frente val-text" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_card_frente">${card.frente}</div>
+                            <div class="val-verso val-text"><strong data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_resposta">Resposta:</strong><br><br>${card.verso}</div>
                         </div>`;
                 });
             } catch (error) {
-                container.innerHTML = `<p style="color: #e74c3c;">Erro ao carregar os cards.</p>`;
+                container.innerHTML = `<p style="color: #e74c3c;" data-i18n="materials_backend_modulo_01_1_1_problema_pagamentos_erro_ao_carregar_os_cards">Erro ao carregar os cards.</p>`;
             }
         }
         carregarDashboard();
     </script>
+    <script src="../../../js/i18n.js"></script>
 </body>
 
 </html>

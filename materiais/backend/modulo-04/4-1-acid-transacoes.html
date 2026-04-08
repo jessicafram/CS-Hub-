@@ -207,21 +207,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 04</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_m_dulo_04">Módulo 04</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 4: ACID e Transações de Banco de Dados<span
                     style="display:none;"></span></h1>
-            <p>Garantindo que operações financeiras não deixem o banco em um estado inconsistente.</p>
+            <p data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_garantindo_que_opera__es_financeiras_n_o_deixem_o">Garantindo que operações financeiras não deixem o banco em um estado inconsistente.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -241,7 +241,7 @@
             <p>Esse é um dos problemas mais importantes em engenharia de sistemas financeiros.<span
                     style="display:none;"></span></p>
 
-            <h2>1. O problema da consistência de dados</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_1__o_problema_da_consist_ncia_de_dados">1. O problema da consistência de dados</h2>
             <p>Imagine o fluxo de checkout do seu sistema. Cliente compra dois produtos: Produto A e Produto B.<span
                     style="display:none;"></span></p>
             <p>Fluxo da aplicação:<span style="display:none;"></span></p>
@@ -256,7 +256,7 @@
                 inconsistentes. Em sistemas financeiros isso é extremamente grave.<span style="display:none;"></span>
             </p>
 
-            <h2>2. O conceito de transação de banco</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_2__o_conceito_de_transa__o_de_banco">2. O conceito de transação de banco</h2>
             <p>Para resolver esse problema utilizamos transações de banco de dados.<span style="display:none;"></span>
                 Uma transação agrupa múltiplas operações em uma única unidade lógica.<span style="display:none;"></span>
             </p>
@@ -273,38 +273,38 @@
                         nada</strong>.<span style="display:none;"></span></p>
             </div>
 
-            <h2>3. O princípio ACID</h2>
-            <p>As transações de banco seguem um conjunto de propriedades chamadas: <strong>ACID</strong>.<span
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_3__o_princ_pio_acid">3. O princípio ACID</h2>
+            <p>As transações de banco seguem um conjunto de propriedades chamadas: <strong data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_acid">ACID</strong>.<span
                     style="display:none;"></span> ACID foi definido na teoria de bancos relacionais. Banco utilizado no
                 seu projeto: MySQL.<span style="display:none;"></span></p>
 
-            <h2>4. Atomicidade (Atomicity)</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_4__atomicidade__atomicity">4. Atomicidade (Atomicity)</h2>
             <p>Atomicidade significa: uma operação ocorre completamente ou não ocorre.<span
                     style="display:none;"></span></p>
             <p>Exemplo: Transaction criada + TransactionProducts criados.<span style="display:none;"></span> Se qualquer
                 passo falhar: nenhum dado é salvo.<span style="display:none;"></span> Isso evita estados
                 inconsistentes.<span style="display:none;"></span></p>
 
-            <h2>5. Consistência (Consistency)</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_5__consist_ncia__consistency">5. Consistência (Consistency)</h2>
             <p>Consistência significa que o banco sempre permanece em um estado válido.<span
                     style="display:none;"></span></p>
             <p>Exemplo: <code>transaction_products.product_id</code> deve existir em <code>products.id</code>.<span
                     style="display:none;"></span> Se uma operação violar uma regra: a transação falha.<span
                     style="display:none;"></span> Isso mantém o banco coerente.<span style="display:none;"></span></p>
 
-            <h2>6. Isolamento (Isolation)</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_6__isolamento__isolation">6. Isolamento (Isolation)</h2>
             <p>Isolamento garante que transações simultâneas não interfiram entre si.<span style="display:none;"></span>
                 Imagine dois usuários comprando ao mesmo tempo (User A, User B).<span style="display:none;"></span> Cada
                 operação ocorre como se fosse isolada.<span style="display:none;"></span> Isso evita problemas como
                 leitura de dados parcialmente atualizados.<span style="display:none;"></span></p>
 
-            <h2>7. Durabilidade (Durability)</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_7__durabilidade__durability">7. Durabilidade (Durability)</h2>
             <p>Durabilidade significa que uma vez que a transação foi confirmada (<code>COMMIT</code>), os dados
                 persistem mesmo em caso de falha do sistema.<span style="display:none;"></span> Exemplo: queda de
                 energia ou crash do servidor.<span style="display:none;"></span> Mesmo assim os dados permanecem
                 salvos.<span style="display:none;"></span></p>
 
-            <h2>8. Aplicando ACID no seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_8__aplicando_acid_no_seu_projeto">8. Aplicando ACID no seu projeto</h2>
             <p>No seu código você implementou transações usando <code>const trx = await db.transaction()</code>.<span
                     style="display:none;"></span> Fluxo no seu controller:<span style="display:none;"></span></p>
 
@@ -315,16 +315,16 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">const</span> trx = <span style="color: #c586c0;">await</span> db.transaction()
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_const">const</span> trx = <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_await">await</span> db.transaction()
 
-<span style="color: #c586c0;">try</span> {
-    <span style="color: #569cd6;">const</span> transaction = <span style="color: #c586c0;">await</span> Transaction.create(..., { client: trx })
-    <span style="color: #c586c0;">await</span> TransactionProduct.create(..., { client: trx })
-    <span style="color: #c586c0;">await</span> trx.commit()
-} <span style="color: #c586c0;">catch</span> (error) {
-    <span style="color: #c586c0;">await</span> trx.rollback()
+<span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_try">try</span> {
+    <span style="color: #569cd6;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_const">const</span> transaction = <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_await">await</span> Transaction.create(..., { client: trx })
+    <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_await">await</span> TransactionProduct.create(..., { client: trx })
+    <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_await">await</span> trx.commit()
+} <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_catch">catch</span> (error) {
+    <span style="color: #c586c0;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_await">await</span> trx.rollback()
 }<span style="display:none;"></span></code></pre>
             </div>
 
@@ -332,19 +332,19 @@
                     style="display:none;"></span> Se qualquer parte falhar: <code>rollback</code>.<span
                     style="display:none;"></span></p>
 
-            <h2>9. Fluxo real no seu sistema</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_9__fluxo_real_no_seu_sistema">9. Fluxo real no seu sistema</h2>
             <p>Fluxo completo do checkout:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>Cliente envia requisição → Controller processa pagamento → Gateway aprova<span
                         style="display:none;"></span></li>
-                <li><strong>BEGIN TRANSACTION</strong> → Transaction criada → TransactionProducts criados →
-                    <strong>COMMIT</strong><span style="display:none;"></span></li>
+                <li><strong data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_begin_transaction">BEGIN TRANSACTION</strong> → Transaction criada → TransactionProducts criados →
+                    <strong data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_commit">COMMIT</strong><span style="display:none;"></span></li>
                 <li>Resposta enviada<span style="display:none;"></span></li>
             </ul>
             <p>Se ocorrer erro: BEGIN TRANSACTION → Transaction criada → Erro ao salvar produtos →
-                <strong>ROLLBACK</strong> (nenhum dado salvo).<span style="display:none;"></span></p>
+                <strong data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_rollback">ROLLBACK</strong> (nenhum dado salvo).<span style="display:none;"></span></p>
 
-            <h2>10. Problemas reais resolvidos</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_10__problemas_reais_resolvidos">10. Problemas reais resolvidos</h2>
             <p>O uso de transações resolve vários problemas importantes:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>inconsistência de pedidos (pedido sem produtos)<span style="display:none;"></span></li>
@@ -352,7 +352,7 @@
                 <li>erros parciais (metade da operação salva)<span style="display:none;"></span></li>
             </ul>
 
-            <h2>11. Conectando com seu domínio de pagamento</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_11__conectando_com_seu_dom_nio_de_pagamento">11. Conectando com seu domínio de pagamento</h2>
             <p>Seu sistema executa duas operações críticas: persistência da transação e associação de produtos.<span
                     style="display:none;"></span> Ambas precisam ocorrer juntas. Por isso você agrupou em uma
                 transação.<span style="display:none;"></span> Isso demonstra boa prática em sistemas financeiros.<span
@@ -385,13 +385,13 @@
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 4</h2>
+            <h2 data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_conclus_o_do_m_dulo_4">Conclusão do Módulo 4</h2>
             <p>Agora você entende profundamente: o que são transações de banco, o que significa ACID e como garantir
                 consistência de dados.<span style="display:none;"></span> E principalmente: por que sistemas financeiros
                 dependem dessas propriedades.<span style="display:none;"></span></p>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Transações e Consistência.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -428,11 +428,11 @@
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_04_4_1_acid_transacoes_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

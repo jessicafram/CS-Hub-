@@ -249,13 +249,13 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 10</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_m_dulo_10">Módulo 10</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
@@ -263,30 +263,30 @@
             <span class="badge-tech"
                 style="background: linear-gradient(90deg, var(--accent), #8b5cf6); color: #000;">MASTERCLASS
                 FINAL</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 10: Anatomia Completa do Fluxo de Pagamento</h1>
-            <p>O que realmente acontece milissegundo a milissegundo quando um cliente clica em "Comprar".</p>
+            <h1 style="font-size: 2.2rem; color: var(--accent);" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_m_dulo_10__anatomia_completa_do_fluxo_de_pagamento">Módulo 10: Anatomia Completa do Fluxo de Pagamento</h1>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_o_que_realmente_acontece_milissegundo_a_milissegun">O que realmente acontece milissegundo a milissegundo quando um cliente clica em "Comprar".</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
-            <p>Nos módulos anteriores estudamos separadamente:</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_nos_m_dulos_anteriores_estudamos_separadamente">Nos módulos anteriores estudamos separadamente:</p>
             <ul style="line-height: 1.8;">
-                <li>arquitetura</li>
-                <li>modelagem de banco</li>
-                <li>consistência de dados</li>
-                <li>idempotência</li>
-                <li>resiliência</li>
-                <li>segurança</li>
-                <li>escalabilidade</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_arquitetura">arquitetura</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_modelagem_de_banco">modelagem de banco</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_consist_ncia_de_dados">consistência de dados</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_idempot_ncia">idempotência</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_resili_ncia">resiliência</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_seguran_a">segurança</li>
+                <li data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_escalabilidade">escalabilidade</li>
             </ul>
 
             <p class="highlight-text" style="font-size: 1.2rem; margin-top: 20px;">Agora vamos analisar o fluxo completo
                 de um pagamento dentro da sua API.<br>
                 A pergunta central deste módulo é:<br>
                 O que realmente acontece dentro do sistema quando um cliente clica em "Comprar"?</p>
-            <p>Vamos percorrer cada etapa da requisição, conectando com o seu código.</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_vamos_percorrer_cada_etapa_da_requisi__o__conectan">Vamos percorrer cada etapa da requisição, conectando com o seu código.</p>
 
-            <h2>1. A requisição do cliente</h2>
-            <p>Tudo começa com uma requisição HTTP. Exemplo:</p>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_1__a_requisi__o_do_cliente">1. A requisição do cliente</h2>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_tudo_come_a_com_uma_requisi__o_http__exemplo">Tudo começa com uma requisição HTTP. Exemplo:</p>
 
             <div class="mac-code-window" style="margin-bottom: 15px;">
                 <div class="mac-code-header">
@@ -295,41 +295,41 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">JSON</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_json">JSON</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">POST</span> /transactions
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_post">POST</span> /transactions
 
 {
-  <span style="color: #9cdcfe;">"products"</span>: [
-    { <span style="color: #9cdcfe;">"id"</span>: 10, <span style="color: #9cdcfe;">"quantity"</span>: 2 },
-    { <span style="color: #9cdcfe;">"id"</span>: 15, <span style="color: #9cdcfe;">"quantity"</span>: 1 }
+  <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_products">"products"</span>: [
+    { <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_id">"id"</span>: 10, <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_quantity">"quantity"</span>: 2 },
+    { <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_id">"id"</span>: 15, <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_quantity">"quantity"</span>: 1 }
   ],
-  <span style="color: #9cdcfe;">"card_info"</span>: {
-    <span style="color: #9cdcfe;">"cardNumber"</span>: <span style="color: #ce9178;">"4111111111111111"</span>
+  <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_card_info">"card_info"</span>: {
+    <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_cardnumber">"cardNumber"</span>: <span style="color: #ce9178;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_4111111111111111">"4111111111111111"</span>
   },
-  <span style="color: #9cdcfe;">"client_id"</span>: 3
+  <span style="color: #9cdcfe;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_client_id">"client_id"</span>: 3
 }</code></pre>
             </div>
 
-            <p>Essa requisição representa: um checkout.</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_essa_requisi__o_representa__um_checkout">Essa requisição representa: um checkout.</p>
 
-            <h2>2. Entrada na API</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_2__entrada_na_api">2. Entrada na API</h2>
             <p>A requisição chega no servidor e passa primeiro pela camada de roteamento. Arquivo:
                 <code>routes.ts</code></p>
             <p>Fluxo:<br>
                 <code>Request → Route → Controller</code>
             </p>
 
-            <h2>3. Middleware de autenticação</h2>
-            <p>Antes de chegar ao controller, a requisição passa por middlewares.</p>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_3__middleware_de_autentica__o">3. Middleware de autenticação</h2>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_antes_de_chegar_ao_controller__a_requisi__o_passa">Antes de chegar ao controller, a requisição passa por middlewares.</p>
             <p>Fluxo:<br>
                 <code>Request → Auth Middleware → Role Middleware → Controller</code>
             </p>
-            <p>Aqui o sistema verifica: usuário autenticado e permissão de acesso. Se falhar: HTTP 401 ou 403.</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_aqui_o_sistema_verifica__usu_rio_autenticado_e_per">Aqui o sistema verifica: usuário autenticado e permissão de acesso. Se falhar: HTTP 401 ou 403.</p>
 
-            <h2>4. Controller recebe a requisição</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_4__controller_recebe_a_requisi__o">4. Controller recebe a requisição</h2>
             <p>Agora o controller entra em ação. Arquivo: <code>TransactionsController</code></p>
-            <p>Função principal:</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_fun__o_principal">Função principal:</p>
             <div class="mac-code-window">
                 <div class="mac-code-header">
                     <div class="mac-dots">
@@ -337,15 +337,15 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #c586c0;">async</span> store({ auth, request, response })</code></pre>
+                <pre><code><span style="color: #c586c0;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_async">async</span> store({ auth, request, response })</code></pre>
             </div>
             <p>Responsabilidades do controller: ler dados da requisição, verificar idempotência, preparar dados, chamar
                 serviço e retornar resposta.</p>
 
-            <h2>5. Verificação de idempotência</h2>
-            <p>Primeiro passo dentro do controller:</p>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_5__verifica__o_de_idempot_ncia">5. Verificação de idempotência</h2>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_primeiro_passo_dentro_do_controller">Primeiro passo dentro do controller:</p>
             <div class="mac-code-window">
                 <div class="mac-code-header">
                     <div class="mac-dots">
@@ -353,24 +353,24 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">const</span> idempotencyKey = request.header(<span style="color: #ce9178;">'Idempotency-Key'</span>)
-<span style="color: #569cd6;">const</span> existingTransaction = <span style="color: #c586c0;">await</span> Transaction.findBy(<span style="color: #ce9178;">'idempotencyKey'</span>, idempotencyKey)</code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_const">const</span> idempotencyKey = request.header(<span style="color: #ce9178;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_idempotency_key">'Idempotency-Key'</span>)
+<span style="color: #569cd6;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_const">const</span> existingTransaction = <span style="color: #c586c0;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_await">await</span> Transaction.findBy(<span style="color: #ce9178;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_idempotencykey">'idempotencyKey'</span>, idempotencyKey)</code></pre>
             </div>
             <p>Fluxo: Idempotency-Key existe? se sim, retornar transação existente; se não, continuar fluxo. Isso evita
                 pagamentos duplicados.</p>
 
-            <h2>6. Validação do carrinho</h2>
-            <p>O controller verifica os produtos.</p>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_6__valida__o_do_carrinho">6. Validação do carrinho</h2>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_o_controller_verifica_os_produtos">O controller verifica os produtos.</p>
             <p>Fluxo: receber lista de produtos → buscar produtos no banco → validar existência.<br>
                 Trecho do fluxo: <code>Product.find(product_id)</code>. Se um produto não existir: HTTP 404.</p>
 
-            <h2>7. Cálculo do valor total</h2>
-            <p>O valor do pagamento não vem do cliente. Ele é calculado no backend.</p>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_7__c_lculo_do_valor_total">7. Cálculo do valor total</h2>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_o_valor_do_pagamento_n_o_vem_do_cliente__ele___cal">O valor do pagamento não vem do cliente. Ele é calculado no backend.</p>
             <p>Fluxo: <code>preço do produto X quantidade</code>. Isso evita manipulação maliciosa.</p>
 
-            <h2>8. Chamada do PaymentService</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_8__chamada_do_paymentservice">8. Chamada do PaymentService</h2>
             <p>Agora o controller delega o processamento.<br>
                 <code>Controller → Payment Service</code>
             </p>
@@ -390,34 +390,34 @@
                     fazer o Failover. Na sua arquitetura avançada, implementamos um <strong>Middleware de IA
                         Preditiva</strong>.</p>
                 <p style="font-size: 1.05rem; line-height: 1.8;">O sistema analisa a latência histórica do gateway em
-                    tempo real. Utilizando o cálculo estatístico <strong>Z-Score</strong>, o sistema detecta anomalias
+                    tempo real. Utilizando o cálculo estatístico <strong data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_z_score">Z-Score</strong>, o sistema detecta anomalias
                     de lentidão e redireciona a requisição para o Gateway de Backup <em>antes mesmo que a falha em
                         cascata aconteça</em>!</p>
 
                 <div style="margin-top: 30px; text-align: center;">
-                    <button onclick="runZScoreDemo()" class="demo-button">▶ Iniciar Análise de Tráfego da IA</button>
+                    <button onclick="runZScoreDemo()" class="demo-button" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_iniciar_an_lise_de_tr_fego_da_ia">▶ Iniciar Análise de Tráfego da IA</button>
                 </div>
 
                 <div id="zscore-terminal" class="demo-box" style="margin-top: 25px; display: none;">
                 </div>
             </div>
-            <h2>9. Comunicação com gateways e Failover</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_9__comunica__o_com_gateways_e_failover">9. Comunicação com gateways e Failover</h2>
             <p>Se o gateway principal falhar (ou se nossa IA Preditiva desviar a rota):<br>
                 <code>Gateway 1 falha → Gateway 2</code>. Isso aumenta a disponibilidade do sistema.
             </p>
 
-            <h2>10. Início da transação de banco e Persistência</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_10__in_cio_da_transa__o_de_banco_e_persist_ncia">10. Início da transação de banco e Persistência</h2>
             <p>O gateway retorna <code>approved</code>. Agora entramos na parte crítica do sistema.</p>
             <p>Fluxo: BEGIN TRANSACTION. Isso ativa as propriedades: ACID.<br>
                 Criamos a Transaction (evento financeiro) e os TransactionProducts (itens do carrinho).</p>
-            <p>Se tudo funcionar: COMMIT. Se ocorrer erro: ROLLBACK.</p>
+            <p data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_se_tudo_funcionar__commit__se_ocorrer_erro__rollba">Se tudo funcionar: COMMIT. Se ocorrer erro: ROLLBACK.</p>
 
-            <h2>11. Fluxo completo do sistema (A Visão do Arquiteto)</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_11__fluxo_completo_do_sistema__a_vis_o_do_arquitet">11. Fluxo completo do sistema (A Visão do Arquiteto)</h2>
             <p>Abaixo estão os diagramas oficiais gerados dinamicamente a partir do seu código de arquitetura. Essa é a
                 documentação visual de como seu sistema orquestra 100% da segurança, resiliência e banco de dados em uma
                 única requisição.</p>
 
-            <h3 style="color: var(--accent); margin-top: 40px;">Visão Arquitetural (Top-Down)</h3>
+            <h3 style="color: var(--accent); margin-top: 40px;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_vis_o_arquitetural__top_down">Visão Arquitetural (Top-Down)</h3>
             <div class="mermaid">
                 flowchart TD
                 A[Client Application] --> B[API Gateway / Routing]
@@ -434,7 +434,7 @@
                 J --> K[(MySQL Database)]
             </div>
 
-            <h3 style="color: var(--accent); margin-top: 40px;">Visão Sequencial (A Linha do Tempo)</h3>
+            <h3 style="color: var(--accent); margin-top: 40px;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_vis_o_sequencial__a_linha_do_tempo">Visão Sequencial (A Linha do Tempo)</h3>
             <div class="mermaid">
                 sequenceDiagram
                 participant Client
@@ -498,7 +498,7 @@
                 </details>
             </div>
 
-            <h2>Conclusão da Masterclass</h2>
+            <h2 data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_conclus_o_da_masterclass">Conclusão da Masterclass</h2>
             <p>Agora você entende o ciclo completo da sua API: requisição, processamento, persistência e resposta. Você
                 consegue explicar cada decisão arquitetural do projeto.</p>
             <p>Com os 10 módulos você domina: arquitetura backend, modelagem relacional, ACID, idempotência,
@@ -507,7 +507,7 @@
                 grande parte da engenharia de uma API financeira moderna. Parabéns por chegar até aqui!</p>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_rea_de_treinamento__masteriza__o">🧠 Área de Treinamento: Masterização</h2>
                 <p style="text-align: center; opacity: 0.8;">Os 4 cartões finais que definem um Arquiteto de Software.
                 </p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -562,11 +562,11 @@
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;
@@ -578,15 +578,15 @@
         function runZScoreDemo() {
             const box = document.getElementById('zscore-terminal');
             box.style.display = 'block';
-            box.innerHTML = '<span style="color: #8b949e;">[🤖 IA Middleware] Calibrando base de histórico estatístico...</span><br>';
+            box.innerHTML = '<span style="color: #8b949e;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_ia_middleware__calibrando_base_de_hist_rico_est">[🤖 IA Middleware] Calibrando base de histórico estatístico...</span><br>';
 
-            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Principal] Req #101: 152ms (Z-Score: 0.12) - Estável</span><br>', 1200);
-            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Principal] Req #102: 165ms (Z-Score: 0.45) - Estável</span><br>', 2400);
-            setTimeout(() => box.innerHTML += '<span style="color: #f1c40f;">[Gateway Principal] Req #103: 310ms (Z-Score: 1.95) - Leve degradação...</span><br>', 3600);
-            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c;">[Gateway Principal] Req #104: 980ms (Z-Score: 4.80) - ⚠️ ANOMALIA DETECTADA!</span><br>', 4800);
-            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c; font-weight: bold;">[🤖 IA Preditiva] Desvio padrão estourado. Risco de timeout em cascata iminente.</span><br>', 6000);
-            setTimeout(() => box.innerHTML += '<span style="color: #a78bfa;">[Roteamento] 🔄 Failover Preventivo Ativado. Redirecionando tráfego para Contingência ANTES da falha.</span><br>', 7500);
-            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;">[Gateway Secundário] Req #105: 140ms (Z-Score: 0.05) - Operação Salva! ✅ Pagamento processado.</span><br>', 9000);
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_gateway_principal__req__101__152ms__z_score__0_12">[Gateway Principal] Req #101: 152ms (Z-Score: 0.12) - Estável</span><br>', 1200);
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_gateway_principal__req__102__165ms__z_score__0_45">[Gateway Principal] Req #102: 165ms (Z-Score: 0.45) - Estável</span><br>', 2400);
+            setTimeout(() => box.innerHTML += '<span style="color: #f1c40f;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_gateway_principal__req__103__310ms__z_score__1_95">[Gateway Principal] Req #103: 310ms (Z-Score: 1.95) - Leve degradação...</span><br>', 3600);
+            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_gateway_principal__req__104__980ms__z_score__4_80">[Gateway Principal] Req #104: 980ms (Z-Score: 4.80) - ⚠️ ANOMALIA DETECTADA!</span><br>', 4800);
+            setTimeout(() => box.innerHTML += '<span style="color: #e74c3c; font-weight: bold;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_ia_preditiva__desvio_padr_o_estourado__risco_de">[🤖 IA Preditiva] Desvio padrão estourado. Risco de timeout em cascata iminente.</span><br>', 6000);
+            setTimeout(() => box.innerHTML += '<span style="color: #a78bfa;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_roteamento____failover_preventivo_ativado__redire">[Roteamento] 🔄 Failover Preventivo Ativado. Redirecionando tráfego para Contingência ANTES da falha.</span><br>', 7500);
+            setTimeout(() => box.innerHTML += '<span style="color: #2ecc71;" data-i18n="materials_backend_modulo_10_10_1_fluxo_completo_gateway_secund_rio__req__105__140ms__z_score__0_0">[Gateway Secundário] Req #105: 140ms (Z-Score: 0.05) - Operação Salva! ✅ Pagamento processado.</span><br>', 9000);
         }
     </script>
 </body>

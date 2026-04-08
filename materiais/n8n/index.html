@@ -229,9 +229,9 @@
         <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;"
             data-i18n="materials_n8n_signature">Agentes de IA</span>
         <div class="lang-switcher">
-          <button class="lang-btn" data-lang="pt-br">PT</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt-br">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
         </div>
     </nav>
 
@@ -373,7 +373,8 @@
         <aside class="practice-panel">
             <div
                 style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
-                <h2 style="margin: 0; color: var(--n8n-color); font-size: 1.4rem;">⚡ AutoLab: Teste de Fluxo</h2>
+                <h2 style="margin: 0; color: var(--n8n-color); font-size: 1.4rem;"
+                    data-i18n="materials_n8n_autolab_title">⚡ AutoLab: Teste de Fluxo</h2>
             </div>
 
             <div class="training-card" style="border-left: 4px solid var(--n8n-color);">
@@ -384,7 +385,8 @@
                 <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">Simule a chegada de uma mensagem de
                     WhatsApp via Webhook e observe como a IA processa o JSON.</p>
 
-                <button id="btn-trigger" class="btn-access" style="width: 100%;" onclick="runWorkflow()">Disparar
+                <button id="btn-trigger" class="btn-access" style="width: 100%;" onclick="runWorkflow()"
+                    data-i18n="materials_n8n_button_trigger">Disparar
                     Webhook POST 🚀</button>
 
                 <div class="n8n-workflow">
@@ -392,7 +394,8 @@
                         <div class="node-icon">🪝</div>
                         <div>
                             <div style="font-weight: bold; color: #fff; font-size: 0.9rem;">Webhook</div>
-                            <div style="font-size: 0.75rem; color: #888;">Aguardando POST...</div>
+                            <div style="font-size: 0.75rem; color: #888;" data-i18n="materials_n8n_waiting_post">
+                                Aguardando POST...</div>
                         </div>
                     </div>
 
@@ -402,7 +405,7 @@
                         <div class="node-icon">🧠</div>
                         <div>
                             <div style="font-weight: bold; color: #fff; font-size: 0.9rem;">Agente OpenAI</div>
-                            <div style="font-size: 0.75rem; color: #888;">Ocioso</div>
+                            <div style="font-size: 0.75rem; color: #888;" data-i18n="materials_n8n_idle">Ocioso</div>
                         </div>
                     </div>
                 </div>
@@ -422,6 +425,12 @@
     </div>
 
     <script>
+        function getTranslation(key) {
+            const lang = localStorage.getItem("cshub_language") || "pt-br";
+            const translations = window.TRANSLATIONS || {};
+            return translations?.[lang]?.[key] ?? key;
+        }
+
         function runWorkflow() {
             const btn = document.getElementById('btn-trigger');
             const nodeWebhook = document.getElementById('node-webhook');
@@ -429,7 +438,7 @@
             const nodeAi = document.getElementById('node-ai');
             const output = document.getElementById('json-output');
 
-            btn.innerText = "Processando...";
+            btn.innerText = getTranslation('materials_n8n_processing');
             btn.style.opacity = "0.7";
             btn.disabled = true;
 
@@ -441,7 +450,7 @@
             // Step 1: Webhook receives data
             setTimeout(() => {
                 nodeWebhook.classList.add('active');
-                nodeWebhook.querySelector('div > div:nth-child(2)').innerText = "1 item recebido";
+                nodeWebhook.querySelector('div > div:nth-child(2)').innerText = getTranslation('materials_n8n_waiting_post');
             }, 300);
 
             // Step 2: Data travels to AI
@@ -453,16 +462,16 @@
             setTimeout(() => {
                 nodeWebhook.classList.remove('active');
                 nodeAi.classList.add('active');
-                nodeAi.querySelector('div > div:nth-child(2)').innerText = "Gerando resposta...";
+                nodeAi.querySelector('div > div:nth-child(2)').innerText = getTranslation('materials_n8n_generating');
             }, 1400);
 
             // Step 4: Output JSON
             setTimeout(() => {
                 output.style.display = "block";
-                btn.innerText = "Disparar Webhook POST 🚀";
+                btn.innerText = getTranslation('materials_n8n_button_trigger');
                 btn.style.opacity = "1";
                 btn.disabled = false;
-                nodeAi.querySelector('div > div:nth-child(2)').innerText = "Execução Concluída";
+                nodeAi.querySelector('div > div:nth-child(2)').innerText = getTranslation('materials_n8n_execution_done');
             }, 2500);
         }
     </script>

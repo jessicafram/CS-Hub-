@@ -74,107 +74,107 @@
     <nav class="top-navbar">
         <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
             01</a>
-        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.4</span>
+        <span class="jessica-signature" data-i18n="materials_mat_comp_modulo_01_topico_1_4_cs_hub___mat_comp___t1_4">CS_HUB / MAT_COMP / T1.4</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
-            <h1 style="font-size: 2.2rem; color: var(--accent);">Aritmética Intervalar e Limites de Garantia</h1>
+            <span class="badge-tech" data-i18n="materials_mat_comp_modulo_01_topico_1_4_matem_tica_computacional_aplicada">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <h1 style="font-size: 2.2rem; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_4_aritm_tica_intervalar_e_limites_de_garantia">Aritmética Intervalar e Limites de Garantia</h1>
             <p>O paradigma da Certeza Absoluta: Quando a aproximação de ponto flutuante não é suficiente e precisamos
                 provar matematicamente que o erro está contido dentro de uma "jaula" numérica.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
 
-            <h2>0. O Fim da Aproximação "Cega"</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_4_0__o_fim_da_aproxima__o__cega">0. O Fim da Aproximação "Cega"</h2>
             <p>Até agora (Tópicos 1.1 a 1.3), assumimos que o computador calcula um valor aproximado $\tilde{x}$ e,
-                usando o Épsilon de Máquina e o Condicionamento, nós <em>estimamos</em> o tamanho do erro. Mas em
+                usando o Épsilon de Máquina e o Condicionamento, nós <em data-i18n="materials_mat_comp_modulo_01_topico_1_4_estimamos">estimamos</em> o tamanho do erro. Mas em
                 aplicações críticas — como o controle de trajetória de um foguete ou dosagens em equipamentos de
-                radioterapia — uma "estimativa" não basta. Precisamos de uma <strong>garantia rigorosa</strong>.</p>
+                radioterapia — uma "estimativa" não basta. Precisamos de uma <strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_garantia_rigorosa">garantia rigorosa</strong>.</p>
             <p>A Aritmética Intervalar (ou Matemática de Intervalos) abandona a ideia de calcular com números únicos. Em
                 vez de dizer que a variável $x = 3.14$, o computador passa a processar blocos inteiros, declarando que
                 $x \in [3.141, 3.142]$.</p>
 
-            <h2>1. O Que é um Número Intervalar? (Definição Estrita)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_4_1__o_que___um_n_mero_intervalar___defini__o_estrit">1. O Que é um Número Intervalar? (Definição Estrita)</h2>
             <p>Na matemática clássica, um número é um ponto exato na reta. Na aritmética intervalar, um número é um
-                <strong>conjunto fechado e contínuo</strong> de números reais.</p>
+                <strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_conjunto_fechado_e_cont_nuo">conjunto fechado e contínuo</strong> de números reais.</p>
 
             <div class="math-box">
                 $$ X = [\underline{x}, \overline{x}] = \{x \in \mathbb{R} \mid \underline{x} \le x \le \overline{x}\} $$
             </div>
 
-            <p>Vamos dissecar cada termo dessa definição:</p>
+            <p data-i18n="materials_mat_comp_modulo_01_topico_1_4_vamos_dissecar_cada_termo_dessa_defini__o">Vamos dissecar cada termo dessa definição:</p>
             <div class="term-def">
-                <span class="highlight-text">$X$ (Maiúsculo):</span> Na literatura, usamos letras maiúsculas para
+                <span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_4_x___mai_sculo">$X$ (Maiúsculo):</span> Na literatura, usamos letras maiúsculas para
                 denotar que não estamos lidando com um escalar comum, mas com um "Número Intervalar" (um conjunto).
             </div>
             <div class="term-def">
-                <span class="highlight-text">$\underline{x}$ (Ínfimo / Limite Inferior):</span> A barra embaixo da letra
+                <span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_4_underline_x_____nfimo___limite_inferior">$\underline{x}$ (Ínfimo / Limite Inferior):</span> A barra embaixo da letra
                 indica o menor valor absoluto que aquele dado pode assumir. Em termos físicos, é o limite de
                 "pessimismo" inferior.
             </div>
             <div class="term-def">
-                <span class="highlight-text">$\overline{x}$ (Supremo / Limite Superior):</span> A barra em cima indica o
+                <span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_4_overline_x____supremo___limite_superior">$\overline{x}$ (Supremo / Limite Superior):</span> A barra em cima indica o
                 maior valor absoluto possível. O valor real, perfeito e divino da conta, com $100\%$ de certeza, está em
                 algum lugar entre $\underline{x}$ e $\overline{x}$.
             </div>
 
             <div class="concept-box">
-                <h4 style="margin-top:0; color: var(--accent);">O Raio do Intervalo (Incerteza)</h4>
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_mat_comp_modulo_01_topico_1_4_o_raio_do_intervalo__incerteza">O Raio do Intervalo (Incerteza)</h4>
                 <p>A largura do intervalo é definida como $w(X) = \overline{x} - \underline{x}$. Quanto maior o $w(X)$,
                     maior a nossa "ignorância" sobre o valor exato. O objetivo de um bom algoritmo intervalar é terminar
                     o cálculo mantendo o $w(X)$ o mais estreito possível.</p>
             </div>
 
-            <h2>2. As Quatro Operações Fundamentais (Mecânica Interna)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_4_2__as_quatro_opera__es_fundamentais__mec_nica_inte">2. As Quatro Operações Fundamentais (Mecânica Interna)</h2>
             <p>Como somamos ou multiplicamos "conjuntos" em vez de números? A regra geral é: a operação deve contemplar
-                <strong>todos os cenários possíveis</strong>. Sejam $X = [\underline{x}, \overline{x}]$ e $Y =
+                <strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_todos_os_cen_rios_poss_veis">todos os cenários possíveis</strong>. Sejam $X = [\underline{x}, \overline{x}]$ e $Y =
                 [\underline{y}, \overline{y}]$:</p>
 
-            <h3>2.1 Adição ($X + Y$)</h3>
+            <h3 data-i18n="materials_mat_comp_modulo_01_topico_1_4_2_1_adi__o___x___y">2.1 Adição ($X + Y$)</h3>
             <div class="math-box">
                 $$ X + Y = [\underline{x} + \underline{y}, \quad \overline{x} + \overline{y}] $$
             </div>
-            <p><strong>Por que é assim?</strong> A adição é direta e preserva a ordem. O menor valor possível que a soma
+            <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_por_que___assim">Por que é assim?</strong> A adição é direta e preserva a ordem. O menor valor possível que a soma
                 de duas variáveis pode gerar ocorre quando ambas estão nos seus valores mínimos ($\underline{x} +
                 \underline{y}$). O maior ocorre quando ambas atingem seus tetos ($\overline{x} + \overline{y}$).</p>
 
-            <h3>2.2 Subtração ($X - Y$) - <em>Atenção ao Cruzamento!</em></h3>
+            <h3>2.2 Subtração ($X - Y$) - <em data-i18n="materials_mat_comp_modulo_01_topico_1_4_aten__o_ao_cruzamento">Atenção ao Cruzamento!</em></h3>
             <div class="math-box">
                 $$ X - Y = [\underline{x} - \overline{y}, \quad \overline{x} - \underline{y}] $$
             </div>
-            <p><strong>Por que os limites se cruzam?</strong> Esta é a principal pegadinha em provas de Mestrado. Se
-                você quer o <em>menor valor possível</em> da subtração de $X - Y$, você deve pegar o número mais pobre
+            <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_por_que_os_limites_se_cruzam">Por que os limites se cruzam?</strong> Esta é a principal pegadinha em provas de Mestrado. Se
+                você quer o <em data-i18n="materials_mat_comp_modulo_01_topico_1_4_menor_valor_poss_vel">menor valor possível</em> da subtração de $X - Y$, você deve pegar o número mais pobre
                 de $X$ ($\underline{x}$) e subtrair dele o número mais agressivo e rico de $Y$ ($\overline{y}$). Para
                 obter o maior valor possível, você faz o inverso: pega o máximo de $X$ ($\overline{x}$) e tira apenas o
                 mínimo de $Y$ ($\underline{y}$).</p>
 
-            <h3>2.3 Multiplicação ($X \times Y$)</h3>
+            <h3 data-i18n="materials_mat_comp_modulo_01_topico_1_4_2_3_multiplica__o___x__times_y">2.3 Multiplicação ($X \times Y$)</h3>
             <div class="math-box">
                 $$ X \times Y = [\min(S), \max(S)], \quad \text{onde } S = \{\underline{x}\underline{y},
                 \underline{x}\overline{y}, \overline{x}\underline{y}, \overline{x}\overline{y}\} $$
             </div>
-            <p><strong>Por que testar as 4 combinações?</strong> Por causa dos sinais (negativos e positivos). Se $X =
+            <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_por_que_testar_as_4_combina__es">Por que testar as 4 combinações?</strong> Por causa dos sinais (negativos e positivos). Se $X =
                 [-2, 3]$ e $Y = [-4, 2]$, a multiplicação do limite inferior pelo limite inferior ($-2 \times -4$) gera
                 $8$, que é um número positivo alto! O computador é obrigado a calcular os quatro cantos cartesianos e
                 escolher o menor e o maior resultado para formar o novo intervalo.</p>
 
-            <h3>2.4 Divisão ($X / Y$)</h3>
+            <h3 data-i18n="materials_mat_comp_modulo_01_topico_1_4_2_4_divis_o___x___y">2.4 Divisão ($X / Y$)</h3>
             <div class="math-box">
                 $$ X / Y = X \times \left[ \frac{1}{\overline{y}}, \frac{1}{\underline{y}} \right] \quad (\text{se } 0
                 \notin Y) $$
             </div>
-            <p><strong>Por que a inversão?</strong> Dividir por um número pequeno gera um resultado grande. Logo, o
+            <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_por_que_a_invers_o">Por que a inversão?</strong> Dividir por um número pequeno gera um resultado grande. Logo, o
                 limite inferior da divisão usa o maior denominador possível ($\overline{y}$). Condição estrita: o
                 intervalo $Y$ não pode conter o número zero, senão a incerteza explode para o infinito.</p>
 
             <div class="alert-box">
-                <h4 style="margin-top:0; color: #e74c3c;">3. O Problema da Dependência (O Calcanhar de Aquiles)</h4>
-                <p>A Aritmética Intervalar tem uma fraqueza brutal conhecida como <strong>"Dependency Problem"</strong>.
+                <h4 style="margin-top:0; color: #e74c3c;" data-i18n="materials_mat_comp_modulo_01_topico_1_4_3__o_problema_da_depend_ncia__o_calcanhar_de_aquil">3. O Problema da Dependência (O Calcanhar de Aquiles)</h4>
+                <p>A Aritmética Intervalar tem uma fraqueza brutal conhecida como <strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_dependency_problem">"Dependency Problem"</strong>.
                     Ela ocorre porque o sistema trata cada intervalo como uma entidade independente na memória, mesmo
                     que representem a mesma variável algébrica.</p>
-                <p><strong>O Paradoxo:</strong> Matematicamente, qualquer número subtraído dele mesmo é zero ($x - x =
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_o_paradoxo">O Paradoxo:</strong> Matematicamente, qualquer número subtraído dele mesmo é zero ($x - x =
                     0$).<br>
                     Mas veja o que acontece na Aritmética Intervalar se $X = [-1, 1]$:</p>
                 <div class="math-box">
@@ -182,14 +182,14 @@
                     $$ X - X = [-1 - 1, \quad 1 - (-1)] $$
                     $$ X - X = [-2, 2] \neq [0, 0] $$
                 </div>
-                <p><strong>Explicação:</strong> O computador não "sabe" que os dois $X$ são fisicamente o mesmo objeto.
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_explica__o">Explicação:</strong> O computador não "sabe" que os dois $X$ são fisicamente o mesmo objeto.
                     Ele assume o pior cenário de que o primeiro $X$ pode estar no seu mínimo ($-1$) e o segundo $X$ pode
-                    estar no seu máximo ($1$). Isso causa uma <strong>superestimação irreal</strong> da incerteza.
+                    estar no seu máximo ($1$). Isso causa uma <strong data-i18n="materials_mat_comp_modulo_01_topico_1_4_superestima__o_irreal">superestimação irreal</strong> da incerteza.
                     Quanto mais vezes uma mesma variável aparece numa equação, mais largo (e inútil) o intervalo final
                     fica.</p>
             </div>
 
-            <h2>4. Hardware: Como o IEEE 754 permite isso?</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_4_4__hardware__como_o_ieee_754_permite_isso">4. Hardware: Como o IEEE 754 permite isso?</h2>
             <p>Para garantir que o intervalo abrace o número real, mesmo com os erros de $\varepsilon_{mach}$, a
                 Aritmética Intervalar força a CPU a mudar a regra de arredondamento no meio da conta (Direcionamento de
                 Arredondamento):</p>
@@ -203,7 +203,7 @@
             <p>Isso garante que o intervalo $[\underline{x}, \overline{x}]$ seja sempre uma "jaula" perfeitamente segura
                 para o número real verdadeiro.</p>
 
-            <h2>5. Implementação Computacional (Python)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_4_5__implementa__o_computacional__python">5. Implementação Computacional (Python)</h2>
             <p>Para o Bacharelado entender a teoria em código, construímos a classe-base de um "Número Intervalar" e
                 provamos o Problema da Dependência na tela:</p>
 
@@ -244,7 +244,7 @@ print(f"X - X = {subtracao}")
         </section>
 
         <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
-            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
+            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;" data-i18n="materials_mat_comp_modulo_01_topico_1_4_jessica_fran_a">Jessica França</p>
         </footer>
     </main>
 

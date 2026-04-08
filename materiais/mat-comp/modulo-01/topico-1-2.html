@@ -68,12 +68,12 @@
     <nav class="top-navbar">
         <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO MÓDULO
             01</a>
-        <span class="jessica-signature">CS_HUB / MAT_COMP / T1.2</span>
+        <span class="jessica-signature" data-i18n="materials_mat_comp_modulo_01_topico_1_2_cs_hub___mat_comp___t1_2">CS_HUB / MAT_COMP / T1.2</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">MATEMÁTICA COMPUTACIONAL APLICADA</span>
+            <span class="badge-tech" data-i18n="materials_mat_comp_modulo_01_topico_1_2_matem_tica_computacional_aplicada">MATEMÁTICA COMPUTACIONAL APLICADA</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Normas Vetoriais, Matriciais e o Número de Condição
                 $\kappa(A)$</h1>
             <p>Como medir a magnitude do erro em múltiplas dimensões e por que algumas matrizes destroem a precisão do
@@ -82,16 +82,16 @@
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
 
-            <h2>0. A Necessidade de Medir o "Tamanho"</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_2_0__a_necessidade_de_medir_o__tamanho">0. A Necessidade de Medir o "Tamanho"</h2>
             <p>No Tópico 1.1, vimos que o computador sempre comete erros de arredondamento. Em uma dimensão
                 ($\mathbb{R}$), medir o erro é fácil: basta calcular o valor absoluto da diferença $|x - \tilde{x}|$.
             </p>
             <p>Mas, em Machine Learning, Visão Computacional ou Simulações Físicas, não lidamos com números isolados.
                 Lidamos com vetores com milhões de dimensões e matrizes gigantescas. Como você diz que um vetor de erro
                 é "maior" que outro? Para isso, a matemática fornece uma ferramenta rigorosa: as
-                <strong>Normas</strong>.</p>
+                <strong data-i18n="materials_mat_comp_modulo_01_topico_1_2_normas">Normas</strong>.</p>
 
-            <h2>1. Normas Vetoriais ($\|x\|$)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_2_1__normas_vetoriais_____x">1. Normas Vetoriais ($\|x\|$)</h2>
             <p>Uma norma é uma função matemática que atribui um comprimento ou tamanho estritamente positivo a um vetor.
                 A família mais comum é a das normas $p$ (ou normas de Hölder):</p>
 
@@ -99,27 +99,27 @@
                 $$ \|x\|_p = \left( \sum_{i=1}^n |x_i|^p \right)^{1/p} $$
             </div>
 
-            <p>As três normas mais utilizadas na computação científica são:</p>
+            <p data-i18n="materials_mat_comp_modulo_01_topico_1_2_as_tr_s_normas_mais_utilizadas_na_computa__o_cient">As três normas mais utilizadas na computação científica são:</p>
             <ul>
-                <li><span class="highlight-text">Norma $\ell_1$ (Manhattan):</span> A soma dos valores absolutos. Usada
+                <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_2_norma___ell_1___manhattan">Norma $\ell_1$ (Manhattan):</span> A soma dos valores absolutos. Usada
                     em regularização (Lasso) na Inteligência Artificial porque induz esparsidade (zera atributos
                     inúteis).
-                    <div class="math-box">$$ \|x\|_1 = \sum_{i=1}^n |x_i| $$</div>
+                    <div class="math-box" data-i18n="materials_mat_comp_modulo_01_topico_1_2_x___1____sum__i_1__n__x_i">$$ \|x\|_1 = \sum_{i=1}^n |x_i| $$</div>
                 </li>
-                <li><span class="highlight-text">Norma $\ell_2$ (Euclidiana):</span> A distância em linha reta clássica.
+                <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_2_norma___ell_2___euclidiana">Norma $\ell_2$ (Euclidiana):</span> A distância em linha reta clássica.
                     Penaliza erros grandes de forma quadrática.
-                    <div class="math-box">$$ \|x\|_2 = \sqrt{\sum_{i=1}^n |x_i|^2} $$</div>
+                    <div class="math-box" data-i18n="materials_mat_comp_modulo_01_topico_1_2_x___2____sqrt__sum__i_1__n__x_i__2">$$ \|x\|_2 = \sqrt{\sum_{i=1}^n |x_i|^2} $$</div>
                 </li>
-                <li><span class="highlight-text">Norma $\ell_\infty$ (Chebyshev ou do Máximo):</span> Olha apenas para o
+                <li><span class="highlight-text" data-i18n="materials_mat_comp_modulo_01_topico_1_2_norma___ell__infty___chebyshev_ou_do_m_ximo">Norma $\ell_\infty$ (Chebyshev ou do Máximo):</span> Olha apenas para o
                     pior cenário. É o maior valor absoluto do vetor. Excelente para garantir limites rígidos de
                     segurança em algoritmos.
-                    <div class="math-box">$$ \|x\|_\infty = \max_{1 \le i \le n} |x_i| $$</div>
+                    <div class="math-box" data-i18n="materials_mat_comp_modulo_01_topico_1_2_x____infty____max__1__le_i__le_n___x_i">$$ \|x\|_\infty = \max_{1 \le i \le n} |x_i| $$</div>
                 </li>
             </ul>
 
 
 
-            <h2>2. Normas Matriciais Induzidas ($\|A\|$)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_2_2__normas_matriciais_induzidas_____a">2. Normas Matriciais Induzidas ($\|A\|$)</h2>
             <p>Se as normas vetoriais medem o tamanho de um ponto, as normas matriciais medem o "poder de estiramento"
                 de uma transformação linear. A norma induzida de uma matriz $A$ é o fator máximo pelo qual ela consegue
                 alongar um vetor $x$:</p>
@@ -129,13 +129,13 @@
             </div>
 
             <div class="concept-box">
-                <p><strong>A Intuição Física:</strong></p>
+                <p><strong data-i18n="materials_mat_comp_modulo_01_topico_1_2_a_intui__o_f_sica">A Intuição Física:</strong></p>
                 <p>Imagine que $A$ é uma força aplicada a um objeto $x$. A norma $\|A\|$ te diz exatamente qual é a
                     força máxima de deformação que essa matriz consegue exercer no pior cenário possível. Essa métrica é
                     crucial para prever o quão agressivamente uma matriz pode amplificar um erro computacional.</p>
             </div>
 
-            <h2>3. O Número de Condição ($\kappa$)</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_2_3__o_n_mero_de_condi__o____kappa">3. O Número de Condição ($\kappa$)</h2>
             <p>Quando resolvemos um sistema linear $Ax = b$ no computador, o vetor $b$ muitas vezes vem de medições no
                 mundo real (sensores) ou de cálculos flutuantes prévios, ou seja, ele já contém um erro $\Delta b$.</p>
             <p>A pergunta de ouro é: <strong>O quão sensível é a resposta $x$ em relação a esse erro na entrada
@@ -145,28 +145,28 @@
                 $$ \kappa(A) = \|A\| \cdot \|A^{-1}\| $$
             </div>
 
-            <p>O Teorema Fundamental da Perturbação nos dá a fronteira do desastre:</p>
+            <p data-i18n="materials_mat_comp_modulo_01_topico_1_2_o_teorema_fundamental_da_perturba__o_nos_d__a_fron">O Teorema Fundamental da Perturbação nos dá a fronteira do desastre:</p>
 
             <div class="math-box">
                 $$ \frac{\|\Delta x\|}{\|x\|} \le \kappa(A) \frac{\|\Delta b\|}{\|b\|} $$
             </div>
 
             <div class="alert-box">
-                <h4 style="margin-top:0; color: #e74c3c;">O Significado Assustador de $\kappa(A)$</h4>
-                <p>O $\kappa(A)$ é um <strong>Fator de Amplificação de Erro</strong>.</p>
+                <h4 style="margin-top:0; color: #e74c3c;" data-i18n="materials_mat_comp_modulo_01_topico_1_2_o_significado_assustador_de___kappa_a">O Significado Assustador de $\kappa(A)$</h4>
+                <p>O $\kappa(A)$ é um <strong data-i18n="materials_mat_comp_modulo_01_topico_1_2_fator_de_amplifica__o_de_erro">Fator de Amplificação de Erro</strong>.</p>
                 <ul>
-                    <li>Se $\kappa(A) \approx 1$: A matriz é <strong>Bem Condicionada</strong>. Se houver $1\%$ de erro
+                    <li>Se $\kappa(A) \approx 1$: A matriz é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_2_bem_condicionada">Bem Condicionada</strong>. Se houver $1\%$ de erro
                         nos dados, haverá no máximo $1\%$ de erro na resposta. O sistema é seguro.</li>
-                    <li>Se $\kappa(A) = 10^6$: A matriz é <strong>Mal Condicionada</strong>. Um erro minúsculo de
+                    <li>Se $\kappa(A) = 10^6$: A matriz é <strong data-i18n="materials_mat_comp_modulo_01_topico_1_2_mal_condicionada">Mal Condicionada</strong>. Um erro minúsculo de
                         $\varepsilon_{mach} \approx 10^{-16}$ na entrada será multiplicado por $10^6$, destruindo 6
                         casas decimais de precisão instantaneamente.</li>
                 </ul>
-                <p><em>Nota para o Bacharelado:</em> Não adianta usar o melhor algoritmo de estabilidade do mundo se a
+                <p><em data-i18n="materials_mat_comp_modulo_01_topico_1_2_nota_para_o_bacharelado">Nota para o Bacharelado:</em> Não adianta usar o melhor algoritmo de estabilidade do mundo se a
                     matriz for mal condicionada. O mau condicionamento é uma doença inerente ao problema matemático, não
                     do algoritmo.</p>
             </div>
 
-            <h2>4. Implementação Computacional Prática</h2>
+            <h2 data-i18n="materials_mat_comp_modulo_01_topico_1_2_4__implementa__o_computacional_pr_tica">4. Implementação Computacional Prática</h2>
             <p>Na vida real, não calculamos a norma ou o $\kappa$ na mão. Usamos bibliotecas de Álgebra Linear. Abaixo,
                 um código em Python demonstrando o condicionamento terrível de uma Matriz de Hilbert, famosa por
                 explodir simulações numéricas:</p>
@@ -195,7 +195,7 @@ print(f"Número de Condição k(H): {kappa:.2e}")
         </section>
 
         <footer style="margin-top: 80px; text-align: center; border-top: 1px solid var(--border); padding-top: 40px;">
-            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;">Jessica França</p>
+            <p class="signature" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive;" data-i18n="materials_mat_comp_modulo_01_topico_1_2_jessica_fran_a">Jessica França</p>
         </footer>
     </main>
 

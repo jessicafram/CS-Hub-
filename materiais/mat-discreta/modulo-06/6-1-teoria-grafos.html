@@ -384,19 +384,19 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_">/</span>
             <a href="../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">Matemática
                 Discreta</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 06</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_m_dulo_06">Módulo 06</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
             <span class="badge-tech" style="background: linear-gradient(90deg, #8b5cf6, #3498db); color: #fff;">CIÊNCIA
                 DA COMPUTAÇÃO</span>
-            <h1 style="font-size: 2.2rem; color: #8b5cf6;">Módulo 6: Teoria dos Grafos e Árvores</h1>
+            <h1 style="font-size: 2.2rem; color: #8b5cf6;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_m_dulo_6__teoria_dos_grafos_e__rvores">Módulo 6: Teoria dos Grafos e Árvores</h1>
             <p>Descubra como o Google Maps, o Facebook e o seu Navegador mapeiam a internet e encontram dados em
                 milissegundos.</p>
         </header>
@@ -404,18 +404,18 @@
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
             <p>Se você já se perguntou como é que o Instagram sabe exatamente quem recomendar na aba "Pessoas que você
                 talvez conheça", ou como o Waze calcula a rota mais rápida desviando do trânsito... Bem-vindo à
-                <strong>Teoria dos Grafos</strong>.
+                <strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_teoria_dos_grafos">Teoria dos Grafos</strong>.
             </p>
 
             <p>Na Matemática Discreta, um Grafo não tem nada a ver com os gráficos de barras do Excel. Um Grafo é
                 simplesmente um conjunto de "pontos" conectados por "linhas".</p>
 
-            <h2>1. Vértices e Arestas (O Vocabulário)</h2>
-            <p>Para ler a documentação de qualquer arquitetura de software, você precisa conhecer esses dois termos:</p>
+            <h2 data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_1__v_rtices_e_arestas__o_vocabul_rio">1. Vértices e Arestas (O Vocabulário)</h2>
+            <p data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_para_ler_a_documenta__o_de_qualquer_arquitetura_de">Para ler a documentação de qualquer arquitetura de software, você precisa conhecer esses dois termos:</p>
             <ul style="line-height: 1.8;">
-                <li><strong>Vértice (Node / Nó):</strong> É a entidade. Pode ser um Servidor, uma Cidade, um Usuário do
+                <li><strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_v_rtice__node___n">Vértice (Node / Nó):</strong> É a entidade. Pode ser um Servidor, uma Cidade, um Usuário do
                     Facebook, ou um Roteador.</li>
-                <li><strong>Aresta (Edge / Linha):</strong> É a conexão entre eles. Pode ser um cabo de fibra óptica,
+                <li><strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_aresta__edge___linha">Aresta (Edge / Linha):</strong> É a conexão entre eles. Pode ser um cabo de fibra óptica,
                     uma estrada, ou uma amizade na rede social.</li>
             </ul>
 
@@ -426,7 +426,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Notação Matemática</span>
+                    <span class="mac-lang" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_nota__o_matem_tica">Notação Matemática</span>
                 </div>
                 <pre><code>G = (V, E)
 
@@ -434,31 +434,31 @@ V = {A, B, C, D}       // 4 Cidades (Vértices)
 E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
             </div>
 
-            <h2>2. Grafos Direcionados vs Não Direcionados</h2>
-            <p>Essa é a diferença exata entre o WhatsApp e o Instagram/Twitter!</p>
+            <h2 data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_2__grafos_direcionados_vs_n_o_direcionados">2. Grafos Direcionados vs Não Direcionados</h2>
+            <p data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_essa___a_diferen_a_exata_entre_o_whatsapp_e_o_inst">Essa é a diferença exata entre o WhatsApp e o Instagram/Twitter!</p>
 
             <div class="concept-box">
-                <p style="margin: 0; color: #cbd5e1;"><strong>Não Direcionado (WhatsApp/Facebook):</strong> A conexão é
-                    de mão dupla. Se eu sou seu amigo no Facebook, você <em>obrigatoriamente</em> é meu amigo de volta.
+                <p style="margin: 0; color: #cbd5e1;"><strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_n_o_direcionado__whatsapp_facebook">Não Direcionado (WhatsApp/Facebook):</strong> A conexão é
+                    de mão dupla. Se eu sou seu amigo no Facebook, você <em data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_obrigatoriamente">obrigatoriamente</em> é meu amigo de volta.
                     A aresta não tem seta.</p>
-                <p style="margin-top: 15px; color: #cbd5e1;"><strong>Direcionado (Instagram/Twitter):</strong> A conexão
+                <p style="margin-top: 15px; color: #cbd5e1;"><strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_direcionado__instagram_twitter">Direcionado (Instagram/Twitter):</strong> A conexão
                     tem sentido (uma seta). Eu posso seguir você (A → B), mas você não precisa me seguir de volta. Se o
                     seu código usa Grafos Direcionados, você está mapeando relacionamentos assimétricos.</p>
             </div>
 
-            <h2>3. Pesos nas Arestas (O Segredo do GPS)</h2>
+            <h2 data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_3__pesos_nas_arestas__o_segredo_do_gps">3. Pesos nas Arestas (O Segredo do GPS)</h2>
             <p>Às vezes, uma conexão custa mais "caro" que a outra. Em uma rede de computadores, a aresta A-B pode ter
-                um <em>Ping</em> de 10ms, enquanto a aresta A-C tem 50ms de latência. A esses valores chamamos de
-                <strong>Pesos (Weights)</strong>.
+                um <em data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_ping">Ping</em> de 10ms, enquanto a aresta A-C tem 50ms de latência. A esses valores chamamos de
+                <strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_pesos__weights">Pesos (Weights)</strong>.
             </p>
-            <p>É assim que o famoso Algoritmo de Dijkstra (que roda por trás do GPS) encontra a melhor rota.</p>
+            <p data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_assim_que_o_famoso_algoritmo_de_dijkstra__que_ro">É assim que o famoso Algoritmo de Dijkstra (que roda por trás do GPS) encontra a melhor rota.</p>
 
             <div class="graph-simulator">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                     <span
                         style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Laboratório
                         Interativo</span>
-                    <h3 style="margin: 0; color: #fff;">Algoritmo de Roteamento (Caminho Mínimo)</h3>
+                    <h3 style="margin: 0; color: #fff;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_algoritmo_de_roteamento__caminho_m_nimo">Algoritmo de Roteamento (Caminho Mínimo)</h3>
                 </div>
                 <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px;">O Pacote de Dados precisa sair do
                     Servidor A e chegar ao Servidor D. Os números nas linhas são a latência (em milissegundos). Clique
@@ -473,27 +473,27 @@ E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
                         <line id="line-bc" class="edge-line" x1="40%" y1="50" x2="40%" y2="250" />
                     </svg>
 
-                    <div id="w-ab" class="edge-weight">8ms</div>
-                    <div id="w-ac" class="edge-weight">2ms</div>
-                    <div id="w-bd" class="edge-weight">5ms</div>
-                    <div id="w-cd" class="edge-weight">1ms</div>
-                    <div id="w-bc" class="edge-weight">2ms</div>
+                    <div id="w-ab" class="edge-weight" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_8ms">8ms</div>
+                    <div id="w-ac" class="edge-weight" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_2ms">2ms</div>
+                    <div id="w-bd" class="edge-weight" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_5ms">5ms</div>
+                    <div id="w-cd" class="edge-weight" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_1ms">1ms</div>
+                    <div id="w-bc" class="edge-weight" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_2ms">2ms</div>
 
-                    <div id="node-A" class="node start">A</div>
-                    <div id="node-B" class="node">B</div>
-                    <div id="node-C" class="node">C</div>
-                    <div id="node-D" class="node end">D</div>
+                    <div id="node-A" class="node start" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_a">A</div>
+                    <div id="node-B" class="node" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_b">B</div>
+                    <div id="node-C" class="node" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_c">C</div>
+                    <div id="node-D" class="node end" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_d">D</div>
                 </div>
 
-                <button class="btn-calc" onclick="runShortestPath()">Calcular Rota Mais Rápida (A → D)</button>
+                <button class="btn-calc" onclick="runShortestPath()" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_calcular_rota_mais_r_pida__a___d">Calcular Rota Mais Rápida (A → D)</button>
 
                 <div class="log-panel" id="path-logger">
                     > Aguardando execução do algoritmo...
                 </div>
             </div>
-            <h2>4. Árvores (Trees)</h2>
-            <p>Uma <strong>Árvore</strong> é apenas um tipo muito específico de Grafo. Para ser uma árvore, o grafo não
-                pode ter <em>ciclos</em> (caminhos que fecham um loop) e precisa de uma <strong>Raiz (Root)</strong>.
+            <h2 data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_4___rvores__trees">4. Árvores (Trees)</h2>
+            <p>Uma <strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_rvore">Árvore</strong> é apenas um tipo muito específico de Grafo. Para ser uma árvore, o grafo não
+                pode ter <em data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_ciclos">ciclos</em> (caminhos que fecham um loop) e precisa de uma <strong data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_raiz__root">Raiz (Root)</strong>.
             </p>
             <p>Toda a vez que você constrói uma página HTML e usa CSS/JavaScript, está a manipular uma árvore (o DOM -
                 Document Object Model). A tag <code>&lt;html&gt;</code> é a raiz, e <code>&lt;body&gt;</code>,
@@ -501,7 +501,7 @@ E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
             </p>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Masterização</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_rea_de_treinamento__masteriza__o">🧠 Área de Treinamento: Masterização</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos
                     estruturais.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -557,7 +557,7 @@ E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
                     document.getElementById(`w-${l}`).classList.add('active');
                 });
 
-                logger.innerHTML += "<br><span style='color:#2ecc71; font-weight:bold;'>[SUCESSO] Rota Otimizada Aplicada (A → C → D). Tempo total: 3ms.</span>";
+                logger.innerHTML += "<br><span style='color:#2ecc71; font-weight:bold;' data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_sucesso__rota_otimizada_aplicada__a___c___d___tem">[SUCESSO] Rota Otimizada Aplicada (A → C → D). Tempo total: 3ms.</span>";
             }, 3000);
         }
 
@@ -580,11 +580,11 @@ E = {(A,B), (B,C)}     // 2 Estradas ligando-as (Arestas)</code></pre>
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_mat_discreta_modulo_06_6_1_teoria_grafos_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

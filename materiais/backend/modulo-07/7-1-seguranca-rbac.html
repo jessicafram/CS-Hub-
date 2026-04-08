@@ -243,21 +243,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 07</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_m_dulo_07">Módulo 07</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 7: Segurança e Controle de Acesso (RBAC)<span
                     style="display:none;"></span></h1>
-            <p>Como garantir que apenas os usuários corretos tenham permissão para executar operações críticas.</p>
+            <p data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_como_garantir_que_apenas_os_usu_rios_corretos_tenh">Como garantir que apenas os usuários corretos tenham permissão para executar operações críticas.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -275,7 +275,7 @@
             <p>Em sistemas financeiros, permitir acesso incorreto pode causar problemas graves.<span
                     style="display:none;"></span></p>
 
-            <h2>1. O problema do controle de acesso</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_1__o_problema_do_controle_de_acesso">1. O problema do controle de acesso</h2>
             <p>Imagine que sua API possui operações como:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>criar pagamento<span style="display:none;"></span></li>
@@ -292,10 +292,10 @@
             </ul>
             <p>Por isso sistemas precisam de controle de acesso.<span style="display:none;"></span></p>
 
-            <h2>2. Autenticação vs Autorização</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_2__autentica__o_vs_autoriza__o">2. Autenticação vs Autorização</h2>
             <p>Esses dois conceitos são frequentemente confundidos.<span style="display:none;"></span></p>
 
-            <h3>Autenticação</h3>
+            <h3 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_autentica__o">Autenticação</h3>
             <p>Pergunta: quem é o usuário?<span style="display:none;"></span></p>
             <p>Exemplo:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
@@ -306,7 +306,7 @@
             <p>No seu projeto isso ocorre através do sistema de autenticação do: AdonisJS<span
                     style="display:none;"></span></p>
 
-            <h3>Autorização</h3>
+            <h3 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_autoriza__o">Autorização</h3>
             <p>Pergunta: o que esse usuário pode fazer?<span style="display:none;"></span></p>
             <p>Exemplo:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
@@ -315,8 +315,8 @@
             </ul>
             <p>Autorização define permissões dentro do sistema.<span style="display:none;"></span></p>
 
-            <h2>3. O modelo RBAC</h2>
-            <p>Uma forma comum de implementar autorização é o modelo: <strong>RBAC</strong><span
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_3__o_modelo_rbac">3. O modelo RBAC</h2>
+            <p>Uma forma comum de implementar autorização é o modelo: <strong data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_rbac">RBAC</strong><span
                     style="display:none;"></span></p>
             <p>Significado: Role-Based Access Control<span style="display:none;"></span></p>
             <p>Nesse modelo, cada usuário possui um papel (role).<span style="display:none;"></span></p>
@@ -329,7 +329,7 @@
             </ul>
             <p>Cada role possui permissões diferentes.<span style="display:none;"></span></p>
 
-            <h2>4. Papéis no seu sistema</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_4__pap_is_no_seu_sistema">4. Papéis no seu sistema</h2>
             <p>No seu projeto você definiu quatro papéis.<span style="display:none;"></span></p>
 
             <table class="db-table">
@@ -361,8 +361,8 @@
 
             <p>Isso define quem pode acessar cada funcionalidade da API.<span style="display:none;"></span></p>
 
-            <h2>5. O princípio do menor privilégio</h2>
-            <p>Uma regra importante em segurança é: <strong>Principle of Least Privilege</strong><span
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_5__o_princ_pio_do_menor_privil_gio">5. O princípio do menor privilégio</h2>
+            <p>Uma regra importante em segurança é: <strong data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_principle_of_least_privilege">Principle of Least Privilege</strong><span
                     style="display:none;"></span></p>
             <p>Significado: cada usuário deve ter apenas as permissões necessárias<span style="display:none;"></span>
             </p>
@@ -373,7 +373,7 @@
             </ul>
             <p>Isso reduz riscos de abuso ou erro.<span style="display:none;"></span></p>
 
-            <h2>6. Middleware de autorização</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_6__middleware_de_autoriza__o">6. Middleware de autorização</h2>
             <p>Em APIs modernas, o controle de acesso geralmente ocorre através de middleware.<span
                     style="display:none;"></span></p>
             <p>Middleware é um componente que intercepta requisições antes do controller.<span
@@ -386,7 +386,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Fluxo de Request</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_fluxo_de_request">Fluxo de Request</span>
                 </div>
                 <pre><code>Request
   ↓
@@ -403,7 +403,7 @@ Controller<span style="display:none;"></span></code></pre>
                 <li><code>role_middleware</code><span style="display:none;"></span></li>
             </ul>
 
-            <h2>7. Como o middleware funciona</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_7__como_o_middleware_funciona">7. Como o middleware funciona</h2>
             <p>Quando uma requisição chega:<span style="display:none;"></span></p>
             <p>Fluxo:<span style="display:none;"></span><br>
                 <code>POST /transactions/chargeback</code><span style="display:none;"></span>
@@ -413,10 +413,10 @@ Controller<span style="display:none;"></span></code></pre>
                 <li>2. verificar role<span style="display:none;"></span></li>
                 <li>3. permitir ou negar acesso<span style="display:none;"></span></li>
             </ol>
-            <p>Se o usuário não tiver permissão: <strong>HTTP 403 Forbidden</strong><span style="display:none;"></span>
+            <p>Se o usuário não tiver permissão: <strong data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_http_403_forbidden">HTTP 403 Forbidden</strong><span style="display:none;"></span>
             </p>
 
-            <h2>8. Fluxo de segurança no seu sistema</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_8__fluxo_de_seguran_a_no_seu_sistema">8. Fluxo de segurança no seu sistema</h2>
             <p>Fluxo completo:<span style="display:none;"></span></p>
 
             <div class="mac-code-window" style="margin-bottom: 15px;">
@@ -426,7 +426,7 @@ Controller<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Pipeline de Segurança</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_pipeline_de_seguran_a">Pipeline de Segurança</span>
                 </div>
                 <pre><code>Cliente faz requisição
   ↓
@@ -445,7 +445,7 @@ Controller executa operação<span style="display:none;"></span></code></pre>
             <p><code>Request → Authentication → Authorization → Business Logic</code><span style="display:none;"></span>
             </p>
 
-            <h2>9. Protegendo operações críticas</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_9__protegendo_opera__es_cr_ticas">9. Protegendo operações críticas</h2>
             <p>Operações críticas no seu sistema incluem:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>chargeback<span style="display:none;"></span></li>
@@ -455,7 +455,7 @@ Controller executa operação<span style="display:none;"></span></code></pre>
                     style="display:none;"></span></p>
             <p>Isso impede que: usuário comum manipule pagamentos.<span style="display:none;"></span></p>
 
-            <h2>10. Como isso aparece no seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_10__como_isso_aparece_no_seu_projeto">10. Como isso aparece no seu projeto</h2>
             <p>No seu sistema o controle de acesso ocorre antes do controller.<span style="display:none;"></span></p>
 
             <div class="mac-code-window" style="margin-bottom: 15px;">
@@ -465,7 +465,7 @@ Controller executa operação<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Router Config</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_router_config">Router Config</span>
                 </div>
                 <pre><code>Route
   ↓
@@ -479,7 +479,7 @@ TransactionsController<span style="display:none;"></span></code></pre>
             <p>Se o usuário tiver permissão: requisição continua.<span style="display:none;"></span> Caso contrário:
                 erro de autorização.<span style="display:none;"></span></p>
 
-            <h2>11. Benefícios do RBAC</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_11__benef_cios_do_rbac">11. Benefícios do RBAC</h2>
             <p>Implementar RBAC traz vários benefícios.<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>segurança: acesso restrito a operações sensíveis<span style="display:none;"></span></li>
@@ -487,15 +487,15 @@ TransactionsController<span style="display:none;"></span></code></pre>
                 <li>escalabilidade: novos papéis podem ser adicionados<span style="display:none;"></span></li>
             </ul>
 
-            <h2>12. Limitações do RBAC</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_12__limita__es_do_rbac">12. Limitações do RBAC</h2>
             <p>Embora RBAC seja muito usado, ele possui limitações. Exemplo: permissões muito específicas.<span
                     style="display:none;"></span></p>
-            <p>Nesses casos sistemas avançados usam modelos como: <strong>ABAC</strong>.<span
+            <p>Nesses casos sistemas avançados usam modelos como: <strong data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_abac">ABAC</strong>.<span
                     style="display:none;"></span> Significado: Attribute-Based Access Control.<span
                     style="display:none;"></span></p>
             <p>Mas para a maioria das APIs RBAC é suficiente.<span style="display:none;"></span></p>
 
-            <h2>13. Conectando com seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_13__conectando_com_seu_projeto">13. Conectando com seu projeto</h2>
             <p>Seu sistema protege operações financeiras utilizando: RBAC + middleware de autorização.<span
                     style="display:none;"></span></p>
             <p>Fluxo final:<span style="display:none;"></span><br>
@@ -531,7 +531,7 @@ TransactionsController<span style="display:none;"></span></code></pre>
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 7</h2>
+            <h2 data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_conclus_o_do_m_dulo_7">Conclusão do Módulo 7</h2>
             <p>Agora você entende profundamente:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>autenticação<span style="display:none;"></span></li>
@@ -543,7 +543,7 @@ TransactionsController<span style="display:none;"></span></code></pre>
                 parte da engenharia de uma API financeira moderna.<span style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 8):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_pr_ximo_passo__m_dulo_8">Próximo passo (Módulo 8):</p>
                 <p>No Módulo 8 vamos estudar um ponto muito importante do seu projeto: <strong>TypeScript e tipagem de
                         APIs</strong>.<span style="display:none;"></span> Vamos entender: type safety, interfaces, DTOs
                     e contratos de API.<span style="display:none;"></span> Esse módulo é muito importante porque conecta
@@ -552,7 +552,7 @@ TransactionsController<span style="display:none;"></span></code></pre>
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Controle de Acesso e Roles.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -589,11 +589,11 @@ TransactionsController<span style="display:none;"></span></code></pre>
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_07_7_1_seguranca_rbac_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

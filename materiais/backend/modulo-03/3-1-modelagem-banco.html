@@ -242,21 +242,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 03</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_m_dulo_03">Módulo 03</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 3: Modelagem de Banco de Dados<span
                     style="display:none;"></span></h1>
-            <p>Relações many-to-many, pivot tables e integridade referencial.</p>
+            <p data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_rela__es_many_to_many__pivot_tables_e_integridade">Relações many-to-many, pivot tables e integridade referencial.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -274,7 +274,7 @@
             <p>Essa pergunta é crítica porque erros de modelagem podem causar inconsistências financeiras.<span
                     style="display:none;"></span></p>
 
-            <h2>1. O papel do banco de dados</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_1__o_papel_do_banco_de_dados">1. O papel do banco de dados</h2>
             <p>O banco de dados é responsável por armazenar:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>usuários<span style="display:none;"></span></li>
@@ -282,11 +282,11 @@
                 <li>transações<span style="display:none;"></span></li>
                 <li>relacionamentos entre entidades<span style="display:none;"></span></li>
             </ul>
-            <p>No seu projeto você utilizou: <strong>MySQL</strong><span style="display:none;"></span>. Esse tipo de
+            <p>No seu projeto você utilizou: <strong data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_mysql">MySQL</strong><span style="display:none;"></span>. Esse tipo de
                 banco segue o modelo relacional.<span style="display:none;"></span></p>
 
-            <h2>2. O modelo relacional</h2>
-            <p>O modelo relacional foi criado por: <strong>Edgar F. Codd</strong><span style="display:none;"></span>.
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_2__o_modelo_relacional">2. O modelo relacional</h2>
+            <p>O modelo relacional foi criado por: <strong data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_edgar_f__codd">Edgar F. Codd</strong><span style="display:none;"></span>.
                 Ele organiza dados em tabelas relacionadas entre si.<span style="display:none;"></span></p>
 
 
@@ -321,7 +321,7 @@
                 </tbody>
             </table>
 
-            <h2>3. Entidades principais do seu sistema</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_3__entidades_principais_do_seu_sistema">3. Entidades principais do seu sistema</h2>
             <p>Seu banco possui as seguintes entidades principais:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>User<span style="display:none;"></span></li>
@@ -336,7 +336,7 @@
             </p>
             <p>Cada entidade representa um conceito do domínio do sistema.<span style="display:none;"></span></p>
 
-            <h2>4. Entidade Product</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_4__entidade_product">4. Entidade Product</h2>
             <p>Tabela: <code>products</code><span style="display:none;"></span><br>
                 Representa: itens que podem ser comprados<span style="display:none;"></span></p>
 
@@ -368,7 +368,7 @@
             </table>
             <p>No seu código isso aparece como: <code>Product</code> (TypeScript)<span style="display:none;"></span></p>
 
-            <h2>5. Entidade Transaction</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_5__entidade_transaction">5. Entidade Transaction</h2>
             <p>Tabela: <code>transactions</code><span style="display:none;"></span><br>
                 Representa: uma compra realizada pelo usuário<span style="display:none;"></span></p>
 
@@ -408,25 +408,25 @@
             </table>
             <p>Essa entidade representa o evento financeiro principal do sistema.<span style="display:none;"></span></p>
 
-            <h2>6. O problema do carrinho de compras</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_6__o_problema_do_carrinho_de_compras">6. O problema do carrinho de compras</h2>
             <p>Imagine uma compra simples. Cliente compra: Produto A, Produto B, Produto C.<span
                     style="display:none;"></span> Uma transação precisa armazenar vários produtos.<span
                     style="display:none;"></span></p>
             <p>Agora imagine o contrário. Um produto pode aparecer em várias transações.<span
                     style="display:none;"></span></p>
-            <p>Temos então uma relação: <strong>muitos para muitos (many-to-many)</strong>.<span
+            <p>Temos então uma relação: <strong data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_muitos_para_muitos__many_to_many">muitos para muitos (many-to-many)</strong>.<span
                     style="display:none;"></span></p>
 
-            <h2>7. Relacionamento Many-to-Many</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_7__relacionamento_many_to_many">7. Relacionamento Many-to-Many</h2>
             <p>No modelo relacional não podemos conectar duas tabelas many-to-many diretamente. Precisamos criar uma
                 tabela intermediária.<span style="display:none;"></span></p>
 
 
 
             <p>No seu sistema essa tabela é: <code>transaction_products</code><span style="display:none;"></span>. Essa
-                tabela é chamada de: <strong>pivot table</strong>.<span style="display:none;"></span></p>
+                tabela é chamada de: <strong data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_pivot_table">pivot table</strong>.<span style="display:none;"></span></p>
 
-            <h2>8. Estrutura da tabela transaction_products</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_8__estrutura_da_tabela_transaction_products">8. Estrutura da tabela transaction_products</h2>
             <p>Essa tabela contém:<span style="display:none;"></span></p>
             <table class="db-table">
                 <thead>
@@ -452,7 +452,7 @@
             <p>Isso significa: Transaction 1 comprou 2 unidades do produto 10 e 1 unidade do produto 15.<span
                     style="display:none;"></span></p>
 
-            <h2>9. Por que não salvar um JSON com os produtos?</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_9__por_que_n_o_salvar_um_json_com_os_produtos">9. Por que não salvar um JSON com os produtos?</h2>
             <p>Uma pergunta muito comum em entrevistas é: Por que você não salvou os produtos dentro de um campo JSON na
                 tabela transactions?<span style="display:none;"></span></p>
 
@@ -463,7 +463,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">JSON</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_json">JSON</span>
                 </div>
                 <pre><code>// Exemplo de abordagem errada em JSON:
 {
@@ -490,17 +490,17 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">SQL</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_sql">SQL</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">SELECT</span> product_id, SUM(quantity) 
-<span style="color: #569cd6;">FROM</span> transaction_products 
-<span style="color: #569cd6;">GROUP BY</span> product_id;<span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_select">SELECT</span> product_id, SUM(quantity) 
+<span style="color: #569cd6;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_from">FROM</span> transaction_products 
+<span style="color: #569cd6;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_group_by">GROUP BY</span> product_id;<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso permite responder perguntas como: qual produto vendeu mais?<span style="display:none;"></span></p>
 
-            <h2>10. Integridade referencial</h2>
-            <p>Outra vantagem do modelo relacional é o uso de: <strong>foreign keys</strong>.<span
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_10__integridade_referencial">10. Integridade referencial</h2>
+            <p>Outra vantagem do modelo relacional é o uso de: <strong data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_foreign_keys">foreign keys</strong>.<span
                     style="display:none;"></span></p>
             <p>Exemplo: <code>transaction_products.product_id → products.id</code><span style="display:none;"></span>
             </p>
@@ -508,7 +508,7 @@
                 poderíamos ter: <code>produto_id = 999</code> mesmo que o produto não exista.<span
                     style="display:none;"></span></p>
 
-            <h2>11. Conectando com seu código</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_11__conectando_com_seu_c_digo">11. Conectando com seu código</h2>
             <p>Quando uma compra acontece, seu código executa:<span style="display:none;"></span></p>
 
             <div class="mac-code-window">
@@ -518,7 +518,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_typescript">TypeScript</span>
                 </div>
                 <pre><code>Transaction.create(...)<span style="display:none;"></span></code></pre>
             </div>
@@ -532,7 +532,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_typescript">TypeScript</span>
                 </div>
                 <pre><code>TransactionProduct.create(...)<span style="display:none;"></span></code></pre>
             </div>
@@ -540,13 +540,13 @@
             <p>Isso cria registros que conectam: transação, produtos e quantidades.<span style="display:none;"></span>
             </p>
 
-            <h2>12. Fluxo completo da persistência</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_12__fluxo_completo_da_persist_ncia">12. Fluxo completo da persistência</h2>
             <p>Fluxo simplificado:
                 <code>Checkout → Controller → Transaction criada → TransactionProducts criados → Commit no banco</code>.<span
                     style="display:none;"></span>
             </p>
 
-            <h2>13. Problema real resolvido</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_13__problema_real_resolvido">13. Problema real resolvido</h2>
             <p>Essa modelagem resolve vários problemas:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>histórico de compras (qual usuário comprou qual produto?)<span style="display:none;"></span></li>
@@ -582,13 +582,13 @@
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 3</h2>
+            <h2 data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_conclus_o_do_m_dulo_3">Conclusão do Módulo 3</h2>
             <p>Agora você entende: modelo relacional, many-to-many, pivot tables, integridade referencial.<span
                     style="display:none;"></span> E principalmente: por que seu banco foi modelado corretamente.<span
                     style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 4):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_pr_ximo_passo__m_dulo_4">Próximo passo (Módulo 4):</p>
                 <p>No Módulo 4 vamos entrar em um dos conceitos mais importantes de sistemas financeiros: <strong>ACID e
                         transações de banco de dados</strong>.<span style="display:none;"></span> Vamos explicar
                     profundamente: atomicidade, consistência, isolamento, durabilidade.<span
@@ -597,7 +597,7 @@
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos de
                     Modelagem e Dados.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -634,11 +634,11 @@
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_03_3_1_modelagem_banco_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

@@ -141,12 +141,12 @@
     <nav class="top-navbar">
         <a href="../../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">← VOLTAR AO
             HUB</a>
-        <span class="jessica-signature">CS_HUB / N8N / AULA_02</span>
+        <span class="jessica-signature" data-i18n="materials_n8n_n8n_aula_02_cs_hub___n8n___aula_02">CS_HUB / N8N / AULA_02</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">ESPECIALISTA EM AGENTES DE IA COM N8N</span>
+            <span class="badge-tech" data-i18n="materials_n8n_n8n_aula_02_especialista_em_agentes_de_ia_com_n8n">ESPECIALISTA EM AGENTES DE IA COM N8N</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Aula 02: O Coração da Automação — JSON e Arquitetura de
                 Dados</h1>
             <p>Descubra como os sistemas conversam entre si e como criar "adaptadores universais" para tornar suas
@@ -154,30 +154,30 @@
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
-            <h2>Introdução: Por que estamos aqui?</h2>
+            <h2 data-i18n="materials_n8n_n8n_aula_02_introdu__o__por_que_estamos_aqui">Introdução: Por que estamos aqui?</h2>
 
             <div class="analogy-box">
-                <h4 style="margin-top:0; color: #f39c12;">1. O que é o n8n? (A Analogia do Maestro e da Orquestra)</h4>
-                <p>Imagine uma orquestra sinfônica. Temos o violinista, o pianista e o trompetista.</p>
+                <h4 style="margin-top:0; color: #f39c12;" data-i18n="materials_n8n_n8n_aula_02_1__o_que___o_n8n___a_analogia_do_maestro_e_da_orqu">1. O que é o n8n? (A Analogia do Maestro e da Orquestra)</h4>
+                <p data-i18n="materials_n8n_n8n_aula_02_imagine_uma_orquestra_sinf_nica__temos_o_violinist">Imagine uma orquestra sinfônica. Temos o violinista, o pianista e o trompetista.</p>
                 <ul style="line-height: 1.8;">
-                    <li><strong>O Problema:</strong> O violinista não sabe tocar piano, e o pianista não sabe ler a
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_o_problema">O Problema:</strong> O violinista não sabe tocar piano, e o pianista não sabe ler a
                         partitura do violino. Eles são sistemas diferentes.</li>
-                    <li><strong>O n8n (O Maestro):</strong> O Maestro não toca nenhum instrumento. O papel dele é
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_o_n8n__o_maestro">O n8n (O Maestro):</strong> O Maestro não toca nenhum instrumento. O papel dele é
                         garantir que o violinista comece na hora certa e passe a vez para o pianista.</li>
                 </ul>
-                <p><strong>No n8n:</strong> Cada "quadradinho" (nó) é um músico (WhatsApp, Google Sheets, IA). O n8n é o
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_no_n8n">No n8n:</strong> Cada "quadradinho" (nó) é um músico (WhatsApp, Google Sheets, IA). O n8n é o
                     Maestro que coordena a ordem em que eles "tocam" a informação.</p>
             </div>
 
             <div class="analogy-box">
-                <h4 style="margin-top:0; color: #f39c12;">2. O que é JSON? (A Analogia do Formulário de Correio)</h4>
+                <h4 style="margin-top:0; color: #f39c12;" data-i18n="materials_n8n_n8n_aula_02_2__o_que___json___a_analogia_do_formul_rio_de_corr">2. O que é JSON? (A Analogia do Formulário de Correio)</h4>
                 <p>Imagine que você quer enviar um presente para um amigo, mas o correio só aceita se você preencher uma
                     ficha padrão.</p>
                 <ul style="line-height: 1.8;">
-                    <li><strong>O Problema:</strong> Se você escrever uma carta solta ("Entrega lá pro meu amigo João na
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_o_problema">O Problema:</strong> Se você escrever uma carta solta ("Entrega lá pro meu amigo João na
                         Rua X"), o sistema do correio trava porque não sabe onde começa o nome e onde termina a rua.
                     </li>
-                    <li><strong>O JSON (A Ficha Padrão):</strong> O JSON é apenas uma ficha com campos fixos:</li>
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_o_json__a_ficha_padr_o">O JSON (A Ficha Padrão):</strong> O JSON é apenas uma ficha com campos fixos:</li>
                 </ul>
                 <pre>
 {
@@ -186,147 +186,147 @@
     "Presente": "Relógio"
 }
 </pre>
-                <p><strong>No n8n:</strong> É esse "idioma de ficha" que permite que o WhatsApp passe o dado para o
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_no_n8n">No n8n:</strong> É esse "idioma de ficha" que permite que o WhatsApp passe o dado para o
                     Google Sheets sem confusão.</p>
             </div>
 
             <div class="analogy-box">
-                <h4 style="margin-top:0; color: #f39c12;">3. Serialização? (A Analogia do Móvel da IKEA)</h4>
-                <p>Como você envia um guarda-roupa enorme de uma cidade para outra?</p>
+                <h4 style="margin-top:0; color: #f39c12;" data-i18n="materials_n8n_n8n_aula_02_3__serializa__o___a_analogia_do_m_vel_da_ikea">3. Serialização? (A Analogia do Móvel da IKEA)</h4>
+                <p data-i18n="materials_n8n_n8n_aula_02_como_voc__envia_um_guarda_roupa_enorme_de_uma_cida">Como você envia um guarda-roupa enorme de uma cidade para outra?</p>
                 <ul style="line-height: 1.8;">
-                    <li><strong>Serialização (Desmontar):</strong> Você desmonta o guarda-roupa, coloca as tábuas e
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_serializa__o__desmontar">Serialização (Desmontar):</strong> Você desmonta o guarda-roupa, coloca as tábuas e
                         parafusos em uma caixa fina de papelão. Agora ele cabe no caminhão (Internet).</li>
-                    <li><strong>Desserialização (Montar):</strong> Quando a caixa chega na casa nova, você abre e monta
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_desserializa__o__montar">Desserialização (Montar):</strong> Quando a caixa chega na casa nova, você abre e monta
                         o móvel para poder usar as gavetas.</li>
                 </ul>
-                <p><strong>No n8n:</strong> O dado viaja "desmontado" (como texto puro). O n8n "monta" o dado para você
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_no_n8n">No n8n:</strong> O dado viaja "desmontado" (como texto puro). O n8n "monta" o dado para você
                     poder clicar na "gaveta" do Nome ou na "gaveta" do E-mail.</p>
             </div>
 
             <div class="analogy-box">
-                <h4 style="margin-top:0; color: #f39c12;">4. Por que as automações quebram? (A Analogia da Tomada)</h4>
-                <p>Sabe quando você viaja e tenta ligar seu secador de cabelo, mas a tomada é diferente?</p>
+                <h4 style="margin-top:0; color: #f39c12;" data-i18n="materials_n8n_n8n_aula_02_4__por_que_as_automa__es_quebram___a_analogia_da_t">4. Por que as automações quebram? (A Analogia da Tomada)</h4>
+                <p data-i18n="materials_n8n_n8n_aula_02_sabe_quando_voc__viaja_e_tenta_ligar_seu_secador_d">Sabe quando você viaja e tenta ligar seu secador de cabelo, mas a tomada é diferente?</p>
                 <ul style="line-height: 1.8;">
-                    <li><strong>O Problema:</strong> Se você forçar, você queima o aparelho ou quebra a tomada. Isso é o
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_o_problema">O Problema:</strong> Se você forçar, você queima o aparelho ou quebra a tomada. Isso é o
                         que acontece quando ligamos um sistema direto no outro sem cuidado.</li>
-                    <li><strong>A Normalização (O Adaptador Universal):</strong> Se você levar um adaptador universal,
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_a_normaliza__o__o_adaptador_universal">A Normalização (O Adaptador Universal):</strong> Se você levar um adaptador universal,
                         você liga qualquer aparelho em qualquer tomada do mundo.</li>
                 </ul>
-                <p><strong>A Solução:</strong> Na nossa aula, vamos aprender a criar esse "Adaptador". Assim, não
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_a_solu__o">A Solução:</strong> Na nossa aula, vamos aprender a criar esse "Adaptador". Assim, não
                     importa se o cliente usa WhatsApp hoje ou Telegram amanhã, o robô nunca "queima".</p>
             </div>
 
-            <h2>Bloco 1: A Teoria que Sustenta o Prédio</h2>
+            <h2 data-i18n="materials_n8n_n8n_aula_02_bloco_1__a_teoria_que_sustenta_o_pr_dio">Bloco 1: A Teoria que Sustenta o Prédio</h2>
             <p style="opacity: 0.8; font-style: italic;">Objetivo: Transformar as analogias em conceitos de Engenharia
                 de Software.</p>
 
-            <h3>1.1 SOA - O n8n como Maestro (Arquitetura Orientada a Serviços)</h3>
-            <p><strong>O Conceito:</strong> No mundo da tecnologia, chamamos essa organização de SOA. Cada instrumento
+            <h3 data-i18n="materials_n8n_n8n_aula_02_1_1_soa___o_n8n_como_maestro__arquitetura_orientad">1.1 SOA - O n8n como Maestro (Arquitetura Orientada a Serviços)</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_conceito">O Conceito:</strong> No mundo da tecnologia, chamamos essa organização de SOA. Cada instrumento
                 da nossa orquestra (WhatsApp, E-mail, Planilha) é um "Serviço" independente.</p>
-            <p><strong>Por que importa?</strong> Se o pianista (o Banco de Dados) faltar ao ensaio, o Maestro (n8n) sabe
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_por_que_importa">Por que importa?</strong> Se o pianista (o Banco de Dados) faltar ao ensaio, o Maestro (n8n) sabe
                 exatamente o que fazer: ele pode esperar o músico chegar ou avisar a plateia, sem que o violinista pare
                 de tocar.</p>
-            <p><span class="highlight-text">Na Prática:</span> Você aprenderá que, se o WhatsApp cair, o fluxo dele não
+            <p><span class="highlight-text" data-i18n="materials_n8n_n8n_aula_02_na_pr_tica">Na Prática:</span> Você aprenderá que, se o WhatsApp cair, o fluxo dele não
                 precisa "morrer"; ele pode ser desenhado para tentar novamente mais tarde.</p>
 
-            <h3>1.2 Interoperabilidade - O "Inglês" dos Sistemas (JSON)</h3>
-            <p><strong>O Conceito:</strong> Para que sistemas de empresas diferentes conversem, eles usam a
+            <h3 data-i18n="materials_n8n_n8n_aula_02_1_2_interoperabilidade___o__ingl_s__dos_sistemas">1.2 Interoperabilidade - O "Inglês" dos Sistemas (JSON)</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_conceito">O Conceito:</strong> Para que sistemas de empresas diferentes conversem, eles usam a
                 Interoperabilidade. O "inglês" que eles escolheram para preencher aquela ficha de correio é o JSON.</p>
-            <p><strong>O Formato:</strong> O JSON é sempre composto por uma Chave (o rótulo) e um Valor (a informação).
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_formato">O Formato:</strong> O JSON é sempre composto por uma Chave (o rótulo) e um Valor (a informação).
                 Exemplo: <code>"nome": "Maurício"</code>.</p>
-            <p><span class="highlight-text">Na Prática:</span> Você vai ver que tudo o que entra e sai de um
+            <p><span class="highlight-text" data-i18n="materials_n8n_n8n_aula_02_na_pr_tica">Na Prática:</span> Você vai ver que tudo o que entra e sai de um
                 "quadradinho" no n8n é um texto nesse formato de ficha.</p>
 
-            <h3>1.3 Estruturas Hierárquicas - A Árvore JSON</h3>
-            <p><strong>O Conceito:</strong> Uma ficha de correio pode ter sub-fichas. No JSON, chamamos isso de Objetos
+            <h3 data-i18n="materials_n8n_n8n_aula_02_1_3_estruturas_hier_rquicas___a__rvore_json">1.3 Estruturas Hierárquicas - A Árvore JSON</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_conceito">O Conceito:</strong> Uma ficha de correio pode ter sub-fichas. No JSON, chamamos isso de Objetos
                 <code>{}</code> e Arrays <code>[]</code>.</p>
-            <p><strong>A Árvore:</strong> Imagine uma árvore genealógica. Para chegar no "Neto", você precisa passar
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_a__rvore">A Árvore:</strong> Imagine uma árvore genealógica. Para chegar no "Neto", você precisa passar
                 pelo "Pai".</p>
             <div class="concept-box">
-                <p style="margin: 0;"><strong>Dot Notation (Caminho de Pontos):</strong> No n8n, para você pegar a
+                <p style="margin: 0;"><strong data-i18n="materials_n8n_n8n_aula_02_dot_notation__caminho_de_pontos">Dot Notation (Caminho de Pontos):</strong> No n8n, para você pegar a
                     cidade do cliente, você vai escrever: <code>cliente.endereco.cidade</code>. É como dar o endereço
                     exato de um galho na árvore.</p>
             </div>
 
-            <h2>Bloco 2: Laboratório Prático - A Mesa de Trabalho</h2>
+            <h2 data-i18n="materials_n8n_n8n_aula_02_bloco_2__laborat_rio_pr_tico___a_mesa_de_trabalho">Bloco 2: Laboratório Prático - A Mesa de Trabalho</h2>
             <p style="opacity: 0.8; font-style: italic;">Objetivo: Praticar a navegação e a "limpeza" de dados (ETL)
                 dentro da ferramenta.</p>
 
-            <h3>2.1 A Mesa de Trabalho (O Nó Edit Fields e a Limpeza de Dados)</h3>
-            <p><strong>O Conceito:</strong> O nó Edit Fields (Editar campos) é onde você vira um Arquiteto. É a mesa
+            <h3 data-i18n="materials_n8n_n8n_aula_02_2_1_a_mesa_de_trabalho__o_n__edit_fields_e_a_limpe">2.1 A Mesa de Trabalho (O Nó Edit Fields e a Limpeza de Dados)</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_conceito">O Conceito:</strong> O nó Edit Fields (Editar campos) é onde você vira um Arquiteto. É a mesa
                 onde você decide o que fica e o que vai embora.</p>
-            <p><strong>A Técnica Sênior:</strong> Manter a chave <em>"Incluir outros campos de entrada"</em> desativada.
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_a_t_cnica_s_nior">A Técnica Sênior:</strong> Manter a chave <em data-i18n="materials_n8n_n8n_aula_02_incluir_outros_campos_de_entrada">"Incluir outros campos de entrada"</em> desativada.
                 Por que isso é vital? APIs reais enviam centenas de dados inúteis (como IDs de sistema e logs de data).
             </p>
-            <p><strong>A Analogia:</strong> É como receber uma caixa de mudança cheia de jornal velho protegendo um vaso
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_a_analogia">A Analogia:</strong> É como receber uma caixa de mudança cheia de jornal velho protegendo um vaso
                 de cristal. Deixar essa chave desligada joga o jornal fora e mantém só o vaso (o dado que importa).</p>
 
-            <h3>2.2 Normalização: Criando o "Adaptador Universal"</h3>
-            <p><strong>O Desafio Prático:</strong> Imagine que você recebe dados de dois sistemas diferentes:</p>
+            <h3 data-i18n="materials_n8n_n8n_aula_02_2_2_normaliza__o__criando_o__adaptador_universal">2.2 Normalização: Criando o "Adaptador Universal"</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_desafio_pr_tico">O Desafio Prático:</strong> Imagine que você recebe dados de dois sistemas diferentes:</p>
             <ul>
                 <li>Sistema A chama o nome de: <code>usr_name</code>.</li>
                 <li>Sistema B chama o nome de: <code>client_nm</code>.</li>
             </ul>
-            <p><strong>A Tarefa:</strong> Você deve usar o nó Edit Fields para criar um novo campo chamado simplesmente
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_a_tarefa">A Tarefa:</strong> Você deve usar o nó Edit Fields para criar um novo campo chamado simplesmente
                 <code>nome</code> e puxar o valor de qualquer uma dessas fontes.</p>
             <div class="concept-box" style="border-color: #f39c12; background: rgba(243, 156, 18, 0.05);">
-                <p style="margin: 0;"><strong>A Lição de Ouro:</strong> Agora o seu Agente de IA só precisa saber ler o
+                <p style="margin: 0;"><strong data-i18n="materials_n8n_n8n_aula_02_a_li__o_de_ouro">A Lição de Ouro:</strong> Agora o seu Agente de IA só precisa saber ler o
                     campo <code>nome</code>. Se a empresa trocar de sistema amanhã, você só muda a 'ponta' do fluxo, e o
                     coração do robô continua batendo.</p>
             </div>
 
-            <h2>Bloco 3: Estudo de Caso - O "Cérebro" do Agente de IA</h2>
+            <h2 data-i18n="materials_n8n_n8n_aula_02_bloco_3__estudo_de_caso___o__c_rebro__do_agente_de">Bloco 3: Estudo de Caso - O "Cérebro" do Agente de IA</h2>
             <p style="opacity: 0.8; font-style: italic;">Objetivo: Entender como a IA consome o JSON que acabamos de
                 preparar.</p>
 
-            <h3>3.1 A Dieta da IA (Dados Estruturados)</h3>
-            <p><strong>O Conceito:</strong> Uma Inteligência Artificial (como o ChatGPT) é excelente em processar texto,
+            <h3 data-i18n="materials_n8n_n8n_aula_02_3_1_a_dieta_da_ia__dados_estruturados">3.1 A Dieta da IA (Dados Estruturados)</h3>
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_conceito">O Conceito:</strong> Uma Inteligência Artificial (como o ChatGPT) é excelente em processar texto,
                 mas ela trabalha muito melhor quando recebe informações organizadas em JSON.</p>
-            <p><strong>O Problema:</strong> Se você enviar o JSON "sujo" (com IDs de sistema, datas em formatos loucos e
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_o_problema">O Problema:</strong> Se você enviar o JSON "sujo" (com IDs de sistema, datas em formatos loucos e
                 códigos internos), a IA gasta "energia" (e dinheiro de API) tentando entender o que não importa.</p>
-            <p><strong>A Solução:</strong> Enviamos apenas o que normalizamos no Bloco 2: nome, mensagem e histórico.
+            <p><strong data-i18n="materials_n8n_n8n_aula_02_a_solu__o">A Solução:</strong> Enviamos apenas o que normalizamos no Bloco 2: nome, mensagem e histórico.
             </p>
 
-            <h3>3.2 O Fluxo de Decisão (A Lógica do Robô)</h3>
-            <p>Imagine que você criou um Agente para uma Imobiliária. O fluxo funciona assim:</p>
+            <h3 data-i18n="materials_n8n_n8n_aula_02_3_2_o_fluxo_de_decis_o__a_l_gica_do_rob">3.2 O Fluxo de Decisão (A Lógica do Robô)</h3>
+            <p data-i18n="materials_n8n_n8n_aula_02_imagine_que_voc__criou_um_agente_para_uma_imobili">Imagine que você criou um Agente para uma Imobiliária. O fluxo funciona assim:</p>
             <ol style="line-height: 1.8;">
-                <li><strong>Entrada (Evento):</strong> O cliente manda um "Oi" no WhatsApp.</li>
-                <li><strong>Preparação:</strong> O n8n limpa o dado e monta a ficha:
+                <li><strong data-i18n="materials_n8n_n8n_aula_02_entrada__evento">Entrada (Evento):</strong> O cliente manda um "Oi" no WhatsApp.</li>
+                <li><strong data-i18n="materials_n8n_n8n_aula_02_prepara__o">Preparação:</strong> O n8n limpa o dado e monta a ficha:
                     <code>{ "cliente": "Maurício", "interesse": "Aluguel" }</code>.</li>
-                <li><strong>Consulta à IA:</strong> O n8n passa essa ficha para a OpenAI e pergunta: "Este cliente quer
+                <li><strong data-i18n="materials_n8n_n8n_aula_02_consulta___ia">Consulta à IA:</strong> O n8n passa essa ficha para a OpenAI e pergunta: "Este cliente quer
                     comprar ou alugar?".</li>
-                <li><strong>Resposta da IA:</strong> A IA devolve outro JSON:
+                <li><strong data-i18n="materials_n8n_n8n_aula_02_resposta_da_ia">Resposta da IA:</strong> A IA devolve outro JSON:
                     <code>{ "decisao": "aluguel", "urgencia": "alta" }</code>.</li>
             </ol>
 
             <div class="concept-box" style="border-color: var(--accent);">
-                <h4 style="margin-top:0; color: var(--accent);">Por que a Normalização salvou o dia aqui?</h4>
-                <p><strong>Cenário de Crise:</strong> O dono da imobiliária decide parar de usar o WhatsApp e migrar
+                <h4 style="margin-top:0; color: var(--accent);" data-i18n="materials_n8n_n8n_aula_02_por_que_a_normaliza__o_salvou_o_dia_aqui">Por que a Normalização salvou o dia aqui?</h4>
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_cen_rio_de_crise">Cenário de Crise:</strong> O dono da imobiliária decide parar de usar o WhatsApp e migrar
                     para um formulário no site.</p>
-                <p><strong>O Alívio:</strong> Como você criou o "Adaptador Universal" (Normalização), você só precisa
+                <p><strong data-i18n="materials_n8n_n8n_aula_02_o_al_vio">O Alívio:</strong> Como você criou o "Adaptador Universal" (Normalização), você só precisa
                     conectar o formulário no início do fluxo.</p>
-                <p style="margin-bottom: 0;"><strong>O Resultado:</strong> O "Cérebro" da IA não precisa ser
+                <p style="margin-bottom: 0;"><strong data-i18n="materials_n8n_n8n_aula_02_o_resultado">O Resultado:</strong> O "Cérebro" da IA não precisa ser
                     reconfigurado, porque ele continua recebendo a mesma ficha padrão que você desenhou.</p>
             </div>
 
             <div
                 style="margin-top: 50px; padding: 25px; background: rgba(0, 0, 0, 0.2); border-radius: 12px; border-left: 4px solid var(--accent);">
-                <h3 style="margin-top: 0; color: var(--accent);">📝 Exercícios de Fixação</h3>
+                <h3 style="margin-top: 0; color: var(--accent);" data-i18n="materials_n8n_n8n_aula_02_exerc_cios_de_fixa__o">📝 Exercícios de Fixação</h3>
                 <p>Antes de abrir o gabarito na Apostila de Mentoria abaixo, reflita e tente responder a estas três
                     perguntas com o que aprendemos hoje:</p>
                 <ol style="line-height: 1.8; margin-bottom: 0;">
-                    <li><strong>Serialização vs Desserialização:</strong> Explique a diferença entre os dois processos
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_serializa__o_vs_desserializa__o">Serialização vs Desserialização:</strong> Explique a diferença entre os dois processos
                         usando a analogia do móvel na caixa.</li>
-                    <li><strong>Dot Notation:</strong> Como você escreveria o caminho exato para acessar o valor
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_dot_notation">Dot Notation:</strong> Como você escreveria o caminho exato para acessar o valor
                         <code>150</code> no seguinte JSON: <br><code>{"pedido": {"item": {"valor": 150}}}</code>?</li>
-                    <li><strong>Arquitetura e Normalização:</strong> Por que a Normalização protege o seu fluxo se a
+                    <li><strong data-i18n="materials_n8n_n8n_aula_02_arquitetura_e_normaliza__o">Arquitetura e Normalização:</strong> Por que a Normalização protege o seu fluxo se a
                         empresa decidir trocar o software que envia os dados amanhã?</li>
                 </ol>
             </div>
 
             <div
                 style="margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px solid var(--border);">
-                <h2 style="margin-top: 0; border: none; color: #fff;">📚 Apostila de Mentoria</h2>
+                <h2 style="margin-top: 0; border: none; color: #fff;" data-i18n="materials_n8n_n8n_aula_02_apostila_de_mentoria">📚 Apostila de Mentoria</h2>
                 <p style="opacity: 0.8; margin-bottom: 25px;">Expanda os tópicos abaixo para acessar o seu material de
                     apoio e o gabarito da aula.</p>
 
@@ -424,18 +424,18 @@
                     </summary>
                     <div
                         style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); color: #fff; cursor: text;">
-                        <p>Antes de considerar sua automação pronta, verifique estes 4 pontos fundamentais:</p>
+                        <p data-i18n="materials_n8n_n8n_aula_02_antes_de_considerar_sua_automa__o_pronta__verifiqu">Antes de considerar sua automação pronta, verifique estes 4 pontos fundamentais:</p>
                         <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 10px;">🔲 <strong>O dado está "limpo"?</strong> Usei o nó Edit
+                            <li style="margin-bottom: 10px;">🔲 <strong data-i18n="materials_n8n_n8n_aula_02_o_dado_est___limpo">O dado está "limpo"?</strong> Usei o nó Edit
                                 Fields com a opção "Incluir outros campos de entrada" desligada para remover lixos e IDs
                                 inúteis?</li>
-                            <li style="margin-bottom: 10px;">🔲 <strong>Criei o Adaptador?</strong> O nome dos campos no
+                            <li style="margin-bottom: 10px;">🔲 <strong data-i18n="materials_n8n_n8n_aula_02_criei_o_adaptador">Criei o Adaptador?</strong> O nome dos campos no
                                 meu fluxo segue o meu padrão interno (ex: nome, email) ou estou usando nomes estranhos
                                 da API original?</li>
-                            <li style="margin-bottom: 10px;">🔲 <strong>A Árvore está correta?</strong> Testei o caminho
+                            <li style="margin-bottom: 10px;">🔲 <strong data-i18n="materials_n8n_n8n_aula_02_a__rvore_est__correta">A Árvore está correta?</strong> Testei o caminho
                                 (Dot Notation) para garantir que o n8n está alcançando o dado dentro dos objetos {} e
                                 listas []?</li>
-                            <li style="margin-bottom: 10px;">🔲 <strong>A IA vai entender?</strong> O JSON que estou
+                            <li style="margin-bottom: 10px;">🔲 <strong data-i18n="materials_n8n_n8n_aula_02_a_ia_vai_entender">A IA vai entender?</strong> O JSON que estou
                                 enviando para o Agente de IA contém apenas o necessário para ele tomar a decisão, sem
                                 poluição visual?</li>
                         </ul>
@@ -453,24 +453,24 @@
 
                         <h5 style="color: var(--accent); margin-bottom: 5px;">Exercício 1: Serialização vs
                             Desserialização</h5>
-                        <p><strong>Pergunta:</strong> Explique a diferença usando o exemplo do móvel na caixa.<br>
-                            <strong>Resposta:</strong> Serializar é colocar o móvel na caixa (transformar em texto JSON)
+                        <p><strong data-i18n="materials_n8n_n8n_aula_02_pergunta">Pergunta:</strong> Explique a diferença usando o exemplo do móvel na caixa.<br>
+                            <strong data-i18n="materials_n8n_n8n_aula_02_resposta">Resposta:</strong> Serializar é colocar o móvel na caixa (transformar em texto JSON)
                             para o transporte. Desserializar é tirar da caixa e montar no n8n para que possamos usar as
                             peças individualmente.
                         </p>
 
                         <h5 style="color: var(--accent); margin-top: 20px; margin-bottom: 5px;">Exercício 2: Dot
                             Notation</h5>
-                        <p><strong>Pergunta:</strong> Como acessar o valor 150 no JSON
+                        <p><strong data-i18n="materials_n8n_n8n_aula_02_pergunta">Pergunta:</strong> Como acessar o valor 150 no JSON
                             <code>{"pedido": {"item": {"valor": 150}}}</code>?<br>
-                            <strong>Resposta:</strong> <code>pedido.item.valor</code>.
+                            <strong data-i18n="materials_n8n_n8n_aula_02_resposta">Resposta:</strong> <code>pedido.item.valor</code>.
                         </p>
 
                         <h5 style="color: var(--accent); margin-top: 20px; margin-bottom: 5px;">Exercício 3: Arquitetura
                             e Normalização</h5>
-                        <p><strong>Pergunta:</strong> Por que a Normalização protege o fluxo se o cliente trocar de
+                        <p><strong data-i18n="materials_n8n_n8n_aula_02_pergunta">Pergunta:</strong> Por que a Normalização protege o fluxo se o cliente trocar de
                             software?<br>
-                            <strong>Resposta:</strong> Porque a Normalização cria uma camada de separação. Você só
+                            <strong data-i18n="materials_n8n_n8n_aula_02_resposta">Resposta:</strong> Porque a Normalização cria uma camada de separação. Você só
                             altera o "tradutor" no início; todo o restante do fluxo (a IA, o banco de dados) continua
                             recebendo o mesmo padrão de dados e não precisa ser refeito.
                         </p>
@@ -479,7 +479,7 @@
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_n8n_n8n_aula_02_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Clique nos cartões para virar e conferir as respostas do
                     Exercício de Fixação.</p>
 
@@ -531,11 +531,11 @@
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_n8n_n8n_aula_02_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_n8n_n8n_aula_02_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_n8n_n8n_aula_02_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>

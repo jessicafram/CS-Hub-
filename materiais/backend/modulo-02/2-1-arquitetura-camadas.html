@@ -15,13 +15,13 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 02</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_m_dulo_02">Módulo 02</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
@@ -29,7 +29,7 @@
             <span class="badge-tech"
                 style="background: rgba(46,204,113,0.1); color: var(--accent); padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">MÓDULO
                 2</span>
-            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;">Arquitetura de Backend</h1>
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-top: 15px;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_arquitetura_de_backend">Arquitetura de Backend</h1>
         </header>
 
         <section class="glass-container-main"
@@ -44,7 +44,7 @@
                 uma aplicação backend para que ela seja manutenível, testável e escalável?<span
                     style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">1. O problema da organização do código</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_1__o_problema_da_organiza__o_do_c_digo">1. O problema da organização do código</h2>
             <p style="margin-bottom: 20px;">Imagine uma API simples de pagamentos.<span style="display:none;"></span>
                 Uma implementação ingênua poderia colocar tudo em um único lugar: Controller valida requisição, calcula
                 preço, chama gateway, salva no banco e retorna resposta.<span style="display:none;"></span></p>
@@ -52,21 +52,21 @@
                     com 500+ linhas</strong>.<span style="display:none;"></span></p>
             <p style="margin-bottom: 20px;">Problemas desse modelo: difícil de manter, difícil de testar, alto
                 acoplamento, difícil de evoluir.<span style="display:none;"></span> Esse problema é conhecido na
-                engenharia como: <strong>God Object / God Controller</strong>.<span style="display:none;"></span></p>
+                engenharia como: <strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_god_object___god_controller">God Object / God Controller</strong>.<span style="display:none;"></span></p>
             <p style="margin-bottom: 50px;">Para resolver isso usamos arquitetura em camadas.<span
                     style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">2. Separação de responsabilidades</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_2__separa__o_de_responsabilidades">2. Separação de responsabilidades</h2>
             <p style="margin-bottom: 20px;">Um princípio fundamental da engenharia de software é: <strong>Separation of
                     Concerns</strong>.<span style="display:none;"></span> Significado: cada parte do sistema deve ter
                 uma responsabilidade clara.<span style="display:none;"></span></p>
             <p style="margin-bottom: 50px;">Esse princípio aparece em vários padrões arquiteturais.<span
-                    style="display:none;"></span> Referência clássica: <em>Robert C. Martin</em>.<span
+                    style="display:none;"></span> Referência clássica: <em data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_robert_c__martin">Robert C. Martin</em>.<span
                     style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">3. Arquitetura em camadas</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_3__arquitetura_em_camadas">3. Arquitetura em camadas</h2>
             <p style="margin-bottom: 20px;">No seu projeto, você utilizou uma arquitetura composta por três camadas
-                principais: <strong>Controller Layer, Service Layer e Model Layer</strong>.<span
+                principais: <strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_controller_layer__service_layer_e_model_layer">Controller Layer, Service Layer e Model Layer</strong>.<span
                     style="display:none;"></span></p>
 
 
@@ -82,7 +82,7 @@
             <p style="margin-bottom: 50px;">Essa separação melhora: organização, testabilidade e manutenção.<span
                     style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">4. Controller Layer</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_4__controller_layer">4. Controller Layer</h2>
             <p style="margin-bottom: 20px;">Responsabilidade: interação HTTP.<span style="display:none;"></span> O
                 controller deve cuidar apenas de: receber requisição, validar dados, chamar serviço e retornar
                 resposta.<span style="display:none;"></span></p>
@@ -94,16 +94,16 @@
                         <div class="dot dot-red"></div>
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
-                    </div><span class="code-filename">TypeScript</span>
+                    </div><span class="code-filename" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_typescript">TypeScript</span>
                 </div>
                 <pre
-                    class="code-content"><code><span class="token-kw">async</span> <span class="token-fn">store</span>({auth, request, response}: HttpContext)<span style="display:none;"></span></code></pre>
+                    class="code-content"><code><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_async">async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_store">store</span>({auth, request, response}: HttpContext)<span style="display:none;"></span></code></pre>
             </div>
             <p style="margin-bottom: 50px;">O controller faz: recebe payload, verifica idempotência, chama
-                PaymentService e retorna resposta HTTP.<span style="display:none;"></span> <strong>Importante:</strong>
+                PaymentService e retorna resposta HTTP.<span style="display:none;"></span> <strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_importante">Importante:</strong>
                 Controller NÃO deve conter lógica de negócio complexa.<span style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">5. Service Layer</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_5__service_layer">5. Service Layer</h2>
             <p style="margin-bottom: 20px;">A camada de Service contém a lógica principal da aplicação.<span
                     style="display:none;"></span> Responsabilidade: regras de negócio, orquestração do fluxo, integração
                 externa.<span style="display:none;"></span></p>
@@ -111,21 +111,21 @@
                     style="display:none;"></span> Ele faz: processar pagamento, comunicar com gateway, executar failover
                 e retornar resultado.<span style="display:none;"></span></p>
             <p style="margin-bottom: 50px;">Fluxo simplificado: Controller &rarr; PaymentService &rarr; Gateway.<span
-                    style="display:none;"></span> Esse padrão é conhecido como <strong>Service Layer Pattern</strong>,
-                conceito popularizado por <em>Martin Fowler</em>.<span style="display:none;"></span></p>
+                    style="display:none;"></span> Esse padrão é conhecido como <strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_service_layer_pattern">Service Layer Pattern</strong>,
+                conceito popularizado por <em data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_martin_fowler">Martin Fowler</em>.<span style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">6. Model Layer</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_6__model_layer">6. Model Layer</h2>
             <p style="margin-bottom: 20px;">A camada de Model representa as entidades do sistema.<span
                     style="display:none;"></span> Responsabilidade: persistência de dados, mapeamento de tabelas.<span
                     style="display:none;"></span></p>
             <p style="margin-bottom: 20px;">No seu projeto existem modelos como: User, Product, Transaction,
                 TransactionProduct, Client.<span style="display:none;"></span> Esses modelos são implementados usando o
-                ORM do <strong>AdonisJS</strong>.<span style="display:none;"></span></p>
+                ORM do <strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_adonisjs">AdonisJS</strong>.<span style="display:none;"></span></p>
             <p style="margin-bottom: 50px;">Eles fazem a ponte entre objetos da aplicação e tabelas do banco.<span
                     style="display:none;"></span> Exemplo: <code>Transaction</code> &rarr;
                 <code>transactions table</code>.<span style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">7. Como as camadas trabalham juntas</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_7__como_as_camadas_trabalham_juntas">7. Como as camadas trabalham juntas</h2>
             <p style="margin-bottom: 20px;">No seu sistema o fluxo completo de pagamento fica assim:<span
                     style="display:none;"></span></p>
             <ul class="step-list" style="margin-bottom: 20px;">
@@ -139,28 +139,28 @@
             <p style="margin-bottom: 50px;">Representação simplificada: HTTP &rarr; Controller &rarr; Business Logic
                 &rarr; Persistence.<span style="display:none;"></span></p>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">8. Benefícios dessa arquitetura</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_8__benef_cios_dessa_arquitetura">8. Benefícios dessa arquitetura</h2>
             <p style="margin-bottom: 20px;">Separar camadas traz vários benefícios:<span style="display:none;"></span>
             </p>
             <ul class="step-list" style="margin-bottom: 50px;">
-                <li><strong>Manutenção:</strong> cada parte do código é menor.<span style="display:none;"></span></li>
-                <li><strong>Testes:</strong> Podemos testar o PaymentService isoladamente.<span
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_manuten__o">Manutenção:</strong> cada parte do código é menor.<span style="display:none;"></span></li>
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_testes">Testes:</strong> Podemos testar o PaymentService isoladamente.<span
                         style="display:none;"></span></li>
-                <li><strong>Evolução:</strong> Se amanhã você trocar o gateway, só altera o Service.<span
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_evolu__o">Evolução:</strong> Se amanhã você trocar o gateway, só altera o Service.<span
                         style="display:none;"></span></li>
-                <li><strong>Clareza:</strong> Cada desenvolvedor entende rapidamente onde cada responsabilidade
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_clareza">Clareza:</strong> Cada desenvolvedor entende rapidamente onde cada responsabilidade
                     está.<span style="display:none;"></span></li>
             </ul>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">9. Conectando com seu código real</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_9__conectando_com_seu_c_digo_real">9. Conectando com seu código real</h2>
             <p style="margin-bottom: 20px;">Seu projeto segue exatamente esse padrão:<span style="display:none;"></span>
             </p>
             <ul class="step-list" style="margin-bottom: 30px;">
-                <li><strong>Controller (TransactionsController):</strong> Responsável por HTTP, idempotência e entrada
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_controller__transactionscontroller">Controller (TransactionsController):</strong> Responsável por HTTP, idempotência e entrada
                     de dados.<span style="display:none;"></span></li>
-                <li><strong>Service (PaymentService):</strong> Responsável por processamento de pagamento e failover de
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_service__paymentservice">Service (PaymentService):</strong> Responsável por processamento de pagamento e failover de
                     gateway.<span style="display:none;"></span></li>
-                <li><strong>Model (Transaction, Product, User):</strong> Responsável por persistência no banco.<span
+                <li><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_model__transaction__product__user">Model (Transaction, Product, User):</strong> Responsável por persistência no banco.<span
                         style="display:none;"></span></li>
             </ul>
 
@@ -174,136 +174,136 @@
                         <div class="dot dot-yellow"></div>
                         <div class="dot dot-green"></div>
                     </div>
-                    <span class="code-filename">PaymentService.ts</span>
+                    <span class="code-filename" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_paymentservice_ts">PaymentService.ts</span>
                 </div>
-                <pre class="code-content" style="max-height: 500px; overflow-y: auto;"><code><span class="token-kw">import</span> axios <span class="token-kw">from</span> <span class="token-str">'axios'</span>
-<span class="token-kw">import</span> { PaymentGateway } <span class="token-kw">from</span> <span class="token-str">'../enums/payment_enums.js'</span>
-<span class="token-kw">import</span> Transaction <span class="token-kw">from</span> <span class="token-str">'#models/transaction'</span> <span class="token-cm">// 👈 Importação do Model para tipagem forte!</span>
+                <pre class="code-content" style="max-height: 500px; overflow-y: auto;"><code><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_import">import</span> axios <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_from">from</span> <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_axios">'axios'</span>
+<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_import">import</span> { PaymentGateway } <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_from">from</span> <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_enums_payment_enums_js">'../enums/payment_enums.js'</span>
+<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_import">import</span> Transaction <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_from">from</span> <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_models_transaction">'#models/transaction'</span> <span class="token-cm" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_importa__o_do_model_para_tipagem_forte">// 👈 Importação do Model para tipagem forte!</span>
 
-<span class="token-kw">export interface</span> CardData {
-    name?: <span class="token-kw">string</span>
-    cardNumber: <span class="token-kw">string</span>
-    cvv: <span class="token-kw">string</span>
+<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_export_interface">export interface</span> CardData {
+    name?: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>
+    cardNumber: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>
+    cvv: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>
 }
 
-<span class="token-kw">export type</span> PaymentResult =
-    | { success: <span class="token-kw">true</span>; gateway: PaymentGateway; externalId: <span class="token-kw">string</span> }
-    | { success: <span class="token-kw">false</span>; error: <span class="token-kw">string</span>; detalhes?: <span class="token-kw">any</span> }
+<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_export_type">export type</span> PaymentResult =
+    | { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_true">true</span>; gateway: PaymentGateway; externalId: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span> }
+    | { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>; error: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>; detalhes?: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_any">any</span> }
 
-<span class="token-kw">export default class</span> PaymentService {
-    <span class="token-kw">private static</span> g1Url = process.env.G1_URL
-    <span class="token-kw">private static</span> g1Email = process.env.G1_EMAIL
-    <span class="token-kw">private static</span> g1Token = process.env.G1_TOKEN
+<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_export_default_class">export default class</span> PaymentService {
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g1Url = process.env.G1_URL
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g1Email = process.env.G1_EMAIL
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g1Token = process.env.G1_TOKEN
 
-    <span class="token-kw">private static</span> g2Url = process.env.G2_URL
-    <span class="token-kw">private static</span> g2Token = process.env.G2_TOKEN
-    <span class="token-kw">private static</span> g2Secret = process.env.G2_SECRET
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g2Url = process.env.G2_URL
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g2Token = process.env.G2_TOKEN
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> g2Secret = process.env.G2_SECRET
 
-    <span class="token-cm">// 👇 Instância reutilizável do Axios (Melhor prática)</span>
-    <span class="token-kw">private static</span> httpClient = axios.<span class="token-fn">create</span>({
+    <span class="token-cm" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_inst_ncia_reutiliz_vel_do_axios__melhor_pr_ti">// 👇 Instância reutilizável do Axios (Melhor prática)</span>
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static">private static</span> httpClient = axios.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_create">create</span>({
         timeout: 5000
     })
 
-    <span class="token-kw">public static async</span> <span class="token-fn">processPayment</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
-        <span class="token-kw">const</span> gateway1 = <span class="token-kw">await this</span>.<span class="token-fn">processGateway1</span>(totalAmount, cardData, customerEmail)
-        <span class="token-kw">if</span> (gateway1.success) <span class="token-kw">return</span> gateway1
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_public_static_async">public static async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_processpayment">processPayment</span>(totalAmount: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_number">number</span>, cardData: CardData, customerEmail: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> gateway1 = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_processgateway1">processGateway1</span>(totalAmount, cardData, customerEmail)
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_if">if</span> (gateway1.success) <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> gateway1
 
-        <span class="token-kw">const</span> gateway2 = <span class="token-kw">await this</span>.<span class="token-fn">processGateway2</span>(totalAmount, cardData, customerEmail)
-        <span class="token-kw">if</span> (gateway2.success) <span class="token-kw">return</span> gateway2
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> gateway2 = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_processgateway2">processGateway2</span>(totalAmount, cardData, customerEmail)
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_if">if</span> (gateway2.success) <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> gateway2
 
-        <span class="token-kw">return</span> {
-            success: <span class="token-kw">false</span>,
-            error: <span class="token-str">'Pagamento recusado em todos os gateways.'</span>,
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> {
+            success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>,
+            error: <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_pagamento_recusado_em_todos_os_gateways">'Pagamento recusado em todos os gateways.'</span>,
             detalhes: { gateway1: gateway1.error, gateway2: gateway2.error }
         }
     }
 
-    <span class="token-kw">private static async</span> <span class="token-fn">authenticateGateway1</span>(): Promise&lt;<span class="token-kw">string</span>&gt; {
-        <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(<span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/login`</span>, {
-            email: <span class="token-kw">this</span>.g1Email,
-            token: <span class="token-kw">this</span>.g1Token
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static_async">private static async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_authenticategateway1">authenticateGateway1</span>(): Promise&lt;<span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>&gt; {
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> response = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.httpClient.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_post">post</span>(<span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this_g1url">${this.g1Url}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_login">/login`</span>, {
+            email: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g1Email,
+            token: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g1Token
         })
-        <span class="token-kw">return</span> response.data.token
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> response.data.token
     }
 
-    <span class="token-kw">private static async</span> <span class="token-fn">processGateway1</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
-        <span class="token-kw">try</span> {
-            <span class="token-kw">const</span> token = <span class="token-kw">await this</span>.<span class="token-fn">authenticateGateway1</span>()
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static_async">private static async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_processgateway1">processGateway1</span>(totalAmount: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_number">number</span>, cardData: CardData, customerEmail: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_try">try</span> {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> token = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_authenticategateway1">authenticateGateway1</span>()
 
-            <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
-                <span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/transactions`</span>,
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> response = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.httpClient.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_post">post</span>(
+                <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this_g1url">${this.g1Url}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transactions">/transactions`</span>,
                 {
-                    amount: Math.<span class="token-fn">round</span>(totalAmount * 100),
-                    name: cardData.name || <span class="token-str">'Cliente'</span>,
+                    amount: Math.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_round">round</span>(totalAmount * 100),
+                    name: cardData.name || <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_cliente">'Cliente'</span>,
                     email: customerEmail,
                     cardNumber: cardData.cardNumber,
                     cvv: cardData.cvv
                 },
-                { headers: { Authorization: <span class="token-str">`Bearer </span><span class="token-kw">${token}</span><span class="token-str">`</span> } }
+                { headers: { Authorization: <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_bearer">`Bearer</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_token">${token}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span> } }
             )
 
-            <span class="token-kw">return</span> { success: <span class="token-kw">true</span>, gateway: PaymentGateway.GATEWAY_1, externalId: response.data.id }
-        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
-            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Gateway 1 Indisponível'</span> }
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_true">true</span>, gateway: PaymentGateway.GATEWAY_1, externalId: response.data.id }
+        } <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_catch">catch</span> (error: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_any">any</span>) {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>, error: error.response?.data?.error || <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_1_indispon_vel">'Gateway 1 Indisponível'</span> }
         }
     }
 
-    <span class="token-kw">private static async</span> <span class="token-fn">processGateway2</span>(totalAmount: <span class="token-kw">number</span>, cardData: CardData, customerEmail: <span class="token-kw">string</span>): Promise&lt;PaymentResult&gt; {
-        <span class="token-kw">try</span> {
-            <span class="token-kw">const</span> response = <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
-                <span class="token-str">`</span><span class="token-kw">${this.g2Url}</span><span class="token-str">/transacoes`</span>,
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_private_static_async">private static async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_processgateway2">processGateway2</span>(totalAmount: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_number">number</span>, cardData: CardData, customerEmail: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span>): Promise&lt;PaymentResult&gt; {
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_try">try</span> {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> response = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.httpClient.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_post">post</span>(
+                <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this_g2url">${this.g2Url}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transacoes">/transacoes`</span>,
                 {
-                    valor: Math.<span class="token-fn">round</span>(totalAmount * 100),
-                    nome: cardData.name || <span class="token-str">'Cliente'</span>,
+                    valor: Math.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_round">round</span>(totalAmount * 100),
+                    nome: cardData.name || <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_cliente">'Cliente'</span>,
                     email: customerEmail,
                     numeroCartao: cardData.cardNumber,
                     cvv: cardData.cvv
                 },
                 {
                     headers: {
-                        <span class="token-str">'Gateway-Auth-Token'</span>: <span class="token-kw">this</span>.g2Token,
-                        <span class="token-str">'Gateway-Auth-Secret'</span>: <span class="token-kw">this</span>.g2Secret
+                        <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_auth_token">'Gateway-Auth-Token'</span>: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g2Token,
+                        <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_auth_secret">'Gateway-Auth-Secret'</span>: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g2Secret
                     }
                 }
             )
 
-            <span class="token-kw">return</span> { success: <span class="token-kw">true</span>, gateway: PaymentGateway.GATEWAY_2, externalId: response.data.id }
-        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
-            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Gateway 2 Indisponível'</span> }
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_true">true</span>, gateway: PaymentGateway.GATEWAY_2, externalId: response.data.id }
+        } <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_catch">catch</span> (error: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_any">any</span>) {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>, error: error.response?.data?.error || <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_2_indispon_vel">'Gateway 2 Indisponível'</span> }
         }
     }
 
-    <span class="token-cm">// 👇 Tipagem forte aplicada ao parâmetro `transaction`</span>
-    <span class="token-kw">public static async</span> <span class="token-fn">refundPayment</span>(transaction: Transaction): Promise&lt;{ success: <span class="token-kw">boolean</span>; error?: <span class="token-kw">string</span> }&gt; {
-        <span class="token-kw">try</span> {
-            <span class="token-kw">if</span> (transaction.gateway === PaymentGateway.GATEWAY_1) {
-                <span class="token-kw">const</span> token = <span class="token-kw">await this</span>.<span class="token-fn">authenticateGateway1</span>()
-                <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
-                    <span class="token-str">`</span><span class="token-kw">${this.g1Url}</span><span class="token-str">/transactions/</span><span class="token-kw">${transaction.externalId}</span><span class="token-str">/chargeback`</span>,
+    <span class="token-cm" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_tipagem_forte_aplicada_ao_par_metro__transact">// 👇 Tipagem forte aplicada ao parâmetro `transaction`</span>
+    <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_public_static_async">public static async</span> <span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_refundpayment">refundPayment</span>(transaction: Transaction): Promise&lt;{ success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_boolean">boolean</span>; error?: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_string">string</span> }&gt; {
+        <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_try">try</span> {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_if">if</span> (transaction.gateway === PaymentGateway.GATEWAY_1) {
+                <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_const">const</span> token = <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_authenticategateway1">authenticateGateway1</span>()
+                <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.httpClient.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_post">post</span>(
+                    <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this_g1url">${this.g1Url}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transactions">/transactions/</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transaction_externalid">${transaction.externalId}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_chargeback">/chargeback`</span>,
                     {},
-                    { headers: { Authorization: <span class="token-str">`Bearer </span><span class="token-kw">${token}</span><span class="token-str">`</span> } }
+                    { headers: { Authorization: <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_bearer">`Bearer</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_token">${token}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span> } }
                 )
-                <span class="token-kw">return</span> { success: <span class="token-kw">true</span> }
+                <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_true">true</span> }
             }
 
-            <span class="token-kw">if</span> (transaction.gateway === PaymentGateway.GATEWAY_2) {
-                <span class="token-kw">await this</span>.httpClient.<span class="token-fn">post</span>(
-                    <span class="token-str">`</span><span class="token-kw">${this.g2Url}</span><span class="token-str">/transacoes/</span><span class="token-kw">${transaction.externalId}</span><span class="token-str">/estorno`</span>,
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_if">if</span> (transaction.gateway === PaymentGateway.GATEWAY_2) {
+                <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_await_this">await this</span>.httpClient.<span class="token-fn" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_post">post</span>(
+                    <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">`</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this_g2url">${this.g2Url}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transacoes">/transacoes/</span><span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_transaction_externalid">${transaction.externalId}</span><span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_estorno">/estorno`</span>,
                     {},
-                    { headers: { <span class="token-str">'Gateway-Auth-Token'</span>: <span class="token-kw">this</span>.g2Token, <span class="token-str">'Gateway-Auth-Secret'</span>: <span class="token-kw">this</span>.g2Secret } }
+                    { headers: { <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_auth_token">'Gateway-Auth-Token'</span>: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g2Token, <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_auth_secret">'Gateway-Auth-Secret'</span>: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_this">this</span>.g2Secret } }
                 )
-                <span class="token-kw">return</span> { success: <span class="token-kw">true</span> }
+                <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_true">true</span> }
             }
 
-            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: <span class="token-str">'Gateway desconhecido para estorno.'</span> }
-        } <span class="token-kw">catch</span> (error: <span class="token-kw">any</span>) {
-            <span class="token-kw">return</span> { success: <span class="token-kw">false</span>, error: error.response?.data?.error || <span class="token-str">'Erro na comunicação do estorno.'</span> }
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>, error: <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_gateway_desconhecido_para_estorno">'Gateway desconhecido para estorno.'</span> }
+        } <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_catch">catch</span> (error: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_any">any</span>) {
+            <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_return">return</span> { success: <span class="token-kw" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_false">false</span>, error: error.response?.data?.error || <span class="token-str" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_erro_na_comunica__o_do_estorno">'Erro na comunicação do estorno.'</span> }
         }
     }
 }</code></pre>
             </div>
 
-            <h2 style="margin-bottom: 20px; color: #fff;">10. Problema real resolvido</h2>
+            <h2 style="margin-bottom: 20px; color: #fff;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_10__problema_real_resolvido">10. Problema real resolvido</h2>
             <p style="margin-bottom: 50px;">Essa arquitetura evita algo muito comum em projetos pequenos: controller
                 gigante.<span style="display:none;"></span> E transforma o sistema em algo modular.<span
                     style="display:none;"></span></p>
@@ -324,7 +324,7 @@
                 <details style="margin-top: 25px;">
                     <summary
                         style="cursor: pointer; color: var(--accent); font-weight: 600; outline: none; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 1.2rem;">👉</span> Clique para revelar a Resposta madura<span
+                        <span style="font-size: 1.2rem;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_">👉</span> Clique para revelar a Resposta madura<span
                             style="display:none;"></span>
                     </summary>
                     <div
@@ -380,7 +380,7 @@
         </section>
 
         <section style="margin-top: 60px; text-align: center;">
-            <h2 style="color: var(--accent); border-bottom: none;">🧠 Validação de Conhecimento</h2>
+            <h2 style="color: var(--accent); border-bottom: none;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_valida__o_de_conhecimento">🧠 Validação de Conhecimento</h2>
             <div id="container-cards" class="training-grid"></div>
         </section>
 
@@ -406,13 +406,13 @@
                 data.cards.forEach(card => {
                     container.innerHTML += `
                         <div class="val-card" onclick="this.classList.toggle('flipped')">
-                            <span class="val-tag">🧠 REVISÃO</span>
-                            <div class="val-frente val-text">${card.frente}</div>
-                            <div class="val-verso val-text"><strong>Resposta:</strong><br><br>${card.verso}</div>
+                            <span class="val-tag" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_revis_o">🧠 REVISÃO</span>
+                            <div class="val-frente val-text" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_card_frente">${card.frente}</div>
+                            <div class="val-verso val-text"><strong data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_resposta">Resposta:</strong><br><br>${card.verso}</div>
                         </div>`;
                 });
             } catch (error) {
-                container.innerHTML = `<p style="color: #e74c3c;">Erro ao carregar os cards.</p>`;
+                container.innerHTML = `<p style="color: #e74c3c;" data-i18n="materials_backend_modulo_02_2_1_arquitetura_camadas_erro_ao_carregar_os_cards">Erro ao carregar os cards.</p>`;
             }
         }
         carregarDashboard();

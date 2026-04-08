@@ -245,21 +245,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 09</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_m_dulo_09">Módulo 09</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 9: Escalabilidade e Sistemas de Produção<span
                     style="display:none;"></span></h1>
-            <p>O que precisaria mudar para que essa API suporte milhares de pagamentos por segundo?</p>
+            <p data-i18n="materials_backend_modulo_09_9_1_escalabilidade_o_que_precisaria_mudar_para_que_essa_api_suporte_m">O que precisaria mudar para que essa API suporte milhares de pagamentos por segundo?</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -281,7 +281,7 @@
                     style="display:none;"></span></p>
             <p>Esse é o problema da escalabilidade.<span style="display:none;"></span></p>
 
-            <h2>1. O problema da escala</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_1__o_problema_da_escala">1. O problema da escala</h2>
             <p>Seu sistema atual funciona assim:<span style="display:none;"></span></p>
 
             <div class="mac-code-window" style="margin-bottom: 15px;">
@@ -291,7 +291,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Fluxo Síncrono</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_fluxo_s_ncrono">Fluxo Síncrono</span>
                 </div>
                 <pre><code>Cliente
   ↓
@@ -312,7 +312,7 @@ Banco de dados<span style="display:none;"></span></code></pre>
             <p>Mas imagine um cenário real: 10.000 requisições por segundo.<span style="display:none;"></span> Agora
                 surgem problemas.<span style="display:none;"></span></p>
 
-            <h2>2. Gargalos do sistema</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_2__gargalos_do_sistema">2. Gargalos do sistema</h2>
             <p>Em sistemas de pagamento existem alguns gargalos comuns.<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>tempo de resposta do gateway: chamada externa pode demorar<span style="display:none;"></span></li>
@@ -321,7 +321,7 @@ Banco de dados<span style="display:none;"></span></code></pre>
             </ul>
             <p>Isso pode causar: lentidão, timeout, sobrecarga.<span style="display:none;"></span></p>
 
-            <h2>3. Escala horizontal</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_3__escala_horizontal">3. Escala horizontal</h2>
             <p>Uma das primeiras soluções é escala horizontal.<span style="display:none;"></span> Em vez de um único
                 servidor (API Server), usamos vários:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
@@ -338,7 +338,7 @@ Banco de dados<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Load Balancing</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_load_balancing">Load Balancing</span>
                 </div>
                 <pre><code>Cliente
   ↓
@@ -349,7 +349,7 @@ Múltiplos servidores<span style="display:none;"></span></code></pre>
 
             <p>Isso permite que o sistema processe mais requisições simultâneas.<span style="display:none;"></span></p>
 
-            <h2>4. Processamento assíncrono</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_4__processamento_ass_ncrono">4. Processamento assíncrono</h2>
             <p>Outra estratégia muito usada é processamento assíncrono.<span style="display:none;"></span> Em vez de
                 processar tudo na requisição (Cliente espera o pagamento), podemos usar filas.<span
                     style="display:none;"></span></p>
@@ -361,7 +361,7 @@ Múltiplos servidores<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Fluxo Assíncrono</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_fluxo_ass_ncrono">Fluxo Assíncrono</span>
                 </div>
                 <pre><code>Cliente
   ↓
@@ -386,34 +386,34 @@ Worker processa pagamento<span style="display:none;"></span></code></pre>
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                     <button
                         onclick="document.getElementById('demo-sync').style.display='block'; document.getElementById('demo-async').style.display='none';"
-                        class="demo-button demo-btn-sync">Testar Arquitetura Síncrona</button>
+                        class="demo-button demo-btn-sync" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_testar_arquitetura_s_ncrona">Testar Arquitetura Síncrona</button>
                     <button
                         onclick="document.getElementById('demo-sync').style.display='none'; document.getElementById('demo-async').style.display='block';"
-                        class="demo-button demo-btn-async">Testar Arquitetura Assíncrona</button>
+                        class="demo-button demo-btn-async" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_testar_arquitetura_ass_ncrona">Testar Arquitetura Assíncrona</button>
                 </div>
 
                 <div id="demo-sync" class="demo-box"
                     style="background: #1e1e1e; border-left: 4px solid #e74c3c; display: none;">
-                    <span style="color: #8b949e;">[API] Recebendo 10.000 requisições simultâneas...</span><br>
-                    <span style="color: #dcdcaa;">[Gateway] Tentando processar...</span><br>
-                    <span style="color: #e74c3c;">[Erro] Connection Timeout no Gateway! (Gargalo de I/O)</span><br>
-                    <span style="color: #e74c3c;">[Banco] Falha de concorrência - Deadlock na Tabela!</span><br>
+                    <span style="color: #8b949e;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_api__recebendo_10_000_requisi__es_simult_neas">[API] Recebendo 10.000 requisições simultâneas...</span><br>
+                    <span style="color: #dcdcaa;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_gateway__tentando_processar">[Gateway] Tentando processar...</span><br>
+                    <span style="color: #e74c3c;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_erro__connection_timeout_no_gateway___gargalo_de">[Erro] Connection Timeout no Gateway! (Gargalo de I/O)</span><br>
+                    <span style="color: #e74c3c;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_banco__falha_de_concorr_ncia___deadlock_na_tabela">[Banco] Falha de concorrência - Deadlock na Tabela!</span><br>
                     <span style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;"><br>💥 STATUS: Sistema Fora do
                         Ar (Downtime). Clientes aguardando tela de carregamento infinita.</span>
                 </div>
 
                 <div id="demo-async" class="demo-box"
                     style="background: #1e1e1e; border-left: 4px solid #2ecc71; display: none;">
-                    <span style="color: #8b949e;">[API] Recebendo 10.000 requisições simultâneas...</span><br>
-                    <span style="color: #2ecc71;">[Fila] Inserindo 10.000 mensagens no RabbitMQ (0.01ms)...</span><br>
+                    <span style="color: #8b949e;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_api__recebendo_10_000_requisi__es_simult_neas">[API] Recebendo 10.000 requisições simultâneas...</span><br>
+                    <span style="color: #2ecc71;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_fila__inserindo_10_000_mensagens_no_rabbitmq__0_0">[Fila] Inserindo 10.000 mensagens no RabbitMQ (0.01ms)...</span><br>
                     <span style="color: #569cd6;">[API] Respondendo cliente: "Pagamento em Processamento!" (HTTP
                         202)</span><br>
-                    <span style="color: #dcdcaa;">[Workers] 50 Workers consumindo a fila gradativamente...</span><br>
+                    <span style="color: #dcdcaa;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_workers__50_workers_consumindo_a_fila_gradativame">[Workers] 50 Workers consumindo a fila gradativamente...</span><br>
                     <span style="color: #2ecc71; font-weight: bold; font-size: 1.1rem;"><br>✅ STATUS: 10.000 pagamentos
                         processados em background sem queda do servidor central!</span>
                 </div>
             </div>
-            <h2>5. Sistemas de mensageria</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_5__sistemas_de_mensageria">5. Sistemas de mensageria</h2>
             <p>Para implementar filas usamos sistemas de mensageria.<span style="display:none;"></span> Alguns exemplos
                 populares: RabbitMQ, Apache Kafka.<span style="display:none;"></span></p>
             <p>Esses sistemas permitem:<span style="display:none;"></span></p>
@@ -423,7 +423,7 @@ Worker processa pagamento<span style="display:none;"></span></code></pre>
                 <li>tolerância a falhas<span style="display:none;"></span></li>
             </ul>
 
-            <h2>6. Workers</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_6__workers">6. Workers</h2>
             <p>Quando usamos filas, adicionamos workers.<span style="display:none;"></span> Workers são processos
                 responsáveis por executar tarefas.<span style="display:none;"></span></p>
 
@@ -434,7 +434,7 @@ Worker processa pagamento<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Fila e Worker</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_fila_e_worker">Fila e Worker</span>
                 </div>
                 <pre><code>API
   ↓
@@ -447,14 +447,14 @@ Gateway<span style="display:none;"></span></code></pre>
 
             <p>Isso permite processar milhares de pagamentos paralelamente.<span style="display:none;"></span></p>
 
-            <h2>7. Rate limiting</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_7__rate_limiting">7. Rate limiting</h2>
             <p>Outra proteção importante é limitar requisições.<span style="display:none;"></span> Isso evita ataques ou
                 abusos.<span style="display:none;"></span> Exemplo: 100 requisições por minuto por usuário.<span
                     style="display:none;"></span></p>
             <p>Ferramenta comum em Node: Redis.<span style="display:none;"></span> Redis é usado para armazenar
                 contadores rápidos.<span style="display:none;"></span></p>
 
-            <h2>8. Observabilidade</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_8__observabilidade">8. Observabilidade</h2>
             <p>Quando sistemas crescem precisamos monitorá-los.<span style="display:none;"></span> Isso inclui: logs,
                 métricas, alertas.<span style="display:none;"></span></p>
             <p>Ferramentas comuns: Prometheus, Grafana.<span style="display:none;"></span> Isso permite responder
@@ -465,7 +465,7 @@ Gateway<span style="display:none;"></span></code></pre>
                 <li>qual tempo médio de resposta?<span style="display:none;"></span></li>
             </ul>
 
-            <h2>9. Circuit breaker</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_9__circuit_breaker">9. Circuit breaker</h2>
             <p>No módulo de resiliência vimos o failover.<span style="display:none;"></span> Mas sistemas de produção
                 também usam Circuit Breaker.<span style="display:none;"></span></p>
 
@@ -476,7 +476,7 @@ Gateway<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Circuit Breaker</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_circuit_breaker">Circuit Breaker</span>
                 </div>
                 <pre><code>gateway falha repetidamente
   ↓
@@ -487,7 +487,7 @@ API para de chamar esse gateway<span style="display:none;"></span></code></pre>
 
             <p>Isso evita sobrecarregar serviços que já estão falhando.<span style="display:none;"></span></p>
 
-            <h2>10. Evolução da arquitetura</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_10__evolu__o_da_arquitetura">10. Evolução da arquitetura</h2>
             <p>Seu sistema atual: <code>Cliente → API → Gateway → Banco</code><span style="display:none;"></span></p>
             <p>Uma arquitetura de produção poderia evoluir para:<span style="display:none;"></span></p>
 
@@ -498,7 +498,7 @@ API para de chamar esse gateway<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Arquitetura de Produção</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_arquitetura_de_produ__o">Arquitetura de Produção</span>
                 </div>
                 <pre><code>Cliente
   ↓
@@ -515,7 +515,7 @@ Banco<span style="display:none;"></span></code></pre>
 
             <p>Isso melhora: escala, resiliência, performance.<span style="display:none;"></span></p>
 
-            <h2>11. Conectando com seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_11__conectando_com_seu_projeto">11. Conectando com seu projeto</h2>
             <p>Seu projeto já possui vários elementos importantes para produção:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>Service Layer<span style="display:none;"></span></li>
@@ -556,7 +556,7 @@ Banco<span style="display:none;"></span></code></pre>
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 9</h2>
+            <h2 data-i18n="materials_backend_modulo_09_9_1_escalabilidade_conclus_o_do_m_dulo_9">Conclusão do Módulo 9</h2>
             <p>Agora você entende profundamente:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>escalabilidade<span style="display:none;"></span></li>
@@ -567,14 +567,14 @@ Banco<span style="display:none;"></span></code></pre>
             <p>E principalmente: como evoluir sua API para produção.<span style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 10):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_pr_ximo_passo__m_dulo_10">Próximo passo (Módulo 10):</p>
                 <p>No Módulo 10 (A grande Masterclass final) vamos analisar a <strong>Anatomia Completa do Fluxo de
                         Pagamento</strong>. Vamos repassar tudo o que aprendemos e entender exatamente o que acontece
                     milissegundo a milissegundo quando um cliente clica em "Comprar".</p>
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Escalabilidade e Filas.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -611,11 +611,11 @@ Banco<span style="display:none;"></span></code></pre>
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_09_9_1_escalabilidade_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

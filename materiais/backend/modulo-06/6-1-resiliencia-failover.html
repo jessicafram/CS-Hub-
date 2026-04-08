@@ -243,21 +243,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 06</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_m_dulo_06">Módulo 06</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 6: Resiliência, Failover e Tolerância a
                 Falhas<span style="display:none;"></span></h1>
-            <p>Como garantir que o seu sistema continue funcionando mesmo quando os serviços externos caem.</p>
+            <p data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_como_garantir_que_o_seu_sistema_continue_funcionan">Como garantir que o seu sistema continue funcionando mesmo quando os serviços externos caem.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -274,7 +274,7 @@
                 externo falha?<span style="display:none;"></span></p>
             <p>Em sistemas de pagamento isso ocorre com frequência.<span style="display:none;"></span></p>
 
-            <h2>1. O problema das dependências externas</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_1__o_problema_das_depend_ncias_externas">1. O problema das dependências externas</h2>
             <p>Seu sistema depende de serviços externos chamados gateways de pagamento.<span
                     style="display:none;"></span></p>
 
@@ -285,7 +285,7 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Arquitetura de Rede</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_arquitetura_de_rede">Arquitetura de Rede</span>
                 </div>
                 <pre><code>Cliente
   ↓
@@ -309,15 +309,15 @@ Rede financeira<span style="display:none;"></span></code></pre>
                     style="display:none;"></span> Isso reduz drasticamente a disponibilidade da aplicação.<span
                     style="display:none;"></span></p>
 
-            <h2>2. O conceito de resiliência</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_2__o_conceito_de_resili_ncia">2. O conceito de resiliência</h2>
             <p>Em engenharia de sistemas distribuídos, chamamos a capacidade de continuar funcionando mesmo com falhas
-                de: <strong>Resiliência</strong>.<span style="display:none;"></span></p>
+                de: <strong data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_resili_ncia">Resiliência</strong>.<span style="display:none;"></span></p>
             <p>Resiliência significa: o sistema continua operando mesmo quando partes dele falham.<span
                     style="display:none;"></span> Esse conceito é central em arquiteturas modernas.<span
                     style="display:none;"></span></p>
-            <p>Referência famosa: <em>Designing Data-Intensive Applications</em>.<span style="display:none;"></span></p>
+            <p>Referência famosa: <em data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_designing_data_intensive_applications">Designing Data-Intensive Applications</em>.<span style="display:none;"></span></p>
 
-            <h2>3. Tolerância a falhas</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_3__toler_ncia_a_falhas">3. Tolerância a falhas</h2>
             <p>Um sistema tolerante a falhas consegue lidar com problemas como:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>queda de servidor<span style="display:none;"></span></li>
@@ -325,19 +325,19 @@ Rede financeira<span style="display:none;"></span></code></pre>
                 <li>erro de integração<span style="display:none;"></span></li>
             </ul>
             <p>Sem interromper completamente o serviço.<span style="display:none;"></span> Esse conceito é chamado de:
-                <strong>Fault Tolerance</strong>.<span style="display:none;"></span></p>
+                <strong data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_fault_tolerance">Fault Tolerance</strong>.<span style="display:none;"></span></p>
 
-            <h2>4. Estratégias para lidar com falhas</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_4__estrat_gias_para_lidar_com_falhas">4. Estratégias para lidar com falhas</h2>
             <p>Existem várias estratégias usadas em sistemas distribuídos.<span style="display:none;"></span> Algumas
                 das principais são: retry, failover, circuit breaker, fallback.<span style="display:none;"></span></p>
 
-            <h2>5. Retry</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_5__retry">5. Retry</h2>
             <p>Retry significa simplesmente tentar novamente a mesma operação.<span style="display:none;"></span></p>
             <p>Fluxo: Gateway falha → tentar novamente.<span style="display:none;"></span></p>
             <p>Problema: se o gateway estiver realmente fora do ar retry não resolve.<span style="display:none;"></span>
                 Também pode aumentar a latência da requisição.<span style="display:none;"></span></p>
 
-            <h2>6. Failover</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_6__failover">6. Failover</h2>
             <p>Failover significa mudar para um sistema alternativo quando o principal falha.<span
                     style="display:none;"></span></p>
             <p>Fluxo: Gateway 1 → falha → Gateway 2.<span style="display:none;"></span></p>
@@ -354,7 +354,7 @@ Rede financeira<span style="display:none;"></span></code></pre>
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">Fluxo de Sistema</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_fluxo_de_sistema">Fluxo de Sistema</span>
                 </div>
                 <pre><code>Payment Service
   ├── Gateway 1 (Falha ❌)
@@ -363,7 +363,7 @@ Rede financeira<span style="display:none;"></span></code></pre>
 
             <p>Se o primeiro falhar: PaymentService usa o segundo.<span style="display:none;"></span></p>
 
-            <h2>7. Como seu projeto implementa failover</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_7__como_seu_projeto_implementa_failover">7. Como seu projeto implementa failover</h2>
             <p>No seu sistema o Payment Service executa a lógica: tentar gateway primário → se falhar → tentar gateway
                 secundário.<span style="display:none;"></span></p>
             <p>Fluxo completo:<span style="display:none;"></span></p>
@@ -377,14 +377,14 @@ Rede financeira<span style="display:none;"></span></code></pre>
             <p>Para o cliente: a operação continua funcionando.<span style="display:none;"></span> Isso aumenta a
                 disponibilidade do sistema.<span style="display:none;"></span></p>
 
-            <h2>8. Disponibilidade em sistemas distribuídos</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_8__disponibilidade_em_sistemas_distribu_dos">8. Disponibilidade em sistemas distribuídos</h2>
             <p>Disponibilidade significa: probabilidade de o sistema estar funcionando.<span
                     style="display:none;"></span> Em sistemas críticos, empresas buscam níveis como: 99.9%, 99.99%,
-                99.999%.<span style="display:none;"></span> Isso é chamado de: <strong>High Availability</strong>.<span
+                99.999%.<span style="display:none;"></span> Isso é chamado de: <strong data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_high_availability">High Availability</strong>.<span
                     style="display:none;"></span> Failover é uma técnica fundamental para atingir esse objetivo.<span
                     style="display:none;"></span></p>
 
-            <h2>9. Benefícios do failover</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_9__benef_cios_do_failover">9. Benefícios do failover</h2>
             <p>O uso de múltiplos gateways traz várias vantagens.<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>continuidade do serviço (falha de um gateway não para o sistema)<span style="display:none;"></span>
@@ -394,17 +394,17 @@ Rede financeira<span style="display:none;"></span></code></pre>
                 <li>melhor experiência do usuário (menos pagamentos recusados)<span style="display:none;"></span></li>
             </ul>
 
-            <h2>10. Limitações do failover</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_10__limita__es_do_failover">10. Limitações do failover</h2>
             <p>Embora seja uma boa estratégia, o failover também possui limitações.<span style="display:none;"></span>
                 Exemplo: se ambos gateways falharem.<span style="display:none;"></span> Resultado: pagamento não pode
                 ser processado.<span style="display:none;"></span></p>
             <p>Nesse caso seu sistema retorna: erro seguro para o cliente.<span style="display:none;"></span> Isso é
                 correto para um sistema financeiro.<span style="display:none;"></span></p>
 
-            <h2>11. Evoluções possíveis</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_11__evolu__es_poss_veis">11. Evoluções possíveis</h2>
             <p>Sistemas mais avançados adicionam outras estratégias.<span style="display:none;"></span></p>
 
-            <p><strong>Circuit Breaker</strong><span style="display:none;"></span></p>
+            <p><strong data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_circuit_breaker">Circuit Breaker</strong><span style="display:none;"></span></p>
             <p>Evita continuar chamando um serviço que já está falhando.<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>muitas falhas detectadas<span style="display:none;"></span></li>
@@ -416,11 +416,11 @@ Rede financeira<span style="display:none;"></span></code></pre>
 
             <p>Ferramenta popular: Resilience4j.<span style="display:none;"></span></p>
 
-            <p><strong>Observabilidade</strong><span style="display:none;"></span></p>
+            <p><strong data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_observabilidade">Observabilidade</strong><span style="display:none;"></span></p>
             <p>Monitorar o comportamento dos gateways.<span style="display:none;"></span> Ferramentas comuns:
                 Prometheus, Grafana.<span style="display:none;"></span></p>
 
-            <h2>12. Conectando com seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_12__conectando_com_seu_projeto">12. Conectando com seu projeto</h2>
             <p>Seu sistema utiliza: <code>PaymentService</code> para resolver três problemas importantes: falha de
                 gateway, indisponibilidade, redundância.<span style="display:none;"></span></p>
             <p>Estratégia aplicada: Failover entre gateways.<span style="display:none;"></span> Fluxo final: Controller
@@ -455,13 +455,13 @@ Rede financeira<span style="display:none;"></span></code></pre>
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 6</h2>
+            <h2 data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_conclus_o_do_m_dulo_6">Conclusão do Módulo 6</h2>
             <p>Agora você entende profundamente: o que é resiliência, o que é tolerância a falhas, o que é
                 failover.<span style="display:none;"></span> E principalmente: como seu sistema continua funcionando
                 quando um gateway falha.<span style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 7):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_pr_ximo_passo__m_dulo_7">Próximo passo (Módulo 7):</p>
                 <p>No Módulo 7 vamos entrar em outro ponto importante do seu projeto: <strong>segurança e controle de
                         acesso</strong>.<span style="display:none;"></span> Vamos estudar: RBAC (Role-Based Access
                     Control), middleware de autorização, proteção de rotas.<span style="display:none;"></span> E
@@ -471,7 +471,7 @@ Rede financeira<span style="display:none;"></span></code></pre>
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Falhas e Resiliência.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -508,11 +508,11 @@ Rede financeira<span style="display:none;"></span></code></pre>
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_06_6_1_resiliencia_failover_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

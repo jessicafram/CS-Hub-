@@ -281,21 +281,21 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
+            <a href="../../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_cs_hub">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_">/</span>
             <a href="../index.html"
                 style="color: var(--accent); font-size: 0.9rem; font-weight: bold; text-decoration: none;">Engenharia de
                 Backend</a>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Módulo 08</span>
+        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_m_dulo_08">Módulo 08</span>
     </nav>
 
     <main class="content-wrapper" style="max-width: 900px; margin: 60px auto;">
         <header class="chapter-header">
-            <span class="badge-tech">BACKEND SÊNIOR</span>
+            <span class="badge-tech" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_backend_s_nior">BACKEND SÊNIOR</span>
             <h1 style="font-size: 2.2rem; color: var(--accent);">Módulo 8: TypeScript e Tipagem de APIs<span
                     style="display:none;"></span></h1>
-            <p>Como garantir contratos seguros entre cliente e servidor e evitar bugs silenciosos na produção.</p>
+            <p data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_como_garantir_contratos_seguros_entre_cliente_e_se">Como garantir contratos seguros entre cliente e servidor e evitar bugs silenciosos na produção.</p>
         </header>
 
         <section class="glass-container-main" style="padding: 40px; border-radius: 24px;">
@@ -313,7 +313,7 @@
                 Como garantir que os dados da aplicação tenham o formato correto?<span style="display:none;"></span></p>
             <p>Esse problema é resolvido usando tipagem estática.<span style="display:none;"></span></p>
 
-            <h2>1. O problema do JavaScript puro</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_1__o_problema_do_javascript_puro">1. O problema do JavaScript puro</h2>
             <p>Historicamente o Node.js foi desenvolvido usando: JavaScript.<span style="display:none;"></span>
                 JavaScript é uma linguagem dinamicamente tipada.<span style="display:none;"></span></p>
             <p>Exemplo:<span style="display:none;"></span></p>
@@ -325,11 +325,11 @@
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">JavaScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_javascript">JavaScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">let</span> value = <span style="color: #b5cea8;">10</span>
-value = <span style="color: #ce9178;">"dez"</span>
-value = <span style="color: #569cd6;">true</span><span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_let">let</span> value = <span style="color: #b5cea8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_10">10</span>
+value = <span style="color: #ce9178;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_dez">"dez"</span>
+value = <span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_true">true</span><span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso funciona.<span style="display:none;"></span> Mas em aplicações grandes pode causar erros difíceis de
@@ -342,9 +342,9 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">JavaScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_javascript">JavaScript</span>
                 </div>
-                <pre><code>amount = <span style="color: #ce9178;">"200"</span><span style="display:none;"></span></code></pre>
+                <pre><code>amount = <span style="color: #ce9178;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_200">"200"</span><span style="display:none;"></span></code></pre>
             </div>
 
             <p>Em vez de:<span style="display:none;"></span></p>
@@ -356,9 +356,9 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">JavaScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_javascript">JavaScript</span>
                 </div>
-                <pre><code>amount = <span style="color: #b5cea8;">200</span><span style="display:none;"></span></code></pre>
+                <pre><code>amount = <span style="color: #b5cea8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_200">200</span><span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso pode gerar erros financeiros.<span style="display:none;"></span></p>
@@ -376,36 +376,36 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                     <button
                         onclick="document.getElementById('demo-js').style.display='block'; document.getElementById('demo-ts').style.display='none';"
-                        class="demo-button demo-btn-js">Executar em JavaScript Puro</button>
+                        class="demo-button demo-btn-js" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_executar_em_javascript_puro">Executar em JavaScript Puro</button>
                     <button
                         onclick="document.getElementById('demo-js').style.display='none'; document.getElementById('demo-ts').style.display='block';"
-                        class="demo-button demo-btn-ts">Executar em TypeScript</button>
+                        class="demo-button demo-btn-ts" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_executar_em_typescript">Executar em TypeScript</button>
                 </div>
 
                 <div id="demo-js" class="demo-box"
                     style="background: #1e1e1e; border-left: 4px solid #e74c3c; display: none;">
-                    <span style="color: #569cd6;">let</span> amount = <span style="color: #ce9178;">"200"</span>; <span
-                        style="color: #8b949e;">// O JS aceita qualquer coisa</span><br>
-                    <span style="color: #569cd6;">let</span> total = amount + <span style="color: #b5cea8;">50</span>;
-                    <span style="color: #8b949e;">// O cliente espera pagar 250</span><br>
-                    console.<span style="color: #dcdcaa;">log</span>(total);<br><br>
-                    <span style="color: #e74c3c;">// 🚨 RESULTADO SILENCIOSO NA PRODUÇÃO:</span><br>
+                    <span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_let">let</span> amount = <span style="color: #ce9178;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_200">"200"</span>; <span
+                        style="color: #8b949e;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_o_js_aceita_qualquer_coisa">// O JS aceita qualquer coisa</span><br>
+                    <span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_let">let</span> total = amount + <span style="color: #b5cea8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_50">50</span>;
+                    <span style="color: #8b949e;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_o_cliente_espera_pagar_250">// O cliente espera pagar 250</span><br>
+                    console.<span style="color: #dcdcaa;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_log">log</span>(total);<br><br>
+                    <span style="color: #e74c3c;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_resultado_silencioso_na_produ__o">// 🚨 RESULTADO SILENCIOSO NA PRODUÇÃO:</span><br>
                     <span style="color: #e74c3c; font-weight: bold;">"20050" (Concatenou! Cliente cobrado R$
                         20.050,00)</span>
                 </div>
 
                 <div id="demo-ts" class="demo-box"
                     style="background: #1e1e1e; border-left: 4px solid #2ecc71; display: none;">
-                    <span style="color: #569cd6;">let</span> amount: <span style="color: #4ec9b0;">number</span> = <span
-                        style="color: #ce9178;">"200"</span>; <span style="color: #e74c3c; font-weight: bold;">// ❌ ERRO
+                    <span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_let">let</span> amount: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_number">number</span> = <span
+                        style="color: #ce9178;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_200">"200"</span>; <span style="color: #e74c3c; font-weight: bold;">// ❌ ERRO
                         IMEDIATO NO VS CODE</span><br><br>
                     <span style="color: #8b949e;">// 🛡️ O TypeScript trava o build do projeto antes de ir para o ar e
                         avisa:</span><br>
-                    <span style="color: #e74c3c;">Error: Type 'string' is not assignable to type 'number'.</span>
+                    <span style="color: #e74c3c;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_error__type__string__is_not_assignable_to_type__nu">Error: Type 'string' is not assignable to type 'number'.</span>
                 </div>
             </div>
-            <h2>2. O que é TypeScript</h2>
-            <p>Para resolver esses problemas foi criado: <strong>TypeScript</strong>.<span style="display:none;"></span>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_2__o_que___typescript">2. O que é TypeScript</h2>
+            <p>Para resolver esses problemas foi criado: <strong data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</strong>.<span style="display:none;"></span>
                 TypeScript é um superset do JavaScript que adiciona tipagem estática.<span style="display:none;"></span>
             </p>
             <p>Exemplo:<span style="display:none;"></span></p>
@@ -417,15 +417,15 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">let</span> amount: <span style="color: #4ec9b0;">number</span> = <span style="color: #b5cea8;">200</span><span style="display:none;"></span></code></pre>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_let">let</span> amount: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_number">number</span> = <span style="color: #b5cea8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_200">200</span><span style="display:none;"></span></code></pre>
             </div>
 
             <p>Agora se alguém tentar: <code>amount = "200"</code><span style="display:none;"></span> O compilador gera
                 erro.<span style="display:none;"></span></p>
 
-            <h2>3. Benefícios da tipagem em APIs</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_3__benef_cios_da_tipagem_em_apis">3. Benefícios da tipagem em APIs</h2>
             <p>Usar TypeScript em APIs traz vários benefícios.<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>segurança de tipos: dados com formato incorreto são detectados antes de rodar<span
@@ -436,7 +436,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                 </li>
             </ul>
 
-            <h2>4. Tipos como contrato de API</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_4__tipos_como_contrato_de_api">4. Tipos como contrato de API</h2>
             <p>Em APIs modernas, tipos funcionam como um contrato entre cliente e servidor.<span
                     style="display:none;"></span> Exemplo de contrato:<span style="display:none;"></span></p>
 
@@ -447,9 +447,9 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">CreateTransactionRequest</span> {
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_interface">interface</span> <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_createtransactionrequest">CreateTransactionRequest</span> {
     products: ProductInput[]
     card_info: CardInfo
 }<span style="display:none;"></span></code></pre>
@@ -457,7 +457,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
 
             <p>Isso define exatamente: quais campos são esperados.<span style="display:none;"></span></p>
 
-            <h2>5. Validação de dados</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_5__valida__o_de_dados">5. Validação de dados</h2>
             <p>Mesmo com TypeScript, precisamos validar dados vindos do cliente.<span style="display:none;"></span>
                 Porque o cliente pode enviar qualquer coisa.<span style="display:none;"></span> Por isso frameworks usam
                 validators.<span style="display:none;"></span> No seu projeto você utilizou: vine validator.<span
@@ -471,17 +471,17 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">export const</span> signupValidator = vine.create({
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_export_const">export const</span> signupValidator = vine.create({
     email: vine.string().email(),
-    password: vine.string().minLength(<span style="color: #b5cea8;">8</span>)
+    password: vine.string().minLength(<span style="color: #b5cea8;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_8">8</span>)
 })<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso garante: email válido, senha com tamanho mínimo.<span style="display:none;"></span></p>
 
-            <h2>6. Boundary da aplicação</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_6__boundary_da_aplica__o">6. Boundary da aplicação</h2>
             <p>Uma prática importante em APIs é validar dados no boundary da aplicação.<span
                     style="display:none;"></span> Boundary significa: entrada da API.<span style="display:none;"></span>
             </p>
@@ -490,7 +490,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
             </p>
             <p>Isso impede que dados inválidos avancem para a lógica de negócio.<span style="display:none;"></span></p>
 
-            <h2>7. Tipagem dentro da aplicação</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_7__tipagem_dentro_da_aplica__o">7. Tipagem dentro da aplicação</h2>
             <p>Dentro do código usamos tipos para modelar dados internos.<span style="display:none;"></span> Exemplo no
                 seu projeto: <code>PaymentResult</code>.<span style="display:none;"></span></p>
             <p>Esse tipo pode representar algo como:<span style="display:none;"></span></p>
@@ -502,18 +502,18 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">PaymentResult</span> {
-    success: <span style="color: #4ec9b0;">boolean</span>
-    gateway: <span style="color: #4ec9b0;">string</span>
-    externalId?: <span style="color: #4ec9b0;">string</span>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_interface">interface</span> <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_paymentresult">PaymentResult</span> {
+    success: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_boolean">boolean</span>
+    gateway: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_string">string</span>
+    externalId?: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_string">string</span>
 }<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso garante que o service sempre retorne um formato previsível.<span style="display:none;"></span></p>
 
-            <h2>8. Tipagem das respostas da API</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_8__tipagem_das_respostas_da_api">8. Tipagem das respostas da API</h2>
             <p>Outra boa prática é tipar as respostas da API.<span style="display:none;"></span> Exemplo:<span
                     style="display:none;"></span></p>
 
@@ -524,18 +524,18 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                         <div class="mac-dot yellow"></div>
                         <div class="mac-dot green"></div>
                     </div>
-                    <span class="mac-lang">TypeScript</span>
+                    <span class="mac-lang" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_typescript">TypeScript</span>
                 </div>
-                <pre><code><span style="color: #569cd6;">interface</span> <span style="color: #4ec9b0;">TransactionResponse</span> {
-    id: <span style="color: #4ec9b0;">number</span>
-    totalAmount: <span style="color: #4ec9b0;">number</span>
-    gateway: <span style="color: #4ec9b0;">string</span>
+                <pre><code><span style="color: #569cd6;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_interface">interface</span> <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_transactionresponse">TransactionResponse</span> {
+    id: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_number">number</span>
+    totalAmount: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_number">number</span>
+    gateway: <span style="color: #4ec9b0;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_string">string</span>
 }<span style="display:none;"></span></code></pre>
             </div>
 
             <p>Isso cria um contrato claro para clientes da API.<span style="display:none;"></span></p>
 
-            <h2>9. Conectando com seu projeto</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_9__conectando_com_seu_projeto">9. Conectando com seu projeto</h2>
             <p>No seu sistema TypeScript aparece em vários pontos:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>Controllers: TransactionsController<span style="display:none;"></span></li>
@@ -545,7 +545,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
             </ul>
             <p>Isso mostra que seu projeto utiliza tipagem em toda a aplicação.<span style="display:none;"></span></p>
 
-            <h2>10. Problema real resolvido</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_10__problema_real_resolvido">10. Problema real resolvido</h2>
             <p>Sem tipagem podemos ter problemas como:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>valor enviado como string<span style="display:none;"></span></li>
@@ -581,7 +581,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                 </details>
             </div>
 
-            <h2>Conclusão do Módulo 8</h2>
+            <h2 data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_conclus_o_do_m_dulo_8">Conclusão do Módulo 8</h2>
             <p>Agora você entende profundamente:<span style="display:none;"></span></p>
             <ul style="line-height: 1.8;">
                 <li>o que é TypeScript<span style="display:none;"></span></li>
@@ -592,7 +592,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                     style="display:none;"></span></p>
 
             <div style="margin-top: 50px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <p class="highlight-text">Próximo passo (Módulo 9):</p>
+                <p class="highlight-text" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_pr_ximo_passo__m_dulo_9">Próximo passo (Módulo 9):</p>
                 <p>No Módulo 9 vamos abordar algo que aparece muito em entrevistas: <strong>Escalabilidade de sistemas
                         de pagamento</strong>.<span style="display:none;"></span> Vamos estudar: filas, processamento
                     assíncrono e mensageria.<span style="display:none;"></span> E explicar como sua API poderia evoluir
@@ -600,7 +600,7 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
             </div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px dashed rgba(255,255,255,0.2);">
-                <h2 style="margin-top: 0; text-align: center; border: none;">🧠 Área de Treinamento: Validação</h2>
+                <h2 style="margin-top: 0; text-align: center; border: none;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_rea_de_treinamento__valida__o">🧠 Área de Treinamento: Validação</h2>
                 <p style="text-align: center; opacity: 0.8;">Vire os cartões para validar seus conhecimentos sobre
                     Tipagem e Boundary.</p>
                 <div id="flashcards-container" class="flashcards-grid"></div>
@@ -637,11 +637,11 @@ value = <span style="color: #569cd6;">true</span><span style="display:none;"></s
                     <div class="flip-card ${classeCor}" onclick="this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <span class="badge-tipo" style="${corBadge}">${labelTipo}</span>
-                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;">${card.frente}</p>
+                                <span class="badge-tipo" style="${corBadge}" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_labeltipo">${labelTipo}</span>
+                                <p style="font-weight: 600; font-size: 0.95rem; margin-top: 20px; white-space: pre-wrap;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_card_frente">${card.frente}</p>
                             </div>
                             <div class="flip-card-back">
-                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;">${card.verso}</p>
+                                <p style="font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap;" data-i18n="materials_backend_modulo_08_8_1_typescript_tipagem_card_verso">${card.verso}</p>
                             </div>
                         </div>
                     </div>`;

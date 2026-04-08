@@ -160,15 +160,17 @@
     <nav class="top-navbar"
         style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
         <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;">🏠 CS Hub</a>
-            <span style="color: #555;">/</span>
-            <span style="color: #00bcd4; font-size: 0.9rem; font-weight: bold;">Matemática Computacional</span>
+            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
+                data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
+            <span style="color: #00bcd4; font-size: 0.9rem; font-weight: bold;"
+                data-i18n="materials_nav_computing">Matemática Computacional</span>
         </div>
         <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;">Cálculo Numérico</span>
         <div class="lang-switcher">
-          <button class="lang-btn" data-lang="pt-br">PT</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt-br">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
         </div>
     </nav>
 
@@ -177,9 +179,11 @@
         <main>
             <div class="course-header">
                 <span class="badge-tech"
-                    style="background: rgba(0, 188, 212, 0.2); color: #00bcd4; border: 1px solid #00bcd4; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">CARGA
+                    style="background: rgba(0, 188, 212, 0.2); color: #00bcd4; border: 1px solid #00bcd4; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;"
+                    data-i18n="materials_workload">CARGA
                     HORÁRIA: 80 HORAS</span>
-                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;">Matemática
+                <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;"
+                    data-i18n="materials_nav_computing">Matemática
                     Computacional</h1>
                 <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
                     O computador não entende matemática infinita. Descubra como a máquina aproxima cálculos, manipula
@@ -187,9 +191,8 @@
                 </p>
             </div>
 
-            <h2
-                style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;">
-                Grade Curricular</h2>
+            <h2 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;"
+                data-i18n="matcomp_section_title">Grade Curricular</h2>
 
             <div class="module-card" style="border-left: 4px solid #00bcd4;">
                 <div>
@@ -260,7 +263,8 @@
         <aside class="practice-panel">
             <div
                 style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 25px;">
-                <h2 style="margin: 0; color: #00bcd4; font-size: 1.4rem;">💻 NumLab: Simuladores</h2>
+                <h2 style="margin: 0; color: #00bcd4; font-size: 1.4rem;" data-i18n="matcomp_aside_title">💻 NumLab:
+                    Simuladores</h2>
             </div>
 
             <div class="training-card" style="border-left: 4px solid #00bcd4;">
@@ -271,7 +275,8 @@
                 <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">Peça ao JavaScript do seu navegador
                     para somar <strong>0.1 + 0.2</strong> e veja o resultado bruto da memória.</p>
 
-                <button class="btn-access" style="width: 100%;" onclick="runFloatTest()">Executar Soma na CPU ⚡</button>
+                <button class="btn-access" style="width: 100%;" onclick="runFloatTest()"
+                    data-i18n="matcomp_button_run">Executar Soma na CPU ⚡</button>
 
                 <div id="result-box" class="code-display" style="display: none;"></div>
 

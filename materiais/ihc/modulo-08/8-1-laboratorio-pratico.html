@@ -162,16 +162,16 @@
 <body>
 
     <nav class="reader-nav">
-        <a href="../index.html" class="back-link">← Abandonar Exame</a>
-        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;">CS_HUB / IHC_FINAL_EXAM</div>
+        <a href="../index.html" class="back-link" data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_abandonar_exame">← Abandonar Exame</a>
+        <div style="font-family: 'Fira Code', monospace; font-size: 0.8rem; opacity: 0.5;" data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_cs_hub___ihc_final_exam">CS_HUB / IHC_FINAL_EXAM</div>
     </nav>
 
     <div class="quiz-container">
         <header style="margin-bottom: 50px;">
-            <span style="color: var(--accent); font-weight: 600;">CADERNO DE AVALIAÇÃO FINAL</span>
-            <h1>Exame de Proficiência Acadêmica: IHC e DCU</h1>
+            <span style="color: var(--accent); font-weight: 600;" data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_caderno_de_avalia__o_final">CADERNO DE AVALIAÇÃO FINAL</span>
+            <h1 data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_exame_de_profici_ncia_acad_mica__ihc_e_dcu">Exame de Proficiência Acadêmica: IHC e DCU</h1>
             <p>Este exame consolida os 8 tópicos da disciplina. É necessário atingir a nota mínima de
-                <strong>7.0</strong> para a certificação interna.</p>
+                <strong data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_7_0">7.0</strong> para a certificação interna.</p>
         </header>
 
         <form id="exame-form">
@@ -179,7 +179,7 @@
             </div>
 
             <div class="dissertativa-box">
-                <h3>21. QUESTÃO DISSERTATIVA (PESO: 2.0 PONTOS)</h3>
+                <h3 data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_21__quest_o_dissertativa__peso__2_0_pontos">21. QUESTÃO DISSERTATIVA (PESO: 2.0 PONTOS)</h3>
                 <p>Explique brevemente o papel do erro no Design Centrado no Usuário e sua relação com o processo
                     iterativo de projeto.</p>
                 <textarea id="resposta-dissertativa" rows="10"
@@ -193,7 +193,7 @@
         </form>
 
         <footer>
-            <p class="signature">Jessica França — Ciência da Computação</p>
+            <p class="signature" data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_jessica_fran_a___ci_ncia_da_computa__o">Jessica França — Ciência da Computação</p>
         </footer>
     </div>
 
@@ -227,7 +227,7 @@
             questoes.forEach((item, i) => {
                 area.innerHTML += `
                 <div class="question">
-                    <p>Questão ${i + 1}: ${item.q}</p>
+                    <p data-i18n="materials_ihc_modulo_08_8_1_laboratorio_pratico_quest_o___i___1_____item_q">Questão ${i + 1}: ${item.q}</p>
                     ${item.opts.map((opt, oIdx) => `
                         <label class="option">
                             <input type="radio" name="q${i}" value="${String.fromCharCode(97 + oIdx)}">
