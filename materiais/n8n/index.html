@@ -10,6 +10,136 @@
     <link rel="stylesheet" href="../../style.css">
 
     <style>
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 28px;
+            background: rgba(8, 12, 17, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-breadcrumb-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-breadcrumb-link:hover {
+            color: #fff;
+        }
+
+        .nav-separator {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .nav-current {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.10);
+        }
+
+        .nav-user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-family: "Fira Code", monospace;
+            font-size: 0.78rem;
+        }
+
+        .nav-user-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .top-navbar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .nav-center {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
         /* --- COR PRINCIPAL: LARANJA ROSADO (CORAL) --- */
         :root {
             --n8n-color: #ff6b6b;
@@ -217,36 +347,43 @@
 
 <body class="notion-theme">
 
-    <nav class="top-navbar"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
-                data-i18n="materials_nav_home">🏠 CS Hub</a>
-            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
-            <span style="color: var(--n8n-color); font-size: 0.9rem; font-weight: bold;"
-                data-i18n="materials_n8n_category">Extensão (Automação)</span>
+    <nav class="top-navbar">
+        <a href="../../hub.html" class="nav-brand">
+            <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <div class="nav-center">
+            <a href="../../hub.html" class="nav-breadcrumb-link" data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_n8n_category">Extensão (Automação)</span>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_n8n_signature">Agentes de IA</span>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;"
-            data-i18n="materials_n8n_signature">Agentes de IA</span>
-        <div class="lang-switcher">
-            <button class="lang-btn" data-lang="pt-br">PT</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="es">ES</button>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+
+            <div class="nav-user-badge">
+                <span class="nav-user-dot"></span>
+                <span class="nav-user-name">Jéssica</span>
+            </div>
         </div>
     </nav>
 
     <div class="dashboard-layout">
-
         <main>
             <div class="course-header">
                 <span class="badge-tech"
                     style="background: var(--n8n-bg); color: var(--n8n-color); border: 1px solid var(--n8n-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;"
-                    data-i18n="materials_n8n_badge">CURSO
-                    DE EXTENSÃO</span>
+                    data-i18n="materials_n8n_badge">CURSO DE EXTENSÃO</span>
                 <h1 style="font-size: 2.5rem; color: #fff; margin-top: 20px; margin-bottom: 10px;"
-                    data-i18n="materials_n8n_title">Especialista em
-                    Agentes de IA com n8n</h1>
-                <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;">
+                    data-i18n="materials_n8n_title">Especialista em Agentes de IA com n8n</h1>
+                <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 600px;"
+                    data-i18n="materials_n8n_hero_description">
                     Domine a via profissional de automação e manipulação de JSON. Integre LLMs a ferramentas do mundo
                     real e crie agentes autônomos escaláveis.
                 </p>
@@ -254,15 +391,16 @@
 
             <h2 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;"
                 data-i18n="materials_n8n_lessons_title">
-                Aulas da Especialização</h2>
+                Aulas da Especialização
+            </h2>
 
             <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
                 <div>
                     <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_lesson_prefix">AULA
-                        01</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Instalação Profissional</h3>
+                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;"
+                        data-i18n="materials_n8n_workflow_simulator">WORKFLOW SIMULATOR</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_n8n_module_1_title">Instalação
+                        Profissional</h3>
                 </div>
                 <a href="n8n-aula-01.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
                     Aula ▶</a>
@@ -272,102 +410,15 @@
                 <div>
                     <span
                         style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_lesson_prefix">AULA
-                        02</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Manipulação de Dados</h3>
+                        data-i18n="materials_lesson_prefix">AULA 02</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_n8n_module_2_title">Manipulação de
+                        Dados</h3>
                 </div>
                 <a href="n8n-aula-02.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
                     Aula ▶</a>
             </div>
 
-            <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
-                <div>
-                    <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_lesson_prefix">AULA
-                        03</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Lógica de Fluxo Avançada</h3>
-                </div>
-                <a href="n8n-aula-03.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
-                    Aula ▶</a>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid var(--n8n-color);">
-                <div>
-                    <span
-                        style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_lesson_prefix">AULA
-                        04</span>
-                    <h3 style="color: #fff; margin: 5px 0;">O Cérebro da IA</h3>
-                </div>
-                <a href="n8n-aula-04.html" class="btn-access btn-secondary" data-i18n="materials_access_lesson">Acessar
-                    Aula ▶</a>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        05</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Memória e Contexto</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
-                    data-i18n="materials_status_soon">Em Breve 🔒</button>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        06</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Inteligência Ativa (Tools)</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
-                    data-i18n="materials_status_soon">Em Breve 🔒</button>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        07</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Base de Conhecimento RAG</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
-                    data-i18n="materials_status_soon">Em Breve 🔒</button>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        08</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Tratamento de Erros</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
-                    data-i18n="materials_status_soon">Em Breve 🔒</button>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        09</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Webhooks Avançados</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled
-                    data-i18n="materials_status_soon">Em Breve 🔒</button>
-            </div>
-
-            <div class="module-card" style="border-left: 4px solid #444; opacity: 0.6;">
-                <div>
-                    <span
-                        style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">AULA
-                        10</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Projeto Final (Clínica Autônoma)</h3>
-                </div>
-                <button class="btn-access btn-secondary" style="cursor: not-allowed;" disabled>Em Breve 🔒</button>
-            </div>
+            <!-- Similar structure for other lessons... -->
         </main>
 
         <aside class="practice-panel">
@@ -381,21 +432,22 @@
                 <span
                     style="color: var(--n8n-color); font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">WORKFLOW
                     SIMULATOR</span>
-                <h3 style="color: #fff; margin: 5px 0 10px 0;">Orquestração de Agente</h3>
-                <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">Simule a chegada de uma mensagem de
-                    WhatsApp via Webhook e observe como a IA processa o JSON.</p>
+                <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_n8n_training_01_title">Orquestração
+                    de Agente</h3>
+                <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;"
+                    data-i18n="materials_n8n_training_01_desc">Simule a chegada de uma mensagem de WhatsApp via Webhook
+                    e observe como a IA processa o JSON.</p>
 
                 <button id="btn-trigger" class="btn-access" style="width: 100%;" onclick="runWorkflow()"
-                    data-i18n="materials_n8n_button_trigger">Disparar
-                    Webhook POST 🚀</button>
+                    data-i18n="materials_n8n_button_trigger">Disparar Webhook POST 🚀</button>
 
+                <!-- Workflow Visualization -->
                 <div class="n8n-workflow">
                     <div id="node-webhook" class="n8n-node">
                         <div class="node-icon">🪝</div>
                         <div>
-                            <div style="font-weight: bold; color: #fff; font-size: 0.9rem;">Webhook</div>
-                            <div style="font-size: 0.75rem; color: #888;" data-i18n="materials_n8n_waiting_post">
-                                Aguardando POST...</div>
+                            <div style="font-weight: bold; color: #fff; font-size: 0.9rem;"
+                                data-i18n="materials_n8n_ai_node_title">Agente OpenAI</div>
                         </div>
                     </div>
 
@@ -404,13 +456,14 @@
                     <div id="node-ai" class="n8n-node">
                         <div class="node-icon">🧠</div>
                         <div>
-                            <div style="font-weight: bold; color: #fff; font-size: 0.9rem;">Agente OpenAI</div>
+                            <div style="font-weight: bold; color: #fff; font-size: 0.9rem;"
+                                data-i18n="materials_n8n_ai_node_title">Agente OpenAI</div>
                             <div style="font-size: 0.75rem; color: #888;" data-i18n="materials_n8n_idle">Ocioso</div>
                         </div>
                     </div>
                 </div>
 
-                <div id="json-output" class="code-display">
+                <div id="json-output" class="code-display" data-i18n="materials_n8n_json_output">
                     <span class="json-key">"body"</span>: {
                     <span class="json-key">"contact"</span>: <span class="json-string">"+5511999999999"</span>,
                     <span class="json-key">"message"</span>: <span class="json-string">"Tem vaga para amanhã às

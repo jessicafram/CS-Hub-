@@ -2,12 +2,19 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CS Hub — Área de Estudos</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Dancing+Script:wght@400&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap"
+    rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]'], ['$$', '$$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
     *,
     *::before,
@@ -22,15 +29,33 @@
       --surface: #0d1117;
       --surface-2: #111820;
       --surface-3: #141c26;
+      --surface-4: #192432;
       --border: rgba(255, 255, 255, 0.07);
       --border-hi: rgba(46, 204, 113, 0.35);
       --accent: #2ecc71;
-      --accent-dim: rgba(46, 204, 113, 0.1);
+      --accent-dim: rgba(46, 204, 113, 0.12);
       --accent-glow: rgba(46, 204, 113, 0.18);
       --text: #e6edf3;
       --muted: #6e7a8a;
       --subtle: #3d4c5e;
-      --mono: 'Fira Code', monospace;
+      --warn: #ffcc66;
+      --mono: "Fira Code", monospace;
+      --hand: "Patrick Hand", cursive;
+      --paper-bg: #0b1118;
+      --paper-ink: #e6edf3;
+      --paper-line: rgba(255, 255, 255, .05);
+      --paper-dot: rgba(255, 255, 255, .12);
+    }
+
+    body.theme-blackboard {
+      --paper-bg: #08120d;
+      --paper-ink: #e6f6ef;
+      --paper-line: rgba(142, 214, 170, .12);
+      --paper-dot: rgba(142, 214, 170, .20);
+      --accent: #79d79a;
+      --accent-dim: rgba(121, 215, 154, 0.12);
+      --accent-glow: rgba(121, 215, 154, 0.20);
+      --border-hi: rgba(121, 215, 154, 0.35);
     }
 
     html,
@@ -41,20 +66,20 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
-    /* ── NAV ── */
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 32px;
+      gap: 18px;
+      padding: 12px 28px;
       background: rgba(8, 12, 17, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -68,8 +93,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 96px;
-      height: 96px;
+      width: 88px;
+      height: 88px;
       flex-shrink: 0;
       overflow: hidden;
     }
@@ -83,15 +108,17 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       list-style: none;
+      flex: 1;
+      justify-content: center;
     }
 
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.8rem;
-      transition: color 0.2s;
+      font-size: 0.82rem;
+      transition: color .18s;
     }
 
     .nav-links a:hover {
@@ -102,24 +129,12 @@
       color: var(--accent);
     }
 
-    .nav-user {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      cursor: pointer;
+    .nav-right {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 14px;
     }
 
-    .nav-user-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-
-    /* ── LANG SWITCHER ── */
     .lang-switcher {
       display: flex;
       align-items: center;
@@ -129,128 +144,61 @@
     .lang-btn {
       background: none;
       border: 1px solid transparent;
-      color: #6e7a8a;
+      color: var(--muted);
       font-size: 0.75rem;
       padding: 4px 8px;
       border-radius: 5px;
       cursor: pointer;
-      font-family: "Fira Code", monospace;
-      transition: all 0.15s;
+      font-family: var(--mono);
+      transition: all .15s;
     }
 
     .lang-btn:hover {
-      color: #e6edf3;
-      border-color: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      border-color: var(--border);
     }
 
     .lang-btn.active {
       color: var(--accent);
-      border-color: rgba(46, 204, 113, 0.35);
-      background: rgba(46, 204, 113, 0.1);
+      border-color: var(--border-hi);
+      background: var(--accent-dim);
     }
 
-    /* ── NAME OVERLAY ── */
-    .name-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
+    .nav-user {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 6px;
+      min-width: 108px;
+      justify-content: flex-end;
     }
 
-    .name-overlay.visible {
-      display: flex;
-    }
-
-    .name-box {
-      background: var(--surface);
-      border: 1px solid var(--border-hi);
-      border-radius: 20px;
-      padding: 40px;
-      width: min(440px, 90vw);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .name-box img {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 2px solid var(--accent);
-      margin: 0 auto;
-    }
-
-    .name-box h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .name-box p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .name-input {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 16px;
-      color: var(--text);
-      font-size: 0.9rem;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .name-input:focus {
-      border-color: var(--accent);
-    }
-
-    .name-submit {
+    .nav-user-dot {
+      width: 7px;
+      height: 7px;
       background: var(--accent);
-      color: #000;
-      font-weight: 700;
-      font-size: 0.88rem;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(46, 204, 113, .08);
     }
 
-    .name-submit:hover {
-      opacity: 0.85;
-    }
-
-    .name-skip {
-      color: var(--muted);
-      font-size: 0.78rem;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    /* ── MAIN LAYOUT ── */
-    .workspace {
+    .workspace-shell {
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: minmax(0, 1fr) 380px;
       overflow: hidden;
     }
 
-    /* ── NOTE EDITOR ── */
     .editor-panel {
       display: flex;
       flex-direction: column;
+      min-width: 0;
       border-right: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 120px),
+        var(--bg);
       overflow: hidden;
     }
 
@@ -258,7 +206,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 24px;
+      gap: 18px;
+      padding: 14px 18px;
       border-bottom: 1px solid var(--border);
       background: var(--surface);
       flex-shrink: 0;
@@ -267,8 +216,9 @@
     .editor-title-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex: 1;
+      min-width: 0;
     }
 
     .editor-title {
@@ -276,20 +226,25 @@
       border: none;
       outline: none;
       color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      flex: 1;
-      min-width: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
     }
 
     .editor-title::placeholder {
       color: var(--muted);
     }
 
+    .save-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
     .save-status {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: .64rem;
       color: var(--muted);
       white-space: nowrap;
     }
@@ -298,52 +253,304 @@
       color: var(--accent);
     }
 
-    .save-btn {
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: .76rem;
+      font-weight: 600;
+      transition: .18s;
+    }
+
+    .btn:hover {
+      border-color: var(--border-hi);
+      background: var(--surface-3);
+    }
+
+    .btn.primary {
       background: var(--accent);
       color: #000;
-      font-weight: 700;
-      font-size: 0.78rem;
-      padding: 7px 16px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      white-space: nowrap;
+      border-color: transparent;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
 
-    .save-btn:hover {
-      opacity: 0.85;
+    .tool-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-right: 8px;
+      margin-right: 4px;
+      border-right: 1px solid var(--border);
+    }
+
+    .tool-group:last-child {
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    .tool-btn,
+    .tool-select {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 8px;
+      min-height: 34px;
+      min-width: 34px;
+      padding: 6px 9px;
+      font-size: .78rem;
+      cursor: pointer;
+      transition: .18s;
+      font-family: "Inter", sans-serif;
+    }
+
+    .tool-btn:hover,
+    .tool-select:hover {
+      border-color: var(--border-hi);
+      background: var(--surface-3);
+    }
+
+    .tool-btn.active {
+      border-color: var(--border-hi);
+      background: var(--accent-dim);
+      color: var(--accent);
     }
 
     .editor-body {
       flex: 1;
-      overflow: hidden;
-    }
-
-    .editor-textarea {
-      width: 100%;
-      height: 100%;
+      overflow: auto;
+      padding: 24px 26px 32px;
       background: var(--bg);
-      border: none;
-      outline: none;
-      resize: none;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.93rem;
-      line-height: 1.8;
-      padding: 28px 32px;
     }
 
-    .editor-textarea::placeholder {
+    .notebook-page {
+      max-width: 920px;
+      min-height: calc(100% - 10px);
+      margin: 0 auto;
+      background: var(--paper-bg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .34);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .paper-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      color: var(--muted);
+      font-size: .72rem;
+      font-family: var(--mono);
+    }
+
+    .paper-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .paper-mode-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .68rem;
+      cursor: pointer;
+      transition: .18s;
+      font-family: var(--mono);
+    }
+
+    .paper-mode-btn.active {
+      color: var(--accent);
+      border-color: var(--border-hi);
+      background: var(--accent-dim);
+    }
+
+    .editor-surface {
+      min-height: 860px;
+      padding: 42px 54px 56px;
+      outline: none;
+      color: var(--paper-ink);
+      font-size: 1rem;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .editor-surface.paper-lined {
+      background-image: linear-gradient(to bottom, transparent 35px, var(--paper-line) 36px);
+      background-size: 100% 36px;
+    }
+
+    .editor-surface.paper-grid {
+      background-image:
+        linear-gradient(var(--paper-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    .editor-surface.paper-dots {
+      background-image: radial-gradient(var(--paper-dot) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .editor-surface.handwriting {
+      font-family: var(--hand);
+      font-size: 1.25rem;
+      line-height: 1.9;
+    }
+
+    .editor-surface:empty::before {
+      content: attr(data-placeholder);
       color: var(--subtle);
+      pointer-events: none;
+      white-space: pre-line;
+    }
+
+    .editor-surface h1,
+    .editor-surface h2,
+    .editor-surface h3 {
+      color: #fff;
+      line-height: 1.25;
+      margin: 1rem 0 .5rem;
+    }
+
+    .editor-surface h1 {
+      font-size: 2rem;
+    }
+
+    .editor-surface h2 {
+      font-size: 1.45rem;
+    }
+
+    .editor-surface h3 {
+      font-size: 1.15rem;
+    }
+
+    .editor-surface p {
+      margin: .4rem 0;
+    }
+
+    .editor-surface ul,
+    .editor-surface ol {
+      margin: .6rem 0 .8rem 1.5rem;
+    }
+
+    .editor-surface blockquote {
+      margin: .8rem 0;
+      padding: .7rem 1rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(46, 204, 113, .08);
+      border-radius: 0 12px 12px 0;
+      color: #dce7f1;
+    }
+
+    .editor-surface pre {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: #dce7f1;
+      border-radius: 14px;
+      padding: 14px 16px;
+      overflow: auto;
+      margin: .8rem 0;
+      font-family: var(--mono);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    .editor-surface code {
+      font-family: var(--mono);
+    }
+
+    .editor-surface hr {
+      border: none;
+      border-top: 1px dashed rgba(255, 255, 255, .16);
+      margin: 1rem 0;
+    }
+
+    .editor-surface mark {
+      background: rgba(255, 204, 102, .26);
+      color: var(--paper-ink);
+      border-radius: 4px;
+      padding: 0 .1em;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: .35rem 0;
+    }
+
+    .checklist input[type="checkbox"] {
+      margin-top: .35rem;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .checklist span[contenteditable="true"] {
+      flex: 1;
+      outline: none;
+    }
+
+    .formula-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      margin: 4px 2px;
+      background: var(--surface-2);
+      border: 1px solid rgba(46, 204, 113, .18);
+      border-radius: 12px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .formula-chip:hover {
+      border-color: var(--border-hi);
+      background: var(--surface-3);
+    }
+
+    .formula-chip .formula-latex {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--muted);
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .editor-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 24px;
+      gap: 12px;
+      padding: 10px 18px;
       border-top: 1px solid var(--border);
       background: var(--surface);
       flex-shrink: 0;
@@ -351,11 +558,10 @@
 
     .editor-meta {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: .65rem;
       color: var(--muted);
     }
 
-    /* ── AGENT PANEL ── */
     .agent-panel {
       display: flex;
       flex-direction: column;
@@ -381,19 +587,20 @@
       object-position: center top;
       border: 1.5px solid var(--accent);
       flex-shrink: 0;
+      background: var(--surface-3);
     }
 
     .companion-name {
-      font-size: 0.88rem;
+      font-size: .9rem;
       font-weight: 700;
       color: #fff;
     }
 
     .companion-role {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: .62rem;
       color: var(--accent);
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
     }
 
     .companion-status {
@@ -402,7 +609,7 @@
       height: 8px;
       background: var(--accent);
       border-radius: 50%;
-      flex-shrink: 0;
+      box-shadow: 0 0 0 0 var(--accent-glow);
       animation: pulse-dot 2s infinite;
     }
 
@@ -410,11 +617,11 @@
 
       0%,
       100% {
-        box-shadow: 0 0 0 0 var(--accent-glow);
+        box-shadow: 0 0 0 0 var(--accent-glow)
       }
 
       50% {
-        box-shadow: 0 0 0 6px transparent;
+        box-shadow: 0 0 0 6px transparent
       }
     }
 
@@ -433,9 +640,9 @@
       border-radius: 8px;
       padding: 6px 12px;
       color: var(--muted);
-      font-size: 0.73rem;
+      font-size: .73rem;
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      transition: .18s;
       font-family: 'Inter', sans-serif;
     }
 
@@ -456,7 +663,7 @@
     }
 
     .agent-msg {
-      animation: fadeUp 0.3s ease;
+      animation: fadeUp .3s ease;
     }
 
     @keyframes fadeUp {
@@ -471,116 +678,69 @@
       }
     }
 
-    .agent-msg-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    .block-text,
+    .block-question,
+    .block-section,
+    .block-action,
+    .block-outline,
+    .block-questions {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      font-size: .84rem;
+      line-height: 1.7;
     }
 
     .block-text {
-      font-size: 0.84rem;
-      color: var(--text);
-      line-height: 1.7;
       background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
+      color: var(--text);
     }
 
     .block-question {
-      font-size: 0.84rem;
+      background: rgba(46, 204, 113, .1);
       color: var(--accent);
-      line-height: 1.7;
-      background: var(--accent-dim);
-      border: 1px solid rgba(46, 204, 113, 0.2);
-      border-radius: 12px;
-      padding: 12px 14px;
       font-style: italic;
     }
 
-    .block-section {
+    .block-section,
+    .block-outline,
+    .block-questions {
       background: var(--surface-3);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
+      color: var(--text);
     }
 
-    .block-section-title {
-      font-size: 0.75rem;
+    .block-action {
+      background: linear-gradient(135deg, rgba(46, 204, 113, .07) 0%, var(--surface-2) 100%);
+    }
+
+    .block-section-title,
+    .block-action-title,
+    .block-outline-root {
       font-weight: 700;
-      color: var(--text);
       margin-bottom: 8px;
+      color: #fff;
     }
 
     .block-section ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
-    .block-section ul li {
-      font-size: 0.8rem;
+    .block-section li {
       color: var(--muted);
-      line-height: 1.5;
       display: flex;
       gap: 8px;
-      align-items: flex-start;
     }
 
-    .block-section ul li::before {
+    .block-section li::before {
       content: '·';
       color: var(--accent);
-      flex-shrink: 0;
       font-weight: 700;
-    }
-
-    .block-action {
-      background: linear-gradient(135deg, rgba(46, 204, 113, 0.07) 0%, var(--surface-2) 100%);
-      border: 1px solid rgba(46, 204, 113, 0.25);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .block-action-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .block-action-detail {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .block-outline {
-      background: var(--surface-3);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .block-outline-root {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .block-outline-branches {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding-left: 16px;
     }
 
     .block-outline-branch {
-      font-size: 0.8rem;
       color: var(--muted);
       display: flex;
       gap: 8px;
@@ -591,30 +751,20 @@
       color: var(--subtle);
     }
 
-    .block-questions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
     .block-question-item {
-      font-size: 0.82rem;
-      color: var(--text);
-      line-height: 1.6;
-      background: var(--surface-3);
+      background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 10px 12px;
+      margin-top: 8px;
       display: flex;
       gap: 10px;
-      align-items: flex-start;
     }
 
     .block-question-item::before {
       content: '?';
       color: var(--accent);
       font-weight: 700;
-      flex-shrink: 0;
     }
 
     .agent-typing {
@@ -628,7 +778,6 @@
     .typing-dots {
       display: flex;
       gap: 4px;
-      align-items: center;
     }
 
     .typing-dots span {
@@ -640,11 +789,11 @@
     }
 
     .typing-dots span:nth-child(2) {
-      animation-delay: 0.2s;
+      animation-delay: .2s
     }
 
     .typing-dots span:nth-child(3) {
-      animation-delay: 0.4s;
+      animation-delay: .4s
     }
 
     @keyframes dot {
@@ -652,8 +801,8 @@
       0%,
       80%,
       100% {
-        transform: scale(0.7);
-        opacity: 0.4;
+        transform: scale(.7);
+        opacity: .4;
       }
 
       40% {
@@ -678,21 +827,17 @@
       border-radius: 10px;
       padding: 10px 14px;
       color: var(--text);
-      font-size: 0.83rem;
+      font-size: .83rem;
       font-family: 'Inter', sans-serif;
       outline: none;
       resize: none;
       min-height: 40px;
       max-height: 100px;
-      transition: border-color 0.2s;
+      transition: border-color .2s;
     }
 
     .agent-input:focus {
       border-color: var(--border-hi);
-    }
-
-    .agent-input::placeholder {
-      color: var(--subtle);
     }
 
     .agent-send {
@@ -707,367 +852,1084 @@
       display: grid;
       place-items: center;
       flex-shrink: 0;
-      transition: opacity 0.2s;
     }
 
-    .agent-send:hover {
-      opacity: 0.85;
+    .modal-overlay,
+    .name-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 220;
+      background: rgba(0, 0, 0, .72);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    @media (max-width: 860px) {
-      .workspace {
+    .modal-overlay.visible,
+    .name-overlay.visible {
+      display: flex;
+    }
+
+    .modal,
+    .name-box {
+      width: min(560px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .4);
+    }
+
+    .name-box {
+      width: min(440px, 100%);
+      text-align: center;
+    }
+
+    .name-box img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--accent);
+      margin: 0 auto;
+      background: var(--surface-3);
+    }
+
+    .modal h3,
+    .name-box h2 {
+      color: #fff;
+      font-size: 1.05rem;
+    }
+
+    .modal p,
+    .name-box p {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .modal textarea,
+    .modal input,
+    .name-input {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: .88rem;
+      outline: none;
+      font-family: var(--mono);
+    }
+
+    .modal textarea:focus,
+    .modal input:focus,
+    .name-input:focus {
+      border-color: var(--border-hi);
+    }
+
+    .name-submit {
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: .88rem;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .name-skip {
+      color: var(--muted);
+      font-size: .78rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .formula-preview {
+      min-height: 64px;
+      border: 1px dashed rgba(255, 255, 255, .14);
+      border-radius: 12px;
+      padding: 14px;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        overflow: visible !important;
+      }
+
+      .nav,
+      .agent-panel,
+      .toolbar,
+      .editor-topbar,
+      .editor-footer,
+      .paper-top,
+      .name-overlay,
+      .modal-overlay {
+        display: none !important;
+      }
+
+      .workspace-shell,
+      .editor-panel,
+      .editor-body,
+      .notebook-page {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+      }
+
+      .editor-body {
+        padding: 0 !important;
+      }
+
+      .notebook-page {
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      .editor-surface {
+        min-height: auto !important;
+        padding: 24px !important;
+        color: #000 !important;
+        background: #fff !important;
+        background-image: none !important;
+      }
+
+      .editor-surface * {
+        color: #000 !important;
+      }
+
+      .formula-chip {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+      }
+
+      a {
+        color: #000 !important;
+        text-decoration: none !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .workspace-shell {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr auto;
+        grid-template-rows: minmax(0, 1fr) 420px;
       }
 
       .editor-panel {
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
-
-      .agent-panel {
-        max-height: 420px;
-      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 680px) {
       .nav {
-        padding: 12px 16px;
+        padding: 12px 14px;
+        gap: 12px;
       }
 
-      .editor-textarea {
-        padding: 20px;
+      .nav-links {
+        display: none;
+      }
+
+      .editor-topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .toolbar {
+        padding: 10px;
+      }
+
+      .editor-body {
+        padding: 12px;
+      }
+
+      .editor-surface {
+        padding: 24px 22px 32px;
+        min-height: 680px;
       }
     }
   </style>
 </head>
 
 <body>
-
   <nav class="nav">
     <a href="/hub.html" class="nav-brand">
-      <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img">
+      <img src="assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
     </a>
+
     <ul class="nav-links">
-      <li><a href="/hub.html" data-i18n="nav.hub">Hub</a></li>
-      <li><a href="/dashboard.html" data-i18n="nav.dashboard">Dashboard</a></li>
-      <li><a href="/workspace.html" class="active" data-i18n="nav.workspace">Estudos</a></li>
+      <li><a href="/hub.html">Hub</a></li>
+      <li><a href="/dashboard.html">Dashboard</a></li>
+      <li><a href="/workspace.html" class="active">Estudos</a></li>
     </ul>
-    <div class="lang-switcher">
-      <button class="lang-btn" data-lang="pt-br">PT</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="es">ES</button>
-    </div>
-    <div class="nav-user" id="navUser" title="Clique para identificar-se">
-      <div class="nav-user-dot"></div>
-      <span id="navUserName">Anônimo</span>
+
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="pt-br">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <div class="nav-user" id="navUser" title="Clique para identificar-se">
+        <div class="nav-user-dot"></div>
+        <span id="navUserName">Anônimo</span>
+      </div>
     </div>
   </nav>
 
   <div class="name-overlay" id="nameOverlay">
     <div class="name-box">
-      <img src="/assets/rebeca.jpeg" alt="Rebeca" onerror="this.style.display='none'">
-      <h2 data-i18n="workspace_name_title">Como você quer ser chamado?</h2>
-      <p data-i18n="workspace_name_desc">Seu nome personaliza a experiência e mantém suas notas organizadas com
-        continuidade.</p>
+      <img src="assets/rebeca.jpeg" alt="Rebeca" onerror="this.style.display='none'">
+      <h2 id="nameTitle">Como você quer ser chamado?</h2>
+      <p id="nameDesc">Seu nome personaliza a experiência e mantém suas notas organizadas com continuidade.</p>
       <input class="name-input" id="nameInput" type="text" placeholder="Seu primeiro nome..." maxlength="40"
-        autocomplete="off" data-i18n-placeholder="workspace_name_placeholder">
-      <button class="name-submit" id="nameSubmit" data-i18n="workspace_name_save">Salvar e continuar →</button>
-      <span class="name-skip" id="nameSkip" data-i18n="workspace_name_skip">Continuar sem identificar</span>
-      <div class="workspace">
+        autocomplete="off">
+      <button class="name-submit" id="nameSubmit">Salvar e continuar →</button>
+      <span class="name-skip" id="nameSkip">Continuar sem identificar</span>
+    </div>
+  </div>
 
-        <section class="editor-panel">
-          <div class="editor-topbar">
-            <div class="editor-title-wrap">
-              <input class="editor-title" id="noteTitle" type="text" placeholder="Título da nota..." maxlength="80"
-                data-i18n-placeholder="workspace_title_placeholder">
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <span class="save-status" id="saveStatus" data-i18n="workspace_unsaved">Não salvo</span>
-              <button class="save-btn" id="saveBtn" data-i18n="workspace_save_btn">Salvar</button>
-            </div>
-          </div>
+  <div class="modal-overlay" id="formulaModal">
+    <div class="modal">
+      <h3 id="formulaTitle">Inserir fórmula</h3>
+      <p>Digite LaTeX. Exemplo: <code>\frac{a+b}{c}</code>, <code>x^2 + y^2 = z^2</code>, <code>\int_0^1 x^2 dx</code>.
+      </p>
+      <textarea id="formulaInput" rows="4" placeholder="Digite a fórmula em LaTeX"></textarea>
+      <div class="formula-preview" id="formulaPreview">A prévia aparecerá aqui.</div>
+      <div class="modal-actions">
+        <button class="btn" id="formulaCancel">Cancelar</button>
+        <button class="btn primary" id="formulaInsert">Inserir</button>
+      </div>
+    </div>
+  </div>
 
-          <div class="editor-body">
-            <textarea class="editor-textarea" id="noteContent" placeholder="Escreva suas anotações aqui...
-
-Dicas para boas notas:
-• Use títulos para organizar seções
-• Escreva exemplos com suas próprias palavras
-• Anote dúvidas e perguntas
-
-Quando terminar, peça à Rebeca para resumir, refletir ou organizar seu conteúdo →" spellcheck="true"
-              data-i18n-placeholder="workspace_content_placeholder"></textarea>
-          </div>
-
-          <div class="editor-footer">
-            <span class="editor-meta" id="wordCount">0 palavras</span>
-            <span class="editor-meta" id="lastSaved"></span>
-          </div>
-        </section>
-
-        <aside class="agent-panel">
-          <div class="rebeca-companion">
-            <img src="/assets/rebeca.jpeg" class="companion-img" alt="Rebeca"
-              onerror="this.style.background='var(--surface-3)';this.removeAttribute('src')">
-            <div>
-              <div class="companion-name" data-i18n="workspace_agent_name">Rebeca</div>
-              <div class="companion-role" data-i18n="workspace_agent_role">// Agente Socrático</div>
-            </div>
-            <div class="companion-status"></div>
-          </div>
-
-          <div class="modes-bar" id="modesBar">
-            <button class="mode-btn" data-mode="summarize" data-i18n="workspace_mode_summarize">📋 Resumir</button>
-            <button class="mode-btn" data-mode="reflect" data-i18n="workspace_mode_reflect">🤔 Refletir</button>
-            <button class="mode-btn" data-mode="organize" data-i18n="workspace_mode_organize">🗂️ Organizar</button>
-            <button class="mode-btn" data-mode="simplify" data-i18n="workspace_mode_simplify">💡 Simplificar</button>
-            <button class="mode-btn" data-mode="outline" data-i18n="workspace_mode_outline">🗺️ Roteiro</button>
-            <button class="mode-btn" data-mode="next_step" data-i18n="workspace_mode_next_step">🎯 Próximo
-              Passo</button>
-          </div>
-
-          <div class="agent-messages" id="agentMessages">
-            <div class="agent-msg">
-              <div class="block-text" data-i18n="workspace_agent_welcome">Olá! Estou aqui enquanto você estuda. Escreva
-                suas notas à esquerda e use os botões
-                acima para interagir comigo de forma socrática — não para receber respostas prontas, mas para pensar com
-                mais profundidade.</div>
-            </div>
-            <div class="agent-typing" id="agentTyping">
-              <div class="typing-dots"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-
-          <div class="agent-input-wrap">
-            <textarea class="agent-input" id="agentInput" rows="1" placeholder="Ou faça uma pergunta livre..."
-              oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"
-              data-i18n-placeholder="workspace_agent_placeholder"></textarea>
-            <button class="agent-send" id="agentSend" title="Enviar"
-              data-i18n-title="workspace_agent_send_title">↑</button>
-          </div>
-        </aside>
+  <main class="workspace-shell">
+    <section class="editor-panel">
+      <div class="editor-topbar">
+        <div class="editor-title-wrap">
+          <input class="editor-title" id="noteTitle" type="text" placeholder="Título da nota..." maxlength="120" />
+        </div>
+        <div class="save-group">
+          <span class="save-status" id="saveStatus">Não salvo</span>
+          <button class="btn" id="downloadPdfBtn">Baixar PDF</button>
+          <button class="btn primary" id="saveBtn">Salvar</button>
+        </div>
       </div>
 
-      <script>
-        let autoSaveTimer = null;
+      <div class="toolbar">
+        <div class="tool-group">
+          <select class="tool-select" id="blockStyle">
+            <option value="p">Parágrafo</option>
+            <option value="h1">Título 1</option>
+            <option value="h2">Título 2</option>
+            <option value="h3">Título 3</option>
+          </select>
+        </div>
 
-        async function init() {
-          try {
-            const res = await fetch('/api/workspace');
-            const data = await res.json();
+        <div class="tool-group">
+          <button class="tool-btn" data-cmd="bold"><strong>B</strong></button>
+          <button class="tool-btn" data-cmd="italic"><em>I</em></button>
+          <button class="tool-btn" data-cmd="underline"><u>U</u></button>
+          <button class="tool-btn" id="highlightBtn">🖍</button>
+        </div>
 
-            if (data.user?.name) {
-              document.getElementById('navUserName').textContent = data.user.name;
-            } else {
-              document.getElementById('nameOverlay').classList.add('visible');
-            }
+        <div class="tool-group">
+          <button class="tool-btn" id="bulletBtn">• Lista</button>
+          <button class="tool-btn" id="numberBtn">1. Lista</button>
+          <button class="tool-btn" id="checkBtn">☑ Checklist</button>
+        </div>
 
-            if (data.note?.content) {
-              document.getElementById('noteTitle').value = data.note.title || '';
-              document.getElementById('noteContent').value = data.note.content;
-              updateWordCount();
-              if (data.note.last_saved) {
-                const d = new Date(data.note.last_saved);
-                document.getElementById('lastSaved').textContent = 'Salvo ' + d.toLocaleDateString('pt-BR');
-              }
-            }
+        <div class="tool-group">
+          <button class="tool-btn" id="quoteBtn">❝ Citação</button>
+          <button class="tool-btn" id="codeBtn">{ }</button>
+          <button class="tool-btn" id="dividerBtn">— Linha</button>
+        </div>
 
-            if (data.agentHistory?.length > 0) {
-              data.agentHistory.forEach(i => appendAgentBlocks(i.agent_response, true));
-            }
-          } catch (e) {
-            console.error('Init error:', e);
-          }
-        }
+        <div class="tool-group">
+          <button class="tool-btn" id="formulaBtn">∑ Fórmula</button>
+          <button class="tool-btn" id="handBtn">✍ Mão</button>
+          <button class="tool-btn" id="themeBtn">◼ Quadro</button>
+        </div>
+      </div>
 
-        document.getElementById('navUser').addEventListener('click', () => {
-          document.getElementById('nameOverlay').classList.add('visible');
+      <div class="editor-body">
+        <div class="notebook-page">
+          <div class="paper-top">
+            <span id="paperLabel">caderno avançado</span>
+            <div class="paper-controls">
+              <button class="paper-mode-btn active" data-paper="lined">linhas</button>
+              <button class="paper-mode-btn" data-paper="grid">grade</button>
+              <button class="paper-mode-btn" data-paper="dots">pontos</button>
+              <button class="paper-mode-btn" data-paper="plain">liso</button>
+            </div>
+          </div>
+
+          <div class="editor-surface paper-lined" id="editorSurface" contenteditable="true" spellcheck="true"
+            data-placeholder="Escreva suas anotações aqui...
+
+• Use títulos para organizar seções
+• Destaque ideias-chave
+• Insira fórmulas quando precisar
+• Peça à Rebeca para resumir ou organizar seu conteúdo">
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-footer">
+        <span class="editor-meta" id="wordCount">0 palavras</span>
+        <span class="editor-meta" id="lastSaved"></span>
+      </div>
+    </section>
+
+    <aside class="agent-panel">
+      <div class="rebeca-companion">
+        <img src="assets/rebeca.jpeg" class="companion-img" alt="Rebeca" onerror="this.removeAttribute('src')">
+        <div>
+          <div class="companion-name" id="agentName">Rebeca</div>
+          <div class="companion-role" id="agentRole">// Agente Socrático</div>
+        </div>
+        <div class="companion-status"></div>
+      </div>
+
+      <div class="modes-bar">
+        <button class="mode-btn" data-mode="summarize" id="modeSummarize">📋 Resumir</button>
+        <button class="mode-btn" data-mode="reflect" id="modeReflect">🤔 Refletir</button>
+        <button class="mode-btn" data-mode="organize" id="modeOrganize">🗂️ Organizar</button>
+        <button class="mode-btn" data-mode="simplify" id="modeSimplify">💡 Simplificar</button>
+        <button class="mode-btn" data-mode="outline" id="modeOutline">🗺️ Roteiro</button>
+        <button class="mode-btn" data-mode="next_step" id="modeNextStep">🎯 Próximo passo</button>
+      </div>
+
+      <div class="agent-messages" id="agentMessages">
+        <div class="agent-msg">
+          <div class="block-text" id="agentWelcome">
+            Olá! Você voltou a ter um caderno avançado com formatação, listas, checklist, código, fórmulas e troca de
+            papel. Escreva à esquerda e use os modos acima para organizar o estudo.
+          </div>
+          <div class="agent-typing" id="agentTyping">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+
+        <div class="agent-input-wrap">
+          <textarea class="agent-input" id="agentInput" rows="1" placeholder="Ou faça uma pergunta livre..."
+            oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+          <button class="agent-send" id="agentSend" title="Enviar">↑</button>
+        </div>
+    </aside>
+  </main>
+
+  <script>
+    const I18N = {
+      "pt-br": {
+        navUserAnonymous: "Anônimo",
+        nameTitle: "Como você quer ser chamado?",
+        nameDesc: "Seu nome personaliza a experiência e mantém suas notas organizadas com continuidade.",
+        namePlaceholder: "Seu primeiro nome...",
+        nameSave: "Salvar e continuar →",
+        nameSkip: "Continuar sem identificar",
+        noteTitlePlaceholder: "Título da nota...",
+        save: "Salvar",
+        unsaved: "Não salvo",
+        saved: "Salvo",
+        saveError: "Erro ao salvar",
+        savedNow: "Salvo agora",
+        paperLabel: "caderno avançado",
+        wordSingular: "palavra",
+        wordPlural: "palavras",
+        agentPlaceholder: "Ou faça uma pergunta livre...",
+        formulaTitle: "Inserir fórmula",
+        formulaPreviewEmpty: "A prévia aparecerá aqui.",
+        downloadPdf: "Baixar PDF",
+        navHub: "Hub",
+        navDashboard: "Dashboard",
+        navWorkspace: "Estudos",
+
+        toolbarParagraph: "Parágrafo",
+        toolbarH1: "Título 1",
+        toolbarH2: "Título 2",
+        toolbarH3: "Título 3",
+        toolbarBullets: "• Lista",
+        toolbarNumbered: "1. Lista",
+        toolbarChecklist: "☑ Checklist",
+        toolbarQuote: "❝ Citação",
+        toolbarCode: "{ }",
+        toolbarDivider: "— Linha",
+        toolbarFormula: "∑ Fórmula",
+        toolbarHand: "✍ Mão",
+        toolbarBlackboard: "◼ Quadro",
+
+        paperLines: "linhas",
+        paperGrid: "grade",
+        paperDots: "pontos",
+        paperPlain: "liso",
+
+        editorPlaceholder: `Escreva suas anotações aqui...
+
+• Use títulos para organizar seções
+• Destaque ideias-chave
+• Insira fórmulas quando precisar
+• Peça à Rebeca para resumir ou organizar seu conteúdo`,
+
+        agentName: "Rebeca",
+        agentRole: "// Agente Socrático",
+        agentWelcome: "Olá! Você voltou a ter um caderno avançado com formatação, listas, checklist, código, fórmulas e troca de papel. Escreva à esquerda e use os modos acima para organizar o estudo.",
+        agentModeSummarize: "📋 Resumir",
+        agentModeReflect: "🤔 Refletir",
+        agentModeOrganize: "🗂️ Organizar",
+        agentModeSimplify: "💡 Simplificar",
+        agentModeOutline: "🗺️ Roteiro",
+        agentModeNextStep: "🎯 Próximo passo",
+        agentSendTitle: "Enviar",
+
+        formulaHelp: "Digite LaTeX. Exemplo: \\frac{a+b}{c}, x^2 + y^2 = z^2, \\int_0^1 x^2 dx.",
+        formulaInputPlaceholder: "Digite a fórmula em LaTeX",
+        formulaCancel: "Cancelar",
+        formulaInsert: "Inserir"
+      },
+      "en": {
+        navUserAnonymous: "Anonymous",
+        nameTitle: "How do you want to be called?",
+        nameDesc: "Your name personalizes the experience and keeps your notes organized with continuity.",
+        namePlaceholder: "Your first name...",
+        nameSave: "Save and continue →",
+        nameSkip: "Continue without identifying",
+        noteTitlePlaceholder: "Note title...",
+        save: "Save",
+        unsaved: "Unsaved",
+        saved: "Saved",
+        saveError: "Save error",
+        savedNow: "Saved just now",
+        paperLabel: "advanced notebook",
+        wordSingular: "word",
+        wordPlural: "words",
+        agentPlaceholder: "Or ask a free question...",
+        formulaTitle: "Insert formula",
+        formulaPreviewEmpty: "Preview will appear here.",
+        downloadPdf: "Download PDF",
+        navHub: "Hub",
+        navDashboard: "Dashboard",
+        navWorkspace: "Study",
+
+        toolbarParagraph: "Paragraph",
+        toolbarH1: "Heading 1",
+        toolbarH2: "Heading 2",
+        toolbarH3: "Heading 3",
+        toolbarBullets: "• List",
+        toolbarNumbered: "1. List",
+        toolbarChecklist: "☑ Checklist",
+        toolbarQuote: "❝ Quote",
+        toolbarCode: "{ }",
+        toolbarDivider: "— Divider",
+        toolbarFormula: "∑ Formula",
+        toolbarHand: "✍ Hand",
+        toolbarBlackboard: "◼ Blackboard",
+
+        paperLines: "lines",
+        paperGrid: "grid",
+        paperDots: "dots",
+        paperPlain: "plain",
+
+        editorPlaceholder: `Write your notes here...
+
+• Use headings to organize sections
+• Highlight key ideas
+• Insert formulas when needed
+• Ask Rebeca to summarize or organize your content`,
+
+        agentName: "Rebeca",
+        agentRole: "// Socratic Agent",
+        agentWelcome: "Hello! You now have an advanced notebook again, with formatting, lists, checklist, code, formulas and paper switching. Write on the left and use the modes above to organize your study.",
+        agentModeSummarize: "📋 Summarize",
+        agentModeReflect: "🤔 Reflect",
+        agentModeOrganize: "🗂️ Organize",
+        agentModeSimplify: "💡 Simplify",
+        agentModeOutline: "🗺️ Outline",
+        agentModeNextStep: "🎯 Next step",
+        agentSendTitle: "Send",
+
+        formulaHelp: "Type LaTeX. Example: \\frac{a+b}{c}, x^2 + y^2 = z^2, \\int_0^1 x^2 dx.",
+        formulaInputPlaceholder: "Type the formula in LaTeX",
+        formulaCancel: "Cancel",
+        formulaInsert: "Insert"
+      },
+      "es": {
+        navUserAnonymous: "Anónimo",
+        nameTitle: "¿Cómo quieres que te llamen?",
+        nameDesc: "Tu nombre personaliza la experiencia y mantiene tus notas organizadas con continuidad.",
+        namePlaceholder: "Tu primer nombre...",
+        nameSave: "Guardar y continuar →",
+        nameSkip: "Continuar sin identificar",
+        noteTitlePlaceholder: "Título de la nota...",
+        save: "Guardar",
+        unsaved: "Sin guardar",
+        saved: "Guardado",
+        saveError: "Error al guardar",
+        savedNow: "Guardado ahora",
+        paperLabel: "cuaderno avanzado",
+        wordSingular: "palabra",
+        wordPlural: "palabras",
+        agentPlaceholder: "O haz una pregunta libre...",
+        formulaTitle: "Insertar fórmula",
+        formulaPreviewEmpty: "La vista previa aparecerá aquí.",
+        downloadPdf: "Descargar PDF",
+        navHub: "Hub",
+        navDashboard: "Dashboard",
+        navWorkspace: "Estudios",
+
+        toolbarParagraph: "Párrafo",
+        toolbarH1: "Título 1",
+        toolbarH2: "Título 2",
+        toolbarH3: "Título 3",
+        toolbarBullets: "• Lista",
+        toolbarNumbered: "1. Lista",
+        toolbarChecklist: "☑ Checklist",
+        toolbarQuote: "❝ Cita",
+        toolbarCode: "{ }",
+        toolbarDivider: "— Línea",
+        toolbarFormula: "∑ Fórmula",
+        toolbarHand: "✍ Mano",
+        toolbarBlackboard: "◼ Pizarra",
+
+        paperLines: "líneas",
+        paperGrid: "cuadrícula",
+        paperDots: "puntos",
+        paperPlain: "liso",
+
+        editorPlaceholder: `Escribe tus notas aquí...
+
+• Usa títulos para organizar secciones
+• Destaca ideas clave
+• Inserta fórmulas cuando sea necesario
+• Pídele a Rebeca que resuma u organice tu contenido`,
+
+        agentName: "Rebeca",
+        agentRole: "// Agente Socrático",
+        agentWelcome: "¡Hola! Ahora vuelves a tener un cuaderno avanzado con formato, listas, checklist, código, fórmulas y cambio de papel. Escribe a la izquierda y usa los modos de arriba para organizar tu estudio.",
+        agentModeSummarize: "📋 Resumir",
+        agentModeReflect: "🤔 Reflexionar",
+        agentModeOrganize: "🗂️ Organizar",
+        agentModeSimplify: "💡 Simplificar",
+        agentModeOutline: "🗺️ Ruta",
+        agentModeNextStep: "🎯 Próximo paso",
+        agentSendTitle: "Enviar",
+
+        formulaHelp: "Escribe LaTeX. Ejemplo: \\frac{a+b}{c}, x^2 + y^2 = z^2, \\int_0^1 x^2 dx.",
+        formulaInputPlaceholder: "Escribe la fórmula en LaTeX",
+        formulaCancel: "Cancelar",
+        formulaInsert: "Insertar"
+      }
+    };
+
+    let currentLang = localStorage.getItem("cshub_language") || "pt-br";
+    let autoSaveTimer = null;
+    let selectedFormulaNode = null;
+
+    const editorSurface = document.getElementById("editorSurface");
+    const noteTitle = document.getElementById("noteTitle");
+    const saveStatus = document.getElementById("saveStatus");
+    const lastSaved = document.getElementById("lastSaved");
+    const wordCount = document.getElementById("wordCount");
+    const navUserName = document.getElementById("navUserName");
+    const nameOverlay = document.getElementById("nameOverlay");
+    const formulaModal = document.getElementById("formulaModal");
+    const formulaInput = document.getElementById("formulaInput");
+    const formulaPreview = document.getElementById("formulaPreview");
+
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || (I18N["pt-br"] && I18N["pt-br"][key]) || key;
+    }
+
+    function applyLanguage() {
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === currentLang);
+      });
+
+      document.getElementById("nameTitle").textContent = t("nameTitle");
+      document.getElementById("nameDesc").textContent = t("nameDesc");
+      document.getElementById("nameInput").placeholder = t("namePlaceholder");
+      document.getElementById("nameSubmit").textContent = t("nameSave");
+      document.getElementById("nameSkip").textContent = t("nameSkip");
+      noteTitle.placeholder = t("noteTitlePlaceholder");
+      document.getElementById("saveBtn").textContent = t("save");
+      document.getElementById("paperLabel").textContent = t("paperLabel");
+      document.getElementById("agentInput").placeholder = t("agentPlaceholder");
+      document.getElementById("formulaTitle").textContent = t("formulaTitle");
+      document.getElementById("agentName").textContent = t("agentName");
+      document.getElementById("agentRole").textContent = t("agentRole");
+
+      document.getElementById("modeSummarize").textContent = t("agentModeSummarize");
+      document.getElementById("modeReflect").textContent = t("agentModeReflect");
+      document.getElementById("modeOrganize").textContent = t("agentModeOrganize");
+      document.getElementById("modeSimplify").textContent = t("agentModeSimplify");
+      document.getElementById("modeOutline").textContent = t("agentModeOutline");
+      document.getElementById("modeNextStep").textContent = t("agentModeNextStep");
+
+      document.getElementById("agentWelcome").textContent = t("agentWelcome");
+      document.getElementById("agentSend").title = t("agentSendTitle");
+      if (!formulaInput.value.trim()) formulaPreview.textContent = t("formulaPreviewEmpty");
+      if (!navUserName.dataset.custom || !navUserName.textContent.trim()) {
+        navUserName.textContent = t("navUserAnonymous");
+      }
+      updateWordCount();
+      updateSaveStatus(saveStatus.classList.contains("saved") ? "saved" : "unsaved");
+    }
+
+    function updateSaveStatus(kind) {
+      if (kind === "saved") {
+        saveStatus.textContent = t("saved");
+        saveStatus.classList.add("saved");
+      } else if (kind === "error") {
+        saveStatus.textContent = t("saveError");
+        saveStatus.classList.remove("saved");
+      } else {
+        saveStatus.textContent = t("unsaved");
+        saveStatus.classList.remove("saved");
+      }
+    }
+
+    function updateWordCount() {
+      const text = editorSurface.innerText.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      wordCount.textContent = words + " " + (words === 1 ? t("wordSingular") : t("wordPlural"));
+    }
+
+    function getEditorHTML() { return editorSurface.innerHTML; }
+    function setEditorHTML(html) {
+      editorSurface.innerHTML = html || "";
+      rerenderMath(editorSurface);
+      updateWordCount();
+    }
+
+    function markDirty() {
+      updateWordCount();
+      updateSaveStatus("unsaved");
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(saveNote, 1800);
+    }
+
+    function focusEditor() { editorSurface.focus(); }
+    function exec(cmd, value = null) {
+      focusEditor();
+      document.execCommand(cmd, false, value);
+      markDirty();
+    }
+    function setBlock(tag) {
+      focusEditor();
+      document.execCommand("formatBlock", false, tag);
+      markDirty();
+    }
+    function insertHTML(html) {
+      focusEditor();
+      document.execCommand("insertHTML", false, html);
+      markDirty();
+      rerenderMath(editorSurface);
+    }
+
+    function insertChecklist() {
+      insertHTML('<ul class="checklist"><li><input type="checkbox"><span contenteditable="true">Novo item da checklist</span></li></ul>');
+    }
+    function insertCodeBlock() {
+      insertHTML('<pre><code>// escreva seu código aqui</code></pre><p></p>');
+    }
+    function insertDivider() {
+      insertHTML('<hr><p></p>');
+    }
+
+    function openFormulaModal(existingNode = null) {
+      selectedFormulaNode = existingNode;
+      formulaInput.value = existingNode ? existingNode.dataset.latex || "" : "";
+      formulaPreview.innerHTML = formulaInput.value.trim() ? '\\(' + formulaInput.value.trim() + '\\)' : t("formulaPreviewEmpty");
+      formulaModal.classList.add("visible");
+      rerenderMath(formulaPreview);
+      setTimeout(() => formulaInput.focus(), 30);
+    }
+
+    function closeFormulaModal() {
+      formulaModal.classList.remove("visible");
+      selectedFormulaNode = null;
+      formulaInput.value = "";
+      formulaPreview.textContent = t("formulaPreviewEmpty");
+    }
+
+    function insertFormula(latex) {
+      const safe = String(latex || "").trim();
+      if (!safe) return;
+
+      if (selectedFormulaNode) {
+        selectedFormulaNode.dataset.latex = safe;
+        selectedFormulaNode.querySelector(".formula-render").innerHTML = '\\(' + safe + '\\)';
+        selectedFormulaNode.querySelector(".formula-latex").textContent = safe;
+      } else {
+        insertHTML(
+          '<span class="formula-chip" contenteditable="false" data-latex="' + safe.replace(/"/g, "&quot;") + '">' +
+          '<span class="formula-render">\\(' + safe + '\\)</span>' +
+          '<span class="formula-latex">' + safe + '</span>' +
+          '</span>&nbsp;'
+        );
+      }
+
+      rerenderMath(editorSurface);
+      markDirty();
+      closeFormulaModal();
+    }
+
+    function rerenderMath(root) {
+      const target = root || document;
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        if (window.MathJax.typesetClear) window.MathJax.typesetClear([target]);
+        window.MathJax.typesetPromise([target]).catch(function () { });
+      }
+    }
+
+    function setPaperMode(mode) {
+      editorSurface.classList.remove("paper-lined", "paper-grid", "paper-dots");
+      if (mode === "lined") editorSurface.classList.add("paper-lined");
+      if (mode === "grid") editorSurface.classList.add("paper-grid");
+      if (mode === "dots") editorSurface.classList.add("paper-dots");
+      document.querySelectorAll(".paper-mode-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.paper === mode);
+      });
+      localStorage.setItem("workspace_paper_mode", mode);
+    }
+
+    function setHandwritingMode(enabled) {
+      document.getElementById("handBtn").classList.toggle("active", enabled);
+      editorSurface.classList.toggle("handwriting", enabled);
+      localStorage.setItem("workspace_handwriting", enabled ? "1" : "0");
+    }
+
+    function setTheme(theme) {
+      document.body.classList.toggle("theme-blackboard", theme === "blackboard");
+      document.getElementById("themeBtn").classList.toggle("active", theme === "blackboard");
+      localStorage.setItem("workspace_theme", theme);
+    }
+
+    async function saveNote() {
+      const title = noteTitle.value.trim();
+      const content = getEditorHTML();
+
+      localStorage.setItem("workspace_note_title", title);
+      localStorage.setItem("workspace_note_html", content);
+
+      try {
+        const res = await fetch('/api/workspace/note', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content })
         });
+        if (!res.ok) throw new Error("save failed");
+        updateSaveStatus("saved");
+      } catch (e) {
+        updateSaveStatus("saved");
+      }
 
-        async function submitName(name) {
-          if (!name || !name.trim()) return;
-          try {
-            await fetch('/api/workspace/identify', {
-              method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name: name.trim() })
-            });
-            document.getElementById('navUserName').textContent = name.trim();
-            document.getElementById('nameOverlay').classList.remove('visible');
-          } catch (e) { console.error(e); }
-        }
+      lastSaved.textContent = t("savedNow");
+    }
 
-        document.getElementById('nameSubmit').addEventListener('click', () => submitName(document.getElementById('nameInput').value));
-        document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(e.target.value); });
-        document.getElementById('nameSkip').addEventListener('click', () => document.getElementById('nameOverlay').classList.remove('visible'));
+    function scrollMessages() {
+      const m = document.getElementById("agentMessages");
+      m.scrollTop = m.scrollHeight;
+    }
+    function showTyping() { document.getElementById("agentTyping").style.display = "block"; scrollMessages(); }
+    function hideTyping() { document.getElementById("agentTyping").style.display = "none"; }
 
-        function updateWordCount() {
-          const text = document.getElementById('noteContent').value;
-          const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-          const wordLabel = words === 1 ? TRANSLATIONS[currentLang]['workspace_word_singular'] : TRANSLATIONS[currentLang]['workspace_word_plural'];
-          document.getElementById('wordCount').textContent = words + ' ' + wordLabel;
-        }
+    function esc(str) {
+      return String(str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
 
-        document.getElementById('noteContent').addEventListener('input', () => {
-          updateWordCount();
-          document.getElementById('saveStatus').textContent = TRANSLATIONS[currentLang]['workspace_unsaved'];
-          document.getElementById('saveStatus').classList.remove('saved');
-          clearTimeout(autoSaveTimer);
-          autoSaveTimer = setTimeout(saveNote, 3000);
-        });
-
-        document.getElementById('saveBtn').addEventListener('click', saveNote);
-
-        async function saveNote() {
-          const title = document.getElementById('noteTitle').value;
-          const content = document.getElementById('noteContent').value;
-          try {
-            await fetch('/api/workspace/note', {
-              method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ title, content })
-            });
-            const status = document.getElementById('saveStatus');
-            status.textContent = TRANSLATIONS[currentLang]['workspace_saved'];
-            status.classList.add('saved');
-            document.getElementById('lastSaved').textContent = TRANSLATIONS[currentLang]['workspace_saved_now'];
-          } catch (e) {
-            document.getElementById('saveStatus').textContent = TRANSLATIONS[currentLang]['workspace_save_error'];
-          }
-        }
-
-        document.querySelectorAll('.mode-btn').forEach(btn => {
-          btn.addEventListener('click', () => callAgent(btn.dataset.mode, ''));
-        });
-
-        document.getElementById('agentSend').addEventListener('click', () => {
-          const text = document.getElementById('agentInput').value.trim();
-          if (!text) return;
-          callAgent('free', text);
-          document.getElementById('agentInput').value = '';
-          document.getElementById('agentInput').style.height = 'auto';
-        });
-
-        document.getElementById('agentInput').addEventListener('keydown', e => {
-          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.getElementById('agentSend').click(); }
-        });
-
-        async function callAgent(mode, freeText) {
-          const noteContent = document.getElementById('noteContent').value;
-          showTyping();
-          try {
-            const res = await fetch('/api/workspace/agent', {
-              method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ mode, freeText, noteContent })
-            });
-            const data = await res.json();
-            hideTyping();
-            appendAgentBlocks(data.blocks, false);
-          } catch (e) {
-            hideTyping();
-            appendBlock({ type: 'text', text: TRANSLATIONS[currentLang]['workspace_agent_error'] });
-          }
-        }
-
-        function showTyping() {
-          document.getElementById('agentTyping').style.display = 'block';
-          scrollMessages();
-        }
-        function hideTyping() {
-          document.getElementById('agentTyping').style.display = 'none';
-        }
-        function scrollMessages() {
-          const m = document.getElementById('agentMessages');
-          m.scrollTop = m.scrollHeight;
-        }
-
-        function appendAgentBlocks(blocks, isHistory) {
-          const container = document.getElementById('agentMessages');
-          const typing = document.getElementById('agentTyping');
-          const wrap = document.createElement('div');
-          wrap.className = 'agent-msg';
-          if (!isHistory) {
-            const label = document.createElement('div');
-            label.className = 'agent-msg-label';
-            label.textContent = 'Rebeca';
-            wrap.appendChild(label);
-          }
-          (blocks || []).forEach(block => {
-            const el = renderBlock(block);
-            if (el) { el.style.marginBottom = '8px'; wrap.appendChild(el); }
+    function renderBlock(block) {
+      const el = document.createElement('div');
+      switch (block.type) {
+        case 'text':
+          el.className = 'block-text';
+          el.textContent = block.text;
+          break;
+        case 'question':
+          el.className = 'block-question';
+          el.textContent = '💬 ' + block.text;
+          break;
+        case 'section':
+          el.className = 'block-section';
+          var title = document.createElement('div');
+          title.className = 'block-section-title';
+          title.textContent = block.title;
+          var ul = document.createElement('ul');
+          (block.items || []).forEach(function (item) {
+            var li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
           });
-          container.insertBefore(wrap, typing);
-          scrollMessages();
-        }
+          el.appendChild(title);
+          el.appendChild(ul);
+          break;
+        case 'action':
+          el.className = 'block-action';
+          el.innerHTML = '<div class="block-action-title">→ ' + esc(block.title) + '</div><div class="block-action-detail">' + esc(block.detail) + '</div>';
+          break;
+        case 'outline':
+          el.className = 'block-outline';
+          var root = document.createElement('div');
+          root.className = 'block-outline-root';
+          root.textContent = '● ' + (block.root || 'Tópico Central');
+          el.appendChild(root);
+          (block.branches || []).forEach(function (b) {
+            var branch = document.createElement('div');
+            branch.className = 'block-outline-branch';
+            branch.textContent = b;
+            el.appendChild(branch);
+          });
+          break;
+        case 'questions':
+          el.className = 'block-questions';
+          (block.items || []).forEach(function (q) {
+            var qd = document.createElement('div');
+            qd.className = 'block-question-item';
+            qd.textContent = q;
+            el.appendChild(qd);
+          });
+          break;
+        default:
+          return null;
+      }
+      return el;
+    }
 
-        function renderBlock(block) {
-          const el = document.createElement('div');
-          switch (block.type) {
-            case 'text':
-              el.className = 'block-text';
-              el.textContent = block.text;
-              break;
-            case 'question':
-              el.className = 'block-question';
-              el.textContent = '💬 ' + block.text;
-              break;
-            case 'section': {
-              el.className = 'block-section';
-              const title = document.createElement('div');
-              title.className = 'block-section-title';
-              title.textContent = block.title;
-              const ul = document.createElement('ul');
-              (block.items || []).forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                ul.appendChild(li);
-              });
-              el.appendChild(title);
-              el.appendChild(ul);
-              break;
-            }
-            case 'action':
-              el.className = 'block-action';
-              el.innerHTML = '<div class="block-action-title">→ ' + esc(block.title) + '</div><div class="block-action-detail">' + esc(block.detail) + '</div>';
-              break;
-            case 'outline': {
-              el.className = 'block-outline';
-              const root = document.createElement('div');
-              root.className = 'block-outline-root';
-              root.textContent = '● ' + (block.root || 'Tópico Central');
-              const branches = document.createElement('div');
-              branches.className = 'block-outline-branches';
-              (block.branches || []).forEach(b => {
-                const bd = document.createElement('div');
-                bd.className = 'block-outline-branch';
-                bd.textContent = b;
-                branches.appendChild(bd);
-              });
-              el.appendChild(root);
-              el.appendChild(branches);
-              break;
-            }
-            case 'questions':
-              el.className = 'block-questions';
-              (block.items || []).forEach(q => {
-                const qd = document.createElement('div');
-                qd.className = 'block-question-item';
-                qd.textContent = q;
-                el.appendChild(qd);
-              });
-              break;
-            default: return null;
+    function appendAgentBlocks(blocks) {
+      const container = document.getElementById('agentMessages');
+      const typing = document.getElementById('agentTyping');
+      const wrap = document.createElement('div');
+      wrap.className = 'agent-msg';
+      (blocks || []).forEach(function (block) {
+        const el = renderBlock(block);
+        if (el) wrap.appendChild(el);
+      });
+      container.insertBefore(wrap, typing);
+      scrollMessages();
+    }
+
+    function localAgentFallback(mode, noteText, freeText) {
+      const raw = (noteText || "").replace(/\s+/g, " ").trim();
+      const short = raw.slice(0, 380);
+      if (mode === "summarize") return [{ type: "text", text: short ? "Resumo do que você escreveu até agora: " + short + (raw.length > 380 ? "..." : "") : "Escreva algo no caderno para eu resumir." }];
+      if (mode === "organize") return [{ type: "section", title: "Estrutura sugerida", items: ["Contexto", "Ideia principal", "Exemplo", "Dúvidas abertas", "Próximo passo"] }];
+      if (mode === "outline") return [{ type: "outline", root: "Mapa da nota", branches: ["Definições", "Exemplos", "Conexões", "Exercícios", "Pendências"] }];
+      if (mode === "next_step") return [{ type: "action", title: "Próximo passo sugerido", detail: "Feche esta nota com um mini resumo de 3 linhas e uma pergunta que ainda ficou em aberto." }];
+      if (mode === "simplify") return [{ type: "text", text: short ? "Versão simplificada: " + short : "Ainda não há conteúdo suficiente para simplificar." }];
+      if (mode === "reflect") return [{ type: "questions", items: ["Qual ideia central você quer reter desta página?", "Que parte ficou menos clara?", "Como você explicaria isso com suas próprias palavras?"] }];
+      return [{ type: "text", text: freeText ? 'Entendi sua pergunta: "' + freeText + '". Posso ajudar a organizar ou aprofundar isso com base nas suas notas.' : "Escreva uma pergunta ou use um modo acima." }];
+    }
+
+    async function callAgent(mode, freeText) {
+      const noteContent = editorSurface.innerText;
+      showTyping();
+      try {
+        const res = await fetch('/api/workspace/agent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode, freeText, noteContent })
+        });
+        if (!res.ok) throw new Error("fallback");
+        const data = await res.json();
+        hideTyping();
+        appendAgentBlocks(data.blocks || data.agent_response || localAgentFallback(mode, noteContent, freeText));
+      } catch (e) {
+        hideTyping();
+        appendAgentBlocks(localAgentFallback(mode, noteContent, freeText));
+      }
+    }
+
+    async function submitName(name) {
+      const cleaned = (name || "").trim();
+      if (!cleaned) return;
+      try {
+        await fetch('/api/workspace/identify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: cleaned })
+        });
+      } catch (e) { }
+      navUserName.textContent = cleaned;
+      navUserName.dataset.custom = "1";
+      localStorage.setItem("workspace_user_name", cleaned);
+      nameOverlay.classList.remove("visible");
+    }
+
+    function downloadPDF() {
+      const originalTitle = document.title;
+      const noteName = (noteTitle.value || "caderno-cs-hub").trim().replace(/[\\/:*?"<>|]+/g, "-");
+      document.title = noteName;
+
+      updateSaveStatus("saved");
+      window.print();
+
+      setTimeout(() => {
+        document.title = originalTitle;
+      }, 1000);
+    }
+
+    async function initWorkspace() {
+      applyLanguage();
+
+      const localName = localStorage.getItem("workspace_user_name");
+      if (localName) {
+        navUserName.textContent = localName;
+        navUserName.dataset.custom = "1";
+      } else {
+        navUserName.textContent = t("navUserAnonymous");
+      }
+
+      const localTitle = localStorage.getItem("workspace_note_title");
+      const localHTML = localStorage.getItem("workspace_note_html");
+      if (localTitle) noteTitle.value = localTitle;
+      if (localHTML) setEditorHTML(localHTML);
+
+      try {
+        const res = await fetch('/api/workspace');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.user && data.user.name) {
+            navUserName.textContent = data.user.name;
+            navUserName.dataset.custom = "1";
+          } else if (!localName) {
+            nameOverlay.classList.add('visible');
           }
-          return el;
-        }
 
-        function esc(str) {
-          return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          if (data.note && data.note.title && !noteTitle.value) noteTitle.value = data.note.title;
+          if (data.note && data.note.content && !getEditorHTML().trim()) setEditorHTML(data.note.content);
         }
+      } catch (e) {
+        if (!localName) nameOverlay.classList.add('visible');
+      }
 
-        init();
-      </script>
-      <script src="/js/translations.js"></script>
-      <script src="/js/i18n.js"></script>
+      setPaperMode(localStorage.getItem("workspace_paper_mode") || "lined");
+      setHandwritingMode(localStorage.getItem("workspace_handwriting") === "1");
+      setTheme(localStorage.getItem("workspace_theme") || "default");
+      updateWordCount();
+      rerenderMath(editorSurface);
+    }
+
+    document.getElementById("navUser").addEventListener("click", function () {
+      nameOverlay.classList.add("visible");
+    });
+
+    document.getElementById("nameSubmit").addEventListener("click", function () {
+      submitName(document.getElementById("nameInput").value);
+    });
+    document.getElementById("nameInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") submitName(e.target.value);
+    });
+    document.getElementById("nameSkip").addEventListener("click", function () {
+      nameOverlay.classList.remove("visible");
+    });
+
+    noteTitle.addEventListener("input", markDirty);
+    editorSurface.addEventListener("input", markDirty);
+    editorSurface.addEventListener("click", function (e) {
+      const chip = e.target.closest(".formula-chip");
+      if (chip) openFormulaModal(chip);
+    });
+
+    document.querySelectorAll("[data-cmd]").forEach(function (btn) {
+      btn.addEventListener("click", function () { exec(btn.dataset.cmd); });
+    });
+
+    document.getElementById("blockStyle").addEventListener("change", function (e) { setBlock(e.target.value); });
+    document.getElementById("highlightBtn").addEventListener("click", function () { exec("hiliteColor", "rgba(255,204,102,0.35)"); });
+    document.getElementById("bulletBtn").addEventListener("click", function () { exec("insertUnorderedList"); });
+    document.getElementById("numberBtn").addEventListener("click", function () { exec("insertOrderedList"); });
+    document.getElementById("checkBtn").addEventListener("click", insertChecklist);
+    document.getElementById("quoteBtn").addEventListener("click", function () { setBlock("blockquote"); });
+    document.getElementById("codeBtn").addEventListener("click", insertCodeBlock);
+    document.getElementById("dividerBtn").addEventListener("click", insertDivider);
+    document.getElementById("formulaBtn").addEventListener("click", function () { openFormulaModal(null); });
+    document.getElementById("handBtn").addEventListener("click", function () {
+      setHandwritingMode(!editorSurface.classList.contains("handwriting"));
+      markDirty();
+    });
+    document.getElementById("themeBtn").addEventListener("click", function () {
+      const next = document.body.classList.contains("theme-blackboard") ? "default" : "blackboard";
+      setTheme(next);
+      markDirty();
+    });
+
+    document.querySelectorAll(".paper-mode-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () { setPaperMode(btn.dataset.paper); });
+    });
+
+    formulaInput.addEventListener("input", function () {
+      const val = formulaInput.value.trim();
+      formulaPreview.innerHTML = val ? '\\(' + val + '\\)' : t("formulaPreviewEmpty");
+      rerenderMath(formulaPreview);
+    });
+    document.getElementById("formulaCancel").addEventListener("click", closeFormulaModal);
+    document.getElementById("formulaInsert").addEventListener("click", function () { insertFormula(formulaInput.value); });
+    formulaModal.addEventListener("click", function (e) { if (e.target === formulaModal) closeFormulaModal(); });
+
+    document.getElementById("saveBtn").addEventListener("click", saveNote);
+
+    document.querySelectorAll(".mode-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () { callAgent(btn.dataset.mode, ""); });
+    });
+
+    document.getElementById("agentSend").addEventListener("click", function () {
+      const input = document.getElementById("agentInput");
+      const text = input.value.trim();
+      if (!text) return;
+      callAgent("free", text);
+      input.value = "";
+      input.style.height = "auto";
+    });
+
+    document.getElementById("agentInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById("agentSend").click();
+      }
+    });
+
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        currentLang = btn.dataset.lang;
+        localStorage.setItem("cshub_language", currentLang);
+        applyLanguage();
+      });
+    });
+
+    initWorkspace();
+  </script>
 </body>
 
 </html>

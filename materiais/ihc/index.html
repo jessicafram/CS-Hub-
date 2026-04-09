@@ -10,6 +10,136 @@
     <link rel="stylesheet" href="../../style.css">
 
     <style>
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 28px;
+            background: rgba(8, 12, 17, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-breadcrumb-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-breadcrumb-link:hover {
+            color: #fff;
+        }
+
+        .nav-separator {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .nav-current {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.10);
+        }
+
+        .nav-user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-family: "Fira Code", monospace;
+            font-size: 0.78rem;
+        }
+
+        .nav-user-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .top-navbar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .nav-center {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
         /* --- LAYOUT EM DUAS COLUNAS --- */
         .dashboard-layout {
             display: grid;
@@ -240,21 +370,30 @@
 
 <body class="notion-theme">
 
-    <nav class="top-navbar"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
-                data-i18n="materials_nav_home">🏠 CS Hub</a>
-            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
-            <span style="color: #e74c3c; font-size: 0.9rem; font-weight: bold;"
-                data-i18n="materials_nav_master">Mestrado (IHC)</span>
+    <nav class="top-navbar">
+        <a href="../../hub.html" class="nav-brand">
+            <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <div class="nav-center">
+            <a href="../../hub.html" class="nav-breadcrumb-link" data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_nav_master">Mestrado (IHC)</span>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_nav_specialization">Especialização</span>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;"
-            data-i18n="materials_nav_specialization">Especialização</span>
-        <div class="lang-switcher">
-            <button class="lang-btn" data-lang="pt-br">PT</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="es">ES</button>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+
+            <div class="nav-user-badge">
+                <span class="nav-user-dot"></span>
+                <span class="nav-user-name">Jéssica</span>
+            </div>
         </div>
     </nav>
 
@@ -282,11 +421,14 @@
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        01</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Paradigmas Contemporâneos</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Da evolução das GUIs à arquitetura de APIs
-                        e Voz.</p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_01_label">01</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_01_title">Paradigmas
+                        Contemporâneos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_01_desc">Da
+                        evolução das GUIs à arquitetura de APIs e Voz.</p>
                 </div>
                 <a href="modulo-01/1-1-fundamentos.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_unit">Acessar Unidade ▶</a>
@@ -296,10 +438,14 @@
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        02</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Acessibilidade Profunda</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Engenharia semiótica e Diretrizes WCAG.</p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_02_label">02</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_02_title">Acessibilidade
+                        Profunda</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_02_desc">
+                        Engenharia semiótica e Diretrizes WCAG.</p>
                 </div>
                 <a href="modulo-02/2-1-engenharia-semiotica.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_unit">Acessar Unidade ▶</a>
@@ -309,25 +455,31 @@
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        03</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Ergonomia Física e Cognitiva</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Carga cognitiva em Dashboards e segurança.
-                    </p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_03_label">03</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_03_title">Ergonomia Física e
+                        Cognitiva</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_03_desc">
+                        Carga cognitiva em Dashboards e segurança.</p>
                 </div>
-                <a href="modulo-03/3-1-fundamentos-cognitivos.html" class="btn-access btn-secondary">Acessar Unidade
-                    ▶</a>
+                <a href="modulo-03/3-1-fundamentos-cognitivos.html" class="btn-access btn-secondary"
+                    data-i18n="materials_access_unit">Acessar Unidade ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #e74c3c;">
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        04</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Design Centrado no Usuário (DCU)</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Metodologias, Personas Data-Driven e
-                        priorização SMART.</p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_04_label">04</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_04_title">Design Centrado no
+                        Usuário (DCU)</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_04_desc">
+                        Metodologias, Personas Data-Driven e priorização SMART.</p>
                 </div>
                 <a href="modulo-04/4-1-metodologia-dcu.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_unit">Acessar Unidade ▶</a>
@@ -337,56 +489,65 @@
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        05</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Prototipagem e Low-Code</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Wireframes e automação de fluxos com n8n.
-                    </p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_05_label">05</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_05_title">Prototipagem e
+                        Low-Code</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_05_desc">
+                        Wireframes e automação de fluxos com n8n.</p>
                 </div>
                 <a href="modulo-05/5-1-wireframes-e-baixa-fidelidade.html" class="btn-access btn-secondary"
-                    data-i18n="materials_access_unit">Acessar
-                    Unidade ▶</a>
+                    data-i18n="materials_access_unit">Acessar Unidade ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #e74c3c;">
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        06</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Análise e Testes em Escala</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Heurísticas de Nielsen e Telemetria de
-                        Dados.</p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_06_label">06</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_06_title">Análise e Testes em
+                        Escala</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_06_desc">
+                        Heurísticas de Nielsen e Telemetria de Dados.</p>
                 </div>
                 <a href="modulo-06/6-1-heuristicas-de-nielsen.html" class="btn-access btn-secondary"
-                    data-i18n="materials_access_unit">Acessar Unidade
-                    ▶</a>
+                    data-i18n="materials_access_unit">Acessar Unidade ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #e74c3c;">
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        07</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Engenharia de Interfaces Gráficas</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Princípios de UI Design e Componentização.
-                    </p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_07_label">07</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_07_title">Engenharia de
+                        Interfaces Gráficas</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_07_desc">
+                        Princípios de UI Design e Componentização.</p>
                 </div>
                 <a href="modulo-07/7-1-principios-de-ui-design.html" class="btn-access btn-secondary"
-                    data-i18n="materials_access_unit">Acessar Unidade
-                    ▶</a>
+                    data-i18n="materials_access_unit">Acessar Unidade ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #e74c3c;">
                 <div>
                     <span
                         style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_unit">UNIDADE
-                        08</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Laboratório Prático (Capstone)</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O desafio final integrando IHC e
-                        Engenharia.</p>
+                        data-i18n="materials_unit">UNIDADE</span>
+                    <span
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
+                        data-i18n="materials_ihc_unit_08_label">08</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_ihc_unit_08_title">Laboratório Prático
+                        (Capstone)</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;" data-i18n="materials_ihc_unit_08_desc">O
+                        desafio final integrando IHC e Engenharia.</p>
                 </div>
                 <a href="modulo-08/8-1-laboratorio-pratico.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_unit">Acessar Unidade ▶</a>
@@ -400,19 +561,20 @@
                     <h2 style="margin: 0; color: #e74c3c; font-size: 1.4rem;" data-i18n="materials_training_area">🧪 UX
                         Lab: Estudos de Caso</h2>
                 </div>
-                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;">Selecione uma análise heurística para
-                    treinar a sua visão crítica de Design de Interfaces.</p>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 25px;"
+                    data-i18n="materials_ihc_training_intro">Selecione uma análise heurística para treinar a sua visão
+                    crítica de Design de Interfaces.</p>
 
                 <div class="training-card" style="border-left: 4px solid #e74c3c;">
                     <span
-                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">TREINO
-                        HEURÍSTICO</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Leis de Nielsen na Prática</h3>
-                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">2 Casos Reais de auditoria de
-                        interfaces.</p>
+                        style="color: #e74c3c; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;"
+                        data-i18n="materials_ihc_training_label_01">TREINO HEURÍSTICO</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_ihc_training_01_title">Leis de
+                        Nielsen na Prática</h3>
+                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;"
+                        data-i18n="materials_ihc_training_01_desc">2 Casos Reais de auditoria de interfaces.</p>
                     <button class="btn-access" style="width: 100%;" onclick="openView('view-ux-01')"
-                        data-i18n="materials_start_audit">Iniciar Auditoria
-                        🔍</button>
+                        data-i18n="materials_start_audit">Iniciar Auditoria 🔍</button>
                 </div>
             </div>
 
@@ -421,13 +583,15 @@
                     ao Laboratório</button>
 
                 <div style="margin-bottom: 25px;">
-                    <h3 style="color: #e74c3c; font-size: 1.3rem; margin: 0 0 5px 0;">Auditoria Heurística</h3>
+                    <h3 style="color: #e74c3c; font-size: 1.3rem; margin: 0 0 5px 0;"
+                        data-i18n="materials_ihc_audit_title">Auditoria Heurística</h3>
                 </div>
 
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">01</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Cenário Backend</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_ihc_qtag_backend">Cenário Backend</span>
                     </div>
                     <div class="question-text">
                         Um utilizador preenche um formulário gigante de faturação. Ao clicar em "Salvar", a página
@@ -447,7 +611,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">02</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Cognição</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_ihc_qtag_cognition">Cognição</span>
                     </div>
                     <div class="question-text">
                         O Waze e o Google Maps utilizam um ícone de uma "Lupa" para a funcionalidade de busca, e um
@@ -478,14 +643,33 @@
 
         function toggleAnswer(answerId, buttonElement) {
             const answerBox = document.getElementById(answerId);
+            const lang = localStorage.getItem("cshub_language") || "pt-br";
+
+            const labels = {
+                "pt-br": {
+                    reveal: "Revelar Parecer Técnico",
+                    hide: "Ocultar Parecer 🙈"
+                },
+                "en": {
+                    reveal: "Reveal Technical Review",
+                    hide: "Hide Review 🙈"
+                },
+                "es": {
+                    reveal: "Mostrar Dictamen Técnico",
+                    hide: "Ocultar Dictamen 🙈"
+                }
+            };
+
+            const copy = labels[lang] || labels["pt-br"];
+
             if (answerBox.style.display === "none" || answerBox.style.display === "") {
                 answerBox.style.display = "block";
-                buttonElement.innerHTML = "Ocultar Parecer 🙈";
+                buttonElement.innerHTML = copy.hide;
                 buttonElement.style.color = "#888";
                 buttonElement.style.borderColor = "rgba(255,255,255,0.1)";
             } else {
                 answerBox.style.display = "none";
-                buttonElement.innerHTML = "Revelar Parecer Técnico";
+                buttonElement.innerHTML = copy.reveal;
                 buttonElement.style.color = "#e74c3c";
                 buttonElement.style.borderColor = "#e74c3c";
             }

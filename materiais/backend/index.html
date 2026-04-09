@@ -10,6 +10,137 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../../style.css">
     <style>
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 28px;
+            background: rgba(8, 12, 17, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-breadcrumb-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-breadcrumb-link:hover {
+            color: #fff;
+        }
+
+        .nav-separator {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .nav-current {
+            color: #2ecc71;
+            /* Cor verde padrão do CS Hub */
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.10);
+        }
+
+        .nav-user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-family: "Fira Code", monospace;
+            font-size: 0.78rem;
+        }
+
+        .nav-user-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .top-navbar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .nav-center {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
         .backend-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -83,19 +214,31 @@
 </head>
 
 <body class="notion-theme">
-    <nav class="top-navbar"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
-                data-i18n="materials_nav_home">🏠 CS Hub</a>
-            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
-            <span style="color: var(--accent); font-size: 0.9rem; font-weight: bold;"
-                data-i18n="materials_backend_title">Masterclass Backend</span>
+    <nav class="top-navbar">
+        <a href="../../hub.html" class="nav-brand">
+            <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <div class="nav-center">
+            <a href="../../hub.html" class="nav-breadcrumb-link" data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_backend_title">Masterclass Backend</span>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_backend_badge">CURSO DE EXTENSÃO</span>
         </div>
-        <div class="lang-switcher">
-            <button class="lang-btn" data-lang="pt-br">PT</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="es">ES</button>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+
+            <div class="nav-user-badge">
+                <span class="nav-user-dot"></span>
+                <span class="nav-user-name">Jéssica</span>
+            </div>
+        </div>
     </nav>
 
     <main class="content-wrapper" style="max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
@@ -129,74 +272,77 @@
 
             <div class="backend-grid">
                 <a href="modulo-01/1-1-problema-pagamentos.html" class="module-card">
-                    <span class="module-number">01</span>
-                    <span class="module-title">O Problema dos Pagamentos</span>
-                    <span class="module-desc">Gateways, fluxos de autorização e os riscos do ambiente financeiro
-                        distribuído[cite: 12, 285, 303, 322].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_01_label">01</span>
+                    <span class="module-title" data-i18n="materials_backend_module_01_title">O Problema dos
+                        Pagamentos</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_01_desc">Gateways, fluxos de
+                        autorização e os riscos do ambiente financeiro distribuído[cite: 12, 285, 303, 322].</span>
                 </a>
 
                 <a href="modulo-02/2-1-arquitetura-camadas.html" class="module-card">
-                    <span class="module-number">02</span>
-                    <span class="module-title">Arquitetura da API</span>
-                    <span class="module-desc">Service Layer e Separação de Responsabilidades (SoC) com Robert C.
-                        Martin[cite: 25, 36, 38, 521].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_02_label">02</span>
+                    <span class="module-title" data-i18n="materials_backend_module_02_title">Arquitetura da API</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_02_desc">Service Layer e Separação de
+                        Responsabilidades (SoC) com Robert C. Martin[cite: 25, 36, 38, 521].</span>
                 </a>
 
                 <a href="modulo-03/3-1-modelagem-banco.html" class="module-card">
-                    <span class="module-number">03</span>
-                    <span class="module-title">Modelagem do Banco</span>
-                    <span class="module-desc">Relacionamentos Many-to-Many, tabelas pivot e integridade referencial com
-                        MySQL[cite: 39, 47, 53, 730].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_03_label">03</span>
+                    <span class="module-title" data-i18n="materials_backend_module_03_title">Modelagem do Banco</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_03_desc">Relacionamentos Many-to-Many,
+                        tabelas pivot e integridade referencial com MySQL[cite: 39, 47, 53, 730].</span>
                 </a>
 
                 <a href="modulo-04/4-1-acid-transacoes.html" class="module-card">
-                    <span class="module-number">04</span>
-                    <span class="module-title">Consistência e ACID</span>
-                    <span class="module-desc">Como garantir que operações financeiras ocorram por completo ou não
-                        ocorram (Rollback)[cite: 54, 58, 60, 901].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_04_label">04</span>
+                    <span class="module-title" data-i18n="materials_backend_module_04_title">Consistência e ACID</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_04_desc">Como garantir que operações
+                        financeiras ocorram por completo ou não ocorram (Rollback)[cite: 54, 58, 60, 901].</span>
                 </a>
 
                 <a href="modulo-05/5-1-idempotencia.html" class="module-card">
-                    <span class="module-number">05</span>
-                    <span class="module-title">Idempotência</span>
-                    <span class="module-desc">Implementando Idempotency-Key para evitar cobranças duplicadas em retries
-                        de rede[cite: 67, 73, 1071, 1085].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_05_label">05</span>
+                    <span class="module-title" data-i18n="materials_backend_module_05_title">Idempotência</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_05_desc">Implementando Idempotency-Key
+                        para evitar cobranças duplicadas em retries de rede[cite: 67, 73, 1071, 1085].</span>
                 </a>
 
                 <a href="modulo-06/6-1-resiliencia-failover.html" class="module-card">
-                    <span class="module-number">06</span>
-                    <span class="module-title">Resiliência e Failover</span>
-                    <span class="module-desc">Estratégias de tolerância a falhas para manter o sistema vivo quando o
-                        gateway cai[cite: 77, 87, 1243, 1276].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_06_label">06</span>
+                    <span class="module-title" data-i18n="materials_backend_module_06_title">Resiliência e
+                        Failover</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_06_desc">Estratégias de tolerância a
+                        falhas para manter o sistema vivo quando o gateway cai[cite: 77, 87, 1243, 1276].</span>
                 </a>
 
                 <a href="modulo-07/7-1-seguranca-rbac.html" class="module-card">
-                    <span class="module-number">07</span>
-                    <span class="module-title">Segurança (RBAC)</span>
-                    <span class="module-desc">Controle de acesso baseado em papéis (ADMIN, FINANCE, USER) e Principle of
-                        Least Privilege[cite: 88, 89, 96, 1441].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_07_label">07</span>
+                    <span class="module-title" data-i18n="materials_backend_module_07_title">Segurança (RBAC)</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_07_desc">Controle de acesso baseado em
+                        papéis (ADMIN, FINANCE, USER) e Principle of Least Privilege[cite: 88, 89, 96, 1441].</span>
                 </a>
 
                 <a href="modulo-08/8-1-typescript-tipagem.html" class="module-card">
-                    <span class="module-number">08</span>
-                    <span class="module-title">TypeScript em APIs</span>
-                    <span class="module-desc">Garantindo contratos de API seguros, refatoração confiável e segurança de
-                        tipos[cite: 97, 101, 1636, 1739].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_08_label">08</span>
+                    <span class="module-title" data-i18n="materials_backend_module_08_title">TypeScript em APIs</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_08_desc">Garantindo contratos de API
+                        seguros, refatoração confiável e segurança de tipos[cite: 97, 101, 1636, 1739].</span>
                 </a>
 
                 <a href="modulo-09/9-1-escalabilidade.html" class="module-card">
-                    <span class="module-number">09</span>
-                    <span class="module-title">Escalabilidade</span>
-                    <span class="module-desc">Filas, mensageria (Kafka/RabbitMQ) e observabilidade para milhões de
-                        requisições[cite: 1766, 1782, 1843, 1872].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_09_label">09</span>
+                    <span class="module-title" data-i18n="materials_backend_module_09_title">Escalabilidade</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_09_desc">Filas, mensageria
+                        (Kafka/RabbitMQ) e observabilidade para milhões de requisições[cite: 1766, 1782, 1843,
+                        1872].</span>
                 </a>
 
                 <a href="modulo-10/10-1-fluxo-completo.html" class="module-card"
                     style="border-color: var(--accent); background: rgba(46, 204, 113, 0.1);">
-                    <span class="module-number">10</span>
-                    <span class="module-title">Fluxo Completo</span>
-                    <span class="module-desc">A anatomia final: do clique no botão de compra até o commit final no banco
-                        de dados[cite: 1969, 1981, 2185].</span>
+                    <span class="module-number" data-i18n="materials_backend_module_10_label">10</span>
+                    <span class="module-title" data-i18n="materials_backend_module_10_title">Fluxo Completo</span>
+                    <span class="module-desc" data-i18n="materials_backend_module_10_desc">A anatomia final: do clique
+                        no botão de compra até o commit final no banco de dados[cite: 1969, 1981, 2185].</span>
                 </a>
             </div>
         </section>

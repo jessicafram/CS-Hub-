@@ -13,6 +13,136 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
+        .top-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 28px;
+            background: rgba(8, 12, 17, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-breadcrumb-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-breadcrumb-link:hover {
+            color: #fff;
+        }
+
+        .nav-separator {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .nav-current {
+            color: #3498db;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Fira Code", monospace;
+            transition: all 0.15s;
+        }
+
+        .lang-btn:hover {
+            color: #e6edf3;
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .lang-btn.active {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.35);
+            background: rgba(46, 204, 113, 0.10);
+        }
+
+        .nav-user-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-family: "Fira Code", monospace;
+            font-size: 0.78rem;
+        }
+
+        .nav-user-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .top-navbar {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+            }
+
+            .nav-center {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
         /* --- LAYOUT EM DUAS COLUNAS --- */
         .dashboard-layout {
             display: grid;
@@ -260,21 +390,30 @@
 
 <body class="notion-theme">
 
-    <nav class="top-navbar"
-        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(11, 15, 20, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="../../index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem;"
-                data-i18n="materials_nav_home">🏠 CS Hub</a>
-            <span style="color: #555;" data-i18n="materials_nav_separator">/</span>
-            <span style="color: #3498db; font-size: 0.9rem; font-weight: bold;"
-                data-i18n="materials_nav_computing">Ciência da Computação</span>
+    <nav class="top-navbar">
+        <a href="../../index.html" class="nav-brand">
+            <img src="/assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <div class="nav-center">
+            <a href="../../index.html" class="nav-breadcrumb-link" data-i18n="materials_nav_home">🏠 CS Hub</a>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_nav_computing">Ciência da Computação</span>
+            <span class="nav-separator" data-i18n="materials_nav_separator">/</span>
+            <span class="nav-current" data-i18n="materials_nav_period">1º Período</span>
         </div>
-        <span class="jessica-signature" style="font-size: 1.2rem; opacity: 0.8;" data-i18n="materials_nav_period">1º
-            Período</span>
-        <div class="lang-switcher">
-            <button class="lang-btn" data-lang="pt-br">PT</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="es">ES</button>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+
+            <div class="nav-user-badge">
+                <span class="nav-user-dot"></span>
+                <span class="nav-user-name">jessica</span>
+            </div>
         </div>
     </nav>
 
@@ -298,7 +437,8 @@
 
             <h2 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 30px;"
                 data-i18n="materials_discreta_section_title">
-                Ementa do Curso</h2>
+                Ementa do Curso
+            </h2>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
                 <div>
@@ -307,8 +447,10 @@
                         data-i18n="materials_module">MÓDULO</span>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">01</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Fundamentos da Lógica</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Lógica Proposicional, Tabelas-Verdade e
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_01_title">Fundamentos
+                        da Lógica</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_01_desc">Lógica Proposicional, Tabelas-Verdade e
                         Quantificadores.</p>
                 </div>
                 <a href="modulo-01/1-1-fundamentos-logica.html" class="btn-access btn-secondary"
@@ -322,8 +464,10 @@
                         data-i18n="materials_module">MÓDULO</span>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">02</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Teoria dos Conjuntos</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">A base matemática para Bancos de Dados
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_02_title">Teoria dos
+                        Conjuntos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_02_desc">A base matemática para Bancos de Dados
                         Relacionais.</p>
                 </div>
                 <a href="modulo-02/2-1-teoria-conjuntos.html" class="btn-access btn-secondary"
@@ -334,11 +478,14 @@
                 <div>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_module">MÓDULO
-                        03</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Indução e Recursividade</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Entendendo funções recursivas e loops na
-                        memória.</p>
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">03</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_03_title">Indução e
+                        Recursividade</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_03_desc">Entendendo funções recursivas e loops na memória.
+                    </p>
                 </div>
                 <a href="modulo-03/3-1-inducao-recursividade.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_lesson">Acessar Aula ▶</a>
@@ -348,43 +495,48 @@
                 <div>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_module">MÓDULO
-                        04</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Análise Combinatória</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O Guia Definitivo de Interpretação:
-                        Arranjo, Permutação e Combinação.</p>
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">04</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_04_title">Análise
+                        Combinatória</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_04_desc">O Guia Definitivo de Interpretação: Arranjo,
+                        Permutação e Combinação.</p>
                 </div>
                 <a href="modulo-04/4-1-analise-combinatoria-e-contagem.html" class="btn-access btn-secondary"
-                    data-i18n="materials_access_lesson">Acessar
-                    Aula ▶</a>
+                    data-i18n="materials_access_lesson">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
                 <div>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_module">MÓDULO
-                        05</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Probabilidade Discreta</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">O alicerce da Inteligência
-                        Artificial e
-                        Machine Learning.</p>
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">05</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_05_title">Probabilidade
+                        Discreta</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_05_desc">O alicerce da Inteligência Artificial e Machine
+                        Learning.</p>
                 </div>
                 <a href="modulo-05/5-1-probabilidade-discreta.html" class="btn-access btn-secondary"
-                    data-i18n="materials_access_lesson">Acessar
-                    Aula ▶</a>
+                    data-i18n="materials_access_lesson">Acessar Aula ▶</a>
             </div>
 
             <div class="module-card" style="border-left: 4px solid #3498db;">
                 <div>
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;"
-                        data-i18n="materials_module">MÓDULO
-                        06</span>
-                    <h3 style="color: #fff; margin: 5px 0;">Teoria dos Grafos</h3>
-                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;">Algoritmos de rotas, redes sociais
-                        e
-                        estruturas de alta performance.</p>
+                        data-i18n="materials_module">MÓDULO</span>
+                    <span
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold;">06</span>
+                    <h3 style="color: #fff; margin: 5px 0;" data-i18n="materials_discreta_module_06_title">Teoria dos
+                        Grafos</h3>
+                    <p style="color: #cbd5e1; margin: 0; font-size: 0.9rem;"
+                        data-i18n="materials_discreta_module_06_desc">Algoritmos de rotas, redes sociais e estruturas de
+                        alta performance.</p>
                 </div>
                 <a href="modulo-06/6-1-teoria-grafos.html" class="btn-access btn-secondary"
                     data-i18n="materials_access_lesson">Acessar Aula ▶</a>
@@ -405,25 +557,30 @@
 
                 <div class="training-card" style="border-left: 4px solid #3498db;">
                     <span
-                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;">MÓDULO
-                        01</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Fundamentos da Lógica</h3>
+                        style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;"
+                        data-i18n="materials_discreta_training_label_01">MÓDULO 01</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_01_title">
+                        Fundamentos da Lógica</h3>
                     <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
                         onclick="openView('view-mod-01')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
                 </div>
 
                 <div class="training-card">
-                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 02</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Teoria dos Conjuntos</h3>
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;"
+                        data-i18n="materials_discreta_training_label_02">MÓDULO 02</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_02_title">
+                        Teoria dos Conjuntos</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
                         onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
                 </div>
 
                 <div class="training-card">
-                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;">MÓDULO 03</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Indução e Recursividade</h3>
+                    <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;"
+                        data-i18n="materials_discreta_training_label_03">MÓDULO 03</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_03_title">
+                        Indução e Recursividade</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
                         onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
@@ -432,9 +589,9 @@
                 <div class="training-card" style="border-left: 4px solid #3498db;">
                     <span
                         style="color: #3498db; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: bold;"
-                        data-i18n="materials_module">MÓDULO
-                        04</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Análise Combinatória</h3>
+                        data-i18n="materials_discreta_training_label_04">MÓDULO 04</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_04_title">
+                        Análise Combinatória</h3>
                     <button class="btn-access" style="background: #3498db; color: #fff; width: 100%;"
                         onclick="openView('view-mod-04')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
@@ -442,8 +599,9 @@
 
                 <div class="training-card">
                     <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;"
-                        data-i18n="materials_module">MÓDULO 05</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Probabilidade Discreta</h3>
+                        data-i18n="materials_discreta_training_label_05">MÓDULO 05</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_05_title">
+                        Probabilidade Discreta</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
                         onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
@@ -451,8 +609,9 @@
 
                 <div class="training-card">
                     <span style="color: #888; font-family: 'Fira Code', monospace; font-size: 0.8rem;"
-                        data-i18n="materials_module">MÓDULO 06</span>
-                    <h3 style="color: #fff; margin: 5px 0 10px 0;">Teoria dos Grafos</h3>
+                        data-i18n="materials_discreta_training_label_06">MÓDULO 06</span>
+                    <h3 style="color: #fff; margin: 5px 0 10px 0;" data-i18n="materials_discreta_training_06_title">
+                        Teoria dos Grafos</h3>
                     <button class="btn-access" style="background: rgba(255,255,255,0.1); color: #fff; width: 100%;"
                         onclick="openView('view-generic')" data-i18n="materials_start_simulado">Começar Simulado
                         ▶</button>
@@ -484,7 +643,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">01</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Aquecimento</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_warmup">Aquecimento</span>
                     </div>
                     <div class="question-text">
                         A afirmação: <em>"Se chover amanhã, então eu levarei o guarda-chuva"</em> é um exemplo clássico
@@ -504,7 +664,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">02</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Código Real</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_real_code">Código Real</span>
                     </div>
                     <div class="question-text">
                         Você encontrou a seguinte linha de código no backend: <br><br>
@@ -538,8 +699,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">01</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Infraestrutura de
-                            Servidores</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_server_infra">Infraestrutura de Servidores</span>
                     </div>
                     <div class="question-text">
                         Um data center possui 15 nós de processamento disponíveis. O sistema precisa escolher exatamente
@@ -610,7 +771,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">02</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Segurança de PIN</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_pin_security">Segurança de PIN</span>
                     </div>
                     <div class="question-text">
                         Uma trava de segurança exige um PIN numérico de 4 dígitos (0 a 9). Porém, o sistema foi
@@ -690,8 +852,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">03</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Gestão de Squads
-                            (Estilo UNICAMP)</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_squads">Gestão de Squads (Estilo UNICAMP)</span>
                     </div>
                     <div class="question-text">
                         Uma empresa de tecnologia tem 8 Desenvolvedores Backend e 5 Desenvolvedores Frontend
@@ -746,8 +908,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">04</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Criptografia (Estilo
-                            POSCOMP)</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_crypto">Criptografia (Estilo POSCOMP)</span>
                     </div>
                     <div class="question-text">
                         Um sistema gera tokens de segurança embaralhando todas as letras da palavra
@@ -799,8 +961,8 @@
                 <div class="question-card">
                     <div class="question-header">
                         <div class="question-number">05</div>
-                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;">Redes e Hardware (A
-                            Regra do Bloco)</span>
+                        <span style="color: #888; font-size: 0.8rem; text-transform: uppercase;"
+                            data-i18n="materials_discreta_qtag_networks">Redes e Hardware (A Regra do Bloco)</span>
                     </div>
                     <div class="question-text">
                         Em um rack de servidores recém-comprado, há 5 gavetas (slots) vazias lado a lado. Vamos instalar
@@ -875,14 +1037,33 @@
         // Função para revelar ou esconder o gabarito
         function toggleAnswer(answerId, buttonElement) {
             const answerBox = document.getElementById(answerId);
+            const lang = localStorage.getItem("cshub_language") || "pt-br";
+
+            const labels = {
+                "pt-br": {
+                    reveal: "Já fiz sozinho! Revelar Gabarito",
+                    hide: "Ocultar Gabarito 🙈"
+                },
+                "en": {
+                    reveal: "I already tried! Reveal Answer Key",
+                    hide: "Hide Answer Key 🙈"
+                },
+                "es": {
+                    reveal: "¡Ya lo intenté! Mostrar Respuesta",
+                    hide: "Ocultar Respuesta 🙈"
+                }
+            };
+
+            const copy = labels[lang] || labels["pt-br"];
+
             if (answerBox.style.display === "none" || answerBox.style.display === "") {
                 answerBox.style.display = "block";
-                buttonElement.innerHTML = "Ocultar Gabarito 🙈";
+                buttonElement.innerHTML = copy.hide;
                 buttonElement.style.color = "#888";
                 buttonElement.style.borderColor = "rgba(255,255,255,0.1)";
             } else {
                 answerBox.style.display = "none";
-                buttonElement.innerHTML = "Já fiz sozinho! Revelar Gabarito";
+                buttonElement.innerHTML = copy.reveal;
                 buttonElement.style.color = "#3498db";
                 buttonElement.style.borderColor = "#3498db";
             }
