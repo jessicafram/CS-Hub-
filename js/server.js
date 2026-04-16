@@ -8,7 +8,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const DiscordStrategy = require("passport-discord").Strategy;
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000; // O Replit ama a 3000
 const ROOT_DIR = path.join(__dirname, "..");
 
 // 1. MIDDLEWARES DE PARSE
@@ -35,7 +35,7 @@ const placementRoutes = require('../routes/placement');
 app.use("/api/onboarding", onboardingRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/workspace", workspaceRoutes);
-app.use('/api/english-placement', placementRoutes);
+app.use('/api/placement', placementRoutes);
 
 // 4. CONFIGURAÇÃO DE ARQUIVOS ESTÁTICOS (O Segredo do 404 está aqui)
 // Servindo a pasta de cursos e de dados explicitamente
@@ -61,6 +61,6 @@ app.use((req, res) => {
   res.status(404).send("CS Hub: Caminho não encontrado.");
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 CS Hub running on http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 CS Hub online na porta ${PORT}`);
 });
