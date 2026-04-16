@@ -1,0 +1,2997 @@
+[
+  {
+    "id": "week-1",
+    "faseId": 1,
+    "semana": 1,
+    "titulo": "Week 1 — Digital Identity & The Setup",
+    "objetivo": "The student can create a simple digital identity in English and survive basic onboarding interactions with correct A1 structures.",
+    "rubricaA1": [
+      {
+        "criterio": "Use of a/an",
+        "descricao": "Uses indefinite articles correctly with basic professions and roles such as a developer, an engineer, an analyst.",
+        "criterio_pt": "Uso de a/an",
+        "descricao_pt": "Usa artigos indefinidos corretamente com profissões e cargos básicos, como a developer, an engineer, an analyst."
+      },
+      {
+        "criterio": "To Be affirmative",
+        "descricao": "Builds complete affirmative sentences about identity, role and origin: I am from Brazil. I am a developer.",
+        "criterio_pt": "To Be afirmativo",
+        "descricao_pt": "Constrói frases afirmativas completas sobre identidade, cargo e origem: I am from Brazil. I am a developer."
+      },
+      {
+        "criterio": "To Be negative",
+        "descricao": "Negates basic information correctly: I am not a manager. I am not on-site.",
+        "criterio_pt": "To Be negativo",
+        "descricao_pt": "Nega informações básicas corretamente: I am not a manager. I am not on-site."
+      },
+      {
+        "criterio": "Question-answer pattern",
+        "descricao": "Responds correctly to predictable questions with Yes, I am / No, I am not and can understand Are you...?.",
+        "criterio_pt": "Padrão de pergunta e resposta",
+        "descricao_pt": "Responde corretamente a perguntas previsíveis com Yes, I am / No, I am not e consegue entender Are you...?."
+      },
+      {
+        "criterio": "Core vocabulary",
+        "descricao": "Uses the nuclear lexicon of the week accurately in reading, speaking and writing.",
+        "criterio_pt": "Vocabulário central",
+        "descricao_pt": "Usa o léxico nuclear da semana com precisão na leitura, fala e escrita."
+      },
+      {
+        "criterio": "Final written output",
+        "descricao": "Produces a short professional-style profile with name, country, role and work context.",
+        "criterio_pt": "Entrega escrita final",
+        "descricao_pt": "Produz um perfil curto em estilo profissional com nome, país, cargo e contexto de trabalho."
+      },
+      {
+        "criterio": "Listening comprehension",
+        "descricao": "Recognizes short controlled sentences and extracts identity and role information from slow spoken input.",
+        "criterio_pt": "Compreensão auditiva",
+        "descricao_pt": "Reconhece frases curtas e controladas e extrai informações de identidade e cargo a partir de áudios lentos."
+      }
+    ],
+    "aulas": [
+      {
+        "id": "1.1",
+        "subtitulo": "Hello, World — Names, Roles and A/An",
+        "lessonMeta": {
+          "focus": "Introduce basic professional identity and articles with roles.",
+          "canDo": "The student can say their role with a/an correctly in simple sentences.",
+          "structures": [
+            "I am a developer.",
+            "I am an engineer.",
+            "I am an analyst."
+          ],
+          "outputTargets": [
+            "Choose a/an correctly with professions.",
+            "Say one complete role sentence.",
+            "Recognize the same structure in a sign-up text."
+          ]
+        },
+        "teacherNotes": {
+          "focus": "Introduce professional identity using articles before professions.",
+          "tips": [
+            "Start with visual identity cards or badges before grammar explanation.",
+            "Model the contrast a developer vs an engineer several times out loud.",
+            "Correct errors immediately because article choice fossilizes very quickly at beginner level."
+          ],
+          "supportPhrases": [
+            "Say your role in one complete sentence.",
+            "Use a or an before the profession.",
+            "Listen to the beginning sound: developer, engineer, analyst."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Introduzir a identidade profissional usando artigos antes das profissões.",
+          "tips": [
+            "Comece com cartões de identidade visual ou crachás antes de dar a explicação gramatical.",
+            "Modele o contraste entre 'a developer' e 'an engineer' várias vezes em voz alta.",
+            "Corrija os erros imediatamente, pois a escolha do artigo fossiliza muito rápido no nível iniciante."
+          ],
+          "supportPhrases": [
+            "Diga o seu cargo em uma frase completa.",
+            "Use 'a' ou 'an' antes da profissão.",
+            "Preste atenção ao som inicial: developer, engineer, analyst."
+          ]
+        },
+        "theory": {
+          "title": "A/An with professions and roles",
+          "intro": "In English, professions usually appear with an article after the verb to be. This is the first building block of a digital professional identity.",
+          "content": [
+            "Use a before a consonant sound: a developer, a designer.",
+            "Use an before a vowel sound: an engineer, an analyst.",
+            "For A1, focus on fixed useful chunks instead of abstract grammar terminology."
+          ],
+          "examples": [
+            "I am a developer.",
+            "I am a designer.",
+            "I am an engineer.",
+            "I am an analyst."
+          ],
+          "commonMistakes": [
+            "Incorrect: I am a engineer.",
+            "Incorrect: I am an developer.",
+            "Incorrect: I am engineer."
+          ]
+        },
+        "theory_pt": {
+          "title": "A/An com profissões e cargos",
+          "intro": "Em inglês, as profissões geralmente aparecem com um artigo após o verbo 'to be'. Este é o primeiro bloco de construção de uma identidade profissional digital.",
+          "content": [
+            "Use 'a' antes de som de consoante: a developer, a designer.",
+            "Use 'an' antes de som de vogal: an engineer, an analyst.",
+            "Para o nível A1, foque em blocos fixos úteis em vez de terminologia gramatical abstrata."
+          ],
+          "examples": [
+            "Eu sou um desenvolvedor.",
+            "Eu sou um designer.",
+            "Eu sou um engenheiro.",
+            "Eu sou um analista."
+          ],
+          "commonMistakes": [
+            "Incorreto: I am a engineer.",
+            "Incorreto: I am an developer.",
+            "Incorreto: I am engineer."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "developer",
+            "pt": "desenvolvedor(a)"
+          },
+          {
+            "en": "designer",
+            "pt": "designer"
+          },
+          {
+            "en": "engineer",
+            "pt": "engenheiro(a)"
+          },
+          {
+            "en": "analyst",
+            "pt": "analista"
+          },
+          {
+            "en": "profile",
+            "pt": "perfil"
+          },
+          {
+            "en": "role",
+            "pt": "cargo / função"
+          },
+          {
+            "en": "team",
+            "pt": "equipe"
+          },
+          {
+            "en": "company",
+            "pt": "empresa"
+          }
+        ],
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> build your first professional identity in English.<br><br>Use <strong>a</strong> before a consonant sound and <strong>an</strong> before a vowel sound.<br><br><strong>a developer</strong><br><strong>a designer</strong><br><strong>an engineer</strong><br><strong>an analyst</strong><br><br>Now choose the correct professional phrase.",
+          "options": [
+            {
+              "text": "I am an engineer.",
+              "correct": true,
+              "feedback": "Excellent. <strong>An engineer</strong> is correct because engineer begins with a vowel sound."
+            },
+            {
+              "text": "I am a engineer.",
+              "correct": false,
+              "feedback": "Not correct. We do not say <strong>a engineer</strong>. The correct form is <strong>an engineer</strong>."
+            },
+            {
+              "text": "I am an developer.",
+              "correct": false,
+              "feedback": "Close, but not correct. <strong>Developer</strong> takes <strong>a</strong>: <strong>I am a developer.</strong>"
+            }
+          ]
+        },
+        "reading": {
+          "title": "Tech Reading — Sign-Up Card",
+          "en": "Create your profile. Enter your full name, your email address and your role. Example: I am a developer. I am an engineer. Join your team and complete your account setup.",
+          "pt": "Crie o seu perfil. Insira o seu nome completo, o seu email e a sua função. Exemplo: Eu sou desenvolvedor(a). Eu sou engenheiro(a). Entre na sua equipe e conclua a configuração da sua conta.",
+          "task": "Reading task: identify two role expressions with the correct article."
+        },
+        "listening": {
+          "title": "Listening Lab — Roles",
+          "instructions": "Play the audio and listen to three professional identity sentences.",
+          "text": "I am a developer. I am an engineer. I am an analyst.",
+          "transcript": "I am a developer. I am an engineer. I am an analyst.",
+          "question": "Choose the sentence that matches the listening pattern correctly:",
+          "options": [
+            "I am an engineer.",
+            "I am a engineer.",
+            "I am an developer."
+          ],
+          "answer": "I am an engineer.",
+          "lang": "en-US",
+          "rate": 0.82
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct sentence for a professional profile:",
+          "options": [
+            "I am an analyst.",
+            "I am a analyst.",
+            "I am analyst."
+          ],
+          "answer": "I am an analyst.",
+          "helpText": "Focus on article + profession as one fixed chunk."
+        }
+      },
+      {
+        "id": "1.2",
+        "subtitulo": "The Core Engine — To Be (Affirmative and Negative)",
+        "lessonMeta": {
+          "focus": "Build full identity sentences with to be in the affirmative and negative.",
+          "canDo": "The student can say where they are from, what they do and what they are not.",
+          "structures": [
+            "I am from Brazil.",
+            "I am a junior developer.",
+            "I am not a manager."
+          ],
+          "outputTargets": [
+            "Say country + role in one sentence.",
+            "Use I am not in a clear negative sentence.",
+            "Recognize the same forms in a mini bio."
+          ]
+        },
+        "teacherNotes": {
+          "focus": "Consolidate personal and professional identity using complete A1 sentences.",
+          "tips": [
+            "Use substitution drills: country, role and work mode can change while the sentence frame stays stable.",
+            "Show both full and contracted forms, but evaluate the full structure first.",
+            "Avoid abstract grammar labels; the goal is sentence production, not terminology."
+          ],
+          "supportPhrases": [
+            "Use I am in every full sentence.",
+            "Now make the sentence negative.",
+            "Say the whole sentence, not only one word."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Consolidar a identidade pessoal e profissional usando frases completas de nível A1.",
+          "tips": [
+            "Use exercícios de substituição: país, cargo e modo de trabalho podem mudar enquanto a estrutura da frase permanece estável.",
+            "Mostre tanto as formas completas quanto as contraídas, mas avalie primeiro a estrutura completa.",
+            "Evite rótulos gramaticais abstratos; o objetivo é a produção de frases, não a terminologia."
+          ],
+          "supportPhrases": [
+            "Use 'I am' em cada frase completa.",
+            "Agora torne a frase negativa.",
+            "Diga a frase inteira, não apenas uma palavra."
+          ]
+        },
+        "theory": {
+          "title": "To Be: affirmative and negative identity",
+          "intro": "The verb to be is the core engine of self-presentation at A1 level. With it, the student can express identity, origin, role and basic professional status.",
+          "content": [
+            "Use I am to identify yourself: I am from Brazil. I am a student. I am remote.",
+            "Use I am not to negate information: I am not a manager. I am not on-site."
+          ],
+          "examples": [
+            "I am from Brazil.",
+            "I am a junior developer.",
+            "I am remote.",
+            "I am not a manager."
+          ],
+          "commonMistakes": [
+            "Incorrect: I from Brazil.",
+            "Incorrect: I not a manager.",
+            "Incorrect: I am not manager."
+          ]
+        },
+        "theory_pt": {
+          "title": "To Be: identidade afirmativa e negativa",
+          "intro": "O verbo 'to be' é o motor central da autoapresentação no nível A1. Com ele, o aluno pode expressar identidade, origem, cargo e status profissional básico.",
+          "content": [
+            "Use 'I am' para se identificar: I am from Brazil. I am a student. I am remote.",
+            "Use 'I am not' para negar informações: I am not a manager. I am not on-site."
+          ],
+          "examples": [
+            "Eu sou do Brasil.",
+            "Eu sou um desenvolvedor júnior.",
+            "Eu trabalho remoto.",
+            "Eu não sou gerente."
+          ],
+          "commonMistakes": [
+            "Incorreto: I from Brazil.",
+            "Incorreto: I not a manager.",
+            "Incorreto: I am not manager."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "country",
+            "pt": "país"
+          },
+          {
+            "en": "city",
+            "pt": "cidade"
+          },
+          {
+            "en": "remote",
+            "pt": "remoto"
+          },
+          {
+            "en": "on-site",
+            "pt": "presencial"
+          },
+          {
+            "en": "junior",
+            "pt": "júnior"
+          },
+          {
+            "en": "senior",
+            "pt": "sênior"
+          },
+          {
+            "en": "manager",
+            "pt": "gerente"
+          },
+          {
+            "en": "project",
+            "pt": "projeto"
+          }
+        ],
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Core structure:</strong><br><br><strong>I am</strong> / <strong>I'm</strong><br><strong>I am not</strong> / <strong>I'm not</strong><br><br>Use these forms to say who you are, where you are from and what you are not.<br><br><strong>I am from Brazil.</strong><br><strong>I am a junior developer.</strong><br><strong>I am not a manager.</strong>",
+          "options": [
+            {
+              "text": "I am from Brazil.",
+              "correct": true,
+              "feedback": "Perfect. This is a complete and correct A1 sentence with <strong>to be</strong>."
+            },
+            {
+              "text": "I from Brazil.",
+              "correct": false,
+              "feedback": "Something is missing. English needs the verb here: <strong>I am from Brazil.</strong>"
+            },
+            {
+              "text": "I not a manager.",
+              "correct": false,
+              "feedback": "The idea is right, but the structure is incomplete. Say: <strong>I am not a manager.</strong>"
+            }
+          ]
+        },
+        "reading": {
+          "title": "Tech Reading — About Me",
+          "en": "Hello. My name is Lucas. I am from Brazil. I am a junior developer. I am remote. I am on the mobile team. I am not a manager. I am a new member of the company.",
+          "pt": "Olá. O meu nome é Lucas. Eu sou do Brasil. Eu sou um desenvolvedor júnior. Eu trabalho remotamente. Eu estou na equipe mobile. Eu não sou gerente. Eu sou um novo membro da empresa.",
+          "task": "Reading task: underline one affirmative sentence and one negative sentence."
+        },
+        "listening": {
+          "title": "Listening Lab — About Me",
+          "instructions": "Play the audio and focus on country, role and negative information.",
+          "text": "I am from Brazil. I am a junior developer. I am not a manager.",
+          "transcript": "I am from Brazil. I am a junior developer. I am not a manager.",
+          "question": "Type the first sentence you hear:",
+          "answer": "I am from Brazil.",
+          "lang": "en-US",
+          "rate": 0.8
+        },
+        "exercise": {
+          "type": "reorder",
+          "question": "Write the correct complete sentence:",
+          "answer": "I am from Brazil.",
+          "helpText": "Use full sentence order with subject + verb + complement."
+        }
+      },
+      {
+        "id": "1.3",
+        "subtitulo": "The Daily Stand-up — Questions and Short Answers",
+        "lessonMeta": {
+          "focus": "Train predictable question-answer exchanges in onboarding interactions.",
+          "canDo": "The student can answer simple questions about role and origin with short accurate responses.",
+          "structures": [
+            "Are you a developer?",
+            "Yes, I am.",
+            "No, I am not."
+          ],
+          "outputTargets": [
+            "Recognize question order with to be.",
+            "Respond with a short answer.",
+            "Extend the answer with one identity sentence."
+          ]
+        },
+        "teacherNotes": {
+          "focus": "Automate the most common A1 interview-style and onboarding-style exchanges.",
+          "tips": [
+            "Ask the same pattern several times with different vocabulary but stable structure.",
+            "Keep the speed slow and the intonation exaggerated at first.",
+            "After short answers are stable, ask for one full extension sentence such as I am a developer."
+          ],
+          "supportPhrases": [
+            "Question first, then short answer.",
+            "Are you...? Yes, I am. No, I am not.",
+            "Now extend your answer with your role."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Automatizar as trocas mais comuns de estilo de entrevista e onboarding de nível A1.",
+          "tips": [
+            "Pergunte o mesmo padrão várias vezes com vocabulário diferente, mas estrutura estável.",
+            "Mantenha a velocidade lenta e a entonação exagerada no início.",
+            "Depois que as respostas curtas estiverem estáveis, peça uma frase de extensão..."
+          ],
+          "supportPhrases": [
+            "Pergunta primeiro, depois resposta curta.",
+            "Are you...? Yes, I am. No, I am not.",
+            "Agora estenda sua resposta com seu cargo."
+          ]
+        },
+        "theory": {
+          "title": "Questions with To Be and short answers",
+          "intro": "At A1, successful communication depends on controlling a small number of predictable interaction patterns. Questions with to be are among the most useful.",
+          "content": [
+            "To form a question with to be, invert the order: You are a developer → Are you a developer?",
+            "Short answers are highly frequent in real conversation: Yes, I am. No, I am not."
+          ],
+          "examples": [
+            "Are you from Brazil? — Yes, I am.",
+            "Are you a designer? — No, I am not.",
+            "What is your role? — I am a developer."
+          ],
+          "commonMistakes": [
+            "Incorrect: Yes, I are.",
+            "Incorrect: No, I not.",
+            "Incorrect: Are you from Brazil? — Yes, I from Brazil."
+          ]
+        },
+        "theory_pt": {
+          "title": "Perguntas com To Be e respostas curtas",
+          "intro": "No nível A1, a comunicação bem-sucedida depende de controlar um pequeno número de padrões de interação previsíveis.",
+          "content": [
+            "Para formar uma pergunta com 'to be', inverta a ordem: You are a developer → Are you a developer?",
+            "Respostas curtas são muito frequentes em conversas reais: Yes, I am. No, I am not."
+          ],
+          "examples": [
+            "Você é do Brasil? — Sim, eu sou.",
+            "Você é designer? — Não, não sou.",
+            "Qual é o seu cargo? — Eu sou um desenvolvedor."
+          ],
+          "commonMistakes": [
+            "Incorreto: Yes, I are.",
+            "Incorreto: No, I not.",
+            "Incorreto: Are you from Brazil? — Yes, I from Brazil."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "question",
+            "pt": "pergunta"
+          },
+          {
+            "en": "answer",
+            "pt": "resposta"
+          },
+          {
+            "en": "welcome",
+            "pt": "bem-vindo(a)"
+          },
+          {
+            "en": "member",
+            "pt": "membro"
+          },
+          {
+            "en": "daily",
+            "pt": "diário / daily"
+          }
+        ],
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Interaction mode:</strong><br><br>At A1 level, you must survive simple direct questions.<br><br><strong>Are you a developer?</strong><br><strong>Are you from Brazil?</strong><br><strong>Yes, I am.</strong><br><strong>No, I am not.</strong><br><br>This is the beginning of real professional communication.",
+          "options": [
+            {
+              "text": "Yes, I am.",
+              "correct": true,
+              "feedback": "Exactly. That is the correct short answer for a question with <strong>Are you...?</strong>"
+            },
+            {
+              "text": "Yes, I are.",
+              "correct": false,
+              "feedback": "Not correct. The short answer is <strong>Yes, I am.</strong>"
+            },
+            {
+              "text": "Yes, I from Brazil.",
+              "correct": false,
+              "feedback": "That answer communicates the idea, but not the structure. First master the short answer: <strong>Yes, I am.</strong>"
+            }
+          ]
+        },
+        "reading": {
+          "title": "Tech Reading — Welcome Thread",
+          "en": "Manager: Welcome to the team, Ana. Are you from Brazil? Ana: Yes, I am. Manager: Are you a designer? Ana: No, I am not. I am a developer. Manager: Great. Welcome to the mobile team.",
+          "pt": "Gerente: Bem-vinda à equipe, Ana. Você é do Brasil? Ana: Sim, sou. Gerente: Você é designer? Ana: Não, não sou. Sou desenvolvedora. Gerente: Ótimo. Bem-vinda à equipe mobile.",
+          "task": "Reading task: identify one question, one short answer and one full identity sentence."
+        },
+        "listening": {
+          "title": "Listening Lab — Welcome Thread",
+          "instructions": "Play the audio and focus on question-answer rhythm.",
+          "text": "Are you from Brazil? Yes, I am. Are you a designer? No, I am not. I am a developer.",
+          "transcript": "Are you from Brazil? Yes, I am. Are you a designer? No, I am not. I am a developer.",
+          "question": "Choose the correct short answer from the listening:",
+          "options": [
+            "Yes, I am.",
+            "Yes, I are.",
+            "Yes, I from Brazil."
+          ],
+          "answer": "Yes, I am.",
+          "lang": "en-US",
+          "rate": 0.8
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct answer to: Are you a designer?",
+          "options": [
+            "Yes, I am.",
+            "Yes, I is.",
+            "Yes, I from Brazil."
+          ],
+          "answer": "Yes, I am.",
+          "helpText": "At this stage, short accurate answers are more important than long improvisation."
+        }
+      },
+      {
+        "id": "1.4",
+        "subtitulo": "The Boss Fight — My README Profile",
+        "lessonMeta": {
+          "focus": "Integrate all week content into a short professional mini profile.",
+          "canDo": "The student can write a simple profile with name, country, role and work context.",
+          "structures": [
+            "My name is Ana.",
+            "I am from Brazil.",
+            "I am a developer.",
+            "I am remote."
+          ],
+          "outputTargets": [
+            "Write a mini README profile with complete sentences.",
+            "Use at least one role, one country and one work context sentence.",
+            "Read the final profile aloud."
+          ]
+        },
+        "teacherNotes": {
+          "focus": "Consolidate the week into one usable written artifact and a short oral presentation.",
+          "tips": [
+            "Keep the model visible while students draft their final profile.",
+            "Evaluate clarity, correctness and completeness before fluency or creativity.",
+            "If possible, ask students to read the final profile aloud after writing it."
+          ],
+          "supportPhrases": [
+            "Keep it simple and correct.",
+            "Use full sentences from the week.",
+            "Your final profile is your mission output."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Consolidar a semana em um artefato escrito utilizável e uma apresentação oral curta.",
+          "tips": [
+            "Mantenha o modelo visível enquanto os alunos elaboram seu perfil final.",
+            "Avalie clareza, correção e integridade antes de fluência ou criatividade.",
+            "Se possível, peça aos alunos que leiam o perfil final em voz alta após a escrita."
+          ],
+          "supportPhrases": [
+            "Mantenha simples e correto.",
+            "Use frases completas da semana.",
+            "Seu perfil final é o resultado da sua missão."
+          ]
+        },
+        "theory": {
+          "title": "Building a mini professional profile",
+          "intro": "The final task of the week transforms isolated structures into a meaningful professional artifact. The student does not need advanced language; they need correct and functional language.",
+          "content": [
+            "Use your name, country, role and work context in short sentences.",
+            "The profile must look professional, but A1-simple: correct, clear and readable."
+          ],
+          "examples": [
+            "My name is Sofia.",
+            "I am from Portugal.",
+            "I am a junior developer.",
+            "I am remote.",
+            "I am on the web team."
+          ],
+          "commonMistakes": [
+            "Incorrect: My name Ana.",
+            "Incorrect: I from Brazil.",
+            "Incorrect: I am developer.",
+            "Incorrect: I remote."
+          ]
+        },
+        "theory_pt": {
+          "title": "Construindo um mini perfil profissional",
+          "intro": "A tarefa final da semana transforma estruturas isoladas em um artefato profissional significativo.",
+          "content": [
+            "Use seu nome, país, cargo e contexto de trabalho em frases curtas.",
+            "O perfil deve parecer profissional, mas simples para o nível A1."
+          ],
+          "examples": [
+            "Meu nome é Sofia.",
+            "Eu sou de Portugal.",
+            "Eu sou uma desenvolvedora júnior.",
+            "Eu trabalho remoto.",
+            "Eu estou na equipe web."
+          ],
+          "commonMistakes": [
+            "Incorreto: My name Ana.",
+            "Incorreto: I from Brazil.",
+            "Incorreto: I am developer.",
+            "Incorreto: I remote."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "name",
+            "pt": "nome"
+          },
+          {
+            "en": "country",
+            "pt": "país"
+          },
+          {
+            "en": "role",
+            "pt": "função"
+          },
+          {
+            "en": "team",
+            "pt": "equipe"
+          },
+          {
+            "en": "remote",
+            "pt": "remoto"
+          },
+          {
+            "en": "member",
+            "pt": "membro"
+          }
+        ],
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Final challenge:</strong><br><br>Build your first mini professional profile in English.<br><br><strong>My name is ...</strong><br><strong>I am from ...</strong><br><strong>I am a/an ...</strong><br><strong>I am remote / on-site.</strong><br><strong>I am on the ... team.</strong><br><br>Your goal is not to sound advanced. Your goal is to sound <strong>clear, correct and professional</strong>.",
+          "options": [
+            {
+              "text": "I am ready.",
+              "correct": true,
+              "feedback": "Excellent. Now write your profile in the quiz area using complete A1 sentences."
+            },
+            {
+              "text": "I no ready.",
+              "correct": false,
+              "feedback": "Use the week structure correctly: <strong>I am ready.</strong> or <strong>I am not ready.</strong>"
+            }
+          ]
+        },
+        "reading": {
+          "title": "Tech Reading — Mini README Example",
+          "en": "Hello. My name is Sofia. I am from Portugal. I am a junior developer. I am remote. I am on the web team. I am a new member of the company.",
+          "pt": "Olá. O meu nome é Sofia. Eu sou de Portugal. Eu sou uma desenvolvedora júnior. Eu trabalho remotamente. Eu estou na equipe web. Eu sou uma nova integrante da empresa.",
+          "task": "Reading task: use this model to create your own final profile."
+        },
+        "listening": {
+          "title": "Listening Lab — Final Profile",
+          "instructions": "Play the audio and listen to a complete mini profile.",
+          "text": "My name is Sofia. I am from Portugal. I am a junior developer. I am remote.",
+          "transcript": "My name is Sofia. I am from Portugal. I am a junior developer. I am remote.",
+          "question": "Type the first sentence you hear:",
+          "answer": "My name is Sofia.",
+          "lang": "en-US",
+          "rate": 0.8
+        },
+        "exercise": {
+          "type": "text-input",
+          "question": "Write your mini profile in English. Example: My name is Ana. I am from Brazil. I am a developer. I am remote.",
+          "answer": "any",
+          "helpText": "Include at least name, country, role and one work-context sentence."
+        }
+      }
+    ]
+  },
+  {
+    "id": "week-2",
+    "faseId": 1,
+    "semana": 2,
+    "titulo": "Week 2 — Work, Routine & Tools",
+    "objetivo": "The student can describe a simple study/work routine, talk about tools and platforms, and ask and answer basic questions about daily habits in a tech context.",
+    "rubricaA1": [
+      {
+        "criterio": "Simple present accuracy",
+        "descricao": "Uses simple present with basic stability in short routine sentences.",
+        "criterio_pt": "Precisão no simple present",
+        "descricao_pt": "Usa o presente simples com estabilidade básica em frases curtas de rotina."
+      },
+      {
+        "criterio": "Routine vocabulary",
+        "descricao": "Uses core vocabulary related to work, study, tools and tasks.",
+        "criterio_pt": "Vocabulário de rotina",
+        "descricao_pt": "Usa o vocabulário nuclear relacionado a trabalho, estudo, ferramentas e tarefas."
+      },
+      {
+        "criterio": "Question-answer control",
+        "descricao": "Can ask and answer predictable questions about routine with support.",
+        "criterio_pt": "Controle de perguntas e respostas",
+        "descricao_pt": "Consegue perguntar e responder questões previsíveis sobre rotina com apoio."
+      },
+      {
+        "criterio": "Listening comprehension",
+        "descricao": "Identifies key actions and tools in short controlled listening input.",
+        "criterio_pt": "Compreensão auditiva",
+        "descricao_pt": "Identifica ações e ferramentas-chave em áudios curtos e controlados."
+      },
+      {
+        "criterio": "Final output clarity",
+        "descricao": "Produces a short and understandable routine description using complete sentences.",
+        "criterio_pt": "Clareza da produção final",
+        "descricao_pt": "Produz uma descrição curta e compreensível da rotina usando frases completas."
+      }
+    ],
+    "aulas": [
+      {
+        "id": "2.1",
+        "subtitulo": "My Work Routine",
+        "lessonMeta": {
+          "focus": "Simple Present for daily work and study routines",
+          "canDo": "I can describe simple daily actions in a tech or study routine.",
+          "structures": [
+            "I work...",
+            "I study...",
+            "I use...",
+            "We work..."
+          ],
+          "outputTargets": [
+            "Say 3 to 5 daily actions.",
+            "Describe a simple work or study routine.",
+            "Use complete short sentences in the simple present."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> now you move from identity to action.<br><br>Last week, you learned how to say who you are. This week, you learn how to say <strong>what you do</strong>.<br><br>Use the <strong>simple present</strong> for routines and habits:<br><br><strong>I work with data.</strong><br><strong>I study every day.</strong><br><strong>I use my notebook.</strong><br><br>This tense is the foundation of professional communication.",
+          "options": [
+            {
+              "text": "I study every day.",
+              "correct": true,
+              "feedback": "Excellent. That is a correct simple present sentence to describe a routine."
+            },
+            {
+              "text": "I am study every day.",
+              "correct": false,
+              "feedback": "Not correct here. For routine actions, use the simple present: <strong>I study every day.</strong>"
+            },
+            {
+              "text": "I studying every day.",
+              "correct": false,
+              "feedback": "Almost, but not in this lesson. For now, use the simple present: <strong>I study every day.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Simple Present for Routine",
+          "intro": "In Week 2, the student learns to describe actions that happen regularly. The focus is not abstract grammar, but functional communication: saying what you do every day in study or work.",
+          "content": [
+            "Use the simple present to talk about routines, habits and repeated actions.",
+            "At this stage, focus on <strong>I</strong>, <strong>you</strong> and <strong>we</strong>.",
+            "The basic pattern is: <strong>subject + base verb + complement</strong>.",
+            "Examples: <strong>I work with data.</strong> <strong>I study every morning.</strong> <strong>We use Slack.</strong>",
+            "Do not use <strong>to be</strong> before the main verb in these sentences."
+          ],
+          "examples": [
+            "I work with my team.",
+            "I study every day.",
+            "I use my computer at home.",
+            "We work remotely."
+          ],
+          "commonMistakes": [
+            "Incorrect: I am study every day. → Correct: I study every day.",
+            "Incorrect: I use every day Slack. → Better for A1: I use Slack every day.",
+            "Incorrect: I works with data. → Correct at this stage: I work with data."
+          ]
+        },
+        "theory_pt": {
+          "title": "Simple Present para Rotina",
+          "intro": "Na Semana 2, o aluno aprende a descrever ações que acontecem regularmente. O foco não é gramática abstrata, mas comunicação funcional: dizer o que você faz todos os dias no estudo ou trabalho.",
+          "content": [
+            "Use o presente simples (simple present) para falar sobre rotinas, hábitos e ações repetidas.",
+            "Nesta fase, foque em <strong>I</strong>, <strong>you</strong> e <strong>we</strong>.",
+            "O padrão básico é: <strong>sujeito + verbo na forma base + complemento</strong>.",
+            "Exemplos: <strong>I work with data.</strong> <strong>I study every morning.</strong> <strong>We use Slack.</strong>",
+            "Não use o verbo <strong>to be</strong> (am/is/are) antes do verbo principal nestas frases."
+          ],
+          "examples": [
+            "Eu trabalho com minha equipe.",
+            "Eu estudo todos os dias.",
+            "Eu uso meu computador em casa.",
+            "Nós trabalhamos remotamente."
+          ],
+          "commonMistakes": [
+            "Incorreto: I am study every day. → Correto: I study every day.",
+            "Incorreto: I use every day Slack. → Melhor para A1: I use Slack every day.",
+            "Incorreto: I works with data. → Correto nesta fase: I work with data."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "work",
+            "pt": "trabalhar"
+          },
+          {
+            "en": "study",
+            "pt": "estudar"
+          },
+          {
+            "en": "use",
+            "pt": "usar"
+          },
+          {
+            "en": "read",
+            "pt": "ler"
+          },
+          {
+            "en": "write",
+            "pt": "escrever"
+          },
+          {
+            "en": "project",
+            "pt": "projeto"
+          },
+          {
+            "en": "task",
+            "pt": "tarefa"
+          },
+          {
+            "en": "computer",
+            "pt": "computador"
+          },
+          {
+            "en": "notebook",
+            "pt": "notebook"
+          },
+          {
+            "en": "every day",
+            "pt": "todos os dias"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Routine",
+          "en": "Hello. My name is Leo. I study every day. I work on small projects. I use my notebook and my phone. I read messages and write notes.",
+          "pt": "Olá. Meu nome é Leo. Eu estudo todos os dias. Eu trabalho em pequenos projetos. Eu uso meu notebook e meu telefone. Eu leio mensagens e escrevo anotações.",
+          "task": "Read the text and identify 3 actions Leo does every day."
+        },
+        "listening": {
+          "title": "Listening Lab — Daily Actions",
+          "instructions": "Listen to the sentence and identify the correct routine statement.",
+          "text": "I study every day. I use my notebook. I write notes.",
+          "transcript": "I study every day. I use my notebook. I write notes.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "I study every day.",
+            "I am study every day.",
+            "I studying every day."
+          ],
+          "answer": "I study every day.",
+          "lang": "en-US",
+          "rate": 0.82,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "reorder",
+          "question": "Write the correct sentence:",
+          "helpText": "Use the simple present to describe a routine action.",
+          "answer": "I study every day."
+        },
+        "teacherNotes": {
+          "focus": "Introduce the simple present as the tense of routine, habit and repeated action in a tech or study context.",
+          "tips": [
+            "Make it explicit that Week 1 was about identity and Week 2 is about action.",
+            "Drill the structure subject + base verb + complement.",
+            "Use substitution practice: I study / I work / I read / I write.",
+            "Keep the focus on I, you and we in this first contact.",
+            "Correct overuse of 'to be' immediately, because learners often transfer Week 1 structures."
+          ],
+          "supportPhrases": [
+            "This week, we say what we do.",
+            "Use the base verb.",
+            "Do not add 'am' before the action verb.",
+            "Say the full sentence clearly.",
+            "Routine means something you do regularly."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Introduzir o simple present como o tempo da rotina, do hábito e da ação repetida em contexto de estudo ou tecnologia.",
+          "tips": [
+            "Deixe explícito que a Semana 1 era sobre identidade e a Semana 2 é sobre ação.",
+            "Treine bastante a estrutura sujeito + verbo base + complemento.",
+            "Use substituição oral: I study / I work / I read / I write.",
+            "Mantenha o foco em I, you e we nesse primeiro contato.",
+            "Corrija imediatamente o uso indevido de 'to be', porque o aluno tende a transferir a estrutura da semana anterior."
+          ],
+          "supportPhrases": [
+            "Nesta semana, nós dizemos o que fazemos.",
+            "Use o verbo na forma base.",
+            "Não coloque 'am' antes do verbo de ação.",
+            "Fale a frase completa com clareza.",
+            "Rotina é algo que você faz regularmente."
+          ]
+        }
+      },
+      {
+        "id": "2.2",
+        "subtitulo": "Tools, Platforms and Daily Actions",
+        "lessonMeta": {
+          "focus": "Simple present with tools, platforms and task vocabulary",
+          "canDo": "I can describe what tools I use and what actions I do on platforms.",
+          "structures": [
+            "I use Slack.",
+            "I read messages.",
+            "I write code.",
+            "I check my tasks."
+          ],
+          "outputTargets": [
+            "Name basic digital tools.",
+            "Describe simple actions on platforms.",
+            "Connect verbs to objects in correct sentences."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> talk about the tools you use and the actions you perform.<br><br>In professional English, you often need short, clear sentences like:<br><br><strong>I use Slack.</strong><br><strong>I read messages.</strong><br><strong>I write code.</strong><br><strong>I check my tasks.</strong><br><br>The goal is clarity, not complexity.",
+          "options": [
+            {
+              "text": "I use Slack.",
+              "correct": true,
+              "feedback": "Perfect. That is a clear and natural routine sentence."
+            },
+            {
+              "text": "I uses Slack.",
+              "correct": false,
+              "feedback": "Not correct for <strong>I</strong>. Use the base form: <strong>I use Slack.</strong>"
+            },
+            {
+              "text": "I am use Slack.",
+              "correct": false,
+              "feedback": "Do not use <strong>am</strong> here. The correct form is <strong>I use Slack.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Verb + Object in Daily Tech English",
+          "intro": "This lesson trains a high-value structure for beginners: a simple verb followed by a direct object. This is one of the fastest ways to build professional communication.",
+          "content": [
+            "Many routine sentences in English follow this pattern: <strong>subject + verb + object</strong>.",
+            "Examples: <strong>I read messages.</strong> <strong>I write code.</strong> <strong>I check my tasks.</strong>",
+            "This pattern is especially useful in digital and technical environments.",
+            "The student should learn actions and tools together, not in isolation.",
+            "At A1 level, short and correct sentences are more valuable than long and unstable ones."
+          ],
+          "examples": [
+            "I use Slack.",
+            "I read messages.",
+            "I write code.",
+            "I check my tasks.",
+            "I open the browser."
+          ],
+          "commonMistakes": [
+            "Incorrect: I reads messages. → Correct: I read messages.",
+            "Incorrect: I am write code. → Correct: I write code.",
+            "Incorrect: I check tasks my. → Better for A1: I check my tasks."
+          ]
+        },
+        "theory_pt": {
+          "title": "Verbo + Objeto no Inglês Tech Diário",
+          "intro": "Esta lição treina uma estrutura de alto valor para iniciantes: um verbo simples seguido por um objeto direto. Esta é uma das formas mais rápidas de construir comunicação profissional.",
+          "content": [
+            "Muitas frases de rotina em inglês seguem este padrão: <strong>sujeito + verbo + objeto</strong>.",
+            "Exemplos: <strong>I read messages.</strong> <strong>I write code.</strong> <strong>I check my tasks.</strong>",
+            "Este padrão é especialmente útil em ambientes digitais e técnicos.",
+            "O aluno deve aprender ações e ferramentas juntos, não isoladamente.",
+            "No nível A1, frases curtas e corretas são mais valiosas do que longas e instáveis."
+          ],
+          "examples": [
+            "Eu uso Slack.",
+            "Eu leio mensagens.",
+            "Eu escrevo código.",
+            "Eu verifico minhas tarefas.",
+            "Eu abro o navegador."
+          ],
+          "commonMistakes": [
+            "Incorreto: I reads messages. → Correto: I read messages.",
+            "Incorreto: I am write code. → Correto: I write code.",
+            "Incorreto: I check tasks my. → Melhor para A1: I check my tasks."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "Slack",
+            "pt": "Slack"
+          },
+          {
+            "en": "GitHub",
+            "pt": "GitHub"
+          },
+          {
+            "en": "message",
+            "pt": "mensagem"
+          },
+          {
+            "en": "task",
+            "pt": "tarefa"
+          },
+          {
+            "en": "code",
+            "pt": "código"
+          },
+          {
+            "en": "browser",
+            "pt": "navegador"
+          },
+          {
+            "en": "screen",
+            "pt": "tela"
+          },
+          {
+            "en": "login",
+            "pt": "login"
+          },
+          {
+            "en": "file",
+            "pt": "arquivo"
+          },
+          {
+            "en": "check",
+            "pt": "verificar / checar"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Digital Setup",
+          "en": "I use Slack and GitHub every day. I read messages in the morning. I open my browser and check my tasks. Then I write code and save my files.",
+          "pt": "Eu uso Slack e GitHub todos os dias. Eu leio mensagens de manhã. Eu abro meu navegador e verifico minhas tarefas. Depois eu escrevo código e salvo meus arquivos.",
+          "task": "Find 4 verbs in the text and say what object goes with each verb."
+        },
+        "listening": {
+          "title": "Listening Lab — Tools and Actions",
+          "instructions": "Listen to the workflow sentence and identify the correct platform action.",
+          "text": "I read messages on Slack. I check my tasks. I write code.",
+          "transcript": "I read messages on Slack. I check my tasks. I write code.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "I check my tasks.",
+            "I am check my tasks.",
+            "I checks my tasks."
+          ],
+          "answer": "I check my tasks.",
+          "lang": "en-US",
+          "rate": 0.82,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct sentence:",
+          "helpText": "Focus on the structure subject + base verb + object.",
+          "options": [
+            "I write code.",
+            "I am write code.",
+            "I writes code."
+          ],
+          "answer": "I write code."
+        },
+        "teacherNotes": {
+          "focus": "Develop control of verb + object structures using high-frequency tools and platform actions.",
+          "tips": [
+            "Teach actions together with their common objects: read messages, write code, check tasks.",
+            "Use short rhythm drills to improve fluency.",
+            "Keep examples in authentic digital contexts.",
+            "Avoid vocabulary overload; prioritize words the learner will reuse often.",
+            "Reinforce that correctness and repeatability matter more than variety at this level."
+          ],
+          "supportPhrases": [
+            "Say the action and the object together.",
+            "This is a strong professional sentence.",
+            "Keep it short and correct.",
+            "Now connect the verb to the tool.",
+            "Repeat the whole structure."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Desenvolver controle da estrutura verbo + objeto usando ações frequentes com ferramentas e plataformas.",
+          "tips": [
+            "Ensine ações junto com seus objetos frequentes: read messages, write code, check tasks.",
+            "Use treinos rítmicos curtos para melhorar a fluência.",
+            "Mantenha os exemplos em contextos digitais autênticos.",
+            "Evite excesso de vocabulário; priorize palavras que o aluno realmente vai reutilizar.",
+            "Reforce que correção e repetibilidade valem mais que variedade neste nível."
+          ],
+          "supportPhrases": [
+            "Fale a ação e o objeto juntos.",
+            "Essa é uma frase profissional forte.",
+            "Mantenha curto e correto.",
+            "Agora conecte o verbo à ferramenta.",
+            "Repita a estrutura inteira."
+          ]
+        }
+      },
+      {
+        "id": "2.3",
+        "subtitulo": "Asking About Routine",
+        "lessonMeta": {
+          "focus": "Questions and short answers with do / do you",
+          "canDo": "I can ask and answer simple questions about routine and tools.",
+          "structures": [
+            "Do you work remotely?",
+            "Do you use GitHub?",
+            "Yes, I do.",
+            "No, I don't."
+          ],
+          "outputTargets": [
+            "Ask predictable questions about routine.",
+            "Answer with yes/no short answers.",
+            "Sustain a mini interaction about daily habits."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> move from statements to interaction.<br><br>When you want to ask about routine, use <strong>do</strong>:<br><br><strong>Do you work remotely?</strong><br><strong>Do you use GitHub?</strong><br><strong>Do you study every day?</strong><br><br>Short answers:<br><strong>Yes, I do.</strong><br><strong>No, I don't.</strong>",
+          "options": [
+            {
+              "text": "Yes, I do.",
+              "correct": true,
+              "feedback": "Excellent. That is the correct short answer to a question with <strong>Do you...?</strong>"
+            },
+            {
+              "text": "Yes, I am.",
+              "correct": false,
+              "feedback": "Not here. For questions with <strong>Do you...?</strong>, the short answer is <strong>Yes, I do.</strong>"
+            },
+            {
+              "text": "Yes, I use.",
+              "correct": false,
+              "feedback": "That is not the standard short answer. Use <strong>Yes, I do.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Questions with Do",
+          "intro": "This lesson introduces the first controlled use of the auxiliary 'do' to ask about routines and habits. The target is predictable interaction, not full spontaneous conversation.",
+          "content": [
+            "Use <strong>Do you...?</strong> to ask about routines and habits.",
+            "Examples: <strong>Do you study every day?</strong> <strong>Do you use GitHub?</strong>",
+            "Use short answers to respond efficiently: <strong>Yes, I do.</strong> <strong>No, I don't.</strong>",
+            "This structure is central for meetings, onboarding and classroom interaction.",
+            "At A1 level, mastery comes from repeated exposure and controlled practice."
+          ],
+          "examples": [
+            "Do you work remotely?",
+            "Yes, I do.",
+            "Do you use Slack?",
+            "No, I don't.",
+            "Do you read messages in the morning?"
+          ],
+          "commonMistakes": [
+            "Incorrect: Do you are remote? → Better at this stage: Are you remote? / Do you work remotely?",
+            "Incorrect: Yes, I am. → For do-questions, use: Yes, I do.",
+            "Incorrect: No, I not. → Correct: No, I don't."
+          ]
+        },
+        "theory_pt": {
+          "title": "Perguntas com Do",
+          "intro": "Esta lição introduz o primeiro uso controlado do auxiliar 'do' para perguntar sobre rotinas e hábitos. O alvo é a interação previsível, não a conversação espontânea completa.",
+          "content": [
+            "Use <strong>Do you...?</strong> para perguntar sobre rotinas e hábitos.",
+            "Exemplos: <strong>Do you study every day?</strong> <strong>Do you use GitHub?</strong>",
+            "Use respostas curtas para responder de forma eficiente: <strong>Yes, I do.</strong> <strong>No, I don't.</strong>",
+            "Esta estrutura é central para reuniões, onboarding e interação em sala de aula.",
+            "No nível A1, o domínio vem da exposição repetida e prática controlada."
+          ],
+          "examples": [
+            "Você trabalha remotamente?",
+            "Sim, eu trabalho.",
+            "Você usa Slack?",
+            "Não, não uso.",
+            "Você lê mensagens de manhã?"
+          ],
+          "commonMistakes": [
+            "Incorreto: Do you are remote? → Melhor nesta fase: Are you remote? / Do you work remotely?",
+            "Incorreto: Yes, I am. → Para perguntas com 'do', use: Yes, I do.",
+            "Incorreto: No, I not. → Correto: No, I don't."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "do",
+            "pt": "fazer / auxiliar"
+          },
+          {
+            "en": "daily",
+            "pt": "diário"
+          },
+          {
+            "en": "schedule",
+            "pt": "agenda / cronograma"
+          },
+          {
+            "en": "online",
+            "pt": "online"
+          },
+          {
+            "en": "office",
+            "pt": "escritório"
+          },
+          {
+            "en": "home",
+            "pt": "casa"
+          },
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "tool",
+            "pt": "ferramenta"
+          },
+          {
+            "en": "yes",
+            "pt": "sim"
+          },
+          {
+            "en": "no",
+            "pt": "não"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — Routine Questions",
+          "en": "Manager: Do you use Slack every day? Ana: Yes, I do. Manager: Do you work at home? Ana: No, I don't. I work at the office today.",
+          "pt": "Gerente: Você usa Slack todos os dias? Ana: Sim, uso. Gerente: Você trabalha em casa? Ana: Não, não trabalho. Eu trabalho no escritório hoje.",
+          "task": "Read the dialogue and identify the question pattern and the short answers."
+        },
+        "listening": {
+          "title": "Listening Lab — Routine Questions",
+          "instructions": "Listen carefully to the question-answer pair and choose the correct short answer.",
+          "text": "Do you use GitHub? Yes, I do. Do you work at home? No, I don't.",
+          "transcript": "Do you use GitHub? Yes, I do. Do you work at home? No, I don't.",
+          "question": "Choose the correct short answer to: Do you use GitHub?",
+          "options": [
+            "Yes, I do.",
+            "Yes, I am.",
+            "Yes, I use."
+          ],
+          "answer": "Yes, I do.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct answer to: Do you study every day?",
+          "helpText": "Use the short answer pattern for questions with do.",
+          "options": [
+            "Yes, I do.",
+            "Yes, I am.",
+            "Yes, I study."
+          ],
+          "answer": "Yes, I do."
+        },
+        "teacherNotes": {
+          "focus": "Train predictable question-answer exchanges about routine using do-support and short answers.",
+          "tips": [
+            "Model the full cycle: question → pause → short answer.",
+            "Keep the questions highly predictable and linked to the lesson vocabulary.",
+            "Contrast do-questions with be-questions when useful, but do not overload the explanation.",
+            "Have learners repeat both the question and the answer.",
+            "Use pair drills after strong teacher modeling."
+          ],
+          "supportPhrases": [
+            "Listen to the auxiliary.",
+            "Question first, short answer next.",
+            "Use do in the answer too.",
+            "Keep the pattern stable.",
+            "Now ask your partner."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Treinar trocas previsíveis de pergunta e resposta sobre rotina usando do-support e short answers.",
+          "tips": [
+            "Modele o ciclo completo: pergunta → pausa → resposta curta.",
+            "Mantenha as perguntas altamente previsíveis e ligadas ao vocabulário da aula.",
+            "Faça contraste com perguntas com be quando for útil, mas sem sobrecarregar a explicação.",
+            "Peça que os alunos repitam tanto a pergunta quanto a resposta.",
+            "Use prática em pares depois de uma modelagem forte do professor."
+          ],
+          "supportPhrases": [
+            "Preste atenção no auxiliar.",
+            "Primeiro a pergunta, depois a resposta curta.",
+            "Use do também na resposta.",
+            "Mantenha o padrão estável.",
+            "Agora pergunte ao seu colega."
+          ]
+        }
+      },
+      {
+        "id": "2.4",
+        "subtitulo": "The Boss Fight — My Study/Work Flow",
+        "lessonMeta": {
+          "focus": "Integrated production: routine, tools and simple interaction",
+          "canDo": "I can present my study/work flow in short connected sentences.",
+          "structures": [
+            "I study every day.",
+            "I use my notebook.",
+            "I read messages.",
+            "I write code."
+          ],
+          "outputTargets": [
+            "Produce 4 to 6 connected sentences.",
+            "Describe a personal work or study flow.",
+            "Use routine vocabulary with clarity and control."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Final challenge:</strong> build your Week 2 workflow profile.<br><br>Now you combine actions, tools and routine:<br><br><strong>I study every day.</strong><br><strong>I use my notebook.</strong><br><strong>I read messages on Slack.</strong><br><strong>I write code and check my tasks.</strong><br><br>Your goal is to sound <strong>clear, stable and functional</strong>.",
+          "options": [
+            {
+              "text": "I am ready.",
+              "correct": true,
+              "feedback": "Excellent. Now describe your work or study flow using complete simple present sentences."
+            },
+            {
+              "text": "I ready.",
+              "correct": false,
+              "feedback": "Use the full form: <strong>I am ready.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Integrated Routine Output",
+          "intro": "The final lesson of Week 2 consolidates identity, routine and digital action. The learner should now produce a mini professional routine profile with short, correct and reusable sentences.",
+          "content": [
+            "A strong A1 final output is short, clear and structurally stable.",
+            "The student should combine routine verbs, simple complements and tool vocabulary.",
+            "The goal is not complexity. The goal is accurate, functional communication.",
+            "Encourage sentence chains with logical sequencing: first, then, after that — but only if they do not destabilize accuracy.",
+            "The final production should sound like a real work or study flow."
+          ],
+          "examples": [
+            "I study every day.",
+            "I use my notebook and my phone.",
+            "I read messages in the morning.",
+            "I write code and check my tasks.",
+            "I work on small projects."
+          ],
+          "commonMistakes": [
+            "Incorrect: I am write code. → Correct: I write code.",
+            "Incorrect: I use every day my notebook. → Better for A1: I use my notebook every day.",
+            "Incorrect: I do study every day. → For this stage, use the simpler affirmative: I study every day."
+          ]
+        },
+        "theory_pt": {
+          "title": "Produção de Rotina Integrada",
+          "intro": "A última lição da Semana 2 consolida identidade, rotina e ação digital. O aluno deve agora produzir um mini perfil de rotina profissional com frases curtas, corretas e reutilizáveis.",
+          "content": [
+            "Uma produção final forte no A1 é curta, clara e estruturalmente estável.",
+            "O aluno deve combinar verbos de rotina, complementos simples e vocabulário de ferramentas.",
+            "O objetivo não é complexidade. O objetivo é comunicação precisa e funcional.",
+            "Incentive cadeias de frases com sequenciamento lógico: first (primeiro), then (depois), after that (depois disso) — mas apenas se não desestabilizarem a precisão.",
+            "A produção final deve soar como um fluxo de trabalho ou estudo real."
+          ],
+          "examples": [
+            "Eu estudo todos os dias.",
+            "Eu uso meu notebook e meu telefone.",
+            "Eu leio mensagens de manhã.",
+            "Eu escrevo código e verifico minhas tarefas.",
+            "Eu trabalho em pequenos projetos."
+          ],
+          "commonMistakes": [
+            "Incorreto: I am write code. → Correto: I write code.",
+            "Incorreto: I use every day my notebook. → Melhor para A1: I use my notebook every day.",
+            "Incorreto: I do study every day. → Para esta fase, use a afirmativa mais simples: I study every day."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "workflow",
+            "pt": "fluxo de trabalho"
+          },
+          {
+            "en": "routine",
+            "pt": "rotina"
+          },
+          {
+            "en": "first",
+            "pt": "primeiro"
+          },
+          {
+            "en": "then",
+            "pt": "depois"
+          },
+          {
+            "en": "after that",
+            "pt": "depois disso"
+          },
+          {
+            "en": "project",
+            "pt": "projeto"
+          },
+          {
+            "en": "message",
+            "pt": "mensagem"
+          },
+          {
+            "en": "code",
+            "pt": "código"
+          },
+          {
+            "en": "task",
+            "pt": "tarefa"
+          },
+          {
+            "en": "daily flow",
+            "pt": "fluxo diário"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Daily Flow",
+          "en": "My name is Sara. I study every day. I use my notebook and my phone. First, I read messages. Then, I check my tasks. After that, I write code and work on my project.",
+          "pt": "Meu nome é Sara. Eu estudo todos os dias. Eu uso meu notebook e meu telefone. Primeiro, eu leio mensagens. Depois, eu verifico minhas tarefas. Depois disso, eu escrevo código e trabalho no meu projeto.",
+          "task": "Read the final model and identify the sequence of actions in Sara's daily flow."
+        },
+        "listening": {
+          "title": "Listening Lab — Final Workflow",
+          "instructions": "Listen to the final routine model and identify the first action in the sequence.",
+          "text": "I study every day. First, I read messages. Then, I check my tasks. After that, I write code.",
+          "transcript": "I study every day. First, I read messages. Then, I check my tasks. After that, I write code.",
+          "question": "Type the first action you hear:",
+          "answer": "I study every day.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "text-input",
+          "question": "Write your mini study/work flow in English.",
+          "helpText": "Use 4 to 6 complete sentences. Example: I study every day. I use my notebook. I read messages. I write code.",
+          "answer": "any"
+        },
+        "teacherNotes": {
+          "focus": "Integrate the week's language into a short but functional personal routine profile.",
+          "tips": [
+            "Ask for full sentences only.",
+            "Prioritize clarity and structural control over originality.",
+            "Let learners reuse modeled language from previous lessons.",
+            "Check that the learner can produce action + tool + task combinations.",
+            "Use the rubric to evaluate accuracy, comprehensibility and functional success."
+          ],
+          "supportPhrases": [
+            "Keep it simple and strong.",
+            "Use complete sentences.",
+            "Describe your routine step by step.",
+            "Say what you do and what you use.",
+            "Your final output should sound clear and real."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Integrar a linguagem da semana em um perfil curto, mas funcional, da rotina pessoal de estudo ou trabalho.",
+          "tips": [
+            "Exija apenas frases completas.",
+            "Priorize clareza e controle estrutural acima de originalidade.",
+            "Permita que o aluno reutilize a linguagem modelada nas aulas anteriores.",
+            "Verifique se o aluno consegue produzir combinações de ação + ferramenta + tarefa.",
+            "Use a rúbrica para avaliar precisão, compreensibilidade e sucesso funcional."
+          ],
+          "supportPhrases": [
+            "Mantenha simples e forte.",
+            "Use frases completas.",
+            "Descreva sua rotina passo a passo.",
+            "Diga o que você faz e o que você usa.",
+            "Sua produção final deve soar clara e real."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "week-3",
+    "faseId": 1,
+    "semana": 3,
+    "titulo": "Week 3 — Time, Schedules & Availability",
+    "objetivo": "The student can talk about time, simple schedules and availability, ask and answer basic questions about working or studying times, and describe a daily timetable in a tech context.",
+    "rubricaA1": [
+      {
+        "criterio": "Time expression accuracy",
+        "descricao": "Uses basic clock times and daily time expressions with reasonable stability.",
+        "criterio_pt": "Precisão em expressões de tempo",
+        "descricao_pt": "Usa horas básicas e expressões de tempo do dia com estabilidade razoável."
+      },
+      {
+        "criterio": "Schedule language",
+        "descricao": "Can describe a simple daily schedule using short complete sentences.",
+        "criterio_pt": "Linguagem de agenda",
+        "descricao_pt": "Consegue descrever uma agenda diária simples usando frases curtas e completas."
+      },
+      {
+        "criterio": "Availability interaction",
+        "descricao": "Can ask and answer predictable questions about time and availability.",
+        "criterio_pt": "Interação sobre disponibilidade",
+        "descricao_pt": "Consegue perguntar e responder questões previsíveis sobre horário e disponibilidade."
+      },
+      {
+        "criterio": "Listening comprehension",
+        "descricao": "Identifies key time references and routine events in short controlled listening tasks.",
+        "criterio_pt": "Compreensão auditiva",
+        "descricao_pt": "Identifica referências temporais e eventos de rotina em tarefas curtas e controladas de listening."
+      },
+      {
+        "criterio": "Final output clarity",
+        "descricao": "Produces a short and understandable timetable or availability description.",
+        "criterio_pt": "Clareza da produção final",
+        "descricao_pt": "Produz uma descrição curta e compreensível de agenda ou disponibilidade."
+      }
+    ],
+    "aulas": [
+      {
+        "id": "3.1",
+        "subtitulo": "Clock In — Hours and Time Expressions",
+        "lessonMeta": {
+          "focus": "Basic clock time and daily time expressions",
+          "canDo": "I can say basic times and talk about simple moments of the day.",
+          "structures": [
+            "It is nine o'clock.",
+            "At eight o'clock...",
+            "In the morning...",
+            "At night..."
+          ],
+          "outputTargets": [
+            "Say basic times correctly.",
+            "Use at + time and in the morning/afternoon/evening.",
+            "Connect time to a simple action."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> now you add time to your English.<br><br>In professional life, routine is not enough. You also need to say <strong>when</strong> things happen.<br><br><strong>It is nine o'clock.</strong><br><strong>At eight o'clock, I study.</strong><br><strong>In the morning, I read messages.</strong><br><br>This week, you learn to organize actions in time.",
+          "options": [
+            {
+              "text": "At eight o'clock, I study.",
+              "correct": true,
+              "feedback": "Excellent. That is a correct sentence connecting time and action."
+            },
+            {
+              "text": "In eight o'clock, I study.",
+              "correct": false,
+              "feedback": "Not correct here. Use <strong>at</strong> with clock time: <strong>At eight o'clock, I study.</strong>"
+            },
+            {
+              "text": "At eight o'clock, I am study.",
+              "correct": false,
+              "feedback": "The time phrase is correct, but the verb structure is not. Say: <strong>At eight o'clock, I study.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Basic Time in English",
+          "intro": "This lesson introduces the language of clock time and daily time reference. The learner begins to place routine actions on a simple timeline, which is essential for schedule talk in work and study environments.",
+          "content": [
+            "Use <strong>at</strong> with specific clock times: <strong>at eight o'clock</strong>, <strong>at nine</strong>.",
+            "Use <strong>in the morning</strong>, <strong>in the afternoon</strong>, <strong>in the evening</strong> for broad parts of the day.",
+            "Use <strong>at night</strong> instead of <strong>in the night</strong> in basic routine descriptions.",
+            "The structure <strong>It is + time</strong> is useful to identify the hour.",
+            "The structure <strong>At + time, I + verb</strong> is useful to describe scheduled routine actions."
+          ],
+          "examples": [
+            "It is nine o'clock.",
+            "At eight o'clock, I study.",
+            "In the morning, I read messages.",
+            "At night, I write notes."
+          ],
+          "commonMistakes": [
+            "Incorrect: In eight o'clock. → Correct: At eight o'clock.",
+            "Incorrect: In the night, I study. → Better at this stage: At night, I study.",
+            "Incorrect: It is nine clock. → Correct: It is nine o'clock."
+          ]
+        },
+        "theory_pt": {
+          "title": "Horas e Tempo Básico em Inglês",
+          "intro": "Esta lição introduz a linguagem de horas do relógio e referência de tempo diário. O aluno começa a colocar ações de rotina em uma linha do tempo simples, o que é essencial para falar de horários em ambientes de trabalho e estudo.",
+          "content": [
+            "Use <strong>at</strong> com horas específicas do relógio: <strong>at eight o'clock</strong>, <strong>at nine</strong>.",
+            "Use <strong>in the morning</strong>, <strong>in the afternoon</strong>, <strong>in the evening</strong> para partes amplas do dia.",
+            "Use <strong>at night</strong> em vez de <strong>in the night</strong> em descrições básicas de rotina.",
+            "A estrutura <strong>It is + hora</strong> é útil para identificar o horário.",
+            "A estrutura <strong>At + hora, I + verbo</strong> é útil para descrever ações de rotina programadas."
+          ],
+          "examples": [
+            "São nove horas em ponto.",
+            "Às oito horas, eu estudo.",
+            "De manhã, eu leio mensagens.",
+            "À noite, eu escrevo anotações."
+          ],
+          "commonMistakes": [
+            "Incorreto: In eight o'clock. → Correto: At eight o'clock.",
+            "Incorreto: In the night, I study. → Melhor nesta fase: At night, I study.",
+            "Incorreto: It is nine clock. → Correto: It is nine o'clock."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "o'clock",
+            "pt": "em ponto"
+          },
+          {
+            "en": "morning",
+            "pt": "manhã"
+          },
+          {
+            "en": "afternoon",
+            "pt": "tarde"
+          },
+          {
+            "en": "evening",
+            "pt": "início da noite / noite"
+          },
+          {
+            "en": "night",
+            "pt": "noite"
+          },
+          {
+            "en": "at",
+            "pt": "às / em"
+          },
+          {
+            "en": "time",
+            "pt": "hora / tempo"
+          },
+          {
+            "en": "schedule",
+            "pt": "agenda / horário"
+          },
+          {
+            "en": "early",
+            "pt": "cedo"
+          },
+          {
+            "en": "late",
+            "pt": "tarde / atrasado"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — A Simple Morning Schedule",
+          "en": "It is seven o'clock. At eight o'clock, Mia studies English. In the morning, she reads messages and checks her tasks. At night, she writes notes.",
+          "pt": "São sete horas. Às oito horas, Mia estuda inglês. De manhã, ela lê mensagens e verifica suas tarefas. À noite, ela escreve anotações.",
+          "task": "Read the text and identify the time expressions and the actions connected to them."
+        },
+        "listening": {
+          "title": "Listening Lab — Time and Action",
+          "instructions": "Listen to the sentence and identify the correct time expression.",
+          "text": "At eight o'clock, I study. In the morning, I read messages.",
+          "transcript": "At eight o'clock, I study. In the morning, I read messages.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "At eight o'clock, I study.",
+            "In eight o'clock, I study.",
+            "At eight o'clock, I am study."
+          ],
+          "answer": "At eight o'clock, I study.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct sentence:",
+          "helpText": "Use at with clock time.",
+          "options": [
+            "At nine o'clock, I work.",
+            "In nine o'clock, I work.",
+            "At nine o'clock, I am work."
+          ],
+          "answer": "At nine o'clock, I work."
+        },
+        "teacherNotes": {
+          "focus": "Introduce basic time expressions as a functional extension of routine language.",
+          "tips": [
+            "Teach time together with action, not as isolated vocabulary.",
+            "Drill at + time and in the morning/afternoon/evening in clear contrasts.",
+            "Use only a small set of highly reusable time expressions.",
+            "Correct prepositions immediately because learners often transfer from Portuguese.",
+            "Keep practice highly oral before asking for written output."
+          ],
+          "supportPhrases": [
+            "Say the time first, then the action.",
+            "Use at with the clock.",
+            "Use in the morning for the part of the day.",
+            "Now connect time and routine.",
+            "Keep the sentence short and stable."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Introduzir expressões básicas de tempo como uma extensão funcional da linguagem de rotina.",
+          "tips": [
+            "Ensine tempo junto com ação, não como vocabulário isolado.",
+            "Treine bastante at + time e in the morning/afternoon/evening em contrastes claros.",
+            "Use apenas um pequeno conjunto de expressões de tempo altamente reutilizáveis.",
+            "Corrija as preposições imediatamente, porque o aluno tende a transferir do português.",
+            "Mantenha a prática muito oral antes de pedir produção escrita."
+          ],
+          "supportPhrases": [
+            "Diga o horário primeiro, depois a ação.",
+            "Use at com horas do relógio.",
+            "Use in the morning para a parte do dia.",
+            "Agora conecte tempo e rotina.",
+            "Mantenha a frase curta e estável."
+          ]
+        }
+      },
+      {
+        "id": "3.2",
+        "subtitulo": "My Daily Schedule",
+        "lessonMeta": {
+          "focus": "Daily schedule sequencing with simple present",
+          "canDo": "I can describe a basic daily schedule in order.",
+          "structures": [
+            "At eight, I study.",
+            "Then, I check my tasks.",
+            "After that, I read messages.",
+            "At night, I write notes."
+          ],
+          "outputTargets": [
+            "Describe 3 to 5 events in daily order.",
+            "Use time markers with routine verbs.",
+            "Produce a short schedule description."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> build a timeline for your day.<br><br>Now you do more than say actions. You organize them:<br><br><strong>At eight, I study.</strong><br><strong>Then, I check my tasks.</strong><br><strong>After that, I read messages.</strong><br><strong>At night, I write notes.</strong><br><br>This is the beginning of schedule fluency.",
+          "options": [
+            {
+              "text": "Then, I check my tasks.",
+              "correct": true,
+              "feedback": "Perfect. This is a correct sequencing sentence for a schedule."
+            },
+            {
+              "text": "Then, I am check my tasks.",
+              "correct": false,
+              "feedback": "Do not add <strong>am</strong> before the action verb. Say: <strong>Then, I check my tasks.</strong>"
+            },
+            {
+              "text": "After that, I checks my tasks.",
+              "correct": false,
+              "feedback": "Not correct for <strong>I</strong>. Use the base verb: <strong>I check my tasks.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Sequencing a Simple Schedule",
+          "intro": "The learner now moves from isolated time references to a short ordered schedule. This supports both spoken routine descriptions and basic professional time management language.",
+          "content": [
+            "A schedule description often combines <strong>time markers</strong> and <strong>routine verbs</strong>.",
+            "Useful sequence markers at this level are: <strong>then</strong> and <strong>after that</strong>.",
+            "The structure stays simple: <strong>time marker + subject + verb + complement</strong>.",
+            "The student should prioritize logical order and sentence stability.",
+            "A short schedule is more effective than a long unstable paragraph."
+          ],
+          "examples": [
+            "At eight, I study.",
+            "Then, I check my tasks.",
+            "After that, I read messages.",
+            "At night, I write notes."
+          ],
+          "commonMistakes": [
+            "Incorrect: Then I am check my tasks. → Correct: Then, I check my tasks.",
+            "Incorrect: After that I reads messages. → Correct: After that, I read messages.",
+            "Incorrect: At night I am write notes. → Correct: At night, I write notes."
+          ]
+        },
+        "theory_pt": {
+          "title": "Sequenciando uma Agenda Simples",
+          "intro": "O aluno agora passa de referências de tempo isoladas para uma agenda curta e ordenada. Isso apoia tanto as descrições faladas de rotina quanto a linguagem básica de gerenciamento de tempo profissional.",
+          "content": [
+            "Uma descrição de agenda frequentemente combina <strong>marcadores de tempo</strong> e <strong>verbos de rotina</strong>.",
+            "Marcadores de sequência úteis neste nível são: <strong>then</strong> (depois/então) e <strong>after that</strong> (depois disso).",
+            "A estrutura permanece simples: <strong>marcador de tempo + sujeito + verbo + complemento</strong>.",
+            "O aluno deve priorizar a ordem lógica e a estabilidade da frase.",
+            "Uma agenda curta é mais eficaz do que um parágrafo longo e instável."
+          ],
+          "examples": [
+            "Às oito, eu estudo.",
+            "Depois, eu verifico minhas tarefas.",
+            "Depois disso, eu leio mensagens.",
+            "À noite, eu escrevo anotações."
+          ],
+          "commonMistakes": [
+            "Incorreto: Then I am check my tasks. → Correto: Then, I check my tasks.",
+            "Incorreto: After that I reads messages. → Correto: After that, I read messages.",
+            "Incorreto: At night I am write notes. → Correto: At night, I write notes."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "then",
+            "pt": "depois / então"
+          },
+          {
+            "en": "after that",
+            "pt": "depois disso"
+          },
+          {
+            "en": "first",
+            "pt": "primeiro"
+          },
+          {
+            "en": "later",
+            "pt": "mais tarde"
+          },
+          {
+            "en": "before",
+            "pt": "antes"
+          },
+          {
+            "en": "after",
+            "pt": "depois"
+          },
+          {
+            "en": "daily schedule",
+            "pt": "agenda diária"
+          },
+          {
+            "en": "task",
+            "pt": "tarefa"
+          },
+          {
+            "en": "message",
+            "pt": "mensagem"
+          },
+          {
+            "en": "note",
+            "pt": "anotação"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Day in Order",
+          "en": "At eight, I study. Then, I open my notebook. After that, I read messages and check my tasks. At night, I write notes and review my project.",
+          "pt": "Às oito, eu estudo. Depois, eu abro meu notebook. Depois disso, eu leio mensagens e verifico minhas tarefas. À noite, eu escrevo anotações e reviso meu projeto.",
+          "task": "Read the text and identify the order of actions from the beginning to the end of the day."
+        },
+        "listening": {
+          "title": "Listening Lab — Daily Sequence",
+          "instructions": "Listen to the short schedule and identify the correct sequence marker sentence.",
+          "text": "At eight, I study. Then, I check my tasks. After that, I read messages.",
+          "transcript": "At eight, I study. Then, I check my tasks. After that, I read messages.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "Then, I check my tasks.",
+            "Then, I am check my tasks.",
+            "Then, I checks my tasks."
+          ],
+          "answer": "Then, I check my tasks.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "reorder",
+          "question": "Write the correct sentence:",
+          "helpText": "Use a sequence marker and a correct simple present structure.",
+          "answer": "Then, I check my tasks."
+        },
+        "teacherNotes": {
+          "focus": "Train the learner to organize routine events into a short, logical schedule.",
+          "tips": [
+            "Use visual timelines or gesture-based sequencing while speaking.",
+            "Keep the markers then and after that highly visible and repeatable.",
+            "Have learners say the whole line, not isolated fragments.",
+            "Focus on order, not speed.",
+            "Reinforce that schedule talk is routine language plus time control."
+          ],
+          "supportPhrases": [
+            "What comes first?",
+            "Now say the next step.",
+            "Use then for the next action.",
+            "After that means the next event in sequence.",
+            "Keep the schedule clear."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Treinar o aluno para organizar eventos de rotina em uma agenda curta e lógica.",
+          "tips": [
+            "Use linhas do tempo visuais ou gestos de sequência durante a fala.",
+            "Mantenha os marcadores then e after that muito visíveis e repetíveis.",
+            "Peça que os alunos falem a linha inteira, e não fragmentos isolados.",
+            "Foque em ordem, não em velocidade.",
+            "Reforce que falar de agenda é linguagem de rotina mais controle de tempo."
+          ],
+          "supportPhrases": [
+            "O que vem primeiro?",
+            "Agora diga o próximo passo.",
+            "Use then para a próxima ação.",
+            "After that significa o próximo evento na sequência.",
+            "Mantenha a agenda clara."
+          ]
+        }
+      },
+      {
+        "id": "3.3",
+        "subtitulo": "Are You Free? — Availability and Meetings",
+        "lessonMeta": {
+          "focus": "Basic availability questions and meeting language",
+          "canDo": "I can ask and answer simple questions about availability and meeting times.",
+          "structures": [
+            "Are you free at nine?",
+            "Yes, I am.",
+            "No, I'm not.",
+            "The meeting is at ten."
+          ],
+          "outputTargets": [
+            "Ask about simple availability.",
+            "Answer availability questions correctly.",
+            "Understand a basic meeting-time sentence."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> talk about availability.<br><br>In work and study life, you need to say if you are free or busy.<br><br><strong>Are you free at nine?</strong><br><strong>Yes, I am.</strong><br><strong>No, I'm not.</strong><br><strong>The meeting is at ten.</strong><br><br>This is essential for coordination.",
+          "options": [
+            {
+              "text": "Are you free at nine?",
+              "correct": true,
+              "feedback": "Excellent. That is a correct and useful availability question."
+            },
+            {
+              "text": "Do you free at nine?",
+              "correct": false,
+              "feedback": "Not correct. With <strong>free</strong>, use the verb <strong>to be</strong>: <strong>Are you free at nine?</strong>"
+            },
+            {
+              "text": "Are you free in nine?",
+              "correct": false,
+              "feedback": "Use <strong>at</strong> with clock time: <strong>Are you free at nine?</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Availability and Simple Meeting Coordination",
+          "intro": "This lesson introduces basic availability language for study and work coordination. The learner uses already known structures with new communicative purpose: scheduling and responding to time requests.",
+          "content": [
+            "Use <strong>Are you free...?</strong> to ask about availability.",
+            "Use <strong>Yes, I am.</strong> and <strong>No, I'm not.</strong> to answer clearly.",
+            "Use <strong>The meeting is at + time</strong> to communicate a simple schedule fact.",
+            "This lesson combines Week 1 be-questions with Week 3 time language.",
+            "The target is functional coordination, not complex calendar language."
+          ],
+          "examples": [
+            "Are you free at nine?",
+            "Yes, I am.",
+            "No, I'm not.",
+            "The meeting is at ten."
+          ],
+          "commonMistakes": [
+            "Incorrect: Do you free at nine? → Correct: Are you free at nine?",
+            "Incorrect: The meeting is in ten. → Correct: The meeting is at ten.",
+            "Incorrect: Yes, I do. → For this be-question, use: Yes, I am."
+          ]
+        },
+        "theory_pt": {
+          "title": "Disponibilidade e Coordenação Simples de Reuniões",
+          "intro": "Esta lição introduz a linguagem básica de disponibilidade para coordenação de estudo e trabalho. O aluno usa estruturas já conhecidas com um novo propósito comunicativo: agendar e responder a solicitações de tempo.",
+          "content": [
+            "Use <strong>Are you free...?</strong> para perguntar sobre disponibilidade.",
+            "Use <strong>Yes, I am.</strong> e <strong>No, I'm not.</strong> para responder de forma clara.",
+            "Use <strong>The meeting is at + horário</strong> para comunicar um fato simples da agenda.",
+            "Esta lição combina as perguntas com 'be' da Semana 1 com a linguagem de tempo da Semana 3.",
+            "O alvo é a coordenação funcional, não uma linguagem de calendário complexa."
+          ],
+          "examples": [
+            "Você está livre às nove?",
+            "Sim, estou.",
+            "Não, não estou.",
+            "A reunião é às dez."
+          ],
+          "commonMistakes": [
+            "Incorreto: Do you free at nine? → Correto: Are you free at nine?",
+            "Incorreto: The meeting is in ten. → Correto: The meeting is at ten.",
+            "Incorreto: Yes, I do. → Para esta pergunta com 'be', use: Yes, I am."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "free",
+            "pt": "livre"
+          },
+          {
+            "en": "busy",
+            "pt": "ocupado(a)"
+          },
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "available",
+            "pt": "disponível"
+          },
+          {
+            "en": "today",
+            "pt": "hoje"
+          },
+          {
+            "en": "tomorrow",
+            "pt": "amanhã"
+          },
+          {
+            "en": "at ten",
+            "pt": "às dez"
+          },
+          {
+            "en": "at nine",
+            "pt": "às nove"
+          },
+          {
+            "en": "call",
+            "pt": "chamada / ligação"
+          },
+          {
+            "en": "session",
+            "pt": "sessão"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — A Short Meeting Check",
+          "en": "Manager: Are you free at ten? Leo: No, I'm not. The meeting is at ten, but I am free at eleven. Manager: Great. See you at eleven.",
+          "pt": "Gerente: Você está livre às dez? Leo: Não, não estou. A reunião é às dez, mas eu estou livre às onze. Gerente: Ótimo. Vejo você às onze.",
+          "task": "Read the dialogue and identify the unavailable time and the available time."
+        },
+        "listening": {
+          "title": "Listening Lab — Availability Check",
+          "instructions": "Listen to the question and answer about availability.",
+          "text": "Are you free at ten? No, I'm not. The meeting is at ten.",
+          "transcript": "Are you free at ten? No, I'm not. The meeting is at ten.",
+          "question": "Choose the correct answer to: Are you free at ten?",
+          "options": [
+            "No, I'm not.",
+            "No, I don't.",
+            "No, I am free."
+          ],
+          "answer": "No, I'm not.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct question:",
+          "helpText": "Use be for availability and at for clock time.",
+          "options": [
+            "Are you free at nine?",
+            "Do you free at nine?",
+            "Are you free in nine?"
+          ],
+          "answer": "Are you free at nine?"
+        },
+        "teacherNotes": {
+          "focus": "Use basic be-questions and time expressions for availability and simple coordination.",
+          "tips": [
+            "Highlight the continuity with Week 1: Are you...? is already familiar, but now the function is different.",
+            "Practice the contrast between be-questions and do-questions.",
+            "Keep meeting language minimal and realistic.",
+            "Train yes/no answers with confidence and speed.",
+            "Always attach availability to a specific time."
+          ],
+          "supportPhrases": [
+            "Are you free at nine?",
+            "Answer with yes, I am or no, I'm not.",
+            "Use at with the time.",
+            "This is about coordination.",
+            "Now ask about another hour."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Usar perguntas com be e expressões de tempo para disponibilidade e coordenação simples.",
+          "tips": [
+            "Destaque a continuidade com a Semana 1: Are you...? já é familiar, mas agora a função é outra.",
+            "Pratique o contraste entre perguntas com be e perguntas com do.",
+            "Mantenha a linguagem de reunião mínima e realista.",
+            "Treine respostas yes/no com confiança e rapidez.",
+            "Sempre conecte disponibilidade a um horário específico."
+          ],
+          "supportPhrases": [
+            "Are you free at nine?",
+            "Responda com yes, I am ou no, I'm not.",
+            "Use at com o horário.",
+            "Isso é linguagem de coordenação.",
+            "Agora pergunte sobre outro horário."
+          ]
+        }
+      },
+      {
+        "id": "3.4",
+        "subtitulo": "The Boss Fight — My Timetable",
+        "lessonMeta": {
+          "focus": "Integrated production: timetable, routine and availability",
+          "canDo": "I can present a short timetable and say when I am free.",
+          "structures": [
+            "At eight, I study.",
+            "At ten, I have a meeting.",
+            "In the afternoon, I work on my project.",
+            "I am free at five."
+          ],
+          "outputTargets": [
+            "Produce a short timetable with 4 to 6 lines.",
+            "Combine actions, times and simple availability.",
+            "Present a clear daily schedule."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Final challenge:</strong> build your Week 3 timetable.<br><br>Now you combine time, routine and availability:<br><br><strong>At eight, I study.</strong><br><strong>At ten, I have a meeting.</strong><br><strong>In the afternoon, I work on my project.</strong><br><strong>I am free at five.</strong><br><br>Your goal is to sound <strong>organized, clear and functional</strong>.",
+          "options": [
+            {
+              "text": "I am ready.",
+              "correct": true,
+              "feedback": "Excellent. Now build your timetable with complete, stable and useful sentences."
+            },
+            {
+              "text": "I ready.",
+              "correct": false,
+              "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Building a Simple Timetable",
+          "intro": "The final lesson of Week 3 integrates time language, routine descriptions and availability into a practical daily timetable. This creates a stronger sense of functional control in professional English.",
+          "content": [
+            "A timetable is a short organized description of what happens and when it happens.",
+            "At A1 level, the student should use short complete sentences with predictable structure.",
+            "Useful patterns are: <strong>At + time, I + verb</strong> and <strong>I am free at + time</strong>.",
+            "The learner can combine specific times and broad parts of the day.",
+            "A successful final output sounds simple, clear and organized."
+          ],
+          "examples": [
+            "At eight, I study.",
+            "At ten, I have a meeting.",
+            "In the afternoon, I work on my project.",
+            "I am free at five."
+          ],
+          "commonMistakes": [
+            "Incorrect: In ten, I have a meeting. → Correct: At ten, I have a meeting.",
+            "Incorrect: I free at five. → Correct: I am free at five.",
+            "Incorrect: In the afternoon, I am work on my project. → Correct: In the afternoon, I work on my project."
+          ]
+        },
+        "theory_pt": {
+          "title": "Construindo um Quadro de Horários Simples",
+          "intro": "A última lição da Semana 3 integra linguagem de tempo, descrições de rotina e disponibilidade em um quadro de horários diário prático. Isso cria um senso mais forte de controle funcional no inglês profissional.",
+          "content": [
+            "Um quadro de horários é uma descrição curta e organizada do que acontece e quando acontece.",
+            "No nível A1, o aluno deve usar frases curtas e completas com estrutura previsível.",
+            "Padrões úteis são: <strong>At + hora, I + verbo</strong> e <strong>I am free at + hora</strong>.",
+            "O aluno pode combinar horários específicos e partes amplas do dia.",
+            "Uma produção final bem-sucedida soa simples, clara e organizada."
+          ],
+          "examples": [
+            "Às oito, eu estudo.",
+            "Às dez, eu tenho uma reunião.",
+            "À tarde, eu trabalho no meu projeto.",
+            "Eu estou livre às cinco."
+          ],
+          "commonMistakes": [
+            "Incorreto: In ten, I have a meeting. → Correto: At ten, I have a meeting.",
+            "Incorreto: I free at five. → Correto: I am free at five.",
+            "Incorreto: In the afternoon, I am work on my project. → Correto: In the afternoon, I work on my project."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "timetable",
+            "pt": "horário / cronograma"
+          },
+          {
+            "en": "free",
+            "pt": "livre"
+          },
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "project",
+            "pt": "projeto"
+          },
+          {
+            "en": "afternoon",
+            "pt": "tarde"
+          },
+          {
+            "en": "morning",
+            "pt": "manhã"
+          },
+          {
+            "en": "night",
+            "pt": "noite"
+          },
+          {
+            "en": "at five",
+            "pt": "às cinco"
+          },
+          {
+            "en": "at ten",
+            "pt": "às dez"
+          },
+          {
+            "en": "daily plan",
+            "pt": "plano diário"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Daily Timetable",
+          "en": "At eight, I study English. At ten, I have a meeting. In the afternoon, I work on my project. At night, I write notes. I am free at five.",
+          "pt": "Às oito, eu estudo inglês. Às dez, eu tenho uma reunião. À tarde, eu trabalho no meu projeto. À noite, eu escrevo anotações. Eu estou livre às cinco.",
+          "task": "Read the timetable and identify the study time, the meeting time and the free time."
+        },
+        "listening": {
+          "title": "Listening Lab — Final Timetable",
+          "instructions": "Listen to the timetable and identify the final availability sentence.",
+          "text": "At eight, I study. At ten, I have a meeting. In the afternoon, I work on my project. I am free at five.",
+          "transcript": "At eight, I study. At ten, I have a meeting. In the afternoon, I work on my project. I am free at five.",
+          "question": "Type the final availability sentence:",
+          "answer": "I am free at five.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "text-input",
+          "question": "Write your mini timetable in English.",
+          "helpText": "Use 4 to 6 complete sentences. Example: At eight, I study. At ten, I have a meeting. I am free at five.",
+          "answer": "any"
+        },
+        "teacherNotes": {
+          "focus": "Integrate time, schedule and availability into a short but functional timetable.",
+          "tips": [
+            "Encourage reuse of modeled sentences from earlier lessons.",
+            "Require sentence completeness and logical order.",
+            "Keep the timetable personal but highly controlled.",
+            "Check prepositions carefully: at for times, in for parts of the day.",
+            "Evaluate whether the learner can now coordinate actions in time."
+          ],
+          "supportPhrases": [
+            "Build your day step by step.",
+            "Add the time first.",
+            "Now say the action.",
+            "Finish with your free time.",
+            "Make your timetable clear and professional."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Integrar tempo, agenda e disponibilidade em um horário curto, mas funcional.",
+          "tips": [
+            "Incentive a reutilização de frases modeladas nas aulas anteriores.",
+            "Exija frases completas e ordem lógica.",
+            "Mantenha o horário pessoal, mas altamente controlado.",
+            "Verifique cuidadosamente as preposições: at para horas, in para partes do dia.",
+            "Avalie se o aluno já consegue coordenar ações no tempo."
+          ],
+          "supportPhrases": [
+            "Construa seu dia passo a passo.",
+            "Adicione o horário primeiro.",
+            "Agora diga a ação.",
+            "Termine com seu horário livre.",
+            "Faça seu cronograma soar claro e profissional."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "week-4",
+    "faseId": 1,
+    "semana": 4,
+    "titulo": "Week 4 — Days, Dates & Weekly Planning",
+    "objetivo": "The student can talk about days of the week, simple dates and weekly plans, describe when study or work events happen, and ask and answer basic questions about weekly availability in a tech context.",
+    "rubricaA1": [
+      {
+        "criterio": "Days and dates accuracy",
+        "descricao": "Uses basic days of the week and simple date references with reasonable stability.",
+        "criterio_pt": "Precisão em dias e datas",
+        "descricao_pt": "Usa dias da semana e referências simples de data com estabilidade razoável."
+      },
+      {
+        "criterio": "Weekly planning language",
+        "descricao": "Can describe a simple weekly plan using short complete sentences.",
+        "criterio_pt": "Linguagem de planejamento semanal",
+        "descricao_pt": "Consegue descrever um plano semanal simples usando frases curtas e completas."
+      },
+      {
+        "criterio": "Interaction about schedule",
+        "descricao": "Can ask and answer predictable questions about days and weekly events.",
+        "criterio_pt": "Interação sobre agenda",
+        "descricao_pt": "Consegue perguntar e responder questões previsíveis sobre dias e eventos semanais."
+      },
+      {
+        "criterio": "Listening comprehension",
+        "descricao": "Identifies key days, dates and weekly events in short controlled listening tasks.",
+        "criterio_pt": "Compreensão auditiva",
+        "descricao_pt": "Identifica dias, datas e eventos semanais em tarefas curtas e controladas de listening."
+      },
+      {
+        "criterio": "Final output clarity",
+        "descricao": "Produces a short and understandable weekly plan or event schedule.",
+        "criterio_pt": "Clareza da produção final",
+        "descricao_pt": "Produz um plano semanal ou agenda de eventos curto e compreensível."
+      }
+    ],
+    "aulas": [
+      {
+        "id": "4.1",
+        "subtitulo": "Days of the Week — Mapping the Work Cycle",
+        "lessonMeta": {
+          "focus": "Days of the week in routine and work/study planning",
+          "canDo": "I can say the days of the week and connect them to simple work or study actions.",
+          "structures": [
+            "On Monday, I study.",
+            "On Tuesday, I have class.",
+            "On Friday, I review my project.",
+            "My meeting is on Wednesday."
+          ],
+          "outputTargets": [
+            "Name the days of the week.",
+            "Connect a day to a routine action.",
+            "Describe simple weekly events."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> move from daily routine to weekly planning.<br><br>Now you need to say <strong>on which day</strong> something happens:<br><br><strong>On Monday, I study.</strong><br><strong>On Tuesday, I have class.</strong><br><strong>My meeting is on Wednesday.</strong><br><br>This is the language of planning, coordination and work rhythm.",
+          "options": [
+            {
+              "text": "On Monday, I study.",
+              "correct": true,
+              "feedback": "Excellent. That is the correct way to connect a day of the week to an action."
+            },
+            {
+              "text": "In Monday, I study.",
+              "correct": false,
+              "feedback": "Not correct here. Use <strong>on</strong> with days of the week: <strong>On Monday, I study.</strong>"
+            },
+            {
+              "text": "On Monday, I am study.",
+              "correct": false,
+              "feedback": "The day phrase is correct, but the verb structure is not. Say: <strong>On Monday, I study.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Days of the Week in English",
+          "intro": "This lesson introduces the basic weekly cycle in English. The learner connects routine language to days of the week, which is essential for planning classes, meetings and simple professional events.",
+          "content": [
+            "Use <strong>on</strong> with days of the week: <strong>on Monday</strong>, <strong>on Friday</strong>.",
+            "Days of the week are usually capitalized in English: <strong>Monday</strong>, <strong>Tuesday</strong>, <strong>Wednesday</strong>.",
+            "The pattern <strong>On + day, I + verb</strong> is highly useful for A1 planning language.",
+            "You can also use <strong>My meeting is on Wednesday</strong> to place an event in the week.",
+            "At this stage, the priority is correct day reference and sentence stability."
+          ],
+          "examples": [
+            "On Monday, I study.",
+            "On Tuesday, I have class.",
+            "On Friday, I review my project.",
+            "My meeting is on Wednesday."
+          ],
+          "commonMistakes": [
+            "Incorrect: In Monday, I study. → Correct: On Monday, I study.",
+            "Incorrect: My meeting is in Wednesday. → Correct: My meeting is on Wednesday.",
+            "Incorrect: On Monday, I am study. → Correct: On Monday, I study."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "Monday",
+            "pt": "segunda-feira"
+          },
+          {
+            "en": "Tuesday",
+            "pt": "terça-feira"
+          },
+          {
+            "en": "Wednesday",
+            "pt": "quarta-feira"
+          },
+          {
+            "en": "Thursday",
+            "pt": "quinta-feira"
+          },
+          {
+            "en": "Friday",
+            "pt": "sexta-feira"
+          },
+          {
+            "en": "Saturday",
+            "pt": "sábado"
+          },
+          {
+            "en": "Sunday",
+            "pt": "domingo"
+          },
+          {
+            "en": "week",
+            "pt": "semana"
+          },
+          {
+            "en": "weekly",
+            "pt": "semanal"
+          },
+          {
+            "en": "on",
+            "pt": "em / na"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Week Starts Here",
+          "en": "On Monday, I study English. On Tuesday, I check my tasks. On Wednesday, I have a meeting. On Friday, I review my project.",
+          "pt": "Na segunda-feira, eu estudo inglês. Na terça-feira, eu verifico minhas tarefas. Na quarta-feira, eu tenho uma reunião. Na sexta-feira, eu reviso meu projeto.",
+          "task": "Read the text and identify what happens on each day."
+        },
+        "listening": {
+          "title": "Listening Lab — Days and Actions",
+          "instructions": "Listen to the sentence and identify the correct day expression.",
+          "text": "On Monday, I study. On Wednesday, I have a meeting.",
+          "transcript": "On Monday, I study. On Wednesday, I have a meeting.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "On Monday, I study.",
+            "In Monday, I study.",
+            "On Monday, I am study."
+          ],
+          "answer": "On Monday, I study.",
+          "lang": "en-US",
+          "rate": 0.8,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct sentence:",
+          "helpText": "Use on with days of the week.",
+          "options": [
+            "My class is on Tuesday.",
+            "My class is in Tuesday.",
+            "My class is at Tuesday."
+          ],
+          "answer": "My class is on Tuesday."
+        },
+        "teacherNotes": {
+          "focus": "Introduce weekly reference using days of the week as a new planning layer on top of routine language.",
+          "tips": [
+            "Present the days as part of a weekly cycle, not as an isolated vocabulary list.",
+            "Drill on + day repeatedly, because preposition transfer will be strong.",
+            "Keep events simple and highly predictable.",
+            "Connect days to familiar actions from previous weeks.",
+            "Use repetition and sequencing to anchor the weekly rhythm."
+          ],
+          "supportPhrases": [
+            "Use on with the day.",
+            "Now connect the day to the action.",
+            "Say the full sentence.",
+            "This is weekly planning language.",
+            "Keep the event simple and clear."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Introduzir referência semanal usando os dias da semana como uma nova camada de planejamento sobre a linguagem de rotina.",
+          "tips": [
+            "Apresente os dias como parte de um ciclo semanal, não como uma lista isolada de vocabulário.",
+            "Treine on + day repetidamente, porque a transferência da preposição será forte.",
+            "Mantenha os eventos simples e altamente previsíveis.",
+            "Conecte os dias a ações familiares das semanas anteriores.",
+            "Use repetição e sequência para fixar o ritmo semanal."
+          ],
+          "supportPhrases": [
+            "Use on com o dia.",
+            "Agora conecte o dia à ação.",
+            "Fale a frase completa.",
+            "Isto é linguagem de planejamento semanal.",
+            "Mantenha o evento simples e claro."
+          ]
+        }
+      },
+      {
+        "id": "4.2",
+        "subtitulo": "Dates and Deadlines — Simple Calendar English",
+        "lessonMeta": {
+          "focus": "Basic dates and simple deadline language",
+          "canDo": "I can say simple dates and connect them to classes, meetings or deadlines.",
+          "structures": [
+            "It is March tenth.",
+            "The class is on March twelfth.",
+            "The deadline is on Friday.",
+            "The meeting is on April fifth."
+          ],
+          "outputTargets": [
+            "Recognize simple month + day structures.",
+            "Connect dates to events.",
+            "Describe simple calendar information."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> now move from days to dates.<br><br>In study and work life, you also need to talk about calendar events:<br><br><strong>It is March tenth.</strong><br><strong>The class is on March twelfth.</strong><br><strong>The meeting is on April fifth.</strong><br><br>This is the beginning of deadline and calendar language.",
+          "options": [
+            {
+              "text": "The class is on March twelfth.",
+              "correct": true,
+              "feedback": "Excellent. That is a correct simple calendar sentence."
+            },
+            {
+              "text": "The class is in March twelfth.",
+              "correct": false,
+              "feedback": "Not correct here. Use <strong>on</strong> for the date: <strong>The class is on March twelfth.</strong>"
+            },
+            {
+              "text": "The class is on March twelve day.",
+              "correct": false,
+              "feedback": "Use the ordinal form in this model: <strong>March twelfth</strong>."
+            }
+          ]
+        },
+        "theory": {
+          "title": "Simple Dates in English",
+          "intro": "This lesson introduces calendar dates in a controlled and functional way. The goal is not full calendar mastery, but the ability to recognize and use basic month + day structures in professional or academic contexts.",
+          "content": [
+            "A simple English date can be expressed with <strong>month + ordinal day</strong>: <strong>March tenth</strong>, <strong>April fifth</strong>.",
+            "Use <strong>on</strong> with dates when connecting them to events: <strong>The meeting is on April fifth.</strong>",
+            "At this stage, the learner does not need full calendar complexity; simple event-date connections are enough.",
+            "Date language is especially useful for classes, meetings, interviews and deadlines.",
+            "The structure should remain stable and controlled."
+          ],
+          "examples": [
+            "It is March tenth.",
+            "The class is on March twelfth.",
+            "The meeting is on April fifth.",
+            "The deadline is on Friday."
+          ],
+          "commonMistakes": [
+            "Incorrect: The class is in March twelfth. → Correct: The class is on March twelfth.",
+            "Incorrect: It is March ten. → Acceptable in some contexts, but this course models: It is March tenth.",
+            "Incorrect: The meeting is on April five. → Better in this model: The meeting is on April fifth."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "date",
+            "pt": "data"
+          },
+          {
+            "en": "deadline",
+            "pt": "prazo"
+          },
+          {
+            "en": "calendar",
+            "pt": "calendário"
+          },
+          {
+            "en": "March",
+            "pt": "março"
+          },
+          {
+            "en": "April",
+            "pt": "abril"
+          },
+          {
+            "en": "fifth",
+            "pt": "quinto(a)"
+          },
+          {
+            "en": "tenth",
+            "pt": "décimo(a)"
+          },
+          {
+            "en": "twelfth",
+            "pt": "décimo segundo(a)"
+          },
+          {
+            "en": "interview",
+            "pt": "entrevista"
+          },
+          {
+            "en": "deadline day",
+            "pt": "dia do prazo"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — Calendar Notes",
+          "en": "Today is March tenth. The class is on March twelfth. The project meeting is on April fifth. The deadline is on Friday.",
+          "pt": "Hoje é dez de março. A aula é em doze de março. A reunião do projeto é em cinco de abril. O prazo é na sexta-feira.",
+          "task": "Read the calendar notes and identify the date of the class, the meeting and the deadline."
+        },
+        "listening": {
+          "title": "Listening Lab — Date and Event",
+          "instructions": "Listen carefully and identify the correct calendar sentence.",
+          "text": "The class is on March twelfth. The deadline is on Friday.",
+          "transcript": "The class is on March twelfth. The deadline is on Friday.",
+          "question": "Choose the correct sentence:",
+          "options": [
+            "The class is on March twelfth.",
+            "The class is in March twelfth.",
+            "The class is on March twelve day."
+          ],
+          "answer": "The class is on March twelfth.",
+          "lang": "en-US",
+          "rate": 0.78,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct sentence:",
+          "helpText": "Use on for dates and calendar events.",
+          "options": [
+            "The meeting is on April fifth.",
+            "The meeting is in April fifth.",
+            "The meeting is at April fifth."
+          ],
+          "answer": "The meeting is on April fifth."
+        },
+        "teacherNotes": {
+          "focus": "Introduce simple date language for calendar events without overloading the learner with full formal date systems.",
+          "tips": [
+            "Model month + ordinal day repeatedly.",
+            "Keep the set of months and ordinal numbers very small in this lesson.",
+            "Connect every date to a meaningful event.",
+            "Avoid long explanations about date formats; prioritize usable spoken forms.",
+            "Reinforce on for calendar events."
+          ],
+          "supportPhrases": [
+            "Say the month first, then the day.",
+            "Connect the date to the event.",
+            "Use on with the date.",
+            "Keep it simple and clear.",
+            "This is calendar English."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Introduzir linguagem simples de datas para eventos de calendário sem sobrecarregar o aluno com sistemas completos de data.",
+          "tips": [
+            "Modele month + ordinal day repetidamente.",
+            "Mantenha o conjunto de meses e números ordinais bem pequeno nesta aula.",
+            "Conecte cada data a um evento significativo.",
+            "Evite explicações longas sobre formatos de data; priorize formas faladas utilizáveis.",
+            "Reforce on para eventos de calendário."
+          ],
+          "supportPhrases": [
+            "Diga o mês primeiro, depois o dia.",
+            "Conecte a data ao evento.",
+            "Use on com a data.",
+            "Mantenha simples e claro.",
+            "Isto é inglês de calendário."
+          ]
+        }
+      },
+      {
+        "id": "4.3",
+        "subtitulo": "What Day Is the Meeting? — Asking About Weekly Events",
+        "lessonMeta": {
+          "focus": "Questions and answers about days, dates and weekly events",
+          "canDo": "I can ask and answer simple questions about when classes, meetings or tasks happen.",
+          "structures": [
+            "What day is the meeting?",
+            "It is on Wednesday.",
+            "When is the class?",
+            "It is on March twelfth."
+          ],
+          "outputTargets": [
+            "Ask about the day of an event.",
+            "Answer with on + day or on + date.",
+            "Sustain a simple scheduling exchange."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Mission:</strong> ask when events happen.<br><br>Now you move from statements to planning questions:<br><br><strong>What day is the meeting?</strong><br><strong>It is on Wednesday.</strong><br><strong>When is the class?</strong><br><strong>It is on March twelfth.</strong><br><br>This is the language of simple coordination and schedule checking.",
+          "options": [
+            {
+              "text": "What day is the meeting?",
+              "correct": true,
+              "feedback": "Excellent. That is a correct question about a weekly event."
+            },
+            {
+              "text": "When day is the meeting?",
+              "correct": false,
+              "feedback": "Not correct. Use the model: <strong>What day is the meeting?</strong>"
+            },
+            {
+              "text": "What day the meeting is?",
+              "correct": false,
+              "feedback": "The word order is not correct here. Say: <strong>What day is the meeting?</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Questions About Weekly Events",
+          "intro": "This lesson gives the learner simple question forms to ask about schedules and calendar events. It builds directly on the previous three weeks and creates the first real weekly coordination exchanges.",
+          "content": [
+            "Use <strong>What day is the meeting?</strong> to ask about the day of the week of an event.",
+            "Use <strong>When is the class?</strong> to ask more generally about the time or date of an event.",
+            "Answer with <strong>It is on + day</strong> or <strong>It is on + date</strong>.",
+            "These questions are highly useful for classes, meetings, interviews and deadlines.",
+            "At this level, the learner should master a few highly reusable question-answer pairs."
+          ],
+          "examples": [
+            "What day is the meeting?",
+            "It is on Wednesday.",
+            "When is the class?",
+            "It is on March twelfth."
+          ],
+          "commonMistakes": [
+            "Incorrect: When day is the meeting? → Correct: What day is the meeting?",
+            "Incorrect: What day the meeting is? → Correct: What day is the meeting?",
+            "Incorrect: It is in Wednesday. → Correct: It is on Wednesday."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "when",
+            "pt": "quando"
+          },
+          {
+            "en": "what day",
+            "pt": "que dia"
+          },
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "class",
+            "pt": "aula"
+          },
+          {
+            "en": "deadline",
+            "pt": "prazo"
+          },
+          {
+            "en": "event",
+            "pt": "evento"
+          },
+          {
+            "en": "schedule check",
+            "pt": "checagem de agenda"
+          },
+          {
+            "en": "Wednesday",
+            "pt": "quarta-feira"
+          },
+          {
+            "en": "March twelfth",
+            "pt": "doze de março"
+          },
+          {
+            "en": "weekly event",
+            "pt": "evento semanal"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — Schedule Questions",
+          "en": "Ana: What day is the meeting? Leo: It is on Wednesday. Ana: When is the class? Leo: It is on March twelfth.",
+          "pt": "Ana: Que dia é a reunião? Leo: É na quarta-feira. Ana: Quando é a aula? Leo: É em doze de março.",
+          "task": "Read the dialogue and identify which answer gives a day and which answer gives a date."
+        },
+        "listening": {
+          "title": "Listening Lab — Weekly Event Questions",
+          "instructions": "Listen to the question-answer exchange and identify the correct answer.",
+          "text": "What day is the meeting? It is on Wednesday. When is the class? It is on March twelfth.",
+          "transcript": "What day is the meeting? It is on Wednesday. When is the class? It is on March twelfth.",
+          "question": "Choose the correct answer to: What day is the meeting?",
+          "options": [
+            "It is on Wednesday.",
+            "It is in Wednesday.",
+            "It is at Wednesday."
+          ],
+          "answer": "It is on Wednesday.",
+          "lang": "en-US",
+          "rate": 0.78,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "multiple-choice",
+          "question": "Choose the correct question:",
+          "helpText": "Ask about the day of an event.",
+          "options": [
+            "What day is the meeting?",
+            "When day is the meeting?",
+            "What day the meeting is?"
+          ],
+          "answer": "What day is the meeting?"
+        },
+        "teacherNotes": {
+          "focus": "Train a small set of highly reusable weekly planning questions and answers.",
+          "tips": [
+            "Keep the distinction between day questions and general when questions visible.",
+            "Have learners repeat both question and answer as a pair.",
+            "Use real course events as examples if helpful.",
+            "Do not overexpand to complex calendar negotiation yet.",
+            "Stability of form matters more than range."
+          ],
+          "supportPhrases": [
+            "Ask about the day.",
+            "Now answer with on + day.",
+            "Use when for a general event question.",
+            "Repeat the full exchange.",
+            "This is planning language."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Treinar um pequeno conjunto de perguntas e respostas altamente reutilizáveis para planejamento semanal.",
+          "tips": [
+            "Mantenha visível a distinção entre perguntas sobre o dia e perguntas gerais com when.",
+            "Peça que os alunos repitam pergunta e resposta como um par.",
+            "Use eventos reais do curso como exemplo, se ajudar.",
+            "Ainda não expanda para negociação complexa de calendário.",
+            "Estabilidade da forma importa mais do que variedade."
+          ],
+          "supportPhrases": [
+            "Pergunte sobre o dia.",
+            "Agora responda com on + day.",
+            "Use when para uma pergunta geral sobre evento.",
+            "Repita a troca completa.",
+            "Isto é linguagem de planejamento."
+          ]
+        }
+      },
+      {
+        "id": "4.4",
+        "subtitulo": "The Boss Fight — My Weekly Plan",
+        "lessonMeta": {
+          "focus": "Integrated production: weekly plan, days, dates and events",
+          "canDo": "I can present a short weekly plan with days, simple dates and key events.",
+          "structures": [
+            "On Monday, I study English.",
+            "My meeting is on Wednesday.",
+            "The class is on March twelfth.",
+            "On Friday, I review my project."
+          ],
+          "outputTargets": [
+            "Produce a short weekly plan with 4 to 6 lines.",
+            "Combine days, dates and simple events.",
+            "Present a clear weekly schedule."
+          ]
+        },
+        "arena": {
+          "rebecaState": "rebecarecebendo.png",
+          "speech": "<strong>Final challenge:</strong> build your Week 4 weekly plan.<br><br>Now you combine days, dates and events:<br><br><strong>On Monday, I study English.</strong><br><strong>My meeting is on Wednesday.</strong><br><strong>The class is on March twelfth.</strong><br><strong>On Friday, I review my project.</strong><br><br>Your goal is to sound <strong>organized, clear and calendar-aware</strong>.",
+          "options": [
+            {
+              "text": "I am ready.",
+              "correct": true,
+              "feedback": "Excellent. Now build your weekly plan using complete and well-organized sentences."
+            },
+            {
+              "text": "I ready.",
+              "correct": false,
+              "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+            }
+          ]
+        },
+        "theory": {
+          "title": "Building a Simple Weekly Plan",
+          "intro": "The final lesson of Week 4 integrates day language, date language and weekly event planning into a short weekly schedule. The learner should now be able to present a small academic or professional weekly plan.",
+          "content": [
+            "A weekly plan connects <strong>days</strong>, <strong>dates</strong> and <strong>events</strong>.",
+            "At A1 level, the learner should use short complete sentences with predictable structure.",
+            "Useful patterns are <strong>On + day, I + verb</strong> and <strong>The event is on + date/day</strong>.",
+            "The weekly plan should sound simple, clear and easy to follow.",
+            "The goal is functional planning, not advanced calendar management."
+          ],
+          "examples": [
+            "On Monday, I study English.",
+            "My meeting is on Wednesday.",
+            "The class is on March twelfth.",
+            "On Friday, I review my project."
+          ],
+          "commonMistakes": [
+            "Incorrect: In Monday, I study English. → Correct: On Monday, I study English.",
+            "Incorrect: The class is in March twelfth. → Correct: The class is on March twelfth.",
+            "Incorrect: On Friday, I am review my project. → Correct: On Friday, I review my project."
+          ]
+        },
+        "vocabulary": [
+          {
+            "en": "weekly plan",
+            "pt": "plano semanal"
+          },
+          {
+            "en": "meeting",
+            "pt": "reunião"
+          },
+          {
+            "en": "class",
+            "pt": "aula"
+          },
+          {
+            "en": "review",
+            "pt": "revisar"
+          },
+          {
+            "en": "project",
+            "pt": "projeto"
+          },
+          {
+            "en": "Wednesday",
+            "pt": "quarta-feira"
+          },
+          {
+            "en": "Friday",
+            "pt": "sexta-feira"
+          },
+          {
+            "en": "March twelfth",
+            "pt": "doze de março"
+          },
+          {
+            "en": "weekly schedule",
+            "pt": "agenda semanal"
+          },
+          {
+            "en": "plan",
+            "pt": "plano"
+          }
+        ],
+        "reading": {
+          "title": "Tech Reading — My Weekly Plan",
+          "en": "On Monday, I study English. My meeting is on Wednesday. The class is on March twelfth. On Friday, I review my project and check my tasks.",
+          "pt": "Na segunda-feira, eu estudo inglês. Minha reunião é na quarta-feira. A aula é em doze de março. Na sexta-feira, eu reviso meu projeto e verifico minhas tarefas.",
+          "task": "Read the weekly plan and identify the study day, the meeting day, the class date and the review day."
+        },
+        "listening": {
+          "title": "Listening Lab — Final Weekly Plan",
+          "instructions": "Listen to the weekly plan and identify the class date sentence.",
+          "text": "On Monday, I study English. My meeting is on Wednesday. The class is on March twelfth. On Friday, I review my project.",
+          "transcript": "On Monday, I study English. My meeting is on Wednesday. The class is on March twelfth. On Friday, I review my project.",
+          "question": "Type the class date sentence:",
+          "answer": "The class is on March twelfth.",
+          "lang": "en-US",
+          "rate": 0.78,
+          "pitch": 1
+        },
+        "exercise": {
+          "type": "text-input",
+          "question": "Write your mini weekly plan in English.",
+          "helpText": "Use 4 to 6 complete sentences. Example: On Monday, I study English. My meeting is on Wednesday. The class is on March twelfth.",
+          "answer": "any"
+        },
+        "teacherNotes": {
+          "focus": "Integrate days, dates and weekly events into a short but functional weekly plan.",
+          "tips": [
+            "Encourage reuse of modeled language from earlier lessons.",
+            "Require sentence completeness and clear organization.",
+            "Keep the weekly plan personal but controlled.",
+            "Check on carefully for both days and dates.",
+            "Evaluate whether the learner can now plan beyond the daily cycle."
+          ],
+          "supportPhrases": [
+            "Build your week step by step.",
+            "Add the day or date first.",
+            "Now say the event.",
+            "Keep the plan clear and organized.",
+            "Make your weekly plan sound real."
+          ]
+        },
+        "teacherNotes_pt": {
+          "focus": "Integrar dias, datas e eventos semanais em um plano semanal curto, mas funcional.",
+          "tips": [
+            "Incentive a reutilização da linguagem modelada nas aulas anteriores.",
+            "Exija frases completas e organização clara.",
+            "Mantenha o plano semanal pessoal, mas controlado.",
+            "Verifique cuidadosamente o uso de on para dias e datas.",
+            "Avalie se o aluno agora consegue planejar além do ciclo diário."
+          ],
+          "supportPhrases": [
+            "Construa sua semana passo a passo.",
+            "Adicione o dia ou a data primeiro.",
+            "Agora diga o evento.",
+            "Mantenha o plano claro e organizado.",
+            "Faça seu plano semanal soar real."
+          ]
+        }
+      }
+    ]
+  }
+]

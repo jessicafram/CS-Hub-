@@ -109,6 +109,9 @@ main {
     font-weight: 700;
 }
 
+/* =========================================
+   HERO E BOTÕES (ESTILO TECH PREMIUM)
+   ========================================= */
 .english-hero {
     position: relative;
     min-height: 88vh;
@@ -152,19 +155,58 @@ main {
     z-index: 1;
     width: min(100% - 40px, var(--english-max-width));
     margin: 0 auto;
-    max-width: 860px;
+    max-width: 900px;
+    /* Aumentado para dar mais espaço ao texto */
     padding: 140px 0 110px;
+}
+
+/* --- NOVOS ESTILOS DE TEXTO DO HERO --- */
+.english-badge {
+    font-family: "Fira Code", monospace;
+    color: var(--english-accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.english-hero__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.english-hero__text {
+    font-size: 1.2rem;
+    color: var(--english-text-soft);
+    max-width: 760px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+/* --- NOVOS BOTÕES ESTILO TECH --- */
+.english-hero__actions {
+    display: flex;
+    gap: 16px;
 }
 
 .english-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
-    padding: 0 22px;
-    border-radius: 999px;
-    font-weight: 700;
-    transition: transform var(--english-transition), background var(--english-transition), box-shadow var(--english-transition);
+    min-height: 46px;
+    padding: 0 28px;
+    border-radius: 6px;
+    /* Bordas retas combinando com a Nav */
+    font-family: "Fira Code", monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
 .english-button:hover {
@@ -172,45 +214,69 @@ main {
 }
 
 .english-button--primary {
-    background: var(--english-accent);
-    color: #08110d;
+    background: rgba(46, 204, 113, 0.10);
+    color: var(--english-accent);
+    border: 1px solid rgba(46, 204, 113, 0.35);
 }
 
 .english-button--primary:hover {
-    box-shadow: 0 12px 28px rgba(46, 204, 113, 0.28);
+    background: rgba(46, 204, 113, 0.20);
+    border-color: var(--english-accent);
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.15);
 }
 
 .english-button--ghost {
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--english-text);
-    border: 1px solid var(--english-border);
+    background: transparent;
+    color: #8b949e;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.english-button--ghost:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   ALINHAMENTO DAS SEÇÕES (TRILHAS, LABS E RECURSOS)
+   ========================================= */
 .english-section {
-    padding: 56px 0;
+    width: min(100% - 40px, var(--english-max-width));
+    margin: 0 auto;
+    /* Isso centraliza a seção inteira na tela */
+    padding: 80px 0;
+    /* Mais respiro entre uma seção e outra */
 }
 
 .english-section__header {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
+    /* Mais espaço entre o texto e os cards */
     max-width: 760px;
 }
 
 .english-section__eyebrow {
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: var(--english-accent);
-    font-size: 0.82rem;
+    font-family: "Fira Code", monospace;
+    /* Consistência com o estilo tech */
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.16em;
 }
 
 .english-section__title {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.4rem;
+    /* Títulos maiores e mais imponentes */
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #ffffff;
 }
 
 .english-section__text {
     color: var(--english-text-soft);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .english-grid {
@@ -353,5 +419,558 @@ main {
     .english-header__inner,
     .english-footer {
         width: min(100% - 28px, var(--english-max-width));
+    }
+}
+
+.english-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    /* Garante que o card inteiro seja clicável */
+}
+
+/* =========================================
+   ESTILOS DA TOPBAR (CABEÇALHO PREMIUM)
+   ========================================= */
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 28px;
+    background: rgba(11, 15, 20, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--english-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* --- LOGO --- */
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- CENTRO (BREADCRUMB) --- */
+.nav-center {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.nav-breadcrumb-link {
+    color: #888;
+    transition: color 0.2s;
+}
+
+.nav-breadcrumb-link:hover {
+    color: #fff;
+}
+
+.nav-separator {
+    color: #444;
+}
+
+/* --- LADO DIREITO (BOTÕES E PERFIL) --- */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: #6e7a8a;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Fira Code", monospace;
+    transition: all 0.15s;
+}
+
+.lang-btn:hover {
+    color: #e6edf3;
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+.lang-btn.active {
+    color: var(--english-accent);
+    border-color: rgba(46, 204, 113, 0.35);
+    background: rgba(46, 204, 113, 0.10);
+}
+
+.nav-user-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--english-text-soft);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+
+.nav-user-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--english-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--english-accent-soft);
+}
+
+/* =========================================
+   ESTILOS DA SEÇÃO EFF METODOLOGIA
+   ========================================= */
+.english-methodology {
+    width: min(100% - 40px, var(--english-max-width));
+    margin: 40px auto;
+    /* Centraliza e dá espaço vertical */
+    padding: 60px 0;
+    background: linear-gradient(135deg, rgba(8, 12, 17, 0.98) 0%, rgba(17, 24, 32, 0.95) 100%);
+    border: 1px solid var(--english-border);
+    border-radius: 28px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.methodology-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 40px;
+}
+
+.methodology-crest-wrapper {
+    flex: 0 0 200px;
+    /* Largura fixa para o brasão */
+    display: flex;
+    justify-content: center;
+}
+
+.methodology-crest {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Adiciona um leve brilho verde tech */
+    filter: drop-shadow(0 0 15px rgba(46, 204, 113, 0.25));
+}
+
+.methodology-text-wrapper {
+    flex: 1;
+}
+
+.methodology-eyebrow {
+    font-family: "Fira Code", monospace;
+    color: var(--english-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.methodology-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.methodology-description {
+    font-size: 1.15rem;
+    color: var(--english-text);
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-weight: 600;
+    /* Destaque para o slogan verbatim */
+}
+
+.methodology-benefit {
+    font-size: 0.95rem;
+    color: var(--english-text-soft);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Ajustes Responsivos para o Brasão */
+@media (max-width: 900px) {
+    .methodology-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .methodology-crest-wrapper {
+        flex: 0 0 140px;
+    }
+
+    .methodology-title {
+        font-size: 1.8rem;
+    }
+
+    .methodology-description {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   ESTILOS DA METODOLOGIA EFF (UNIFICADOS E ORGANIZADOS)
+   ========================================= */
+.eff-methodology-card {
+    background-color: #0a0f14;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 56px;
+    /* Mais respiro para um visual premium */
+    display: flex;
+    flex-direction: column;
+    /* Crest ACIMA do texto */
+    align-items: center;
+    /* Centraliza tudo */
+    text-align: center;
+    /* Centraliza o texto */
+    gap: 0;
+    /* Remove gap padrão para controle manual com margens */
+    max-width: 900px;
+    /* Um pouco mais estreito para legibilidade */
+    margin: 40px auto;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Brasão como Ícone Sofisticado */
+.eff-crest-container {
+    flex: 0 0 auto;
+    width: 100px;
+    /* Muito menor e simbólico, para "meno meno" */
+    height: auto;
+    margin-bottom: 32px;
+    /* Espaço antes do texto */
+    display: flex;
+    justify-content: center;
+}
+
+.eff-crest {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Brilho tech sutil preservado */
+    filter: drop-shadow(0 0 12px rgba(46, 204, 113, 0.35));
+}
+
+/* Textos Centrados e Legíveis */
+.eff-text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eff-eyebrow {
+    color: #2ecc71;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.eff-title {
+    color: #e6edf3;
+    font-size: 2.2rem;
+    /* Título imponente */
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.eff-main-text {
+    color: #e6edf3;
+    font-size: 1.15rem;
+    /* Slogan verbatim mais legível */
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-weight: 500;
+    max-width: 680px;
+    /* Linhas mais curtas para legibilidade */
+}
+
+.eff-secondary-text {
+    color: #8b949e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Ajustes Responsivos Centrados */
+@media (max-width: 768px) {
+    .eff-methodology-card {
+        padding: 32px;
+    }
+
+    .eff-crest-container {
+        width: 80px;
+        /* Ainda menor no mobile */
+    }
+
+    .eff-title {
+        font-size: 1.8rem;
+    }
+
+    .eff-main-text {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   MINI-BRASÃO NO BREADCRUMB (TOPBAR)
+   ========================================= */
+.nav-breadcrumb-crest {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+    padding-right: 4px;
+}
+
+.nav-breadcrumb-crest:hover {
+    transform: scale(1.15);
+    /* Leve zoom ao passar o mouse para mostrar que é clicável */
+}
+
+.breadcrumb-crest-img {
+    height: 26px;
+    /* Tamanho exato para não quebrar a altura do texto */
+    width: auto;
+    object-fit: contain;
+    /* Mantém a identidade premium com um brilho sutil */
+    filter: drop-shadow(0 0 6px rgba(46, 204, 113, 0.4));
+}
+
+/* =========================================
+   REBECA CHAT: BOTÕES DE RESPOSTA
+   ========================================= */
+.eff-option-btn {
+    background-color: rgba(10, 15, 20, 0.8);
+    border: 1px solid rgba(46, 204, 113, 0.5);
+    /* Borda verde tech */
+    color: #e6edf3;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    margin: 8px 8px 0 0;
+    font-family: inherit;
+}
+
+.eff-option-btn:hover {
+    background-color: rgba(46, 204, 113, 0.15);
+    border-color: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+}
+
+/* =========================================
+   REBECA CHAT: CARD DE RESULTADO FINAL (EFF)
+   ========================================= */
+.eff-result-card {
+    background-color: #0a0f14;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    /* Destaque verde sutil */
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(46, 204, 113, 0.05);
+    animation: resultFadeIn 0.6s ease-out forwards;
+}
+
+.eff-result-card .eff-eyebrow {
+    color: #2ecc71;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.eff-result-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.eff-result-card .eff-main-text {
+    color: #e6edf3;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* Caixa de Recomendação da Trilha */
+.eff-recommendation-box {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+}
+
+.eff-recommendation-box h4 {
+    color: #e6edf3;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.eff-recommendation-box p {
+    color: #8b949e;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* Botão de Ação Principal */
+.eff-btn-primary {
+    display: block;
+    background-color: #2ecc71;
+    color: #0a0f14;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.eff-btn-primary:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+}
+
+/* Animação suave para o card aparecer */
+@keyframes resultFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================================
+   EFF JOURNEY GRID (VITRINE DE BRASÕES)
+   ========================================= */
+.eff-journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: min(100% - 40px, var(--english-max-width));
+    margin: 0 auto;
+}
+
+.eff-journey-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--english-border);
+    border-radius: var(--english-radius);
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eff-journey-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(46, 204, 113, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.eff-journey-badge {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.eff-journey-card:hover .eff-journey-badge {
+    transform: scale(1.1) rotate(2deg);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+.eff-journey-phase {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.eff-journey-gem {
+    font-family: 'Fira Code', monospace;
+    color: var(--english-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.eff-journey-card p {
+    color: var(--english-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Destaque especial para a última fase (Holográfica) */
+.eff-journey-card--ultimate {
+    background: linear-gradient(180deg, rgba(46, 204, 113, 0.06), rgba(0, 0, 0, 0));
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .eff-journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .eff-journey-grid {
+        grid-template-columns: 1fr;
     }
 }

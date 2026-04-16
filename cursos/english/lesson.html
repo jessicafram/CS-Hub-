@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson | EFF Global English</title>
+    <link rel="stylesheet" href="english.css">
+
+
+    <style>
+        /* =========================================
+           PROGRESS BAR DA ARENA (ROXO REBECA)
+           ========================================= */
+        .arena-progress-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+
+        .arena-progress-fill {
+            height: 100%;
+            width: 0%;
+            /* O Javascript vai controlar essa largura */
+            background: #a23be6;
+            /* Tom exato do roxo */
+            box-shadow: 0 0 12px rgba(162, 59, 230, 0.8);
+            /* Brilho neon */
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 4px 4px 0;
+        }
+
+        :root {
+            --accent: #2ecc71;
+            --bg: #080c11;
+            --surface: #0d1117;
+            --surface-2: #161b22;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-soft: #8b949e;
+            --text: #ffffff;
+            --gold: #f1c40f;
+            --danger: #ff7675;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .lesson-container {
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            height: calc(100vh - 65px);
+        }
+
+        .lesson-main {
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .socratic-arena {
+            width: 100%;
+            min-height: 420px;
+            background: linear-gradient(145deg, #0d1117 0%, #161b22 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 28px;
+            position: relative;
+            /* <-- ADICIONE APENAS ESTA LINHA AQUI */
+        }
+
+        .rebeca-stage {
+            width: 35%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: radial-gradient(circle at bottom, rgba(46, 204, 113, 0.1) 0%, transparent 70%);
+            min-height: 420px;
+        }
+
+        .rebeca-sprite {
+            height: 90%;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            transition: opacity 0.3s;
+        }
+
+        .dialogue-panel {
+            width: 65%;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .metadata-card,
+        .panel-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .meta-badge {
+            background: rgba(46, 204, 113, 0.06);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .meta-label {
+            font-size: 0.72rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .sidebar {
+            background: var(--surface);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 14px 10px;
+            background: none;
+            border: none;
+            color: var(--text-soft);
+            cursor: pointer;
+            font-size: 0.68rem;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 1.05rem;
+        }
+
+        .soft-text {
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        .vault-input,
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .vocab-list,
+        .chip-list,
+        .tips-list,
+        .rubric-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vocab-item,
+        .chip,
+        .tips-item,
+        .rubric-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            margin-bottom: 0;
+            border-left-width: 2px;
+            padding: 8px 10px;
+            font-size: 0.84rem;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: #d9e2ea;
+            padding: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent);
+            color: #fff;
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .primary-btn {
+            background: var(--accent);
+            color: var(--bg);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .inline-note {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            margin-top: 8px;
+        }
+
+        .example-card,
+        .audio-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .status-ok {
+            color: var(--accent);
+        }
+
+        .status-warn {
+            color: var(--gold);
+        }
+
+        .status-bad {
+            color: var(--danger);
+        }
+
+        @media (max-width: 1100px) {
+            .lesson-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            body {
+                overflow: auto;
+            }
+
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .tabs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* =========================================
+           TOUR GUIADO (ONBOARDING)
+           ========================================= */
+        .tour-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 12, 17, 0.85);
+            z-index: 9998;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .tour-tooltip {
+            position: fixed;
+            /* Mudou aqui */
+            background: #161b22;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px;
+            width: 320px;
+            z-index: 10005;
+            /* A mágica está aqui! */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(46, 204, 113, 0.2);
+            display: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .tour-tooltip h4 {
+            color: var(--accent);
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .tour-tooltip p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e6edf3;
+            margin-bottom: 20px;
+        }
+
+        .tour-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tour-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tour-btn-skip {
+            background: transparent;
+            color: var(--text-soft);
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Classe que destaca o elemento na tela durante o tour */
+        .tour-highlight {
+            position: relative;
+            z-index: 10000 !important;
+            box-shadow: 0 0 0 4px var(--accent), 0 0 30px rgba(46, 204, 113, 0.4) !important;
+            border-radius: inherit;
+            background: var(--bg);
+            /* Garante que não fique transparente no escuro */
+            pointer-events: none;
+            /* Impede o aluno de clicar errado durante o tour */
+        }
+
+        /* Botão de Tradução (Ghost Button) */
+        .btn-translate {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-translate:hover {
+            background: rgba(46, 204, 113, 0.1);
+            box-shadow: 0 0 12px rgba(46, 204, 113, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <nav
+        style="padding: 10px 24px; display: flex; align-items: center; background: #0b0f14; border-bottom: 1px solid var(--border);">
+        <a href="dashboard.html"
+            style="text-decoration: none; color: #fff; display: flex; align-items: center; gap: 10px;">
+            <span>←</span>
+            <span style="font-weight: 600;">Dashboard</span>
+        </a>
+    </nav>
+
+    <div class="lesson-container">
+        <main class="lesson-main">
+            <div class="socratic-arena">
+                <div class="arena-progress-bg">
+                    <div id="arena-progress-fill" class="arena-progress-fill"></div>
+                </div>
+                <div class="rebeca-stage">
+                    <img id="rebeca-character" src="/assets/english/images/rebecarecebendo.png" class="rebeca-sprite"
+                        alt="Rebeca">
+                </div>
+                <div class="dialogue-panel">
+                    <div id="status"
+                        style="color: var(--accent); font-family: 'Fira Code', monospace; font-size: 0.72rem; margin-bottom: 10px;">
+                        // INITIALIZING...</div>
+                    <div id="speech" style="font-size: 1.13rem; line-height: 1.75; margin-bottom: 22px;">Welcome back.
+                    </div>
+                    <div id="options"></div>
+                </div>
+            </div>
+
+            <section class="metadata-card">
+                <h1 id="week-title" style="margin: 0; font-size: 1.85rem;">Week 1</h1>
+                <p id="aula-subtitle" class="soft-text" style="margin-bottom: 10px;"></p>
+                <div class="metadata-grid">
+                    <div class="meta-badge">
+                        <div class="meta-label">Week Goal</div>
+                        <div id="week-goal">Loading...</div>
+                    </div>
+                    <div class="meta-badge">
+                        <div class="meta-label">Lesson Focus</div>
+                        <div id="lesson-focus">Loading...</div>
+                    </div>
+                    <div class="meta-badge">
+                        <div class="meta-label">Can Do</div>
+                        <div id="lesson-cando">Loading...</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel-card">
+                <h2 class="section-title">Lesson Snapshot</h2>
+                <div class="two-col">
+                    <div>
+                        <h3 style="margin-top:0; font-size:0.95rem;">Core Structures</h3>
+                        <ul id="snapshot-structures" class="chip-list"></ul>
+                    </div>
+                    <div>
+                        <h3 style="margin-top:0; font-size:0.95rem;">Target Output</h3>
+                        <ul id="snapshot-output" class="rubric-list"></ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('theory')">Theory</button>
+                <button class="tab-btn" onclick="openTab('vault')">Vault</button>
+                <button class="tab-btn" onclick="openTab('reading')">Reading</button>
+                <button class="tab-btn" onclick="openTab('listening')">Listening</button>
+                <button class="tab-btn" onclick="openTab('exercise')">Quiz</button>
+                <button class="tab-btn" onclick="openTab('teacher')">Teacher</button>
+            </div>
+
+            <div id="theory" class="tab-content active">
+                <h3 id="theory-title" class="section-title">Theory</h3>
+                <p id="theory-intro" class="soft-text"></p>
+                <div id="theory-points"></div>
+                <h4 style="margin-top: 18px;">Examples</h4>
+                <div id="theory-examples"></div>
+                <h4 style="margin-top: 18px;">Common Mistakes</h4>
+                <div id="theory-mistakes"></div>
+            </div>
+
+            <div id="vault" class="tab-content">
+                <h3 class="section-title">Vocabulary Vault</h3>
+                <p class="soft-text">Regista as palavras técnicas da aula. Se a palavra existir no plano da lição, ela
+                    entra marcada como alvo pedagógico.</p>
+                <input type="text" id="vocab-in" class="vault-input" placeholder="Ex: developer"
+                    onkeypress="if(event.key==='Enter') addVocab()">
+                <button class="action-btn primary-btn" onclick="addVocab()">Adicionar ao Vault</button>
+                <ul id="vocab-list" class="vocab-list" style="margin-top: 12px;"></ul>
+                <h4 style="margin-top: 18px;">Target Vocabulary</h4>
+                <div id="vocab-reference"></div>
+            </div>
+
+            <div id="reading" class="tab-content">
+                <h3 id="read-title" class="section-title">Tech Reading</h3>
+                <div id="read-en" class="example-card" style="line-height: 1.7;"></div>
+                <button class="action-btn" onclick="toggleBlock('read-pt')"
+                    style="font-size: 0.82rem; text-align: center;">Ver Tradução</button>
+                <div id="read-pt" class="example-card" style="display:none; color: var(--accent);"></div>
+                <div id="reading-task" class="inline-note"></div>
+            </div>
+
+            <div id="listening" class="tab-content">
+                <h3 id="listen-title" class="section-title">Listening Lab</h3>
+                <div class="audio-card">
+                    <p id="listen-instructions" class="soft-text" style="margin-top: 0;"></p>
+                    <button class="action-btn primary-btn" onclick="playListening()">▶ Play Listening</button>
+                    <div class="inline-note">Protótipo com voz do navegador. Para produção, pode trocar por mp3 reais
+                        sem mudar a estrutura.</div>
+                </div>
+                <p id="listen-question" style="margin-bottom: 12px;"></p>
+                <div id="listen-area"></div>
+                <button class="action-btn" onclick="toggleBlock('listen-transcript')"
+                    style="font-size: 0.82rem; text-align: center;">Ver Transcrição</button>
+                <div id="listen-transcript" class="example-card" style="display:none; color: var(--accent);"></div>
+            </div>
+
+            <div id="exercise" class="tab-content">
+                <h3 class="section-title">Mandatory Quiz</h3>
+                <div id="quiz-area"></div>
+            </div>
+
+            <div id="teacher" class="tab-content">
+                <h3 class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+                    Teacher Notes
+                    <button class="btn-translate" onclick="toggleBlock('teacher-en'); toggleBlock('teacher-pt');">👁️
+                        Trocar Idioma</button>
+                </h3>
+
+                <div id="teacher-en" style="display: block;">
+                    <div class="meta-label">Focus</div>
+                    <div id="teacher-focus" class="example-card"></div>
+                    <div class="meta-label">How to Conduct</div>
+                    <ul id="teacher-tips" class="tips-list"></ul>
+                    <div class="meta-label" style="margin-top: 16px;">Support Phrases</div>
+                    <ul id="teacher-phrases" class="tips-list"></ul>
+                    <div class="meta-label" style="margin-top: 16px;">Assessment Rubric</div>
+                    <ul id="teacher-rubric" class="rubric-list"></ul>
+                </div>
+
+                <div id="teacher-pt"
+                    style="display: none; color: var(--accent); background: rgba(46, 204, 113, 0.05); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                        <strong>Tradução ativada! 🇧🇷</strong><br><br>
+                        O conteúdo do professor traduzido vai aparecer exatamente aqui quando nós atualizarmos o JSON.
+                    </p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div id="tour-overlay" class="tour-overlay"></div>
+    <div id="tour-tooltip" class="tour-tooltip">
+        <h4 id="tour-title">Title</h4>
+        <p id="tour-text">Text</p>
+        <div class="tour-buttons">
+            <button class="tour-btn-skip" onclick="tour.end()">Pular Dicas</button>
+            <button class="tour-btn" id="tour-next" onclick="tour.next()">Entendi ➔</button>
+        </div>
+    </div>
+
+    <script>
+        let weekData = null;
+        let aulaIndex = 0;
+        let currentListening = null;
+
+        async function init() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                // Puxa a fase e a semana da URL
+                const faseNum = parseInt(urlParams.get('fase')) || 1;
+                const weekNum = parseInt(urlParams.get('week')) || 1;
+
+                // Busca dinamicamente: se for fase 1 puxa fase1.json, se for 2 puxa fase2.json
+                const res = await fetch(`/data/english/fase${faseNum}.json`);
+                if (!res.ok) throw new Error('Arquivo JSON não encontrado!');
+
+                const data = await res.json();
+                data.sort((a, b) => a.semana - b.semana);
+                weekData = data.find(w => w.semana === weekNum);
+
+                if (!weekData) {
+                    document.getElementById('speech').innerHTML = 'Week data not found.';
+                    return;
+                }
+
+                renderAula(0);
+
+                // O Tour agora só roda se for Fase 1 e Semana 1
+                if (faseNum === 1 && weekNum === 1) {
+                    setTimeout(() => tour.start(), 800);
+                }
+
+            } catch (error) {
+                console.error('Erro ao carregar os dados:', error);
+                document.getElementById('speech').innerHTML = 'Error loading lesson data.';
+                document.getElementById('status').textContent = '// LOAD ERROR';
+            }
+        }
+
+        function renderAula(idx) {
+            aulaIndex = idx;
+            const aula = weekData.aulas[idx];
+
+            document.getElementById('week-title').textContent = weekData.titulo;
+            document.getElementById('aula-subtitle').textContent = `Aula ${aula.id}: ${aula.subtitulo}`;
+            document.getElementById('week-goal').textContent = weekData.objetivo || '';
+            document.getElementById('lesson-focus').textContent = aula.lessonMeta?.focus || aula.teacherNotes?.focus || '';
+            document.getElementById('lesson-cando').textContent = aula.lessonMeta?.canDo || '';
+
+            updateArena(aula.arena.rebecaState, '// REBECA IS TEACHING', aula.arena.speech, aula.arena.options);
+            renderSnapshot(aula.lessonMeta);
+            renderTheory(aula.theory);
+            renderVocabularyReference(aula.vocabulary);
+            renderReading(aula.reading);
+            renderListening(aula.listening);
+            renderQuiz(aula.exercise);
+            renderTeacherNotes(aula.teacherNotes, weekData.rubricaA1);
+
+            const totalAulas = weekData.aulas.length;
+            const porcentagem = ((idx + 1) / totalAulas) * 100;
+            document.getElementById('arena-progress-fill').style.width = `${porcentagem}%`;
+
+            document.getElementById('vocab-list').innerHTML = '';
+        }
+
+        function updateArena(img, status, text, opts) {
+            const char = document.getElementById('rebeca-character');
+            char.style.opacity = 0;
+
+            setTimeout(() => {
+                char.src = `/assets/english/images/${img}`;
+                document.getElementById('status').textContent = status;
+                document.getElementById('speech').innerHTML = text;
+                document.getElementById('options').innerHTML = opts.map(o => {
+                    if (o.action) {
+                        return `<button class="action-btn" onclick="${o.action}">${o.text}</button>`;
+                    }
+                    const safeFeedback = (o.feedback || '').replace(/'/g, "\\'");
+                    return `<button class="action-btn" onclick="handleChoice(${o.correct}, '${safeFeedback}')">${o.text}</button>`;
+                }).join('');
+                char.style.opacity = 1;
+            }, 220);
+        }
+
+        function renderSnapshot(meta = {}) {
+            const structures = document.getElementById('snapshot-structures');
+            const output = document.getElementById('snapshot-output');
+            structures.innerHTML = (meta.structures || []).map(item => `<li class="chip">${item}</li>`).join('');
+            output.innerHTML = (meta.outputTargets || []).map(item => `<li class="rubric-item">${item}</li>`).join('');
+        }
+
+        function renderTheory(theory = {}) {
+            document.getElementById('theory-title').textContent = theory.title || 'Theory';
+            document.getElementById('theory-intro').textContent = theory.intro || '';
+            document.getElementById('theory-points').innerHTML = (theory.content || []).map(point => `<div class="tips-item">${point}</div>`).join('');
+            document.getElementById('theory-examples').innerHTML = (theory.examples || []).map(ex => `<div class="example-card"><strong>Example:</strong> ${ex}</div>`).join('');
+            document.getElementById('theory-mistakes').innerHTML = (theory.commonMistakes || []).map(m => `<div class="example-card status-warn">${m}</div>`).join('');
+        }
+
+        function renderVocabularyReference(vocab = []) {
+            const ref = document.getElementById('vocab-reference');
+            ref.innerHTML = vocab.map(item => {
+                const en = typeof item === 'string' ? item : item.en;
+                const pt = typeof item === 'string' ? '' : item.pt;
+                return `<div class="vocab-item"><span><strong>${en}</strong>${pt ? ` — ${pt}` : ''}</span><small style="color:var(--accent)">target</small></div>`;
+            }).join('');
+        }
+
+        function renderReading(reading = {}) {
+            document.getElementById('read-title').textContent = reading.title || 'Tech Reading';
+            document.getElementById('read-en').textContent = reading.en || '';
+            document.getElementById('read-pt').textContent = reading.pt || '';
+            document.getElementById('read-pt').style.display = 'none';
+            document.getElementById('reading-task').textContent = reading.task || '';
+        }
+
+        function renderListening(listening = {}) {
+            currentListening = listening || null;
+            document.getElementById('listen-title').textContent = listening.title || 'Listening Lab';
+            document.getElementById('listen-instructions').textContent = listening.instructions || 'Listen carefully and answer the task.';
+            document.getElementById('listen-question').textContent = listening.question || '';
+            document.getElementById('listen-transcript').textContent = listening.transcript || listening.text || '';
+            document.getElementById('listen-transcript').style.display = 'none';
+
+            const area = document.getElementById('listen-area');
+            area.innerHTML = '';
+
+            if (listening.options && listening.options.length) {
+                area.innerHTML = listening.options.map(o => {
+                    const safeOption = o.replace(/'/g, "\\'");
+                    const safeAnswer = (listening.answer || '').replace(/'/g, "\\'");
+                    return `<button class="action-btn" onclick="checkListening('${safeOption}', '${safeAnswer}')">${o}</button>`;
+                }).join('');
+            } else {
+                const safeAnswer = (listening.answer || '').replace(/'/g, "\\'");
+                area.innerHTML = `
+                    <input type="text" id="listen-input" class="text-input" placeholder="Type your answer..."
+                        onkeypress="if(event.key==='Enter') document.getElementById('listen-submit').click()">
+                    <button id="listen-submit" class="action-btn primary-btn" onclick="checkListening(document.getElementById('listen-input').value, '${safeAnswer}')">Submit Listening Answer</button>
+                `;
+            }
+        }
+
+        function renderQuiz(ex = {}) {
+            const area = document.getElementById('quiz-area');
+            area.innerHTML = `<p style="margin-bottom: 18px; font-size: 1.06rem; line-height: 1.6;">${ex.question || ''}</p>`;
+
+            if (ex.helpText) {
+                area.innerHTML += `<div class="inline-note" style="margin-bottom: 14px;">${ex.helpText}</div>`;
+            }
+
+            if (ex.type === 'multiple-choice') {
+                area.innerHTML += (ex.options || []).map(o => {
+                    const safeOption = o.replace(/'/g, "\\'");
+                    const safeAnswer = (ex.answer || '').replace(/'/g, "\\'");
+                    return `<button class="action-btn" onclick="checkQuiz('${safeOption}', '${safeAnswer}')">${o}</button>`;
+                }).join('');
+            } else if (ex.type === 'reorder' || ex.type === 'text-input') {
+                const safeAnswer = (ex.answer || '').replace(/'/g, "\\'");
+                area.innerHTML += `
+                    <input type="text" id="quiz-input" class="text-input" placeholder="Write your answer..." onkeypress="if(event.key==='Enter') document.getElementById('quiz-submit').click()">
+                    <button id="quiz-submit" class="action-btn primary-btn" onclick="checkQuiz(document.getElementById('quiz-input').value, '${safeAnswer}', '${ex.type || 'text-input'}')">Submit Answer</button>
+                `;
+            }
+        }
+
+        function renderTeacherNotes(notes = {}, rubric = []) {
+            document.getElementById('teacher-focus').textContent = notes.focus || '';
+            document.getElementById('teacher-tips').innerHTML = (notes.tips || []).map(t => `<li class="tips-item">${t}</li>`).join('');
+            document.getElementById('teacher-phrases').innerHTML = (notes.supportPhrases || []).map(t => `<li class="tips-item">${t}</li>`).join('');
+            document.getElementById('teacher-rubric').innerHTML = rubric.map(item => `<li class="rubric-item"><strong>${item.criterio}:</strong> ${item.descricao}</li>`).join('');
+
+            const ptArea = document.getElementById('teacher-pt');
+            const aulaAtual = weekData.aulas[aulaIndex];
+            const notesPt = aulaAtual.teacherNotes_pt;
+
+            if (notesPt) {
+                ptArea.innerHTML = `
+                    <div class="meta-label">Foco</div>
+                    <div class="example-card">${notesPt.focus}</div>
+                    <div class="meta-label">Como Conduzir</div>
+                    <ul class="tips-list">${notesPt.tips.map(t => `<li class="tips-item">${t}</li>`).join('')}</ul>
+                    <div class="meta-label" style="margin-top: 16px;">Frases de Apoio</div>
+                    <ul class="tips-list">${notesPt.supportPhrases.map(t => `<li class="tips-item">${t}</li>`).join('')}</ul>
+                    <div class="meta-label" style="margin-top: 16px;">Rúbrica de Avaliação</div>
+                    <ul class="rubric-list">${rubric.map(item => `<li class="rubric-item"><strong>${item.criterio_pt}:</strong> ${item.descricao_pt}</li>`).join('')}</ul>
+                `;
+            }
+        }
+
+        function handleChoice(isCorrect, feedback) {
+            if (isCorrect) {
+                updateArena('rebecacomemorando.png', '// SUCCESS', feedback, [
+                    { text: 'Próxima Aula ➔', action: 'nextAula()' }
+                ]);
+            } else {
+                updateArena('expressaorebecaduvida.png', '// REBECA EXPLAINING', feedback, [
+                    { text: 'Tentar de novo', action: `renderAula(${aulaIndex})` }
+                ]);
+            }
+        }
+
+        function nextAula() {
+            if (aulaIndex + 1 < weekData.aulas.length) {
+                renderAula(aulaIndex + 1);
+            } else {
+                if (weekData.faseId === 1 && weekData.semana === 4) {
+                    unlockBronzeGem();
+                } else {
+                    alert(`✨ Parabéns! Você completou a Semana ${weekData.semana}!`);
+                    window.location.href = 'dashboard.html';
+                }
+            }
+        }
+
+        function unlockBronzeGem() {
+            localStorage.setItem('eff_gem_bronze', 'unlocked');
+            localStorage.setItem('eff_fase1_completed', 'true');
+
+            const char = document.getElementById('rebeca-character');
+            char.src = '/assets/english/images/rebecacomemorando.png';
+            char.style.opacity = 1;
+
+            document.getElementById('status').textContent = '// ACHIEVEMENT UNLOCKED';
+            document.getElementById('status').style.color = 'var(--gold)';
+
+            document.getElementById('speech').innerHTML = `
+                <h3 style="color: var(--gold); margin-top: 0;">💎 Bronze Gem Unlocked!</h3>
+                Você acaba de dominar a Fase 1: Identidade, Rotina e Planejamento.<br><br>
+                Sua base está sólida. A Gema de Bronze agora está no seu perfil. Você está pronto para desafios maiores!
+            `;
+
+            document.getElementById('options').innerHTML = `
+                <button class="action-btn" style="background: var(--gold); color: #000; font-weight: bold; border: none;" onclick="window.location.href='dashboard.html'">
+                    Coletar Gema e Voltar ao Início ➔
+                </button>
+            `;
+
+            const barra = document.getElementById('arena-progress-fill');
+            barra.style.width = '100%';
+            barra.style.background = 'var(--gold)';
+            barra.style.boxShadow = '0 0 20px rgba(241, 196, 15, 0.8)';
+        }
+
+        function openTab(name) {
+            document.querySelectorAll('.tab-content, .tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(name).classList.add('active');
+            document.querySelector(`button[onclick="openTab('${name}')"]`).classList.add('active');
+        }
+
+        function toggleBlock(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addVocab() {
+            const input = document.getElementById('vocab-in');
+            const val = input.value.trim();
+            if (!val) return;
+
+            const aulaAtual = weekData.aulas[aulaIndex];
+            const found = (aulaAtual.vocabulary || []).find(v => {
+                const label = typeof v === 'string' ? v : v.en;
+                return label.toLowerCase() === val.toLowerCase();
+            });
+
+            const li = document.createElement('li');
+            li.className = 'vocab-item';
+
+            if (found && typeof found === 'object') {
+                li.innerHTML = `<span><strong>${found.en}</strong> — ${found.pt}</span><small style="color:var(--gold)">✓ target</small>`;
+                li.style.borderLeftColor = '#f1c40f';
+            } else if (found) {
+                li.innerHTML = `<span>${found}</span><small style="color:var(--gold)">✓ target</small>`;
+                li.style.borderLeftColor = '#f1c40f';
+            } else {
+                li.innerHTML = `<span>${val}</span><small style="color:var(--accent)">saved</small>`;
+            }
+
+            document.getElementById('vocab-list').prepend(li);
+            input.value = '';
+        }
+
+        function playListening() {
+            if (!currentListening) return;
+
+            if (currentListening.audio) {
+                const audio = new Audio(currentListening.audio);
+                audio.play();
+                return;
+            }
+
+            if (currentListening.text || currentListening.transcript) {
+                const utterance = new SpeechSynthesisUtterance(currentListening.text || currentListening.transcript);
+                utterance.lang = currentListening.lang || 'en-US';
+                utterance.rate = currentListening.rate || 0.85;
+                utterance.pitch = currentListening.pitch || 1;
+                speechSynthesis.cancel();
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function normalizeText(text) {
+            return (text || '')
+                .trim()
+                .toLowerCase()
+                .replace(/[.,!?]/g, '')
+                .replace(/\s+/g, ' ');
+        }
+
+        function checkListening(choice, correct) {
+            const isMatch = normalizeText(choice) === normalizeText(correct);
+            if (isMatch) {
+                alert('✅ Listening correct!');
+            } else {
+                alert('❌ Try again. Listen one more time.');
+            }
+        }
+
+        function checkQuiz(choice, correct, type = 'multiple-choice') {
+            if (correct === 'any' && choice.trim() !== '') {
+                alert('✨ Excellent! Response submitted successfully.');
+                return;
+            }
+
+            const isMatch = normalizeText(choice) === normalizeText(correct);
+            if (isMatch) {
+                alert('✅ Correct answer!');
+            } else {
+                alert('❌ Not quite. Try again.');
+            }
+        }
+
+        // =========================================
+        // MOTOR DO TOUR GUIADO (Você deve colar isso aqui!)
+        // =========================================
+        const tour = {
+            step: 0,
+            overlay: null,
+            tooltip: null,
+            steps: [
+                {
+                    target: '.socratic-arena',
+                    title: "👋 Comece por aqui!",
+                    text: "A Rebeca é sua tutora. Ela sempre vai te dar a missão principal da aula neste quadro. Leia a explicação e escolha a resposta certa abaixo dela.",
+                    topOffset: 50,
+                    leftOffset: 50
+                },
+                {
+                    target: '.sidebar',
+                    title: "📚 Seu Material de Apoio",
+                    text: "Ficou com dúvida na pergunta da Rebeca? Use essas abas! Aqui você encontra a teoria em português, tradutor e os exercícios da aula.",
+                    topOffset: 50,
+                    leftOffset: -340
+                },
+                {
+                    target: '.metadata-card',
+                    title: "🎯 Foco da Semana",
+                    text: "Sempre dê uma olhada no seu objetivo antes de começar. Isso ajuda seu cérebro a focar apenas no que importa hoje.",
+                    topOffset: -150,
+                    leftOffset: 50
+                }
+            ],
+
+            start() {
+                this.overlay = document.getElementById('tour-overlay');
+                this.tooltip = document.getElementById('tour-tooltip');
+                this.overlay.style.display = 'block';
+                this.tooltip.style.display = 'block';
+                this.renderStep();
+            },
+
+            renderStep() {
+                document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+
+                if (this.step >= this.steps.length) {
+                    this.end();
+                    return;
+                }
+
+                const current = this.steps[this.step];
+                const targetEl = document.querySelector(current.target);
+
+                if (targetEl) {
+                    targetEl.classList.add('tour-highlight');
+
+                    const rect = targetEl.getBoundingClientRect();
+                    this.tooltip.style.top = (rect.top + current.topOffset) + 'px';
+                    this.tooltip.style.left = (rect.left + current.leftOffset) + 'px';
+
+                    document.getElementById('tour-title').textContent = current.title;
+                    document.getElementById('tour-text').textContent = current.text;
+
+                    if (this.step === this.steps.length - 1) {
+                        document.getElementById('tour-next').textContent = "Começar Aula 🚀";
+                    }
+                }
+            },
+
+            next() {
+                this.step++;
+                this.renderStep();
+            },
+
+            end() {
+                this.overlay.style.display = 'none';
+                this.tooltip.style.display = 'none';
+                document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

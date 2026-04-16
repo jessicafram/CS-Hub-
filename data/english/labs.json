@@ -1,0 +1,17 @@
+{
+    "fase1_bronze": {
+        "titulo": "Challenge: The Tech Intro",
+        "descricao": "Neste lab, você deve provar que já domina a identidade básica.",
+        "tasks": [
+            {
+                "id": "L1.1",
+                "instr": "Apresente-se e diga sua profissão."
+            },
+            {
+                "id": "L1.2",
+                "instr": "Nomeie 3 itens do seu setup atual."
+            }
+        ],
+        "reward": "Bronze Badge"
+    }
+}

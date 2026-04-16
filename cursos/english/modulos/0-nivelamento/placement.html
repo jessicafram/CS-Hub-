@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placement Test | CS Hub English</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="stylesheet" href="../../english.css" />
+
+    <style>
+        /* Estilos específicos da Rebeca e do Chat mantidos do seu código original */
+        .layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 48px 40px;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .rebeca-panel {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .rebeca-frame {
+            position: relative;
+            width: 240px;
+            height: 240px;
+        }
+
+        .rebeca-glow {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, transparent 70%);
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.06);
+            }
+        }
+
+        .rebeca-img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid #2ecc71;
+            box-shadow: 0 0 40px rgba(46, 204, 113, 0.2), 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .rebeca-status {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            z-index: 2;
+            width: 20px;
+            height: 20px;
+            background: #2ecc71;
+            border: 3px solid #080c11;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px transparent;
+            }
+        }
+
+        .rebeca-info {
+            text-align: center;
+        }
+
+        .rebeca-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .rebeca-role {
+            font-family: "Fira Code", monospace;
+            font-size: 0.72rem;
+            color: #2ecc71;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .rebeca-traits {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .trait {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(13, 17, 23, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.8rem;
+            color: #6e7a8a;
+        }
+
+        .progress-wrap {
+            width: 100%;
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 100px;
+            height: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #2ecc71;
+            border-radius: 100px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-label {
+            font-family: "Fira Code", monospace;
+            font-size: 0.68rem;
+            color: #6e7a8a;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        /* Estilos do Chat */
+        .chat-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            min-height: 500px;
+        }
+
+        .chat-header {
+            margin-bottom: 32px;
+        }
+
+        .chat-header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .chat-header p {
+            font-size: 0.87rem;
+            color: #6e7a8a;
+            line-height: 1.6;
+        }
+
+        .messages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 28px;
+            min-height: 100px;
+        }
+
+        .msg {
+            max-width: 88%;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.35s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .msg.rebeca {
+            align-self: flex-start;
+        }
+
+        .msg.user {
+            align-self: flex-end;
+        }
+
+        .msg-bubble {
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .msg.rebeca .msg-bubble {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom-left-radius: 4px;
+            color: #e6edf3;
+        }
+
+        .msg.user .msg-bubble {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.25);
+            border-bottom-right-radius: 4px;
+            color: #2ecc71;
+            font-weight: 500;
+        }
+
+        .msg-sender {
+            font-family: "Fira Code", monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: #6e7a8a;
+        }
+
+        .msg.user .msg-sender {
+            text-align: right;
+            color: #2ecc71;
+            opacity: 0.7;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            padding: 14px 20px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: #6e7a8a;
+            border-radius: 50%;
+            animation: dot 1.2s infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dot {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0.7);
+                opacity: 0.4;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .options-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .opt-btn {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #e6edf3;
+            font-size: 0.88rem;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.22s;
+            font-family: "Inter", sans-serif;
+        }
+
+        .opt-btn:hover {
+            border-color: #2ecc71;
+            background: rgba(46, 204, 113, 0.1);
+            transform: translateX(4px);
+        }
+
+        .opt-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Resultados */
+        .result-section {
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .result-profile {
+            background: #0d1117;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .result-profile-label {
+            font-family: "Fira Code", monospace;
+            font-size: 0.68rem;
+            color: #6e7a8a;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .result-profile-type {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2ecc71;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .result-summary {
+            font-size: 0.87rem;
+            color: #6e7a8a;
+            line-height: 1.7;
+        }
+
+        .result-heading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        @media (max-width: 980px) {
+            .layout {
+                grid-template-columns: 1fr;
+                padding: 32px 20px;
+                gap: 36px;
+            }
+
+            .rebeca-panel {
+                position: static;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .rebeca-frame {
+                width: 100px;
+                height: 100px;
+                flex-shrink: 0;
+            }
+
+            .rebeca-traits,
+            .progress-wrap,
+            .progress-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-navbar">
+        <a href="../../index.html" class="nav-brand">
+            <img src="../../../../assets/CS_Hub_-removebg-preview.png" alt="CS Hub" class="logo-img" />
+        </a>
+
+        <div class="nav-center">
+            <a href="../../index.html" class="nav-breadcrumb-crest" title="Voltar para Global English">
+                <img src="../../../../assets/english/images/brasaocshub.png" alt="EFF Crest"
+                    class="breadcrumb-crest-img">
+            </a>
+            <span class="nav-separator">/</span>
+            <span class="nav-current">Cursos</span>
+            <span class="nav-separator">/</span>
+            <a href="../../index.html" class="nav-breadcrumb-link">Global English</a>
+            <span class="nav-separator">/</span>
+            <span class="nav-current" style="color: #2ecc71;">Placement Test</span>
+        </div>
+
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="pt-br">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <div class="nav-user-badge">
+                <span class="nav-user-dot"></span>
+                <span class="nav-user-name">Jéssica</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="layout">
+        <aside class="rebeca-panel">
+            <div class="rebeca-frame">
+                <div class="rebeca-glow"></div>
+                <img src="../../../../assets/rebeca.jpeg" alt="Rebeca" class="rebeca-img"
+                    onerror="this.style.background='#111820';this.removeAttribute('src')" />
+                <div class="rebeca-status"></div>
+            </div>
+
+            <div class="rebeca-info">
+                <div class="rebeca-name">Rebeca</div>
+                <div class="rebeca-role" id="rebecaRole">// English Tutor</div>
+            </div>
+
+            <div class="rebeca-traits" id="rebecaTraits">
+                <div class="trait"><span class="trait-icon">🇬🇧</span><span data-i18n-local="trait1">Tech
+                        English</span></div>
+                <div class="trait"><span class="trait-icon">🎯</span><span data-i18n-local="trait2">Diagnóstico
+                        Preciso</span></div>
+                <div class="trait"><span class="trait-icon">💬</span><span data-i18n-local="trait3">Método
+                        Socrático</span></div>
+            </div>
+
+            <div style="width: 100%">
+                <div class="progress-wrap">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="progress-label" id="progressLabel">Iniciando...</div>
+            </div>
+        </aside>
+
+        <main class="chat-panel">
+            <div class="chat-header">
+                <h1 id="pageTitle">Placement Test</h1>
+                <p id="pageSubtitle">Rebeca vai avaliar sua base de inglês e recomendar a melhor fase para você iniciar
+                    no CS Hub.</p>
+            </div>
+
+            <div class="messages" id="messages">
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-dots"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+
+            <div class="options-wrap" id="optionsWrap"></div>
+
+            <div class="result-section" id="resultSection"></div>
+        </main>
+    </div>
+
+    <script>
+    // ==========================================
+    // LÓGICA DO PLACEMENT TEST (INTEGRAÇÃO API)
+    // ==========================================
+
+    let sessionId = null;
+    let allAnswers = {};
+
+    // 1. CORREÇÃO DOS IDs: Agora batem com o seu HTML
+    const chatMessages = document.getElementById('messages');
+    const chatOptions = document.getElementById('optionsWrap');
+
+    // 2. CORREÇÃO DA FUNÇÃO ADD MESSAGE: Agora usa o seu CSS premium
+    function addMessage(text, sender = 'rebeca') {
+        const msgDiv = document.createElement('div');
+        // Adiciona a animação e a classe do remetente (rebeca ou user)
+        msgDiv.className = `msg ${sender}`;
+
+        // Define o nome de quem está enviando
+        const senderName = sender === 'rebeca' ? 'Rebeca' : 'Jéssica';
+
+        // Constrói o balão de mensagem com a sua estrutura CSS
+        msgDiv.innerHTML = `
+            <div class="msg-sender">${senderName}</div>
+            <div class="msg-bubble">${text}</div>
+        `;
+        
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Rola pro final
+    }
+
+    function renderOptions(options, step) {
+        chatOptions.innerHTML = ''; 
+
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            // 3. CORREÇÃO DA CLASSE DO BOTÃO: Usando a sua classe 'opt-btn'
+            btn.className = 'opt-btn'; 
+            btn.innerText = opt.label;
+            btn.onclick = () => submitAnswer(opt.value, opt.label, step);
+            chatOptions.appendChild(btn);
+        });
+    }
+
+    async function startDiagnostic() {
+        try {
+            const response = await fetch('/api/english-placement/start', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            const data = await response.json();
+            sessionId = data.sessionId;
+
+            // Remove loading e mostra primeira pergunta enviando como 'rebeca'
+            chatMessages.innerHTML = '';
+            addMessage(data.message, 'rebeca');
+            renderOptions(data.options, data.step);
+
+        } catch (error) {
+            console.error("Erro ao iniciar o teste:", error);
+            addMessage("System Error: Não foi possível conectar ao servidor da Rebeca.", 'rebeca');
+        }
+    }
+
+    async function submitAnswer(value, label, step) {
+        // Envia a resposta como 'user' para alinhar à direita e ficar verde
+        addMessage(label, 'user');
+        chatOptions.innerHTML = ''; 
+
+        allAnswers[`q_${step}`] = value;
+
+        try {
+            const response = await fetch('/api/english-placement/answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: sessionId,
+                    answer: value,
+                    allAnswers: allAnswers
+                })
+            });
+
+            const data = await response.json();
+
+            if (!data.done) {
+                setTimeout(() => {
+                    addMessage(data.message, 'rebeca');
+                    renderOptions(data.options, data.step);
+                }, 600); 
+            } else {
+                setTimeout(() => {
+                    renderFinalResult(data);
+                }, 800);
+            }
+        } catch (error) {
+            console.error("Erro ao enviar resposta:", error);
+        }
+    }
+
+    function renderFinalResult(data) {
+        chatMessages.innerHTML = '';
+        chatOptions.innerHTML = '';
+
+        const resultHTML = `
+            <div class="eff-result-card">
+                <h3 class="eff-eyebrow">DIAGNÓSTICO CONCLUÍDO</h3>
+                <h2 class="eff-result-title">${data.profileType}</h2>
+                <p class="eff-main-text">${data.summary}</p>
+                
+                <div class="eff-recommendation-box">
+                    <h4>${data.recommendation.primary.icon} ${data.recommendation.primary.title}</h4>
+                    <p>${data.recommendation.primary.description}</p>
+                    <a href="${data.recommendation.primary.url}" class="eff-btn-primary">Acessar Minha Trilha</a>
+                </div>
+            </div>
+        `;
+
+        chatMessages.innerHTML = resultHTML;
+    }
+
+    window.onload = startDiagnostic;
+</script>
+</body>
+
+</html>

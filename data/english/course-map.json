@@ -1,0 +1,42 @@
+{
+    "courseName": "Global English for Tech & Careers",
+    "totalDurationWeeks": 48,
+    "fases": [
+        {
+            "id": 1,
+            "nome": "Foundations",
+            "badge": "Bronze",
+            "weeks": 8
+        },
+        {
+            "id": 2,
+            "nome": "Core Communication",
+            "badge": "Silver",
+            "weeks": 8
+        },
+        {
+            "id": 3,
+            "nome": "Tech English",
+            "badge": "Emerald",
+            "weeks": 8
+        },
+        {
+            "id": 4,
+            "nome": "Interviews",
+            "badge": "Cobalt",
+            "weeks": 8
+        },
+        {
+            "id": 5,
+            "nome": "Multinational Work",
+            "badge": "Gold",
+            "weeks": 8
+        },
+        {
+            "id": 6,
+            "nome": "Advanced & Capstone",
+            "badge": "Diamond",
+            "weeks": 8
+        }
+    ]
+}

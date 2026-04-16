@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EFF | Global English Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* Reutilizando seu Root e Base do CS Hub */
+        :root {
+            --bg: #080c11;
+            --surface: #0d1117;
+            --surface-2: #111820;
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #2ecc71;
+            /* Verde Neon do CS Hub */
+            --accent-glow: rgba(46, 204, 113, 0.18);
+            --text: #e6edf3;
+            --muted: #6e7a8a;
+            --mono: "Fira Code", monospace;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* --- Estilos do Dashboard --- */
+        .dash-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .badge-main-display {
+            width: 180px;
+            /* Aumentamos de 120 para 180 */
+            height: 180px;
+            /* Aumentamos de 120 para 180 */
+            margin: 0 auto 20px;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            /* Mantendo o fundo transparente */
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .badge-main-display:hover {
+            transform: scale(1.05);
+        }
+
+        /* Grid de Semanas (As 48 semanas) */
+        /* Grid de Semanas (As 48 semanas) - ATUALIZADO PARA 2x2 */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Força 2 colunas iguais */
+            gap: 24px;
+            max-width: 800px;
+            /* Limita a largura para não esticar em monitores grandes */
+            margin: 40px auto 0;
+            /* Dá um espaço no topo e centraliza na tela */
+        }
+
+        /* Responsividade: Volta para 1 cartão por linha em telas de celular */
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- Modal de Onboarding (Cerimônia do Brasão) --- */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 12, 17, 0.98);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .onboarding-card {
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 420px;
+            box-shadow: 0 0 50px var(--accent-glow);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .floating-badge {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .btn-start {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--mono);
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+
+        .btn-start:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav
+        style="padding: 16px 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(8, 12, 17, 0.95); position: sticky; top: 0; z-index: 100;">
+        <a href="/cursos/english/index.html"
+            style="display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.2s ease;"
+            onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+            <img src="/assets/english/images/brasaocshub.png" alt="EFF Global English"
+                style="height: 45px; object-fit: contain; mix-blend-mode: screen;">
+            <span style="font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff;">
+                Global <span style="color: var(--accent);">English</span>
+            </span>
+        </a>
+
+        <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em;">// EFF
+            DASHBOARD</div>
+    </nav>
+
+    <div class="dash-wrapper">
+        <header class="header-section">
+            <div id="badge-container">
+                <img id="current-badge-img" src="/assets/english/images/brasaocshubbronze.png"
+                    class="badge-main-display" alt="Brasão Atual">
+            </div>
+            <h1 id="fase-title" style="font-size: 1.8rem; margin-bottom: 10px;">Foundations Stage</h1>
+            <p id="fase-subtitle" style="color: var(--muted); font-size: 0.9rem;">Sua jornada de 48 semanas para a
+                fluência técnica.</p>
+        </header>
+
+        <div id="modules-list" class="modules-grid">
+        </div>
+    </div>
+
+    <div id="onboarding-overlay" class="overlay" style="display: none;">
+        <div class="onboarding-card">
+            <div class="badge-anim">
+                <img id="modal-badge-img" src="../../assets/brasaocshubbadges/bronze.png" alt="Seu Brasão"
+                    class="floating-badge">
+            </div>
+            <h2 id="modal-welcome-title">Welcome, Hero!</h2>
+            <p id="modal-welcome-text" style="color: var(--muted); line-height: 1.6; margin: 15px 0;">
+                Seu diagnóstico com a Rebeca foi concluído. Você foi classificado no nível <strong>Foundations</strong>
+                e recebeu seu primeiro brasão!
+            </p>
+            <button onclick="closeOnboarding()" class="btn-start">Start Training</button>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // ==========================================
+            // 1. LÓGICA DA GEMA DE BRONZE
+            // ==========================================
+            const gemStatus = localStorage.getItem('eff_gem_bronze');
+            const badgeImg = document.querySelector('.badge-main-display'); // A classe da sua imagem central
+
+            if (gemStatus === 'unlocked') {
+                // Se o aluno derrotou o Boss da Fase 1, a gema acende (dourada/brilhante)
+                if (badgeImg) {
+                    badgeImg.style.filter = 'drop-shadow(0 0 30px rgba(241, 196, 15, 0.8))';
+                    badgeImg.style.opacity = '1';
+                    // Opcional: badgeImg.src = 'caminho/para/gema-bronze-colorida.png';
+                }
+            } else {
+                // Se ainda não chegou lá, a gema fica bloqueada (escura e sem brilho)
+                if (badgeImg) {
+                    badgeImg.style.filter = 'grayscale(100%) brightness(0.4)';
+                }
+            }
+
+            // ==========================================
+            // 2. CARREGAMENTO DINÂMICO DAS FASES
+            // ==========================================
+            const grid = document.querySelector('.modules-grid');
+            if (!grid) return;
+
+            grid.innerHTML = '<p style="color: var(--text-soft); text-align: center; grid-column: 1 / -1;">A carregar módulos...</p>';
+
+            try {
+                // Faz o fetch da Fase 1 e da Fase 2 simultaneamente
+                const [res1, res2] = await Promise.all([
+                    fetch('/data/english/fase1.json').catch(() => null),
+                    fetch('/data/english/fase2.json').catch(() => null)
+                ]);
+
+                let todasAsSemanas = [];
+
+                // Adiciona as aulas da Fase 1
+                if (res1 && res1.ok) {
+                    const fase1Data = await res1.json();
+                    todasAsSemanas = todasAsSemanas.concat(fase1Data);
+                }
+
+                // Adiciona as aulas da Fase 2
+                if (res2 && res2.ok) {
+                    const fase2Data = await res2.json();
+                    todasAsSemanas = todasAsSemanas.concat(fase2Data);
+                }
+
+                // Ordena tudo pelo número da semana para evitar que fiquem trocadas
+                todasAsSemanas.sort((a, b) => a.semana - b.semana);
+
+                // Renderiza os cartões com os links corrigidos
+                grid.innerHTML = todasAsSemanas.map(semana => `
+                <div class="panel-card" style="background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: 12px; display: flex; flex-direction: column;">
+                    <div class="meta-label" style="color: var(--accent); font-family: var(--mono); font-size: 0.75rem; margin-bottom: 8px; text-transform: uppercase;">
+                        WEEK ${semana.semana}
+                    </div>
+                    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.2rem; color: #fff;">
+                        ${semana.titulo}
+                    </h3>
+                    <p style="color: var(--text-soft); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px; flex-grow: 1;">
+                        ${semana.objetivo}
+                    </p>
+                    <a href="lesson.html?fase=${semana.faseId}&week=${semana.semana}" 
+                       style="display: block; text-align: center; background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 12px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.2s;"
+                       onmouseover="this.style.background='rgba(46, 204, 113, 0.1)'; this.style.boxShadow='0 0 12px rgba(46, 204, 113, 0.2)';"
+                       onmouseout="this.style.background='transparent'; this.style.boxShadow='none';">
+                        Open Week ${semana.semana}
+                    </a>
+                </div>
+            `).join('');
+
+            } catch (err) {
+                console.error('Erro ao carregar o dashboard:', err);
+                grid.innerHTML = '<p style="color: var(--danger); text-align: center; grid-column: 1 / -1;">// ERRO AO CARREGAR AS AULAS</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>

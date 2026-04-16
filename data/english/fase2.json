@@ -1,0 +1,1485 @@
+[
+    {
+        "id": "week-5",
+        "faseId": 2,
+        "semana": 5,
+        "titulo": "Week 5 — Frequency, Habits & Weekly Patterns",
+        "objetivo": "The student can talk about frequency, describe study and work habits, ask and answer basic questions about recurring actions, and explain simple weekly patterns in a tech context.",
+        "rubricaA1": [
+            {
+                "criterio": "Frequency language accuracy",
+                "descricao": "Uses basic adverbs of frequency and recurring time expressions with reasonable stability.",
+                "criterio_pt": "Precisão na linguagem de frequência",
+                "descricao_pt": "Usa advérbios de frequência e expressões recorrentes de tempo com estabilidade razoável."
+            },
+            {
+                "criterio": "Habit description",
+                "descricao": "Can describe simple study or work habits using short complete sentences.",
+                "criterio_pt": "Descrição de hábitos",
+                "descricao_pt": "Consegue descrever hábitos simples de estudo ou trabalho usando frases curtas e completas."
+            },
+            {
+                "criterio": "Interaction about frequency",
+                "descricao": "Can ask and answer predictable questions about how often actions happen.",
+                "criterio_pt": "Interação sobre frequência",
+                "descricao_pt": "Consegue perguntar e responder questões previsíveis sobre a frequência com que ações acontecem."
+            },
+            {
+                "criterio": "Listening comprehension",
+                "descricao": "Identifies adverbs of frequency and repeated actions in short controlled listening tasks.",
+                "criterio_pt": "Compreensão auditiva",
+                "descricao_pt": "Identifica advérbios de frequência e ações recorrentes em tarefas curtas e controladas de listening."
+            },
+            {
+                "criterio": "Final output clarity",
+                "descricao": "Produces a short and understandable habit profile or weekly behavior description.",
+                "criterio_pt": "Clareza da produção final",
+                "descricao_pt": "Produz um perfil curto e compreensível de hábitos ou descrição de comportamento semanal."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "5.1",
+                "subtitulo": "Everyday Patterns — Adverbs of Frequency",
+                "lessonMeta": {
+                    "focus": "Basic adverbs of frequency in routine descriptions",
+                    "canDo": "I can describe how often I do simple study or work actions.",
+                    "structures": [
+                        "I always check my tasks.",
+                        "I usually study at night.",
+                        "I sometimes use Slack.",
+                        "I never miss class."
+                    ],
+                    "outputTargets": [
+                        "Use basic adverbs of frequency.",
+                        "Connect frequency to a routine action.",
+                        "Describe simple recurring habits."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now you learn to say <strong>how often</strong> you do things.<br><br>In real work and study life, it is not enough to say what you do. You also need to say how frequently it happens:<br><br><strong>I always check my tasks.</strong><br><strong>I usually study at night.</strong><br><strong>I sometimes use Slack.</strong><br><strong>I never miss class.</strong><br><br>This is the language of habit and consistency.",
+                    "options": [
+                        {
+                            "text": "I usually study at night.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct simple present sentence with an adverb of frequency."
+                        },
+                        {
+                            "text": "I study usually at night.",
+                            "correct": false,
+                            "feedback": "Not the best pattern for this course stage. Use the more stable model: <strong>I usually study at night.</strong>"
+                        },
+                        {
+                            "text": "I am usually study at night.",
+                            "correct": false,
+                            "feedback": "Do not add <strong>am</strong> before the main verb here. Say: <strong>I usually study at night.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Adverbs of Frequency",
+                    "intro": "This lesson introduces the language of frequency and habit. The learner now adds a new layer to routine language by indicating how often actions happen.",
+                    "content": [
+                        "Common adverbs of frequency at this level are <strong>always</strong>, <strong>usually</strong>, <strong>often</strong>, <strong>sometimes</strong> and <strong>never</strong>.",
+                        "In simple present routine sentences, these adverbs usually come <strong>before the main verb</strong>.",
+                        "Examples: <strong>I always check my tasks.</strong> <strong>I usually study at night.</strong>",
+                        "These words help the learner describe patterns, not just isolated actions.",
+                        "At this stage, the priority is meaning control and stable sentence position."
+                    ],
+                    "examples": [
+                        "I always check my tasks.",
+                        "I usually study at night.",
+                        "I sometimes use Slack.",
+                        "I never miss class."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I study usually at night. → Better in this course model: I usually study at night.",
+                        "Incorrect: I am always check my tasks. → Correct: I always check my tasks.",
+                        "Incorrect: I never misses class. → Correct: I never miss class."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Advérbios de Frequência",
+                    "intro": "Esta lição introduz a linguagem de frequência e hábito. O aluno agora adiciona uma nova camada à linguagem de rotina ao indicar com que frequência as ações acontecem.",
+                    "content": [
+                        "Advérbios de frequência comuns neste nível são <strong>always</strong>, <strong>usually</strong>, <strong>often</strong>, <strong>sometimes</strong> e <strong>never</strong>.",
+                        "Em frases de rotina no simple present, esses advérbios geralmente vêm <strong>antes do verbo principal</strong>.",
+                        "Exemplos: <strong>I always check my tasks.</strong> <strong>I usually study at night.</strong>",
+                        "Essas palavras ajudam o aluno a descrever padrões, não apenas ações isoladas.",
+                        "Nesta fase, a prioridade é o controle de significado e a posição estável na frase."
+                    ],
+                    "examples": [
+                        "Eu sempre verifico minhas tarefas.",
+                        "Eu geralmente estudo à noite.",
+                        "Eu às vezes uso Slack.",
+                        "Eu nunca falto à aula."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I study usually at night. → Melhor neste modelo do curso: I usually study at night.",
+                        "Incorreto: I am always check my tasks. → Correto: I always check my tasks.",
+                        "Incorreto: I never misses class. → Correto: I never miss class."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "always",
+                        "pt": "sempre"
+                    },
+                    {
+                        "en": "usually",
+                        "pt": "geralmente"
+                    },
+                    {
+                        "en": "often",
+                        "pt": "frequentemente"
+                    },
+                    {
+                        "en": "sometimes",
+                        "pt": "às vezes"
+                    },
+                    {
+                        "en": "never",
+                        "pt": "nunca"
+                    },
+                    {
+                        "en": "habit",
+                        "pt": "hábito"
+                    },
+                    {
+                        "en": "routine",
+                        "pt": "rotina"
+                    },
+                    {
+                        "en": "task",
+                        "pt": "tarefa"
+                    },
+                    {
+                        "en": "class",
+                        "pt": "aula"
+                    },
+                    {
+                        "en": "pattern",
+                        "pt": "padrão"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — My Study Habits",
+                    "en": "I usually study at night. I always check my tasks before class. I sometimes use Slack on weekends. I never miss my English lesson.",
+                    "pt": "Eu geralmente estudo à noite. Eu sempre verifico minhas tarefas antes da aula. Eu às vezes uso Slack nos fins de semana. Eu nunca falto à minha aula de inglês.",
+                    "task": "Read the text and identify the adverbs of frequency and the actions connected to them."
+                },
+                "listening": {
+                    "title": "Listening Lab — Habit Language",
+                    "instructions": "Listen carefully and identify the correct frequency sentence.",
+                    "text": "I usually study at night. I always check my tasks.",
+                    "transcript": "I usually study at night. I always check my tasks.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I usually study at night.",
+                        "I study usually at night.",
+                        "I am usually study at night."
+                    ],
+                    "answer": "I usually study at night.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use the adverb of frequency before the main verb.",
+                    "options": [
+                        "I always check my tasks.",
+                        "I check always my tasks.",
+                        "I am always check my tasks."
+                    ],
+                    "answer": "I always check my tasks."
+                },
+                "teacherNotes": {
+                    "focus": "Introduce adverbs of frequency as a new way to describe repeated patterns and stable habits.",
+                    "tips": [
+                        "Teach the adverb together with the action, not in isolation.",
+                        "Keep the focus on position before the main verb.",
+                        "Use repetition to contrast always, usually, sometimes and never.",
+                        "Use habits from digital study and work life as examples.",
+                        "Prioritize stability over variety."
+                    ],
+                    "supportPhrases": [
+                        "Say how often it happens.",
+                        "Put the adverb before the verb.",
+                        "Now connect the habit to the action.",
+                        "This is habit language.",
+                        "Keep the sentence clear and stable."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir advérbios de frequência como uma nova forma de descrever padrões repetidos e hábitos estáveis.",
+                    "tips": [
+                        "Ensine o advérbio junto com a ação, não de forma isolada.",
+                        "Mantenha o foco na posição antes do verbo principal.",
+                        "Use repetição para contrastar always, usually, sometimes e never.",
+                        "Use hábitos da vida digital de estudo e trabalho como exemplos.",
+                        "Priorize estabilidade em vez de variedade."
+                    ],
+                    "supportPhrases": [
+                        "Diga com que frequência isso acontece.",
+                        "Coloque o advérbio antes do verbo.",
+                        "Agora conecte o hábito à ação.",
+                        "Isto é linguagem de hábito.",
+                        "Mantenha a frase clara e estável."
+                    ]
+                }
+            },
+            {
+                "id": "5.2",
+                "subtitulo": "Tech Habits — Digital Routine and Platform Use",
+                "lessonMeta": {
+                    "focus": "Frequency in digital habits and platform use",
+                    "canDo": "I can describe how often I use tools and perform digital actions.",
+                    "structures": [
+                        "I often use GitHub.",
+                        "I usually read messages in the morning.",
+                        "I sometimes work on my project at night.",
+                        "I never ignore deadlines."
+                    ],
+                    "outputTargets": [
+                        "Describe recurring digital habits.",
+                        "Connect adverbs of frequency to tools and actions.",
+                        "Talk about platform use in a tech context."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now apply frequency to your digital life.<br><br>In tech, habits are connected to platforms, messages, deadlines and projects:<br><br><strong>I often use GitHub.</strong><br><strong>I usually read messages in the morning.</strong><br><strong>I sometimes work on my project at night.</strong><br><strong>I never ignore deadlines.</strong><br><br>This is the language of digital discipline.",
+                    "options": [
+                        {
+                            "text": "I often use GitHub.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct and natural tech-habit sentence."
+                        },
+                        {
+                            "text": "I use often GitHub.",
+                            "correct": false,
+                            "feedback": "Not the best pattern for this stage. Use the stable form: <strong>I often use GitHub.</strong>"
+                        },
+                        {
+                            "text": "I am often use GitHub.",
+                            "correct": false,
+                            "feedback": "Do not use <strong>am</strong> before the main verb. Say: <strong>I often use GitHub.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Frequency in Tech Routine",
+                    "intro": "This lesson applies adverbs of frequency to digital behavior and platform habits. The learner now describes regular interaction with tools, messages, projects and deadlines.",
+                    "content": [
+                        "Frequency language becomes more useful when connected to real digital actions.",
+                        "Use stable patterns such as <strong>I often use GitHub</strong> or <strong>I usually read messages in the morning</strong>.",
+                        "This lesson combines adverbs of frequency, simple present verbs and time expressions.",
+                        "The goal is to describe real repeated behavior in a modern work or study environment.",
+                        "The sentence should remain short, correct and reusable."
+                    ],
+                    "examples": [
+                        "I often use GitHub.",
+                        "I usually read messages in the morning.",
+                        "I sometimes work on my project at night.",
+                        "I never ignore deadlines."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I use often GitHub. → Better in this course model: I often use GitHub.",
+                        "Incorrect: I am often read messages. → Correct: I often read messages.",
+                        "Incorrect: I never ignores deadlines. → Correct: I never ignore deadlines."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Frequência na Rotina Tech",
+                    "intro": "Esta lição aplica os advérbios de frequência ao comportamento digital e aos hábitos com plataformas. O aluno agora descreve interação regular com ferramentas, mensagens, projetos e prazos.",
+                    "content": [
+                        "A linguagem de frequência se torna mais útil quando conectada a ações digitais reais.",
+                        "Use padrões estáveis como <strong>I often use GitHub</strong> ou <strong>I usually read messages in the morning</strong>.",
+                        "Esta lição combina advérbios de frequência, verbos no simple present e expressões de tempo.",
+                        "O objetivo é descrever comportamento repetido real em um ambiente moderno de trabalho ou estudo.",
+                        "A frase deve permanecer curta, correta e reutilizável."
+                    ],
+                    "examples": [
+                        "Eu frequentemente uso GitHub.",
+                        "Eu geralmente leio mensagens de manhã.",
+                        "Eu às vezes trabalho no meu projeto à noite.",
+                        "Eu nunca ignoro prazos."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I use often GitHub. → Melhor neste modelo do curso: I often use GitHub.",
+                        "Incorreto: I am often read messages. → Correto: I often read messages.",
+                        "Incorreto: I never ignores deadlines. → Correto: I never ignore deadlines."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "GitHub",
+                        "pt": "GitHub"
+                    },
+                    {
+                        "en": "Slack",
+                        "pt": "Slack"
+                    },
+                    {
+                        "en": "deadline",
+                        "pt": "prazo"
+                    },
+                    {
+                        "en": "message",
+                        "pt": "mensagem"
+                    },
+                    {
+                        "en": "project",
+                        "pt": "projeto"
+                    },
+                    {
+                        "en": "email",
+                        "pt": "email"
+                    },
+                    {
+                        "en": "notification",
+                        "pt": "notificação"
+                    },
+                    {
+                        "en": "ignore",
+                        "pt": "ignorar"
+                    },
+                    {
+                        "en": "platform",
+                        "pt": "plataforma"
+                    },
+                    {
+                        "en": "digital habit",
+                        "pt": "hábito digital"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — My Digital Habits",
+                    "en": "I often use GitHub and Slack. I usually read messages in the morning. I sometimes work on my project at night. I never ignore deadlines.",
+                    "pt": "Eu frequentemente uso GitHub e Slack. Eu geralmente leio mensagens de manhã. Eu às vezes trabalho no meu projeto à noite. Eu nunca ignoro prazos.",
+                    "task": "Read the text and identify the platform habits and the frequency markers."
+                },
+                "listening": {
+                    "title": "Listening Lab — Tech Frequency",
+                    "instructions": "Listen carefully and identify the correct digital habit sentence.",
+                    "text": "I often use GitHub. I never ignore deadlines.",
+                    "transcript": "I often use GitHub. I never ignore deadlines.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I often use GitHub.",
+                        "I use often GitHub.",
+                        "I am often use GitHub."
+                    ],
+                    "answer": "I often use GitHub.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use the adverb before the main verb.",
+                    "options": [
+                        "I never ignore deadlines.",
+                        "I ignore never deadlines.",
+                        "I am never ignore deadlines."
+                    ],
+                    "answer": "I never ignore deadlines."
+                },
+                "teacherNotes": {
+                    "focus": "Expand frequency language into real digital habits and platform-based routines.",
+                    "tips": [
+                        "Keep the actions realistic and familiar to the learner.",
+                        "Connect each adverb to a high-frequency digital action.",
+                        "Review the position of the adverb before the main verb.",
+                        "Use examples from actual workflow behavior.",
+                        "Reinforce that these are descriptions of patterns, not one-time events."
+                    ],
+                    "supportPhrases": [
+                        "Now describe your digital habit.",
+                        "Use the adverb before the verb.",
+                        "Connect the tool to the action.",
+                        "This is your real routine pattern.",
+                        "Keep it short and accurate."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Expandir a linguagem de frequência para hábitos digitais reais e rotinas baseadas em plataformas.",
+                    "tips": [
+                        "Mantenha as ações realistas e familiares para o aluno.",
+                        "Conecte cada advérbio a uma ação digital de alta frequência.",
+                        "Revise a posição do advérbio antes do verbo principal.",
+                        "Use exemplos de comportamento real de workflow.",
+                        "Reforce que estas são descrições de padrões, não de eventos únicos."
+                    ],
+                    "supportPhrases": [
+                        "Agora descreva seu hábito digital.",
+                        "Use o advérbio antes do verbo.",
+                        "Conecte a ferramenta à ação.",
+                        "Este é o seu padrão real de rotina.",
+                        "Mantenha curto e preciso."
+                    ]
+                }
+            },
+            {
+                "id": "5.3",
+                "subtitulo": "How Often Do You...? — Asking About Habits",
+                "lessonMeta": {
+                    "focus": "Questions and answers about frequency and recurring actions",
+                    "canDo": "I can ask and answer simple questions about how often actions happen.",
+                    "structures": [
+                        "How often do you study?",
+                        "How often do you check your email?",
+                        "I study every day.",
+                        "I usually check my email in the morning."
+                    ],
+                    "outputTargets": [
+                        "Ask about frequency.",
+                        "Answer with adverbs or recurring time expressions.",
+                        "Sustain a simple habit-based exchange."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> ask about habits and frequency.<br><br>Now you move from statements to questions:<br><br><strong>How often do you study?</strong><br><strong>How often do you check your email?</strong><br><strong>I study every day.</strong><br><strong>I usually check my email in the morning.</strong><br><br>This is the language of recurring behavior.",
+                    "options": [
+                        {
+                            "text": "How often do you study?",
+                            "correct": true,
+                            "feedback": "Excellent. That is the correct question to ask about frequency."
+                        },
+                        {
+                            "text": "How often you study?",
+                            "correct": false,
+                            "feedback": "Not correct here. Use the auxiliary <strong>do</strong>: <strong>How often do you study?</strong>"
+                        },
+                        {
+                            "text": "How often are you study?",
+                            "correct": false,
+                            "feedback": "Do not use <strong>are</strong> here. Use the pattern: <strong>How often do you study?</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Questions About Frequency",
+                    "intro": "This lesson teaches the learner how to ask about recurring actions and habits. It is a crucial bridge toward more autonomous interaction and is strongly aligned with the transition from strong A1 to early A2 behavior.",
+                    "content": [
+                        "Use <strong>How often do you...?</strong> to ask about the frequency of an action.",
+                        "Examples: <strong>How often do you study?</strong> <strong>How often do you check your email?</strong>",
+                        "Answers can use adverbs of frequency or recurring time expressions such as <strong>every day</strong> and <strong>every week</strong>.",
+                        "The question pattern depends on the auxiliary <strong>do</strong>.",
+                        "At this stage, the learner should master a small set of predictable question-answer exchanges."
+                    ],
+                    "examples": [
+                        "How often do you study?",
+                        "I study every day.",
+                        "How often do you check your email?",
+                        "I usually check my email in the morning."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: How often you study? → Correct: How often do you study?",
+                        "Incorrect: How often are you check your email? → Correct: How often do you check your email?",
+                        "Incorrect: I every day study. → Better in this model: I study every day."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Perguntas Sobre Frequência",
+                    "intro": "Esta lição ensina o aluno a perguntar sobre ações recorrentes e hábitos. É uma ponte crucial para interação mais autônoma e se alinha fortemente à transição de um A1 forte para um A2 inicial.",
+                    "content": [
+                        "Use <strong>How often do you...?</strong> para perguntar sobre a frequência de uma ação.",
+                        "Exemplos: <strong>How often do you study?</strong> <strong>How often do you check your email?</strong>",
+                        "As respostas podem usar advérbios de frequência ou expressões recorrentes de tempo como <strong>every day</strong> e <strong>every week</strong>.",
+                        "O padrão da pergunta depende do auxiliar <strong>do</strong>.",
+                        "Nesta fase, o aluno deve dominar um pequeno conjunto de trocas previsíveis de pergunta e resposta."
+                    ],
+                    "examples": [
+                        "Com que frequência você estuda?",
+                        "Eu estudo todos os dias.",
+                        "Com que frequência você verifica seu email?",
+                        "Eu geralmente verifico meu email de manhã."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: How often you study? → Correto: How often do you study?",
+                        "Incorreto: How often are you check your email? → Correto: How often do you check your email?",
+                        "Incorreto: I every day study. → Melhor neste modelo: I study every day."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "how often",
+                        "pt": "com que frequência"
+                    },
+                    {
+                        "en": "every day",
+                        "pt": "todos os dias"
+                    },
+                    {
+                        "en": "every week",
+                        "pt": "toda semana"
+                    },
+                    {
+                        "en": "every morning",
+                        "pt": "toda manhã"
+                    },
+                    {
+                        "en": "every night",
+                        "pt": "toda noite"
+                    },
+                    {
+                        "en": "email",
+                        "pt": "email"
+                    },
+                    {
+                        "en": "study",
+                        "pt": "estudar"
+                    },
+                    {
+                        "en": "work",
+                        "pt": "trabalhar"
+                    },
+                    {
+                        "en": "practice",
+                        "pt": "praticar"
+                    },
+                    {
+                        "en": "review",
+                        "pt": "revisar"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Habit Questions",
+                    "en": "Ana: How often do you study English? Leo: I study every day. Ana: How often do you check your email? Leo: I usually check it in the morning.",
+                    "pt": "Ana: Com que frequência você estuda inglês? Leo: Eu estudo todos os dias. Ana: Com que frequência você verifica seu email? Leo: Eu geralmente o verifico de manhã.",
+                    "task": "Read the dialogue and identify the questions and the type of frequency answers."
+                },
+                "listening": {
+                    "title": "Listening Lab — Frequency Questions",
+                    "instructions": "Listen carefully and identify the correct question about habits.",
+                    "text": "How often do you study? I study every day.",
+                    "transcript": "How often do you study? I study every day.",
+                    "question": "Choose the correct question:",
+                    "options": [
+                        "How often do you study?",
+                        "How often you study?",
+                        "How often are you study?"
+                    ],
+                    "answer": "How often do you study?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct answer to: How often do you study?",
+                    "helpText": "Answer with a frequency expression or pattern.",
+                    "options": [
+                        "I study every day.",
+                        "I am study every day.",
+                        "I every day study."
+                    ],
+                    "answer": "I study every day."
+                },
+                "teacherNotes": {
+                    "focus": "Train simple question-answer exchanges about recurring habits and frequency.",
+                    "tips": [
+                        "Make the learner repeat the entire question before answering it.",
+                        "Keep the answers short and stable at first.",
+                        "Use every day, usually and sometimes as the main response types.",
+                        "Highlight the auxiliary do in the question pattern.",
+                        "Keep interaction predictable and high-frequency."
+                    ],
+                    "supportPhrases": [
+                        "Ask about frequency.",
+                        "Use do in the question.",
+                        "Answer with a habit pattern.",
+                        "Now give a short but complete answer.",
+                        "This is recurring-action language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Treinar trocas simples de pergunta e resposta sobre hábitos recorrentes e frequência.",
+                    "tips": [
+                        "Faça o aluno repetir a pergunta inteira antes de respondê-la.",
+                        "Mantenha as respostas curtas e estáveis no início.",
+                        "Use every day, usually e sometimes como os principais tipos de resposta.",
+                        "Destaque o auxiliar do no padrão da pergunta.",
+                        "Mantenha a interação previsível e de alta repetição."
+                    ],
+                    "supportPhrases": [
+                        "Pergunte sobre frequência.",
+                        "Use do na pergunta.",
+                        "Responda com um padrão de hábito.",
+                        "Agora dê uma resposta curta, mas completa.",
+                        "Isto é linguagem de ação recorrente."
+                    ]
+                }
+            },
+            {
+                "id": "5.4",
+                "subtitulo": "The Boss Fight — My Habit System",
+                "lessonMeta": {
+                    "focus": "Integrated production: habits, frequency and weekly patterns",
+                    "canDo": "I can present a short habit profile with frequency language and recurring behavior.",
+                    "structures": [
+                        "I always study in the morning.",
+                        "I usually check my tasks after class.",
+                        "I often use GitHub.",
+                        "I sometimes work at night.",
+                        "I never miss my English lesson."
+                    ],
+                    "outputTargets": [
+                        "Produce a short habit profile with 5 to 7 lines.",
+                        "Combine frequency, routine and simple weekly patterns.",
+                        "Present a clear personal study/work behavior profile."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> build your Week 5 habit system.<br><br>Now you combine frequency, routine and recurring patterns:<br><br><strong>I always study in the morning.</strong><br><strong>I usually check my tasks after class.</strong><br><strong>I often use GitHub.</strong><br><strong>I sometimes work at night.</strong><br><strong>I never miss my English lesson.</strong><br><br>Your goal is to sound <strong>consistent, clear and disciplined</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now build your habit profile with complete and well-organized sentences."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building a Habit Profile",
+                    "intro": "The final lesson of Week 5 integrates frequency language, routine descriptions and recurring weekly behavior into a short habit profile. This is a strong bridge toward early A2 communicative flexibility.",
+                    "content": [
+                        "A habit profile connects <strong>frequency</strong>, <strong>action</strong> and <strong>context</strong>.",
+                        "At this stage, the learner should use short complete sentences that are easy to repeat and adapt.",
+                        "Useful patterns include <strong>I always + verb</strong>, <strong>I usually + verb</strong>, <strong>I sometimes + verb</strong> and <strong>I never + verb</strong>.",
+                        "The final output should sound real, personal and behavior-based.",
+                        "The goal is to describe repeated patterns, not isolated moments."
+                    ],
+                    "examples": [
+                        "I always study in the morning.",
+                        "I usually check my tasks after class.",
+                        "I often use GitHub.",
+                        "I sometimes work at night.",
+                        "I never miss my English lesson."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I study always in the morning. → Better in this course model: I always study in the morning.",
+                        "Incorrect: I am never miss my English lesson. → Correct: I never miss my English lesson.",
+                        "Incorrect: I often uses GitHub. → Correct: I often use GitHub."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo um Perfil de Hábitos",
+                    "intro": "A última lição da Semana 5 integra linguagem de frequência, descrições de rotina e comportamento semanal recorrente em um perfil curto de hábitos. Esta é uma ponte forte para uma flexibilidade comunicativa de A2 inicial.",
+                    "content": [
+                        "Um perfil de hábitos conecta <strong>frequência</strong>, <strong>ação</strong> e <strong>contexto</strong>.",
+                        "Nesta fase, o aluno deve usar frases curtas e completas que sejam fáceis de repetir e adaptar.",
+                        "Padrões úteis incluem <strong>I always + verbo</strong>, <strong>I usually + verbo</strong>, <strong>I sometimes + verbo</strong> e <strong>I never + verbo</strong>.",
+                        "A produção final deve soar real, pessoal e baseada em comportamento.",
+                        "O objetivo é descrever padrões repetidos, não momentos isolados."
+                    ],
+                    "examples": [
+                        "Eu sempre estudo de manhã.",
+                        "Eu geralmente verifico minhas tarefas depois da aula.",
+                        "Eu frequentemente uso GitHub.",
+                        "Eu às vezes trabalho à noite.",
+                        "Eu nunca falto à minha aula de inglês."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I study always in the morning. → Melhor neste modelo do curso: I always study in the morning.",
+                        "Incorreto: I am never miss my English lesson. → Correto: I never miss my English lesson.",
+                        "Incorreto: I often uses GitHub. → Correto: I often use GitHub."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "habit system",
+                        "pt": "sistema de hábitos"
+                    },
+                    {
+                        "en": "consistency",
+                        "pt": "consistência"
+                    },
+                    {
+                        "en": "discipline",
+                        "pt": "disciplina"
+                    },
+                    {
+                        "en": "recurring behavior",
+                        "pt": "comportamento recorrente"
+                    },
+                    {
+                        "en": "study habit",
+                        "pt": "hábito de estudo"
+                    },
+                    {
+                        "en": "digital routine",
+                        "pt": "rotina digital"
+                    },
+                    {
+                        "en": "always",
+                        "pt": "sempre"
+                    },
+                    {
+                        "en": "usually",
+                        "pt": "geralmente"
+                    },
+                    {
+                        "en": "sometimes",
+                        "pt": "às vezes"
+                    },
+                    {
+                        "en": "never",
+                        "pt": "nunca"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — My Habit System",
+                    "en": "I always study in the morning. I usually check my tasks after class. I often use GitHub and Slack. I sometimes work at night. I never miss my English lesson.",
+                    "pt": "Eu sempre estudo de manhã. Eu geralmente verifico minhas tarefas depois da aula. Eu frequentemente uso GitHub e Slack. Eu às vezes trabalho à noite. Eu nunca falto à minha aula de inglês.",
+                    "task": "Read the habit profile and identify the frequency markers and the repeated actions."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Habit Profile",
+                    "instructions": "Listen to the habit profile and identify the sentence about discipline.",
+                    "text": "I always study in the morning. I usually check my tasks after class. I often use GitHub. I sometimes work at night. I never miss my English lesson.",
+                    "transcript": "I always study in the morning. I usually check my tasks after class. I often use GitHub. I sometimes work at night. I never miss my English lesson.",
+                    "question": "Type the sentence about discipline:",
+                    "answer": "I never miss my English lesson.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write your mini habit profile in English.",
+                    "helpText": "Use 5 to 7 complete sentences. Example: I always study in the morning. I usually check my tasks after class. I often use GitHub.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate frequency, habit and recurring behavior into a short but functional personal profile.",
+                    "tips": [
+                        "Encourage the learner to reuse modeled patterns from earlier lessons.",
+                        "Require complete sentences and consistent structure.",
+                        "Keep the profile personal but controlled.",
+                        "Review adverb position before the main verb.",
+                        "Evaluate whether the learner can now describe patterns rather than isolated actions."
+                    ],
+                    "supportPhrases": [
+                        "Build your habit profile step by step.",
+                        "Add the frequency word first.",
+                        "Now say the action clearly.",
+                        "Keep the pattern stable and personal.",
+                        "Make your habit system sound real."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar frequência, hábito e comportamento recorrente em um perfil pessoal curto, mas funcional.",
+                    "tips": [
+                        "Incentive o aluno a reutilizar padrões modelados das aulas anteriores.",
+                        "Exija frases completas e estrutura consistente.",
+                        "Mantenha o perfil pessoal, mas controlado.",
+                        "Revise a posição do advérbio antes do verbo principal.",
+                        "Avalie se o aluno agora consegue descrever padrões, e não apenas ações isoladas."
+                    ],
+                    "supportPhrases": [
+                        "Construa seu perfil de hábitos passo a passo.",
+                        "Adicione primeiro a palavra de frequência.",
+                        "Agora diga a ação com clareza.",
+                        "Mantenha o padrão estável e pessoal.",
+                        "Faça seu sistema de hábitos soar real."
+                    ]
+                }
+            }
+        ]
+    },
+
+    {
+  "id": "week-6",
+  "faseId": 2,
+  "semana": 6,
+  "titulo": "Week 6 — Likes, Preferences & Learning Style",
+  "objetivo": "The student can talk about likes, dislikes and preferences, describe simple learning habits and study style, ask and answer basic questions about preferred formats and tools, and present a short learning profile in a tech context.",
+  "rubricaA1": [
+    {
+      "criterio": "Preference language accuracy",
+      "descricao": "Uses basic language for likes, dislikes and preferences with reasonable stability.",
+      "criterio_pt": "Precisão na linguagem de preferência",
+      "descricao_pt": "Usa linguagem básica para gostos, desgostos e preferências com estabilidade razoável."
+    },
+    {
+      "criterio": "Learning style description",
+      "descricao": "Can describe simple learning habits and preferred study formats using short complete sentences.",
+      "criterio_pt": "Descrição do estilo de aprendizagem",
+      "descricao_pt": "Consegue descrever hábitos simples de aprendizagem e formatos preferidos de estudo usando frases curtas e completas."
+    },
+    {
+      "criterio": "Interaction about preferences",
+      "descricao": "Can ask and answer predictable questions about likes, dislikes and preferred tools or formats.",
+      "criterio_pt": "Interação sobre preferências",
+      "descricao_pt": "Consegue perguntar e responder questões previsíveis sobre gostos, desgostos e ferramentas ou formatos preferidos."
+    },
+    {
+      "criterio": "Listening comprehension",
+      "descricao": "Identifies preference markers and learning-style information in short controlled listening tasks.",
+      "criterio_pt": "Compreensão auditiva",
+      "descricao_pt": "Identifica marcadores de preferência e informações sobre estilo de aprendizagem em tarefas curtas e controladas de listening."
+    },
+    {
+      "criterio": "Final output clarity",
+      "descricao": "Produces a short and understandable learning profile using clear preference language.",
+      "criterio_pt": "Clareza da produção final",
+      "descricao_pt": "Produz um perfil de aprendizagem curto e compreensível usando linguagem clara de preferência."
+    }
+  ],
+  "aulas": [
+    {
+      "id": "6.1",
+      "subtitulo": "What I Like — Talking About Likes and Dislikes",
+      "lessonMeta": {
+        "focus": "Basic language for likes and dislikes in study and tech contexts",
+        "canDo": "I can say what I like and do not like in my study routine.",
+        "structures": [
+          "I like video lessons.",
+          "I don't like long texts.",
+          "I like coding practice.",
+          "I don't like boring exercises."
+        ],
+        "outputTargets": [
+          "Say what I like.",
+          "Say what I do not like.",
+          "Connect preferences to study formats and tools."
+        ]
+      },
+      "arena": {
+        "rebecaState": "rebecarecebendo.png",
+        "speech": "<strong>Mission:</strong> now you learn to talk about what you like and do not like.<br><br>In real study life, preferences matter. They shape motivation and performance:<br><br><strong>I like video lessons.</strong><br><strong>I don't like long texts.</strong><br><strong>I like coding practice.</strong><br><strong>I don't like boring exercises.</strong><br><br>This is the language of personal study choices.",
+        "options": [
+          {
+            "text": "I like video lessons.",
+            "correct": true,
+            "feedback": "Excellent. That is a clear and correct sentence about preference."
+          },
+          {
+            "text": "I am like video lessons.",
+            "correct": false,
+            "feedback": "Do not use <strong>am</strong> with <strong>like</strong> here. Say: <strong>I like video lessons.</strong>"
+          },
+          {
+            "text": "I like not long texts.",
+            "correct": false,
+            "feedback": "For this stage, use the stable negative form: <strong>I don't like long texts.</strong>"
+          }
+        ]
+      },
+      "theory": {
+        "title": "Likes and Dislikes",
+        "intro": "This lesson introduces basic preference language with the verbs like and do not like. The learner now adds personal evaluation to study and tech-related communication.",
+        "content": [
+          "Use <strong>I like...</strong> to express positive preference.",
+          "Use <strong>I don't like...</strong> to express negative preference.",
+          "This structure is useful for talking about lessons, activities, tools and study formats.",
+          "At this stage, the learner should focus on short complete sentences with clear object nouns.",
+          "Preference language helps the learner sound more personal and more autonomous."
+        ],
+        "examples": [
+          "I like video lessons.",
+          "I don't like long texts.",
+          "I like coding practice.",
+          "I don't like boring exercises."
+        ],
+        "commonMistakes": [
+          "Incorrect: I am like video lessons. → Correct: I like video lessons.",
+          "Incorrect: I like not long texts. → Better in this course model: I don't like long texts.",
+          "Incorrect: I likes video lessons. → Correct: I like video lessons."
+        ]
+      },
+      "theory_pt": {
+        "title": "Gostos e Desgostos",
+        "intro": "Esta lição introduz a linguagem básica de preferência com os verbos like e do not like. O aluno agora adiciona avaliação pessoal à comunicação relacionada a estudo e tecnologia.",
+        "content": [
+          "Use <strong>I like...</strong> para expressar preferência positiva.",
+          "Use <strong>I don't like...</strong> para expressar preferência negativa.",
+          "Essa estrutura é útil para falar sobre aulas, atividades, ferramentas e formatos de estudo.",
+          "Nesta fase, o aluno deve focar em frases curtas e completas com objetos nominais claros.",
+          "A linguagem de preferência ajuda o aluno a soar mais pessoal e mais autônomo."
+        ],
+        "examples": [
+          "Eu gosto de videoaulas.",
+          "Eu não gosto de textos longos.",
+          "Eu gosto de prática de programação.",
+          "Eu não gosto de exercícios entediantes."
+        ],
+        "commonMistakes": [
+          "Incorreto: I am like video lessons. → Correto: I like video lessons.",
+          "Incorreto: I like not long texts. → Melhor neste modelo do curso: I don't like long texts.",
+          "Incorreto: I likes video lessons. → Correto: I like video lessons."
+        ]
+      },
+      "vocabulary": [
+        { "en": "like", "pt": "gostar" },
+        { "en": "don't like", "pt": "não gostar" },
+        { "en": "video lesson", "pt": "videoaula" },
+        { "en": "long text", "pt": "texto longo" },
+        { "en": "coding practice", "pt": "prática de programação" },
+        { "en": "exercise", "pt": "exercício" },
+        { "en": "study format", "pt": "formato de estudo" },
+        { "en": "activity", "pt": "atividade" },
+        { "en": "interesting", "pt": "interessante" },
+        { "en": "boring", "pt": "entediante" }
+      ],
+      "reading": {
+        "title": "Tech Reading — My Study Preferences",
+        "en": "I like video lessons and coding practice. I don't like long texts. I like quizzes and short activities. I don't like boring exercises.",
+        "pt": "Eu gosto de videoaulas e prática de programação. Eu não gosto de textos longos. Eu gosto de quizzes e atividades curtas. Eu não gosto de exercícios entediantes.",
+        "task": "Read the text and identify what the student likes and does not like."
+      },
+      "listening": {
+        "title": "Listening Lab — Likes and Dislikes",
+        "instructions": "Listen carefully and identify the correct preference sentence.",
+        "text": "I like video lessons. I don't like long texts.",
+        "transcript": "I like video lessons. I don't like long texts.",
+        "question": "Choose the correct sentence:",
+        "options": [
+          "I like video lessons.",
+          "I am like video lessons.",
+          "I likes video lessons."
+        ],
+        "answer": "I like video lessons.",
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1
+      },
+      "exercise": {
+        "type": "multiple-choice",
+        "question": "Choose the correct sentence:",
+        "helpText": "Use like without the verb to be.",
+        "options": [
+          "I don't like long texts.",
+          "I am don't like long texts.",
+          "I like not long texts."
+        ],
+        "answer": "I don't like long texts."
+      },
+      "teacherNotes": {
+        "focus": "Introduce simple positive and negative preference language in a study and tech context.",
+        "tips": [
+          "Use highly familiar learning objects such as videos, texts, quizzes and exercises.",
+          "Keep the contrast between like and don't like very visible.",
+          "Avoid expanding to love, hate or more nuanced opinion language yet.",
+          "Model short complete sentences repeatedly.",
+          "Use personal examples to increase relevance and retention."
+        ],
+        "supportPhrases": [
+          "Say what you like.",
+          "Now say what you do not like.",
+          "Use like with the object.",
+          "Do not use am here.",
+          "Keep the preference clear."
+        ]
+      },
+      "teacherNotes_pt": {
+        "focus": "Introduzir linguagem simples de preferência positiva e negativa em contexto de estudo e tecnologia.",
+        "tips": [
+          "Use objetos de aprendizagem bem familiares como vídeos, textos, quizzes e exercícios.",
+          "Mantenha o contraste entre like e don't like bem visível.",
+          "Evite expandir para love, hate ou linguagem de opinião mais sutil por enquanto.",
+          "Modele frases curtas e completas repetidamente.",
+          "Use exemplos pessoais para aumentar relevância e retenção."
+        ],
+        "supportPhrases": [
+          "Diga do que você gosta.",
+          "Agora diga do que você não gosta.",
+          "Use like com o objeto.",
+          "Não use am aqui.",
+          "Mantenha a preferência clara."
+        ]
+      }
+    },
+    {
+      "id": "6.2",
+      "subtitulo": "What I Prefer — Choosing Study Formats and Tools",
+      "lessonMeta": {
+        "focus": "Basic preference language with prefer in learning and tech contexts",
+        "canDo": "I can say what I prefer when I study or use digital tools.",
+        "structures": [
+          "I prefer video lessons.",
+          "I prefer quizzes to long texts.",
+          "I prefer short explanations.",
+          "I prefer coding practice."
+        ],
+        "outputTargets": [
+          "Say what I prefer.",
+          "Compare simple study options.",
+          "Choose between common learning formats."
+        ]
+      },
+      "arena": {
+        "rebecaState": "rebecarecebendo.png",
+        "speech": "<strong>Mission:</strong> now move from liking to choosing.<br><br>Sometimes you like many things, but you still prefer one format:<br><br><strong>I prefer video lessons.</strong><br><strong>I prefer quizzes to long texts.</strong><br><strong>I prefer short explanations.</strong><br><strong>I prefer coding practice.</strong><br><br>This is the language of stronger preference.",
+        "options": [
+          {
+            "text": "I prefer video lessons.",
+            "correct": true,
+            "feedback": "Excellent. That is a clear and correct preference sentence with <strong>prefer</strong>."
+          },
+          {
+            "text": "I am prefer video lessons.",
+            "correct": false,
+            "feedback": "Do not use <strong>am</strong> with <strong>prefer</strong>. Say: <strong>I prefer video lessons.</strong>"
+          },
+          {
+            "text": "I prefers video lessons.",
+            "correct": false,
+            "feedback": "Not correct for <strong>I</strong>. Use the base verb: <strong>I prefer video lessons.</strong>"
+          }
+        ]
+      },
+      "theory": {
+        "title": "Using Prefer",
+        "intro": "This lesson introduces a stronger and more selective preference structure. The learner now moves from simple likes to choosing one option as better or more suitable.",
+        "content": [
+          "Use <strong>I prefer...</strong> to express stronger preference.",
+          "You can also compare options with a simple pattern such as <strong>I prefer quizzes to long texts</strong>.",
+          "At this stage, the learner should focus on short, high-frequency comparisons.",
+          "Prefer is especially useful in study and productivity contexts.",
+          "The structure should remain direct and easy to repeat."
+        ],
+        "examples": [
+          "I prefer video lessons.",
+          "I prefer quizzes to long texts.",
+          "I prefer short explanations.",
+          "I prefer coding practice."
+        ],
+        "commonMistakes": [
+          "Incorrect: I am prefer video lessons. → Correct: I prefer video lessons.",
+          "Incorrect: I prefers short explanations. → Correct: I prefer short explanations.",
+          "Incorrect: I prefer to long texts quizzes. → Better in this course model: I prefer quizzes to long texts."
+        ]
+      },
+      "theory_pt": {
+        "title": "Usando Prefer",
+        "intro": "Esta lição introduz uma estrutura de preferência mais forte e mais seletiva. O aluno agora passa de gostos simples para a escolha de uma opção como melhor ou mais adequada.",
+        "content": [
+          "Use <strong>I prefer...</strong> para expressar preferência mais forte.",
+          "Você também pode comparar opções com um padrão simples como <strong>I prefer quizzes to long texts</strong>.",
+          "Nesta fase, o aluno deve focar em comparações curtas e de alta frequência.",
+          "Prefer é especialmente útil em contextos de estudo e produtividade.",
+          "A estrutura deve permanecer direta e fácil de repetir."
+        ],
+        "examples": [
+          "Eu prefiro videoaulas.",
+          "Eu prefiro quizzes a textos longos.",
+          "Eu prefiro explicações curtas.",
+          "Eu prefiro prática de programação."
+        ],
+        "commonMistakes": [
+          "Incorreto: I am prefer video lessons. → Correto: I prefer video lessons.",
+          "Incorreto: I prefers short explanations. → Correto: I prefer short explanations.",
+          "Incorreto: I prefer to long texts quizzes. → Melhor neste modelo do curso: I prefer quizzes to long texts."
+        ]
+      },
+      "vocabulary": [
+        { "en": "prefer", "pt": "preferir" },
+        { "en": "quiz", "pt": "quiz" },
+        { "en": "short explanation", "pt": "explicação curta" },
+        { "en": "video lesson", "pt": "videoaula" },
+        { "en": "long text", "pt": "texto longo" },
+        { "en": "coding practice", "pt": "prática de programação" },
+        { "en": "project", "pt": "projeto" },
+        { "en": "interactive activity", "pt": "atividade interativa" },
+        { "en": "tool", "pt": "ferramenta" },
+        { "en": "option", "pt": "opção" }
+      ],
+      "reading": {
+        "title": "Tech Reading — My Best Study Format",
+        "en": "I prefer video lessons and coding practice. I prefer quizzes to long texts. I like projects, but I prefer short explanations when I start a new topic.",
+        "pt": "Eu prefiro videoaulas e prática de programação. Eu prefiro quizzes a textos longos. Eu gosto de projetos, mas prefiro explicações curtas quando começo um novo tópico.",
+        "task": "Read the text and identify the strongest preferences and the compared formats."
+      },
+      "listening": {
+        "title": "Listening Lab — Strong Preferences",
+        "instructions": "Listen carefully and identify the correct sentence with prefer.",
+        "text": "I prefer video lessons. I prefer quizzes to long texts.",
+        "transcript": "I prefer video lessons. I prefer quizzes to long texts.",
+        "question": "Choose the correct sentence:",
+        "options": [
+          "I prefer video lessons.",
+          "I am prefer video lessons.",
+          "I prefers video lessons."
+        ],
+        "answer": "I prefer video lessons.",
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1
+      },
+      "exercise": {
+        "type": "multiple-choice",
+        "question": "Choose the correct sentence:",
+        "helpText": "Use prefer with a direct object.",
+        "options": [
+          "I prefer quizzes to long texts.",
+          "I am prefer quizzes to long texts.",
+          "I prefers quizzes to long texts."
+        ],
+        "answer": "I prefer quizzes to long texts."
+      },
+      "teacherNotes": {
+        "focus": "Introduce prefer as a stronger and more selective alternative to like.",
+        "tips": [
+          "Contrast like and prefer with the same examples.",
+          "Keep comparisons short and concrete.",
+          "Use learning formats and study tools the learner already knows.",
+          "Avoid more advanced comparison structures at this stage.",
+          "Encourage the learner to choose, not just list preferences."
+        ],
+        "supportPhrases": [
+          "Now choose the better option for you.",
+          "Use prefer for stronger preference.",
+          "Keep the comparison simple.",
+          "Say which format is better for you.",
+          "This is the language of choice."
+        ]
+      },
+      "teacherNotes_pt": {
+        "focus": "Introduzir prefer como uma alternativa mais forte e mais seletiva a like.",
+        "tips": [
+          "Contraste like e prefer com os mesmos exemplos.",
+          "Mantenha as comparações curtas e concretas.",
+          "Use formatos de aprendizagem e ferramentas de estudo que o aluno já conhece.",
+          "Evite estruturas comparativas mais avançadas nesta fase.",
+          "Incentive o aluno a escolher, e não apenas listar preferências."
+        ],
+        "supportPhrases": [
+          "Agora escolha a melhor opção para você.",
+          "Use prefer para uma preferência mais forte.",
+          "Mantenha a comparação simples.",
+          "Diga qual formato é melhor para você.",
+          "Isto é linguagem de escolha."
+        ]
+      }
+    },
+    {
+      "id": "6.3",
+      "subtitulo": "How I Learn Best — Learning Style and Study Support",
+      "lessonMeta": {
+        "focus": "Simple learning-style language and support preferences",
+        "canDo": "I can describe how I learn better and what kind of support helps me.",
+        "structures": [
+          "I learn better with examples.",
+          "I like short explanations.",
+          "I prefer practice and feedback.",
+          "I study better with notes."
+        ],
+        "outputTargets": [
+          "Describe simple learning style.",
+          "Say what helps me learn.",
+          "Connect support tools to study success."
+        ]
+      },
+      "arena": {
+        "rebecaState": "rebecarecebendo.png",
+        "speech": "<strong>Mission:</strong> now describe how you learn best.<br><br>Learning is not only about content. It is also about method and support:<br><br><strong>I learn better with examples.</strong><br><strong>I like short explanations.</strong><br><strong>I prefer practice and feedback.</strong><br><strong>I study better with notes.</strong><br><br>This is the language of learning style.",
+        "options": [
+          {
+            "text": "I learn better with examples.",
+            "correct": true,
+            "feedback": "Excellent. That is a clear and useful sentence about learning style."
+          },
+          {
+            "text": "I am learn better with examples.",
+            "correct": false,
+            "feedback": "Do not use <strong>am</strong> before <strong>learn</strong> here. Say: <strong>I learn better with examples.</strong>"
+          },
+          {
+            "text": "I learn better examples.",
+            "correct": false,
+            "feedback": "You need the support phrase <strong>with examples</strong>. Say: <strong>I learn better with examples.</strong>"
+          }
+        ]
+      },
+      "theory": {
+        "title": "Learning Style Language",
+        "intro": "This lesson introduces a simple way to describe preferred learning conditions and study support. It helps the learner speak more personally and more strategically about studying.",
+        "content": [
+          "Use <strong>I learn better with...</strong> to describe what helps your learning.",
+          "You can combine this with like and prefer: <strong>I like short explanations</strong>, <strong>I prefer practice and feedback</strong>.",
+          "This language is useful in self-description, reflection and guided learning environments.",
+          "The learner should use a small set of clear support nouns such as examples, notes, feedback and practice.",
+          "At this stage, short and personal sentences are more important than abstract explanation."
+        ],
+        "examples": [
+          "I learn better with examples.",
+          "I like short explanations.",
+          "I prefer practice and feedback.",
+          "I study better with notes."
+        ],
+        "commonMistakes": [
+          "Incorrect: I am learn better with examples. → Correct: I learn better with examples.",
+          "Incorrect: I learn better examples. → Better in this course model: I learn better with examples.",
+          "Incorrect: I prefers practice and feedback. → Correct: I prefer practice and feedback."
+        ]
+      },
+      "theory_pt": {
+        "title": "Linguagem de Estilo de Aprendizagem",
+        "intro": "Esta lição introduz uma forma simples de descrever condições preferidas de aprendizagem e apoio ao estudo. Ela ajuda o aluno a falar de forma mais pessoal e mais estratégica sobre estudar.",
+        "content": [
+          "Use <strong>I learn better with...</strong> para descrever o que ajuda sua aprendizagem.",
+          "Você pode combinar isso com like e prefer: <strong>I like short explanations</strong>, <strong>I prefer practice and feedback</strong>.",
+          "Essa linguagem é útil em auto descrição, reflexão e ambientes guiados de aprendizagem.",
+          "O aluno deve usar um pequeno conjunto de substantivos claros de apoio como examples, notes, feedback e practice.",
+          "Nesta fase, frases curtas e pessoais são mais importantes do que explicações abstratas."
+        ],
+        "examples": [
+          "Eu aprendo melhor com exemplos.",
+          "Eu gosto de explicações curtas.",
+          "Eu prefiro prática e feedback.",
+          "Eu estudo melhor com anotações."
+        ],
+        "commonMistakes": [
+          "Incorreto: I am learn better with examples. → Correto: I learn better with examples.",
+          "Incorreto: I learn better examples. → Melhor neste modelo do curso: I learn better with examples.",
+          "Incorreto: I prefers practice and feedback. → Correto: I prefer practice and feedback."
+        ]
+      },
+      "vocabulary": [
+        { "en": "learn better", "pt": "aprender melhor" },
+        { "en": "example", "pt": "exemplo" },
+        { "en": "feedback", "pt": "feedback" },
+        { "en": "notes", "pt": "anotações" },
+        { "en": "practice", "pt": "prática" },
+        { "en": "short explanation", "pt": "explicação curta" },
+        { "en": "support", "pt": "apoio" },
+        { "en": "learning style", "pt": "estilo de aprendizagem" },
+        { "en": "study method", "pt": "método de estudo" },
+        { "en": "help", "pt": "ajuda" }
+      ],
+      "reading": {
+        "title": "Tech Reading — How I Learn Best",
+        "en": "I learn better with examples and notes. I like short explanations. I prefer practice and feedback. I do not like very long theory before exercises.",
+        "pt": "Eu aprendo melhor com exemplos e anotações. Eu gosto de explicações curtas. Eu prefiro prática e feedback. Eu não gosto de teoria muito longa antes dos exercícios.",
+        "task": "Read the text and identify the student's learning style and preferred support."
+      },
+      "listening": {
+        "title": "Listening Lab — Learning Style",
+        "instructions": "Listen carefully and identify the correct sentence about learning support.",
+        "text": "I learn better with examples. I prefer practice and feedback.",
+        "transcript": "I learn better with examples. I prefer practice and feedback.",
+        "question": "Choose the correct sentence:",
+        "options": [
+          "I learn better with examples.",
+          "I am learn better with examples.",
+          "I learn better examples."
+        ],
+        "answer": "I learn better with examples.",
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1
+      },
+      "exercise": {
+        "type": "multiple-choice",
+        "question": "Choose the correct sentence:",
+        "helpText": "Use with to connect the support element.",
+        "options": [
+          "I study better with notes.",
+          "I study better notes.",
+          "I am study better with notes."
+        ],
+        "answer": "I study better with notes."
+      },
+      "teacherNotes": {
+        "focus": "Introduce simple language to describe how the learner studies best and what support improves learning.",
+        "tips": [
+          "Keep the support nouns concrete and familiar.",
+          "Use examples from the course itself: notes, examples, quizzes, feedback.",
+          "Encourage the learner to describe what works, not just what they like.",
+          "Model learn better with and study better with as stable patterns.",
+          "Avoid abstract cognitive language at this stage."
+        ],
+        "supportPhrases": [
+          "Say what helps your learning.",
+          "Use with to show support.",
+          "Now describe your study style.",
+          "Keep the sentence personal and clear.",
+          "This is the language of learning strategy."
+        ]
+      },
+      "teacherNotes_pt": {
+        "focus": "Introduzir linguagem simples para descrever como o aluno estuda melhor e que tipo de apoio melhora sua aprendizagem.",
+        "tips": [
+          "Mantenha os substantivos de apoio concretos e familiares.",
+          "Use exemplos do próprio curso: notes, examples, quizzes, feedback.",
+          "Incentive o aluno a descrever o que funciona, e não apenas do que gosta.",
+          "Modele learn better with e study better with como padrões estáveis.",
+          "Evite linguagem cognitiva abstrata nesta fase."
+        ],
+        "supportPhrases": [
+          "Diga o que ajuda sua aprendizagem.",
+          "Use with para mostrar apoio.",
+          "Agora descreva seu estilo de estudo.",
+          "Mantenha a frase pessoal e clara.",
+          "Isto é linguagem de estratégia de aprendizagem."
+        ]
+      }
+    },
+    {
+      "id": "6.4",
+      "subtitulo": "The Boss Fight — My Learning Profile",
+      "lessonMeta": {
+        "focus": "Integrated production: likes, preferences and learning style",
+        "canDo": "I can present a short learning profile with preferences, dislikes and study-style information.",
+        "structures": [
+          "I like video lessons.",
+          "I prefer coding practice.",
+          "I learn better with examples.",
+          "I don't like long texts.",
+          "I study better with notes and feedback."
+        ],
+        "outputTargets": [
+          "Produce a short learning profile with 5 to 7 lines.",
+          "Combine likes, dislikes, preferences and learning support.",
+          "Present a clear personal study-style description."
+        ]
+      },
+      "arena": {
+        "rebecaState": "rebecarecebendo.png",
+        "speech": "<strong>Final challenge:</strong> build your Week 6 learning profile.<br><br>Now you combine likes, dislikes, preferences and learning style:<br><br><strong>I like video lessons.</strong><br><strong>I prefer coding practice.</strong><br><strong>I learn better with examples.</strong><br><strong>I don't like long texts.</strong><br><strong>I study better with notes and feedback.</strong><br><br>Your goal is to sound <strong>clear, personal and self-aware</strong>.",
+        "options": [
+          {
+            "text": "I am ready.",
+            "correct": true,
+            "feedback": "Excellent. Now build your learning profile with complete and well-organized sentences."
+          },
+          {
+            "text": "I ready.",
+            "correct": false,
+            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+          }
+        ]
+      },
+      "theory": {
+        "title": "Building a Learning Profile",
+        "intro": "The final lesson of Week 6 integrates positive preference, negative preference, stronger choice and learning-style language into a short personal profile. This is a strong step toward more autonomous self-expression.",
+        "content": [
+          "A learning profile connects <strong>likes</strong>, <strong>preferences</strong>, <strong>dislikes</strong> and <strong>support conditions</strong>.",
+          "At this stage, the learner should use short complete sentences that are easy to personalize and reuse.",
+          "Useful patterns include <strong>I like...</strong>, <strong>I don't like...</strong>, <strong>I prefer...</strong> and <strong>I learn better with...</strong>.",
+          "The final output should sound personal, clear and realistic.",
+          "The goal is to describe a real study identity, not an abstract opinion list."
+        ],
+        "examples": [
+          "I like video lessons.",
+          "I prefer coding practice.",
+          "I learn better with examples.",
+          "I don't like long texts.",
+          "I study better with notes and feedback."
+        ],
+        "commonMistakes": [
+          "Incorrect: I am like video lessons. → Correct: I like video lessons.",
+          "Incorrect: I am prefer coding practice. → Correct: I prefer coding practice.",
+          "Incorrect: I learn better examples. → Better in this course model: I learn better with examples."
+        ]
+      },
+      "theory_pt": {
+        "title": "Construindo um Perfil de Aprendizagem",
+        "intro": "A última lição da Semana 6 integra preferência positiva, preferência negativa, escolha mais forte e linguagem de estilo de aprendizagem em um perfil pessoal curto. Este é um passo forte rumo a uma autoexpressão mais autônoma.",
+        "content": [
+          "Um perfil de aprendizagem conecta <strong>gostos</strong>, <strong>preferências</strong>, <strong>desgostos</strong> e <strong>condições de apoio</strong>.",
+          "Nesta fase, o aluno deve usar frases curtas e completas que sejam fáceis de personalizar e reutilizar.",
+          "Padrões úteis incluem <strong>I like...</strong>, <strong>I don't like...</strong>, <strong>I prefer...</strong> e <strong>I learn better with...</strong>.",
+          "A produção final deve soar pessoal, clara e realista.",
+          "O objetivo é descrever uma identidade real de estudo, não uma lista abstrata de opiniões."
+        ],
+        "examples": [
+          "Eu gosto de videoaulas.",
+          "Eu prefiro prática de programação.",
+          "Eu aprendo melhor com exemplos.",
+          "Eu não gosto de textos longos.",
+          "Eu estudo melhor com anotações e feedback."
+        ],
+        "commonMistakes": [
+          "Incorreto: I am like video lessons. → Correto: I like video lessons.",
+          "Incorreto: I am prefer coding practice. → Correto: I prefer coding practice.",
+          "Incorreto: I learn better examples. → Melhor neste modelo do curso: I learn better with examples."
+        ]
+      },
+      "vocabulary": [
+        { "en": "learning profile", "pt": "perfil de aprendizagem" },
+        { "en": "preference", "pt": "preferência" },
+        { "en": "dislike", "pt": "desgosto / não gostar" },
+        { "en": "study style", "pt": "estilo de estudo" },
+        { "en": "feedback", "pt": "feedback" },
+        { "en": "notes", "pt": "anotações" },
+        { "en": "video lesson", "pt": "videoaula" },
+        { "en": "coding practice", "pt": "prática de programação" },
+        { "en": "long text", "pt": "texto longo" },
+        { "en": "example", "pt": "exemplo" }
+      ],
+      "reading": {
+        "title": "Tech Reading — My Learning Profile",
+        "en": "I like video lessons and quizzes. I prefer coding practice to long texts. I learn better with examples and notes. I do not like boring exercises. I study better with feedback.",
+        "pt": "Eu gosto de videoaulas e quizzes. Eu prefiro prática de programação a textos longos. Eu aprendo melhor com exemplos e anotações. Eu não gosto de exercícios entediantes. Eu estudo melhor com feedback.",
+        "task": "Read the learning profile and identify likes, dislikes, preferences and support conditions."
+      },
+      "listening": {
+        "title": "Listening Lab — Final Learning Profile",
+        "instructions": "Listen to the profile and identify the sentence about learning support.",
+        "text": "I like video lessons. I prefer coding practice. I learn better with examples. I don't like long texts. I study better with feedback.",
+        "transcript": "I like video lessons. I prefer coding practice. I learn better with examples. I don't like long texts. I study better with feedback.",
+        "question": "Type the sentence about learning support:",
+        "answer": "I learn better with examples.",
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1
+      },
+      "exercise": {
+        "type": "text-input",
+        "question": "Write your mini learning profile in English.",
+        "helpText": "Use 5 to 7 complete sentences. Example: I like video lessons. I prefer coding practice. I learn better with examples.",
+        "answer": "any"
+      },
+      "teacherNotes": {
+        "focus": "Integrate preference language and learning-style language into a short but functional personal learning profile.",
+        "tips": [
+          "Encourage the learner to reuse patterns from the previous lessons.",
+          "Require complete sentences and clear structure.",
+          "Keep the profile personal but controlled and realistic.",
+          "Review like, don't like, prefer and learn better with as core patterns.",
+          "Evaluate whether the learner can now describe personal study identity with clarity."
+        ],
+        "supportPhrases": [
+          "Build your learning profile step by step.",
+          "Say what you like first.",
+          "Now say what you prefer.",
+          "Add how you learn better.",
+          "Make your profile clear and personal."
+        ]
+      },
+      "teacherNotes_pt": {
+        "focus": "Integrar linguagem de preferência e linguagem de estilo de aprendizagem em um perfil pessoal curto, mas funcional.",
+        "tips": [
+          "Incentive o aluno a reutilizar padrões das lições anteriores.",
+          "Exija frases completas e estrutura clara.",
+          "Mantenha o perfil pessoal, mas controlado e realista.",
+          "Revise like, don't like, prefer e learn better with como padrões centrais.",
+          "Avalie se o aluno já consegue descrever sua identidade de estudo com clareza."
+        ],
+        "supportPhrases": [
+          "Construa seu perfil de aprendizagem passo a passo.",
+          "Diga primeiro do que você gosta.",
+          "Agora diga o que você prefere.",
+          "Adicione como você aprende melhor.",
+          "Faça seu perfil soar claro e pessoal."
+        ]
+      }
+    }
+  ]
+}
+]

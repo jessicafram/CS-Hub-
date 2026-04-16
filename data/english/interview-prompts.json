@@ -1,0 +1,45 @@
+{
+    "fase1_foundations": [
+        {
+            "id": "p1.1",
+            "category": "Behavioral",
+            "question": "Can you introduce yourself and tell me your current tech stack?",
+            "expected_topics": [
+                "name",
+                "job title",
+                "technologies"
+            ]
+        },
+        {
+            "id": "p1.2",
+            "category": "Social",
+            "question": "Why are you learning English at CS Hub?",
+            "expected_topics": [
+                "goals",
+                "motivation"
+            ]
+        }
+    ],
+    "fase4_interviews": [
+        {
+            "id": "p4.1",
+            "category": "Technical",
+            "question": "Can you explain the difference between a Junior and a Senior developer in your opinion?",
+            "expected_topics": [
+                "experience",
+                "responsibility",
+                "soft skills"
+            ]
+        },
+        {
+            "id": "p4.2",
+            "category": "Behavioral",
+            "question": "Tell me about a time you had to deal with a difficult bug.",
+            "expected_topics": [
+                "problem solving",
+                "patience",
+                "logic"
+            ]
+        }
+    ]
+}

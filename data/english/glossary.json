@@ -1,0 +1,17 @@
+[
+    {
+        "term": "Bug",
+        "definition": "Um erro ou falha em um programa de computador.",
+        "fase": 1
+    },
+    {
+        "term": "Deploy",
+        "definition": "Colocar um sistema ou atualização no ar/em produção.",
+        "fase": 1
+    },
+    {
+        "term": "Framework",
+        "definition": "Conjunto de ferramentas e bibliotecas para facilitar o desenvolvimento.",
+        "fase": 1
+    }
+]

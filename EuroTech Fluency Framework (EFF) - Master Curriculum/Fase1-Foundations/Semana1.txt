@@ -1,0 +1,43 @@
+💎 FASE 1: FOUNDATIONS (A1) - "The Setup"
+Objetivo da Fase: O aluno consegue sobreviver ao onboarding de uma empresa, entender instruções de tela, apresentar-se e comunicar rotinas simples.
+
+📅 SEMANA 1: Digital Identity & The Setup
+Objetivo da Semana: Criar um perfil de usuário simulado e dominar o Verbo To Be e Artigos (A/An).
+
+📍 Aula 1.1: Hello, World (Artigos e Cargos)
+Arena da Rebeca: Introdução aos cargos Tech e uso de A/An (A Developer vs An Engineer).
+
+Mandatory Exercises: Preencher lacunas em crachás virtuais arrastando "A" ou "An" para o cargo correto.
+
+Vocabulary Vault (Metas): Developer, Engineer, Designer, Analyst, Software, Hardware.
+
+Tech Reading: Uma tela de "Sign Up" de uma plataforma fictícia, explicando o que são os campos obrigatórios.
+
+📍 Aula 1.2: The Core Engine (Verbo To Be - Afirmativa/Negativa)
+Arena da Rebeca: Como afirmar e negar quem você é e de onde você é (I am from Brazil. I am not a Senior.).
+
+Mandatory Exercises: Reordenar blocos de código para formar frases corretas com To Be.
+
+Vocabulary Vault (Metas): Country, State, Junior, Pleno, Senior, Remote, On-site.
+
+Tech Reading: Um pequeno parágrafo de "About Me" de um perfil do GitHub.
+
+📍 Aula 1.3: The Daily Stand-up (Perguntas)
+Arena da Rebeca: Como lidar com perguntas diretas sobre você (Are you...? Where are you from?).
+
+Mandatory Exercises: Ouvir um áudio de uma Daily Meeting simulada e escolher a resposta correta contra o relógio.
+
+Vocabulary Vault (Metas): Meeting, Daily, Team, Question, Answer, Yes, No.
+
+Tech Reading: Uma thread curta no Slack de um gerente dando boas-vindas a um novo funcionário e fazendo perguntas.
+
+📍 Aula 1.4: The Boss Fight (README.md Profile)
+Arena da Rebeca: Revisão geral. A Rebeca atua apenas como avaliadora do desafio final.
+
+Mandatory Exercises: O aluno deve escrever sua própria apresentação em inglês usando os termos da semana.
+
+Vocabulary Vault (Metas): Revisão automática de todos os termos da semana 1.
+
+Tech Reading: Um manifesto curto e motivacional sobre a importância da comunicação global na carreira de TI.
+
+(Nota de Documentação: As Fases 2 a 6 seguirão este exato modelo arquitetural, escalando a complexidade gramatical e técnica do vocabulário).
