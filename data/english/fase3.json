@@ -1,0 +1,3236 @@
+[
+    {
+        "id": "week-9",
+        "faseId": 3,
+        "semana": 9,
+        "titulo": "Week 9 — Requests, Help & Everyday Collaboration",
+        "objetivo": "The student can ask for help, make simple requests, express basic difficulties, respond to support requests, and sustain short guided interactions in study and tech-related contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Functional request accuracy",
+                "descricao": "Uses simple request structures such as can you and please with reasonable clarity and control.",
+                "criterio_pt": "Precisão em pedidos funcionais",
+                "descricao_pt": "Usa estruturas simples de pedido como can you e please com clareza e controle razoáveis."
+            },
+            {
+                "criterio": "Expression of need",
+                "descricao": "Can express difficulty, doubt or need for help using short complete sentences.",
+                "criterio_pt": "Expressão de necessidade",
+                "descricao_pt": "Consegue expressar dificuldade, dúvida ou necessidade de ajuda usando frases curtas e completas."
+            },
+            {
+                "criterio": "Support response",
+                "descricao": "Can answer requests and offer basic support using simple collaborative language.",
+                "criterio_pt": "Resposta de apoio",
+                "descricao_pt": "Consegue responder a pedidos e oferecer apoio básico usando linguagem simples de colaboração."
+            },
+            {
+                "criterio": "Listening in interaction",
+                "descricao": "Identifies requests, support expressions and simple collaborative exchanges in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva em interação",
+                "descricao_pt": "Identifica pedidos, expressões de apoio e trocas colaborativas simples em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Dialogue performance",
+                "descricao": "Sustains a short predictable help-oriented interaction with understandable responses.",
+                "criterio_pt": "Desempenho em diálogo",
+                "descricao_pt": "Sustenta uma interação curta e previsível orientada à ajuda com respostas compreensíveis."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "9.1",
+                "subtitulo": "Can You Help Me? — Making Simple Requests",
+                "lessonMeta": {
+                    "focus": "Simple requests with can you and please",
+                    "canDo": "I can ask for help and make simple requests.",
+                    "structures": [
+                        "Can you help me?",
+                        "Can you explain this?",
+                        "Can you show me?",
+                        "Can you repeat that?",
+                        "Please send the file."
+                    ],
+                    "outputTargets": [
+                        "Ask for help.",
+                        "Request explanation or repetition.",
+                        "Use simple polite request language."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> welcome to Phase 3.<br><br>Now communication becomes more active. You are not only describing yourself. You are interacting with other people:<br><br><strong>Can you help me?</strong><br><strong>Can you explain this?</strong><br><strong>Can you show me?</strong><br><strong>Can you repeat that?</strong><br><strong>Please send the file.</strong><br><br>This is the language of everyday collaboration.",
+                    "options": [
+                        {
+                            "text": "Can you help me?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear and functional request."
+                        },
+                        {
+                            "text": "You can help me?",
+                            "correct": false,
+                            "feedback": "For this stage, use the stable question form: <strong>Can you help me?</strong>"
+                        },
+                        {
+                            "text": "Can help me?",
+                            "correct": false,
+                            "feedback": "You need the subject <strong>you</strong>. Say: <strong>Can you help me?</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Making Simple Requests",
+                    "intro": "This lesson introduces functional interaction language. The learner now moves from personal description to asking for help, clarification and action in simple real contexts.",
+                    "content": [
+                        "Use <strong>Can you + verb...?</strong> to make a simple request.",
+                        "Examples: <strong>Can you help me?</strong>, <strong>Can you explain this?</strong>, <strong>Can you show me?</strong>",
+                        "Use <strong>Please + verb</strong> for direct polite requests such as <strong>Please send the file.</strong>",
+                        "These forms are useful in study contexts, work interactions and digital communication.",
+                        "At this stage, the learner should prioritize clarity, politeness and functional purpose."
+                    ],
+                    "examples": [
+                        "Can you help me?",
+                        "Can you explain this?",
+                        "Can you show me?",
+                        "Can you repeat that?",
+                        "Please send the file."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: You can help me? → Better in this course model: Can you help me?",
+                        "Incorrect: Can help me? → Correct: Can you help me?",
+                        "Incorrect: Please to send the file. → Correct: Please send the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Fazendo Pedidos Simples",
+                    "intro": "Esta lição introduz a linguagem de interação funcional. O aluno passa da descrição pessoal para o pedido de ajuda, esclarecimento e ação em contextos simples e reais.",
+                    "content": [
+                        "Use <strong>Can you + verbo...?</strong> para fazer um pedido simples.",
+                        "Exemplos: <strong>Can you help me?</strong>, <strong>Can you explain this?</strong>, <strong>Can you show me?</strong>",
+                        "Use <strong>Please + verbo</strong> para pedidos diretos e educados como <strong>Please send the file.</strong>",
+                        "Essas formas são úteis em contextos de estudo, interações de trabalho e comunicação digital.",
+                        "Nesta fase, o aluno deve priorizar clareza, polidez e propósito funcional."
+                    ],
+                    "examples": [
+                        "Você pode me ajudar?",
+                        "Você pode explicar isto?",
+                        "Você pode me mostrar?",
+                        "Você pode repetir isso?",
+                        "Por favor, envie o arquivo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: You can help me? → Melhor neste modelo do curso: Can you help me?",
+                        "Incorreto: Can help me? → Correto: Can you help me?",
+                        "Incorreto: Please to send the file. → Correto: Please send the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "help",
+                        "pt": "ajuda / ajudar"
+                    },
+                    {
+                        "en": "explain",
+                        "pt": "explicar"
+                    },
+                    {
+                        "en": "show",
+                        "pt": "mostrar"
+                    },
+                    {
+                        "en": "repeat",
+                        "pt": "repetir"
+                    },
+                    {
+                        "en": "send",
+                        "pt": "enviar"
+                    },
+                    {
+                        "en": "file",
+                        "pt": "arquivo"
+                    },
+                    {
+                        "en": "link",
+                        "pt": "link"
+                    },
+                    {
+                        "en": "question",
+                        "pt": "pergunta"
+                    },
+                    {
+                        "en": "please",
+                        "pt": "por favor"
+                    },
+                    {
+                        "en": "request",
+                        "pt": "pedido"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — A Simple Request",
+                    "en": "Can you help me with this lesson? Can you explain this part? Please send the file and repeat the last instruction.",
+                    "pt": "Você pode me ajudar com esta lição? Você pode explicar esta parte? Por favor, envie o arquivo e repita a última instrução.",
+                    "task": "Read the text and identify the request verbs."
+                },
+                "listening": {
+                    "title": "Listening Lab — Asking for Help",
+                    "instructions": "Listen carefully and identify the correct request.",
+                    "text": "Can you help me? Can you explain this?",
+                    "transcript": "Can you help me? Can you explain this?",
+                    "question": "Choose the correct request:",
+                    "options": [
+                        "Can you help me?",
+                        "You can help me?",
+                        "Can help me?"
+                    ],
+                    "answer": "Can you help me?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use can you + verb.",
+                    "options": [
+                        "Can you repeat that?",
+                        "Can repeat that?",
+                        "You can repeat that?"
+                    ],
+                    "answer": "Can you repeat that?"
+                },
+                "teacherNotes": {
+                    "focus": "Introduce polite, highly functional request language that the learner can use immediately in study and digital contexts.",
+                    "tips": [
+                        "Keep the requests short and realistic.",
+                        "Use classroom, platform and help-desk style examples.",
+                        "Model can you + verb repeatedly.",
+                        "Do not overload the learner with formality variants yet.",
+                        "Show that these requests are practical tools for real interaction."
+                    ],
+                    "supportPhrases": [
+                        "Ask for help clearly.",
+                        "Use can you plus the verb.",
+                        "Keep the request short and functional.",
+                        "Now ask for explanation or repetition.",
+                        "This is collaboration language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir linguagem de pedido educada e altamente funcional que o aluno possa usar imediatamente em contextos de estudo e digitais.",
+                    "tips": [
+                        "Mantenha os pedidos curtos e realistas.",
+                        "Use exemplos em estilo sala de aula, plataforma e suporte.",
+                        "Modele can you + verbo repetidamente.",
+                        "Não sobrecarregue o aluno com variantes de formalidade ainda.",
+                        "Mostre que esses pedidos são ferramentas práticas para interação real."
+                    ],
+                    "supportPhrases": [
+                        "Peça ajuda com clareza.",
+                        "Use can you mais o verbo.",
+                        "Mantenha o pedido curto e funcional.",
+                        "Agora peça explicação ou repetição.",
+                        "Isto é linguagem de colaboração."
+                    ]
+                }
+            },
+            {
+                "id": "9.2",
+                "subtitulo": "I Need Help With... — Expressing Difficulty and Need",
+                "lessonMeta": {
+                    "focus": "Expressing need, confusion and difficulty in simple ways",
+                    "canDo": "I can say what I need help with and what I do not understand.",
+                    "structures": [
+                        "I need help with this lesson.",
+                        "I need help with this exercise.",
+                        "I have a question.",
+                        "I don't understand this part."
+                    ],
+                    "outputTargets": [
+                        "Express what I need.",
+                        "Describe a study difficulty.",
+                        "Ask for support more clearly."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now say what the problem is.<br><br>It is not enough to say <strong>Can you help me?</strong>. You also need to explain your difficulty:<br><br><strong>I need help with this lesson.</strong><br><strong>I need help with this exercise.</strong><br><strong>I have a question.</strong><br><strong>I don't understand this part.</strong><br><br>This is the language of clear support requests.",
+                    "options": [
+                        {
+                            "text": "I need help with this lesson.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about a need."
+                        },
+                        {
+                            "text": "I need help this lesson.",
+                            "correct": false,
+                            "feedback": "Use <strong>with</strong> after help here. Say: <strong>I need help with this lesson.</strong>"
+                        },
+                        {
+                            "text": "I don't understand this part.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a strong sentence for expressing difficulty."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Expressing Need and Difficulty",
+                    "intro": "This lesson helps the learner explain why support is needed. It moves from a generic request to a more informative and useful interaction.",
+                    "content": [
+                        "Use <strong>I need help with...</strong> to name the area of difficulty.",
+                        "Use <strong>I have a question</strong> to signal doubt or uncertainty.",
+                        "Use <strong>I don't understand...</strong> to identify a problem directly.",
+                        "These structures are essential in class, online study, teamwork and professional learning.",
+                        "At this stage, the learner should focus on simple, clear problem statements."
+                    ],
+                    "examples": [
+                        "I need help with this lesson.",
+                        "I need help with this exercise.",
+                        "I have a question.",
+                        "I don't understand this part."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I need help this lesson. → Correct: I need help with this lesson.",
+                        "Incorrect: I not understand this part. → Correct: I don't understand this part.",
+                        "Incorrect: I have question. → Correct: I have a question."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Expressando Necessidade e Dificuldade",
+                    "intro": "Esta lição ajuda o aluno a explicar por que precisa de apoio. Ela leva o pedido de ajuda de algo genérico para uma interação mais informativa e útil.",
+                    "content": [
+                        "Use <strong>I need help with...</strong> para nomear a área de dificuldade.",
+                        "Use <strong>I have a question</strong> para sinalizar dúvida ou incerteza.",
+                        "Use <strong>I don't understand...</strong> para identificar um problema de forma direta.",
+                        "Essas estruturas são essenciais em aula, estudo online, trabalho em equipe e aprendizagem profissional.",
+                        "Nesta fase, o aluno deve focar em declarações simples e claras de problema."
+                    ],
+                    "examples": [
+                        "Eu preciso de ajuda com esta lição.",
+                        "Eu preciso de ajuda com este exercício.",
+                        "Eu tenho uma pergunta.",
+                        "Eu não entendo esta parte."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I need help this lesson. → Correto: I need help with this lesson.",
+                        "Incorreto: I not understand this part. → Correto: I don't understand this part.",
+                        "Incorreto: I have question. → Correto: I have a question."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "need",
+                        "pt": "precisar / necessidade"
+                    },
+                    {
+                        "en": "question",
+                        "pt": "pergunta"
+                    },
+                    {
+                        "en": "understand",
+                        "pt": "entender"
+                    },
+                    {
+                        "en": "part",
+                        "pt": "parte"
+                    },
+                    {
+                        "en": "lesson",
+                        "pt": "lição / aula"
+                    },
+                    {
+                        "en": "exercise",
+                        "pt": "exercício"
+                    },
+                    {
+                        "en": "problem",
+                        "pt": "problema"
+                    },
+                    {
+                        "en": "difficulty",
+                        "pt": "dificuldade"
+                    },
+                    {
+                        "en": "support",
+                        "pt": "apoio"
+                    },
+                    {
+                        "en": "with",
+                        "pt": "com"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — A Student Problem",
+                    "en": "I need help with this exercise. I have a question about this lesson, and I don't understand this part of the explanation.",
+                    "pt": "Eu preciso de ajuda com este exercício. Eu tenho uma pergunta sobre esta lição e não entendo esta parte da explicação.",
+                    "task": "Read the text and identify the expressions of need and difficulty."
+                },
+                "listening": {
+                    "title": "Listening Lab — Expressing a Problem",
+                    "instructions": "Listen carefully and identify the correct sentence.",
+                    "text": "I need help with this lesson. I don't understand this part.",
+                    "transcript": "I need help with this lesson. I don't understand this part.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I need help with this lesson.",
+                        "I need help this lesson.",
+                        "I not understand this part."
+                    ],
+                    "answer": "I need help with this lesson.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use don't understand to express difficulty.",
+                    "options": [
+                        "I don't understand this part.",
+                        "I not understand this part.",
+                        "I don't understand this."
+                    ],
+                    "answer": "I don't understand this part."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to express difficulty clearly and move beyond generic requests for help.",
+                    "tips": [
+                        "Encourage the learner to name the exact problem.",
+                        "Use real course contexts such as lessons, files and exercises.",
+                        "Contrast vague and clear requests.",
+                        "Show that useful help starts with a clear problem statement.",
+                        "Keep the emotional tone supportive and practical."
+                    ],
+                    "supportPhrases": [
+                        "Say what the problem is.",
+                        "Use I need help with...",
+                        "Now explain what you do not understand.",
+                        "Be clear and specific.",
+                        "That makes support easier."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a expressar dificuldade com clareza e ir além de pedidos genéricos de ajuda.",
+                    "tips": [
+                        "Incentive o aluno a nomear o problema exato.",
+                        "Use contextos reais do curso como lições, arquivos e exercícios.",
+                        "Contraste pedidos vagos e pedidos claros.",
+                        "Mostre que uma ajuda útil começa com uma declaração clara do problema.",
+                        "Mantenha o tom emocional acolhedor e prático."
+                    ],
+                    "supportPhrases": [
+                        "Diga qual é o problema.",
+                        "Use I need help with...",
+                        "Agora explique o que você não entende.",
+                        "Seja claro e específico.",
+                        "Isso torna o apoio mais fácil."
+                    ]
+                }
+            },
+            {
+                "id": "9.3",
+                "subtitulo": "Sure, I Can Help — Offering Support and Responding to Requests",
+                "lessonMeta": {
+                    "focus": "Simple collaborative responses and support language",
+                    "canDo": "I can answer requests and offer basic help.",
+                    "structures": [
+                        "Sure, I can help.",
+                        "I can show you.",
+                        "I can explain it.",
+                        "Here is the link.",
+                        "No problem."
+                    ],
+                    "outputTargets": [
+                        "Respond positively to a request.",
+                        "Offer simple support.",
+                        "Use collaboration language."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now you help someone else.<br><br>Collaboration is not only asking. It is also responding and supporting:<br><br><strong>Sure, I can help.</strong><br><strong>I can show you.</strong><br><strong>I can explain it.</strong><br><strong>Here is the link.</strong><br><strong>No problem.</strong><br><br>This is the language of teamwork.",
+                    "options": [
+                        {
+                            "text": "Sure, I can help.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a natural support response."
+                        },
+                        {
+                            "text": "Sure, I can helps.",
+                            "correct": false,
+                            "feedback": "Use the base verb after <strong>can</strong>. Say: <strong>Sure, I can help.</strong>"
+                        },
+                        {
+                            "text": "I can explain it.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear support sentence."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Responding and Offering Help",
+                    "intro": "This lesson introduces collaborative response language. The learner now starts participating in simple exchanges of support, not only asking for help but also giving it.",
+                    "content": [
+                        "Use <strong>Sure, I can help.</strong> to accept a request in a friendly way.",
+                        "Use <strong>I can show you</strong> and <strong>I can explain it</strong> to offer practical support.",
+                        "Use <strong>Here is the link</strong> or similar expressions to provide materials or guidance.",
+                        "This language is essential for teamwork, study groups, chat interactions and digital collaboration.",
+                        "At this stage, support language should be simple, positive and functional."
+                    ],
+                    "examples": [
+                        "Sure, I can help.",
+                        "I can show you.",
+                        "I can explain it.",
+                        "Here is the link.",
+                        "No problem."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I can helps. → Correct: I can help.",
+                        "Incorrect: Here is link. → Better in this course model: Here is the link.",
+                        "Incorrect: I can to explain it. → Correct: I can explain it."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Respondendo e Oferecendo Ajuda",
+                    "intro": "Esta lição introduz a linguagem de resposta colaborativa. O aluno começa a participar de trocas simples de apoio, não apenas pedindo ajuda, mas também oferecendo.",
+                    "content": [
+                        "Use <strong>Sure, I can help.</strong> para aceitar um pedido de forma amigável.",
+                        "Use <strong>I can show you</strong> e <strong>I can explain it</strong> para oferecer apoio prático.",
+                        "Use <strong>Here is the link</strong> ou expressões semelhantes para fornecer materiais ou orientação.",
+                        "Essa linguagem é essencial para trabalho em equipe, grupos de estudo, chats e colaboração digital.",
+                        "Nesta fase, a linguagem de apoio deve ser simples, positiva e funcional."
+                    ],
+                    "examples": [
+                        "Claro, eu posso ajudar.",
+                        "Eu posso te mostrar.",
+                        "Eu posso explicar isso.",
+                        "Aqui está o link.",
+                        "Sem problema."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I can helps. → Correto: I can help.",
+                        "Incorreto: Here is link. → Melhor neste modelo do curso: Here is the link.",
+                        "Incorreto: I can to explain it. → Correto: I can explain it."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "sure",
+                        "pt": "claro"
+                    },
+                    {
+                        "en": "help",
+                        "pt": "ajudar"
+                    },
+                    {
+                        "en": "show",
+                        "pt": "mostrar"
+                    },
+                    {
+                        "en": "explain",
+                        "pt": "explicar"
+                    },
+                    {
+                        "en": "link",
+                        "pt": "link"
+                    },
+                    {
+                        "en": "file",
+                        "pt": "arquivo"
+                    },
+                    {
+                        "en": "no problem",
+                        "pt": "sem problema"
+                    },
+                    {
+                        "en": "teamwork",
+                        "pt": "trabalho em equipe"
+                    },
+                    {
+                        "en": "support",
+                        "pt": "apoio"
+                    },
+                    {
+                        "en": "response",
+                        "pt": "resposta"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — A Helpful Reply",
+                    "en": "Can you help me with this lesson? Sure, I can help. I can explain it, and here is the link to the file.",
+                    "pt": "Você pode me ajudar com esta lição? Claro, eu posso ajudar. Eu posso explicar isso, e aqui está o link para o arquivo.",
+                    "task": "Read the exchange and identify the request and the support response."
+                },
+                "listening": {
+                    "title": "Listening Lab — Offering Support",
+                    "instructions": "Listen carefully and identify the correct support response.",
+                    "text": "Sure, I can help. I can explain it.",
+                    "transcript": "Sure, I can help. I can explain it.",
+                    "question": "Choose the correct response:",
+                    "options": [
+                        "Sure, I can help.",
+                        "Sure, I can helps.",
+                        "I can to explain it."
+                    ],
+                    "answer": "Sure, I can help.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use can + base verb.",
+                    "options": [
+                        "I can show you.",
+                        "I can shows you.",
+                        "I can to show you."
+                    ],
+                    "answer": "I can show you."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to participate in simple supportive exchanges and basic teamwork language.",
+                    "tips": [
+                        "Encourage positive, short support responses.",
+                        "Use digital collaboration examples like links, files and explanations.",
+                        "Contrast ask for help with offer help.",
+                        "Show that collaboration is two-way communication.",
+                        "Keep the language practical and friendly."
+                    ],
+                    "supportPhrases": [
+                        "Now respond to the request.",
+                        "Offer help clearly.",
+                        "Use I can plus the verb.",
+                        "Support can be simple and effective.",
+                        "This is teamwork language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a participar de trocas simples de apoio e linguagem básica de trabalho em equipe.",
+                    "tips": [
+                        "Incentive respostas de apoio positivas e curtas.",
+                        "Use exemplos de colaboração digital como links, arquivos e explicações.",
+                        "Contraste pedir ajuda e oferecer ajuda.",
+                        "Mostre que colaboração é comunicação em duas direções.",
+                        "Mantenha a linguagem prática e amigável."
+                    ],
+                    "supportPhrases": [
+                        "Agora responda ao pedido.",
+                        "Ofereça ajuda com clareza.",
+                        "Use I can mais o verbo.",
+                        "O apoio pode ser simples e eficaz.",
+                        "Isto é linguagem de trabalho em equipe."
+                    ]
+                }
+            },
+            {
+                "id": "9.4",
+                "subtitulo": "The Boss Fight — A Help Desk / Study Support Interaction",
+                "lessonMeta": {
+                    "focus": "Integrated mini-dialogue with requests, difficulties and support responses",
+                    "canDo": "I can sustain a short guided interaction about asking for and offering help.",
+                    "structures": [
+                        "Can you help me?",
+                        "I need help with this exercise.",
+                        "Sure, I can help.",
+                        "I can explain it.",
+                        "Please send the file.",
+                        "Here is the link."
+                    ],
+                    "outputTargets": [
+                        "Build a short help-oriented interaction.",
+                        "Combine request, problem and response.",
+                        "Use collaborative English in a simple realistic exchange."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> build a short support interaction.<br><br>Now you combine requests, problems and responses:<br><br><strong>Can you help me?</strong><br><strong>I need help with this exercise.</strong><br><strong>Sure, I can help.</strong><br><strong>I can explain it.</strong><br><strong>Please send the file.</strong><br><strong>Here is the link.</strong><br><br>Your mission is to sound <strong>clear, helpful and collaborative</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now build your short support dialogue with confidence."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building a Support Interaction",
+                    "intro": "The final lesson of Week 9 integrates the functional language of requests, difficulties and support. The learner now performs a short guided interaction that simulates real help in a study or digital context.",
+                    "content": [
+                        "A simple help interaction has three main parts: a request, a problem statement, and a support response.",
+                        "Useful patterns include <strong>Can you help me?</strong>, <strong>I need help with...</strong>, <strong>I don't understand...</strong>, <strong>Sure, I can help.</strong> and <strong>Here is the link.</strong>",
+                        "The goal is not complexity, but functional clarity.",
+                        "At this stage, the learner should sound polite, direct and collaborative.",
+                        "This final task marks the beginning of more active communication in the new phase."
+                    ],
+                    "examples": [
+                        "Can you help me?",
+                        "I need help with this exercise.",
+                        "Sure, I can help.",
+                        "I can explain it.",
+                        "Please send the file.",
+                        "Here is the link."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Can help me? → Correct: Can you help me?",
+                        "Incorrect: I need help this exercise. → Correct: I need help with this exercise.",
+                        "Incorrect: I can helps. → Correct: I can help."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo uma Interação de Apoio",
+                    "intro": "A lição final da Week 9 integra a linguagem funcional de pedidos, dificuldades e apoio. O aluno agora realiza uma interação guiada curta que simula ajuda real em um contexto de estudo ou digital.",
+                    "content": [
+                        "Uma interação simples de ajuda tem três partes principais: um pedido, uma declaração de problema e uma resposta de apoio.",
+                        "Padrões úteis incluem <strong>Can you help me?</strong>, <strong>I need help with...</strong>, <strong>I don't understand...</strong>, <strong>Sure, I can help.</strong> e <strong>Here is the link.</strong>",
+                        "O objetivo não é complexidade, mas clareza funcional.",
+                        "Nesta fase, o aluno deve soar educado, direto e colaborativo.",
+                        "Esta tarefa final marca o início de uma comunicação mais ativa na nova fase."
+                    ],
+                    "examples": [
+                        "Você pode me ajudar?",
+                        "Eu preciso de ajuda com este exercício.",
+                        "Claro, eu posso ajudar.",
+                        "Eu posso explicar isso.",
+                        "Por favor, envie o arquivo.",
+                        "Aqui está o link."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Can help me? → Correto: Can you help me?",
+                        "Incorreto: I need help this exercise. → Correto: I need help with this exercise.",
+                        "Incorreto: I can helps. → Correto: I can help."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "help interaction",
+                        "pt": "interação de ajuda"
+                    },
+                    {
+                        "en": "support",
+                        "pt": "apoio"
+                    },
+                    {
+                        "en": "problem",
+                        "pt": "problema"
+                    },
+                    {
+                        "en": "exercise",
+                        "pt": "exercício"
+                    },
+                    {
+                        "en": "lesson",
+                        "pt": "lição / aula"
+                    },
+                    {
+                        "en": "file",
+                        "pt": "arquivo"
+                    },
+                    {
+                        "en": "link",
+                        "pt": "link"
+                    },
+                    {
+                        "en": "explain",
+                        "pt": "explicar"
+                    },
+                    {
+                        "en": "show",
+                        "pt": "mostrar"
+                    },
+                    {
+                        "en": "collaboration",
+                        "pt": "colaboração"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — A Study Support Dialogue",
+                    "en": "Can you help me? I need help with this exercise. Sure, I can help. I can explain it. Please send the file. Here is the link.",
+                    "pt": "Você pode me ajudar? Eu preciso de ajuda com este exercício. Claro, eu posso ajudar. Eu posso explicar isso. Por favor, envie o arquivo. Aqui está o link.",
+                    "task": "Read the dialogue and identify the request, the problem and the support response."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Support Interaction",
+                    "instructions": "Listen to the exchange and identify the support response.",
+                    "text": "Can you help me? I need help with this exercise. Sure, I can help. I can explain it.",
+                    "transcript": "Can you help me? I need help with this exercise. Sure, I can help. I can explain it.",
+                    "question": "Type the support response:",
+                    "answer": "Sure, I can help.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write a short help dialogue in English.",
+                    "helpText": "Use 4 to 6 lines. Include a request, a problem, and a support response.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the week's functional language into a short realistic exchange focused on study support and collaboration.",
+                    "tips": [
+                        "Keep the dialogue short and controlled.",
+                        "Require a clear sequence: ask, explain, respond.",
+                        "Use realistic digital or study situations.",
+                        "Reward clarity and usefulness more than complexity.",
+                        "Treat this as the first collaborative milestone of Phase 3."
+                    ],
+                    "supportPhrases": [
+                        "Start with the request.",
+                        "Now explain the problem.",
+                        "Answer with support.",
+                        "Keep the dialogue practical and clear.",
+                        "This is real collaboration."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar a linguagem funcional da semana em uma troca curta e realista focada em apoio ao estudo e colaboração.",
+                    "tips": [
+                        "Mantenha o diálogo curto e controlado.",
+                        "Exija uma sequência clara: pedir, explicar, responder.",
+                        "Use situações digitais ou de estudo realistas.",
+                        "Valorize mais clareza e utilidade do que complexidade.",
+                        "Trate esta lição como o primeiro marco colaborativo da Fase 3."
+                    ],
+                    "supportPhrases": [
+                        "Comece com o pedido.",
+                        "Agora explique o problema.",
+                        "Responda com apoio.",
+                        "Mantenha o diálogo prático e claro.",
+                        "Isto é colaboração real."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-10",
+        "faseId": 3,
+        "semana": 10,
+        "titulo": "Week 10 — Clarifying, Confirming & Working Together",
+        "objetivo": "The student can ask for clarification, confirm understanding, combine simple actions with another person, and sustain short collaborative exchanges in study and tech-related contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Clarification language",
+                "descricao": "Uses simple clarification requests with reasonable clarity and stability.",
+                "criterio_pt": "Linguagem de esclarecimento",
+                "descricao_pt": "Usa pedidos simples de esclarecimento com clareza e estabilidade razoáveis."
+            },
+            {
+                "criterio": "Confirmation language",
+                "descricao": "Can confirm understanding or check information using short predictable structures.",
+                "criterio_pt": "Linguagem de confirmação",
+                "descricao_pt": "Consegue confirmar compreensão ou checar informações usando estruturas curtas e previsíveis."
+            },
+            {
+                "criterio": "Collaborative interaction",
+                "descricao": "Can participate in short collaborative exchanges involving simple coordination and support.",
+                "criterio_pt": "Interação colaborativa",
+                "descricao_pt": "Consegue participar de trocas colaborativas curtas envolvendo coordenação e apoio simples."
+            },
+            {
+                "criterio": "Listening comprehension in coordination",
+                "descricao": "Identifies clarification, confirmation and simple action language in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva em coordenação",
+                "descricao_pt": "Identifica linguagem de esclarecimento, confirmação e ação simples em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Final dialogue coherence",
+                "descricao": "Sustains a short guided exchange involving clarification, confirmation and action.",
+                "criterio_pt": "Coerência do diálogo final",
+                "descricao_pt": "Sustenta uma troca guiada curta envolvendo esclarecimento, confirmação e ação."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "10.1",
+                "subtitulo": "Can You Clarify? — Asking for Clarification",
+                "lessonMeta": {
+                    "focus": "Clarification requests in study and tech contexts",
+                    "canDo": "I can ask for clarification when I do not understand something.",
+                    "structures": [
+                        "Can you clarify this?",
+                        "What does this mean?",
+                        "Can you explain this again?",
+                        "What do you mean?"
+                    ],
+                    "outputTargets": [
+                        "Ask for clarification.",
+                        "Ask about meaning.",
+                        "Request a clearer explanation."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now you go beyond basic help requests.<br><br>Sometimes you need more than help — you need clarification:<br><br><strong>Can you clarify this?</strong><br><strong>What does this mean?</strong><br><strong>Can you explain this again?</strong><br><strong>What do you mean?</strong><br><br>This is the language of deeper understanding.",
+                    "options": [
+                        {
+                            "text": "Can you clarify this?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear and functional clarification request."
+                        },
+                        {
+                            "text": "Can clarify this?",
+                            "correct": false,
+                            "feedback": "You need the subject <strong>you</strong>. Say: <strong>Can you clarify this?</strong>"
+                        },
+                        {
+                            "text": "What does this mean?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a natural way to ask about meaning."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Asking for Clarification",
+                    "intro": "This lesson teaches the learner how to ask for more precision and meaning during interaction. It is an important next step after simply asking for help.",
+                    "content": [
+                        "Use <strong>Can you clarify this?</strong> when something is still unclear.",
+                        "Use <strong>What does this mean?</strong> to ask about meaning directly.",
+                        "Use <strong>Can you explain this again?</strong> when you need repetition with explanation.",
+                        "Use <strong>What do you mean?</strong> when you need clarification about another person's words.",
+                        "These patterns are useful in classes, meetings, chats, online platforms and technical study."
+                    ],
+                    "examples": [
+                        "Can you clarify this?",
+                        "What does this mean?",
+                        "Can you explain this again?",
+                        "What do you mean?"
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Can clarify this? → Correct: Can you clarify this?",
+                        "Incorrect: What this means? → Correct: What does this mean?",
+                        "Incorrect: What do you means? → Correct: What do you mean?"
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Pedindo Esclarecimento",
+                    "intro": "Esta lição ensina o aluno a pedir mais precisão e significado durante a interação. É um próximo passo importante depois de simplesmente pedir ajuda.",
+                    "content": [
+                        "Use <strong>Can you clarify this?</strong> quando algo ainda não está claro.",
+                        "Use <strong>What does this mean?</strong> para perguntar diretamente sobre o significado.",
+                        "Use <strong>Can you explain this again?</strong> quando precisar de repetição com explicação.",
+                        "Use <strong>What do you mean?</strong> quando precisar esclarecer o que a outra pessoa quis dizer.",
+                        "Esses padrões são úteis em aulas, reuniões, chats, plataformas online e estudo técnico."
+                    ],
+                    "examples": [
+                        "Você pode esclarecer isso?",
+                        "O que isso significa?",
+                        "Você pode explicar isso de novo?",
+                        "O que você quer dizer?"
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Can clarify this? → Correto: Can you clarify this?",
+                        "Incorreto: What this means? → Correto: What does this mean?",
+                        "Incorreto: What do you means? → Correto: What do you mean?"
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "clarify",
+                        "pt": "esclarecer"
+                    },
+                    {
+                        "en": "mean",
+                        "pt": "significar / querer dizer"
+                    },
+                    {
+                        "en": "again",
+                        "pt": "de novo"
+                    },
+                    {
+                        "en": "message",
+                        "pt": "mensagem"
+                    },
+                    {
+                        "en": "instruction",
+                        "pt": "instrução"
+                    },
+                    {
+                        "en": "detail",
+                        "pt": "detalhe"
+                    },
+                    {
+                        "en": "meaning",
+                        "pt": "significado"
+                    },
+                    {
+                        "en": "question",
+                        "pt": "pergunta"
+                    },
+                    {
+                        "en": "clear",
+                        "pt": "claro"
+                    },
+                    {
+                        "en": "understand better",
+                        "pt": "entender melhor"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — A Clarification Request",
+                    "en": "I have a question. Can you clarify this instruction? What does this mean? Please explain this part again.",
+                    "pt": "Eu tenho uma pergunta. Você pode esclarecer esta instrução? O que isso significa? Por favor, explique esta parte de novo.",
+                    "task": "Read the text and identify the clarification requests."
+                },
+                "listening": {
+                    "title": "Listening Lab — Clarification",
+                    "instructions": "Listen carefully and identify the correct clarification question.",
+                    "text": "Can you clarify this? What does this mean?",
+                    "transcript": "Can you clarify this? What does this mean?",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "What does this mean?",
+                        "What this means?",
+                        "What do you means?"
+                    ],
+                    "answer": "What does this mean?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct clarification question:",
+                    "helpText": "Use can you + verb or what does this mean.",
+                    "options": [
+                        "Can you explain this again?",
+                        "Can explain this again?",
+                        "What this means?"
+                    ],
+                    "answer": "Can you explain this again?"
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to ask for precision and meaning in simple real interactions.",
+                    "tips": [
+                        "Differentiate help requests from clarification requests.",
+                        "Use examples from lessons, chats and instructions.",
+                        "Recycle familiar context while introducing new functional language.",
+                        "Keep the focus on purpose and interaction, not heavy grammar explanation.",
+                        "Encourage the learner to sound curious and clear."
+                    ],
+                    "supportPhrases": [
+                        "Ask for clarification clearly.",
+                        "Now ask about meaning.",
+                        "Use what does this mean.",
+                        "Clarification helps deeper understanding.",
+                        "Be direct and functional."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a pedir precisão e significado em interações simples e reais.",
+                    "tips": [
+                        "Diferencie pedidos de ajuda de pedidos de esclarecimento.",
+                        "Use exemplos de lições, chats e instruções.",
+                        "Recicle contexto familiar enquanto introduz nova linguagem funcional.",
+                        "Mantenha o foco em propósito e interação, não em explicação gramatical pesada.",
+                        "Incentive o aluno a soar curioso e claro."
+                    ],
+                    "supportPhrases": [
+                        "Peça esclarecimento com clareza.",
+                        "Agora pergunte sobre o significado.",
+                        "Use what does this mean.",
+                        "Esclarecimento ajuda na compreensão mais profunda.",
+                        "Seja direto e funcional."
+                    ]
+                }
+            },
+            {
+                "id": "10.2",
+                "subtitulo": "So, Is This Correct? — Confirming Understanding",
+                "lessonMeta": {
+                    "focus": "Checking and confirming understanding",
+                    "canDo": "I can confirm information and check if I understood correctly.",
+                    "structures": [
+                        "So, is this correct?",
+                        "Do you mean this?",
+                        "Okay, I understand now.",
+                        "So, I need to send the file, right?"
+                    ],
+                    "outputTargets": [
+                        "Check understanding.",
+                        "Confirm an instruction.",
+                        "Show that I understood."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> after clarification, you confirm understanding.<br><br>Good collaboration needs checking and confirmation:<br><br><strong>So, is this correct?</strong><br><strong>Do you mean this?</strong><br><strong>Okay, I understand now.</strong><br><strong>So, I need to send the file, right?</strong><br><br>This is the language of alignment.",
+                    "options": [
+                        {
+                            "text": "So, is this correct?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a good confirmation question."
+                        },
+                        {
+                            "text": "So, this is correct?",
+                            "correct": false,
+                            "feedback": "For this stage, use the clearer question pattern: <strong>So, is this correct?</strong>"
+                        },
+                        {
+                            "text": "Okay, I understand now.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear confirmation of understanding."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Confirming Understanding",
+                    "intro": "This lesson helps the learner check whether an interpretation is correct and confirm comprehension after receiving help or clarification.",
+                    "content": [
+                        "Use <strong>So, is this correct?</strong> to check if your understanding is right.",
+                        "Use <strong>Do you mean this?</strong> to verify someone's meaning.",
+                        "Use <strong>Okay, I understand now.</strong> to show that the explanation worked.",
+                        "Use <strong>..., right?</strong> to confirm an action or instruction in a simple way.",
+                        "This language is useful in collaborative work, study interactions and digital communication."
+                    ],
+                    "examples": [
+                        "So, is this correct?",
+                        "Do you mean this?",
+                        "Okay, I understand now.",
+                        "So, I need to send the file, right?"
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: So, this is correct? → Better in this model: So, is this correct?",
+                        "Incorrect: Do you means this? → Correct: Do you mean this?",
+                        "Incorrect: I understand now okay. → Better: Okay, I understand now."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Confirmando a Compreensão",
+                    "intro": "Esta lição ajuda o aluno a verificar se sua interpretação está correta e a confirmar a compreensão após receber ajuda ou esclarecimento.",
+                    "content": [
+                        "Use <strong>So, is this correct?</strong> para checar se seu entendimento está certo.",
+                        "Use <strong>Do you mean this?</strong> para verificar o que alguém quis dizer.",
+                        "Use <strong>Okay, I understand now.</strong> para mostrar que a explicação funcionou.",
+                        "Use <strong>..., right?</strong> para confirmar uma ação ou instrução de forma simples.",
+                        "Essa linguagem é útil em trabalho colaborativo, interações de estudo e comunicação digital."
+                    ],
+                    "examples": [
+                        "Então, isso está correto?",
+                        "Você quer dizer isso?",
+                        "Ok, agora eu entendo.",
+                        "Então, eu preciso enviar o arquivo, certo?"
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: So, this is correct? → Melhor neste modelo: So, is this correct?",
+                        "Incorreto: Do you means this? → Correto: Do you mean this?",
+                        "Incorreto: I understand now okay. → Melhor: Okay, I understand now."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "correct",
+                        "pt": "correto"
+                    },
+                    {
+                        "en": "right",
+                        "pt": "certo"
+                    },
+                    {
+                        "en": "understand now",
+                        "pt": "entender agora"
+                    },
+                    {
+                        "en": "confirm",
+                        "pt": "confirmar"
+                    },
+                    {
+                        "en": "check",
+                        "pt": "verificar"
+                    },
+                    {
+                        "en": "instruction",
+                        "pt": "instrução"
+                    },
+                    {
+                        "en": "meaning",
+                        "pt": "significado"
+                    },
+                    {
+                        "en": "align",
+                        "pt": "alinhar"
+                    },
+                    {
+                        "en": "okay",
+                        "pt": "ok"
+                    },
+                    {
+                        "en": "send the file",
+                        "pt": "enviar o arquivo"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Confirming an Instruction",
+                    "en": "Can you explain this again? Sure. You need to send the file and check the link. Okay, I understand now. So, I need to send the file, right?",
+                    "pt": "Você pode explicar isso de novo? Claro. Você precisa enviar o arquivo e verificar o link. Ok, agora eu entendo. Então, eu preciso enviar o arquivo, certo?",
+                    "task": "Read the exchange and identify the confirmation sentences."
+                },
+                "listening": {
+                    "title": "Listening Lab — Confirmation",
+                    "instructions": "Listen carefully and identify the correct confirmation sentence.",
+                    "text": "Okay, I understand now. So, is this correct?",
+                    "transcript": "Okay, I understand now. So, is this correct?",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "Okay, I understand now.",
+                        "Okay, I understand now?",
+                        "Do you means this?"
+                    ],
+                    "answer": "Okay, I understand now.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct confirmation question:",
+                    "helpText": "Use is this correct or right? for checking.",
+                    "options": [
+                        "So, is this correct?",
+                        "So, this is correct?",
+                        "Do you means this?"
+                    ],
+                    "answer": "So, is this correct?"
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to close the communication loop by checking and confirming understanding.",
+                    "tips": [
+                        "Show that collaboration is not complete until understanding is confirmed.",
+                        "Use short, highly reusable patterns.",
+                        "Encourage the learner to say what they understood.",
+                        "Differentiate clarification from confirmation.",
+                        "Keep the patterns practical and predictable."
+                    ],
+                    "supportPhrases": [
+                        "Now check if your understanding is correct.",
+                        "Use a confirmation question.",
+                        "Say what you understand now.",
+                        "Confirmation creates alignment.",
+                        "Keep it simple and clear."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a fechar o ciclo de comunicação verificando e confirmando a compreensão.",
+                    "tips": [
+                        "Mostre que colaboração não termina até a compreensão ser confirmada.",
+                        "Use padrões curtos e altamente reutilizáveis.",
+                        "Incentive o aluno a dizer o que entendeu.",
+                        "Diferencie esclarecimento e confirmação.",
+                        "Mantenha os padrões práticos e previsíveis."
+                    ],
+                    "supportPhrases": [
+                        "Agora verifique se sua compreensão está correta.",
+                        "Use uma pergunta de confirmação.",
+                        "Diga o que você entende agora.",
+                        "Confirmação gera alinhamento.",
+                        "Mantenha simples e claro."
+                    ]
+                }
+            },
+            {
+                "id": "10.3",
+                "subtitulo": "Let's Do This — Coordinating Simple Actions",
+                "lessonMeta": {
+                    "focus": "Simple coordination and collaborative action language",
+                    "canDo": "I can combine simple actions with another person in a task or study context.",
+                    "structures": [
+                        "Let's do this step by step.",
+                        "I can send the file and you can check it.",
+                        "First, read this. Then, send the answer.",
+                        "You check the link, and I write the notes."
+                    ],
+                    "outputTargets": [
+                        "Coordinate simple actions.",
+                        "Use first and then.",
+                        "Share tasks in a basic way."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now collaboration becomes action.<br><br>You are not only asking and answering. You are organizing what to do:<br><br><strong>Let's do this step by step.</strong><br><strong>I can send the file and you can check it.</strong><br><strong>First, read this. Then, send the answer.</strong><br><strong>You check the link, and I write the notes.</strong><br><br>This is the language of simple coordination.",
+                    "options": [
+                        {
+                            "text": "First, read this. Then, send the answer.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sequence of actions."
+                        },
+                        {
+                            "text": "First read this then send the answer.",
+                            "correct": false,
+                            "feedback": "The meaning is close, but for this stage we want the clearer structured model: <strong>First, read this. Then, send the answer.</strong>"
+                        },
+                        {
+                            "text": "Let's do this step by step.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a strong collaborative coordination sentence."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Coordinating Simple Actions",
+                    "intro": "This lesson introduces basic coordination language for shared tasks. The learner now starts organizing action together with another person in a simple and functional way.",
+                    "content": [
+                        "Use <strong>Let's...</strong> to suggest shared action.",
+                        "Use <strong>First...</strong> and <strong>Then...</strong> to sequence actions clearly.",
+                        "Use <strong>I can...</strong> and <strong>you can...</strong> to divide basic tasks.",
+                        "This language is useful in study tasks, small digital workflows and teamwork situations.",
+                        "At this stage, coordination should remain simple, direct and clear."
+                    ],
+                    "examples": [
+                        "Let's do this step by step.",
+                        "I can send the file and you can check it.",
+                        "First, read this. Then, send the answer.",
+                        "You check the link, and I write the notes."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Let's to do this. → Correct: Let's do this.",
+                        "Incorrect: First send the answer then read this. → Better in this model: First, read this. Then, send the answer.",
+                        "Incorrect: I can sends the file. → Correct: I can send the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Coordenando Ações Simples",
+                    "intro": "Esta lição introduz a linguagem básica de coordenação para tarefas compartilhadas. O aluno começa a organizar ações junto com outra pessoa de forma simples e funcional.",
+                    "content": [
+                        "Use <strong>Let's...</strong> para sugerir uma ação compartilhada.",
+                        "Use <strong>First...</strong> e <strong>Then...</strong> para sequenciar ações com clareza.",
+                        "Use <strong>I can...</strong> e <strong>you can...</strong> para dividir tarefas básicas.",
+                        "Essa linguagem é útil em tarefas de estudo, pequenos fluxos digitais e situações de trabalho em equipe.",
+                        "Nesta fase, a coordenação deve permanecer simples, direta e clara."
+                    ],
+                    "examples": [
+                        "Vamos fazer isso passo a passo.",
+                        "Eu posso enviar o arquivo e você pode verificá-lo.",
+                        "Primeiro, leia isto. Depois, envie a resposta.",
+                        "Você verifica o link, e eu escrevo as anotações."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Let's to do this. → Correto: Let's do this.",
+                        "Incorreto: First send the answer then read this. → Melhor neste modelo: First, read this. Then, send the answer.",
+                        "Incorreto: I can sends the file. → Correto: I can send the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "step by step",
+                        "pt": "passo a passo"
+                    },
+                    {
+                        "en": "first",
+                        "pt": "primeiro"
+                    },
+                    {
+                        "en": "then",
+                        "pt": "depois"
+                    },
+                    {
+                        "en": "check",
+                        "pt": "verificar"
+                    },
+                    {
+                        "en": "write notes",
+                        "pt": "escrever anotações"
+                    },
+                    {
+                        "en": "task",
+                        "pt": "tarefa"
+                    },
+                    {
+                        "en": "share",
+                        "pt": "compartilhar / dividir"
+                    },
+                    {
+                        "en": "action",
+                        "pt": "ação"
+                    },
+                    {
+                        "en": "coordinate",
+                        "pt": "coordenar"
+                    },
+                    {
+                        "en": "together",
+                        "pt": "juntos"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — A Shared Task",
+                    "en": "Let's do this step by step. First, read this instruction. Then, send the answer. I can check the file, and you can write the notes.",
+                    "pt": "Vamos fazer isso passo a passo. Primeiro, leia esta instrução. Depois, envie a resposta. Eu posso verificar o arquivo, e você pode escrever as anotações.",
+                    "task": "Read the text and identify the shared actions and the sequence words."
+                },
+                "listening": {
+                    "title": "Listening Lab — Action Sequence",
+                    "instructions": "Listen carefully and identify the correct sequence sentence.",
+                    "text": "First, read this. Then, send the answer.",
+                    "transcript": "First, read this. Then, send the answer.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "First, read this. Then, send the answer.",
+                        "First read this then send the answer.",
+                        "Let's to do this."
+                    ],
+                    "answer": "First, read this. Then, send the answer.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use let's or first/then to coordinate action.",
+                    "options": [
+                        "Let's do this step by step.",
+                        "Let's to do this step by step.",
+                        "I can sends the file."
+                    ],
+                    "answer": "Let's do this step by step."
+                },
+                "teacherNotes": {
+                    "focus": "Help the learner move from asking and responding to coordinating simple shared action.",
+                    "tips": [
+                        "Keep the tasks realistic and small.",
+                        "Use shared study actions and simple team roles.",
+                        "Teach sequence markers first and then in a functional way.",
+                        "Model task division using I can and you can.",
+                        "Treat this as an introduction to collaborative task language."
+                    ],
+                    "supportPhrases": [
+                        "Now organize the action together.",
+                        "Use first and then.",
+                        "Divide the task clearly.",
+                        "Use let's for shared action.",
+                        "This is coordination language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ajudar o aluno a passar de pedir e responder para coordenar ações compartilhadas simples.",
+                    "tips": [
+                        "Mantenha as tarefas realistas e pequenas.",
+                        "Use ações de estudo compartilhadas e papéis simples de equipe.",
+                        "Ensine os marcadores de sequência first e then de forma funcional.",
+                        "Modele divisão de tarefas com I can e you can.",
+                        "Trate isso como uma introdução à linguagem de tarefas colaborativas."
+                    ],
+                    "supportPhrases": [
+                        "Agora organizem a ação juntos.",
+                        "Use first e then.",
+                        "Divida a tarefa com clareza.",
+                        "Use let's para ação compartilhada.",
+                        "Isto é linguagem de coordenação."
+                    ]
+                }
+            },
+            {
+                "id": "10.4",
+                "subtitulo": "The Boss Fight — A Clarification and Coordination Dialogue",
+                "lessonMeta": {
+                    "focus": "Integrated dialogue with clarification, confirmation and coordinated action",
+                    "canDo": "I can sustain a short guided exchange where I clarify, confirm and organize simple action with another person.",
+                    "structures": [
+                        "Can you clarify this?",
+                        "So, is this correct?",
+                        "Okay, I understand now.",
+                        "Let's do this step by step.",
+                        "First, read this. Then, send the answer."
+                    ],
+                    "outputTargets": [
+                        "Build a short collaborative exchange.",
+                        "Combine clarification, confirmation and action.",
+                        "Use English to align and organize a small task."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> build a short collaboration dialogue.<br><br>Now you combine clarification, confirmation and coordinated action:<br><br><strong>Can you clarify this?</strong><br><strong>So, is this correct?</strong><br><strong>Okay, I understand now.</strong><br><strong>Let's do this step by step.</strong><br><strong>First, read this. Then, send the answer.</strong><br><br>Your mission is to sound <strong>clear, aligned and collaborative</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now build your short coordination dialogue with clarity and confidence."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building a Clarification and Coordination Dialogue",
+                    "intro": "The final lesson of Week 10 integrates clarification, confirmation and simple coordination into a short collaborative interaction. The learner now practices a more complete exchange that reflects real support and alignment.",
+                    "content": [
+                        "A basic collaboration dialogue can include: asking for clarification, checking understanding, confirming meaning, and organizing action.",
+                        "Useful patterns include <strong>Can you clarify this?</strong>, <strong>So, is this correct?</strong>, <strong>Okay, I understand now.</strong>, <strong>Let's do this step by step.</strong> and <strong>First..., Then...</strong>",
+                        "The goal is not advanced fluency, but functional control of interaction.",
+                        "At this stage, the learner should sound more active and more collaborative than in the previous phase.",
+                        "This final task helps prepare the learner for broader interactive communication in the next weeks."
+                    ],
+                    "examples": [
+                        "Can you clarify this?",
+                        "So, is this correct?",
+                        "Okay, I understand now.",
+                        "Let's do this step by step.",
+                        "First, read this. Then, send the answer."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Can clarify this? → Correct: Can you clarify this?",
+                        "Incorrect: So, this is correct? → Better in this model: So, is this correct?",
+                        "Incorrect: Let's to do this. → Correct: Let's do this."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo um Diálogo de Esclarecimento e Coordenação",
+                    "intro": "A lição final da Week 10 integra esclarecimento, confirmação e coordenação simples em uma interação colaborativa curta. O aluno agora pratica uma troca mais completa que reflete apoio e alinhamento reais.",
+                    "content": [
+                        "Um diálogo básico de colaboração pode incluir: pedir esclarecimento, verificar compreensão, confirmar significado e organizar ação.",
+                        "Padrões úteis incluem <strong>Can you clarify this?</strong>, <strong>So, is this correct?</strong>, <strong>Okay, I understand now.</strong>, <strong>Let's do this step by step.</strong> e <strong>First..., Then...</strong>",
+                        "O objetivo não é fluência avançada, mas controle funcional da interação.",
+                        "Nesta fase, o aluno deve soar mais ativo e mais colaborativo do que na fase anterior.",
+                        "Esta tarefa final ajuda a preparar o aluno para uma comunicação interativa mais ampla nas próximas semanas."
+                    ],
+                    "examples": [
+                        "Você pode esclarecer isso?",
+                        "Então, isso está correto?",
+                        "Ok, agora eu entendo.",
+                        "Vamos fazer isso passo a passo.",
+                        "Primeiro, leia isto. Depois, envie a resposta."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Can clarify this? → Correto: Can you clarify this?",
+                        "Incorreto: So, this is correct? → Melhor neste modelo: So, is this correct?",
+                        "Incorreto: Let's to do this. → Correto: Let's do this."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "clarification",
+                        "pt": "esclarecimento"
+                    },
+                    {
+                        "en": "confirmation",
+                        "pt": "confirmação"
+                    },
+                    {
+                        "en": "alignment",
+                        "pt": "alinhamento"
+                    },
+                    {
+                        "en": "step by step",
+                        "pt": "passo a passo"
+                    },
+                    {
+                        "en": "task",
+                        "pt": "tarefa"
+                    },
+                    {
+                        "en": "instruction",
+                        "pt": "instrução"
+                    },
+                    {
+                        "en": "understanding",
+                        "pt": "compreensão"
+                    },
+                    {
+                        "en": "shared action",
+                        "pt": "ação compartilhada"
+                    },
+                    {
+                        "en": "collaborative dialogue",
+                        "pt": "diálogo colaborativo"
+                    },
+                    {
+                        "en": "organize",
+                        "pt": "organizar"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — A Collaborative Exchange",
+                    "en": "Can you clarify this instruction? Sure. First, read the file. Then, send the answer. So, is this correct? Yes. Okay, I understand now. Let's do this step by step.",
+                    "pt": "Você pode esclarecer esta instrução? Claro. Primeiro, leia o arquivo. Depois, envie a resposta. Então, isso está correto? Sim. Ok, agora eu entendo. Vamos fazer isso passo a passo.",
+                    "task": "Read the dialogue and identify the clarification sentence, the confirmation sentence and the action sequence."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Coordination Dialogue",
+                    "instructions": "Listen to the exchange and identify the sentence that confirms understanding.",
+                    "text": "Can you clarify this? Sure. First, read the file. Then, send the answer. Okay, I understand now.",
+                    "transcript": "Can you clarify this? Sure. First, read the file. Then, send the answer. Okay, I understand now.",
+                    "question": "Type the sentence that confirms understanding:",
+                    "answer": "Okay, I understand now.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write a short clarification and coordination dialogue in English.",
+                    "helpText": "Use 5 to 7 lines. Include a clarification request, a confirmation sentence, and a simple action sequence.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the week's interaction patterns into a short realistic exchange that reflects clarification, confirmation and coordination.",
+                    "tips": [
+                        "Require a clear sequence: ask, check, confirm, act.",
+                        "Keep the dialogue controlled and practical.",
+                        "Use simple collaborative tasks linked to study or platform use.",
+                        "Evaluate clarity, alignment and usefulness.",
+                        "Treat this as a second important interaction milestone of Phase 3."
+                    ],
+                    "supportPhrases": [
+                        "Start with clarification.",
+                        "Now check your understanding.",
+                        "Confirm the meaning.",
+                        "Then organize the action.",
+                        "Make the exchange collaborative and clear."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar os padrões de interação da semana em uma troca curta e realista que reflita esclarecimento, confirmação e coordenação.",
+                    "tips": [
+                        "Exija uma sequência clara: pedir, checar, confirmar, agir.",
+                        "Mantenha o diálogo controlado e prático.",
+                        "Use tarefas colaborativas simples ligadas ao estudo ou ao uso da plataforma.",
+                        "Avalie clareza, alinhamento e utilidade.",
+                        "Trate isto como um segundo marco importante de interação da Fase 3."
+                    ],
+                    "supportPhrases": [
+                        "Comece com o esclarecimento.",
+                        "Agora verifique sua compreensão.",
+                        "Confirme o significado.",
+                        "Depois organize a ação.",
+                        "Torne a troca colaborativa e clara."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-11",
+        "faseId": 3,
+        "semana": 11,
+        "titulo": "Week 11 — Tasks, Progress & Simple Status Updates",
+        "objetivo": "The student can talk about simple tasks, describe basic progress, say what is finished or still pending, ask about another person's progress, and sustain short guided status-update interactions in study and tech-related contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Task language accuracy",
+                "descricao": "Uses simple task-related language with reasonable control and clarity.",
+                "criterio_pt": "Precisão na linguagem de tarefas",
+                "descricao_pt": "Usa linguagem simples relacionada a tarefas com controle e clareza razoáveis."
+            },
+            {
+                "criterio": "Progress description",
+                "descricao": "Can describe what is in progress, what is finished and what is still pending.",
+                "criterio_pt": "Descrição de progresso",
+                "descricao_pt": "Consegue descrever o que está em andamento, o que foi concluído e o que ainda está pendente."
+            },
+            {
+                "criterio": "Status interaction",
+                "descricao": "Can ask and answer short predictable questions about progress and task completion.",
+                "criterio_pt": "Interação de status",
+                "descricao_pt": "Consegue perguntar e responder perguntas curtas e previsíveis sobre progresso e conclusão de tarefas."
+            },
+            {
+                "criterio": "Listening for progress cues",
+                "descricao": "Identifies key expressions about task status and progress in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva de progresso",
+                "descricao_pt": "Identifica expressões-chave sobre status de tarefas e progresso em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Final update coherence",
+                "descricao": "Produces a short and understandable status update using clear task and progress language.",
+                "criterio_pt": "Coerência do update final",
+                "descricao_pt": "Produz um update curto e compreensível usando linguagem clara de tarefas e progresso."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "11.1",
+                "subtitulo": "What I Am Doing — Talking About Tasks in Progress",
+                "lessonMeta": {
+                    "focus": "Describing actions in progress in study and tech contexts",
+                    "canDo": "I can say what I am doing now.",
+                    "structures": [
+                        "I am working on this task.",
+                        "I am reading the documentation now.",
+                        "I am checking the file.",
+                        "I am studying this lesson."
+                    ],
+                    "outputTargets": [
+                        "Describe a task in progress.",
+                        "Use I am + verb-ing.",
+                        "Talk about what I am doing now."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now you talk about work in progress.<br><br>In collaborative environments, people need to say what they are doing now:<br><br><strong>I am working on this task.</strong><br><strong>I am reading the documentation now.</strong><br><strong>I am checking the file.</strong><br><strong>I am studying this lesson.</strong><br><br>This is the language of active progress.",
+                    "options": [
+                        {
+                            "text": "I am working on this task.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence about a task in progress."
+                        },
+                        {
+                            "text": "I working on this task.",
+                            "correct": false,
+                            "feedback": "You need <strong>am</strong>. Say: <strong>I am working on this task.</strong>"
+                        },
+                        {
+                            "text": "I am read the documentation now.",
+                            "correct": false,
+                            "feedback": "Use the -ing form: <strong>I am reading the documentation now.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Tasks in Progress",
+                    "intro": "This lesson introduces simple present continuous forms to describe what the learner is doing now in study and task-based situations.",
+                    "content": [
+                        "Use <strong>I am + verb-ing</strong> to describe an action happening now.",
+                        "Examples: <strong>I am working on this task</strong>, <strong>I am reading the documentation now</strong>.",
+                        "This structure is useful for status updates, collaboration and task tracking.",
+                        "At this stage, the learner should focus on a small set of common verbs in realistic contexts.",
+                        "Progress language starts by naming what is happening now."
+                    ],
+                    "examples": [
+                        "I am working on this task.",
+                        "I am reading the documentation now.",
+                        "I am checking the file.",
+                        "I am studying this lesson."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I working on this task. → Correct: I am working on this task.",
+                        "Incorrect: I am read the documentation now. → Correct: I am reading the documentation now.",
+                        "Incorrect: I am check the file. → Correct: I am checking the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Tarefas em Andamento",
+                    "intro": "Esta lição introduz formas simples do present continuous para descrever o que o aluno está fazendo agora em situações de estudo e tarefas.",
+                    "content": [
+                        "Use <strong>I am + verbo-ing</strong> para descrever uma ação que está acontecendo agora.",
+                        "Exemplos: <strong>I am working on this task</strong>, <strong>I am reading the documentation now</strong>.",
+                        "Essa estrutura é útil para updates de status, colaboração e acompanhamento de tarefas.",
+                        "Nesta fase, o aluno deve focar em um pequeno conjunto de verbos comuns em contextos realistas.",
+                        "A linguagem de progresso começa nomeando o que está acontecendo agora."
+                    ],
+                    "examples": [
+                        "Eu estou trabalhando nesta tarefa.",
+                        "Eu estou lendo a documentação agora.",
+                        "Eu estou verificando o arquivo.",
+                        "Eu estou estudando esta lição."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I working on this task. → Correto: I am working on this task.",
+                        "Incorreto: I am read the documentation now. → Correto: I am reading the documentation now.",
+                        "Incorreto: I am check the file. → Correto: I am checking the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "task",
+                        "pt": "tarefa"
+                    },
+                    {
+                        "en": "work on",
+                        "pt": "trabalhar em"
+                    },
+                    {
+                        "en": "documentation",
+                        "pt": "documentação"
+                    },
+                    {
+                        "en": "check",
+                        "pt": "verificar"
+                    },
+                    {
+                        "en": "file",
+                        "pt": "arquivo"
+                    },
+                    {
+                        "en": "study",
+                        "pt": "estudar"
+                    },
+                    {
+                        "en": "now",
+                        "pt": "agora"
+                    },
+                    {
+                        "en": "progress",
+                        "pt": "progresso"
+                    },
+                    {
+                        "en": "step",
+                        "pt": "etapa"
+                    },
+                    {
+                        "en": "active",
+                        "pt": "ativo / em andamento"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Current Task",
+                    "en": "I am working on this task now. I am reading the documentation and checking the file before I send the answer.",
+                    "pt": "Eu estou trabalhando nesta tarefa agora. Eu estou lendo a documentação e verificando o arquivo antes de enviar a resposta.",
+                    "task": "Read the text and identify the actions in progress."
+                },
+                "listening": {
+                    "title": "Listening Lab — Work in Progress",
+                    "instructions": "Listen carefully and identify the correct sentence about a task in progress.",
+                    "text": "I am working on this task. I am checking the file.",
+                    "transcript": "I am working on this task. I am checking the file.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I am working on this task.",
+                        "I working on this task.",
+                        "I am work on this task."
+                    ],
+                    "answer": "I am working on this task.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use I am + verb-ing.",
+                    "options": [
+                        "I am reading the documentation now.",
+                        "I am read the documentation now.",
+                        "I reading the documentation now."
+                    ],
+                    "answer": "I am reading the documentation now."
+                },
+                "teacherNotes": {
+                    "focus": "Introduce simple present continuous forms as a functional way to give status updates.",
+                    "tips": [
+                        "Use realistic verbs tied to study and tech tasks.",
+                        "Do not overload the learner with too many new verbs.",
+                        "Keep the context concrete and active.",
+                        "Link the lesson to collaboration and current action.",
+                        "Prioritize meaning and recognizability over grammatical theory depth."
+                    ],
+                    "supportPhrases": [
+                        "Say what you are doing now.",
+                        "Use I am plus verb-ing.",
+                        "Describe the task in progress.",
+                        "Keep the sentence active and clear.",
+                        "This is status-update language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir formas simples do present continuous como uma maneira funcional de dar updates de status.",
+                    "tips": [
+                        "Use verbos realistas ligados a estudo e tarefas tech.",
+                        "Não sobrecarregue o aluno com muitos verbos novos.",
+                        "Mantenha o contexto concreto e ativo.",
+                        "Conecte a lição à colaboração e à ação atual.",
+                        "Priorize significado e reconhecimento mais do que profundidade teórica gramatical."
+                    ],
+                    "supportPhrases": [
+                        "Diga o que você está fazendo agora.",
+                        "Use I am mais verbo-ing.",
+                        "Descreva a tarefa em andamento.",
+                        "Mantenha a frase ativa e clara.",
+                        "Isto é linguagem de update de status."
+                    ]
+                }
+            },
+            {
+                "id": "11.2",
+                "subtitulo": "I Finished It — Saying What Is Done and What Is Pending",
+                "lessonMeta": {
+                    "focus": "Simple language for finished and pending tasks",
+                    "canDo": "I can say what I finished and what I still need to do.",
+                    "structures": [
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I still need to read this section."
+                    ],
+                    "outputTargets": [
+                        "Say what is done.",
+                        "Say what is still pending.",
+                        "Describe simple task status."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now report what is complete and what is still pending.<br><br>In task-based communication, people need to say what is done and what remains:<br><br><strong>I finished the first part.</strong><br><strong>I already sent the file.</strong><br><strong>I still need to check the link.</strong><br><strong>I still need to read this section.</strong><br><br>This is the language of progress tracking.",
+                    "options": [
+                        {
+                            "text": "I finished the first part.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about a completed task."
+                        },
+                        {
+                            "text": "I finish the first part.",
+                            "correct": false,
+                            "feedback": "Here we want the completed action form: <strong>I finished the first part.</strong>"
+                        },
+                        {
+                            "text": "I still need to check the link.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about a pending action."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Finished and Pending Tasks",
+                    "intro": "This lesson teaches simple functional language for saying what is done and what still needs attention. It helps the learner participate in progress tracking and status reporting.",
+                    "content": [
+                        "Use <strong>I finished...</strong> or <strong>I already...</strong> to talk about completed actions.",
+                        "Use <strong>I still need to...</strong> to talk about tasks that are not finished yet.",
+                        "These expressions are common in work updates, study follow-up and collaborative projects.",
+                        "At this stage, the learner should use short direct sentences with familiar objects such as file, part, section and link.",
+                        "The goal is to make task status visible and understandable."
+                    ],
+                    "examples": [
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I still need to read this section."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I finish the first part. → Better in this lesson's model: I finished the first part.",
+                        "Incorrect: I still need check the link. → Correct: I still need to check the link.",
+                        "Incorrect: I already send the file. → Better in this model: I already sent the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre o Que Está Feito e o Que Está Pendente",
+                    "intro": "Esta lição ensina linguagem funcional simples para dizer o que foi concluído e o que ainda precisa de atenção. Ela ajuda o aluno a participar de acompanhamento de progresso e reports de status.",
+                    "content": [
+                        "Use <strong>I finished...</strong> ou <strong>I already...</strong> para falar sobre ações concluídas.",
+                        "Use <strong>I still need to...</strong> para falar sobre tarefas que ainda não terminaram.",
+                        "Essas expressões são comuns em updates de trabalho, acompanhamento de estudo e projetos colaborativos.",
+                        "Nesta fase, o aluno deve usar frases curtas e diretas com objetos familiares como file, part, section e link.",
+                        "O objetivo é tornar o status da tarefa visível e compreensível."
+                    ],
+                    "examples": [
+                        "Eu terminei a primeira parte.",
+                        "Eu já enviei o arquivo.",
+                        "Eu ainda preciso verificar o link.",
+                        "Eu ainda preciso ler esta seção."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I finish the first part. → Melhor neste modelo: I finished the first part.",
+                        "Incorreto: I still need check the link. → Correto: I still need to check the link.",
+                        "Incorreto: I already send the file. → Melhor neste modelo: I already sent the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "finished",
+                        "pt": "terminado / concluído"
+                    },
+                    {
+                        "en": "already",
+                        "pt": "já"
+                    },
+                    {
+                        "en": "still",
+                        "pt": "ainda"
+                    },
+                    {
+                        "en": "need to",
+                        "pt": "precisar"
+                    },
+                    {
+                        "en": "first part",
+                        "pt": "primeira parte"
+                    },
+                    {
+                        "en": "section",
+                        "pt": "seção"
+                    },
+                    {
+                        "en": "check the link",
+                        "pt": "verificar o link"
+                    },
+                    {
+                        "en": "send the file",
+                        "pt": "enviar o arquivo"
+                    },
+                    {
+                        "en": "pending",
+                        "pt": "pendente"
+                    },
+                    {
+                        "en": "done",
+                        "pt": "feito / concluído"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Status Update",
+                    "en": "I finished the first part and I already sent the file. I still need to check the link and read the last section.",
+                    "pt": "Eu terminei a primeira parte e já enviei o arquivo. Eu ainda preciso verificar o link e ler a última seção.",
+                    "task": "Read the text and separate what is done from what is pending."
+                },
+                "listening": {
+                    "title": "Listening Lab — Done and Pending",
+                    "instructions": "Listen carefully and identify the sentence about a pending action.",
+                    "text": "I finished the first part. I still need to check the link.",
+                    "transcript": "I finished the first part. I still need to check the link.",
+                    "question": "Choose the sentence about a pending task:",
+                    "options": [
+                        "I still need to check the link.",
+                        "I finished the first part.",
+                        "I already sent the file."
+                    ],
+                    "answer": "I still need to check the link.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence about a pending task:",
+                    "helpText": "Use I still need to + verb.",
+                    "options": [
+                        "I still need to read this section.",
+                        "I still need read this section.",
+                        "I still reading this section."
+                    ],
+                    "answer": "I still need to read this section."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to give simple but meaningful status updates about completed and pending work.",
+                    "tips": [
+                        "Use highly practical examples tied to lessons, files and task steps.",
+                        "Contrast done and pending clearly.",
+                        "Keep the sentences short and report-like.",
+                        "This lesson is about communication value, not tense mastery.",
+                        "Encourage visual separation between what is complete and what still remains."
+                    ],
+                    "supportPhrases": [
+                        "Say what is finished.",
+                        "Now say what is still pending.",
+                        "Use already and still when helpful.",
+                        "Make the task status clear.",
+                        "This is progress-tracking language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a dar updates de status simples, mas significativos, sobre trabalho concluído e pendente.",
+                    "tips": [
+                        "Use exemplos altamente práticos ligados a lições, arquivos e etapas de tarefas.",
+                        "Contraste com clareza o que está feito e o que está pendente.",
+                        "Mantenha as frases curtas e com cara de reporte.",
+                        "Esta lição é sobre valor comunicativo, não domínio de tempos verbais.",
+                        "Incentive separação visual entre o que foi concluído e o que ainda resta."
+                    ],
+                    "supportPhrases": [
+                        "Diga o que está terminado.",
+                        "Agora diga o que ainda está pendente.",
+                        "Use already e still quando ajudarem.",
+                        "Torne o status da tarefa claro.",
+                        "Isto é linguagem de acompanhamento de progresso."
+                    ]
+                }
+            },
+            {
+                "id": "11.3",
+                "subtitulo": "Are You Done? — Asking About Progress and Status",
+                "lessonMeta": {
+                    "focus": "Simple questions about task progress and completion",
+                    "canDo": "I can ask about another person's progress and answer basic status questions.",
+                    "structures": [
+                        "Did you finish this step?",
+                        "Are you done?",
+                        "Are you still working on it?",
+                        "I am almost done.",
+                        "I finished it."
+                    ],
+                    "outputTargets": [
+                        "Ask about progress.",
+                        "Answer short status questions.",
+                        "Use simple update language in interaction."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now check another person's progress.<br><br>In real collaboration, you need to ask for status updates:<br><br><strong>Did you finish this step?</strong><br><strong>Are you done?</strong><br><strong>Are you still working on it?</strong><br><strong>I am almost done.</strong><br><strong>I finished it.</strong><br><br>This is the language of follow-up.",
+                    "options": [
+                        {
+                            "text": "Are you done?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a natural short status question."
+                        },
+                        {
+                            "text": "You are done?",
+                            "correct": false,
+                            "feedback": "For this stage, use the standard question order: <strong>Are you done?</strong>"
+                        },
+                        {
+                            "text": "I am almost done.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a strong progress update."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Asking About Progress",
+                    "intro": "This lesson teaches short functional questions and answers used to monitor progress in tasks, study or collaboration.",
+                    "content": [
+                        "Use <strong>Are you done?</strong> for a short check about completion.",
+                        "Use <strong>Did you finish this step?</strong> for a more specific question about a completed action.",
+                        "Use <strong>Are you still working on it?</strong> to ask if the task is still in progress.",
+                        "Use <strong>I am almost done</strong> and <strong>I finished it</strong> as simple status answers.",
+                        "These patterns are highly useful in study, teamwork and digital collaboration."
+                    ],
+                    "examples": [
+                        "Did you finish this step?",
+                        "Are you done?",
+                        "Are you still working on it?",
+                        "I am almost done.",
+                        "I finished it."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: You are done? → Better in this model: Are you done?",
+                        "Incorrect: Did you finished this step? → Correct: Did you finish this step?",
+                        "Incorrect: I almost am done. → Better: I am almost done."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Perguntando Sobre Progresso",
+                    "intro": "Esta lição ensina perguntas e respostas curtas e funcionais usadas para monitorar o progresso em tarefas, estudo ou colaboração.",
+                    "content": [
+                        "Use <strong>Are you done?</strong> para uma checagem curta sobre conclusão.",
+                        "Use <strong>Did you finish this step?</strong> para uma pergunta mais específica sobre uma ação concluída.",
+                        "Use <strong>Are you still working on it?</strong> para perguntar se a tarefa ainda está em andamento.",
+                        "Use <strong>I am almost done</strong> e <strong>I finished it</strong> como respostas simples de status.",
+                        "Esses padrões são muito úteis em estudo, trabalho em equipe e colaboração digital."
+                    ],
+                    "examples": [
+                        "Você terminou?",
+                        "Você terminou esta etapa?",
+                        "Você ainda está trabalhando nisso?",
+                        "Eu estou quase terminando.",
+                        "Eu terminei isso."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: You are done? → Melhor neste modelo: Are you done?",
+                        "Incorreto: Did you finished this step? → Correto: Did you finish this step?",
+                        "Incorreto: I almost am done. → Melhor: I am almost done."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "done",
+                        "pt": "pronto / terminado"
+                    },
+                    {
+                        "en": "almost",
+                        "pt": "quase"
+                    },
+                    {
+                        "en": "finish",
+                        "pt": "terminar"
+                    },
+                    {
+                        "en": "step",
+                        "pt": "etapa"
+                    },
+                    {
+                        "en": "still working on it",
+                        "pt": "ainda trabalhando nisso"
+                    },
+                    {
+                        "en": "status",
+                        "pt": "status"
+                    },
+                    {
+                        "en": "progress",
+                        "pt": "progresso"
+                    },
+                    {
+                        "en": "follow-up",
+                        "pt": "acompanhamento"
+                    },
+                    {
+                        "en": "check in",
+                        "pt": "fazer uma checagem"
+                    },
+                    {
+                        "en": "update",
+                        "pt": "atualização / update"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Team Check-In",
+                    "en": "Did you finish this step? Not yet. I am still working on it. Are you done with the file? I am almost done.",
+                    "pt": "Você terminou esta etapa? Ainda não. Eu ainda estou trabalhando nisso. Você terminou com o arquivo? Eu estou quase terminando.",
+                    "task": "Read the exchange and identify the questions and the status answers."
+                },
+                "listening": {
+                    "title": "Listening Lab — Status Questions",
+                    "instructions": "Listen carefully and identify the correct progress question.",
+                    "text": "Are you done? Are you still working on it?",
+                    "transcript": "Are you done? Are you still working on it?",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "Are you still working on it?",
+                        "You are still working on it?",
+                        "Did you finished this step?"
+                    ],
+                    "answer": "Are you still working on it?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct answer to a status question:",
+                    "helpText": "Use a short update sentence.",
+                    "options": [
+                        "I am almost done.",
+                        "I almost am done.",
+                        "I am done almost."
+                    ],
+                    "answer": "I am almost done."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to ask for and give short progress updates in a collaborative setting.",
+                    "tips": [
+                        "Use realistic check-in situations.",
+                        "Keep the exchanges short, clear and repetitive.",
+                        "Emphasize utility over grammatical depth.",
+                        "Contrast in progress, almost done and finished.",
+                        "Help the learner hear the rhythm of status questions and answers."
+                    ],
+                    "supportPhrases": [
+                        "Ask for the update.",
+                        "Now answer the status question.",
+                        "Say if the task is done or still in progress.",
+                        "Keep your update short and clear.",
+                        "This is follow-up language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a pedir e dar updates curtos de progresso em um contexto colaborativo.",
+                    "tips": [
+                        "Use situações realistas de check-in.",
+                        "Mantenha as trocas curtas, claras e repetitivas.",
+                        "Enfatize utilidade mais do que profundidade gramatical.",
+                        "Contraste em andamento, quase pronto e concluído.",
+                        "Ajude o aluno a ouvir o ritmo de perguntas e respostas de status."
+                    ],
+                    "supportPhrases": [
+                        "Peça o update.",
+                        "Agora responda à pergunta de status.",
+                        "Diga se a tarefa está pronta ou ainda em andamento.",
+                        "Mantenha seu update curto e claro.",
+                        "Isto é linguagem de acompanhamento."
+                    ]
+                }
+            },
+            {
+                "id": "11.4",
+                "subtitulo": "The Boss Fight — A Simple Task Update",
+                "lessonMeta": {
+                    "focus": "Integrated task and progress update",
+                    "canDo": "I can give a short update about what I am doing, what I finished and what I still need to do.",
+                    "structures": [
+                        "I am working on this task now.",
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I am almost done."
+                    ],
+                    "outputTargets": [
+                        "Produce a short task update.",
+                        "Combine present progress, completed work and pending actions.",
+                        "Use clear task-tracking language."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> now give a real task update.<br><br>Combine current work, completed work and pending work:<br><br><strong>I am working on this task now.</strong><br><strong>I finished the first part.</strong><br><strong>I already sent the file.</strong><br><strong>I still need to check the link.</strong><br><strong>I am almost done.</strong><br><br>Your mission is to sound <strong>clear, organized and useful</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now build your short task update with clarity and structure."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building a Simple Status Update",
+                    "intro": "The final lesson of Week 11 integrates task language, progress description and simple status reporting into one short useful update.",
+                    "content": [
+                        "A simple task update usually includes three elements: what is in progress, what is complete, and what is still pending.",
+                        "Useful patterns include <strong>I am working on...</strong>, <strong>I finished...</strong>, <strong>I already...</strong>, <strong>I still need to...</strong> and <strong>I am almost done.</strong>",
+                        "The learner should produce a short message that sounds practical and easy to understand.",
+                        "This type of update is useful in teams, study groups, support channels and productivity contexts.",
+                        "The goal is organized communication, not complexity."
+                    ],
+                    "examples": [
+                        "I am working on this task now.",
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I am almost done."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I working on this task now. → Correct: I am working on this task now.",
+                        "Incorrect: I still need check the link. → Correct: I still need to check the link.",
+                        "Incorrect: I already send the file. → Better in this model: I already sent the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo um Update Simples de Status",
+                    "intro": "A lição final da Week 11 integra linguagem de tarefas, descrição de progresso e report simples de status em um update curto e útil.",
+                    "content": [
+                        "Um update simples de tarefa normalmente inclui três elementos: o que está em andamento, o que está concluído e o que ainda está pendente.",
+                        "Padrões úteis incluem <strong>I am working on...</strong>, <strong>I finished...</strong>, <strong>I already...</strong>, <strong>I still need to...</strong> e <strong>I am almost done.</strong>",
+                        "O aluno deve produzir uma mensagem curta que soe prática e fácil de entender.",
+                        "Esse tipo de update é útil em times, grupos de estudo, canais de suporte e contextos de produtividade.",
+                        "O objetivo é comunicação organizada, não complexidade."
+                    ],
+                    "examples": [
+                        "Eu estou trabalhando nesta tarefa agora.",
+                        "Eu terminei a primeira parte.",
+                        "Eu já enviei o arquivo.",
+                        "Eu ainda preciso verificar o link.",
+                        "Eu estou quase terminando."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I working on this task now. → Correto: I am working on this task now.",
+                        "Incorreto: I still need check the link. → Correto: I still need to check the link.",
+                        "Incorreto: I already send the file. → Melhor neste modelo: I already sent the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "status update",
+                        "pt": "update de status"
+                    },
+                    {
+                        "en": "in progress",
+                        "pt": "em andamento"
+                    },
+                    {
+                        "en": "complete",
+                        "pt": "completo / concluído"
+                    },
+                    {
+                        "en": "pending",
+                        "pt": "pendente"
+                    },
+                    {
+                        "en": "almost done",
+                        "pt": "quase pronto"
+                    },
+                    {
+                        "en": "first part",
+                        "pt": "primeira parte"
+                    },
+                    {
+                        "en": "last step",
+                        "pt": "última etapa"
+                    },
+                    {
+                        "en": "send",
+                        "pt": "enviar"
+                    },
+                    {
+                        "en": "check",
+                        "pt": "verificar"
+                    },
+                    {
+                        "en": "task update",
+                        "pt": "atualização de tarefa"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — My Task Update",
+                    "en": "I am working on this task now. I finished the first part and already sent the file. I still need to check the link, but I am almost done.",
+                    "pt": "Eu estou trabalhando nesta tarefa agora. Eu terminei a primeira parte e já enviei o arquivo. Eu ainda preciso verificar o link, mas estou quase terminando.",
+                    "task": "Read the update and identify what is in progress, what is complete and what is pending."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Status Update",
+                    "instructions": "Listen to the update and identify the sentence about a pending action.",
+                    "text": "I am working on this task now. I finished the first part. I still need to check the link. I am almost done.",
+                    "transcript": "I am working on this task now. I finished the first part. I still need to check the link. I am almost done.",
+                    "question": "Type the sentence about a pending action:",
+                    "answer": "I still need to check the link.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write a short status update in English.",
+                    "helpText": "Use 4 to 6 lines. Include what you are doing now, what you finished, and what you still need to do.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate task and progress language into a short functional update that sounds realistic and useful.",
+                    "tips": [
+                        "Require clear structure, not long output.",
+                        "Use practical study or project tasks.",
+                        "Encourage the learner to separate current work, finished work and pending work.",
+                        "Treat this as a progress-report milestone in Phase 3.",
+                        "Reward clarity and organization."
+                    ],
+                    "supportPhrases": [
+                        "Start with what you are doing now.",
+                        "Now say what you finished.",
+                        "Then say what is still pending.",
+                        "Keep your update short and organized.",
+                        "Show progress clearly."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar linguagem de tarefas e progresso em um update curto e funcional que soe realista e útil.",
+                    "tips": [
+                        "Exija estrutura clara, não produção longa.",
+                        "Use tarefas práticas de estudo ou projeto.",
+                        "Incentive o aluno a separar trabalho atual, trabalho concluído e trabalho pendente.",
+                        "Trate isto como um marco de report de progresso na Fase 3.",
+                        "Valorize clareza e organização."
+                    ],
+                    "supportPhrases": [
+                        "Comece com o que você está fazendo agora.",
+                        "Agora diga o que você terminou.",
+                        "Depois diga o que ainda está pendente.",
+                        "Mantenha seu update curto e organizado.",
+                        "Mostre o progresso com clareza."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-12",
+        "faseId": 3,
+        "semana": 12,
+        "titulo": "Week 12 — Review, Collaboration & Progress Checkpoint",
+        "objetivo": "The student can integrate the core language of help requests, clarification, confirmation, coordination and progress updates in short guided interactions related to study, teamwork and tech-oriented tasks.",
+        "rubricaA1": [
+            {
+                "criterio": "Functional integration",
+                "descricao": "Uses help, clarification, confirmation and progress language together with reasonable clarity and control.",
+                "criterio_pt": "Integração funcional",
+                "descricao_pt": "Usa linguagem de ajuda, esclarecimento, confirmação e progresso em conjunto com clareza e controle razoáveis."
+            },
+            {
+                "criterio": "Task communication",
+                "descricao": "Can talk about tasks, difficulties, status and next steps in a short functional way.",
+                "criterio_pt": "Comunicação de tarefas",
+                "descricao_pt": "Consegue falar sobre tarefas, dificuldades, status e próximos passos de forma curta e funcional."
+            },
+            {
+                "criterio": "Collaborative response",
+                "descricao": "Can participate in short predictable collaborative exchanges with meaningful responses.",
+                "criterio_pt": "Resposta colaborativa",
+                "descricao_pt": "Consegue participar de trocas colaborativas curtas e previsíveis com respostas significativas."
+            },
+            {
+                "criterio": "Listening integration",
+                "descricao": "Identifies requests, clarification, coordination and progress language in integrated listening tasks.",
+                "criterio_pt": "Integração auditiva",
+                "descricao_pt": "Identifica linguagem de pedidos, esclarecimento, coordenação e progresso em tarefas integradas de listening."
+            },
+            {
+                "criterio": "Checkpoint performance",
+                "descricao": "Produces a short final interaction or update that is clear, organized and functional.",
+                "criterio_pt": "Desempenho no checkpoint",
+                "descricao_pt": "Produz uma interação ou update final curto, claro, organizado e funcional."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "12.1",
+                "subtitulo": "Asking, Explaining & Clarifying — Review of Help and Understanding",
+                "lessonMeta": {
+                    "focus": "Integrated review of help requests, difficulty expression and clarification",
+                    "canDo": "I can ask for help, explain my difficulty and ask for clarification.",
+                    "structures": [
+                        "Can you help me with this task?",
+                        "I need help with this part.",
+                        "I don't understand this step.",
+                        "Can you clarify this?",
+                        "What does this mean?"
+                    ],
+                    "outputTargets": [
+                        "Ask for help clearly.",
+                        "Explain the problem.",
+                        "Ask for clarification."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Checkpoint mission:</strong> now you integrate the first interaction skills of this phase.<br><br>You need to ask for help, explain the problem and ask for clarification:<br><br><strong>Can you help me with this task?</strong><br><strong>I need help with this part.</strong><br><strong>I don't understand this step.</strong><br><strong>Can you clarify this?</strong><br><strong>What does this mean?</strong><br><br>This is the first layer of collaborative communication.",
+                    "options": [
+                        {
+                            "text": "Can you help me with this task?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear and complete request for help."
+                        },
+                        {
+                            "text": "I need help with this part.",
+                            "correct": true,
+                            "feedback": "Excellent. That clearly explains the area of difficulty."
+                        },
+                        {
+                            "text": "Can clarify this?",
+                            "correct": false,
+                            "feedback": "You need the subject <strong>you</strong>. Say: <strong>Can you clarify this?</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Reviewing Help Requests and Clarification",
+                    "intro": "This lesson reviews the first half of Phase 3 by combining requests for help, statements of difficulty and clarification language.",
+                    "content": [
+                        "Use <strong>Can you help me...?</strong> to ask for support.",
+                        "Use <strong>I need help with...</strong> and <strong>I don't understand...</strong> to explain the problem clearly.",
+                        "Use <strong>Can you clarify this?</strong> and <strong>What does this mean?</strong> to request more precision.",
+                        "These forms work together in real communication: first ask, then explain, then clarify.",
+                        "The focus of this checkpoint is integration, not new complexity."
+                    ],
+                    "examples": [
+                        "Can you help me with this task?",
+                        "I need help with this part.",
+                        "I don't understand this step.",
+                        "Can you clarify this?",
+                        "What does this mean?"
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Can help me with this task? → Correct: Can you help me with this task?",
+                        "Incorrect: I need help this part. → Correct: I need help with this part.",
+                        "Incorrect: What this means? → Correct: What does this mean?"
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Revisando Pedidos de Ajuda e Esclarecimento",
+                    "intro": "Esta lição revisa a primeira metade da Fase 3 combinando pedidos de ajuda, declarações de dificuldade e linguagem de esclarecimento.",
+                    "content": [
+                        "Use <strong>Can you help me...?</strong> para pedir apoio.",
+                        "Use <strong>I need help with...</strong> e <strong>I don't understand...</strong> para explicar o problema com clareza.",
+                        "Use <strong>Can you clarify this?</strong> e <strong>What does this mean?</strong> para pedir mais precisão.",
+                        "Essas formas funcionam juntas na comunicação real: primeiro peça, depois explique, depois esclareça.",
+                        "O foco deste checkpoint é integração, não nova complexidade."
+                    ],
+                    "examples": [
+                        "Você pode me ajudar com esta tarefa?",
+                        "Eu preciso de ajuda com esta parte.",
+                        "Eu não entendo esta etapa.",
+                        "Você pode esclarecer isso?",
+                        "O que isso significa?"
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Can help me with this task? → Correto: Can you help me with this task?",
+                        "Incorreto: I need help this part. → Correto: I need help with this part.",
+                        "Incorreto: What this means? → Correto: What does this mean?"
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "help",
+                        "pt": "ajuda / ajudar"
+                    },
+                    {
+                        "en": "task",
+                        "pt": "tarefa"
+                    },
+                    {
+                        "en": "part",
+                        "pt": "parte"
+                    },
+                    {
+                        "en": "step",
+                        "pt": "etapa"
+                    },
+                    {
+                        "en": "clarify",
+                        "pt": "esclarecer"
+                    },
+                    {
+                        "en": "mean",
+                        "pt": "significar / querer dizer"
+                    },
+                    {
+                        "en": "problem",
+                        "pt": "problema"
+                    },
+                    {
+                        "en": "difficulty",
+                        "pt": "dificuldade"
+                    },
+                    {
+                        "en": "question",
+                        "pt": "pergunta"
+                    },
+                    {
+                        "en": "instruction",
+                        "pt": "instrução"
+                    }
+                ],
+                "reading": {
+                    "title": "Checkpoint Reading — Help and Clarification",
+                    "en": "Can you help me with this task? I need help with this part and I don't understand this step. Can you clarify this? What does this mean?",
+                    "pt": "Você pode me ajudar com esta tarefa? Eu preciso de ajuda com esta parte e não entendo esta etapa. Você pode esclarecer isso? O que isso significa?",
+                    "task": "Read the exchange and identify the request, the problem and the clarification questions."
+                },
+                "listening": {
+                    "title": "Listening Lab — Help and Clarification",
+                    "instructions": "Listen carefully and identify the clarification question.",
+                    "text": "I need help with this part. Can you clarify this? What does this mean?",
+                    "transcript": "I need help with this part. Can you clarify this? What does this mean?",
+                    "question": "Choose the clarification question:",
+                    "options": [
+                        "Can you clarify this?",
+                        "I need help with this part.",
+                        "I don't understand this step."
+                    ],
+                    "answer": "Can you clarify this?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the best sentence to explain a difficulty:",
+                    "helpText": "Use I need help with... or I don't understand...",
+                    "options": [
+                        "I need help with this part.",
+                        "I need help this part.",
+                        "Can clarify this?"
+                    ],
+                    "answer": "I need help with this part."
+                },
+                "teacherNotes": {
+                    "focus": "Consolidate request and clarification language as the first block of the Phase 3 checkpoint.",
+                    "tips": [
+                        "Require a natural sequence: ask, explain, clarify.",
+                        "Use realistic study and digital-task examples.",
+                        "Keep the interaction simple and highly functional.",
+                        "Reinforce the idea that good communication starts with clear problem expression.",
+                        "Treat this as structured review with purpose."
+                    ],
+                    "supportPhrases": [
+                        "Ask for help clearly.",
+                        "Now explain the difficulty.",
+                        "Ask for clarification if needed.",
+                        "Make the message useful.",
+                        "This is integrated support language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Consolidar linguagem de pedido e esclarecimento como o primeiro bloco do checkpoint da Fase 3.",
+                    "tips": [
+                        "Exija uma sequência natural: pedir, explicar, esclarecer.",
+                        "Use exemplos realistas de estudo e tarefas digitais.",
+                        "Mantenha a interação simples e altamente funcional.",
+                        "Reforce a ideia de que boa comunicação começa com expressão clara do problema.",
+                        "Trate isso como revisão estruturada com propósito."
+                    ],
+                    "supportPhrases": [
+                        "Peça ajuda com clareza.",
+                        "Agora explique a dificuldade.",
+                        "Peça esclarecimento se necessário.",
+                        "Torne a mensagem útil.",
+                        "Isto é linguagem integrada de apoio."
+                    ]
+                }
+            },
+            {
+                "id": "12.2",
+                "subtitulo": "Confirming & Coordinating — Review of Alignment and Shared Action",
+                "lessonMeta": {
+                    "focus": "Integrated review of confirmation and coordination",
+                    "canDo": "I can confirm understanding and coordinate simple actions with another person.",
+                    "structures": [
+                        "So, is this correct?",
+                        "Okay, I understand now.",
+                        "Let's do this step by step.",
+                        "First, read this. Then, send the answer.",
+                        "I can send the file and you can check it."
+                    ],
+                    "outputTargets": [
+                        "Confirm understanding.",
+                        "Coordinate a simple action sequence.",
+                        "Share tasks clearly."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Checkpoint mission:</strong> now move from understanding to alignment and action.<br><br>You need to confirm and coordinate:<br><br><strong>So, is this correct?</strong><br><strong>Okay, I understand now.</strong><br><strong>Let's do this step by step.</strong><br><strong>First, read this. Then, send the answer.</strong><br><strong>I can send the file and you can check it.</strong><br><br>This is the language of organized collaboration.",
+                    "options": [
+                        {
+                            "text": "So, is this correct?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear confirmation question."
+                        },
+                        {
+                            "text": "Let's do this step by step.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a strong coordination sentence."
+                        },
+                        {
+                            "text": "Let's to do this.",
+                            "correct": false,
+                            "feedback": "After <strong>let's</strong>, use the base verb. Say: <strong>Let's do this.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Reviewing Confirmation and Coordination",
+                    "intro": "This lesson reviews how learners confirm understanding and organize simple shared actions. It is the bridge between support and execution.",
+                    "content": [
+                        "Use <strong>So, is this correct?</strong> and <strong>Okay, I understand now.</strong> to close the clarification cycle.",
+                        "Use <strong>Let's...</strong> to suggest shared action.",
+                        "Use <strong>First...</strong> and <strong>Then...</strong> to organize simple sequences.",
+                        "Use <strong>I can...</strong> and <strong>you can...</strong> to divide tasks clearly.",
+                        "The goal is alignment: both people understand and know what to do next."
+                    ],
+                    "examples": [
+                        "So, is this correct?",
+                        "Okay, I understand now.",
+                        "Let's do this step by step.",
+                        "First, read this. Then, send the answer.",
+                        "I can send the file and you can check it."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: So, this is correct? → Better in this model: So, is this correct?",
+                        "Incorrect: Let's to do this. → Correct: Let's do this.",
+                        "Incorrect: I can sends the file. → Correct: I can send the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Revisando Confirmação e Coordenação",
+                    "intro": "Esta lição revisa como os alunos confirmam compreensão e organizam ações simples compartilhadas. É a ponte entre apoio e execução.",
+                    "content": [
+                        "Use <strong>So, is this correct?</strong> e <strong>Okay, I understand now.</strong> para fechar o ciclo de esclarecimento.",
+                        "Use <strong>Let's...</strong> para sugerir ação compartilhada.",
+                        "Use <strong>First...</strong> e <strong>Then...</strong> para organizar sequências simples.",
+                        "Use <strong>I can...</strong> e <strong>you can...</strong> para dividir tarefas com clareza.",
+                        "O objetivo é alinhamento: as duas pessoas entendem e sabem o que fazer a seguir."
+                    ],
+                    "examples": [
+                        "Então, isso está correto?",
+                        "Ok, agora eu entendo.",
+                        "Vamos fazer isso passo a passo.",
+                        "Primeiro, leia isto. Depois, envie a resposta.",
+                        "Eu posso enviar o arquivo e você pode verificá-lo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: So, this is correct? → Melhor neste modelo: So, is this correct?",
+                        "Incorreto: Let's to do this. → Correto: Let's do this.",
+                        "Incorreto: I can sends the file. → Correto: I can send the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "correct",
+                        "pt": "correto"
+                    },
+                    {
+                        "en": "understand now",
+                        "pt": "entender agora"
+                    },
+                    {
+                        "en": "step by step",
+                        "pt": "passo a passo"
+                    },
+                    {
+                        "en": "first",
+                        "pt": "primeiro"
+                    },
+                    {
+                        "en": "then",
+                        "pt": "depois"
+                    },
+                    {
+                        "en": "check",
+                        "pt": "verificar"
+                    },
+                    {
+                        "en": "send",
+                        "pt": "enviar"
+                    },
+                    {
+                        "en": "action",
+                        "pt": "ação"
+                    },
+                    {
+                        "en": "coordinate",
+                        "pt": "coordenar"
+                    },
+                    {
+                        "en": "alignment",
+                        "pt": "alinhamento"
+                    }
+                ],
+                "reading": {
+                    "title": "Checkpoint Reading — Confirm and Coordinate",
+                    "en": "Can you clarify this? Sure. First, read this file. Then, send the answer. Okay, I understand now. So, is this correct? Yes. Let's do this step by step.",
+                    "pt": "Você pode esclarecer isso? Claro. Primeiro, leia este arquivo. Depois, envie a resposta. Ok, agora eu entendo. Então, isso está correto? Sim. Vamos fazer isso passo a passo.",
+                    "task": "Read the text and identify the confirmation sentence and the coordination sequence."
+                },
+                "listening": {
+                    "title": "Listening Lab — Confirmation and Coordination",
+                    "instructions": "Listen carefully and identify the sentence about shared action.",
+                    "text": "Okay, I understand now. Let's do this step by step.",
+                    "transcript": "Okay, I understand now. Let's do this step by step.",
+                    "question": "Choose the coordination sentence:",
+                    "options": [
+                        "Let's do this step by step.",
+                        "Okay, I understand now.",
+                        "So, is this correct?"
+                    ],
+                    "answer": "Let's do this step by step.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence to coordinate action:",
+                    "helpText": "Use let's, first/then, or I can/you can.",
+                    "options": [
+                        "First, read this. Then, send the answer.",
+                        "First read this then send the answer.",
+                        "Let's to do this."
+                    ],
+                    "answer": "First, read this. Then, send the answer."
+                },
+                "teacherNotes": {
+                    "focus": "Consolidate alignment language and simple coordination as the second block of the Phase 3 checkpoint.",
+                    "tips": [
+                        "Require learners to move from understanding to action.",
+                        "Use short realistic task sequences.",
+                        "Reinforce shared action and divided action.",
+                        "Keep the patterns structured and visible.",
+                        "Show that coordination is a natural next step after clarification."
+                    ],
+                    "supportPhrases": [
+                        "Now confirm understanding.",
+                        "Then coordinate the action.",
+                        "Use first and then.",
+                        "Divide the task clearly.",
+                        "This is alignment language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Consolidar linguagem de alinhamento e coordenação simples como o segundo bloco do checkpoint da Fase 3.",
+                    "tips": [
+                        "Exija que o aluno passe da compreensão para a ação.",
+                        "Use sequências curtas e realistas de tarefas.",
+                        "Reforce ação compartilhada e ação dividida.",
+                        "Mantenha os padrões estruturados e visíveis.",
+                        "Mostre que coordenação é o passo natural depois do esclarecimento."
+                    ],
+                    "supportPhrases": [
+                        "Agora confirme a compreensão.",
+                        "Depois coordene a ação.",
+                        "Use first e then.",
+                        "Divida a tarefa com clareza.",
+                        "Isto é linguagem de alinhamento."
+                    ]
+                }
+            },
+            {
+                "id": "12.3",
+                "subtitulo": "Giving a Progress Update — Review of Task and Status Language",
+                "lessonMeta": {
+                    "focus": "Integrated review of tasks, progress, finished actions and pending actions",
+                    "canDo": "I can give a short status update about a task.",
+                    "structures": [
+                        "I am working on this now.",
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I am almost done."
+                    ],
+                    "outputTargets": [
+                        "Say what I am doing now.",
+                        "Say what I finished.",
+                        "Say what is still pending."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Checkpoint mission:</strong> now report progress clearly.<br><br>You need to give a short status update with active, finished and pending tasks:<br><br><strong>I am working on this now.</strong><br><strong>I finished the first part.</strong><br><strong>I already sent the file.</strong><br><strong>I still need to check the link.</strong><br><strong>I am almost done.</strong><br><br>This is the language of task visibility.",
+                    "options": [
+                        {
+                            "text": "I am working on this now.",
+                            "correct": true,
+                            "feedback": "Excellent. That clearly shows a task in progress."
+                        },
+                        {
+                            "text": "I finished the first part.",
+                            "correct": true,
+                            "feedback": "Excellent. That clearly reports completed work."
+                        },
+                        {
+                            "text": "I still need check the link.",
+                            "correct": false,
+                            "feedback": "Use <strong>to</strong> after need. Say: <strong>I still need to check the link.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Reviewing Progress and Status Updates",
+                    "intro": "This lesson reviews how the learner can make a short and useful task update by combining current action, completed work and pending work.",
+                    "content": [
+                        "Use <strong>I am working on...</strong> to describe work in progress.",
+                        "Use <strong>I finished...</strong> and <strong>I already...</strong> to describe completed work.",
+                        "Use <strong>I still need to...</strong> to describe pending work.",
+                        "Use <strong>I am almost done.</strong> to show near completion.",
+                        "This kind of update is common in teamwork, study groups, project flows and support interactions."
+                    ],
+                    "examples": [
+                        "I am working on this now.",
+                        "I finished the first part.",
+                        "I already sent the file.",
+                        "I still need to check the link.",
+                        "I am almost done."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I working on this now. → Correct: I am working on this now.",
+                        "Incorrect: I already send the file. → Better in this model: I already sent the file.",
+                        "Incorrect: I still need check the link. → Correct: I still need to check the link."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Revisando Progresso e Updates de Status",
+                    "intro": "Esta lição revisa como o aluno pode fazer um update curto e útil de tarefa combinando ação atual, trabalho concluído e trabalho pendente.",
+                    "content": [
+                        "Use <strong>I am working on...</strong> para descrever trabalho em andamento.",
+                        "Use <strong>I finished...</strong> e <strong>I already...</strong> para descrever trabalho concluído.",
+                        "Use <strong>I still need to...</strong> para descrever trabalho pendente.",
+                        "Use <strong>I am almost done.</strong> para mostrar que está perto de terminar.",
+                        "Esse tipo de update é comum em trabalho em equipe, grupos de estudo, fluxos de projeto e interações de suporte."
+                    ],
+                    "examples": [
+                        "Eu estou trabalhando nisso agora.",
+                        "Eu terminei a primeira parte.",
+                        "Eu já enviei o arquivo.",
+                        "Eu ainda preciso verificar o link.",
+                        "Eu estou quase terminando."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I working on this now. → Correto: I am working on this now.",
+                        "Incorreto: I already send the file. → Melhor neste modelo: I already sent the file.",
+                        "Incorreto: I still need check the link. → Correto: I still need to check the link."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "working on",
+                        "pt": "trabalhando em"
+                    },
+                    {
+                        "en": "finished",
+                        "pt": "terminado / concluído"
+                    },
+                    {
+                        "en": "already",
+                        "pt": "já"
+                    },
+                    {
+                        "en": "still",
+                        "pt": "ainda"
+                    },
+                    {
+                        "en": "almost done",
+                        "pt": "quase pronto"
+                    },
+                    {
+                        "en": "link",
+                        "pt": "link"
+                    },
+                    {
+                        "en": "file",
+                        "pt": "arquivo"
+                    },
+                    {
+                        "en": "first part",
+                        "pt": "primeira parte"
+                    },
+                    {
+                        "en": "pending",
+                        "pt": "pendente"
+                    },
+                    {
+                        "en": "status update",
+                        "pt": "update de status"
+                    }
+                ],
+                "reading": {
+                    "title": "Checkpoint Reading — Task Update",
+                    "en": "I am working on this now. I finished the first part and already sent the file. I still need to check the link, but I am almost done.",
+                    "pt": "Eu estou trabalhando nisso agora. Eu terminei a primeira parte e já enviei o arquivo. Eu ainda preciso verificar o link, mas estou quase terminando.",
+                    "task": "Read the update and identify current work, completed work and pending work."
+                },
+                "listening": {
+                    "title": "Listening Lab — Progress Update",
+                    "instructions": "Listen carefully and identify the pending-action sentence.",
+                    "text": "I finished the first part. I still need to check the link. I am almost done.",
+                    "transcript": "I finished the first part. I still need to check the link. I am almost done.",
+                    "question": "Choose the pending-action sentence:",
+                    "options": [
+                        "I still need to check the link.",
+                        "I finished the first part.",
+                        "I am almost done."
+                    ],
+                    "answer": "I still need to check the link.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the best short status update:",
+                    "helpText": "Use one sentence about current work and one about pending work.",
+                    "options": [
+                        "I am working on this now and I still need to check the link.",
+                        "I working on this now and I still need check the link.",
+                        "I already send the file and I working on this."
+                    ],
+                    "answer": "I am working on this now and I still need to check the link."
+                },
+                "teacherNotes": {
+                    "focus": "Consolidate task and progress language as the third block of the Phase 3 checkpoint.",
+                    "tips": [
+                        "Use practical task examples with visible status.",
+                        "Encourage three-part updates: now, done, pending.",
+                        "Keep the language compact and useful.",
+                        "Show that a good update helps other people understand the situation quickly.",
+                        "Treat this lesson as communication for coordination, not grammar for its own sake."
+                    ],
+                    "supportPhrases": [
+                        "Say what is happening now.",
+                        "Now say what is finished.",
+                        "Then say what is still pending.",
+                        "Make the update useful.",
+                        "This is progress language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Consolidar linguagem de tarefas e progresso como o terceiro bloco do checkpoint da Fase 3.",
+                    "tips": [
+                        "Use exemplos práticos de tarefas com status visível.",
+                        "Incentive updates em três partes: agora, feito, pendente.",
+                        "Mantenha a linguagem compacta e útil.",
+                        "Mostre que um bom update ajuda outras pessoas a entenderem rapidamente a situação.",
+                        "Trate esta lição como comunicação para coordenação, não gramática por si só."
+                    ],
+                    "supportPhrases": [
+                        "Diga o que está acontecendo agora.",
+                        "Agora diga o que está concluído.",
+                        "Depois diga o que ainda está pendente.",
+                        "Torne o update útil.",
+                        "Isto é linguagem de progresso."
+                    ]
+                }
+            },
+            {
+                "id": "12.4",
+                "subtitulo": "The Boss Fight — A Full Collaboration Checkpoint",
+                "lessonMeta": {
+                    "focus": "Integrated final checkpoint for help, alignment and progress communication",
+                    "canDo": "I can sustain a short guided collaboration dialogue that includes help, clarification, confirmation, coordination and progress update.",
+                    "structures": [
+                        "Can you help me with this task?",
+                        "I need help with this step.",
+                        "Can you clarify this?",
+                        "Sure. First, read this section.",
+                        "Okay, I understand now.",
+                        "So, is this correct?",
+                        "I am working on it now.",
+                        "I finished the first part, but I still need to check the file."
+                    ],
+                    "outputTargets": [
+                        "Build a full short collaboration dialogue.",
+                        "Integrate request, clarification, confirmation, action and progress.",
+                        "Demonstrate readiness to close the third badge."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> this is the checkpoint of the 3rd badge.<br><br>Now you integrate everything from this phase:<br><br><strong>Can you help me with this task?</strong><br><strong>I need help with this step.</strong><br><strong>Can you clarify this?</strong><br><strong>Sure. First, read this section.</strong><br><strong>Okay, I understand now.</strong><br><strong>So, is this correct?</strong><br><strong>I am working on it now.</strong><br><strong>I finished the first part, but I still need to check the file.</strong><br><br>Your mission is to sound <strong>clear, collaborative and phase-ready</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now complete the final collaboration checkpoint with confidence."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Completing the Collaboration Checkpoint",
+                    "intro": "The final lesson of Week 12 integrates the full communication cycle of Phase 3: request, difficulty, clarification, confirmation, coordination and progress update.",
+                    "content": [
+                        "A full collaborative interaction often includes: asking for help, naming the problem, asking for clarification, confirming understanding, coordinating action and reporting progress.",
+                        "This lesson does not add major new structures. It integrates what the learner already knows.",
+                        "The learner should now be able to sustain a short but meaningful exchange in a study or task-based context.",
+                        "The checkpoint is important because it validates practical communication, not isolated sentence knowledge.",
+                        "This final performance marks readiness to move beyond the third badge."
+                    ],
+                    "examples": [
+                        "Can you help me with this task?",
+                        "I need help with this step.",
+                        "Can you clarify this?",
+                        "Sure. First, read this section.",
+                        "Okay, I understand now.",
+                        "So, is this correct?",
+                        "I am working on it now.",
+                        "I finished the first part, but I still need to check the file."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I need help this step. → Correct: I need help with this step.",
+                        "Incorrect: So, this is correct? → Better in this model: So, is this correct?",
+                        "Incorrect: I still need check the file. → Correct: I still need to check the file."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Completando o Checkpoint de Colaboração",
+                    "intro": "A lição final da Week 12 integra o ciclo completo de comunicação da Fase 3: pedido, dificuldade, esclarecimento, confirmação, coordenação e update de progresso.",
+                    "content": [
+                        "Uma interação colaborativa completa frequentemente inclui: pedir ajuda, nomear o problema, pedir esclarecimento, confirmar compreensão, coordenar ação e reportar progresso.",
+                        "Esta lição não adiciona grandes estruturas novas. Ela integra o que o aluno já sabe.",
+                        "O aluno agora deve ser capaz de sustentar uma troca curta, mas significativa, em contexto de estudo ou tarefa.",
+                        "O checkpoint é importante porque valida comunicação prática, não conhecimento de frases isoladas.",
+                        "Esta performance final marca prontidão para ir além da terceira insígnia."
+                    ],
+                    "examples": [
+                        "Você pode me ajudar com esta tarefa?",
+                        "Eu preciso de ajuda com esta etapa.",
+                        "Você pode esclarecer isso?",
+                        "Claro. Primeiro, leia esta seção.",
+                        "Ok, agora eu entendo.",
+                        "Então, isso está correto?",
+                        "Eu estou trabalhando nisso agora.",
+                        "Eu terminei a primeira parte, mas ainda preciso verificar o arquivo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I need help this step. → Correto: I need help with this step.",
+                        "Incorreto: So, this is correct? → Melhor neste modelo: So, is this correct?",
+                        "Incorreto: I still need check the file. → Correto: I still need to check the file."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "checkpoint",
+                        "pt": "checkpoint"
+                    },
+                    {
+                        "en": "collaboration",
+                        "pt": "colaboração"
+                    },
+                    {
+                        "en": "clarification",
+                        "pt": "esclarecimento"
+                    },
+                    {
+                        "en": "confirmation",
+                        "pt": "confirmação"
+                    },
+                    {
+                        "en": "progress update",
+                        "pt": "update de progresso"
+                    },
+                    {
+                        "en": "task step",
+                        "pt": "etapa da tarefa"
+                    },
+                    {
+                        "en": "section",
+                        "pt": "seção"
+                    },
+                    {
+                        "en": "check the file",
+                        "pt": "verificar o arquivo"
+                    },
+                    {
+                        "en": "phase-ready",
+                        "pt": "pronto para a fase"
+                    },
+                    {
+                        "en": "badge",
+                        "pt": "insígnia"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — Full Collaboration Flow",
+                    "en": "Can you help me with this task? I need help with this step. Can you clarify this? Sure. First, read this section. Okay, I understand now. So, is this correct? Yes. I am working on it now. I finished the first part, but I still need to check the file.",
+                    "pt": "Você pode me ajudar com esta tarefa? Eu preciso de ajuda com esta etapa. Você pode esclarecer isso? Claro. Primeiro, leia esta seção. Ok, agora eu entendo. Então, isso está correto? Sim. Eu estou trabalhando nisso agora. Eu terminei a primeira parte, mas ainda preciso verificar o arquivo.",
+                    "task": "Read the full exchange and identify the request, the clarification, the confirmation, the coordinated action and the progress update."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Phase 3 Checkpoint",
+                    "instructions": "Listen to the full exchange and identify the final progress update sentence.",
+                    "text": "Can you help me with this task? I need help with this step. Can you clarify this? Sure. First, read this section. Okay, I understand now. So, is this correct? Yes. I am working on it now. I finished the first part, but I still need to check the file.",
+                    "transcript": "Can you help me with this task? I need help with this step. Can you clarify this? Sure. First, read this section. Okay, I understand now. So, is this correct? Yes. I am working on it now. I finished the first part, but I still need to check the file.",
+                    "question": "Type the final progress update sentence:",
+                    "answer": "I finished the first part, but I still need to check the file.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write a short full collaboration dialogue in English.",
+                    "helpText": "Use 6 to 9 lines. Include a help request, a difficulty, a clarification question, a confirmation sentence, a coordinated action, and a progress update.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the entire communication cycle of Phase 3 in a final checkpoint performance.",
+                    "tips": [
+                        "Require the full sequence: ask, explain, clarify, confirm, coordinate, update.",
+                        "Keep the output short but complete.",
+                        "Use realistic study, platform or task-based scenarios.",
+                        "Evaluate functionality, coherence and readiness.",
+                        "Treat this lesson as the closing milestone of the 3rd badge."
+                    ],
+                    "supportPhrases": [
+                        "Start with the help request.",
+                        "Now explain the difficulty.",
+                        "Ask for clarification.",
+                        "Confirm understanding.",
+                        "Coordinate the action and finish with a progress update."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar todo o ciclo de comunicação da Fase 3 em uma performance final de checkpoint.",
+                    "tips": [
+                        "Exija a sequência completa: pedir, explicar, esclarecer, confirmar, coordenar, atualizar.",
+                        "Mantenha a produção curta, mas completa.",
+                        "Use cenários realistas de estudo, plataforma ou tarefa.",
+                        "Avalie funcionalidade, coerência e prontidão.",
+                        "Trate esta lição como o marco de fechamento da 3ª insígnia."
+                    ],
+                    "supportPhrases": [
+                        "Comece com o pedido de ajuda.",
+                        "Agora explique a dificuldade.",
+                        "Peça esclarecimento.",
+                        "Confirme a compreensão.",
+                        "Coordene a ação e termine com um update de progresso."
+                    ]
+                }
+            }
+        ]
+    }
+]
