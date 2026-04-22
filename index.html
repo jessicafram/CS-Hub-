@@ -2095,19 +2095,23 @@
             mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
 
             // ── Auth state ──
-            fetch('/login.html')
+            fetch('/api/auth/me')
                 .then(r => r.json())
                 .then(d => {
                     if (d.authenticated) {
                         document.body.classList.add('authenticated');
                         const nameEl = document.getElementById('nav-user-name');
                         const avatarEl = document.getElementById('nav-user-avatar');
+
                         if (nameEl && d.name) nameEl.textContent = d.name;
-                        if (avatarEl && d.avatar) { avatarEl.src = d.avatar; avatarEl.style.display = 'block'; }
+
+                        if (avatarEl && d.avatar) {
+                            avatarEl.src = d.avatar;
+                            avatarEl.style.display = 'block';
+                        }
                     }
                 })
                 .catch(() => { });
-
             // ── Error toast ──
             const p = new URLSearchParams(window.location.search);
             if (p.get('error') === 'auth_failed') {

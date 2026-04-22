@@ -55,6 +55,24 @@ app.get("/cursos/english/dashboard", (_req, res) => {
 app.get("/hub.html", (_req, res) => res.sendFile(path.join(ROOT_DIR, "hub.html")));
 app.get("/dashboard", (_req, res) => res.sendFile(path.join(ROOT_DIR, "dashboard.html")));
 
+app.get('/api/auth/me', (req, res) => {
+  const user = req.user || null;
+
+  if (user) {
+    return res.json({
+      authenticated: true,
+      name: user.displayName || user.username || user.name || 'Usuário',
+      avatar: user.photos?.[0]?.value || user.avatar || null
+    });
+  }
+
+  return res.json({
+    authenticated: false,
+    name: null,
+    avatar: null
+  });
+});
+
 // 6. TRATAMENTO DE ERROS E START
 app.use((req, res) => {
   console.log(`⚠️ 404 Not Found: ${req.url}`);

@@ -489,110 +489,110 @@
     </div>
 
     <script>
-    // ==========================================
-    // LÓGICA DO PLACEMENT TEST (INTEGRAÇÃO API)
-    // ==========================================
+        // ==========================================
+        // LÓGICA DO PLACEMENT TEST (INTEGRAÇÃO API)
+        // ==========================================
 
-    let sessionId = null;
-    let allAnswers = {};
+        let sessionId = null;
+        let allAnswers = {};
 
-    // 1. CORREÇÃO DOS IDs: Agora batem com o seu HTML
-    const chatMessages = document.getElementById('messages');
-    const chatOptions = document.getElementById('optionsWrap');
+        // 1. CORREÇÃO DOS IDs: Agora batem com o seu HTML
+        const chatMessages = document.getElementById('messages');
+        const chatOptions = document.getElementById('optionsWrap');
 
-    // 2. CORREÇÃO DA FUNÇÃO ADD MESSAGE: Agora usa o seu CSS premium
-    function addMessage(text, sender = 'rebeca') {
-        const msgDiv = document.createElement('div');
-        // Adiciona a animação e a classe do remetente (rebeca ou user)
-        msgDiv.className = `msg ${sender}`;
+        // 2. CORREÇÃO DA FUNÇÃO ADD MESSAGE: Agora usa o seu CSS premium
+        function addMessage(text, sender = 'rebeca') {
+            const msgDiv = document.createElement('div');
+            // Adiciona a animação e a classe do remetente (rebeca ou user)
+            msgDiv.className = `msg ${sender}`;
 
-        // Define o nome de quem está enviando
-        const senderName = sender === 'rebeca' ? 'Rebeca' : 'Jéssica';
+            // Define o nome de quem está enviando
+            const senderName = sender === 'rebeca' ? 'Rebeca' : 'Jéssica';
 
-        // Constrói o balão de mensagem com a sua estrutura CSS
-        msgDiv.innerHTML = `
+            // Constrói o balão de mensagem com a sua estrutura CSS
+            msgDiv.innerHTML = `
             <div class="msg-sender">${senderName}</div>
             <div class="msg-bubble">${text}</div>
         `;
-        
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Rola pro final
-    }
 
-    function renderOptions(options, step) {
-        chatOptions.innerHTML = ''; 
-
-        options.forEach(opt => {
-            const btn = document.createElement('button');
-            // 3. CORREÇÃO DA CLASSE DO BOTÃO: Usando a sua classe 'opt-btn'
-            btn.className = 'opt-btn'; 
-            btn.innerText = opt.label;
-            btn.onclick = () => submitAnswer(opt.value, opt.label, step);
-            chatOptions.appendChild(btn);
-        });
-    }
-
-    async function startDiagnostic() {
-        try {
-            const response = await fetch('/api/english-placement/start', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            const data = await response.json();
-            sessionId = data.sessionId;
-
-            // Remove loading e mostra primeira pergunta enviando como 'rebeca'
-            chatMessages.innerHTML = '';
-            addMessage(data.message, 'rebeca');
-            renderOptions(data.options, data.step);
-
-        } catch (error) {
-            console.error("Erro ao iniciar o teste:", error);
-            addMessage("System Error: Não foi possível conectar ao servidor da Rebeca.", 'rebeca');
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Rola pro final
         }
-    }
 
-    async function submitAnswer(value, label, step) {
-        // Envia a resposta como 'user' para alinhar à direita e ficar verde
-        addMessage(label, 'user');
-        chatOptions.innerHTML = ''; 
+        function renderOptions(options, step) {
+            chatOptions.innerHTML = '';
 
-        allAnswers[`q_${step}`] = value;
-
-        try {
-            const response = await fetch('/api/english-placement/answer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    sessionId: sessionId,
-                    answer: value,
-                    allAnswers: allAnswers
-                })
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                // 3. CORREÇÃO DA CLASSE DO BOTÃO: Usando a sua classe 'opt-btn'
+                btn.className = 'opt-btn';
+                btn.innerText = opt.label;
+                btn.onclick = () => submitAnswer(opt.value, opt.label, step);
+                chatOptions.appendChild(btn);
             });
+        }
 
-            const data = await response.json();
+        async function startDiagnostic() {
+            try {
+                const response = await fetch('/api/placement/start', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
 
-            if (!data.done) {
-                setTimeout(() => {
-                    addMessage(data.message, 'rebeca');
-                    renderOptions(data.options, data.step);
-                }, 600); 
-            } else {
-                setTimeout(() => {
-                    renderFinalResult(data);
-                }, 800);
+                const data = await response.json();
+                sessionId = data.sessionId;
+
+                // Remove loading e mostra primeira pergunta enviando como 'rebeca'
+                chatMessages.innerHTML = '';
+                addMessage(data.message, 'rebeca');
+                renderOptions(data.options, data.step);
+
+            } catch (error) {
+                console.error("Erro ao iniciar o teste:", error);
+                addMessage("System Error: Não foi possível conectar ao servidor da Rebeca.", 'rebeca');
             }
-        } catch (error) {
-            console.error("Erro ao enviar resposta:", error);
         }
-    }
 
-    function renderFinalResult(data) {
-        chatMessages.innerHTML = '';
-        chatOptions.innerHTML = '';
+        async function submitAnswer(value, label, step) {
+            // Envia a resposta como 'user' para alinhar à direita e ficar verde
+            addMessage(label, 'user');
+            chatOptions.innerHTML = '';
 
-        const resultHTML = `
+            allAnswers[`q_${step}`] = value;
+
+            try {
+                const response = await fetch('/api/placement/answer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sessionId: sessionId,
+                        answer: value,
+                        allAnswers: allAnswers
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!data.done) {
+                    setTimeout(() => {
+                        addMessage(data.message, 'rebeca');
+                        renderOptions(data.options, data.step);
+                    }, 600);
+                } else {
+                    setTimeout(() => {
+                        renderFinalResult(data);
+                    }, 800);
+                }
+            } catch (error) {
+                console.error("Erro ao enviar resposta:", error);
+            }
+        }
+
+        function renderFinalResult(data) {
+            chatMessages.innerHTML = '';
+            chatOptions.innerHTML = '';
+
+            const resultHTML = `
             <div class="eff-result-card">
                 <h3 class="eff-eyebrow">DIAGNÓSTICO CONCLUÍDO</h3>
                 <h2 class="eff-result-title">${data.profileType}</h2>
@@ -606,11 +606,11 @@
             </div>
         `;
 
-        chatMessages.innerHTML = resultHTML;
-    }
+            chatMessages.innerHTML = resultHTML;
+        }
 
-    window.onload = startDiagnostic;
-</script>
+        window.onload = startDiagnostic;
+    </script>
 </body>
 
 </html>

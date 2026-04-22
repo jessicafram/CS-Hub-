@@ -1,0 +1,3218 @@
+[
+    {
+        "id": "week-13",
+        "faseId": 4,
+        "semana": 13,
+        "titulo": "Week 13 — Time, Availability & Study Scheduling",
+        "objetivo": "The student can talk about study time, express availability, ask and answer simple scheduling questions, and describe a basic study schedule in tech and learning contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Time expression accuracy",
+                "descricao": "Uses basic time expressions such as parts of the day, clock times and simple time markers with reasonable clarity.",
+                "criterio_pt": "Precisão em expressões de tempo",
+                "descricao_pt": "Usa expressões básicas de tempo como partes do dia, horários e marcadores simples com clareza razoável."
+            },
+            {
+                "criterio": "Availability language",
+                "descricao": "Can say when they are free or busy using short complete sentences.",
+                "criterio_pt": "Linguagem de disponibilidade",
+                "descricao_pt": "Consegue dizer quando está livre ou ocupado usando frases curtas e completas."
+            },
+            {
+                "criterio": "Scheduling interaction",
+                "descricao": "Can ask and answer simple questions about time, sessions and basic scheduling.",
+                "criterio_pt": "Interação de agendamento",
+                "descricao_pt": "Consegue perguntar e responder perguntas simples sobre horário, sessões e agendamento básico."
+            },
+            {
+                "criterio": "Listening for time information",
+                "descricao": "Identifies time, availability and scheduling language in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva de tempo",
+                "descricao_pt": "Identifica linguagem de tempo, disponibilidade e agendamento em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Final schedule clarity",
+                "descricao": "Produces a short and understandable study schedule using clear time and availability language.",
+                "criterio_pt": "Clareza da agenda final",
+                "descricao_pt": "Produz uma agenda curta e compreensível de estudo usando linguagem clara de tempo e disponibilidade."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "13.1",
+                "subtitulo": "Parts of the Day & Study Time — Talking About When I Study",
+                "lessonMeta": {
+                    "focus": "Talking about study time using parts of the day and simple time markers",
+                    "canDo": "I can say when I study and when I practice.",
+                    "structures": [
+                        "I study in the morning.",
+                        "I usually study in the evening.",
+                        "I practice after lunch.",
+                        "I study at night."
+                    ],
+                    "outputTargets": [
+                        "Say when I study.",
+                        "Use parts of the day correctly.",
+                        "Connect study actions to time."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> welcome to Phase 4.<br><br>Now your English becomes more organized in time. In study and tech environments, you need to say when you study, practice and join sessions:<br><br><strong>I study in the morning.</strong><br><strong>I usually study in the evening.</strong><br><strong>I practice after lunch.</strong><br><strong>I study at night.</strong><br><br>This is the language of time and study flow.",
+                    "options": [
+                        {
+                            "text": "I study in the morning.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence about study time."
+                        },
+                        {
+                            "text": "I study at the morning.",
+                            "correct": false,
+                            "feedback": "Use <strong>in the morning</strong>. Say: <strong>I study in the morning.</strong>"
+                        },
+                        {
+                            "text": "I practice after lunch.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a natural sentence with a simple time marker."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Study Time",
+                    "intro": "This lesson introduces time-based study language using parts of the day and simple scheduling markers. The focus is functional communication in learning and tech-oriented routines.",
+                    "content": [
+                        "Use <strong>in the morning</strong>, <strong>in the afternoon</strong> and <strong>in the evening</strong> to talk about parts of the day.",
+                        "Use <strong>at night</strong> for night routines.",
+                        "Use markers such as <strong>after lunch</strong> and <strong>before class</strong> to add simple scheduling detail.",
+                        "This language is useful for describing study habits, coding practice and participation in sessions or labs.",
+                        "The learner should connect time expressions to real learning actions."
+                    ],
+                    "examples": [
+                        "I study in the morning.",
+                        "I usually study in the evening.",
+                        "I practice after lunch.",
+                        "I study at night."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I study at the morning. → Correct: I study in the morning.",
+                        "Incorrect: I study in night. → Correct: I study at night.",
+                        "Incorrect: I practice in after lunch. → Correct: I practice after lunch."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Horário de Estudo",
+                    "intro": "Esta lição introduz linguagem de estudo baseada em tempo usando partes do dia e marcadores simples de agendamento. O foco é comunicação funcional em rotinas de aprendizagem e tecnologia.",
+                    "content": [
+                        "Use <strong>in the morning</strong>, <strong>in the afternoon</strong> e <strong>in the evening</strong> para falar sobre partes do dia.",
+                        "Use <strong>at night</strong> para rotinas noturnas.",
+                        "Use marcadores como <strong>after lunch</strong> e <strong>before class</strong> para adicionar detalhes simples de agendamento.",
+                        "Essa linguagem é útil para descrever hábitos de estudo, prática de programação e participação em sessões ou labs.",
+                        "O aluno deve conectar expressões de tempo a ações reais de aprendizagem."
+                    ],
+                    "examples": [
+                        "Eu estudo de manhã.",
+                        "Eu geralmente estudo à noite/no começo da noite.",
+                        "Eu pratico depois do almoço.",
+                        "Eu estudo à noite."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I study at the morning. → Correto: I study in the morning.",
+                        "Incorreto: I study in night. → Correto: I study at night.",
+                        "Incorreto: I practice in after lunch. → Correto: I practice after lunch."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "morning",
+                        "pt": "manhã"
+                    },
+                    {
+                        "en": "afternoon",
+                        "pt": "tarde"
+                    },
+                    {
+                        "en": "evening",
+                        "pt": "começo da noite / noite"
+                    },
+                    {
+                        "en": "night",
+                        "pt": "noite"
+                    },
+                    {
+                        "en": "after lunch",
+                        "pt": "depois do almoço"
+                    },
+                    {
+                        "en": "before class",
+                        "pt": "antes da aula"
+                    },
+                    {
+                        "en": "study time",
+                        "pt": "horário de estudo"
+                    },
+                    {
+                        "en": "practice",
+                        "pt": "praticar"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab / laboratório"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — My Study Time",
+                    "en": "I study in the morning and practice coding after lunch. In the evening, I usually review the lesson and prepare for the next session.",
+                    "pt": "Eu estudo de manhã e pratico programação depois do almoço. À noite/no começo da noite, eu geralmente reviso a lição e me preparo para a próxima sessão.",
+                    "task": "Read the text and identify the parts of the day and the study actions."
+                },
+                "listening": {
+                    "title": "Listening Lab — Study Time",
+                    "instructions": "Listen carefully and identify the correct sentence about study time.",
+                    "text": "I study in the morning. I practice after lunch.",
+                    "transcript": "I study in the morning. I practice after lunch.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I study in the morning.",
+                        "I study at the morning.",
+                        "I study in night."
+                    ],
+                    "answer": "I study in the morning.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use in the morning / at night / after lunch correctly.",
+                    "options": [
+                        "I study at night.",
+                        "I study in night.",
+                        "I study at the night."
+                    ],
+                    "answer": "I study at night."
+                },
+                "teacherNotes": {
+                    "focus": "Introduce time and study-flow language while keeping the learning context connected to tech and structured practice.",
+                    "tips": [
+                        "Use real contexts such as session, lab, coding practice and lesson review.",
+                        "Avoid isolated clock drills at this point.",
+                        "Keep the to be grammar implicit; focus on timing of actions.",
+                        "Reinforce in the morning / in the afternoon / in the evening / at night.",
+                        "Treat time language as productivity and scheduling language."
+                    ],
+                    "supportPhrases": [
+                        "Say when you study.",
+                        "Use the part of the day.",
+                        "Connect the time to the action.",
+                        "Keep the sentence practical.",
+                        "This is study-flow language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir linguagem de tempo e fluxo de estudo mantendo o contexto conectado à tecnologia e à prática estruturada.",
+                    "tips": [
+                        "Use contextos reais como session, lab, coding practice e lesson review.",
+                        "Evite treino isolado de horas neste ponto.",
+                        "Mantenha a gramática do to be implícita; foque no tempo das ações.",
+                        "Reforce in the morning / in the afternoon / in the evening / at night.",
+                        "Trate linguagem de tempo como linguagem de produtividade e agendamento."
+                    ],
+                    "supportPhrases": [
+                        "Diga quando você estuda.",
+                        "Use a parte do dia.",
+                        "Conecte o tempo à ação.",
+                        "Mantenha a frase prática.",
+                        "Isto é linguagem de fluxo de estudo."
+                    ]
+                }
+            },
+            {
+                "id": "13.2",
+                "subtitulo": "I Am Free / I Am Busy — Talking About Availability",
+                "lessonMeta": {
+                    "focus": "Availability language using to be in a functional way",
+                    "canDo": "I can say when I am free and when I am busy.",
+                    "structures": [
+                        "I am free now.",
+                        "I am busy this afternoon.",
+                        "I am free after lunch.",
+                        "I am not free in the morning."
+                    ],
+                    "outputTargets": [
+                        "Say when I am free.",
+                        "Say when I am busy.",
+                        "Use to be functionally with time expressions."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now you talk about availability.<br><br>In study and tech environments, you often need to say when you are available for a session, a lab or a meeting:<br><br><strong>I am free now.</strong><br><strong>I am busy this afternoon.</strong><br><strong>I am free after lunch.</strong><br><strong>I am not free in the morning.</strong><br><br>This is where <strong>to be</strong> becomes useful in real communication.",
+                    "options": [
+                        {
+                            "text": "I am free now.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct availability sentence."
+                        },
+                        {
+                            "text": "I free now.",
+                            "correct": false,
+                            "feedback": "You need <strong>am</strong>. Say: <strong>I am free now.</strong>"
+                        },
+                        {
+                            "text": "I am busy this afternoon.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a natural sentence about availability."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Availability",
+                    "intro": "This lesson uses to be in a functional way to express availability and unavailability. The goal is communication for real scheduling and participation, not abstract grammar study.",
+                    "content": [
+                        "Use <strong>I am free...</strong> to say when you are available.",
+                        "Use <strong>I am busy...</strong> to say when you are not available.",
+                        "Use <strong>I am not free...</strong> as another simple way to express limited availability.",
+                        "This lesson brings back <strong>to be</strong>, but inside a practical communication task: saying when you can join, study or participate.",
+                        "The learner should connect availability to real events such as sessions, classes, labs and meetings."
+                    ],
+                    "examples": [
+                        "I am free now.",
+                        "I am busy this afternoon.",
+                        "I am free after lunch.",
+                        "I am not free in the morning."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I free now. → Correct: I am free now.",
+                        "Incorrect: I am free in now. → Correct: I am free now.",
+                        "Incorrect: I busy this afternoon. → Correct: I am busy this afternoon."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Disponibilidade",
+                    "intro": "Esta lição usa o to be de forma funcional para expressar disponibilidade e indisponibilidade. O objetivo é comunicação para agendamento e participação reais, não estudo gramatical abstrato.",
+                    "content": [
+                        "Use <strong>I am free...</strong> para dizer quando você está disponível.",
+                        "Use <strong>I am busy...</strong> para dizer quando você não está disponível.",
+                        "Use <strong>I am not free...</strong> como outra forma simples de expressar disponibilidade limitada.",
+                        "Esta lição retoma o <strong>to be</strong>, mas dentro de uma tarefa prática de comunicação: dizer quando você pode participar, estudar ou entrar em uma sessão.",
+                        "O aluno deve conectar disponibilidade a eventos reais como sessions, classes, labs e meetings."
+                    ],
+                    "examples": [
+                        "Eu estou livre agora.",
+                        "Eu estou ocupada esta tarde.",
+                        "Eu estou livre depois do almoço.",
+                        "Eu não estou livre de manhã."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I free now. → Correto: I am free now.",
+                        "Incorreto: I am free in now. → Correto: I am free now.",
+                        "Incorreto: I busy this afternoon. → Correto: I am busy this afternoon."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "free",
+                        "pt": "livre / disponível"
+                    },
+                    {
+                        "en": "busy",
+                        "pt": "ocupado(a)"
+                    },
+                    {
+                        "en": "now",
+                        "pt": "agora"
+                    },
+                    {
+                        "en": "later",
+                        "pt": "mais tarde"
+                    },
+                    {
+                        "en": "this afternoon",
+                        "pt": "esta tarde"
+                    },
+                    {
+                        "en": "after lunch",
+                        "pt": "depois do almoço"
+                    },
+                    {
+                        "en": "in the morning",
+                        "pt": "de manhã"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "meeting",
+                        "pt": "reunião"
+                    },
+                    {
+                        "en": "available",
+                        "pt": "disponível"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Availability for a Session",
+                    "en": "I am busy this afternoon, but I am free after lunch tomorrow. I am not free in the morning because I have a live class.",
+                    "pt": "Eu estou ocupada esta tarde, mas estou livre depois do almoço amanhã. Eu não estou livre de manhã porque tenho uma aula ao vivo.",
+                    "task": "Read the text and identify the moments of availability and unavailability."
+                },
+                "listening": {
+                    "title": "Listening Lab — Availability",
+                    "instructions": "Listen carefully and identify the correct availability sentence.",
+                    "text": "I am free after lunch. I am busy this afternoon.",
+                    "transcript": "I am free after lunch. I am busy this afternoon.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I am free after lunch.",
+                        "I free after lunch.",
+                        "I am busy in now."
+                    ],
+                    "answer": "I am free after lunch.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use I am free / I am busy correctly.",
+                    "options": [
+                        "I am not free in the morning.",
+                        "I not free in the morning.",
+                        "I am not free at the morning."
+                    ],
+                    "answer": "I am not free in the morning."
+                },
+                "teacherNotes": {
+                    "focus": "Use to be as a tool for real availability communication rather than as an isolated grammar review.",
+                    "tips": [
+                        "Keep availability linked to session, class, lab and meeting contexts.",
+                        "Avoid long meta-explanations about to be forms.",
+                        "Use practical contrasts: free vs busy, now vs later, morning vs afternoon.",
+                        "Encourage highly reusable short sentences.",
+                        "Frame the grammar as functional scheduling language."
+                    ],
+                    "supportPhrases": [
+                        "Say when you are free.",
+                        "Now say when you are busy.",
+                        "Use I am clearly.",
+                        "Connect availability to a real event.",
+                        "This is scheduling language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Usar o to be como ferramenta de comunicação real de disponibilidade, e não como revisão gramatical isolada.",
+                    "tips": [
+                        "Mantenha a disponibilidade ligada a contextos de session, class, lab e meeting.",
+                        "Evite metaexplicações longas sobre formas do to be.",
+                        "Use contrastes práticos: free vs busy, now vs later, morning vs afternoon.",
+                        "Incentive frases curtas e altamente reutilizáveis.",
+                        "Enquadre a gramática como linguagem funcional de agendamento."
+                    ],
+                    "supportPhrases": [
+                        "Diga quando você está livre.",
+                        "Agora diga quando você está ocupada.",
+                        "Use I am com clareza.",
+                        "Conecte a disponibilidade a um evento real.",
+                        "Isto é linguagem de agendamento."
+                    ]
+                }
+            },
+            {
+                "id": "13.3",
+                "subtitulo": "Can We Meet Tomorrow? — Asking About Time and Scheduling",
+                "lessonMeta": {
+                    "focus": "Simple scheduling questions and answers in study and tech contexts",
+                    "canDo": "I can ask about time and suggest a simple study or session schedule.",
+                    "structures": [
+                        "Can we meet tomorrow?",
+                        "What time is the session?",
+                        "The class starts at 7 PM.",
+                        "I can do Monday afternoon.",
+                        "I can join the lab at night."
+                    ],
+                    "outputTargets": [
+                        "Ask about time.",
+                        "Ask to schedule a session.",
+                        "Answer with a simple time and availability pattern."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now schedule something real.<br><br>You need to ask about time and suggest simple scheduling in a study or tech context:<br><br><strong>Can we meet tomorrow?</strong><br><strong>What time is the session?</strong><br><strong>The class starts at 7 PM.</strong><br><strong>I can do Monday afternoon.</strong><br><strong>I can join the lab at night.</strong><br><br>This is the language of practical coordination in time.",
+                    "options": [
+                        {
+                            "text": "What time is the session?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct scheduling question."
+                        },
+                        {
+                            "text": "What time the session is?",
+                            "correct": false,
+                            "feedback": "Use the correct question order: <strong>What time is the session?</strong>"
+                        },
+                        {
+                            "text": "The class starts at 7 PM.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about schedule time."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Asking About Time and Scheduling",
+                    "intro": "This lesson teaches simple scheduling interaction for sessions, classes, labs and study meetings. The learner begins to coordinate time more actively.",
+                    "content": [
+                        "Use <strong>Can we meet...?</strong> to suggest a simple meeting or study moment.",
+                        "Use <strong>What time is...?</strong> to ask about schedule time.",
+                        "Use <strong>starts at...</strong> to describe when a session, class or event begins.",
+                        "Use <strong>I can do...</strong> and <strong>I can join...</strong> to offer a possible time.",
+                        "This language is central to productive communication in learning communities and tech workflows."
+                    ],
+                    "examples": [
+                        "Can we meet tomorrow?",
+                        "What time is the session?",
+                        "The class starts at 7 PM.",
+                        "I can do Monday afternoon.",
+                        "I can join the lab at night."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: What time the session is? → Correct: What time is the session?",
+                        "Incorrect: The class start at 7 PM. → Correct: The class starts at 7 PM.",
+                        "Incorrect: I can Monday afternoon. → Better in this model: I can do Monday afternoon."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Perguntando Sobre Horário e Agendamento",
+                    "intro": "Esta lição ensina interação simples de agendamento para sessões, aulas, labs e encontros de estudo. O aluno começa a coordenar o tempo de forma mais ativa.",
+                    "content": [
+                        "Use <strong>Can we meet...?</strong> para sugerir um encontro ou momento de estudo simples.",
+                        "Use <strong>What time is...?</strong> para perguntar sobre o horário.",
+                        "Use <strong>starts at...</strong> para descrever quando uma sessão, aula ou evento começa.",
+                        "Use <strong>I can do...</strong> e <strong>I can join...</strong> para oferecer um horário possível.",
+                        "Essa linguagem é central para comunicação produtiva em comunidades de aprendizagem e fluxos tech."
+                    ],
+                    "examples": [
+                        "Podemos nos encontrar amanhã?",
+                        "Que horas é a sessão?",
+                        "A aula começa às 7 PM.",
+                        "Eu posso na segunda à tarde.",
+                        "Eu posso entrar no lab à noite."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: What time the session is? → Correto: What time is the session?",
+                        "Incorreto: The class start at 7 PM. → Correto: The class starts at 7 PM.",
+                        "Incorreto: I can Monday afternoon. → Melhor neste modelo: I can do Monday afternoon."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "what time",
+                        "pt": "que horas"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "class",
+                        "pt": "aula"
+                    },
+                    {
+                        "en": "meeting",
+                        "pt": "encontro / reunião"
+                    },
+                    {
+                        "en": "tomorrow",
+                        "pt": "amanhã"
+                    },
+                    {
+                        "en": "Monday afternoon",
+                        "pt": "segunda à tarde"
+                    },
+                    {
+                        "en": "starts at",
+                        "pt": "começa às"
+                    },
+                    {
+                        "en": "join",
+                        "pt": "entrar / participar"
+                    },
+                    {
+                        "en": "schedule",
+                        "pt": "agenda / agendar"
+                    },
+                    {
+                        "en": "live session",
+                        "pt": "sessão ao vivo"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Scheduling a Session",
+                    "en": "Can we meet tomorrow for the study session? Sure. What time is the session? The class starts at 7 PM, and I can join the lab after dinner.",
+                    "pt": "Podemos nos encontrar amanhã para a sessão de estudo? Claro. Que horas é a sessão? A aula começa às 7 PM, e eu posso entrar no lab depois do jantar.",
+                    "task": "Read the text and identify the scheduling question, the time and the availability answer."
+                },
+                "listening": {
+                    "title": "Listening Lab — Scheduling",
+                    "instructions": "Listen carefully and identify the correct time question.",
+                    "text": "Can we meet tomorrow? What time is the session? The class starts at 7 PM.",
+                    "transcript": "Can we meet tomorrow? What time is the session? The class starts at 7 PM.",
+                    "question": "Choose the correct scheduling question:",
+                    "options": [
+                        "What time is the session?",
+                        "What time the session is?",
+                        "The session is what time?"
+                    ],
+                    "answer": "What time is the session?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use starts at / can we meet / I can do correctly.",
+                    "options": [
+                        "The class starts at 7 PM.",
+                        "The class start at 7 PM.",
+                        "I can Monday afternoon."
+                    ],
+                    "answer": "The class starts at 7 PM."
+                },
+                "teacherNotes": {
+                    "focus": "Develop practical scheduling language for live sessions, study meetings and labs while keeping the context strongly tech-oriented.",
+                    "tips": [
+                        "Use session, lab, class and meeting as the main nouns.",
+                        "Treat clock time as functional, not as a numbers lesson.",
+                        "Keep the interaction short and realistic.",
+                        "Use to be in time questions naturally, not as an isolated grammar target.",
+                        "Emphasize coordination for participation and learning."
+                    ],
+                    "supportPhrases": [
+                        "Ask about the time.",
+                        "Now suggest a meeting.",
+                        "Say when the session starts.",
+                        "Offer a possible time.",
+                        "This is scheduling language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Desenvolver linguagem prática de agendamento para sessões ao vivo, encontros de estudo e labs, mantendo o contexto fortemente tech.",
+                    "tips": [
+                        "Use session, lab, class e meeting como substantivos principais.",
+                        "Trate horário de relógio como funcional, não como aula de números.",
+                        "Mantenha a interação curta e realista.",
+                        "Use o to be nas perguntas de tempo de forma natural, não como alvo gramatical isolado.",
+                        "Enfatize coordenação para participação e aprendizagem."
+                    ],
+                    "supportPhrases": [
+                        "Pergunte sobre o horário.",
+                        "Agora sugira um encontro.",
+                        "Diga quando a sessão começa.",
+                        "Ofereça um horário possível.",
+                        "Isto é linguagem de agendamento."
+                    ]
+                }
+            },
+            {
+                "id": "13.4",
+                "subtitulo": "The Boss Fight — My Study Schedule",
+                "lessonMeta": {
+                    "focus": "Integrated final production about study time, availability and scheduling",
+                    "canDo": "I can describe my study schedule and my availability for sessions and labs.",
+                    "structures": [
+                        "I study in the evening.",
+                        "I am free after lunch.",
+                        "I am busy in the morning.",
+                        "I can join the session at 7 PM.",
+                        "I usually practice at night."
+                    ],
+                    "outputTargets": [
+                        "Produce a short study schedule.",
+                        "Combine time, availability and scheduling language.",
+                        "Present a clear personal study-flow profile."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> now build your study schedule.<br><br>You need to integrate time, availability and scheduling in one short personal description:<br><br><strong>I study in the evening.</strong><br><strong>I am free after lunch.</strong><br><strong>I am busy in the morning.</strong><br><strong>I can join the session at 7 PM.</strong><br><strong>I usually practice at night.</strong><br><br>Your mission is to sound <strong>organized, realistic and ready for the next level</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now present your study schedule with clarity and confidence."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building My Study Schedule",
+                    "intro": "The final lesson of Week 13 integrates study time, availability and simple scheduling into a short personal schedule. This is the first milestone of Phase 4.",
+                    "content": [
+                        "A good study schedule combines <strong>when you study</strong>, <strong>when you are free or busy</strong> and <strong>when you can join a session or lab</strong>.",
+                        "Useful patterns include <strong>I study in...</strong>, <strong>I am free...</strong>, <strong>I am busy...</strong>, <strong>I can join...</strong> and <strong>starts at...</strong>",
+                        "The learner should produce a short and realistic schedule connected to their actual learning routine.",
+                        "This lesson integrates time language, to be for availability, and simple scheduling questions from the week.",
+                        "The goal is practical organization, not complexity."
+                    ],
+                    "examples": [
+                        "I study in the evening.",
+                        "I am free after lunch.",
+                        "I am busy in the morning.",
+                        "I can join the session at 7 PM.",
+                        "I usually practice at night."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I am free in after lunch. → Correct: I am free after lunch.",
+                        "Incorrect: I busy in the morning. → Correct: I am busy in the morning.",
+                        "Incorrect: I can join the session in 7 PM. → Correct: I can join the session at 7 PM."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo Minha Agenda de Estudo",
+                    "intro": "A lição final da Week 13 integra horário de estudo, disponibilidade e agendamento simples em uma pequena agenda pessoal. Este é o primeiro marco da Fase 4.",
+                    "content": [
+                        "Uma boa agenda de estudo combina <strong>quando você estuda</strong>, <strong>quando você está livre ou ocupada</strong> e <strong>quando você pode participar de uma sessão ou lab</strong>.",
+                        "Padrões úteis incluem <strong>I study in...</strong>, <strong>I am free...</strong>, <strong>I am busy...</strong>, <strong>I can join...</strong> e <strong>starts at...</strong>",
+                        "O aluno deve produzir uma agenda curta e realista conectada à sua rotina real de aprendizagem.",
+                        "Esta lição integra linguagem de tempo, to be para disponibilidade e perguntas simples de agendamento da semana.",
+                        "O objetivo é organização prática, não complexidade."
+                    ],
+                    "examples": [
+                        "Eu estudo à noite/no começo da noite.",
+                        "Eu estou livre depois do almoço.",
+                        "Eu estou ocupada de manhã.",
+                        "Eu posso entrar na sessão às 7 PM.",
+                        "Eu geralmente pratico à noite."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I am free in after lunch. → Correto: I am free after lunch.",
+                        "Incorreto: I busy in the morning. → Correto: I am busy in the morning.",
+                        "Incorreto: I can join the session in 7 PM. → Correto: I can join the session at 7 PM."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "study schedule",
+                        "pt": "agenda de estudo"
+                    },
+                    {
+                        "en": "study block",
+                        "pt": "bloco de estudo"
+                    },
+                    {
+                        "en": "free",
+                        "pt": "livre / disponível"
+                    },
+                    {
+                        "en": "busy",
+                        "pt": "ocupado(a)"
+                    },
+                    {
+                        "en": "join the session",
+                        "pt": "participar da sessão"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "practice at night",
+                        "pt": "praticar à noite"
+                    },
+                    {
+                        "en": "after lunch",
+                        "pt": "depois do almoço"
+                    },
+                    {
+                        "en": "in the evening",
+                        "pt": "no começo da noite / à noite"
+                    },
+                    {
+                        "en": "starts at 7 PM",
+                        "pt": "começa às 7 PM"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — My Study Schedule",
+                    "en": "I study in the evening and usually practice at night. I am busy in the morning, but I am free after lunch. I can join the session at 7 PM and review the lab later.",
+                    "pt": "Eu estudo no começo da noite e geralmente pratico à noite. Eu estou ocupada de manhã, mas estou livre depois do almoço. Eu posso entrar na sessão às 7 PM e revisar o lab mais tarde.",
+                    "task": "Read the schedule and identify one sentence about study time, one about availability and one about scheduling."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Schedule",
+                    "instructions": "Listen to the schedule and identify the sentence about availability.",
+                    "text": "I study in the evening. I am free after lunch. I can join the session at 7 PM.",
+                    "transcript": "I study in the evening. I am free after lunch. I can join the session at 7 PM.",
+                    "question": "Type the sentence about availability:",
+                    "answer": "I am free after lunch.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write your study schedule in English.",
+                    "helpText": "Use 5 to 7 complete sentences. Include when you study, when you are free or busy, and when you can join a session or lab.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the full language of the week into a practical personal study schedule with strong functional value.",
+                    "tips": [
+                        "Ask the learner to include study time, availability and one real session or lab reference.",
+                        "Keep the output realistic and connected to the learner's real study routine.",
+                        "Use the to be naturally through free/busy language.",
+                        "Treat this as the opening milestone of Phase 4.",
+                        "Value clarity, usefulness and organization."
+                    ],
+                    "supportPhrases": [
+                        "Start with when you study.",
+                        "Now say when you are free or busy.",
+                        "Add one session or lab time.",
+                        "Keep your schedule realistic.",
+                        "This is your study-flow profile."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar toda a linguagem da semana em uma agenda pessoal de estudo com forte valor funcional.",
+                    "tips": [
+                        "Peça ao aluno que inclua horário de estudo, disponibilidade e uma referência real a session ou lab.",
+                        "Mantenha a produção realista e conectada à rotina real de estudo do aluno.",
+                        "Use o to be naturalmente por meio da linguagem de free/busy.",
+                        "Trate isto como o marco de abertura da Fase 4.",
+                        "Valorize clareza, utilidade e organização."
+                    ],
+                    "supportPhrases": [
+                        "Comece dizendo quando você estuda.",
+                        "Agora diga quando você está livre ou ocupada.",
+                        "Adicione um horário de session ou lab.",
+                        "Mantenha sua agenda realista.",
+                        "Este é o seu perfil de study flow."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-14",
+        "faseId": 4,
+        "semana": 14,
+        "titulo": "Week 14 — Sessions, Appointments & Calendar Communication",
+        "objetivo": "The student can ask and answer simple questions about sessions, appointments and calendar events, talk about scheduled classes and meetings, and confirm or refuse participation in study and tech-related contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Calendar language accuracy",
+                "descricao": "Uses basic day, time and session language with reasonable clarity and control.",
+                "criterio_pt": "Precisão na linguagem de calendário",
+                "descricao_pt": "Usa linguagem básica de dias, horários e sessões com clareza e controle razoáveis."
+            },
+            {
+                "criterio": "Appointment communication",
+                "descricao": "Can talk about simple appointments, meetings and sessions using short complete sentences.",
+                "criterio_pt": "Comunicação de compromissos",
+                "descricao_pt": "Consegue falar sobre compromissos, reuniões e sessões simples usando frases curtas e completas."
+            },
+            {
+                "criterio": "Participation response",
+                "descricao": "Can confirm or refuse participation in a simple and understandable way.",
+                "criterio_pt": "Resposta de participação",
+                "descricao_pt": "Consegue confirmar ou recusar participação de forma simples e compreensível."
+            },
+            {
+                "criterio": "Listening for scheduling details",
+                "descricao": "Identifies day, time and participation information in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva de agendamento",
+                "descricao_pt": "Identifica informações de dia, horário e participação em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Final calendar clarity",
+                "descricao": "Produces a short personal weekly calendar statement with clear session and availability information.",
+                "criterio_pt": "Clareza do calendário final",
+                "descricao_pt": "Produz uma pequena declaração semanal de calendário com informações claras de sessões e disponibilidade."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "14.1",
+                "subtitulo": "When Is the Session? — Asking About Day and Time",
+                "lessonMeta": {
+                    "focus": "Asking and answering basic questions about sessions, classes and labs",
+                    "canDo": "I can ask when a session happens and answer with a day or time.",
+                    "structures": [
+                        "When is the session?",
+                        "The session is on Tuesday.",
+                        "The live class is at 7 PM.",
+                        "The lab is tomorrow morning."
+                    ],
+                    "outputTargets": [
+                        "Ask when something happens.",
+                        "Answer with a day.",
+                        "Answer with a time."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now your English enters the calendar.<br><br>In the CS Hub ecosystem, you need to know when sessions, labs and classes happen:<br><br><strong>When is the session?</strong><br><strong>The session is on Tuesday.</strong><br><strong>The live class is at 7 PM.</strong><br><strong>The lab is tomorrow morning.</strong><br><br>This is the language of calendar communication.",
+                    "options": [
+                        {
+                            "text": "When is the session?",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct question about schedule."
+                        },
+                        {
+                            "text": "When the session is?",
+                            "correct": false,
+                            "feedback": "Use the correct question order: <strong>When is the session?</strong>"
+                        },
+                        {
+                            "text": "The session is on Tuesday.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct day-based answer."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Asking About Sessions and Time",
+                    "intro": "This lesson introduces simple calendar communication focused on sessions, labs and classes. The learner begins to ask and answer when something happens.",
+                    "content": [
+                        "Use <strong>When is...?</strong> to ask about the day or time of a session, class or appointment.",
+                        "Use <strong>is on...</strong> for days and <strong>is at...</strong> for times.",
+                        "Use simple time expressions such as <strong>tomorrow morning</strong> or <strong>Friday afternoon</strong> for calendar context.",
+                        "This language is useful for live classes, mentor sessions, labs and study events.",
+                        "The learner should connect day and time language to real academic and tech-related events."
+                    ],
+                    "examples": [
+                        "When is the session?",
+                        "The session is on Tuesday.",
+                        "The live class is at 7 PM.",
+                        "The lab is tomorrow morning."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: When the session is? → Correct: When is the session?",
+                        "Incorrect: The session is in Tuesday. → Correct: The session is on Tuesday.",
+                        "Incorrect: The class is in 7 PM. → Correct: The class is at 7 PM."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Perguntando Sobre Sessões e Horário",
+                    "intro": "Esta lição introduz comunicação simples de calendário focada em sessões, labs e aulas. O aluno começa a perguntar e responder quando algo acontece.",
+                    "content": [
+                        "Use <strong>When is...?</strong> para perguntar o dia ou horário de uma sessão, aula ou compromisso.",
+                        "Use <strong>is on...</strong> para dias e <strong>is at...</strong> para horários.",
+                        "Use expressões simples de tempo como <strong>tomorrow morning</strong> ou <strong>Friday afternoon</strong> em contexto de calendário.",
+                        "Essa linguagem é útil para aulas ao vivo, mentor sessions, labs e eventos de estudo.",
+                        "O aluno deve conectar linguagem de dia e horário a eventos reais acadêmicos e tech."
+                    ],
+                    "examples": [
+                        "Quando é a sessão?",
+                        "A sessão é na terça-feira.",
+                        "A aula ao vivo é às 7 PM.",
+                        "O lab é amanhã de manhã."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: When the session is? → Correto: When is the session?",
+                        "Incorreto: The session is in Tuesday. → Correto: The session is on Tuesday.",
+                        "Incorreto: The class is in 7 PM. → Correto: The class is at 7 PM."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "Tuesday",
+                        "pt": "terça-feira"
+                    },
+                    {
+                        "en": "tomorrow morning",
+                        "pt": "amanhã de manhã"
+                    },
+                    {
+                        "en": "at 7 PM",
+                        "pt": "às 7 PM"
+                    },
+                    {
+                        "en": "on Friday",
+                        "pt": "na sexta-feira"
+                    },
+                    {
+                        "en": "calendar",
+                        "pt": "calendário"
+                    },
+                    {
+                        "en": "event",
+                        "pt": "evento"
+                    },
+                    {
+                        "en": "schedule",
+                        "pt": "agenda / agendamento"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Session Information",
+                    "en": "When is the mentor session? The session is on Tuesday, and the live class is at 7 PM. The lab is tomorrow morning.",
+                    "pt": "Quando é a mentor session? A sessão é na terça-feira, e a aula ao vivo é às 7 PM. O lab é amanhã de manhã.",
+                    "task": "Read the text and identify the question, the day and the time expressions."
+                },
+                "listening": {
+                    "title": "Listening Lab — Day and Time",
+                    "instructions": "Listen carefully and identify the correct question about a session.",
+                    "text": "When is the session? The session is on Tuesday. The class is at 7 PM.",
+                    "transcript": "When is the session? The session is on Tuesday. The class is at 7 PM.",
+                    "question": "Choose the correct question:",
+                    "options": [
+                        "When is the session?",
+                        "When the session is?",
+                        "The session is when?"
+                    ],
+                    "answer": "When is the session?",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use on for days and at for times.",
+                    "options": [
+                        "The live class is at 7 PM.",
+                        "The live class is in 7 PM.",
+                        "The session is in Tuesday."
+                    ],
+                    "answer": "The live class is at 7 PM."
+                },
+                "teacherNotes": {
+                    "focus": "Introduce calendar communication through real CS Hub events such as sessions, labs and live classes.",
+                    "tips": [
+                        "Keep day and time language strongly tied to platform events.",
+                        "Use to be naturally in schedule answers.",
+                        "Avoid turning the lesson into an abstract calendar vocabulary list.",
+                        "Encourage simple but realistic questions and answers.",
+                        "Keep the emphasis on functional event communication."
+                    ],
+                    "supportPhrases": [
+                        "Ask when the session is.",
+                        "Now answer with the day.",
+                        "Now answer with the time.",
+                        "Connect the language to a real event.",
+                        "This is calendar communication."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir comunicação de calendário por meio de eventos reais do CS Hub como sessions, labs e live classes.",
+                    "tips": [
+                        "Mantenha linguagem de dia e horário fortemente ligada a eventos da plataforma.",
+                        "Use o to be naturalmente nas respostas de agenda.",
+                        "Evite transformar a lição em uma lista abstrata de vocabulário de calendário.",
+                        "Incentive perguntas e respostas simples, mas realistas.",
+                        "Mantenha o foco em comunicação funcional de eventos."
+                    ],
+                    "supportPhrases": [
+                        "Pergunte quando é a sessão.",
+                        "Agora responda com o dia.",
+                        "Agora responda com o horário.",
+                        "Conecte a linguagem a um evento real.",
+                        "Isto é comunicação de calendário."
+                    ]
+                }
+            },
+            {
+                "id": "14.2",
+                "subtitulo": "My Calendar This Week — Talking About Appointments and Sessions",
+                "lessonMeta": {
+                    "focus": "Talking about weekly appointments, sessions and study events",
+                    "canDo": "I can describe my simple calendar for the week.",
+                    "structures": [
+                        "I have a session on Monday.",
+                        "I have a lab on Wednesday night.",
+                        "My meeting is on Friday afternoon.",
+                        "I have class tomorrow."
+                    ],
+                    "outputTargets": [
+                        "Say what I have this week.",
+                        "Talk about appointments and classes.",
+                        "Describe simple weekly calendar items."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now describe your week.<br><br>In real academic and tech routines, you need to say what is on your calendar:<br><br><strong>I have a session on Monday.</strong><br><strong>I have a lab on Wednesday night.</strong><br><strong>My meeting is on Friday afternoon.</strong><br><strong>I have class tomorrow.</strong><br><br>This is the language of weekly organization.",
+                    "options": [
+                        {
+                            "text": "I have a session on Monday.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence about a weekly appointment."
+                        },
+                        {
+                            "text": "I have a session in Monday.",
+                            "correct": false,
+                            "feedback": "Use <strong>on Monday</strong>. Say: <strong>I have a session on Monday.</strong>"
+                        },
+                        {
+                            "text": "My meeting is on Friday afternoon.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear calendar sentence."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About My Weekly Calendar",
+                    "intro": "This lesson helps the learner talk about simple weekly commitments such as sessions, classes, labs and meetings.",
+                    "content": [
+                        "Use <strong>I have...</strong> to say what is on your calendar.",
+                        "Use <strong>My meeting is...</strong> or <strong>The session is...</strong> to describe specific events.",
+                        "Use day and time phrases such as <strong>on Monday</strong>, <strong>on Friday afternoon</strong> and <strong>tomorrow</strong>.",
+                        "This language is useful for describing study plans, calendar events and recurring commitments.",
+                        "The learner should begin to sound more organized and calendar-aware."
+                    ],
+                    "examples": [
+                        "I have a session on Monday.",
+                        "I have a lab on Wednesday night.",
+                        "My meeting is on Friday afternoon.",
+                        "I have class tomorrow."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I have a session in Monday. → Correct: I have a session on Monday.",
+                        "Incorrect: My meeting is at Friday afternoon. → Correct: My meeting is on Friday afternoon.",
+                        "Incorrect: I have class in tomorrow. → Correct: I have class tomorrow."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Meu Calendário Semanal",
+                    "intro": "Esta lição ajuda o aluno a falar sobre compromissos semanais simples como sessões, aulas, labs e meetings.",
+                    "content": [
+                        "Use <strong>I have...</strong> para dizer o que está no seu calendário.",
+                        "Use <strong>My meeting is...</strong> ou <strong>The session is...</strong> para descrever eventos específicos.",
+                        "Use expressões de dia e tempo como <strong>on Monday</strong>, <strong>on Friday afternoon</strong> e <strong>tomorrow</strong>.",
+                        "Essa linguagem é útil para descrever planos de estudo, eventos de calendário e compromissos recorrentes.",
+                        "O aluno deve começar a soar mais organizado e mais consciente da própria agenda."
+                    ],
+                    "examples": [
+                        "Eu tenho uma sessão na segunda-feira.",
+                        "Eu tenho um lab na quarta à noite.",
+                        "Minha reunião é na sexta à tarde.",
+                        "Eu tenho aula amanhã."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I have a session in Monday. → Correto: I have a session on Monday.",
+                        "Incorreto: My meeting is at Friday afternoon. → Correto: My meeting is on Friday afternoon.",
+                        "Incorreto: I have class in tomorrow. → Correto: I have class tomorrow."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "appointment",
+                        "pt": "compromisso"
+                    },
+                    {
+                        "en": "meeting",
+                        "pt": "reunião"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "class",
+                        "pt": "aula"
+                    },
+                    {
+                        "en": "Monday",
+                        "pt": "segunda-feira"
+                    },
+                    {
+                        "en": "Wednesday night",
+                        "pt": "quarta à noite"
+                    },
+                    {
+                        "en": "Friday afternoon",
+                        "pt": "sexta à tarde"
+                    },
+                    {
+                        "en": "this week",
+                        "pt": "esta semana"
+                    },
+                    {
+                        "en": "calendar",
+                        "pt": "calendário"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — My Week",
+                    "en": "This week, I have a session on Monday, a live class on Tuesday night, and a lab on Wednesday. My mentor meeting is on Friday afternoon.",
+                    "pt": "Esta semana, eu tenho uma sessão na segunda-feira, uma aula ao vivo na terça à noite e um lab na quarta. Minha reunião com mentor é na sexta à tarde.",
+                    "task": "Read the text and identify the events and the days."
+                },
+                "listening": {
+                    "title": "Listening Lab — Weekly Calendar",
+                    "instructions": "Listen carefully and identify the correct sentence about a weekly event.",
+                    "text": "I have a session on Monday. My meeting is on Friday afternoon.",
+                    "transcript": "I have a session on Monday. My meeting is on Friday afternoon.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I have a session on Monday.",
+                        "I have a session in Monday.",
+                        "My meeting is at Friday afternoon."
+                    ],
+                    "answer": "I have a session on Monday.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use have for calendar items and on for days.",
+                    "options": [
+                        "I have class tomorrow.",
+                        "I have class in tomorrow.",
+                        "I have a lab at Wednesday night."
+                    ],
+                    "answer": "I have class tomorrow."
+                },
+                "teacherNotes": {
+                    "focus": "Develop simple weekly calendar communication using realistic study and tech commitments.",
+                    "tips": [
+                        "Keep the nouns tied to the CS Hub ecosystem: session, lab, class, meeting.",
+                        "Use have and is side by side naturally.",
+                        "Make the week feel real and structured.",
+                        "Avoid long lists of days without context.",
+                        "Treat this as calendar storytelling at a beginner-functional level."
+                    ],
+                    "supportPhrases": [
+                        "Say what you have this week.",
+                        "Add the day or time.",
+                        "Keep the calendar realistic.",
+                        "Use your real study events.",
+                        "This is weekly organization language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Desenvolver comunicação simples de calendário semanal usando compromissos reais de estudo e contexto tech.",
+                    "tips": [
+                        "Mantenha os substantivos ligados ao ecossistema do CS Hub: session, lab, class, meeting.",
+                        "Use have e is lado a lado de forma natural.",
+                        "Faça a semana soar real e estruturada.",
+                        "Evite listas longas de dias sem contexto.",
+                        "Trate isso como narrativa de calendário em nível iniciante-funcional."
+                    ],
+                    "supportPhrases": [
+                        "Diga o que você tem nesta semana.",
+                        "Adicione o dia ou horário.",
+                        "Mantenha o calendário realista.",
+                        "Use seus eventos reais de estudo.",
+                        "Isto é linguagem de organização semanal."
+                    ]
+                }
+            },
+            {
+                "id": "14.3",
+                "subtitulo": "I Can Join / I Cannot Join — Confirming or Refusing Participation",
+                "lessonMeta": {
+                    "focus": "Saying yes or no to sessions, labs and meetings",
+                    "canDo": "I can confirm or refuse participation in a simple way.",
+                    "structures": [
+                        "I can join the session.",
+                        "I cannot join today.",
+                        "I can join after lunch.",
+                        "I am busy at that time.",
+                        "I can attend the live class."
+                    ],
+                    "outputTargets": [
+                        "Confirm participation.",
+                        "Refuse participation politely.",
+                        "Connect participation to availability."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now respond to the calendar.<br><br>It is not enough to know when something happens. You also need to say if you can join:<br><br><strong>I can join the session.</strong><br><strong>I cannot join today.</strong><br><strong>I can join after lunch.</strong><br><strong>I am busy at that time.</strong><br><strong>I can attend the live class.</strong><br><br>This is the language of participation and response.",
+                    "options": [
+                        {
+                            "text": "I can join the session.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct participation sentence."
+                        },
+                        {
+                            "text": "I can join in the session.",
+                            "correct": false,
+                            "feedback": "Use: <strong>I can join the session.</strong>"
+                        },
+                        {
+                            "text": "I am busy at that time.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear reason for not joining."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Confirming or Refusing Participation",
+                    "intro": "This lesson teaches simple ways to confirm participation, refuse participation and connect availability to real calendar events.",
+                    "content": [
+                        "Use <strong>I can join...</strong> and <strong>I can attend...</strong> to confirm participation.",
+                        "Use <strong>I cannot join...</strong> to refuse participation in a simple way.",
+                        "Use <strong>I am busy at that time</strong> to explain why participation is not possible.",
+                        "This language is useful for classes, sessions, labs, meetings and community events.",
+                        "The learner should link response language to time and availability naturally."
+                    ],
+                    "examples": [
+                        "I can join the session.",
+                        "I cannot join today.",
+                        "I can join after lunch.",
+                        "I am busy at that time.",
+                        "I can attend the live class."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I can join in the session. → Correct: I can join the session.",
+                        "Incorrect: I cannot join in today. → Correct: I cannot join today.",
+                        "Incorrect: I am busy in that time. → Correct: I am busy at that time."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Confirmando ou Recusando Participação",
+                    "intro": "Esta lição ensina formas simples de confirmar participação, recusar participação e conectar disponibilidade a eventos reais do calendário.",
+                    "content": [
+                        "Use <strong>I can join...</strong> e <strong>I can attend...</strong> para confirmar participação.",
+                        "Use <strong>I cannot join...</strong> para recusar participação de forma simples.",
+                        "Use <strong>I am busy at that time</strong> para explicar por que não é possível participar.",
+                        "Essa linguagem é útil para classes, sessions, labs, meetings e eventos de comunidade.",
+                        "O aluno deve ligar naturalmente a linguagem de resposta a tempo e disponibilidade."
+                    ],
+                    "examples": [
+                        "Eu posso participar da sessão.",
+                        "Eu não posso participar hoje.",
+                        "Eu posso participar depois do almoço.",
+                        "Eu estou ocupada nesse horário.",
+                        "Eu posso participar da aula ao vivo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I can join in the session. → Correto: I can join the session.",
+                        "Incorreto: I cannot join in today. → Correto: I cannot join today.",
+                        "Incorreto: I am busy in that time. → Correto: I am busy at that time."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "join",
+                        "pt": "participar / entrar"
+                    },
+                    {
+                        "en": "attend",
+                        "pt": "participar / comparecer"
+                    },
+                    {
+                        "en": "today",
+                        "pt": "hoje"
+                    },
+                    {
+                        "en": "at that time",
+                        "pt": "naquele horário"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "community event",
+                        "pt": "evento da comunidade"
+                    },
+                    {
+                        "en": "mentor session",
+                        "pt": "sessão com mentor"
+                    },
+                    {
+                        "en": "busy",
+                        "pt": "ocupado(a)"
+                    },
+                    {
+                        "en": "available",
+                        "pt": "disponível"
+                    },
+                    {
+                        "en": "participation",
+                        "pt": "participação"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Can You Join?",
+                    "en": "The live class is at 7 PM. I can join the session after dinner, but I cannot join the mentor meeting this afternoon because I am busy at that time.",
+                    "pt": "A aula ao vivo é às 7 PM. Eu posso participar da sessão depois do jantar, mas não posso participar da reunião com mentor esta tarde porque estou ocupada nesse horário.",
+                    "task": "Read the text and identify one sentence of confirmation and one sentence of refusal."
+                },
+                "listening": {
+                    "title": "Listening Lab — Participation",
+                    "instructions": "Listen carefully and identify the correct sentence of refusal.",
+                    "text": "I can join the session. I cannot join today. I am busy at that time.",
+                    "transcript": "I can join the session. I cannot join today. I am busy at that time.",
+                    "question": "Choose the refusal sentence:",
+                    "options": [
+                        "I cannot join today.",
+                        "I can join the session.",
+                        "I can attend the class."
+                    ],
+                    "answer": "I cannot join today.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use join / attend / busy at that time correctly.",
+                    "options": [
+                        "I am busy at that time.",
+                        "I am busy in that time.",
+                        "I can join in the session."
+                    ],
+                    "answer": "I am busy at that time."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to respond to events on the calendar with simple participation language.",
+                    "tips": [
+                        "Keep the responses tied to real CS Hub events.",
+                        "Use join and attend as participation verbs.",
+                        "Connect can/cannot to availability language from Week 13.",
+                        "Keep the refusal language simple and respectful.",
+                        "Show that schedule awareness must lead to participation decisions."
+                    ],
+                    "supportPhrases": [
+                        "Now say if you can join.",
+                        "Or say that you cannot join.",
+                        "Explain your availability simply.",
+                        "Keep the answer useful and real.",
+                        "This is participation language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a responder a eventos do calendário com linguagem simples de participação.",
+                    "tips": [
+                        "Mantenha as respostas ligadas a eventos reais do CS Hub.",
+                        "Use join e attend como verbos de participação.",
+                        "Conecte can/cannot à linguagem de disponibilidade da Week 13.",
+                        "Mantenha a linguagem de recusa simples e respeitosa.",
+                        "Mostre que consciência de agenda deve levar a decisões de participação."
+                    ],
+                    "supportPhrases": [
+                        "Agora diga se você pode participar.",
+                        "Ou diga que não pode participar.",
+                        "Explique sua disponibilidade de forma simples.",
+                        "Mantenha a resposta útil e real.",
+                        "Isto é linguagem de participação."
+                    ]
+                }
+            },
+            {
+                "id": "14.4",
+                "subtitulo": "The Boss Fight — My Week in the Calendar",
+                "lessonMeta": {
+                    "focus": "Integrated final production with sessions, appointments, time and participation",
+                    "canDo": "I can describe my week in the calendar with sessions, appointments and participation language.",
+                    "structures": [
+                        "I have a live class on Tuesday.",
+                        "The lab is at 8 PM.",
+                        "I can join the session after lunch.",
+                        "I am busy on Friday morning.",
+                        "My mentor meeting is tomorrow."
+                    ],
+                    "outputTargets": [
+                        "Produce a short weekly calendar description.",
+                        "Combine events, time and participation.",
+                        "Present a clear study-week profile."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> now describe your week in the calendar.<br><br>You need to integrate sessions, appointments, time and participation:<br><br><strong>I have a live class on Tuesday.</strong><br><strong>The lab is at 8 PM.</strong><br><strong>I can join the session after lunch.</strong><br><strong>I am busy on Friday morning.</strong><br><strong>My mentor meeting is tomorrow.</strong><br><br>Your mission is to sound <strong>organized, calendar-aware and ready for the next step</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now present your weekly calendar clearly and naturally."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building My Weekly Calendar",
+                    "intro": "The final lesson of Week 14 integrates sessions, appointments, time, availability and participation in a short personal weekly calendar description.",
+                    "content": [
+                        "A weekly calendar description can include what events you have, when they happen and whether you can join them.",
+                        "Useful patterns include <strong>I have...</strong>, <strong>is on...</strong>, <strong>is at...</strong>, <strong>I can join...</strong> and <strong>I am busy...</strong>",
+                        "The learner should produce a realistic and structured mini-calendar connected to study and tech events.",
+                        "This lesson integrates the scheduling language of Weeks 13 and 14 in a practical way.",
+                        "The goal is to talk about a week of study with clarity and useful details."
+                    ],
+                    "examples": [
+                        "I have a live class on Tuesday.",
+                        "The lab is at 8 PM.",
+                        "I can join the session after lunch.",
+                        "I am busy on Friday morning.",
+                        "My mentor meeting is tomorrow."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: The lab is in 8 PM. → Correct: The lab is at 8 PM.",
+                        "Incorrect: I am busy at Friday morning. → Correct: I am busy on Friday morning.",
+                        "Incorrect: I have a live class in Tuesday. → Correct: I have a live class on Tuesday."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo Meu Calendário Semanal",
+                    "intro": "A lição final da Week 14 integra sessions, appointments, tempo, disponibilidade e participação em uma pequena descrição pessoal do calendário semanal.",
+                    "content": [
+                        "Uma descrição semanal de calendário pode incluir que eventos você tem, quando eles acontecem e se você pode participar deles.",
+                        "Padrões úteis incluem <strong>I have...</strong>, <strong>is on...</strong>, <strong>is at...</strong>, <strong>I can join...</strong> e <strong>I am busy...</strong>",
+                        "O aluno deve produzir um mini calendário realista e estruturado conectado a eventos de estudo e tecnologia.",
+                        "Esta lição integra a linguagem de agendamento das Weeks 13 e 14 de forma prática.",
+                        "O objetivo é falar sobre uma semana de estudo com clareza e detalhes úteis."
+                    ],
+                    "examples": [
+                        "Eu tenho uma aula ao vivo na terça-feira.",
+                        "O lab é às 8 PM.",
+                        "Eu posso participar da sessão depois do almoço.",
+                        "Eu estou ocupada na sexta de manhã.",
+                        "Minha reunião com mentor é amanhã."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: The lab is in 8 PM. → Correto: The lab is at 8 PM.",
+                        "Incorreto: I am busy at Friday morning. → Correto: I am busy on Friday morning.",
+                        "Incorreto: I have a live class in Tuesday. → Correto: I have a live class on Tuesday."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "weekly calendar",
+                        "pt": "calendário semanal"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "mentor meeting",
+                        "pt": "reunião com mentor"
+                    },
+                    {
+                        "en": "join the session",
+                        "pt": "participar da sessão"
+                    },
+                    {
+                        "en": "Tuesday",
+                        "pt": "terça-feira"
+                    },
+                    {
+                        "en": "Friday morning",
+                        "pt": "sexta de manhã"
+                    },
+                    {
+                        "en": "at 8 PM",
+                        "pt": "às 8 PM"
+                    },
+                    {
+                        "en": "after lunch",
+                        "pt": "depois do almoço"
+                    },
+                    {
+                        "en": "this week",
+                        "pt": "esta semana"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — My Week in the Calendar",
+                    "en": "This week, I have a live class on Tuesday and a lab at 8 PM on Wednesday. My mentor meeting is tomorrow, and I can join the session after lunch. I am busy on Friday morning.",
+                    "pt": "Esta semana, eu tenho uma aula ao vivo na terça-feira e um lab às 8 PM na quarta. Minha reunião com mentor é amanhã, e eu posso participar da sessão depois do almoço. Eu estou ocupada na sexta de manhã.",
+                    "task": "Read the text and identify one class, one lab, one meeting and one availability detail."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Calendar",
+                    "instructions": "Listen to the weekly calendar and identify the sentence about participation.",
+                    "text": "I have a live class on Tuesday. The lab is at 8 PM. I can join the session after lunch. I am busy on Friday morning.",
+                    "transcript": "I have a live class on Tuesday. The lab is at 8 PM. I can join the session after lunch. I am busy on Friday morning.",
+                    "question": "Type the sentence about participation:",
+                    "answer": "I can join the session after lunch.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write your week in the calendar in English.",
+                    "helpText": "Use 5 to 7 complete sentences. Include one class or session, one lab or meeting, one time expression and one participation sentence.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the language of calendar events and participation into a realistic weekly study profile.",
+                    "tips": [
+                        "Ask for at least one session, one time and one availability or participation statement.",
+                        "Keep the output connected to the student's real or imagined study week.",
+                        "Maintain the tech identity through labs, mentor sessions and live classes.",
+                        "Use this as a bridge to more complex weekly planning in the next week.",
+                        "Prioritize usefulness, realism and clarity."
+                    ],
+                    "supportPhrases": [
+                        "Start with one event in your week.",
+                        "Add the day or time.",
+                        "Now say if you can join.",
+                        "Include one moment when you are busy.",
+                        "This is your weekly calendar profile."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar a linguagem de eventos de calendário e participação em um perfil realista de semana de estudo.",
+                    "tips": [
+                        "Peça pelo menos uma session, um horário e uma frase de disponibilidade ou participação.",
+                        "Mantenha a produção conectada à semana real ou imaginada do aluno.",
+                        "Mantenha a identidade tech por meio de labs, mentor sessions e live classes.",
+                        "Use isto como ponte para planejamento semanal mais complexo na próxima semana.",
+                        "Priorize utilidade, realismo e clareza."
+                    ],
+                    "supportPhrases": [
+                        "Comece com um evento da sua semana.",
+                        "Adicione o dia ou horário.",
+                        "Agora diga se você pode participar.",
+                        "Inclua um momento em que você está ocupada.",
+                        "Este é o seu perfil semanal de calendário."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-15",
+        "faseId": 4,
+        "semana": 15,
+        "titulo": "Week 15 — Past States, Sessions & Yesterday Reports",
+        "objetivo": "The student can use was and were to describe past states, talk about what a session or class was like, say where they were yesterday, and give short reports about what happened in study and tech-related contexts.",
+        "rubricaA1": [
+            {
+                "criterio": "Past state accuracy",
+                "descricao": "Uses was and were with basic subjects and common study-related situations with reasonable clarity.",
+                "criterio_pt": "Precisão em estados no passado",
+                "descricao_pt": "Usa was e were com sujeitos básicos e situações comuns ligadas ao estudo com clareza razoável."
+            },
+            {
+                "criterio": "Session report language",
+                "descricao": "Can describe a past class, lab or session using short complete sentences.",
+                "criterio_pt": "Linguagem de reporte de sessão",
+                "descricao_pt": "Consegue descrever uma aula, lab ou sessão passada usando frases curtas e completas."
+            },
+            {
+                "criterio": "Yesterday communication",
+                "descricao": "Can say where they were, how they were and what the study event was like yesterday.",
+                "criterio_pt": "Comunicação sobre ontem",
+                "descricao_pt": "Consegue dizer onde estava, como estava e como foi o evento de estudo ontem."
+            },
+            {
+                "criterio": "Listening for past-state cues",
+                "descricao": "Identifies was/were and basic past-state information in short listening tasks.",
+                "criterio_pt": "Compreensão auditiva de estados no passado",
+                "descricao_pt": "Identifica was/were e informações básicas de estado no passado em tarefas curtas de listening."
+            },
+            {
+                "criterio": "Final retrospective clarity",
+                "descricao": "Produces a short and understandable retrospective report about a past session or study moment.",
+                "criterio_pt": "Clareza da retrospectiva final",
+                "descricao_pt": "Produz uma retrospectiva curta e compreensível sobre uma sessão passada ou momento de estudo."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "15.1",
+                "subtitulo": "I Was Busy Yesterday — Talking About Past States",
+                "lessonMeta": {
+                    "focus": "Using was and were to describe past states in study and schedule contexts",
+                    "canDo": "I can say how I was yesterday and where I was.",
+                    "structures": [
+                        "I was busy yesterday.",
+                        "I was in class yesterday morning.",
+                        "The session was at 7 PM.",
+                        "We were in the live class."
+                    ],
+                    "outputTargets": [
+                        "Say how I was yesterday.",
+                        "Say where I was.",
+                        "Use was and were in simple study contexts."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now your English can look back.<br><br>In real study and tech environments, you often need to report what a session was like, where you were, or how yesterday was:<br><br><strong>I was busy yesterday.</strong><br><strong>I was in class yesterday morning.</strong><br><strong>The session was at 7 PM.</strong><br><strong>We were in the live class.</strong><br><br>This is the language of past states and simple retrospectives.",
+                    "options": [
+                        {
+                            "text": "I was busy yesterday.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence with was."
+                        },
+                        {
+                            "text": "I were busy yesterday.",
+                            "correct": false,
+                            "feedback": "Use <strong>was</strong> with <strong>I</strong>. Say: <strong>I was busy yesterday.</strong>"
+                        },
+                        {
+                            "text": "We were in the live class.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence with were."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Using Was and Were for Past States",
+                    "intro": "This lesson introduces was and were to describe how someone was, where someone was, and what a study event was like in the past.",
+                    "content": [
+                        "Use <strong>was</strong> with I, he, she and it.",
+                        "Use <strong>were</strong> with you, we and they.",
+                        "This week focuses on past states, not full action narratives.",
+                        "That means the learner describes situations such as being busy, being in class, or describing a session in the past.",
+                        "The contexts stay connected to classes, labs, sessions and study moments."
+                    ],
+                    "examples": [
+                        "I was busy yesterday.",
+                        "I was in class yesterday morning.",
+                        "The session was at 7 PM.",
+                        "We were in the live class."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I were busy yesterday. → Correct: I was busy yesterday.",
+                        "Incorrect: We was in the live class. → Correct: We were in the live class.",
+                        "Incorrect: The session were at 7 PM. → Correct: The session was at 7 PM."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Usando Was e Were para Estados no Passado",
+                    "intro": "Esta lição introduz was e were para descrever como alguém estava, onde alguém estava e como um evento de estudo foi no passado.",
+                    "content": [
+                        "Use <strong>was</strong> com I, he, she e it.",
+                        "Use <strong>were</strong> com you, we e they.",
+                        "Nesta semana, o foco está em estados no passado, não em narrativas completas de ações.",
+                        "Isso significa que o aluno descreve situações como estar ocupado, estar em aula ou descrever uma sessão no passado.",
+                        "Os contextos continuam conectados a classes, labs, sessions e momentos de estudo."
+                    ],
+                    "examples": [
+                        "Eu estava ocupada ontem.",
+                        "Eu estava em aula ontem de manhã.",
+                        "A sessão foi às 7 PM.",
+                        "Nós estávamos na aula ao vivo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I were busy yesterday. → Correto: I was busy yesterday.",
+                        "Incorreto: We was in the live class. → Correto: We were in the live class.",
+                        "Incorreto: The session were at 7 PM. → Correto: The session was at 7 PM."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "yesterday",
+                        "pt": "ontem"
+                    },
+                    {
+                        "en": "busy",
+                        "pt": "ocupado(a)"
+                    },
+                    {
+                        "en": "in class",
+                        "pt": "em aula"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "morning",
+                        "pt": "manhã"
+                    },
+                    {
+                        "en": "at 7 PM",
+                        "pt": "às 7 PM"
+                    },
+                    {
+                        "en": "past",
+                        "pt": "passado"
+                    },
+                    {
+                        "en": "retrospective",
+                        "pt": "retrospectiva"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Yesterday",
+                    "en": "Yesterday, I was busy in the morning, but I was in the live class at night. The session was at 7 PM, and we were online together.",
+                    "pt": "Ontem, eu estava ocupada de manhã, mas estava na aula ao vivo à noite. A sessão foi às 7 PM, e nós estávamos online juntos.",
+                    "task": "Read the text and identify the sentences with was and were."
+                },
+                "listening": {
+                    "title": "Listening Lab — Past States",
+                    "instructions": "Listen carefully and identify the correct sentence about yesterday.",
+                    "text": "I was busy yesterday. We were in the live class.",
+                    "transcript": "I was busy yesterday. We were in the live class.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "I was busy yesterday.",
+                        "I were busy yesterday.",
+                        "We was in the live class."
+                    ],
+                    "answer": "I was busy yesterday.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use was with I and were with we.",
+                    "options": [
+                        "We were in the lab yesterday.",
+                        "We was in the lab yesterday.",
+                        "I were in class yesterday."
+                    ],
+                    "answer": "We were in the lab yesterday."
+                },
+                "teacherNotes": {
+                    "focus": "Introduce was/were as functional tools for reporting past study states and attendance, not as abstract grammar alone.",
+                    "tips": [
+                        "Keep the contexts tied to sessions, classes, labs and calendar events.",
+                        "Use yesterday as the anchor for past-state reporting.",
+                        "Avoid jumping too early into many past-action verbs.",
+                        "Reinforce subject and verb matching clearly.",
+                        "Treat this as the first step of retrospective communication."
+                    ],
+                    "supportPhrases": [
+                        "Say how you were yesterday.",
+                        "Now say where you were.",
+                        "Use was or were correctly.",
+                        "Keep the sentence short and clear.",
+                        "This is past-state language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Introduzir was/were como ferramentas funcionais para reportar estados passados de estudo e presença, e não apenas como gramática abstrata.",
+                    "tips": [
+                        "Mantenha os contextos ligados a sessions, classes, labs e eventos do calendário.",
+                        "Use yesterday como âncora para reportes de estado passado.",
+                        "Evite avançar cedo demais para muitos verbos de ação no passado.",
+                        "Reforce claramente a concordância entre sujeito e verbo.",
+                        "Trate isto como o primeiro passo da comunicação retrospectiva."
+                    ],
+                    "supportPhrases": [
+                        "Diga como você estava ontem.",
+                        "Agora diga onde você estava.",
+                        "Use was ou were corretamente.",
+                        "Mantenha a frase curta e clara.",
+                        "Isto é linguagem de estado no passado."
+                    ]
+                }
+            },
+            {
+                "id": "15.2",
+                "subtitulo": "The Session Was Good — Describing Past Classes and Labs",
+                "lessonMeta": {
+                    "focus": "Describing what a class, lab or session was like",
+                    "canDo": "I can say what a session or class was like.",
+                    "structures": [
+                        "The session was good.",
+                        "The lab was interesting.",
+                        "The class was helpful.",
+                        "The mentor meeting was short."
+                    ],
+                    "outputTargets": [
+                        "Describe a past session.",
+                        "Use adjectives after was.",
+                        "Report simple opinions about a study event."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now describe what the session was like.<br><br>In real study and tech environments, we often report if a session was useful, short, interesting or difficult:<br><br><strong>The session was good.</strong><br><strong>The lab was interesting.</strong><br><strong>The class was helpful.</strong><br><strong>The mentor meeting was short.</strong><br><br>This is the language of simple session reports.",
+                    "options": [
+                        {
+                            "text": "The session was good.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct session report."
+                        },
+                        {
+                            "text": "The session were good.",
+                            "correct": false,
+                            "feedback": "Use <strong>was</strong> with <strong>the session</strong>. Say: <strong>The session was good.</strong>"
+                        },
+                        {
+                            "text": "The lab was interesting.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about a past lab."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Describing Past Sessions",
+                    "intro": "This lesson helps the learner describe what a study event was like using simple adjectives and was.",
+                    "content": [
+                        "Use <strong>was + adjective</strong> to describe a past session, class, meeting or lab.",
+                        "Common adjectives here are useful, good, short, interesting, helpful and difficult.",
+                        "This type of language is useful for giving feedback, reporting experiences and making simple retrospective comments.",
+                        "The learner does not need long opinions yet; short clear descriptions are enough.",
+                        "The context remains strongly linked to study events and the CS Hub environment."
+                    ],
+                    "examples": [
+                        "The session was good.",
+                        "The lab was interesting.",
+                        "The class was helpful.",
+                        "The mentor meeting was short."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: The session were good. → Correct: The session was good.",
+                        "Incorrect: The lab was interest. → Correct: The lab was interesting.",
+                        "Incorrect: The class were helpful. → Correct: The class was helpful."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Descrevendo Sessões Passadas",
+                    "intro": "Esta lição ajuda o aluno a descrever como um evento de estudo foi usando adjetivos simples e was.",
+                    "content": [
+                        "Use <strong>was + adjetivo</strong> para descrever uma sessão, aula, reunião ou lab passado.",
+                        "Adjetivos comuns aqui são useful, good, short, interesting, helpful e difficult.",
+                        "Esse tipo de linguagem é útil para dar feedback, reportar experiências e fazer comentários retrospectivos simples.",
+                        "O aluno ainda não precisa de opiniões longas; descrições curtas e claras são suficientes.",
+                        "O contexto continua fortemente ligado a eventos de estudo e ao ambiente do CS Hub."
+                    ],
+                    "examples": [
+                        "A sessão foi boa.",
+                        "O lab foi interessante.",
+                        "A aula foi útil.",
+                        "A reunião com mentor foi curta."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: The session were good. → Correto: The session was good.",
+                        "Incorreto: The lab was interest. → Correto: The lab was interesting.",
+                        "Incorreto: The class were helpful. → Correto: The class was helpful."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "good",
+                        "pt": "bom/boa"
+                    },
+                    {
+                        "en": "interesting",
+                        "pt": "interessante"
+                    },
+                    {
+                        "en": "helpful",
+                        "pt": "útil"
+                    },
+                    {
+                        "en": "short",
+                        "pt": "curto(a)"
+                    },
+                    {
+                        "en": "difficult",
+                        "pt": "difícil"
+                    },
+                    {
+                        "en": "mentor meeting",
+                        "pt": "reunião com mentor"
+                    },
+                    {
+                        "en": "feedback",
+                        "pt": "feedback"
+                    },
+                    {
+                        "en": "report",
+                        "pt": "reporte / relato"
+                    },
+                    {
+                        "en": "class",
+                        "pt": "aula"
+                    },
+                    {
+                        "en": "session review",
+                        "pt": "revisão de sessão"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Session Review",
+                    "en": "Yesterday, the live class was helpful and the lab was interesting. The mentor meeting was short, but the session was very good.",
+                    "pt": "Ontem, a aula ao vivo foi útil e o lab foi interessante. A reunião com mentor foi curta, mas a sessão foi muito boa.",
+                    "task": "Read the text and identify the adjectives used to describe the study events."
+                },
+                "listening": {
+                    "title": "Listening Lab — Session Report",
+                    "instructions": "Listen carefully and identify the correct sentence about the session.",
+                    "text": "The session was good. The class was helpful.",
+                    "transcript": "The session was good. The class was helpful.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "The session was good.",
+                        "The session were good.",
+                        "The class were helpful."
+                    ],
+                    "answer": "The session was good.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use was + adjective.",
+                    "options": [
+                        "The mentor meeting was short.",
+                        "The mentor meeting were short.",
+                        "The mentor meeting was shorten."
+                    ],
+                    "answer": "The mentor meeting was short."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to give short retrospective comments about study events and sessions.",
+                    "tips": [
+                        "Use a limited but useful adjective set.",
+                        "Keep the context inside classes, labs and mentor meetings.",
+                        "Show that this is a report style, not free opinion writing.",
+                        "Encourage short evaluative sentences.",
+                        "Connect the language to realistic study feedback."
+                    ],
+                    "supportPhrases": [
+                        "Say what the session was like.",
+                        "Use was and one adjective.",
+                        "Keep the report short.",
+                        "Describe the class clearly.",
+                        "This is session-feedback language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a fazer comentários retrospectivos curtos sobre eventos de estudo e sessões.",
+                    "tips": [
+                        "Use um conjunto limitado, mas útil, de adjetivos.",
+                        "Mantenha o contexto dentro de aulas, labs e reuniões com mentor.",
+                        "Mostre que isso é estilo de reporte, não escrita livre de opinião.",
+                        "Incentive frases avaliativas curtas.",
+                        "Conecte a linguagem a feedback realista de estudo."
+                    ],
+                    "supportPhrases": [
+                        "Diga como a sessão foi.",
+                        "Use was e um adjetivo.",
+                        "Mantenha o reporte curto.",
+                        "Descreva a aula com clareza.",
+                        "Isto é linguagem de feedback de sessão."
+                    ]
+                }
+            },
+            {
+                "id": "15.3",
+                "subtitulo": "Where Were You? — Talking About Presence and Location Yesterday",
+                "lessonMeta": {
+                    "focus": "Using was/were to talk about presence and location in past study contexts",
+                    "canDo": "I can say where I was and where others were yesterday.",
+                    "structures": [
+                        "I was in the live class.",
+                        "We were in the lab yesterday.",
+                        "She was in the mentor session.",
+                        "They were online last night."
+                    ],
+                    "outputTargets": [
+                        "Say where I was.",
+                        "Say where others were.",
+                        "Report attendance and presence."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now report presence and location in the past.<br><br>In collaborative study environments, you sometimes need to say where people were and whether they were present:<br><br><strong>I was in the live class.</strong><br><strong>We were in the lab yesterday.</strong><br><strong>She was in the mentor session.</strong><br><strong>They were online last night.</strong><br><br>This is the language of attendance and presence.",
+                    "options": [
+                        {
+                            "text": "We were in the lab yesterday.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence about presence."
+                        },
+                        {
+                            "text": "We was in the lab yesterday.",
+                            "correct": false,
+                            "feedback": "Use <strong>were</strong> with <strong>we</strong>. Say: <strong>We were in the lab yesterday.</strong>"
+                        },
+                        {
+                            "text": "She was in the mentor session.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear sentence about attendance."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Presence in the Past",
+                    "intro": "This lesson helps the learner report where people were in past classes, labs and online study events.",
+                    "content": [
+                        "Use <strong>was/were + in/on/online</strong> to report where someone was in the past.",
+                        "This is useful for attendance, presence and simple retrospective coordination.",
+                        "The lesson keeps the focus on study, session and digital-learning contexts.",
+                        "Examples include being in class, in a mentor session, in a lab, or online.",
+                        "The goal is clear presence reporting, not complex narrative."
+                    ],
+                    "examples": [
+                        "I was in the live class.",
+                        "We were in the lab yesterday.",
+                        "She was in the mentor session.",
+                        "They were online last night."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: We was in the lab yesterday. → Correct: We were in the lab yesterday.",
+                        "Incorrect: She were in the mentor session. → Correct: She was in the mentor session.",
+                        "Incorrect: They was online last night. → Correct: They were online last night."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Presença no Passado",
+                    "intro": "Esta lição ajuda o aluno a reportar onde as pessoas estavam em aulas passadas, labs e eventos de estudo online.",
+                    "content": [
+                        "Use <strong>was/were + in/on/online</strong> para reportar onde alguém estava no passado.",
+                        "Isso é útil para presença, attendance e coordenação retrospectiva simples.",
+                        "A lição mantém o foco em estudo, sessões e contextos de aprendizagem digital.",
+                        "Os exemplos incluem estar em aula, em mentor session, em lab ou online.",
+                        "O objetivo é reporte claro de presença, não narrativa complexa."
+                    ],
+                    "examples": [
+                        "Eu estava na aula ao vivo.",
+                        "Nós estávamos no lab ontem.",
+                        "Ela estava na sessão com mentor.",
+                        "Eles estavam online ontem à noite."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: We was in the lab yesterday. → Correto: We were in the lab yesterday.",
+                        "Incorreto: She were in the mentor session. → Correto: She was in the mentor session.",
+                        "Incorreto: They was online last night. → Correto: They were online last night."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "attendance",
+                        "pt": "presença / attendance"
+                    },
+                    {
+                        "en": "presence",
+                        "pt": "presença"
+                    },
+                    {
+                        "en": "online",
+                        "pt": "online"
+                    },
+                    {
+                        "en": "last night",
+                        "pt": "ontem à noite"
+                    },
+                    {
+                        "en": "mentor session",
+                        "pt": "sessão com mentor"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "yesterday",
+                        "pt": "ontem"
+                    },
+                    {
+                        "en": "in class",
+                        "pt": "em aula"
+                    },
+                    {
+                        "en": "study event",
+                        "pt": "evento de estudo"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Who Was There?",
+                    "en": "Yesterday, we were in the lab and the mentor was online. I was in the live class, and they were in the community meeting last night.",
+                    "pt": "Ontem, nós estávamos no lab e o mentor estava online. Eu estava na aula ao vivo, e eles estavam na reunião da comunidade ontem à noite.",
+                    "task": "Read the text and identify where each person or group was."
+                },
+                "listening": {
+                    "title": "Listening Lab — Presence",
+                    "instructions": "Listen carefully and identify the correct sentence about past presence.",
+                    "text": "I was in the live class. They were online last night.",
+                    "transcript": "I was in the live class. They were online last night.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "They were online last night.",
+                        "They was online last night.",
+                        "She were in the mentor session."
+                    ],
+                    "answer": "They were online last night.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use was/were to report presence.",
+                    "options": [
+                        "I was in the live class yesterday.",
+                        "I were in the live class yesterday.",
+                        "We was online yesterday."
+                    ],
+                    "answer": "I was in the live class yesterday."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to report where people were in a past study or digital-learning context.",
+                    "tips": [
+                        "Keep the locations tied to the platform ecosystem.",
+                        "Use online, in class, in the lab, in the session as repeating patterns.",
+                        "Frame the language as attendance reporting.",
+                        "Avoid too many place prepositions beyond what is needed.",
+                        "Emphasize clarity and subject agreement."
+                    ],
+                    "supportPhrases": [
+                        "Say where you were.",
+                        "Now say where other people were.",
+                        "Use was or were correctly.",
+                        "Keep the report simple.",
+                        "This is presence-report language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a reportar onde as pessoas estavam em um contexto passado de estudo ou aprendizagem digital.",
+                    "tips": [
+                        "Mantenha os locais ligados ao ecossistema da plataforma.",
+                        "Use online, in class, in the lab, in the session como padrões repetidos.",
+                        "Enquadre a linguagem como reporte de presença.",
+                        "Evite excesso de preposições de lugar além do necessário.",
+                        "Enfatize clareza e concordância com o sujeito."
+                    ],
+                    "supportPhrases": [
+                        "Diga onde você estava.",
+                        "Agora diga onde outras pessoas estavam.",
+                        "Use was ou were corretamente.",
+                        "Mantenha o reporte simples.",
+                        "Isto é linguagem de reporte de presença."
+                    ]
+                }
+            },
+            {
+                "id": "15.4",
+                "subtitulo": "The Boss Fight — My Yesterday Report",
+                "lessonMeta": {
+                    "focus": "Integrated final report using was/were in study and tech contexts",
+                    "canDo": "I can give a short report about what yesterday was like in my study routine.",
+                    "structures": [
+                        "I was busy yesterday morning.",
+                        "I was in the live class at night.",
+                        "The session was good.",
+                        "The lab was interesting.",
+                        "We were online together."
+                    ],
+                    "outputTargets": [
+                        "Produce a short yesterday report.",
+                        "Combine past state, presence and session description.",
+                        "Present a simple retrospective study report."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> now report what yesterday was like.<br><br>You need to integrate past state, presence and simple session feedback:<br><br><strong>I was busy yesterday morning.</strong><br><strong>I was in the live class at night.</strong><br><strong>The session was good.</strong><br><strong>The lab was interesting.</strong><br><strong>We were online together.</strong><br><br>Your mission is to sound <strong>clear, reflective and organized</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now report your yesterday study experience clearly and naturally."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building My Yesterday Report",
+                    "intro": "The final lesson of Week 15 integrates was/were into a short report about yesterday's study experience, sessions and presence.",
+                    "content": [
+                        "A good yesterday report can include how you were, where you were and what the session was like.",
+                        "Useful patterns include <strong>I was...</strong>, <strong>we were...</strong>, <strong>the session was...</strong> and <strong>the lab was...</strong>",
+                        "The learner should produce a short report, not a long story.",
+                        "This is the first step toward more mature retrospective communication in the course.",
+                        "The goal is a functional report about study life and platform events."
+                    ],
+                    "examples": [
+                        "I was busy yesterday morning.",
+                        "I was in the live class at night.",
+                        "The session was good.",
+                        "The lab was interesting.",
+                        "We were online together."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: I were busy yesterday morning. → Correct: I was busy yesterday morning.",
+                        "Incorrect: The session were good. → Correct: The session was good.",
+                        "Incorrect: We was online together. → Correct: We were online together."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo Meu Reporte de Ontem",
+                    "intro": "A lição final da Week 15 integra was/were em um pequeno reporte sobre a experiência de estudo de ontem, sessões e presença.",
+                    "content": [
+                        "Um bom reporte de ontem pode incluir como você estava, onde você estava e como a sessão foi.",
+                        "Padrões úteis incluem <strong>I was...</strong>, <strong>we were...</strong>, <strong>the session was...</strong> e <strong>the lab was...</strong>",
+                        "O aluno deve produzir um reporte curto, não uma história longa.",
+                        "Este é o primeiro passo rumo a uma comunicação retrospectiva mais madura no curso.",
+                        "O objetivo é um relato funcional sobre a vida de estudo e os eventos da plataforma."
+                    ],
+                    "examples": [
+                        "Eu estava ocupada ontem de manhã.",
+                        "Eu estava na aula ao vivo à noite.",
+                        "A sessão foi boa.",
+                        "O lab foi interessante.",
+                        "Nós estávamos online juntos."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: I were busy yesterday morning. → Correto: I was busy yesterday morning.",
+                        "Incorreto: The session were good. → Correto: The session was good.",
+                        "Incorreto: We was online together. → Correto: We were online together."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "yesterday report",
+                        "pt": "reporte de ontem"
+                    },
+                    {
+                        "en": "busy yesterday",
+                        "pt": "ocupado(a) ontem"
+                    },
+                    {
+                        "en": "online together",
+                        "pt": "online juntos"
+                    },
+                    {
+                        "en": "session feedback",
+                        "pt": "feedback da sessão"
+                    },
+                    {
+                        "en": "interesting lab",
+                        "pt": "lab interessante"
+                    },
+                    {
+                        "en": "helpful class",
+                        "pt": "aula útil"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "retrospective",
+                        "pt": "retrospectiva"
+                    },
+                    {
+                        "en": "study experience",
+                        "pt": "experiência de estudo"
+                    },
+                    {
+                        "en": "yesterday morning",
+                        "pt": "ontem de manhã"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — My Yesterday Report",
+                    "en": "Yesterday morning, I was busy, but at night I was in the live class. The session was good and the lab was interesting. We were online together for the review.",
+                    "pt": "Ontem de manhã, eu estava ocupada, mas à noite eu estava na aula ao vivo. A sessão foi boa e o lab foi interessante. Nós estávamos online juntos para a revisão.",
+                    "task": "Read the report and identify one sentence about state, one about presence and one about session feedback."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Yesterday Report",
+                    "instructions": "Listen to the report and identify the sentence about session feedback.",
+                    "text": "I was in the live class at night. The session was good. We were online together.",
+                    "transcript": "I was in the live class at night. The session was good. We were online together.",
+                    "question": "Type the sentence about session feedback:",
+                    "answer": "The session was good.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write your yesterday report in English.",
+                    "helpText": "Use 5 to 7 complete sentences. Include how you were, where you were, and what the session or lab was like.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate was/were into a short retrospective report about yesterday's study experience.",
+                    "tips": [
+                        "Ask the learner to include one state sentence, one presence sentence and one feedback sentence.",
+                        "Keep the report realistic and connected to the CS Hub ecosystem.",
+                        "Do not require long narratives yet.",
+                        "Use yesterday as the organizing anchor for the whole output.",
+                        "Treat this as the first full retrospective milestone of Phase 4."
+                    ],
+                    "supportPhrases": [
+                        "Start with how you were yesterday.",
+                        "Now say where you were.",
+                        "Then describe the session or lab.",
+                        "Keep the report short and clear.",
+                        "This is your yesterday report."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar was/were em um pequeno reporte retrospectivo sobre a experiência de estudo de ontem.",
+                    "tips": [
+                        "Peça ao aluno que inclua uma frase de estado, uma de presença e uma de feedback.",
+                        "Mantenha o reporte realista e conectado ao ecossistema do CS Hub.",
+                        "Ainda não exija narrativas longas.",
+                        "Use yesterday como âncora organizadora de toda a produção.",
+                        "Trate isto como o primeiro grande marco retrospectivo da Fase 4."
+                    ],
+                    "supportPhrases": [
+                        "Comece dizendo como você estava ontem.",
+                        "Agora diga onde você estava.",
+                        "Depois descreva a sessão ou o lab.",
+                        "Mantenha o reporte curto e claro.",
+                        "Este é o seu reporte de ontem."
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": "week-16",
+        "faseId": 4,
+        "semana": 16,
+        "titulo": "Week 16 — Daily Stand-up, Yesterday Reports & Next Steps",
+        "objetivo": "The student can give a short daily stand-up update by reporting what yesterday was like, saying how they are today, and confirming tomorrow's schedule and next study steps in a tech and learning context.",
+        "rubricaA1": [
+            {
+                "criterio": "Retrospective clarity",
+                "descricao": "Can describe how yesterday was using short past-state sentences with reasonable clarity.",
+                "criterio_pt": "Clareza retrospectiva",
+                "descricao_pt": "Consegue descrever como foi ontem usando frases curtas de estado no passado com clareza razoável."
+            },
+            {
+                "criterio": "Current status language",
+                "descricao": "Can describe current availability, schedule and present study status in short complete sentences.",
+                "criterio_pt": "Linguagem de status atual",
+                "descricao_pt": "Consegue descrever disponibilidade atual, agenda e status presente de estudo em frases curtas e completas."
+            },
+            {
+                "criterio": "Next-step communication",
+                "descricao": "Can say what is scheduled for tomorrow and identify a simple next step.",
+                "criterio_pt": "Comunicação de próximo passo",
+                "descricao_pt": "Consegue dizer o que está agendado para amanhã e identificar um próximo passo simples."
+            },
+            {
+                "criterio": "Time integration",
+                "descricao": "Integrates yesterday, today and tomorrow language in a short coherent update.",
+                "criterio_pt": "Integração temporal",
+                "descricao_pt": "Integra linguagem de yesterday, today e tomorrow em um update curto e coerente."
+            },
+            {
+                "criterio": "Stand-up performance",
+                "descricao": "Produces a short daily stand-up style report that is organized, understandable and functional.",
+                "criterio_pt": "Desempenho de stand-up",
+                "descricao_pt": "Produz um reporte em estilo de daily stand-up curto, organizado, compreensível e funcional."
+            }
+        ],
+        "aulas": [
+            {
+                "id": "16.1",
+                "subtitulo": "Yesterday in the Stand-up — Reporting Past States",
+                "lessonMeta": {
+                    "focus": "Using yesterday language and was/were for stand-up style reporting",
+                    "canDo": "I can say how yesterday was in my study routine.",
+                    "structures": [
+                        "Yesterday, I was in class.",
+                        "The lab was helpful.",
+                        "I was busy in the afternoon.",
+                        "We were online together."
+                    ],
+                    "outputTargets": [
+                        "Report how yesterday was.",
+                        "Use was and were in a short update.",
+                        "Describe one past study event."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> today you begin a stand-up report.<br><br>In a stand-up, you often start with yesterday:<br><br><strong>Yesterday, I was in class.</strong><br><strong>The lab was helpful.</strong><br><strong>I was busy in the afternoon.</strong><br><strong>We were online together.</strong><br><br>This is the first block of a daily update.",
+                    "options": [
+                        {
+                            "text": "Yesterday, I was in class.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct retrospective sentence for a stand-up."
+                        },
+                        {
+                            "text": "Yesterday, I were in class.",
+                            "correct": false,
+                            "feedback": "Use <strong>was</strong> with <strong>I</strong>. Say: <strong>Yesterday, I was in class.</strong>"
+                        },
+                        {
+                            "text": "The lab was helpful.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a useful short session report."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Reporting Yesterday in a Stand-up",
+                    "intro": "This lesson reviews past-state language and places it inside a stand-up communication format. The learner starts by saying how yesterday was.",
+                    "content": [
+                        "A simple stand-up often begins with a short report about yesterday.",
+                        "Use <strong>Yesterday, I was...</strong> and <strong>We were...</strong> to describe past study states.",
+                        "Use <strong>The session was...</strong> or <strong>The lab was...</strong> to evaluate a past event.",
+                        "The goal is not a long narrative. It is a short, useful retrospective statement.",
+                        "This language is connected to classes, labs, meetings and shared online study moments."
+                    ],
+                    "examples": [
+                        "Yesterday, I was in class.",
+                        "The lab was helpful.",
+                        "I was busy in the afternoon.",
+                        "We were online together."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Yesterday, I were in class. → Correct: Yesterday, I was in class.",
+                        "Incorrect: The lab were helpful. → Correct: The lab was helpful.",
+                        "Incorrect: We was online together. → Correct: We were online together."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Reportando Ontem em um Stand-up",
+                    "intro": "Esta lição revisa linguagem de estado no passado e a coloca dentro de um formato de comunicação de stand-up. O aluno começa dizendo como foi ontem.",
+                    "content": [
+                        "Um stand-up simples frequentemente começa com um reporte curto sobre ontem.",
+                        "Use <strong>Yesterday, I was...</strong> e <strong>We were...</strong> para descrever estados passados de estudo.",
+                        "Use <strong>The session was...</strong> ou <strong>The lab was...</strong> para avaliar um evento passado.",
+                        "O objetivo não é uma narrativa longa. É uma declaração retrospectiva curta e útil.",
+                        "Essa linguagem está conectada a aulas, labs, meetings e momentos compartilhados de estudo online."
+                    ],
+                    "examples": [
+                        "Ontem, eu estava em aula.",
+                        "O lab foi útil.",
+                        "Eu estava ocupada à tarde.",
+                        "Nós estávamos online juntos."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Yesterday, I were in class. → Correto: Yesterday, I was in class.",
+                        "Incorreto: The lab were helpful. → Correto: The lab was helpful.",
+                        "Incorreto: We was online together. → Correto: We were online together."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "yesterday",
+                        "pt": "ontem"
+                    },
+                    {
+                        "en": "helpful",
+                        "pt": "útil"
+                    },
+                    {
+                        "en": "busy",
+                        "pt": "ocupado(a)"
+                    },
+                    {
+                        "en": "online together",
+                        "pt": "online juntos"
+                    },
+                    {
+                        "en": "retrospective",
+                        "pt": "retrospectiva"
+                    },
+                    {
+                        "en": "stand-up",
+                        "pt": "stand-up"
+                    },
+                    {
+                        "en": "class",
+                        "pt": "aula"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "session",
+                        "pt": "sessão"
+                    },
+                    {
+                        "en": "afternoon",
+                        "pt": "tarde"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Yesterday Update",
+                    "en": "Yesterday, I was in the live class and the lab was helpful. I was busy in the afternoon, but we were online together at night.",
+                    "pt": "Ontem, eu estava na aula ao vivo e o lab foi útil. Eu estava ocupada à tarde, mas nós estávamos online juntos à noite.",
+                    "task": "Read the text and identify one sentence about state and one about session feedback."
+                },
+                "listening": {
+                    "title": "Listening Lab — Yesterday",
+                    "instructions": "Listen carefully and identify the correct sentence about yesterday.",
+                    "text": "Yesterday, I was in class. The lab was helpful.",
+                    "transcript": "Yesterday, I was in class. The lab was helpful.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "Yesterday, I was in class.",
+                        "Yesterday, I were in class.",
+                        "The lab were helpful."
+                    ],
+                    "answer": "Yesterday, I was in class.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use was/were for yesterday reporting.",
+                    "options": [
+                        "We were online together yesterday.",
+                        "We was online together yesterday.",
+                        "I were busy in the afternoon."
+                    ],
+                    "answer": "We were online together yesterday."
+                },
+                "teacherNotes": {
+                    "focus": "Position yesterday-report language inside a simple stand-up format.",
+                    "tips": [
+                        "Keep the learner focused on a short retrospective, not a full story.",
+                        "Reuse Week 15 language with a stronger reporting purpose.",
+                        "Use class, lab and online-session examples.",
+                        "Frame the output as useful update language.",
+                        "Reinforce subject + was/were agreement."
+                    ],
+                    "supportPhrases": [
+                        "Start with yesterday.",
+                        "Say how you were.",
+                        "Say what the session was like.",
+                        "Keep the update short.",
+                        "This is stand-up language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Posicionar a linguagem de reporte sobre ontem dentro de um formato simples de stand-up.",
+                    "tips": [
+                        "Mantenha o aluno focado em uma retrospectiva curta, não em uma história completa.",
+                        "Reutilize a linguagem da Week 15 com propósito mais forte de reporte.",
+                        "Use exemplos de class, lab e sessão online.",
+                        "Enquadre a produção como linguagem útil de update.",
+                        "Reforce a concordância sujeito + was/were."
+                    ],
+                    "supportPhrases": [
+                        "Comece com yesterday.",
+                        "Diga como você estava.",
+                        "Diga como a sessão foi.",
+                        "Mantenha o update curto.",
+                        "Isto é linguagem de stand-up."
+                    ]
+                }
+            },
+            {
+                "id": "16.2",
+                "subtitulo": "Today I Am... — Reporting Current Status",
+                "lessonMeta": {
+                    "focus": "Present status, availability and schedule in stand-up format",
+                    "canDo": "I can say how I am today and what I have today.",
+                    "structures": [
+                        "Today, I am free after lunch.",
+                        "I am busy this morning.",
+                        "I have a session at 7 PM.",
+                        "I can join the live class."
+                    ],
+                    "outputTargets": [
+                        "Describe current status.",
+                        "Say what is on the agenda today.",
+                        "Connect availability to participation."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now move to today.<br><br>In a daily stand-up, you also need to say how you are today and what is on your schedule:<br><br><strong>Today, I am free after lunch.</strong><br><strong>I am busy this morning.</strong><br><strong>I have a session at 7 PM.</strong><br><strong>I can join the live class.</strong><br><br>This is the language of current status.",
+                    "options": [
+                        {
+                            "text": "Today, I am free after lunch.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a clear present-status sentence."
+                        },
+                        {
+                            "text": "Today, I free after lunch.",
+                            "correct": false,
+                            "feedback": "You need <strong>am</strong>. Say: <strong>Today, I am free after lunch.</strong>"
+                        },
+                        {
+                            "text": "I have a session at 7 PM.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a useful agenda sentence."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Reporting Today in a Stand-up",
+                    "intro": "This lesson focuses on the middle part of a stand-up: current status, today's availability and today's schedule.",
+                    "content": [
+                        "Use <strong>Today, I am...</strong> to describe how you are right now.",
+                        "Use <strong>I have...</strong> to describe what is on your agenda today.",
+                        "Use <strong>I can join...</strong> to connect current availability with participation.",
+                        "This lesson integrates time, availability and event language from previous weeks.",
+                        "The goal is a useful present-status report in a study and tech context."
+                    ],
+                    "examples": [
+                        "Today, I am free after lunch.",
+                        "I am busy this morning.",
+                        "I have a session at 7 PM.",
+                        "I can join the live class."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Today, I free after lunch. → Correct: Today, I am free after lunch.",
+                        "Incorrect: I have a session in 7 PM. → Correct: I have a session at 7 PM.",
+                        "Incorrect: I can join in the live class. → Correct: I can join the live class."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Reportando Hoje em um Stand-up",
+                    "intro": "Esta lição foca na parte central de um stand-up: status atual, disponibilidade de hoje e agenda de hoje.",
+                    "content": [
+                        "Use <strong>Today, I am...</strong> para descrever como você está agora.",
+                        "Use <strong>I have...</strong> para descrever o que está na sua agenda hoje.",
+                        "Use <strong>I can join...</strong> para conectar disponibilidade atual com participação.",
+                        "Esta lição integra linguagem de tempo, disponibilidade e eventos das semanas anteriores.",
+                        "O objetivo é um reporte útil de status presente em contexto de estudo e tecnologia."
+                    ],
+                    "examples": [
+                        "Hoje, eu estou livre depois do almoço.",
+                        "Eu estou ocupada esta manhã.",
+                        "Eu tenho uma sessão às 7 PM.",
+                        "Eu posso participar da aula ao vivo."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Today, I free after lunch. → Correto: Today, I am free after lunch.",
+                        "Incorreto: I have a session in 7 PM. → Correto: I have a session at 7 PM.",
+                        "Incorreto: I can join in the live class. → Correto: I can join the live class."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "today",
+                        "pt": "hoje"
+                    },
+                    {
+                        "en": "free after lunch",
+                        "pt": "livre depois do almoço"
+                    },
+                    {
+                        "en": "busy this morning",
+                        "pt": "ocupado(a) esta manhã"
+                    },
+                    {
+                        "en": "session at 7 PM",
+                        "pt": "sessão às 7 PM"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "current status",
+                        "pt": "status atual"
+                    },
+                    {
+                        "en": "agenda",
+                        "pt": "agenda"
+                    },
+                    {
+                        "en": "join",
+                        "pt": "participar"
+                    },
+                    {
+                        "en": "schedule",
+                        "pt": "agenda / cronograma"
+                    },
+                    {
+                        "en": "participation",
+                        "pt": "participação"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Today Update",
+                    "en": "Today, I am busy this morning, but I am free after lunch. I have a session at 7 PM, and I can join the live class tonight.",
+                    "pt": "Hoje, eu estou ocupada esta manhã, mas estou livre depois do almoço. Eu tenho uma sessão às 7 PM e posso participar da aula ao vivo hoje à noite.",
+                    "task": "Read the text and identify one sentence about availability and one about today's schedule."
+                },
+                "listening": {
+                    "title": "Listening Lab — Today",
+                    "instructions": "Listen carefully and identify the correct sentence about today's availability.",
+                    "text": "Today, I am free after lunch. I have a session at 7 PM.",
+                    "transcript": "Today, I am free after lunch. I have a session at 7 PM.",
+                    "question": "Choose the correct sentence:",
+                    "options": [
+                        "Today, I am free after lunch.",
+                        "Today, I free after lunch.",
+                        "I have a session in 7 PM."
+                    ],
+                    "answer": "Today, I am free after lunch.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use am / have / can correctly.",
+                    "options": [
+                        "I can join the live class today.",
+                        "I can join in the live class today.",
+                        "I am busy at 7 PM and I free later."
+                    ],
+                    "answer": "I can join the live class today."
+                },
+                "teacherNotes": {
+                    "focus": "Train the learner to describe present status and current agenda in a stand-up style.",
+                    "tips": [
+                        "Keep the language concise and useful.",
+                        "Connect present-state sentences to real study events.",
+                        "Reuse Week 13 and 14 language naturally.",
+                        "Treat this as daily coordination language.",
+                        "Encourage clear reporting, not decoration."
+                    ],
+                    "supportPhrases": [
+                        "Now report today.",
+                        "Say how you are.",
+                        "Say what you have today.",
+                        "Say if you can join.",
+                        "This is current-status language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Treinar o aluno para descrever status presente e agenda atual em estilo de stand-up.",
+                    "tips": [
+                        "Mantenha a linguagem concisa e útil.",
+                        "Conecte frases de estado presente a eventos reais de estudo.",
+                        "Reutilize naturalmente a linguagem das Weeks 13 e 14.",
+                        "Trate isto como linguagem de coordenação diária.",
+                        "Incentive reporte claro, não ornamentação."
+                    ],
+                    "supportPhrases": [
+                        "Agora reporte today.",
+                        "Diga como você está.",
+                        "Diga o que você tem hoje.",
+                        "Diga se você pode participar.",
+                        "Isto é linguagem de status atual."
+                    ]
+                }
+            },
+            {
+                "id": "16.3",
+                "subtitulo": "Tomorrow and My Next Step — Confirming the Next Move",
+                "lessonMeta": {
+                    "focus": "Talking about tomorrow's schedule and the next study step",
+                    "canDo": "I can say what I have tomorrow and identify my next step.",
+                    "structures": [
+                        "Tomorrow, I have a lab.",
+                        "My meeting is at 8 PM.",
+                        "I can join tomorrow morning.",
+                        "My next step is to review the notes.",
+                        "Tomorrow, I have a mentor session."
+                    ],
+                    "outputTargets": [
+                        "Describe tomorrow's schedule.",
+                        "Say one next step.",
+                        "Connect time and intention."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Mission:</strong> now finish the stand-up with tomorrow and the next step.<br><br>A good daily update also points forward:<br><br><strong>Tomorrow, I have a lab.</strong><br><strong>My meeting is at 8 PM.</strong><br><strong>I can join tomorrow morning.</strong><br><strong>My next step is to review the notes.</strong><br><strong>Tomorrow, I have a mentor session.</strong><br><br>This is the language of continuity and planning.",
+                    "options": [
+                        {
+                            "text": "Tomorrow, I have a lab.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a correct sentence about tomorrow's schedule."
+                        },
+                        {
+                            "text": "Tomorrow, I has a lab.",
+                            "correct": false,
+                            "feedback": "Use <strong>have</strong> with <strong>I</strong>. Say: <strong>Tomorrow, I have a lab.</strong>"
+                        },
+                        {
+                            "text": "My next step is to review the notes.",
+                            "correct": true,
+                            "feedback": "Excellent. That is a strong next-step sentence."
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Talking About Tomorrow and the Next Step",
+                    "intro": "This lesson trains the final part of a stand-up: tomorrow's schedule and the immediate next move in the study flow.",
+                    "content": [
+                        "Use <strong>Tomorrow, I have...</strong> to describe what is on your schedule tomorrow.",
+                        "Use <strong>My meeting is at...</strong> to add a specific event time.",
+                        "Use <strong>I can join...</strong> to connect tomorrow's availability with participation.",
+                        "Use <strong>My next step is to...</strong> to identify one practical next action.",
+                        "This language is useful for planning continuity in study, sessions, review and mentorship."
+                    ],
+                    "examples": [
+                        "Tomorrow, I have a lab.",
+                        "My meeting is at 8 PM.",
+                        "I can join tomorrow morning.",
+                        "My next step is to review the notes.",
+                        "Tomorrow, I have a mentor session."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Tomorrow, I has a lab. → Correct: Tomorrow, I have a lab.",
+                        "Incorrect: My next step is review the notes. → Correct: My next step is to review the notes.",
+                        "Incorrect: My meeting is in 8 PM. → Correct: My meeting is at 8 PM."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Falando Sobre Amanhã e o Próximo Passo",
+                    "intro": "Esta lição treina a parte final de um stand-up: a agenda de amanhã e o próximo movimento imediato no fluxo de estudo.",
+                    "content": [
+                        "Use <strong>Tomorrow, I have...</strong> para descrever o que está na sua agenda amanhã.",
+                        "Use <strong>My meeting is at...</strong> para adicionar o horário específico de um evento.",
+                        "Use <strong>I can join...</strong> para conectar a disponibilidade de amanhã com participação.",
+                        "Use <strong>My next step is to...</strong> para identificar uma próxima ação prática.",
+                        "Essa linguagem é útil para planejar continuidade em estudo, sessões, revisão e mentoria."
+                    ],
+                    "examples": [
+                        "Amanhã, eu tenho um lab.",
+                        "Minha reunião é às 8 PM.",
+                        "Eu posso participar amanhã de manhã.",
+                        "Meu próximo passo é revisar as anotações.",
+                        "Amanhã, eu tenho uma sessão com mentor."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Tomorrow, I has a lab. → Correto: Tomorrow, I have a lab.",
+                        "Incorreto: My next step is review the notes. → Correto: My next step is to review the notes.",
+                        "Incorreto: My meeting is in 8 PM. → Correto: My meeting is at 8 PM."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "tomorrow",
+                        "pt": "amanhã"
+                    },
+                    {
+                        "en": "next step",
+                        "pt": "próximo passo"
+                    },
+                    {
+                        "en": "review the notes",
+                        "pt": "revisar as anotações"
+                    },
+                    {
+                        "en": "mentor session",
+                        "pt": "sessão com mentor"
+                    },
+                    {
+                        "en": "meeting at 8 PM",
+                        "pt": "reunião às 8 PM"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "join tomorrow morning",
+                        "pt": "participar amanhã de manhã"
+                    },
+                    {
+                        "en": "continuity",
+                        "pt": "continuidade"
+                    },
+                    {
+                        "en": "planning",
+                        "pt": "planejamento"
+                    },
+                    {
+                        "en": "study flow",
+                        "pt": "fluxo de estudo"
+                    }
+                ],
+                "reading": {
+                    "title": "Tech Reading — Tomorrow Update",
+                    "en": "Tomorrow, I have a mentor session and a lab at night. My meeting is at 8 PM, and my next step is to review the lesson notes before class.",
+                    "pt": "Amanhã, eu tenho uma sessão com mentor e um lab à noite. Minha reunião é às 8 PM, e meu próximo passo é revisar as anotações da lição antes da aula.",
+                    "task": "Read the text and identify tomorrow's events and the next step."
+                },
+                "listening": {
+                    "title": "Listening Lab — Tomorrow",
+                    "instructions": "Listen carefully and identify the sentence about the next step.",
+                    "text": "Tomorrow, I have a lab. My next step is to review the notes.",
+                    "transcript": "Tomorrow, I have a lab. My next step is to review the notes.",
+                    "question": "Choose the next-step sentence:",
+                    "options": [
+                        "My next step is to review the notes.",
+                        "Tomorrow, I have a lab.",
+                        "My meeting is at 8 PM."
+                    ],
+                    "answer": "My next step is to review the notes.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "multiple-choice",
+                    "question": "Choose the correct sentence:",
+                    "helpText": "Use have and next step patterns correctly.",
+                    "options": [
+                        "Tomorrow, I have a mentor session.",
+                        "Tomorrow, I has a mentor session.",
+                        "My next step is review the notes."
+                    ],
+                    "answer": "Tomorrow, I have a mentor session."
+                },
+                "teacherNotes": {
+                    "focus": "Teach the learner to end a stand-up with tomorrow's schedule and one next action.",
+                    "tips": [
+                        "Keep the next step concrete and small.",
+                        "Connect tomorrow's events to real CS Hub activities.",
+                        "Encourage useful planning language rather than vague intention.",
+                        "Use this lesson to prepare the final integrated stand-up.",
+                        "Maintain short, report-like phrasing."
+                    ],
+                    "supportPhrases": [
+                        "Now report tomorrow.",
+                        "Say what you have tomorrow.",
+                        "Add one next step.",
+                        "Keep the plan practical.",
+                        "This is next-step language."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Ensinar o aluno a terminar um stand-up com a agenda de amanhã e uma próxima ação.",
+                    "tips": [
+                        "Mantenha o próximo passo concreto e pequeno.",
+                        "Conecte os eventos de amanhã a atividades reais do CS Hub.",
+                        "Incentive linguagem útil de planejamento, não intenção vaga.",
+                        "Use esta lição para preparar o stand-up final integrado.",
+                        "Mantenha formulações curtas, em estilo de reporte."
+                    ],
+                    "supportPhrases": [
+                        "Agora reporte tomorrow.",
+                        "Diga o que você tem amanhã.",
+                        "Adicione um próximo passo.",
+                        "Mantenha o plano prático.",
+                        "Isto é linguagem de próximo passo."
+                    ]
+                }
+            },
+            {
+                "id": "16.4",
+                "subtitulo": "The Boss Fight — My Daily Stand-up",
+                "lessonMeta": {
+                    "focus": "Integrated daily stand-up using yesterday, today and tomorrow language",
+                    "canDo": "I can give a short daily stand-up about yesterday, today and tomorrow in a study and tech context.",
+                    "structures": [
+                        "Yesterday, I was in the live class.",
+                        "The session was good.",
+                        "Today, I am busy in the morning, but I am free after lunch.",
+                        "I have a mentor session at 7 PM.",
+                        "Tomorrow, I have a lab.",
+                        "My next step is to review the lesson."
+                    ],
+                    "outputTargets": [
+                        "Produce a short stand-up report.",
+                        "Integrate yesterday, today and tomorrow.",
+                        "Show a clear study-flow update."
+                    ]
+                },
+                "arena": {
+                    "rebecaState": "rebecarecebendo.png",
+                    "speech": "<strong>Final challenge:</strong> this is your Phase 4 stand-up checkpoint.<br><br>Now integrate everything:<br><br><strong>Yesterday, I was in the live class.</strong><br><strong>The session was good.</strong><br><strong>Today, I am busy in the morning, but I am free after lunch.</strong><br><strong>I have a mentor session at 7 PM.</strong><br><strong>Tomorrow, I have a lab.</strong><br><strong>My next step is to review the lesson.</strong><br><br>Your mission is to sound <strong>clear, structured and professionally useful</strong>.",
+                    "options": [
+                        {
+                            "text": "I am ready.",
+                            "correct": true,
+                            "feedback": "Excellent. Now deliver your daily stand-up with confidence and structure."
+                        },
+                        {
+                            "text": "I ready.",
+                            "correct": false,
+                            "feedback": "Use the complete sentence: <strong>I am ready.</strong>"
+                        }
+                    ]
+                },
+                "theory": {
+                    "title": "Building My Daily Stand-up",
+                    "intro": "The final lesson of Week 16 integrates the entire communication cycle of this phase into a daily stand-up style update.",
+                    "content": [
+                        "A simple stand-up can include three main blocks: yesterday, today and tomorrow.",
+                        "Yesterday is usually retrospective: <strong>I was...</strong>, <strong>The session was...</strong>",
+                        "Today is current status: <strong>I am...</strong>, <strong>I have...</strong>, <strong>I can join...</strong>",
+                        "Tomorrow points forward: <strong>Tomorrow, I have...</strong>, <strong>My next step is to...</strong>",
+                        "The goal is a short, organized and useful report in a study and tech-oriented environment."
+                    ],
+                    "examples": [
+                        "Yesterday, I was in the live class.",
+                        "The session was good.",
+                        "Today, I am busy in the morning, but I am free after lunch.",
+                        "I have a mentor session at 7 PM.",
+                        "Tomorrow, I have a lab.",
+                        "My next step is to review the lesson."
+                    ],
+                    "commonMistakes": [
+                        "Incorrect: Yesterday, I were in the live class. → Correct: Yesterday, I was in the live class.",
+                        "Incorrect: Today, I free after lunch. → Correct: Today, I am free after lunch.",
+                        "Incorrect: Tomorrow, I has a lab. → Correct: Tomorrow, I have a lab."
+                    ]
+                },
+                "theory_pt": {
+                    "title": "Construindo Meu Daily Stand-up",
+                    "intro": "A lição final da Week 16 integra todo o ciclo de comunicação desta fase em um update no estilo de daily stand-up.",
+                    "content": [
+                        "Um stand-up simples pode incluir três blocos principais: yesterday, today e tomorrow.",
+                        "Yesterday costuma ser retrospectivo: <strong>I was...</strong>, <strong>The session was...</strong>",
+                        "Today é status atual: <strong>I am...</strong>, <strong>I have...</strong>, <strong>I can join...</strong>",
+                        "Tomorrow aponta para frente: <strong>Tomorrow, I have...</strong>, <strong>My next step is to...</strong>",
+                        "O objetivo é um reporte curto, organizado e útil em um ambiente orientado a estudo e tecnologia."
+                    ],
+                    "examples": [
+                        "Ontem, eu estava na aula ao vivo.",
+                        "A sessão foi boa.",
+                        "Hoje, eu estou ocupada de manhã, mas estou livre depois do almoço.",
+                        "Eu tenho uma sessão com mentor às 7 PM.",
+                        "Amanhã, eu tenho um lab.",
+                        "Meu próximo passo é revisar a lição."
+                    ],
+                    "commonMistakes": [
+                        "Incorreto: Yesterday, I were in the live class. → Correto: Yesterday, I was in the live class.",
+                        "Incorreto: Today, I free after lunch. → Correto: Today, I am free after lunch.",
+                        "Incorreto: Tomorrow, I has a lab. → Correto: Tomorrow, I have a lab."
+                    ]
+                },
+                "vocabulary": [
+                    {
+                        "en": "daily stand-up",
+                        "pt": "daily stand-up"
+                    },
+                    {
+                        "en": "yesterday",
+                        "pt": "ontem"
+                    },
+                    {
+                        "en": "today",
+                        "pt": "hoje"
+                    },
+                    {
+                        "en": "tomorrow",
+                        "pt": "amanhã"
+                    },
+                    {
+                        "en": "next step",
+                        "pt": "próximo passo"
+                    },
+                    {
+                        "en": "mentor session",
+                        "pt": "sessão com mentor"
+                    },
+                    {
+                        "en": "live class",
+                        "pt": "aula ao vivo"
+                    },
+                    {
+                        "en": "lab",
+                        "pt": "lab"
+                    },
+                    {
+                        "en": "review the lesson",
+                        "pt": "revisar a lição"
+                    },
+                    {
+                        "en": "update",
+                        "pt": "update / atualização"
+                    }
+                ],
+                "reading": {
+                    "title": "Final Reading — My Stand-up",
+                    "en": "Yesterday, I was in the live class and the session was good. Today, I am busy in the morning, but I am free after lunch. I have a mentor session at 7 PM. Tomorrow, I have a lab, and my next step is to review the lesson notes.",
+                    "pt": "Ontem, eu estava na aula ao vivo e a sessão foi boa. Hoje, eu estou ocupada de manhã, mas estou livre depois do almoço. Eu tenho uma sessão com mentor às 7 PM. Amanhã, eu tenho um lab, e meu próximo passo é revisar as anotações da lição.",
+                    "task": "Read the stand-up and identify one sentence about yesterday, one about today and one about tomorrow."
+                },
+                "listening": {
+                    "title": "Listening Lab — Final Stand-up",
+                    "instructions": "Listen to the stand-up and identify the sentence about tomorrow.",
+                    "text": "Yesterday, I was in the live class. Today, I am free after lunch. Tomorrow, I have a lab. My next step is to review the lesson.",
+                    "transcript": "Yesterday, I was in the live class. Today, I am free after lunch. Tomorrow, I have a lab. My next step is to review the lesson.",
+                    "question": "Type the sentence about tomorrow:",
+                    "answer": "Tomorrow, I have a lab.",
+                    "lang": "en-US",
+                    "rate": 0.8,
+                    "pitch": 1
+                },
+                "exercise": {
+                    "type": "text-input",
+                    "question": "Write your daily stand-up in English.",
+                    "helpText": "Use 5 to 8 complete sentences. Include one sentence about yesterday, one or two about today, one about tomorrow, and one next-step sentence.",
+                    "answer": "any"
+                },
+                "teacherNotes": {
+                    "focus": "Integrate the whole phase into a functional daily stand-up checkpoint.",
+                    "tips": [
+                        "Require clear sequencing: yesterday, today, tomorrow, next step.",
+                        "Keep the output concise and report-like.",
+                        "Use realistic study and platform events.",
+                        "Treat this as a professional communication simulation at an early level.",
+                        "Reward structure, usefulness and clarity."
+                    ],
+                    "supportPhrases": [
+                        "Start with yesterday.",
+                        "Now report today.",
+                        "Then report tomorrow.",
+                        "Finish with your next step.",
+                        "This is your daily stand-up."
+                    ]
+                },
+                "teacherNotes_pt": {
+                    "focus": "Integrar toda a fase em um checkpoint funcional de daily stand-up.",
+                    "tips": [
+                        "Exija sequência clara: yesterday, today, tomorrow, next step.",
+                        "Mantenha a produção concisa e em estilo de reporte.",
+                        "Use eventos realistas de estudo e da plataforma.",
+                        "Trate isto como uma simulação de comunicação profissional em nível inicial.",
+                        "Valorize estrutura, utilidade e clareza."
+                    ],
+                    "supportPhrases": [
+                        "Comece com yesterday.",
+                        "Agora reporte today.",
+                        "Depois reporte tomorrow.",
+                        "Termine com seu next step.",
+                        "Este é o seu daily stand-up."
+                    ]
+                }
+            }
+        ]
+    }
+]
